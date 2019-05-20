@@ -1,4 +1,4 @@
-|icon| Triple Agent |
+|icon| Triple Agent
 =========================================================
 
 Triple Agent is a python utility for parsing and analyzing the game
