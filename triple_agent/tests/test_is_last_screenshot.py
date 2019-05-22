@@ -1,7 +1,10 @@
 import cv2
 import pytest
+import os
 
 from triple_agent.timeline.parse_timeline import is_last_screenshot
+
+TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 SCREENSHOT_TEST_CASES = [
     ("671152956268014896", False),
@@ -33,7 +36,9 @@ def id_func(val):
 
 @pytest.mark.parametrize("image_name, expected_is_last", SCREENSHOT_TEST_CASES)
 def test_is_last_screenshot(image_name: str, expected_is_last: bool):
-    screenshot_img = cv2.imread(f"test_screenshots/{image_name}.png")
+    screenshot_img = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_screenshots", f"{image_name}.png")
+    )
     is_last = is_last_screenshot(screenshot_img)
 
     assert is_last == expected_is_last

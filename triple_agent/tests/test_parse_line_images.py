@@ -1,3 +1,4 @@
+import os
 from typing import Tuple
 
 import cv2
@@ -10,6 +11,8 @@ from triple_agent.utilities.characters import Characters
 from triple_agent.utilities.missions import Missions
 from triple_agent.utilities.roles import Roles
 from triple_agent.utilities.timeline import TimelineCategory
+
+TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 LINE_IMAGE_TEST_CASES = [
     (
@@ -7353,7 +7356,9 @@ def test_parse_line_images(
         ActionTest,
     ],
 ):
-    line_image = cv2.imread(f"test_line_images/{image_name}.png")
+    line_image = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_line_images", f"{image_name}.png")
+    )
     event = process_line_image(line_image)
 
     e_actor, e_raw_time_str, e_event, e_cast_name, e_time_in_sec, e_role, e_books, e_category, e_mission, e_action_test = (

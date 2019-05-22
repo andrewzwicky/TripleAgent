@@ -1,3 +1,4 @@
+import os
 from typing import List, Tuple
 
 import cv2
@@ -10,6 +11,8 @@ from triple_agent.utilities.characters import Characters
 from triple_agent.utilities.missions import Missions
 from triple_agent.utilities.roles import Roles
 from triple_agent.utilities.timeline import TimelineCategory
+
+TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 SCREENSHOT_TEST_CASES = [
     (
@@ -6594,7 +6597,10 @@ def test_parse_timeline(
         ]
     ],
 ):
-    screenshot_img = cv2.imread(f"test_screenshots/{image_name}.png")
+
+    screenshot_img = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_screenshots", f"{image_name}.png")
+    )
     timeline_events = parse_single_screenshot(screenshot_img, test_output_disable=True)
 
     for event, exp in zip(timeline_events, expecteds):
