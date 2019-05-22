@@ -3,7 +3,7 @@ from shutil import rmtree, copyfile
 from typing import Optional, Dict, AnyStr
 
 from triple_agent.fetch_scl5_replays import LONG_FILE_HEADER
-from triple_agent.sp_game_parse.ReplayParser import ReplayParser, ParseException
+from spyparty.ReplayParser import ReplayParser
 from triple_agent.timeline.parse_game_timelines_parallel import parse_timeline_parallel
 from triple_agent.utilities.game import Game, game_load_or_new
 from triple_agent.utilities.paths import ALL_EVENTS_FOLDER, UNPARSED_REPLAYS_FOLDER
@@ -17,7 +17,7 @@ def get_replay_dict(replay_file: str) -> Optional[Dict[str, AnyStr]]:
         return ReplayParser(replay_bytes).parse()
     # no option, the parser raises general exceptions
     # pylint: disable=broad-except
-    except ParseException:
+    except Exception:
         # there's not much we can do about unparseable
         # replays, so just return None
         return None
