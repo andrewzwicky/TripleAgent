@@ -1,9 +1,6 @@
 |icon| Triple Agent
 ========================================================
 
-Triple Agent is a python utility for parsing and analyzing the game
-timeline for `SpyParty`_ games.
-
 License
 -------
 This project is licensed under the MIT License - see the `LICENSE.md`_
