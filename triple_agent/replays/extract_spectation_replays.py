@@ -1,8 +1,8 @@
 import os
 from shutil import rmtree, copyfile
 
-from triple_agent.fetch_scl5_replays import LONG_FILE_HEADER
-from triple_agent.parse_replays import parse_single_replay
+from replays.fetch_scl5_replays import LONG_FILE_HEADER
+from replays.parse_replays import parse_single_replay
 from triple_agent.utilities.paths import SPECTATION_REPLAYS, ALL_EVENTS_FOLDER
 
 

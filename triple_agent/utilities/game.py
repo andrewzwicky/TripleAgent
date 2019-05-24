@@ -180,11 +180,20 @@ class Game:
         )
 
 
-def game_load_or_new(*args, **kwargs) -> Game:
-    expected_file = get_game_expected_pkl(kwargs["uuid"])
+def game_unpickle(expected_file: str) -> Optional[Game]:
     if os.path.exists(expected_file):
         with open(expected_file, "rb") as pik:
             return pickle.load(pik)
+
+    return None
+
+
+def game_load_or_new(*args, **kwargs) -> Game:
+    expected_file = get_game_expected_pkl(kwargs["uuid"])
+    unpickled_game = game_unpickle(expected_file)
+
+    if unpickled_game is not None:
+        return unpickled_game
 
     return Game(*args, **kwargs)
 
