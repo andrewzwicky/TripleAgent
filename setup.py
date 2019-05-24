@@ -41,13 +41,19 @@ setup(
         "": ["LICENSE", "README.rst"],
     },
     python_requires=">=3.7",
-    install_requires=[
-        "pyautogui>=0.9.42",
-        "opencv-python>=4.1.0.25",
-        "mss>=4.0.3",
-        "pytesseract>=0.2.6",
-        "numpy>=1.16.3",
-    ],
+    extras_require={
+        'plot': [
+            "matplotlib>=3.1.0",
+            "jupyterlab>=0.35.6"
+        ],
+        'parse': [
+            "pyautogui>=0.9.42",
+            "opencv-python>=4.1.0.25",
+            "mss>=4.0.3",
+            "pytesseract>=0.2.6",
+            "numpy>=1.16.3",
+        ],
+    },
     setup_requires=["pytest-runner>=4.4"],
     tests_require=["pytest>=4.5.0"],
     classifiers=[
