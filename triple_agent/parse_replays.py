@@ -1,6 +1,7 @@
 import os
 from shutil import rmtree, copyfile
 from typing import Optional, Dict, AnyStr
+from collections import defaultdict
 
 from triple_agent.fetch_scl5_replays import LONG_FILE_HEADER
 from spyparty.ReplayParser import ReplayParser
@@ -9,12 +10,9 @@ from triple_agent.utilities.game import Game, game_load_or_new
 from triple_agent.utilities.paths import ALL_EVENTS_FOLDER, UNPARSED_REPLAYS_FOLDER
 
 
-def get_replay_dict(replay_file: str) -> Optional[Dict[str, AnyStr]]:
-    with open(replay_file, "rb") as replay_in:
-        replay_bytes = replay_in.read()
-
+def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
     try:
-        return ReplayParser(replay_bytes).parse()
+        return defaultdict(lambda: None, ReplayParser(replay_file).parse())
     # no option, the parser raises general exceptions
     # pylint: disable=broad-except
     except Exception:
@@ -30,8 +28,8 @@ def parse_replay_dict_into_game(
         return None
 
     return game_load_or_new(
-        replay_dict["spy_displayname"].decode(),
-        replay_dict["sniper_displayname"].decode(),
+        replay_dict["spy_displayname"],
+        replay_dict["sniper_displayname"],
         replay_dict["level"],
         replay_dict["result"].replace(" ", ""),
         replay_dict["game_type"],
@@ -42,7 +40,7 @@ def parse_replay_dict_into_game(
         guest_count=replay_dict["guest_count"],
         start_clock_seconds=replay_dict["start_clock_seconds"],
         duration=replay_dict["duration"],
-        uuid=replay_dict["uuid"].decode(),
+        uuid=replay_dict["uuid"],
         file=replay_file,
         initial_pickle=False,
         **kwargs,
