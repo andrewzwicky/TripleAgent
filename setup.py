@@ -42,11 +42,9 @@ setup(
     },
     python_requires=">=3.7",
     extras_require={
-        'plot': [
-            "matplotlib>=3.1.0",
-            "jupyterlab>=0.35.6"
-        ],
-        'parse': [
+        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6"],
+        "retrieve": ["requests", "bs4"],
+        "parse": [
             "pyautogui>=0.9.42",
             "opencv-python>=4.1.0.25",
             "mss>=4.0.3",
@@ -55,7 +53,7 @@ setup(
         ],
     },
     setup_requires=["pytest-runner>=4.4"],
-    tests_require=["pytest>=4.5.0"],
+    tests_require=["pytest>=4.5.0", "pytest-xdist<=1.28.0"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: End Users/Desktop",
