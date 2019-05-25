@@ -14,10 +14,9 @@ from triple_agent.utilities.paths import (
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
     SCL5_REPLAYS_FOLDER,
+    TEMP_EXTRACT_FOLDER,
+    ZIP_EXTRACT_FOLDER,
 )
-
-ZIPS_FOLDER = "ZIPS"
-TEMP_FOLDER = "TEMP"
 
 SCL5_REPLAYS_URL = r"https://s3-us-west-2.amazonaws.com/scl-replays-season5/"
 
@@ -31,71 +30,76 @@ BAD_FILES = {
     "SCL Season 5 - Week 07 - Platinum - slappydavis vs yerand.zip",
 }
 
+SCL_REPLAY_ZIP_RE = re.compile(
+    r"^SCL Season . - Week (?P<week>\d+) - (?P<division>\w+) - .*?"
+)
+
 
 def fetch_scl5_replays():
-    scl_replay_zip_re = re.compile(
-        r"^SCL Season . - Week (?P<week>\d+) - (?P<division>\w+) - .*?"
-    )
-    req = requests.get(SCL5_REPLAYS_URL)
+    soup = BeautifulSoup(requests.get(SCL5_REPLAYS_URL).text, "xml")
 
-    soup = BeautifulSoup(req.text, "xml")
+    existing_zip_files = os.listdir(ZIP_EXTRACT_FOLDER)
 
-    temp_extract_folder = os.path.join(SCL5_REPLAYS_FOLDER, TEMP_FOLDER)
+    new_zip_file_matches = []
 
     for key in soup.ListBucketResult.find_all("Key"):
+        if key.text not in BAD_FILES:
+            if key.text not in existing_zip_files:
+                filename_match = SCL_REPLAY_ZIP_RE.match(key.text)
+                if filename_match is None:
+                    print(key.text)
+                    raise ValueError
 
-        file = key.text
+                new_zip_file_matches.append(filename_match)
 
-        m = scl_replay_zip_re.match(file)
-        if m is None:
-            print(file)
-            raise ValueError
+    for zip_file_match in new_zip_file_matches:
+        zip_file_dest = os.path.join(ZIP_EXTRACT_FOLDER, zip_file_match.string)
 
-        if file not in BAD_FILES:
+        extract_folder = os.path.join(
+            SCL5_REPLAYS_FOLDER,
+            zip_file_match.group("division"),
+            zip_file_match.group("week").lstrip("0"),
+        )
 
-            zip_file_dest = os.path.join(SCL5_REPLAYS_FOLDER, ZIPS_FOLDER, file)
+        print(
+            zip_file_match.string,
+            zip_file_match.group("division"),
+            zip_file_match.group("week"),
+        )
+        sleep(random.randint(2, 4))
+        urlretrieve(SCL5_REPLAYS_URL + quote(zip_file_match.string), zip_file_dest)
 
-            extract_folder = os.path.join(
-                SCL5_REPLAYS_FOLDER, m.group("division"), m.group("week").lstrip("0")
-            )
+        os.makedirs(extract_folder, exist_ok=True)
+        try:
+            rmtree(TEMP_EXTRACT_FOLDER)
+        except FileNotFoundError:
+            pass
+        os.makedirs(TEMP_EXTRACT_FOLDER, exist_ok=True)
 
-            # assume if zip is present, it's been extracted
-            if not os.path.exists(zip_file_dest):
-                print(file, m.group("division"), m.group("week"))
-                sleep(random.randint(2, 4))
-                urlretrieve(SCL5_REPLAYS_URL + quote(file), zip_file_dest)
+        try:
+            zip_ref = zipfile.ZipFile(zip_file_dest, "r")
+        except zipfile.BadZipFile as this_exep:
+            print(zip_file_dest)
+            raise this_exep
 
-                os.makedirs(extract_folder, exist_ok=True)
-                try:
-                    rmtree(temp_extract_folder)
-                except FileNotFoundError:
-                    pass
-                os.makedirs(temp_extract_folder, exist_ok=True)
+        zip_ref.extractall(TEMP_EXTRACT_FOLDER)
 
-                try:
-                    zip_ref = zipfile.ZipFile(zip_file_dest, "r")
-                except zipfile.BadZipFile as this_exep:
-                    print(zip_file_dest)
-                    raise this_exep
+        for root, _, files in os.walk(TEMP_EXTRACT_FOLDER):
+            for file in files:
+                if file.endswith(".replay"):
+                    copyfile(
+                        LONG_FILE_HEADER + os.path.join(root, file),
+                        LONG_FILE_HEADER + os.path.join(extract_folder, file),
+                    )
 
-                zip_ref.extractall(temp_extract_folder)
-
-                for root, dirs, files in os.walk(temp_extract_folder):
-                    for file in files:
-                        if file.endswith(".replay"):
-                            copyfile(
-                                LONG_FILE_HEADER + os.path.join(root, file),
-                                LONG_FILE_HEADER + os.path.join(extract_folder, file),
-                            )
-
-                zip_ref.close()
-                rmtree(temp_extract_folder)
+        zip_ref.close()
+        rmtree(TEMP_EXTRACT_FOLDER)
 
 
 def check_for_duplicate_files():
     found_dict = dict()
 
-    for root, dirs, files in os.walk(ALL_EVENTS_FOLDER):
+    for root, _, files in os.walk(ALL_EVENTS_FOLDER):
         if root != ALL_EVENTS_FOLDER:
             for file in files:
                 if file.endswith(".replay"):

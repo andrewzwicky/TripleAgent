@@ -1,10 +1,10 @@
 from collections import Counter
 from typing import List
 
-from matplotlib import pyplot as plt
-from scipy.stats import binom
-import numpy as np
 import math
+import numpy as np
+from scipy.stats import binom
+from matplotlib import pyplot as plt
 from matplotlib.collections import PatchCollection
 import matplotlib.patches as mpatches
 
@@ -15,12 +15,12 @@ from triple_agent.utilities.roles import Roles
 from triple_agent.utilities.timeline import TimelineCategory
 
 
-def _low_end(x):
-    return (1 - x) / 2
+def _low_end(prob):
+    return (1 - prob) / 2
 
 
-def _high_end(x):
-    return 1 - ((1 - x) / 2)
+def _high_end(prob):
+    return 1 - ((1 - prob) / 2)
 
 
 def find_nearest(array, value):
@@ -30,8 +30,8 @@ def find_nearest(array, value):
         or math.fabs(value - array[idx - 1]) < math.fabs(value - array[idx])
     ):
         return idx - 1
-    else:
-        return idx
+
+    return idx
 
 
 def _generic_role_selection(
@@ -69,23 +69,24 @@ def _generic_role_selection(
     )
 
     if statistics:
-        prob = 0.95
-        n = len(games)
-        k = np.arange(0, n)
-        # noinspection PyTypeChecker
-        p = 1 / (len(Characters) - 2)
-        cdf = binom.cdf(k, n, p)
-        bottom = k[find_nearest(cdf, _low_end(prob))] / n
-        top = k[find_nearest(cdf, _high_end(prob))] / n
-
-        # noinspection PyTypeChecker
-        rect = mpatches.Rectangle(
-            (-1, bottom), len(Characters) + 1, top - bottom, ec="none"
-        )
-        collection = PatchCollection([rect], alpha=0.2, color="k")
-        axis.add_collection(collection)
+        calc_pick_statistics(axis, total_games)
 
     plt.show()
+
+
+def calc_pick_statistics(axis, total_games):
+    prob = 0.95
+    k = np.arange(0, total_games)
+    # noinspection PyTypeChecker
+    cdf = binom.cdf(k, total_games, 1 / (len(Characters) - 2))
+    bottom = k[find_nearest(cdf, _low_end(prob))] / total_games
+    top = k[find_nearest(cdf, _high_end(prob))] / total_games
+    # noinspection PyTypeChecker
+    rect = mpatches.Rectangle(
+        (-1, bottom), len(Characters) + 1, top - bottom, ec="none"
+    )
+    collection = PatchCollection([rect], alpha=0.2, color="k")
+    axis.add_collection(collection)
 
 
 def spy_selection(games: List[Game], title: str, statistics=True):

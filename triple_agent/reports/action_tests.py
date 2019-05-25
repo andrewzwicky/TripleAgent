@@ -37,7 +37,7 @@ def action_test_percentages(games: List[Game], title: str, **kwargs):
     )
 
 
-def difficult_action_test_percentages(games: List[Game], title: str, **kwargs):
+def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
     query(
         games,
         title,

@@ -1,19 +1,19 @@
 import os
 from shutil import rmtree, copyfile
 
-from replays.fetch_scl5_replays import LONG_FILE_HEADER
-from replays.parse_replays import parse_single_replay
-from triple_agent.utilities.paths import SPECTATION_REPLAYS, ALL_EVENTS_FOLDER
+from triple_agent.replays.fetch_scl5_replays import LONG_FILE_HEADER
+from triple_agent.replays.parse_replays import parse_single_replay
+from triple_agent.utilities.paths import SPECTATE_REPLAYS_FOLDER, ALL_EVENTS_FOLDER
 
 
-def move_replays_to_spectation_folder(game_filter):
+def extract_spectate_replays(game_filter):
     try:
-        rmtree(SPECTATION_REPLAYS)
+        rmtree(SPECTATE_REPLAYS_FOLDER)
     except FileNotFoundError:
         pass
-    os.makedirs(SPECTATION_REPLAYS, exist_ok=True)
+    os.makedirs(SPECTATE_REPLAYS_FOLDER, exist_ok=True)
 
-    for root, dirs, files in os.walk(ALL_EVENTS_FOLDER):
+    for root, _, files in os.walk(ALL_EVENTS_FOLDER):
         for file in files:
             if file.endswith(".replay"):
                 # get the path relative to the EVENTS_FOLDER
@@ -42,5 +42,6 @@ def move_replays_to_spectation_folder(game_filter):
                     file_name = os.path.split(replay_file)[1]
                     copyfile(
                         replay_file,
-                        LONG_FILE_HEADER + os.path.join(SPECTATION_REPLAYS, file_name),
+                        LONG_FILE_HEADER
+                        + os.path.join(SPECTATE_REPLAYS_FOLDER, file_name),
                     )

@@ -42,7 +42,7 @@ setup(
     },
     python_requires=">=3.7",
     extras_require={
-        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6"],
+        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6", "scipy<=1.3.0"],
         "retrieve": ["requests", "bs4"],
         "parse": [
             "pyautogui>=0.9.42",

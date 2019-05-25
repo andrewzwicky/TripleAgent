@@ -83,13 +83,12 @@ def parse_replays(game_filter):
 
     game_list = []
 
-    for root, dirs, files in os.walk(ALL_EVENTS_FOLDER):
+    for root, _, files in os.walk(ALL_EVENTS_FOLDER):
         for file in files:
             if file.endswith(".replay"):
                 # get the path relative to the EVENTS_FOLDER
                 # this will determine if there is div and week information
-                path_rel_events = os.path.relpath(root, ALL_EVENTS_FOLDER)
-                components = path_rel_events.split("\\")
+                components = os.path.relpath(root, ALL_EVENTS_FOLDER).split("\\")
 
                 if len(components) == 3:
                     event, division, week = components
@@ -115,7 +114,7 @@ def parse_replays(game_filter):
                     game_list.append(this_game)
 
     # check that there are no duplicates from the same file existing twice.
-    assert len(set([game.uuid for game in game_list])) == len(game_list)
+    assert len({game.uuid for game in game_list}) == len(game_list)
 
     # at this point, we will have an unsorted list of game objects
     # There may be some that do not have timelines.
