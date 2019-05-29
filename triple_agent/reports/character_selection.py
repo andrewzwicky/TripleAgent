@@ -44,10 +44,7 @@ def _generic_role_selection(
     del roles[Characters.Toby]
 
     for game in games:
-        for event in game.timeline:
-            if (event.category & TimelineCategory.Cast) and (role in event.role):
-                roles[event.cast_name[0]] += 1
-                break
+        roles[determine_role(game, role)] += 1
 
     spies, times_picked = zip(*sorted(list(roles.items()), key=lambda x: -x[1]))
 
@@ -72,6 +69,12 @@ def _generic_role_selection(
         calc_pick_statistics(axis, total_games)
 
     plt.show()
+
+
+def determine_role(game, role):
+    for event in game.timeline:
+        if (event.category & TimelineCategory.Cast) and (role in event.role):
+            return event.cast_name[0]
 
 
 def calc_pick_statistics(axis, total_games):
