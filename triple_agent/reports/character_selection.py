@@ -46,6 +46,8 @@ def _generic_role_selection(
     for game in games:
         roles[determine_role(game, role)] += 1
 
+    del roles[None]
+
     spies, times_picked = zip(*sorted(list(roles.items()), key=lambda x: -x[1]))
 
     total_games = len(games)
