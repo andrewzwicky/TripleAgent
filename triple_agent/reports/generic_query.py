@@ -1,14 +1,15 @@
 import itertools
 from collections import Counter, defaultdict
 from enum import Enum
-from typing import List, Callable, Optional, Any, Dict
+from typing import List, Callable, Optional, Any, Dict, Union
 
 from triple_agent.reports.report_utilities import create_pie_chart, create_bar_plot
 from triple_agent.utilities.game import Game
+from triple_agent.utilities.scl_set import SCLSet
 
 
 def query(
-    games: List[Game],
+    games: Union[List[Game], List[SCLSet]],
     title: str,
     query_function: Callable,
     data_plot_order: List[Any] = None,
@@ -22,6 +23,8 @@ def query(
     counts_plot: bool = True,
     percentile_plot: bool = True,
     data_item_label_dict: Dict[Any, str] = None,
+    force_bar=False,
+    portrait_x_axis=False,
 ):
 
     data_dictionary = defaultdict(Counter)
@@ -39,6 +42,11 @@ def query(
 
     categories = list(data_dictionary.keys())
     percentile_categories = list(data_dictionary.keys())
+
+    if categories == [True] and force_bar:
+        data_dictionary = {_k: {True: _v} for _k, _v in data_dictionary[True].items()}
+        categories = list(data_dictionary.keys())
+        percentile_categories = list(data_dictionary.keys())
 
     stacked_data = []
     percentile_data = []
@@ -118,7 +126,7 @@ def query(
             for plot_order_item in data_plot_order
         ]
 
-    if data_color_dict:
+    if data_color_dict is not None:
         data_colors = [data_color_dict[data_part] for data_part in data_plot_order]
         percentile_data_colors = [
             data_color_dict[data_part] for data_part in data_plot_order
@@ -161,6 +169,7 @@ def query(
                 colors=data_colors,
                 hatches=data_hatching,
                 label_rotation=90,
+                portrait_x_axis=portrait_x_axis,
             )
 
         if percentile_plot:
@@ -173,4 +182,5 @@ def query(
                 hatches=data_hatching,
                 label_rotation=90,
                 percentage=True,
+                portrait_x_axis=portrait_x_axis,
             )

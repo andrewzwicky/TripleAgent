@@ -132,7 +132,11 @@ def create_bar_plot(
         axis.set_xlabel(x_label)
 
     axis.set_axisbelow(True)
-    axis.set_xticklabels(labels, rotation=label_rotation)
+
+    if portrait_x_axis:
+        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
+    else:
+        axis.set_xticklabels(labels, rotation=label_rotation)
 
     if legend_labels is not None:
         # Shrink current axis by 20%
