@@ -12,7 +12,7 @@ def query(
     title: str,
     query_function: Callable,
     data_plot_order: List[Any] = None,
-    data_colors: List[str] = None,
+    data_color_dict: Dict[str, str] = None,
     data_hatching: List[Optional[str]] = None,
     groupby: Callable = None,
     order: Callable = None,
@@ -56,6 +56,11 @@ def query(
                 key=lambda c: 0
                 if not data_sum[c]
                 else -sum(data_dictionary[c].values())
+            )
+        elif callable(sort_data_item):
+            categories.sort(key=lambda c: sort_data_item(data_dictionary[c], None))
+            percentile_categories.sort(
+                key=lambda c: sort_data_item(data_dictionary[c], data_sum[c])
             )
         else:
             categories.sort(
@@ -113,6 +118,15 @@ def query(
             for plot_order_item in data_plot_order
         ]
 
+    if data_color_dict:
+        data_colors = [data_color_dict[data_part] for data_part in data_plot_order]
+        percentile_data_colors = [
+            data_color_dict[data_part] for data_part in data_plot_order
+        ]
+    else:
+        data_colors = None
+        percentile_data_colors = None
+
     if categories == [True]:
         results_values = [stack[0] for stack in stacked_data]
         results_sum = sum(results_values)
@@ -155,7 +169,7 @@ def query(
                 percentile_data,
                 percentile_categories,
                 legend_labels=data_plot_order_labels,
-                colors=data_colors,
+                colors=percentile_data_colors,
                 hatches=data_hatching,
                 label_rotation=90,
                 percentage=True,

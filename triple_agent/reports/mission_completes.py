@@ -7,6 +7,7 @@ from triple_agent.utilities.game import Game
 from triple_agent.utilities.missions import (
     print_complete_string,
     MISSION_LETTERS_TO_ENUM,
+    MISSIONS_ENUM_TO_COLOR,
     MISSION_PLOT_ORDER,
     Missions,
 )
@@ -20,7 +21,23 @@ def _mission_completes(games, data_dictionary):
 
 
 def mission_completion_query(games: List[Game], title: str, **kwargs):
-    query(games, title, _mission_completes, MISSION_PLOT_ORDER, **kwargs)
+    if "data_plot_order" not in kwargs.keys():
+        query(
+            games,
+            title,
+            _mission_completes,
+            MISSION_PLOT_ORDER,
+            MISSIONS_ENUM_TO_COLOR,
+            **kwargs,
+        )
+    else:
+        query(
+            games,
+            title,
+            _mission_completes,
+            **kwargs,
+            data_color_dict=MISSIONS_ENUM_TO_COLOR,
+        )
 
 
 def mission_completion(

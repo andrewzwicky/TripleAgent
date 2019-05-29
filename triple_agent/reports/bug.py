@@ -6,7 +6,13 @@ from triple_agent.utilities.game import Game
 from triple_agent.utilities.missions import Missions
 from triple_agent.utilities.timeline import TimelineCategory
 
-BUG_TO_COLORS_RGB = {"Walking": "xkcd:sea blue", "Standing": "xkcd:pumpkin"}
+BUG_TO_COLORS_RGB = {
+    ("Walking", True): "xkcd:sea blue",
+    ("Walking", False): "xkcd:sea blue",
+    ("Standing", True): "xkcd:pumpkin",
+    ("Standing", False): "xkcd:pumpkin",
+}
+
 
 BUG_PLOT_LABEL_DICT = {
     ("Walking", True): "Walking (Successful)",
@@ -20,8 +26,6 @@ BUG_PLOT_ORDER = list(BUG_PLOT_LABEL_DICT.keys())
 BUG_PLOT_HATCHING = [
     r"\\" if not success else None for bug_type, success in BUG_PLOT_ORDER
 ]
-
-BUG_PLOT_COLOR = [BUG_TO_COLORS_RGB[bug_type] for bug_type, success in BUG_PLOT_ORDER]
 
 
 def bug_attempt_timings(games: List[Game], title: str):
@@ -90,7 +94,7 @@ def bug_success_rate(games: List[Game], title: str, **kwargs):
         title,
         _categorize_bugs,
         BUG_PLOT_ORDER,
-        BUG_PLOT_COLOR,
+        BUG_TO_COLORS_RGB,
         data_hatching=BUG_PLOT_HATCHING,
         data_item_label_dict=BUG_PLOT_LABEL_DICT,
         **kwargs,

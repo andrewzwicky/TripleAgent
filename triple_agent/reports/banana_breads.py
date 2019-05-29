@@ -7,7 +7,7 @@ from triple_agent.utilities.timeline import TimelineCategory
 
 _FAKE = "fake"
 _REAL = "real"
-FAKE_REAL_COLORS = ["xkcd:grey", "xkcd:yellowish"]
+FAKE_REAL_COLORS = {_FAKE: "xkcd:grey", _REAL: "xkcd:yellowish"}
 FAKE_REAL_ORDER = [_FAKE, _REAL]
 
 

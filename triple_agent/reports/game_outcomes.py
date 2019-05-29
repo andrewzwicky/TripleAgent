@@ -4,7 +4,7 @@ from typing import List
 from triple_agent.reports.generic_query import query
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.outcomes import (
-    WINTYPE_PREFERRED_PIE_CHART_COLOR,
+    WINTYPES_TO_COLORS,
     WINTYPE_PREFERRED_PIE_CHART_ORDER,
 )
 
@@ -19,6 +19,6 @@ def game_outcomes(games: List[Game], title: str, **kwargs):
         title,
         _categorize_outcomes,
         WINTYPE_PREFERRED_PIE_CHART_ORDER,
-        WINTYPE_PREFERRED_PIE_CHART_COLOR,
+        WINTYPES_TO_COLORS,
         **kwargs,
     )

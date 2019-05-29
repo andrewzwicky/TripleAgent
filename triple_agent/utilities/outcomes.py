@@ -13,7 +13,7 @@ class WinType(IntFlag):
 WINTYPES_TO_COLORS = {
     WinType.TimeOut: "xkcd:sea blue",
     WinType.SpyShot: "xkcd:green",
-    WinType.MissionsWin: "xkcd:red orange",
+    WinType.MissionsWin: "xkcd:red",
     WinType.CivilianShot: "xkcd:pumpkin",
 }
 

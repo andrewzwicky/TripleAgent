@@ -11,9 +11,6 @@ _AT = "action test"
 
 TRANSFER_TO_COLORS_RGB = {_DIRECT: "xkcd:sea blue", _AT: "xkcd:pumpkin"}
 TRANSFER_PLOT_ORDER = [_DIRECT, _AT]
-TRANSFER_PLOT_COLOR = [
-    TRANSFER_TO_COLORS_RGB[transfer_type] for transfer_type in TRANSFER_PLOT_ORDER
-]
 
 BOOK_PLOT_LABEL_DICT = {
     (Books.Red, Books.Green): "Red->Green",
@@ -69,7 +66,7 @@ def at_or_direct_mf(games: List[Game], title: str, **kwargs):
         title,
         _classify_microfilms,
         TRANSFER_PLOT_ORDER,
-        TRANSFER_PLOT_COLOR,
+        TRANSFER_TO_COLORS_RGB,
         **kwargs
     )
 

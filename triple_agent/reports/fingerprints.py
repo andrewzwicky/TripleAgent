@@ -4,7 +4,7 @@ from triple_agent.reports.generic_query import query
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.objects import (
     OBJECT_PLOT_ORDER_DIFFICULT,
-    OBJECT_PLOT_COLOR_DIFFICULT,
+    OBJECT_TO_COLORS_RGB,
     OBJECT_PLOT_HATCHING_DIFFICULT,
     OBJECT_PLOT_LABEL_DICT_DIFFICULT,
 )
@@ -52,7 +52,7 @@ def attempted_fingerprint_sources(games: List[Game], title: str, **kwargs):
         title,
         _categorize_fp_sources,
         OBJECT_PLOT_ORDER_DIFFICULT,
-        OBJECT_PLOT_COLOR_DIFFICULT,
+        OBJECT_TO_COLORS_RGB,
         data_hatching=OBJECT_PLOT_HATCHING_DIFFICULT,
         data_item_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
         **kwargs,

@@ -7,8 +7,6 @@ NOSTOP_TO_COLORS_RGB = {"NoStop": "xkcd:sea blue", "Stop": "xkcd:pumpkin"}
 
 NOSTOP_PLOT_ORDER = list(NOSTOP_TO_COLORS_RGB.keys())
 
-NOSTOP_PLOT_COLOR = [NOSTOP_TO_COLORS_RGB[stop] for stop in NOSTOP_PLOT_ORDER]
-
 
 def _categorize_stop_talks(games, data_dictionary):
     for game in games:
@@ -26,6 +24,6 @@ def stop_talk_in_game_percentage(games: List[Game], title: str, **kwargs):
         title,
         _categorize_stop_talks,
         NOSTOP_PLOT_ORDER,
-        NOSTOP_PLOT_COLOR,
+        NOSTOP_TO_COLORS_RGB,
         **kwargs,
     )

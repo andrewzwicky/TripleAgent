@@ -1,10 +1,15 @@
 from triple_agent.utilities.timeline import TimelineCategory
 
+
 OBJECT_TO_COLORS_RGB = {
-    TimelineCategory.Briefcase: "xkcd:beige",
-    TimelineCategory.Statues: "xkcd:goldenrod",
-    TimelineCategory.Books: "xkcd:cerulean",
-    TimelineCategory.Drinks: "xkcd:light grey",
+    (TimelineCategory.Briefcase, True): "xkcd:beige",
+    (TimelineCategory.Briefcase, False): "xkcd:beige",
+    (TimelineCategory.Statues, True): "xkcd:goldenrod",
+    (TimelineCategory.Statues, False): "xkcd:goldenrod",
+    (TimelineCategory.Books, True): "xkcd:cerulean",
+    (TimelineCategory.Books, False): "xkcd:cerulean",
+    (TimelineCategory.Drinks, True): "xkcd:light grey",
+    (TimelineCategory.Drinks, False): "xkcd:light grey",
 }
 
 OBJECT_PLOT_ORDER = [
@@ -27,12 +32,6 @@ OBJECT_PLOT_LABEL_DICT_DIFFICULT = {
 
 OBJECT_PLOT_ORDER_DIFFICULT = list(OBJECT_PLOT_LABEL_DICT_DIFFICULT.keys())
 
-OBJECT_PLOT_COLOR_DIFFICULT = [
-    OBJECT_TO_COLORS_RGB[obj] for obj, diff in OBJECT_PLOT_ORDER_DIFFICULT
-]
-
 OBJECT_PLOT_HATCHING_DIFFICULT = [
     r"\\" if diff else None for obj, diff in OBJECT_PLOT_ORDER_DIFFICULT
 ]
-
-OBJECT_PLOT_COLOR = [OBJECT_TO_COLORS_RGB[obj] for obj in OBJECT_PLOT_ORDER]

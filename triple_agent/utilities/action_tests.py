@@ -44,7 +44,3 @@ AT_PREFERRED_PIE_CHART_ORDER = [
     ActionTest.Red,
     ActionTest.Canceled,
 ]
-
-AT_PREFERRED_PIE_CHART_COLOR = [
-    AT_TO_COLORS_RGB[at] for at in AT_PREFERRED_PIE_CHART_ORDER
-]

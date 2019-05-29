@@ -37,6 +37,17 @@ MISSIONS_ENUM_TO_LETTER = {
     Missions.Transfer: "T",
 }
 
+MISSIONS_ENUM_TO_COLOR = {
+    Missions.Seduce: "xkcd:sea blue",
+    Missions.Inspect: "xkcd:pumpkin",
+    Missions.Fingerprint: "xkcd:purplish",
+    Missions.Contact: "xkcd:golden yellow",
+    Missions.Bug: "xkcd:grey",
+    Missions.Swap: "xkcd:greenish blue",
+    Missions.Purloin: "xkcd:deep pink",
+    Missions.Transfer: "xkcd:green",
+}
+
 MISSION_PLOT_ORDER = list(MISSIONS_ENUM_TO_LETTER.keys())
 
 MISSION_COMPLETE_TIMELINE_TO_ENUM = {

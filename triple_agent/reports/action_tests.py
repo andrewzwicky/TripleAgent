@@ -2,7 +2,7 @@ from typing import List
 
 from triple_agent.reports.generic_query import query
 from triple_agent.utilities.action_tests import (
-    AT_PREFERRED_PIE_CHART_COLOR,
+    AT_TO_COLORS_RGB,
     AT_PREFERRED_PIE_CHART_ORDER,
 )
 from triple_agent.utilities.game import Game
@@ -32,7 +32,7 @@ def action_test_percentages(games: List[Game], title: str, **kwargs):
         title,
         _normal_fingerprint_count,
         AT_PREFERRED_PIE_CHART_ORDER,
-        AT_PREFERRED_PIE_CHART_COLOR,
+        AT_TO_COLORS_RGB,
         **kwargs,
     )
 
@@ -43,6 +43,6 @@ def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
         title,
         _difficult_fingerprint_count,
         AT_PREFERRED_PIE_CHART_ORDER,
-        AT_PREFERRED_PIE_CHART_COLOR,
+        AT_TO_COLORS_RGB,
         **kwargs,
     )
