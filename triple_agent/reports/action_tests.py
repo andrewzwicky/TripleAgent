@@ -27,22 +27,22 @@ def _difficult_fingerprint_count(games, data_dictionary):
 
 
 def action_test_percentages(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _normal_fingerprint_count,
-        AT_PREFERRED_PIE_CHART_ORDER,
-        AT_TO_COLORS_RGB,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": AT_PREFERRED_PIE_CHART_ORDER,
+        "data_color_dict": AT_TO_COLORS_RGB,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _normal_fingerprint_count, **default_kwargs)
 
 
 def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _difficult_fingerprint_count,
-        AT_PREFERRED_PIE_CHART_ORDER,
-        AT_TO_COLORS_RGB,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": AT_PREFERRED_PIE_CHART_ORDER,
+        "data_color_dict": AT_TO_COLORS_RGB,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _difficult_fingerprint_count, **default_kwargs)

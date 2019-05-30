@@ -44,13 +44,25 @@ def _first_banana_bread(games, data_dictionary):
 
 
 def all_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    query(games, title, _all_banana_breads, FAKE_REAL_ORDER, FAKE_REAL_COLORS, **kwargs)
+    default_kwargs = {
+        "data_stack_order": FAKE_REAL_ORDER,
+        "data_color_dict": FAKE_REAL_COLORS,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _all_banana_breads, **default_kwargs)
 
 
 def first_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    query(
-        games, title, _first_banana_bread, FAKE_REAL_ORDER, FAKE_REAL_COLORS, **kwargs
-    )
+    default_kwargs = {
+        "data_stack_order": FAKE_REAL_ORDER,
+        "data_color_dict": FAKE_REAL_COLORS,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _first_banana_bread, **default_kwargs)
 
 
 def banana_split(games: List[Game], title: str):

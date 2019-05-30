@@ -14,11 +14,11 @@ def _categorize_outcomes(games, data_dictionary):
 
 
 def game_outcomes(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _categorize_outcomes,
-        WINTYPE_PREFERRED_PIE_CHART_ORDER,
-        WINTYPES_TO_COLORS,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": WINTYPE_PREFERRED_PIE_CHART_ORDER,
+        "data_color_dict": WINTYPES_TO_COLORS,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _categorize_outcomes, **default_kwargs)

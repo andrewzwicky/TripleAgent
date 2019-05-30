@@ -54,6 +54,6 @@ def attempted_fingerprint_sources(games: List[Game], title: str, **kwargs):
         OBJECT_PLOT_ORDER_DIFFICULT,
         OBJECT_TO_COLORS_RGB,
         data_hatching=OBJECT_PLOT_HATCHING_DIFFICULT,
-        data_item_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
+        data_stack_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
         **kwargs,
     )

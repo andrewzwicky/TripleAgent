@@ -96,6 +96,6 @@ def bug_success_rate(games: List[Game], title: str, **kwargs):
         BUG_PLOT_ORDER,
         BUG_TO_COLORS_RGB,
         data_hatching=BUG_PLOT_HATCHING,
-        data_item_label_dict=BUG_PLOT_LABEL_DICT,
+        data_stack_label_dict=BUG_PLOT_LABEL_DICT,
         **kwargs,
     )
