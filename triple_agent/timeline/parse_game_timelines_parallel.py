@@ -131,6 +131,8 @@ def parse_timeline_parallel(games: List[Game]):
                             LONG_FILE_HEADER + os.path.join(PICKLE_ISOLATION, pkl_name),
                         )
 
+                    # TODO: actually remove the bad game from the proper folder to prevent using bad data.
+
                 finally:
                     mutex.release()
 
@@ -160,6 +162,13 @@ def parse_timeline_parallel(games: List[Game]):
                 if is_game_loaded(spy_party_handle, pycharm_handle):
                     sleep(0.250)
                     pyautogui.press("f11")
+
+                # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
+                # but it opens to the start of game instead, which means that a scroll up in needed
+                # to capture everything.
+                for _ in range(30):
+                    pyautogui.scroll(1)
+                    sleep(0.02)
 
                 sleep(0.5)
 
