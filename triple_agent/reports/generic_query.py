@@ -87,6 +87,16 @@ def query(
                 label_rotation=90,
                 portrait_x_axis=portrait_x_axis,
             )
+
+        elif force_line:
+            create_line_plot(
+                title,
+                [stacked_data],
+                labels=data_stack_labels,
+                colors=data_colors,
+                label_rotation=90,
+                portrait_x_axis=portrait_x_axis,
+            )
         else:
             total_samples = sum(stacked_data)
             results_labels = []
