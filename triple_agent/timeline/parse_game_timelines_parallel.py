@@ -132,8 +132,6 @@ def parse_timeline_parallel(games: List[Game]):
                             LONG_FILE_HEADER + os.path.join(PICKLE_ISOLATION, pkl_name),
                         )
 
-                    # TODO: actually remove the bad game from the proper folder to prevent using bad data.
-
                 finally:
                     mutex.release()
 
