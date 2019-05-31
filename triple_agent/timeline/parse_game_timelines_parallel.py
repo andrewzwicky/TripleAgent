@@ -5,7 +5,7 @@ import threading
 from collections import defaultdict
 from ctypes import create_unicode_buffer
 from queue import Queue
-from shutil import copyfile
+from shutil import move
 from time import sleep
 from typing import List
 from typing import Tuple, Optional
@@ -119,6 +119,7 @@ def parse_timeline_parallel(games: List[Game]):
                     coh_bool, coh_reasons = games[_game_index].is_timeline_coherent()
                     games[_game_index].repickle()
                     if not coh_bool:
+                        print(games[_game_index], coh_reasons)
                         with open(PARSE_LOG, "a+") as parse_log:
                             parse_log.write(
                                 f"incoherent timeline {games[_game_index].spy} vs. {games[_game_index].sniper} on {games[_game_index].venue} {games[_game_index].uuid} : {coh_reasons}\n"
@@ -126,7 +127,7 @@ def parse_timeline_parallel(games: List[Game]):
 
                         pkl_loc = get_game_expected_pkl(games[_game_index].uuid)
                         pkl_name = os.path.split(pkl_loc)[1]
-                        copyfile(
+                        move(
                             LONG_FILE_HEADER + pkl_loc,
                             LONG_FILE_HEADER + os.path.join(PICKLE_ISOLATION, pkl_name),
                         )
