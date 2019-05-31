@@ -31,11 +31,11 @@ def mission_progress(games: List[Game], title: str):
 
     fig, axis = plt.subplots(figsize=(14, 10))
 
-    alpha = 0.4
+    alpha = 0.05
 
     for t, p, c in zip(times, progresses, colors):
         axis.plot(t, p, linewidth=4, alpha=alpha, color=c)
-        axis.scatter(t[-1], p[-1], alpha=alpha, marker="o", color="k")
+        # axis.scatter(t[-1], p[-1], alpha=alpha, marker="o", color="k")
 
     axis.set_ylim(bottom=0)
     axis.set_xlim(left=0)
