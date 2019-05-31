@@ -1,9 +1,8 @@
 import os
 from shutil import rmtree, copyfile
 
-from triple_agent.replays.fetch_scl5_replays import LONG_FILE_HEADER
 from triple_agent.replays.parse_replays import parse_single_replay
-from triple_agent.utilities.paths import SPECTATE_REPLAYS_FOLDER, ALL_EVENTS_FOLDER
+from triple_agent.utilities.paths import SPECTATE_REPLAYS_FOLDER, ALL_EVENTS_FOLDER, LONG_FILE_HEADER
 
 
 def extract_spectate_replays(game_filter):
