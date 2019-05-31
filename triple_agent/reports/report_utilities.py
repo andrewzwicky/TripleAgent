@@ -33,6 +33,123 @@ SCL5_PICK_MODES = {
 }
 
 
+def create_line_plot(
+    title: str,
+    data: List[List[Union[int, float]]],
+    labels: List[str],
+    y_label=None,
+    x_label=None,
+    colors: Optional[List[str]] = None,
+    legend_labels: List[str] = None,
+    label_rotation: int = 0,
+    percentage: bool = False,
+    portrait_x_axis=False,
+    # TODO: division logos on x axis
+    no_show=False,
+):
+    if colors is None:
+        if len(data) == 1:
+            colors = ["xkcd:green"]
+        else:
+            colors = itertools.repeat(None)
+
+    if legend_labels is not None:
+        # account for space at bottom of figure
+        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
+    else:
+        fig, axis = plt.subplots(figsize=(12, 8))
+    ticks = list(range(len(data[0])))
+
+    # make sure all individual data sets are the same length
+    assert len(set([len(d) for d in data])) == 1
+
+    max_bar_value = max((map(max, zip(*data))))
+
+    axis.set_title(title)
+
+    current_bottom = [0] * len(data[0])
+
+    for i, (this_data, this_color) in enumerate(zip(data, colors)):
+        axis.plot(
+            ticks,
+            this_data,
+            color=this_color,
+            linestyle="-",
+            marker="o",
+            markersize=12,
+            linewidth=4,
+        )
+        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
+
+    axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
+    axis.set_xticks(ticks)
+
+    if percentage:
+        axis.yaxis.set_major_locator(MultipleLocator(0.1))
+        vals = axis.get_yticks()
+        axis.set_yticklabels(["{:,.0%}".format(x) for x in vals])
+
+        if max_bar_value >= 0.99:
+            axis.set_ylim(top=1)
+
+    else:
+        num_majors = 12
+        increment = round(max_bar_value / num_majors)
+        if increment < 1:
+            increment = 1
+        axis.yaxis.set_major_locator(MultipleLocator(increment))
+        rounded_top = ((max_bar_value + increment) // increment) * increment
+        axis.set_ylim(top=rounded_top)
+
+    axis.set_ylim(bottom=0)
+    axis.yaxis.grid(which="major", color="k")
+    axis.yaxis.grid(which="minor", linestyle="--")
+
+    if y_label is not None:
+        axis.set_ylabel(y_label)
+
+    if x_label is not None:
+        axis.set_xlabel(x_label)
+
+    axis.set_axisbelow(True)
+
+    if portrait_x_axis:
+        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
+    else:
+        axis.set_xticklabels(labels, rotation=label_rotation)
+
+    if legend_labels is not None:
+        # Shrink current axis by 20%
+        box = axis.get_position()
+        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+        # Put a legend to the right of the current axis
+        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+
+    if portrait_x_axis:
+        fig.canvas.draw()
+        for label in axis.xaxis.get_ticklabels():
+
+            ext = label.get_window_extent()
+            name = label.get_text().strip().lower()
+            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
+
+            im = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            port_size = 0.045
+            middle = (left + right) / 2
+            port_start = middle - (port_size / 2)
+            newax = fig.add_axes(
+                [port_start, top - port_size, port_size, port_size], zorder=-1
+            )
+            newax.imshow(im)
+            newax.axis("off")
+
+    if not no_show:
+        plt.show()
+
+    return axis
+
+
 def create_bar_plot(
     title: str,
     data: List[List[Union[int, float]]],
@@ -123,6 +240,7 @@ def create_bar_plot(
         rounded_top = ((max_bar_value + increment) // increment) * increment
         axis.set_ylim(top=rounded_top)
 
+    axis.set_ylim(bottom=0)
     axis.yaxis.grid(which="major", color="k")
     axis.yaxis.grid(which="minor", linestyle="--")
 

@@ -2,7 +2,11 @@ from collections import Counter, defaultdict
 from enum import Enum
 from typing import List, Callable, Optional, Any, Dict, Union
 
-from triple_agent.reports.report_utilities import create_pie_chart, create_bar_plot
+from triple_agent.reports.report_utilities import (
+    create_pie_chart,
+    create_bar_plot,
+    create_line_plot,
+)
 from triple_agent.reports.plot_utilities import (
     create_sorted_categories,
     create_data_dictionary,
@@ -28,6 +32,7 @@ def query(
     percentile_plot: bool = True,
     data_stack_label_dict: Dict[Any, str] = None,
     force_bar=False,
+    force_line=False,
     portrait_x_axis=False,
 ):
     """
@@ -107,29 +112,52 @@ def query(
             )
     elif isinstance(data_dictionary, defaultdict):
         if counts_plot:
-            create_bar_plot(
-                title + " [counts]",
-                stacked_data,
-                categories,
-                legend_labels=data_stack_labels,
-                colors=data_colors,
-                hatches=data_hatching,
-                label_rotation=90,
-                portrait_x_axis=portrait_x_axis,
-            )
+            if force_line:
+                create_line_plot(
+                    title + " [counts]",
+                    stacked_data,
+                    categories,
+                    legend_labels=data_stack_labels,
+                    colors=data_colors,
+                    label_rotation=90,
+                    portrait_x_axis=portrait_x_axis,
+                )
+            else:
+                create_bar_plot(
+                    title + " [counts]",
+                    stacked_data,
+                    categories,
+                    legend_labels=data_stack_labels,
+                    colors=data_colors,
+                    hatches=data_hatching,
+                    label_rotation=90,
+                    portrait_x_axis=portrait_x_axis,
+                )
 
         if percentile_plot:
-            create_bar_plot(
-                title + " [%]",
-                percentile_data,
-                percentile_categories,
-                legend_labels=data_stack_labels,
-                colors=percentile_data_colors,
-                hatches=data_hatching,
-                label_rotation=90,
-                percentage=True,
-                portrait_x_axis=portrait_x_axis,
-            )
+            if force_line:
+                create_line_plot(
+                    title + " [%]",
+                    percentile_data,
+                    percentile_categories,
+                    legend_labels=data_stack_labels,
+                    colors=percentile_data_colors,
+                    label_rotation=90,
+                    percentage=True,
+                    portrait_x_axis=portrait_x_axis,
+                )
+            else:
+                create_bar_plot(
+                    title + " [%]",
+                    percentile_data,
+                    percentile_categories,
+                    legend_labels=data_stack_labels,
+                    colors=percentile_data_colors,
+                    hatches=data_hatching,
+                    label_rotation=90,
+                    percentage=True,
+                    portrait_x_axis=portrait_x_axis,
+                )
     else:
         raise ValueError
 
