@@ -10,23 +10,19 @@ def _count_scores(sets, data_dictionary):
         data_dictionary[tuple(sorted(this_set.score, reverse=True))] += 1
 
 
-def _game_differential(sets, data_dictionary):
-    for this_set in sets:
-        player_a, player_b = this_set.players
-        player_a_score, player_b_score = this_set.score
-        data_dictionary[player_a] += player_a_score
-        data_dictionary[player_a] -= player_b_score
-        data_dictionary[player_b] += player_b_score
-        data_dictionary[player_b] -= player_a_score
+def _game_differential(games, data_dictionary):
+    for game in games:
+        data_dictionary[game.winner] += 1
+        data_dictionary[game.spy if game.sniper == game.winner else game.sniper] -= 1
 
 
 def scl_set_scores_categorize(games: List[Game], title: str, **kwargs):
     query(games, title, _count_scores, **kwargs)
 
 
-def game_differential(sets: List[SCLSet], title: str, **kwargs):
+def game_differential(games: List[Game], title: str, **kwargs):
     default_kwargs = {"force_bar": True}
 
     default_kwargs.update(kwargs)
 
-    query(sets, title, _game_differential, **default_kwargs)
+    query(games, title, _game_differential, **default_kwargs)
