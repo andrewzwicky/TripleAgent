@@ -9,7 +9,6 @@ from matplotlib.ticker import MultipleLocator
 from triple_agent.utilities.paths import PORTRAITS_FOLDER
 
 
-
 def create_line_plot(
     title: str,
     data: List[List[Union[int, float]]],
@@ -100,6 +99,31 @@ def create_line_plot(
         box = axis.get_position()
         axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
+        # Put a legend to the right of the current axis
+        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+
+    if portrait_x_axis:
+        fig.canvas.draw()
+        for label in axis.xaxis.get_ticklabels():
+
+            ext = label.get_window_extent()
+            name = label.get_text().strip().lower()
+            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
+
+            im = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            port_size = 0.045
+            middle = (left + right) / 2
+            port_start = middle - (port_size / 2)
+            newax = fig.add_axes(
+                [port_start, top - port_size, port_size, port_size], zorder=-1
+            )
+            newax.imshow(im)
+            newax.axis("off")
+
+    if not no_show:
+        plt.show()
+
+    return axis
 
 
 def create_bar_plot(
@@ -115,6 +139,7 @@ def create_bar_plot(
     label_rotation: int = 0,
     percentage: bool = False,
     portrait_x_axis=False,
+    # TODO: division logos on x axis
     no_show=False,
 ):
     if colors is None:
@@ -191,6 +216,7 @@ def create_bar_plot(
         rounded_top = ((max_bar_value + increment) // increment) * increment
         axis.set_ylim(top=rounded_top)
 
+    axis.set_ylim(bottom=0)
     axis.yaxis.grid(which="major", color="k")
     axis.yaxis.grid(which="minor", linestyle="--")
 
