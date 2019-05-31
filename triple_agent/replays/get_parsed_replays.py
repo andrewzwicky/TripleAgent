@@ -1,18 +1,22 @@
 import os
+from multiprocessing import Pool
+from typing import List
 
 from triple_agent.utilities.paths import REPLAY_PICKLE_FOLDER
-from triple_agent.utilities.game import game_unpickle
+from triple_agent.utilities.game import game_unpickle, Game
 
 
-def get_parsed_replays(game_filter):
-    game_list = []
+def unpickle_game(replay_pickle_file: str) -> Game:
+    unpickled_game = game_unpickle(
+        os.path.join(REPLAY_PICKLE_FOLDER, replay_pickle_file)
+    )
+    if unpickled_game is not None:
+        return unpickled_game
 
-    for replay_pickle_file in os.listdir(REPLAY_PICKLE_FOLDER):
-        unpickled_game = game_unpickle(
-            os.path.join(REPLAY_PICKLE_FOLDER, replay_pickle_file)
-        )
-        if unpickled_game is not None:
-            if game_filter(unpickled_game):
-                game_list.append(unpickled_game)
 
-    return game_list
+def get_parsed_replays(game_filter) -> List[Game]:
+    p = Pool(4)
+    unfiltered_game_list = p.map(unpickle_game, os.listdir(REPLAY_PICKLE_FOLDER))
+    filtered_game_list = list(filter(game_filter, unfiltered_game_list))
+
+    return filtered_game_list
