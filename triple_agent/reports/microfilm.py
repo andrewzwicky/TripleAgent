@@ -61,14 +61,14 @@ def _microfilm_direction(games, data_dictionary):
 
 
 def at_or_direct_mf(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _classify_microfilms,
-        TRANSFER_PLOT_ORDER,
-        TRANSFER_TO_COLORS_RGB,
-        **kwargs
-    )
+    default_kwargs = {
+        "data_stack_order": TRANSFER_PLOT_ORDER,
+        "data_color_dict": TRANSFER_TO_COLORS_RGB,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _classify_microfilms, **default_kwargs)
 
 
 def microfilm_direction(games: List[Game], title: str, **kwargs):

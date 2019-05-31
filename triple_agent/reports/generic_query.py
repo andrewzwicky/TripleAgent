@@ -74,7 +74,7 @@ def query(
                 [stacked_data],
                 labels=data_stack_labels,
                 bar_labels=[stacked_data],
-                legend_labels=data_stack_labels,
+                # legend_labels=data_stack_labels,
                 colors=data_colors,
                 hatches=data_hatching,
                 label_rotation=90,
@@ -164,6 +164,7 @@ def create_data_plot_labels(data_stack_label_dict, data_stack_order):
 def create_data_stacks(
     categories, percentile_categories, data_dictionary, data_sum, data_stack_order
 ):
+    # TODO: data stack order in defaultdict (stacked bar) will omit data
     stacked_data = []
     percentile_data = []
 
@@ -187,11 +188,15 @@ def create_data_stacks(
                 ]
             )
     elif isinstance(data_dictionary, Counter):
-        data_stack_order = categories
-        stacked_data = [data_dictionary[cat] for cat in categories]
+        if data_stack_order is None:
+            data_stack_order = categories
+
+        stacked_data = [data_dictionary[data_part] for data_part in data_stack_order]
         percentile_data = [
-            0 if not data_sum[cat] else data_dictionary[cat] / data_sum[cat]
-            for cat in percentile_categories
+            0
+            if not data_sum[data_part]
+            else data_dictionary[data_part] / data_sum[data_part]
+            for data_part in data_stack_order
         ]
     else:
         raise ValueError

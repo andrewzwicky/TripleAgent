@@ -46,6 +46,7 @@ def create_bar_plot(
     label_rotation: int = 0,
     percentage: bool = False,
     portrait_x_axis=False,
+    # TODO: division logos on x axis
     no_show=False,
 ):
     if colors is None:

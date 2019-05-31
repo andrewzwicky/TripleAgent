@@ -19,11 +19,11 @@ def _categorize_stop_talks(games, data_dictionary):
 
 
 def stop_talk_in_game_percentage(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _categorize_stop_talks,
-        NOSTOP_PLOT_ORDER,
-        NOSTOP_TO_COLORS_RGB,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": NOSTOP_PLOT_ORDER,
+        "data_color_dict": NOSTOP_TO_COLORS_RGB,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _categorize_stop_talks, **default_kwargs)

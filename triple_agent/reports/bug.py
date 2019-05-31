@@ -89,13 +89,13 @@ def _categorize_bugs(games, data_dictionary):
 
 
 def bug_success_rate(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _categorize_bugs,
-        BUG_PLOT_ORDER,
-        BUG_TO_COLORS_RGB,
-        data_hatching=BUG_PLOT_HATCHING,
-        data_stack_label_dict=BUG_PLOT_LABEL_DICT,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": BUG_PLOT_ORDER,
+        "data_color_dict": BUG_TO_COLORS_RGB,
+        "data_hatching": BUG_PLOT_HATCHING,
+        "data_stack_label_dict": BUG_PLOT_LABEL_DICT,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _categorize_bugs, **default_kwargs)

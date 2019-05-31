@@ -102,7 +102,6 @@ def create_data_dictionary(games, query_function, groupby):
         for category, cat_games in itertools.groupby(
             sorted(games, key=groupby), key=groupby
         ):
-            print(category)
             query_function(cat_games, data_dictionary[category])
             data_sum[category] = sum(data_dictionary[category].values())
 

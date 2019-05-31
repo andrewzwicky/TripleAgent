@@ -47,13 +47,13 @@ def _categorize_fp_sources(games, data_dictionary):
 
 
 def attempted_fingerprint_sources(games: List[Game], title: str, **kwargs):
-    query(
-        games,
-        title,
-        _categorize_fp_sources,
-        OBJECT_PLOT_ORDER_DIFFICULT,
-        OBJECT_TO_COLORS_RGB,
-        data_hatching=OBJECT_PLOT_HATCHING_DIFFICULT,
-        data_stack_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
-        **kwargs,
-    )
+    default_kwargs = {
+        "data_stack_order": OBJECT_PLOT_ORDER_DIFFICULT,
+        "data_color_dict": OBJECT_TO_COLORS_RGB,
+        "data_hatching": OBJECT_PLOT_HATCHING_DIFFICULT,
+        "data_stack_label_dict": OBJECT_PLOT_LABEL_DICT_DIFFICULT,
+    }
+
+    default_kwargs.update(kwargs)
+
+    query(games, title, _categorize_fp_sources, **default_kwargs)
