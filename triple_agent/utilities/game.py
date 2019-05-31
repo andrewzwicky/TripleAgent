@@ -167,8 +167,14 @@ class Game:
         # so check the first two items in the timeline
         if self.timeline[0].role == tuple or self.timeline[0].role[0] != Roles.Spy:
             if self.timeline[1].role == tuple or self.timeline[1].role[0] != Roles.Spy:
-                coherent = False
-                coherent_reasons.append("SPY CAST NOT IN FIRST TWO TIMELINE ITEMS")
+                if (
+                    self.timeline[2].role == tuple
+                    or self.timeline[2].role[0] != Roles.Spy
+                ):
+                    coherent = False
+                    coherent_reasons.append(
+                        "SPY CAST NOT IN FIRST THREE TIMELINE ITEMS"
+                    )
 
         return coherent, ", ".join(coherent_reasons)
 
