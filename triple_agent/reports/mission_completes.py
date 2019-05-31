@@ -1,12 +1,8 @@
-from collections import Counter, defaultdict
-from typing import List, Dict
+from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.reports.report_utilities import create_bar_plot
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.missions import (
-    print_complete_string,
-    MISSION_LETTERS_TO_ENUM,
     MISSIONS_ENUM_TO_COLOR,
     MISSION_PLOT_ORDER,
     Missions,

@@ -1,6 +1,7 @@
+import os
+
 import cv2
 import pytest
-import os
 
 from triple_agent.timeline.parse_timeline import is_last_screenshot
 

@@ -1,4 +1,5 @@
 from collections import defaultdict, Counter
+
 import pytest
 
 from triple_agent.reports.plot_utilities import create_sorted_categories

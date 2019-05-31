@@ -1,8 +1,9 @@
 import itertools
 from collections import Counter, defaultdict
+from typing import List, Tuple
+
 from triple_agent.utilities.outcomes import WinType
 from triple_agent.utilities.game import Game
-from typing import List, Tuple
 
 
 class SCLSet:

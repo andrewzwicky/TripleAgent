@@ -4,7 +4,6 @@ from shutil import rmtree, copyfile
 from typing import Optional, Dict, AnyStr
 
 from spyparty.ReplayParser import ReplayParser
-
 from triple_agent.timeline.parse_game_timelines_parallel import parse_timeline_parallel
 from triple_agent.utilities.game import Game, game_load_or_new
 from triple_agent.utilities.paths import (

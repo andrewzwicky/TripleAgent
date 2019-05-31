@@ -67,6 +67,8 @@ def query(
         data_color_dict, data_stack_order
     )
 
+    # TODO: add in y-axis labels, etc.
+
     if isinstance(data_dictionary, Counter):
         if force_bar:
             create_bar_plot(
