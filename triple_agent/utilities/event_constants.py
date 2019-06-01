@@ -40,6 +40,7 @@ SCL5_DROPPED_PLAYERS = {
     "Tortuga-Man",
     "Vlady",
     "sergioc89",
+    "juliusb",
     "mintyrug",
     "ml726",
 }
