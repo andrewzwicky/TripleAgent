@@ -1,4 +1,3 @@
-
 SCL5_VENUE_MODES = {
     "Ballroom": "a4/8",
     "Library": "a5/8",
@@ -62,7 +61,6 @@ SCL5_DIVISIONS = [
 def select_scl5(game):
     return (
         game.event == "SCL5"
-        and game.division != "Challenger"
         and game.spy not in SCL5_DROPPED_PLAYERS
         and game.sniper not in SCL5_DROPPED_PLAYERS
     )
