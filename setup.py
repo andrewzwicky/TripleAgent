@@ -42,8 +42,8 @@ setup(
     },
     python_requires=">=3.7",
     extras_require={
-        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6", "scipy<=1.3.0"],
-        "retrieve": ["requests", "bs4"],
+        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6"],
+        "retrieve": ["requests>=2.22.0", "beautifulsoup4>=4.7.1"],
         "parse": [
             "pyautogui>=0.9.42",
             "opencv-python>=4.1.0.25",

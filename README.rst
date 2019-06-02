@@ -8,10 +8,9 @@ This repo contains serialized files for all the replays covering SCL4, SCL5, Win
 
 Installation
 ____________
-The neccessary python packages should be covered by running `setup.py install`.
+You'll need to have `Python`_ (3.7.3 or greater) installed.
 
-Additionally, you'll need to install
-https://github.com/tesseract-ocr/tesseract/wiki#windows
+The most basic usage for Triple Agent is plotting the included replays.  To do this run ``pip install -e .[plot]`` from the command line in the top level folder to install the necessary dependencies.
 
 
 License
@@ -21,6 +20,7 @@ file for details
 
 .. _SpyParty: http://www.spyparty.com/
 .. _LICENSE.md: LICENSE.md
+.. _Python: https://www.python.org/downloads/windows/
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
   :width: 32px
