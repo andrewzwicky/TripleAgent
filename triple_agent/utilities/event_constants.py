@@ -23,26 +23,35 @@ SCL5_PICK_MODES = {
 }
 
 SCL5_DROPPED_PLAYERS = {
+    # Silver
+    "ml726",
+    "mintyrug",
     "baldrick",
+    # Bronze
     "brskaylor",
-    "rta",
     "Hectic",
     "bitbandingpig",
+    # Copper
     "frostie",
     "belial",
     "tristram",
+    # Iron
+    "rta",
     "the_usual_toaster",
-    "ThatOdinaryPlayer",
+    # Obsidian
+    "juliusb",
+    "sergioc89",
+    "Vlady",
     "PixelBandit",
     "gasol",
     "kevino",
+    # Oak
+    # TODO: check spelling of these next two (doesn't always line up with replay)
+    "umbertofinito",
+    "Libro",
+    "ThatOdinaryPlayer",
     "tge",
     "Tortuga-Man",
-    "Vlady",
-    "sergioc89",
-    "juliusb",
-    "mintyrug",
-    "ml726",
 }
 
 SCL5_DIVISIONS = [
