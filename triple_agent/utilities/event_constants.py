@@ -46,12 +46,14 @@ SCL5_DROPPED_PLAYERS = {
     "gasol",
     "kevino",
     # Oak
-    # TODO: check spelling of these next two (doesn't always line up with replay)
     "umbertofinito",
     "Libro",
     "ThatOdinaryPlayer",
     "tge",
     "Tortuga-Man",
+    # Challenger
+    "Rai",
+    "linkvanyali",
 }
 
 SCL5_DIVISIONS = [
