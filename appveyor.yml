@@ -30,4 +30,4 @@ install:
 build: false
 
 test_script:
-  - "pytest triple_agent"
+  - "pytest --pyargs triple_agent"
