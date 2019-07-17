@@ -51,10 +51,9 @@ setup(
             "pytesseract>=0.2.6",
             "numpy>=1.16.3",
         ],
-        "test" : ["pytest", "pytest-xdist"]
+        "test" : ["pytest>=4.5.0", "pytest-xdist<=1.28.0", "opencv-python>=4.1.0.25"]
     },
     setup_requires=["pytest-runner>=4.4"],
-    tests_require=["pytest>=4.5.0", "pytest-xdist<=1.28.0"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: End Users/Desktop",
