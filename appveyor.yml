@@ -1,0 +1,36 @@
+environment:
+  PYPI_USER: "andrewzwicky"
+  PYPI_PW:
+    secure: "UYwQCnByKXfEv0Z72TOSKw=="
+  global:
+    WITH_COMPILER: "cmd /E:ON /V:ON /C .\\appveyor\\windows_sdk.cmd"
+  matrix:
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7.x"
+      PYTHON_ARCH: "64"
+      PIP: "C:\\Python37-x64\\Scripts\\pip"
+
+skip_commits:
+  files:
+    - 'docs/*'
+    - 'replay_pickles/*'
+    - 'examples/*'
+    - 'README.md'
+    - 'README.rst'
+    - 'LICENSE'
+
+platform:
+  - x64
+
+install:
+  - "%PYTHON%\\python --version"
+  - "%PIP% --version"
+  - "%PIP% install --disable-pip-version-check --user --upgrade pip"
+  - "%PIP% install -e .[test]"
+
+
+build_script:
+  - "%PYTHON%\\python setup.py"
+
+test_script:
+  - "pytest"
