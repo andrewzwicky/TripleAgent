@@ -25,7 +25,7 @@ install:
   - "%PIP% --version"
   - "%PIP% install --disable-pip-version-check --user --upgrade pip"
   - "appveyor DownloadFile https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v4.1.0.20190314.exe"
-  - ps: "tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
+  - ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
   - "%PIP% install -e .[test,parse]"
 
