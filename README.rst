@@ -50,4 +50,4 @@ file for details
 .. |py_version| image:: https://img.shields.io/badge/python-3.7-blue.svg
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
 .. |build_status| image:: https://ci.appveyor.com/api/projects/status/vrw0751wstpa6pf7?svg=true
-.. |license| image:: https://img.shields.io/github/license/andrewzwicky/TripleAgent.svg
+.. |license| image:: https://img.shields.io/github/license/andrewzwicky/TripleAgent.svg?color=blue
