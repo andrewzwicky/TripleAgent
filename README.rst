@@ -1,4 +1,4 @@
-|icon| Triple Agent |py_version| |platform| |build_status| |license|
+|icon| Triple Agent |py_version| |platform| |license| |build_status| 
 ========================================================
 
 Introduction
