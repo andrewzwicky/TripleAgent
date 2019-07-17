@@ -26,11 +26,8 @@ install:
   - "%PYTHON%\\python --version"
   - "%PIP% --version"
   - "%PIP% install --disable-pip-version-check --user --upgrade pip"
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "%PIP% install -e .[test]"
-
-
-build_script:
-  - "%PYTHON%\\python setup.py"
 
 test_script:
   - "pytest"
