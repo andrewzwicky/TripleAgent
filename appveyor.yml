@@ -29,5 +29,7 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "%PIP% install -e .[test]"
 
+build: false
+
 test_script:
   - "pytest"
