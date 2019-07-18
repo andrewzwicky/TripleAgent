@@ -37,19 +37,22 @@ Thanks
 ______
 
 * checker for making SpyParty
-* LtHummus for the [SpyPartyParse](https://github.com/LtHummus/SpyPartyParse) library.
-* WarningTrack for [SpyParty Fans](https://www.spypartyfans.com/), and the competitive replay downloads, which were a major help with this project.
+* LtHummus for the `SpyPartyParse`_ library.
+* WarningTrack for `SpyParty Fans`_, and the competitive replay downloads, which were a major help with this project.
 
 
 License
 -------
 This project is licensed under the MIT License - see the `LICENSE.md`_ file for details
 
-.. [1] At this time, parsing is not fully automated and may not work for all setups, see parsing caveats for more information. 
+.. [1] At this time, parsing is not fully automated and may not work for all setups, see `Parsing Quirks`_ for more information. 
 
 .. _SpyParty: http://www.spyparty.com/
 .. _LICENSE.md: LICENSE.md
 .. _Python: https://www.python.org/downloads/windows/
+.. _SpyPartyParse: https://github.com/LtHummus/SpyPartyParse
+.. _`SpyParty Fans`: https://www.spypartyfans.com/
+.. _`Parsing Quirks`: ../wiki/Parsing-Quirks
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
   :width: 32px
