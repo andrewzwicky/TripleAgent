@@ -22,8 +22,20 @@ Examples
 ________
 The examples_ folder showcases some of the most interesting or useful statistics that can be obtained with this data.
 
-|at_pie|
+.. image:: examples/scl5_calvin_action_tests.png
+  :scale: 80
+  
+.. image:: examples/scl5_fingerprints.png
+  :scale: 80
 
+.. image:: examples/scl5_percent_action_tests.png
+  :scale: 80
+
+.. image:: examples/scl5_spy_selection.png
+  :scale: 80
+
+.. image:: examples/scl5_venue_outcomes_line.png
+  :scale: 80
 
 Pre-Parsed Events
 ___________
@@ -59,7 +71,8 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
   :height: 32px
   :width: 32px
 
-.. |at_pie| image:: triple_agent/examples/scl5_calvin_action_tests.png
+
+
 
 .. |py_version| image:: https://img.shields.io/badge/python-3.7-blue.svg
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
