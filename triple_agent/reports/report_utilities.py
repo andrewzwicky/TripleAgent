@@ -22,6 +22,7 @@ def create_line_plot(
     portrait_x_axis=False,
     # TODO: division logos on x axis
     no_show=False,
+    savefig=None,
 ):
     if colors is None:
         if len(data) == 1:
@@ -119,6 +120,9 @@ def create_line_plot(
             )
             newax.imshow(im)
             newax.axis("off")
+    
+    if savefig:
+        plt.savefig(savefig, bbox_inches = "tight")
 
     if not no_show:
         plt.show()
@@ -141,6 +145,7 @@ def create_bar_plot(
     portrait_x_axis=False,
     # TODO: division logos on x axis
     no_show=False,
+    savefig=None,
 ):
     if colors is None:
         if len(data) == 1:
@@ -259,13 +264,16 @@ def create_bar_plot(
             newax.imshow(im)
             newax.axis("off")
 
+    if savefig:
+        plt.savefig(savefig, bbox_inches = "tight")
+            
     if not no_show:
         plt.show()
 
     return axis
 
 
-def create_pie_chart(title, data, labels, colors=None, hatches=None):
+def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None,):
     _, axis = plt.subplots(figsize=(8, 8))
 
     axis.set_title(title)
@@ -282,6 +290,10 @@ def create_pie_chart(title, data, labels, colors=None, hatches=None):
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 
+
+    if savefig:
+        plt.savefig(savefig, bbox_inches = "tight")
+                
     plt.show()
 
 
@@ -293,6 +305,7 @@ def create_histogram(
     x_label=None,
     y_label=None,
     cumulative_also=False,
+    savefig=None,
 ):
     _, axis = plt.subplots(figsize=(12, 8))
     max_data_point = max(data)
@@ -341,5 +354,8 @@ def create_histogram(
 
     if x_label is not None:
         axis.set_xlabel(x_label)
+
+    if savefig:
+        plt.savefig(savefig, bbox_inches = "tight")
 
     plt.show()

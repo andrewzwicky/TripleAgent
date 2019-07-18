@@ -34,6 +34,7 @@ def query(
     force_bar=False,
     force_line=False,
     portrait_x_axis=False,
+    savefig=None
 ):
     """
     query is the default plotting interface.  Given a list of games/sets, and a function to
@@ -86,6 +87,7 @@ def query(
                 hatches=data_hatching,
                 label_rotation=90,
                 portrait_x_axis=portrait_x_axis,
+                savefig=savefig,
             )
 
         elif force_line:
@@ -96,6 +98,7 @@ def query(
                 colors=data_colors,
                 label_rotation=90,
                 portrait_x_axis=portrait_x_axis,
+                savefig=savefig,
             )
         else:
             total_samples = sum(stacked_data)
@@ -119,6 +122,7 @@ def query(
                 labels=results_labels,
                 colors=data_colors,
                 hatches=data_hatching,
+                savefig=savefig,
             )
     elif isinstance(data_dictionary, defaultdict):
         if counts_plot:
@@ -131,6 +135,7 @@ def query(
                     colors=data_colors,
                     label_rotation=90,
                     portrait_x_axis=portrait_x_axis,
+                    savefig=savefig,
                 )
             else:
                 create_bar_plot(
@@ -142,6 +147,7 @@ def query(
                     hatches=data_hatching,
                     label_rotation=90,
                     portrait_x_axis=portrait_x_axis,
+                    savefig=savefig,
                 )
 
         if percentile_plot:
@@ -155,6 +161,7 @@ def query(
                     label_rotation=90,
                     percentage=True,
                     portrait_x_axis=portrait_x_axis,
+                    savefig=savefig,
                 )
             else:
                 create_bar_plot(
@@ -167,6 +174,7 @@ def query(
                     label_rotation=90,
                     percentage=True,
                     portrait_x_axis=portrait_x_axis,
+                    savefig=savefig,
                 )
     else:
         raise ValueError
