@@ -22,6 +22,9 @@ Examples
 ________
 The examples_ folder showcases some of the most interesting or useful statistics that can be obtained with this data.
 
+|at_pie|
+
+
 Pre-Parsed Events
 ___________
 This repo contains serialized files for all the replays covering SCL4 Regular Season, SCL5 Regular Season, Winter Cup 2019, Summer Cup 2019.  For SCL seasons, week and division information is included in the game data.
@@ -55,6 +58,8 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
   :width: 32px
+
+.. |at_pie| image:: triple_agent/examples/scl5_calvin_action_tests.png
 
 .. |py_version| image:: https://img.shields.io/badge/python-3.7-blue.svg
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
