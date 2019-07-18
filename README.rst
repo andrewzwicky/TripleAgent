@@ -3,6 +3,8 @@
 
 Introduction
 ____________
+TripleAgent is a utility to fetch, parse, and analyze the timeline component of SpyParty replays.
+
 This project aims to parse the timelines from SpyParty replays to provide structured data about gameplay events.  Triple Agent works by taking screenshots of the timeline and using OCR to read each individual line.  For each individual line, the time and any optional character or book data is collected.
 
 Available Data
@@ -33,6 +35,13 @@ ____________
 You'll need to have `Python`_ (3.7.3 or greater) installed.
 
 The most basic usage for Triple Agent is plotting the included replays.  To do this run ``pip install -e .[plot]`` from the command line in the top level folder to install the necessary dependencies.
+
+Thanks
+______
+
+* checker for making SpyParty
+* LtHummus for the [SpyPartyParse](https://github.com/LtHummus/SpyPartyParse) library.
+* WarningTrack for [SpyParty Fans](https://www.spypartyfans.com/), and the competitive replay downloads, which were a major help with this project.
 
 
 License
