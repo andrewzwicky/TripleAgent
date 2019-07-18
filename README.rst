@@ -22,16 +22,14 @@ Examples
 ________
 The examples_ folder showcases some of the most interesting or useful statistics that can be obtained with this data.
 
-Basic Usage
+Pre-Parsed Events
 ___________
-This repo contains serialized files for all the replays covering SCL4, SCL5, Winter Cup 2019, Summer Cup 2019.
+This repo contains serialized files for all the replays covering SCL4 Regular Season, SCL5 Regular Season, Winter Cup 2019, Summer Cup 2019.  For SCL seasons, week and division information is included in the game data.
 
 
 Installation
 ____________
-You'll need to have `Python 3.7`_ installed (untested with other versions of python).
-
-The most basic usage for Triple Agent is plotting the included replays.  To do this run ``pip install -e .[plot]`` from the command line in the top level folder to install the necessary dependencies.
+`Python 3.7`_ is required, but most other third-party packages are optional, depending on what you'd like to do.  To perform the most basic installation, navigate to the cloned repository and run ``pip install -e .`` from the command line.  If you would like any of the more advanced functionality (parsing replays or plotting data), see `Installation Instructions`_
 
 Thanks
 ______
@@ -53,7 +51,8 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. _SpyPartyParse: https://github.com/LtHummus/SpyPartyParse
 .. _`SpyParty Fans`: https://www.spypartyfans.com/
 .. _examples: examples
-.. _`Parsing Quirks`: ../wiki/Parsing-Quirks
+.. _`Parsing Quirks`: ../../wiki/Parsing-Quirks
+.. _`Installation Instructions`: ../../wiki/Installation-Instructions
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
   :width: 32px
