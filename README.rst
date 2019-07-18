@@ -8,14 +8,14 @@ Available Data
 ______________
 Available data includes anything that can be seen directly from the timeline including:
 
-- Timeline event text
-- Timeline event times
+- Timeline event text & times
 - Cast data
 - Partial mission progress
+- Drink and Book takes
 
 This excludes:
 
-- Spatial data (time add locations, which statues are swapped most, etc.)
+- Spatial data (time add locations, which statues was picked up, etc.)
 - Animation data (starting statue layout, number of read animations, idle times, etc.)
 
 Examples
@@ -25,7 +25,6 @@ The examples_ folder showcases some of the most interesting or useful statistics
 Pre-Parsed Events
 ___________
 This repo contains serialized files for all the replays covering SCL4 Regular Season, SCL5 Regular Season, Winter Cup 2019, Summer Cup 2019.  For SCL seasons, week and division information is included in the game data.
-
 
 Installation
 ____________
