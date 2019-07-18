@@ -1,11 +1,8 @@
 |icon| Triple Agent |py_version| |platform| |license| |build_status| 
 ========================================================
+Triple Agent is a utility to parse and analyze the timeline component of SpyParty replays. [1]_  The Triple Agent repository also contained pre-parsed games from recent Spy Party competitive events that can be analyzed without spending the time to parse.
 
-Introduction
-____________
-TripleAgent is a utility to fetch, parse, and analyze the timeline component of SpyParty replays.
-
-This project aims to parse the timelines from SpyParty replays to provide structured data about gameplay events.  Triple Agent works by taking screenshots of the timeline and using OCR to read each individual line.  For each individual line, the time and any optional character or book data is collected.
+Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, optical character recognition (OCR) is used to extract the relevant information and store it as a python object so it can be analyzed.
 
 Available Data
 ______________
@@ -46,8 +43,9 @@ ______
 
 License
 -------
-This project is licensed under the MIT License - see the `LICENSE.md`_
-file for details
+This project is licensed under the MIT License - see the `LICENSE.md`_ file for details
+
+.. [1] At this time, parsing is not fully automated and may not work for all setups, see parsing caveats for more information. 
 
 .. _SpyParty: http://www.spyparty.com/
 .. _LICENSE.md: LICENSE.md
