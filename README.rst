@@ -52,7 +52,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. _`Python 3.7`: https://www.python.org/downloads/windows/
 .. _SpyPartyParse: https://github.com/LtHummus/SpyPartyParse
 .. _`SpyParty Fans`: https://www.spypartyfans.com/
-.. _examples: ../tree/master/examples
+.. _examples: examples
 .. _`Parsing Quirks`: ../wiki/Parsing-Quirks
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
