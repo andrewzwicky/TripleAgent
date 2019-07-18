@@ -6,21 +6,21 @@ Triple Agent works by automatically scrolling and taking screenshots of the time
 
 Available Data
 ______________
+Available data includes anything that can be seen directly from the timeline including:
 
 - Timeline event text
 - Timeline event times
 - Cast data
 - Partial mission progress
 
-Basically, if you can see it in the timeline, it's available!
-
-Unavailable Data
-________________
+This excludes:
 
 - Spatial data (time add locations, which statues are swapped most, etc.)
-- Visual data (starting statue layout, number of read animations, idle times, etc.)
+- Animation data (starting statue layout, number of read animations, idle times, etc.)
 
-Basically, if you couldn't see it by reading the timeline as text, it's unavailable!
+Examples
+________
+The examples_ folder showcases some of the most interesting or useful statistics that can be obtained with this data.
 
 Basic Usage
 ___________
@@ -29,7 +29,7 @@ This repo contains serialized files for all the replays covering SCL4, SCL5, Win
 
 Installation
 ____________
-You'll need to have `Python`_ (3.7.3 or greater) installed.
+You'll need to have `Python 3.7`_ installed (untested with other versions of python).
 
 The most basic usage for Triple Agent is plotting the included replays.  To do this run ``pip install -e .[plot]`` from the command line in the top level folder to install the necessary dependencies.
 
@@ -49,9 +49,10 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 
 .. _SpyParty: http://www.spyparty.com/
 .. _LICENSE.md: LICENSE.md
-.. _Python: https://www.python.org/downloads/windows/
+.. _`Python 3.7`: https://www.python.org/downloads/windows/
 .. _SpyPartyParse: https://github.com/LtHummus/SpyPartyParse
 .. _`SpyParty Fans`: https://www.spypartyfans.com/
+.. _examples: ../tree/master/examples
 .. _`Parsing Quirks`: ../wiki/Parsing-Quirks
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
