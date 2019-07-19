@@ -41,7 +41,7 @@ Thanks
 ______
 
 * checker for making SpyParty
-* LtHummus for the `SpyPartyParse`_ library.
+* LtHummus for the `SpyPartyParse`_ library, which was extremely helpful in developing Triple Agent.
 * WarningTrack for `SpyParty Fans`_, and the competitive replay downloads, which were a major help with this project.
 
 
