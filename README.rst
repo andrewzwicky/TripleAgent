@@ -23,19 +23,11 @@ ________
 The examples_ folder showcases some of the most interesting or useful statistics that can be obtained with this data.
 
 .. image:: examples/scl5_calvin_action_tests.png
-  :scale: 80
-  
 .. image:: examples/scl5_fingerprints.png
-  :scale: 80
-
 .. image:: examples/scl5_percent_action_tests.png
-  :scale: 80
-
 .. image:: examples/scl5_spy_selection.png
-  :scale: 80
+.. image:: examples/scl5_venue_outcomes_stacked.png
 
-.. image:: examples/scl5_venue_outcomes_line.png
-  :scale: 80
 
 Pre-Parsed Events
 ___________
