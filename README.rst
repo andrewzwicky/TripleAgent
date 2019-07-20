@@ -2,9 +2,11 @@
 ========================================================
 Triple Agent is a utility to parse and analyze the timeline component of SpyParty replays. [1]_  The Triple Agent repository also contained pre-parsed games from recent Spy Party competitive events that can be analyzed without spending the time to parse.
 
-Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, optical character recognition (OCR) is used to extract the relevant information and store it as a python object so it can be analyzed.
+Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  Because of this, it is likely to work only on my machine until work is done to make the code more generic.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, optical character recognition (OCR) is used to extract the relevant information and store it as a python object so it can be analyzed.
 
-Available Data
+See `Installation Instructions`_ for how to get everything installed, and check out `Pre-parsed Events`_ for details on which events have replays parsed already.
+
+Available Replay Data
 ______________
 Available data includes anything that can be seen directly from the timeline including:
 
@@ -13,7 +15,7 @@ Available data includes anything that can be seen directly from the timeline inc
 - Partial mission progress
 - Drink and Book takes
 
-This excludes:
+But excludes:
 
 - Spatial data (time add locations, which statues was picked up, etc.)
 - Animation data (starting statue layout, number of read animations, idle times, etc.)
@@ -33,9 +35,6 @@ Pre-Parsed Events
 ___________
 This repo contains serialized files for all the replays covering SCL4 Regular Season, SCL5 Regular Season, Winter Cup 2019, Summer Cup 2019.  For SCL seasons, week and division information is included in the game data.
 
-Installation
-____________
-`Python 3.7`_ is required, but most other third-party packages are optional, depending on what you'd like to do.  To perform the most basic installation, navigate to the cloned repository and run ``pip install -e .`` from the command line.  If you would like any of the more advanced functionality (parsing replays or plotting data), see `Installation Instructions`_
 
 Thanks
 ______
@@ -58,6 +57,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. _`SpyParty Fans`: https://www.spypartyfans.com/
 .. _examples: examples
 .. _`Parsing Quirks`: ../../wiki/Parsing-Quirks
+.. _`Pre-parsed Events`: ../../wiki/Available-Parsed-Replays
 .. _`Installation Instructions`: ../../wiki/Installation-Instructions
 .. |icon| image:: triple_agent/images/icons/magnifying_glass_icon.svg
   :height: 32px
