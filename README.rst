@@ -28,7 +28,6 @@ The examples_ folder showcases some of the most interesting or useful statistics
 .. image:: examples/scl5_fingerprints.png
 .. image:: examples/scl5_percent_action_tests.png
 .. image:: examples/scl5_spy_selection.png
-.. image:: examples/scl5_venue_outcomes_stacked.png
 
 
 Pre-Parsed Events
