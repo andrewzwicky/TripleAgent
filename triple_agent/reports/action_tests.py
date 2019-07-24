@@ -10,7 +10,7 @@ from triple_agent.utilities.missions import Missions
 from triple_agent.utilities.timeline import TimelineCategory
 
 
-def _normal_fingerprint_count(games, data_dictionary):
+def _at_rates_excluding_difficults(games, data_dictionary):
     for game in games:
         for timeline_event in game.timeline:
             if timeline_event.category & TimelineCategory.ActionTest:
@@ -18,7 +18,7 @@ def _normal_fingerprint_count(games, data_dictionary):
                     data_dictionary[timeline_event.action_test] += 1
 
 
-def _difficult_fingerprint_count(games, data_dictionary):
+def _difficult_at_rate(games, data_dictionary):
     for game in games:
         for timeline_event in game.timeline:
             if timeline_event.category & TimelineCategory.ActionTest:
@@ -34,7 +34,7 @@ def action_test_percentages(games: List[Game], title: str, **kwargs):
 
     default_kwargs.update(kwargs)
 
-    query(games, title, _normal_fingerprint_count, **default_kwargs)
+    query(games, title, _at_rates_excluding_difficults, **default_kwargs)
 
 
 def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
@@ -45,4 +45,4 @@ def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
 
     default_kwargs.update(kwargs)
 
-    query(games, title, _difficult_fingerprint_count, **default_kwargs)
+    query(games, title, _difficult_at_rate, **default_kwargs)
