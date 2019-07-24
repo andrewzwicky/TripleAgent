@@ -76,3 +76,6 @@ def select_scl5(game):
         and game.spy not in SCL5_DROPPED_PLAYERS
         and game.sniper not in SCL5_DROPPED_PLAYERS
     )
+
+def select_scl5_with_drops(game):
+    return game.event == "SCL5"
