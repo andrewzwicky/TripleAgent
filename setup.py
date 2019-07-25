@@ -51,7 +51,7 @@ setup(
             "pytesseract>=0.2.6",
             "numpy>=1.16.3",
         ],
-        "test" : ["pytest>=4.5.0", "opencv-python>=4.1.0.25"]
+        "test" : ["pytest", "opencv-python>=4.1.0.25", "pytest-cov"]
     },
     setup_requires=["pytest-runner>=4.4"],
     classifiers=[

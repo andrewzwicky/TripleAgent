@@ -32,4 +32,4 @@ install:
 build: false
 
 test_script:
-  - "pytest triple_agent"
+  - "pytest triple_agent --cov=triple_agent"

@@ -9,7 +9,7 @@ from triple_agent.reports.report_utilities import (
 )
 from triple_agent.reports.plot_utilities import (
     create_sorted_categories,
-    create_data_dictionary,
+    create_data_dictionaries,
     limit_categories,
 )
 from triple_agent.utilities.game import Game
@@ -20,7 +20,7 @@ def query(
     games: Union[List[Game], List[SCLSet]],
     title: str,
     query_function: Callable,
-    data_stack_order: List[Any] = None,
+    data_stack_order_arg: List[Any] = None,
     data_color_dict: Dict[str, str] = None,
     data_hatching: List[Optional[str]] = None,
     groupby: Callable = None,
@@ -43,47 +43,40 @@ def query(
     """
 
     # create data dictionary
-    data_dictionary, data_sum = create_data_dictionary(games, query_function, groupby)
+    data_dictionary_count, data_dictionary_percent = create_data_dictionaries(games, query_function, groupby)
 
     # create the list of x-axis categories. percentile needs to be it's own list
     # so it can be separately sorted between the counts plot and the percentile plot
-    categories, percentile_categories = create_sorted_categories(
-        data_dictionary,
-        data_sum,
-        category_data_order,
-        reversed_data_sort,
-        category_name_order,
-    )
+    categories_counts = create_sorted_categories(data_dictionary_count, category_data_order, reversed_data_sort, category_name_order)
+    categories_percent = create_sorted_categories(data_dictionary_percent, category_data_order, reversed_data_sort, category_name_order)
 
     # limit categories to reduce clutter
-    categories, percentile_categories = limit_categories(
-        categories, percentile_categories, limit
-    )
+    categories_counts = limit_categories(categories_counts, limit)
+    categories_percent = limit_categories(categories_percent, limit)
 
     # sort
-    data_stack_order, percentile_data, stacked_data = create_data_stacks(
-        categories, percentile_categories, data_dictionary, data_sum, data_stack_order
-    )
+    data_stack_order_counts, stacked_data = create_data_stacks(categories_counts, data_dictionary_count, data_stack_order_arg)
+    data_stack_order_percent, stacked_data_percent = create_data_stacks(categories_percent, data_dictionary_percent, data_stack_order_arg)
 
     # TODO: reversed legend labels/handles
     # create data stack labels
-    data_stack_labels = create_data_plot_labels(data_stack_label_dict, data_stack_order)
+    data_stack_labels_counts = create_data_plot_labels(data_stack_label_dict, data_stack_order_counts)
+    data_stack_labels_percent = create_data_plot_labels(data_stack_label_dict, data_stack_order_percent)
 
-    data_colors, percentile_data_colors = create_data_colors(
-        data_color_dict, data_stack_order
-    )
+    data_colors_counts = create_data_colors(data_color_dict, data_stack_order_counts)
+    data_colors_percent = create_data_colors(data_color_dict, data_stack_order_percent)
 
     # TODO: add in y-axis labels, etc.
 
-    if isinstance(data_dictionary, Counter):
+    if isinstance(data_dictionary_count, Counter):
         if force_bar:
             create_bar_plot(
                 title,
                 [stacked_data],
-                labels=data_stack_labels,
+                labels=data_stack_labels_counts,
                 bar_labels=[stacked_data],
                 # legend_labels=data_stack_labels,
-                colors=data_colors,
+                colors=data_colors_counts,
                 hatches=data_hatching,
                 label_rotation=90,
                 portrait_x_axis=portrait_x_axis,
@@ -94,8 +87,8 @@ def query(
             create_line_plot(
                 title,
                 [stacked_data],
-                labels=data_stack_labels,
-                colors=data_colors,
+                labels=data_stack_labels_counts,
+                colors=data_colors_counts,
                 label_rotation=90,
                 portrait_x_axis=portrait_x_axis,
                 savefig=savefig,
@@ -104,7 +97,7 @@ def query(
             total_samples = sum(stacked_data)
             results_labels = []
 
-            for value, label in zip(stacked_data, data_stack_labels):
+            for value, label in zip(stacked_data, data_stack_labels_counts):
                 if not value:
                     results_labels.append("")
                 else:
@@ -120,19 +113,19 @@ def query(
                 title,
                 stacked_data,
                 labels=results_labels,
-                colors=data_colors,
+                colors=data_colors_counts,
                 hatches=data_hatching,
                 savefig=savefig,
             )
-    elif isinstance(data_dictionary, defaultdict):
+    elif isinstance(data_dictionary_count, defaultdict):
         if counts_plot:
             if force_line:
                 create_line_plot(
                     title + " [counts]",
                     stacked_data,
-                    categories,
-                    legend_labels=data_stack_labels,
-                    colors=data_colors,
+                    categories_counts,
+                    legend_labels=data_stack_labels_counts,
+                    colors=data_colors_counts,
                     label_rotation=90,
                     portrait_x_axis=portrait_x_axis,
                     savefig=savefig,
@@ -141,9 +134,9 @@ def query(
                 create_bar_plot(
                     title + " [counts]",
                     stacked_data,
-                    categories,
-                    legend_labels=data_stack_labels,
-                    colors=data_colors,
+                    categories_counts,
+                    legend_labels=data_stack_labels_counts,
+                    colors=data_colors_counts,
                     hatches=data_hatching,
                     label_rotation=90,
                     portrait_x_axis=portrait_x_axis,
@@ -154,10 +147,10 @@ def query(
             if force_line:
                 create_line_plot(
                     title + " [%]",
-                    percentile_data,
-                    percentile_categories,
-                    legend_labels=data_stack_labels,
-                    colors=percentile_data_colors,
+                    stacked_data_percent,
+                    categories_percent,
+                    legend_labels=data_stack_labels_percent,
+                    colors=data_colors_percent,
                     label_rotation=90,
                     percentage=True,
                     portrait_x_axis=portrait_x_axis,
@@ -166,10 +159,10 @@ def query(
             else:
                 create_bar_plot(
                     title + " [%]",
-                    percentile_data,
-                    percentile_categories,
-                    legend_labels=data_stack_labels,
-                    colors=percentile_data_colors,
+                    stacked_data_percent,
+                    categories_percent,
+                    legend_labels=data_stack_labels_percent,
+                    colors=data_colors_percent,
                     hatches=data_hatching,
                     label_rotation=90,
                     percentage=True,
@@ -181,15 +174,7 @@ def query(
 
 
 def create_data_colors(data_color_dict, data_stack_order):
-    if data_color_dict is not None:
-        data_colors = [data_color_dict[data_part] for data_part in data_stack_order]
-        percentile_data_colors = [
-            data_color_dict[data_part] for data_part in data_stack_order
-        ]
-    else:
-        data_colors = None
-        percentile_data_colors = None
-    return data_colors, percentile_data_colors
+    return None if data_color_dict is None else [data_color_dict[data_part] for data_part in data_stack_order]
 
 
 def create_data_plot_labels(data_stack_label_dict, data_stack_order):
@@ -210,11 +195,10 @@ def create_data_plot_labels(data_stack_label_dict, data_stack_order):
 
 
 def create_data_stacks(
-    categories, percentile_categories, data_dictionary, data_sum, data_stack_order
+    categories, data_dictionary, data_stack_order
 ):
     # TODO: data stack order in defaultdict (stacked bar) will omit data
     stacked_data = []
-    percentile_data = []
 
     if isinstance(data_dictionary, defaultdict):
         if data_stack_order is None:
@@ -223,30 +207,16 @@ def create_data_stacks(
                 for _k, _v in v.items():
                     data_parts.add(_k)
 
-            data_stack_order = sorted(data_parts)
+            new_data_stack_order = sorted(data_parts)
 
-        for data_part in data_stack_order:
+        for data_part in new_data_stack_order:
             stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
-            percentile_data.append(
-                [
-                    0
-                    if not data_sum[cat]
-                    else data_dictionary[cat][data_part] / data_sum[cat]
-                    for cat in percentile_categories
-                ]
-            )
     elif isinstance(data_dictionary, Counter):
         if data_stack_order is None:
-            data_stack_order = categories
+            new_data_stack_order = categories
 
-        stacked_data = [data_dictionary[data_part] for data_part in data_stack_order]
-        percentile_data = [
-            0
-            if not data_sum[data_part]
-            else data_dictionary[data_part] / data_sum[data_part]
-            for data_part in data_stack_order
-        ]
+        stacked_data = [data_dictionary[data_part] for data_part in new_data_stack_order]
     else:
         raise ValueError
 
-    return data_stack_order, percentile_data, stacked_data
+    return new_data_stack_order, stacked_data
