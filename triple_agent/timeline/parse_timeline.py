@@ -461,8 +461,15 @@ def parse_single_screenshot(
 ) -> List[TimelineEvent]:
     lines = separate_line_images(screenshot)
 
-    with Pool(processes=2) as pool:
+    # https://github.com/pytest-dev/pytest-cov/issues/250
+
+    pool = Pool(processes=2)
+
+    try:
         events = pool.map(process_line_image, lines)
+    finally:
+        pool.close()
+        pool.join()
 
     while events and events[-1] is None:
         events.pop()
