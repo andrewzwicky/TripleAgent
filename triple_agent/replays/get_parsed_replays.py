@@ -15,8 +15,8 @@ def unpickle_game(replay_pickle_file: str) -> Game:
 
 
 def get_parsed_replays(game_filter) -> List[Game]:
-    p = Pool(4)
-    unfiltered_game_list = p.map(unpickle_game, os.listdir(REPLAY_PICKLE_FOLDER))
-    filtered_game_list = list(filter(game_filter, unfiltered_game_list))
+    with Pool(processes=4) as pool:
+        unfiltered_game_list = pool.map(unpickle_game, os.listdir(REPLAY_PICKLE_FOLDER))
+        filtered_game_list = list(filter(game_filter, unfiltered_game_list))
 
     return filtered_game_list
