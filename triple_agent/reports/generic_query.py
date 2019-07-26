@@ -11,6 +11,7 @@ from triple_agent.reports.plot_utilities import (
     create_sorted_categories,
     create_data_dictionaries,
     limit_categories,
+    create_data_stacks,
 )
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.scl_set import SCLSet
@@ -20,7 +21,7 @@ def query(
     games: Union[List[Game], List[SCLSet]],
     title: str,
     query_function: Callable,
-    data_stack_order_arg: List[Any] = None,
+    data_stack_order: List[Any] = None,
     data_color_dict: Dict[str, str] = None,
     data_hatching: List[Optional[str]] = None,
     groupby: Callable = None,
@@ -34,7 +35,7 @@ def query(
     force_bar=False,
     force_line=False,
     portrait_x_axis=False,
-    savefig=None
+    savefig=None,
 ):
     """
     query is the default plotting interface.  Given a list of games/sets, and a function to
@@ -43,25 +44,45 @@ def query(
     """
 
     # create data dictionary
-    data_dictionary_count, data_dictionary_percent = create_data_dictionaries(games, query_function, groupby)
+    data_dictionary_count, data_dictionary_percent = create_data_dictionaries(
+        games, query_function, groupby
+    )
 
     # create the list of x-axis categories. percentile needs to be it's own list
     # so it can be separately sorted between the counts plot and the percentile plot
-    categories_counts = create_sorted_categories(data_dictionary_count, category_data_order, reversed_data_sort, category_name_order)
-    categories_percent = create_sorted_categories(data_dictionary_percent, category_data_order, reversed_data_sort, category_name_order)
+    categories_counts = create_sorted_categories(
+        data_dictionary_count,
+        category_data_order,
+        reversed_data_sort,
+        category_name_order,
+    )
+    categories_percent = create_sorted_categories(
+        data_dictionary_percent,
+        category_data_order,
+        reversed_data_sort,
+        category_name_order,
+    )
 
     # limit categories to reduce clutter
     categories_counts = limit_categories(categories_counts, limit)
     categories_percent = limit_categories(categories_percent, limit)
 
     # sort
-    data_stack_order_counts, stacked_data = create_data_stacks(categories_counts, data_dictionary_count, data_stack_order_arg)
-    data_stack_order_percent, stacked_data_percent = create_data_stacks(categories_percent, data_dictionary_percent, data_stack_order_arg)
+    data_stack_order_counts, stacked_data = create_data_stacks(
+        categories_counts, data_dictionary_count, data_stack_order
+    )
+    data_stack_order_percent, stacked_data_percent = create_data_stacks(
+        categories_percent, data_dictionary_percent, data_stack_order
+    )
 
     # TODO: reversed legend labels/handles
     # create data stack labels
-    data_stack_labels_counts = create_data_plot_labels(data_stack_label_dict, data_stack_order_counts)
-    data_stack_labels_percent = create_data_plot_labels(data_stack_label_dict, data_stack_order_percent)
+    data_stack_labels_counts = create_data_plot_labels(
+        data_stack_label_dict, data_stack_order_counts
+    )
+    data_stack_labels_percent = create_data_plot_labels(
+        data_stack_label_dict, data_stack_order_percent
+    )
 
     data_colors_counts = create_data_colors(data_color_dict, data_stack_order_counts)
     data_colors_percent = create_data_colors(data_color_dict, data_stack_order_percent)
@@ -174,7 +195,11 @@ def query(
 
 
 def create_data_colors(data_color_dict, data_stack_order):
-    return None if data_color_dict is None else [data_color_dict[data_part] for data_part in data_stack_order]
+    return (
+        None
+        if data_color_dict is None
+        else [data_color_dict[data_part] for data_part in data_stack_order]
+    )
 
 
 def create_data_plot_labels(data_stack_label_dict, data_stack_order):
@@ -192,31 +217,3 @@ def create_data_plot_labels(data_stack_label_dict, data_stack_order):
             for plot_order_item in data_stack_order
         ]
     return data_plot_order_labels
-
-
-def create_data_stacks(
-    categories, data_dictionary, data_stack_order
-):
-    # TODO: data stack order in defaultdict (stacked bar) will omit data
-    stacked_data = []
-
-    if isinstance(data_dictionary, defaultdict):
-        if data_stack_order is None:
-            data_parts = set()
-            for k, v in data_dictionary.items():
-                for _k, _v in v.items():
-                    data_parts.add(_k)
-
-            new_data_stack_order = sorted(data_parts)
-
-        for data_part in new_data_stack_order:
-            stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
-    elif isinstance(data_dictionary, Counter):
-        if data_stack_order is None:
-            new_data_stack_order = categories
-
-        stacked_data = [data_dictionary[data_part] for data_part in new_data_stack_order]
-    else:
-        raise ValueError
-
-    return new_data_stack_order, stacked_data

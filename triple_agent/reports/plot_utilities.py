@@ -10,6 +10,47 @@ def limit_categories(categories, limit):
     return categories
 
 
+def create_data_stacks(categories, data_dictionary, data_stack_order):
+    """
+    this function rearranges the data to stack in the proper order.  For example,
+    if the data is grouped by venue, and each stack includes each win type (mission win,
+    spy shot, timeout, and civ shot).  It makes sense to stack spy shot and timeout next
+    to each other visually.
+
+    This is still relevant even for pie charts, because it will change the order the
+    slices appear in.
+
+    data_stack_order that's missing things can omit data from the result.
+    """
+    # TODO: data stack order in defaultdict (stacked bar) will omit data
+    stacked_data = []
+
+    if isinstance(data_dictionary, defaultdict):
+        # if nothing is supplied, use the given data_part names and sort them.
+        if data_stack_order is None:
+            data_parts = set()
+            for k, v in data_dictionary.items():
+                for _k, _v in v.items():
+                    data_parts.add(_k)
+
+            data_stack_order = sorted(data_parts)
+
+        for data_part in data_stack_order:
+            stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
+    elif isinstance(data_dictionary, Counter):
+        # In the simple counter case, the categories are also the data_parts
+        if data_stack_order is None:
+            data_stack_order = categories
+
+        # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
+        # This also means that misspelled args in data_stack_order might be difficult to find.
+        stacked_data = [data_dictionary[data_part] for data_part in data_stack_order]
+    else:
+        raise ValueError
+
+    return data_stack_order, stacked_data
+
+
 def create_sorted_categories(
     data_dictionary: Union[Counter, defaultdict],
     category_data_order: Any = None,
@@ -35,9 +76,7 @@ def create_sorted_categories(
             if category_data_order is sum:
                 categories.sort(key=lambda c: -sum(data_dictionary[c].values()))
             elif callable(category_data_order):
-                categories.sort(
-                    key=lambda c: category_data_order(data_dictionary[c])
-                )
+                categories.sort(key=lambda c: category_data_order(data_dictionary[c]))
             else:
                 categories.sort(key=lambda c: -data_dictionary[c][category_data_order])
 
