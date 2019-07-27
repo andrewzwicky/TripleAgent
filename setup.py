@@ -42,7 +42,7 @@ setup(
     },
     python_requires=">=3.7",
     extras_require={
-        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6"],
+        "plot": ["matplotlib>=3.1.0", "jupyterlab>=0.35.6", "tabulate>=0.8.3"],
         "retrieve": ["requests>=2.22.0", "beautifulsoup4>=4.7.1"],
         "parse": [
             "pyautogui>=0.9.42",
@@ -51,7 +51,7 @@ setup(
             "pytesseract>=0.2.6",
             "numpy>=1.16.3",
         ],
-        "test" : ["pytest", "opencv-python>=4.1.0.25", "pytest-cov"]
+        "test": ["pytest", "opencv-python>=4.1.0.25", "pytest-cov"],
     },
     setup_requires=["pytest-runner>=4.4"],
     classifiers=[

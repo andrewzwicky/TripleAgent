@@ -33,7 +33,7 @@ def _determine_role_games(games, data_dictionary, role):
 def determine_role(game, role):
     for event in game.timeline:
         if (event.category & TimelineCategory.Cast) and (role in event.role):
-            return event.cast_name[0].name
+            return event.cast_name[0]
 
 
 def spy_selection(games: List[Game], title: str, **kwargs):
