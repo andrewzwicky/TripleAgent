@@ -1,8 +1,9 @@
 from collections import defaultdict
-from typing import List
+from typing import List, Optional
 
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.roles import Roles
+from triple_agent.utilities.characters import Characters
 from triple_agent.utilities.timeline import TimelineCategory
 from triple_agent.reports.generic_query import query
 
@@ -25,15 +26,17 @@ def _determine_da(games, data_dictionary):
 
 def _determine_role_games(games, data_dictionary, role):
     for this_game in games:
-        cast = determine_role(this_game, role)
+        cast = determine_character_in_role(this_game, role)
         if cast:
             data_dictionary[cast] += 1
 
 
-def determine_role(game, role):
+def determine_character_in_role(game, role) -> Optional[Characters]:
     for event in game.timeline:
         if (event.category & TimelineCategory.Cast) and (role in event.role):
             return event.cast_name[0]
+
+    return None
 
 
 def spy_selection(games: List[Game], title: str, **kwargs):
