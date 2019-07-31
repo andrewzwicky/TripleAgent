@@ -58,32 +58,29 @@ def create_sorted_categories(
     category_name_order: Callable[[str], int] = None,
 ):
     categories = list(data_dictionary.keys())
+    category_lambdas = dict()
+    category_lambdas["callable"] = lambda c: category_data_order(data_dictionary[c])
 
-    # sort the categories
     if isinstance(data_dictionary, Counter):
-        # pie chart or regular bar plot
-        if category_data_order is not None:
-            if category_data_order is sum:
-                categories.sort(key=lambda c: data_dictionary[c])
-            elif callable(category_data_order):
-                categories.sort(key=lambda c: category_data_order(data_dictionary[c]))
-        elif category_name_order is not None:
-            categories.sort(key=category_name_order)
-
+        category_lambdas["sum"] = lambda c: data_dictionary[c]
+        category_lambdas["none"] = lambda c: True
     elif isinstance(data_dictionary, defaultdict):
-        # stacked bar
-        if category_data_order is not None:
-            if category_data_order is sum:
-                categories.sort(key=lambda c: -sum(data_dictionary[c].values()))
-            elif callable(category_data_order):
-                categories.sort(key=lambda c: category_data_order(data_dictionary[c]))
-            else:
-                categories.sort(key=lambda c: -data_dictionary[c][category_data_order])
-
-        elif category_name_order is not None:
-            categories.sort(key=category_name_order)
+        category_lambdas["sum"] = lambda c: -sum(data_dictionary[c].values())
+        category_lambdas["none"] = lambda c: -data_dictionary[c][category_data_order]
     else:
         raise ValueError
+
+    # sort the categories
+    if category_data_order is not None:
+        if category_data_order is sum:
+            categories.sort(key=category_lambdas["sum"])
+        elif callable(category_data_order):
+            categories.sort(key=category_lambdas["callable"])
+        else:
+            categories.sort(key=category_lambdas["none"])
+
+    elif category_name_order is not None:
+        categories.sort(key=category_name_order)
 
     if reversed_data_sort:
         categories = list(reversed(categories))
