@@ -10,7 +10,10 @@ def get_parsed_replays(game_filter) -> List[Game]:
     pool = Pool(processes=4)
 
     try:
-        replay_pickle_paths = [os.path.join(REPLAY_PICKLE_FOLDER, f) for f in os.listdir(REPLAY_PICKLE_FOLDER)]
+        replay_pickle_paths = [
+            os.path.join(REPLAY_PICKLE_FOLDER, f)
+            for f in os.listdir(REPLAY_PICKLE_FOLDER)
+        ]
         unfiltered_game_list = pool.map(game_unpickle, replay_pickle_paths)
         filtered_game_list = list(filter(game_filter, unfiltered_game_list))
     finally:

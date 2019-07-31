@@ -120,9 +120,9 @@ def create_line_plot(
             )
             newax.imshow(im)
             newax.axis("off")
-    
+
     if savefig:
-        plt.savefig(savefig, bbox_inches = "tight")
+        plt.savefig(savefig, bbox_inches="tight")
 
     if not no_show:
         plt.show()
@@ -265,15 +265,15 @@ def create_bar_plot(
             newax.axis("off")
 
     if savefig:
-        plt.savefig(savefig, bbox_inches = "tight")
-            
+        plt.savefig(savefig, bbox_inches="tight")
+
     if not no_show:
         plt.show()
 
     return axis
 
 
-def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None,):
+def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None):
     _, axis = plt.subplots(figsize=(8, 8))
 
     axis.set_title(title)
@@ -290,10 +290,9 @@ def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=Non
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 
-
     if savefig:
-        plt.savefig(savefig, bbox_inches = "tight")
-                
+        plt.savefig(savefig, bbox_inches="tight")
+
     plt.show()
 
 
@@ -356,6 +355,6 @@ def create_histogram(
         axis.set_xlabel(x_label)
 
     if savefig:
-        plt.savefig(savefig, bbox_inches = "tight")
+        plt.savefig(savefig, bbox_inches="tight")
 
     plt.show()
