@@ -38,7 +38,7 @@ def create_line_plot(
     ticks = list(range(len(data[0])))
 
     # make sure all individual data sets are the same length
-    assert len(set([len(d) for d in data])) == 1
+    assert len({len(d) for d in data}) == 1
 
     max_bar_value = max((map(max, zip(*data))))
 

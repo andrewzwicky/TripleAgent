@@ -29,9 +29,9 @@ def create_data_stacks(categories, data_dictionary, data_stack_order):
         # if nothing is supplied, use the given data_part names and sort them.
         if data_stack_order is None:
             data_parts = set()
-            for k, v in data_dictionary.items():
-                for _k, _v in v.items():
-                    data_parts.add(_k)
+            for value in data_dictionary.values():
+                for inner_key in value.keys():
+                    data_parts.add(inner_key)
 
             data_stack_order = sorted(data_parts)
 

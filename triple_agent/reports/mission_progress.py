@@ -29,12 +29,12 @@ def mission_progress(games: List[Game], title: str):
             progresses.append(game_progress)
             colors.append(WINTYPES_TO_COLORS[game.win_type])
 
-    fig, axis = plt.subplots(figsize=(14, 10))
+    _, axis = plt.subplots(figsize=(14, 10))
 
     alpha = 0.05
 
-    for t, p, c in zip(times, progresses, colors):
-        axis.plot(t, p, linewidth=4, alpha=alpha, color=c)
+    for time, progress, color in zip(times, progresses, colors):
+        axis.plot(time, progress, linewidth=4, alpha=alpha, color=color)
         # axis.scatter(t[-1], p[-1], alpha=alpha, marker="o", color="k")
 
     axis.set_ylim(bottom=0)

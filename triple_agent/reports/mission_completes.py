@@ -13,11 +13,11 @@ from triple_agent.utilities.missions import (
 )
 
 
-def _mission_completes(games, data_dictionary):
+def _mission_completes(games: List[Game], data_dictionary: Counter):
     for game in games:
-        for m in Missions:
-            if m & game.completed_missions:
-                data_dictionary[m] += 1
+        for mission in Missions:
+            if mission & game.completed_missions:
+                data_dictionary[mission] += 1
 
 
 def mission_completion_query(games: List[Game], title: str, **kwargs):
