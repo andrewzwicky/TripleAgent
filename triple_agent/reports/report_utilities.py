@@ -111,7 +111,9 @@ def create_line_plot(
             name = label.get_text().strip().lower()
             [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
 
-            portrait_image = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            portrait_image = plt.imread(
+                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+            )
             port_size = 0.045
             middle = (left + right) / 2
             port_start = middle - (port_size / 2)
@@ -254,7 +256,9 @@ def create_bar_plot(
             name = label.get_text().strip().lower()
             [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
 
-            portrait_image = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            portrait_image = plt.imread(
+                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+            )
             port_size = 0.045
             middle = (left + right) / 2
             port_start = middle - (port_size / 2)
@@ -313,9 +317,7 @@ def create_histogram(
     cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
     axis.set_xlim(0, last_bin_right)
 
-    heights, _, _ = axis.hist(
-        data, data_bins, color="xkcd:green", edgecolor="k"
-    )
+    heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
 
     if cumulative_also:
         axis2 = axis.twinx()
