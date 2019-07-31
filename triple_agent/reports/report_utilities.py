@@ -46,7 +46,7 @@ def create_line_plot(
 
     current_bottom = [0] * len(data[0])
 
-    for i, (this_data, this_color) in enumerate(zip(data, colors)):
+    for _, (this_data, this_color) in enumerate(zip(data, colors)):
         axis.plot(
             ticks,
             this_data,
@@ -111,14 +111,14 @@ def create_line_plot(
             name = label.get_text().strip().lower()
             [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
 
-            im = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            portrait_image = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
             port_size = 0.045
             middle = (left + right) / 2
             port_start = middle - (port_size / 2)
             newax = fig.add_axes(
                 [port_start, top - port_size, port_size, port_size], zorder=-1
             )
-            newax.imshow(im)
+            newax.imshow(portrait_image)
             newax.axis("off")
 
     if savefig:
@@ -161,7 +161,7 @@ def create_bar_plot(
     ticks = list(range(len(data[0])))
 
     # make sure all individual data sets are the same length
-    assert len(set([len(d) for d in data])) == 1
+    assert len({len(d) for d in data}) == 1
 
     max_bar_value = max((map(sum, zip(*data))))
     text_padding = max_bar_value * 0.01
@@ -254,14 +254,14 @@ def create_bar_plot(
             name = label.get_text().strip().lower()
             [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
 
-            im = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
+            portrait_image = plt.imread(os.path.join(PORTRAITS_FOLDER, "{}.png".format(name)))
             port_size = 0.045
             middle = (left + right) / 2
             port_start = middle - (port_size / 2)
             newax = fig.add_axes(
                 [port_start, top - port_size, port_size, port_size], zorder=-1
             )
-            newax.imshow(im)
+            newax.imshow(portrait_image)
             newax.axis("off")
 
     if savefig:
@@ -313,7 +313,7 @@ def create_histogram(
     cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
     axis.set_xlim(0, last_bin_right)
 
-    heights, bins, patches = axis.hist(
+    heights, _, _ = axis.hist(
         data, data_bins, color="xkcd:green", edgecolor="k"
     )
 

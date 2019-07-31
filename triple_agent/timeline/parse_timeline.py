@@ -12,7 +12,7 @@ from mss import mss
 
 from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
 from triple_agent.utilities.books import Books, COLORS_TO_BOOKS_ENUM
-from triple_agent.utilities.characters import Characters, portrait_md5_dict
+from triple_agent.utilities.characters import Characters, PORTRAIT_MD5_DICT
 from triple_agent.utilities.roles import ROLE_COLORS_TO_ENUM, Roles
 from triple_agent.utilities.timeline import TimelineEvent
 
@@ -54,6 +54,13 @@ TEXT_OFFSET = 125
 
 ROLE_BORDER_SIZE = 2
 
+SPY_P_TOP = 668
+SPY_P_LEFT = 633
+SPY_P_WIDTH = 2
+SPY_P_HEIGHT = 25
+TIMEOUT = 12  # seconds
+TIME_STEP = 0.5
+
 
 class TimelineParseException(Exception):
     pass
@@ -87,12 +94,6 @@ def ocr_core(
 
 
 def is_game_loaded(spy_party_handle: Optional[int], pycharm_handle: Optional[int]):
-    SPY_P_TOP = 668
-    SPY_P_LEFT = 633
-    SPY_P_WIDTH = 2
-    SPY_P_HEIGHT = 25
-    TIMEOUT = 12  # seconds
-    TIME_STEP = 0.5
     total_time = 0
 
     while True:
@@ -145,7 +146,7 @@ def get_screenshots(
         refresh_window(spy_party_handle, pycharm_handle)
 
         with mss() as sct:
-            ss = cv2.cvtColor(
+            screenshot = cv2.cvtColor(
                 np.asarray(
                     sct.grab(
                         monitor={
@@ -164,12 +165,12 @@ def get_screenshots(
         # starts with identifying the last one.
         print(f"{screenshot_num} taken")
 
-        if is_last_screenshot(ss):
-            yield (screenshot_num, ss, True)
+        if is_last_screenshot(screenshot):
+            yield (screenshot_num, screenshot, True)
             break
 
         else:
-            yield (screenshot_num, ss, False)
+            yield (screenshot_num, screenshot, False)
             for _ in range(30):
                 pyautogui.scroll(-1)
                 sleep(0.02)
@@ -390,7 +391,7 @@ def name_portrait(
 
         try:
             characters.append(
-                portrait_md5_dict[hashlib.md5(portrait.tostring()).hexdigest()]
+                PORTRAIT_MD5_DICT[hashlib.md5(portrait.tostring()).hexdigest()]
             )
         except KeyError:
             raise TimelineParseException("character portrait not found")
@@ -413,9 +414,9 @@ def remove_overlap(events: Iterator[TimelineEvent]) -> List[TimelineEvent]:
         overlap = False
         last_page_index = 30
 
-        for i, h in enumerate(reversed(second_last_page_hashes), start=1):
-            if h == last_page_hashes[0]:
-                last_page_index = 30 - i
+        for index, this_hash in enumerate(reversed(second_last_page_hashes), start=1):
+            if this_hash == last_page_hashes[0]:
+                last_page_index = 30 - index
                 overlap = True
                 break
 

@@ -51,7 +51,7 @@ CHARACTERS_TO_STRING = {
     Characters.Wheels: "Mr. I",
 }
 
-portrait_md5_dict = {
+PORTRAIT_MD5_DICT = {
     "dc1eaaaecfc24b1cbae0e3dd22cb47e4": Characters.Smallman,
     "775985d662ee9c57c376f7ee00d9acbf": Characters.Duke,
     "8673afcd757ba4a140f50d883036bf5e": Characters.Salmon,

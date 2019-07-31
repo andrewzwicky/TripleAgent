@@ -97,7 +97,6 @@ def create_data_dictionaries(games, query_function, groupby):
     -A defaultdict(Counter), with the 1st level keys being the groupby categories and the 2nd level keys
     are the data categories.  This is for stacked bar plots.
     -A plain Counter, representing a possible pie chart / unstacked bar plot.
-    
     This method will return both a counts based data_dictionary and a percentile_based_data_dictionary.
     """
     # TODO: data_dictionary_percent being a counter doesn't really make much sense

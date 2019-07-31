@@ -11,7 +11,7 @@ class SCLSet:
         self.players = players
         self.games = games
         self.score = self.__get_score()
-        self.tie = True if self.score == [6, 6] else False
+        self.tie = self.score == [6, 6]
         self.division = games[0].division
         self.event = games[0].event
         self.week = games[0].week

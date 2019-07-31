@@ -3,7 +3,6 @@ import itertools
 import os
 import threading
 from collections import defaultdict
-from ctypes import create_unicode_buffer
 from queue import Queue
 from shutil import move
 from time import sleep
@@ -28,7 +27,7 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
     _pycharm_handle = None
     _spy_party_handle = None
 
-    EnumWindowsProc = ctypes.WINFUNCTYPE(
+    enum_windows_process = ctypes.WINFUNCTYPE(
         ctypes.c_bool, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)
     )
 
@@ -44,7 +43,7 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
 
         return True
 
-    ctypes.windll.user32.EnumWindows(EnumWindowsProc(foreach_window), 0)
+    ctypes.windll.user32.EnumWindows(enum_windows_process(foreach_window), 0)
 
     if _spy_party_handle is None or _pycharm_handle is None:
         raise OSError
@@ -55,7 +54,7 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
 def window__get_title(hwnd_handle):
     length = ctypes.windll.user32.GetWindowTextLengthW(hwnd_handle)
     if length > 0:
-        buff = create_unicode_buffer(length + 1)
+        buff = ctypes.create_unicode_buffer(length + 1)
         ctypes.windll.user32.GetWindowTextW(hwnd_handle, buff, length + 1)
         return buff.value
     return ""
