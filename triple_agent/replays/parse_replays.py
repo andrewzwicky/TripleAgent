@@ -6,11 +6,8 @@ from typing import Optional, Dict, AnyStr
 from spyparty.ReplayParser import ReplayParser
 from triple_agent.timeline.parse_game_timelines_parallel import parse_timeline_parallel
 from triple_agent.utilities.game import Game, game_load_or_new
-from triple_agent.utilities.paths import (
-    ALL_EVENTS_FOLDER,
-    UNPARSED_REPLAYS_FOLDER,
-    LONG_FILE_HEADER,
-)
+from triple_agent.utilities.paths import UNPARSED_REPLAYS_FOLDER, LONG_FILE_HEADER
+from triple_agent.replays.replay_file_iterator import iterate_over_event_replays
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
@@ -79,38 +76,7 @@ def parse_replays(game_filter):
         is parsing replays).
     ---Once parsed, timelines will be applied and the game will finally be pickled.
     """
-
-    game_list = []
-
-    for root, _, files in os.walk(ALL_EVENTS_FOLDER):
-        for file in files:
-            if file.endswith(".replay"):
-                # get the path relative to the EVENTS_FOLDER
-                # this will determine if there is div and week information
-                components = os.path.relpath(root, ALL_EVENTS_FOLDER).split("\\")
-
-                if len(components) == 3:
-                    event, division, week = components
-                    week = int(week)
-                else:
-                    event = components[0]
-                    division = week = None
-
-                replay_file = LONG_FILE_HEADER + os.path.join(root, file)
-
-                this_game = parse_single_replay(
-                    replay_file, event=event, division=division, week=week
-                )
-
-                if this_game is None:
-                    # ignore unparseable games
-                    continue
-
-                # new games will not be pickled at this point.
-
-                if game_filter(this_game):
-                    # we are interested in this game, add it to the list
-                    game_list.append(this_game)
+    game_list = list(iterate_over_event_replays(game_filter))
 
     # check that there are no duplicates from the same file existing twice.
     assert len({game.uuid for game in game_list}) == len(game_list)

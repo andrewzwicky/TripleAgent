@@ -30,12 +30,12 @@ class SCLSet:
 def sort_games_into_sets(games: List[Game]):
     # make sure all games are from the same event
     sorted_games = sorted(games, key=lambda g: (g.week, g.division))
-    assert len(set([game.event for game in sorted_games])) == 1
+    assert len({game.event for game in sorted_games}) == 1
 
     all_sets = []
 
-    for week, week_games in itertools.groupby(sorted_games, key=lambda g: g.week):
-        for division, week_div_games in itertools.groupby(
+    for _, week_games in itertools.groupby(sorted_games, key=lambda g: g.week):
+        for _, week_div_games in itertools.groupby(
             week_games, key=lambda g: g.division
         ):
             possible_pairings = defaultdict(list)
