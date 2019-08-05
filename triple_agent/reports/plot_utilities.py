@@ -51,6 +51,14 @@ def create_data_stacks(categories, data_dictionary, data_stack_order):
     return data_stack_order, stacked_data
 
 
+def create_data_label(count, total):
+    percent = 0 if total == 0 else (count / total)
+    if count == total and total != 0:
+        return f"{total:>3}\n{percent:>5.1%}"
+
+    return f"{count:>3}/{total:>3}\n{percent:>5.1%}"
+
+
 def create_sorted_categories(
     data_dictionary: Union[Counter, defaultdict],
     category_data_order: Any = None,
