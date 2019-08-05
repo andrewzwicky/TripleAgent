@@ -223,7 +223,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
 def test_create_data_dictionaries(
-    query_function, groupby, expected_data_dict, expected_data_dict_percent, init_test_games
+    query_function,
+    groupby,
+    expected_data_dict,
+    expected_data_dict_percent,
+    init_test_games,
 ):
     data_dict, data_dict_percent = create_data_dictionaries(
         init_test_games, query_function, groupby
