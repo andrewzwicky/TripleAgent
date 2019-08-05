@@ -360,3 +360,34 @@ def create_histogram(
         plt.savefig(savefig, bbox_inches="tight")
 
     plt.show()
+
+
+def create_overlapping_lines_plot(
+    title: str,
+    data: List[List[List[Union[int, float]]]],
+    colors: Optional[List[str]] = None,
+    alpha: float = 0.05,
+    y_label: Optional[str] = None,
+    x_label: Optional[str] = None,
+):
+    _, axis = plt.subplots(figsize=(14, 10))
+
+    x_vals, y_vals = data
+
+    for time, progress, color in zip(x_vals, y_vals, colors):
+        axis.plot(time, progress, linewidth=4, alpha=alpha, color=color)
+
+    axis.set_ylim(bottom=0)
+    axis.set_xlim(left=0)
+
+    if y_label is not None:
+        axis.set_ylabel(y_label)
+
+    if x_label is not None:
+        axis.set_xlabel(x_label)
+
+    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
+    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
+
+    axis.set_title(title)
+    plt.show()
