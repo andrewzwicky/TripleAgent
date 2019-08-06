@@ -1,5 +1,6 @@
 import re
 from collections.abc import Sequence
+from dataclasses import dataclass, field
 from datetime import datetime
 from enum import IntFlag, auto
 from typing import Optional, List, Tuple
@@ -47,39 +48,34 @@ class TimelineCategory(IntFlag):
     Overtime = auto()
 
 
+@dataclass
 class TimelineEvent:
+    actor: str
+    _raw_time_str: str
+    event: str
+    cast_name: Tuple[Optional[Characters]]
+    role: Tuple[Optional[Roles]]
+    books: Tuple[Optional[Books]]
+    elapsed_time: float = field(default=0, init=False)
+    time: float = field(default=0, init=False)
+    category: TimelineCategory = field(default=TimelineCategory.NoCategory, init=False)
+    mission: Missions = field(default=Missions.Zero, init=False)
+    action_test: ActionTest = field(default=ActionTest.NoAT, init=False)
+
     # this is needed for getting rid of commands and extra stuff from the OCR
     time_re = re.compile(r"(\d{2}:\d{2}.\d)")
 
-    def __init__(
-        self,
-        actor: str,
-        time_str: str,
-        event: str,
-        cast_name: Tuple[Optional[Characters]],
-        role: Tuple[Optional[Roles]],
-        books: Tuple[Optional[Books]],
-    ):
-        self.actor = actor
-        self._raw_time_str = time_str
+    def __post_init__(self):
         try:
             self.time = (
-                datetime.strptime(time_str, "%M:%S.%f")
+                datetime.strptime(self._raw_time_str, "%M:%S.%f")
                 - datetime.strptime("00:00.0", "%M:%S.%f")
             ).total_seconds()
         except ValueError:
             self.time = (
                 datetime.strptime("00:00.0", "%M:%S.%f")
-                - datetime.strptime(time_str, "-%M:%S.%f")
+                - datetime.strptime(self._raw_time_str, "-%M:%S.%f")
             ).total_seconds()
-        self.event = event
-        self.elapsed_time = None
-        self.cast_name = cast_name
-        self.role = role
-        self.books = books
-        self.category = TimelineCategory.NoCategory
-        self.mission = Missions.Zero
-        self.action_test = ActionTest.NoAT
         self.categorize()
 
         assert len(self.cast_name) == len(self.role)
@@ -94,17 +90,7 @@ class TimelineEvent:
             return
 
         if self.actor == "game":
-            if self.event == "game started.":
-                self.category = TimelineCategory.GameStart
-            elif self.event.startswith("missions completed."):
-                self.category = TimelineCategory.MissionCountdown
-            elif "overtime" in self.event:
-                self.category |= TimelineCategory.Overtime
-            elif "sync" in self.event:
-                return
-            else:
-                self.category = TimelineCategory.GameEnd
-            return
+            return self.classify_game_events()
 
         if self.event.endswith(" enabled."):
             self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
@@ -124,10 +110,6 @@ class TimelineEvent:
             self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
                 self.event[: -len(" pending.")]
             ]
-            if self.mission == Missions.Swap:
-                self.category |= TimelineCategory.Statues
-
-            return
 
         if self.event == "character picked up pending statue.":
             self.category |= TimelineCategory.Statues
@@ -228,6 +210,16 @@ class TimelineEvent:
 
         if "drink" in self.event or "waiter" in self.event or "bartender" in self.event:
             self.category |= TimelineCategory.Drinks
+
+    def classify_game_events(self):
+        if self.event == "game started.":
+            self.category = TimelineCategory.GameStart
+        elif self.event.startswith("missions completed."):
+            self.category = TimelineCategory.MissionCountdown
+        elif "overtime" in self.event:
+            self.category |= TimelineCategory.Overtime
+        elif "sync" not in self.event:
+            self.category = TimelineCategory.GameEnd
 
     def __repr__(self):
         return self.__str__()
