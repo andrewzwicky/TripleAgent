@@ -1,3 +1,4 @@
+# pylint: disable=too-many-lines
 import re
 from collections.abc import Sequence
 from dataclasses import dataclass, field
@@ -5,15 +6,10 @@ from datetime import datetime
 from enum import IntFlag, auto
 from typing import Optional, List, Tuple
 
-from triple_agent.utilities.action_tests import ActionTest, assign_color
+from triple_agent.utilities.action_tests import ActionTest
 from triple_agent.utilities.books import Books
 from triple_agent.utilities.characters import Characters, CHARACTERS_TO_STRING
-from triple_agent.utilities.missions import (
-    MISSION_COMPLETE_TIMELINE_TO_ENUM,
-    MISSION_GENERIC_TIMELINE_TO_ENUM,
-    MISSION_PARTIAL_TO_ENUM,
-    Missions,
-)
+from triple_agent.utilities.missions import Missions
 from triple_agent.utilities.roles import Roles
 
 
@@ -48,6 +44,1437 @@ class TimelineCategory(IntFlag):
     Overtime = auto()
 
 
+CATEGORIZATION_DICTIONARY = {
+    ("game", "game started."): (
+        TimelineCategory.GameStart,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "missions completed successfully."): (
+        TimelineCategory.GameEnd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "missions completed. 10 second countdown."): (
+        TimelineCategory.MissionCountdown,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "missions completed. countdown pending."): (
+        TimelineCategory.MissionCountdown,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "overtime!"): (TimelineCategory.Overtime, Missions.Zero, ActionTest.NoAT),
+    ("game", "sniper shot civilian."): (
+        TimelineCategory.GameEnd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "sniper shot spy."): (
+        TimelineCategory.GameEnd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "sniper shot too late for sync."): (
+        TimelineCategory.NoCategory,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("game", "spy ran out of time."): (
+        TimelineCategory.GameEnd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked book."): (
+        TimelineCategory.Books | TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked less suspicious."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked neutral suspicion."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked spy less suspicious."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked spy neutral suspicion."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked spy suspicious."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "marked suspicious."): (
+        TimelineCategory.SniperLights,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("sniper", "took shot."): (
+        TimelineCategory.SniperShot,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "45 seconds added to match."): (
+        TimelineCategory.TimeAdd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "aborted watch check to add time."): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action test canceled:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
+        Missions.Zero,
+        ActionTest.Canceled,
+    ),
+    ("spy", "action test canceled:contact double agent"): (
+        TimelineCategory.ActionTest,
+        Missions.Contact,
+        ActionTest.Canceled,
+    ),
+    ("spy", "action test canceled:purloin guest list"): (
+        TimelineCategory.ActionTest,
+        Missions.Purloin,
+        ActionTest.Canceled,
+    ),
+    ("spy", "action test canceled:seduce target"): (
+        TimelineCategory.ActionTest,
+        Missions.Seduce,
+        ActionTest.Canceled,
+    ),
+    ("spy", "action test canceled:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTest,
+        Missions.Transfer,
+        ActionTest.Canceled,
+    ),
+    ("spy", "action test green:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
+        Missions.Zero,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:contact double agent"): (
+        TimelineCategory.ActionTest,
+        Missions.Contact,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:fingerprint ambassador"): (
+        TimelineCategory.ActionTest,
+        Missions.Fingerprint,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:inspect statues"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:purloin guest list"): (
+        TimelineCategory.ActionTest,
+        Missions.Purloin,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:seduce target"): (
+        TimelineCategory.ActionTest,
+        Missions.Seduce,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:swap statue"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Swap,
+        ActionTest.Green,
+    ),
+    ("spy", "action test green:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTest,
+        Missions.Transfer,
+        ActionTest.Green,
+    ),
+    ("spy", "action test ignored:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
+        Missions.Zero,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:contact double agent"): (
+        TimelineCategory.ActionTest,
+        Missions.Contact,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:fingerprint ambassador"): (
+        TimelineCategory.ActionTest,
+        Missions.Fingerprint,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:inspect statues"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:purloin guest list"): (
+        TimelineCategory.ActionTest,
+        Missions.Purloin,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:seduce target"): (
+        TimelineCategory.ActionTest,
+        Missions.Seduce,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:swap statue"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Swap,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test ignored:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTest,
+        Missions.Transfer,
+        ActionTest.Ignored,
+    ),
+    ("spy", "action test red:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
+        Missions.Zero,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:contact double agent"): (
+        TimelineCategory.ActionTest,
+        Missions.Contact,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:fingerprint ambassador"): (
+        TimelineCategory.ActionTest,
+        Missions.Fingerprint,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:inspect statues"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:purloin guest list"): (
+        TimelineCategory.ActionTest,
+        Missions.Purloin,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:seduce target"): (
+        TimelineCategory.ActionTest,
+        Missions.Seduce,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:swap statue"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Swap,
+        ActionTest.Red,
+    ),
+    ("spy", "action test red:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTest,
+        Missions.Transfer,
+        ActionTest.Red,
+    ),
+    ("spy", "action test white:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
+        Missions.Zero,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:contact double agent"): (
+        TimelineCategory.ActionTest,
+        Missions.Contact,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:inspect statues"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:purloin guest list"): (
+        TimelineCategory.ActionTest,
+        Missions.Purloin,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:seduce target"): (
+        TimelineCategory.ActionTest,
+        Missions.Seduce,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:swap statue"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTest,
+        Missions.Swap,
+        ActionTest.White,
+    ),
+    ("spy", "action test white:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTest,
+        Missions.Transfer,
+        ActionTest.White,
+    ),
+    ("spy", "action triggered:bug ambassador"): (
+        TimelineCategory.ActionTriggered,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:check watch"): (
+        TimelineCategory.Watch | TimelineCategory.ActionTriggered,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:contact double agent"): (
+        TimelineCategory.ActionTriggered,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:fingerprint ambassador"): (
+        TimelineCategory.ActionTriggered,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:inspect statues"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTriggered,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:purloin guest list"): (
+        TimelineCategory.ActionTriggered,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:seduce target"): (
+        TimelineCategory.ActionTriggered,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:swap statue"): (
+        TimelineCategory.Statues | TimelineCategory.ActionTriggered,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "action triggered:transfer microfilm"): (
+        TimelineCategory.Books | TimelineCategory.ActionTriggered,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "all statues inspected."): (
+        TimelineCategory.Statues | TimelineCategory.MissionComplete,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "ambassador cast."): (
+        TimelineCategory.Cast,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "ambassador's personal space violated."): (
+        TimelineCategory.NoCategory,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "banana bread aborted."): (
+        TimelineCategory.NoCategory,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "banana bread uttered."): (
+        TimelineCategory.BananaBread,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bartender offered drink."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bartender picked next customer."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "begin flirtation with seduction target."): (
+        TimelineCategory.NoCategory,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "begin planting bug while standing."): (
+        TimelineCategory.NoCategory,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "begin planting bug while walking."): (
+        TimelineCategory.NoCategory,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bug ambassador enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bug ambassador selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bug transitioned from standing to walking."): (
+        TimelineCategory.NoCategory,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bugged ambassador while standing."): (
+        TimelineCategory.MissionComplete,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bugged ambassador while walking."): (
+        TimelineCategory.MissionComplete,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "cast member picked up pending statue."): (
+        TimelineCategory.Statues,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "character picked up pending statue."): (
+        TimelineCategory.Statues,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "civilian cast."): (TimelineCategory.Cast, Missions.Zero, ActionTest.NoAT),
+    ("spy", "contact double agent enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "contact double agent selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin timer expired."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to dr. m."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to dr. n."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. 5."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. a."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. c."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. d."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. g."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. i."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. k."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. p."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. q."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. s."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to mr. u."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. 0."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. b."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. e."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. f."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. h."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. j."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. l."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. o."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. r."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegated purloin to ms. t."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegating purloin guest list"): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "delegating purloin guest list."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "demand drink from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "double agent cast."): (
+        TimelineCategory.Cast,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "double agent contacted."): (
+        TimelineCategory.MissionComplete,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "double agent joined conversation with spy."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "double agent left conversation with spy."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "dropped statue."): (
+        TimelineCategory.Statues,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "failed flirt with seduction target."): (
+        TimelineCategory.NoCategory,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "failed planting bug while walking."): (
+        TimelineCategory.NoCategory,
+        Missions.Bug,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fake banana bread started."): (
+        TimelineCategory.BananaBread,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fake banana bread uttered."): (
+        TimelineCategory.BananaBread,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprint ambassador enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprint ambassador selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted ambassador."): (
+        TimelineCategory.MissionComplete,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted book."): (
+        TimelineCategory.Books | TimelineCategory.MissionPartial,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted briefcase."): (
+        TimelineCategory.Briefcase | TimelineCategory.MissionPartial,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted drink."): (
+        TimelineCategory.Drinks | TimelineCategory.MissionPartial,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted statue."): (
+        TimelineCategory.Statues | TimelineCategory.MissionPartial,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinting failed."): (
+        TimelineCategory.NoCategory,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:100%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:15%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:16%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:17%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:18%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:19%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:20%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:21%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:22%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:23%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:24%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:25%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:26%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:27%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:28%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:29%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:30%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:31%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:32%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:33%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:34%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:35%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:36%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:37%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:38%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:39%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:40%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:41%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:42%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:43%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:44%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:45%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:46%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:47%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:48%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:49%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:50%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:51%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:52%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:53%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:54%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:55%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:56%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:57%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:58%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:59%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:60%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:61%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:62%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:63%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:64%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:65%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:66%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:67%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:68%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:69%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:70%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:71%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:72%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:73%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:74%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:75%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:76%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:77%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:78%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:79%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:80%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:81%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:82%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:83%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:84%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:85%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:86%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:87%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:88%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:89%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:90%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:91%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:92%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:93%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:94%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:95%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:96%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:97%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:98%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target:99%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirtation cooldown expired."): (
+        TimelineCategory.NoCategory,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "gave up on bartender."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "get book from bookcase."): (
+        TimelineCategory.Books,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "got drink from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "got drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "guest list purloin pending."): (
+        TimelineCategory.NoCategory,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "guest list purloined."): (
+        TimelineCategory.MissionComplete,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "guest list return pending."): (
+        TimelineCategory.NoCategory,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "guest list returned."): (
+        TimelineCategory.Drinks,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "gulped drink."): (TimelineCategory.Drinks, Missions.Zero, ActionTest.NoAT),
+    ("spy", "held statue inspected."): (
+        TimelineCategory.Statues | TimelineCategory.MissionPartial,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "hide microfilm in book."): (
+        TimelineCategory.Books | TimelineCategory.MissionPartial,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 1 statue enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 1 statue selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 2 statues enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 2 statues selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 3 statues enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspect 3 statues selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "inspection interrupted."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "interrupted speaker."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "left alone while attempting banana bread."): (
+        TimelineCategory.BananaBread,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "left statue inspected."): (
+        TimelineCategory.Statues | TimelineCategory.MissionPartial,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "missions reset."): (
+        TimelineCategory.NoCategory,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "picked up fingerprintable briefcase (difficult)."): (
+        TimelineCategory.Briefcase,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "picked up fingerprintable briefcase."): (
+        TimelineCategory.Briefcase,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "picked up fingerprintable statue (difficult)."): (
+        TimelineCategory.Statues,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "picked up fingerprintable statue."): (
+        TimelineCategory.Statues,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "picked up statue."): (
+        TimelineCategory.Statues,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "purloin guest list aborted."): (
+        TimelineCategory.NoCategory,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "purloin guest list enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "purloin guest list selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Purloin,
+        ActionTest.NoAT,
+    ),
+    ("spy", "put back statue."): (
+        TimelineCategory.Statues,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "put book in bookcase."): (
+        TimelineCategory.Books,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "read book."): (TimelineCategory.Books, Missions.Zero, ActionTest.NoAT),
+    ("spy", "real banana bread started."): (
+        TimelineCategory.BananaBread,
+        Missions.Contact,
+        ActionTest.NoAT,
+    ),
+    ("spy", "rejected drink from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "rejected drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "remove microfilm from book."): (
+        TimelineCategory.Books | TimelineCategory.MissionPartial,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "request drink from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "request drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "right statue inspected."): (
+        TimelineCategory.Statues | TimelineCategory.MissionPartial,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "seduce target enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "seduce target selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "seduction canceled."): (
+        TimelineCategory.NoCategory,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "seduction target cast."): (
+        TimelineCategory.Cast,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "sipped drink."): (TimelineCategory.Drinks, Missions.Zero, ActionTest.NoAT),
+    ("spy", "spy cast."): (TimelineCategory.Cast, Missions.Zero, ActionTest.NoAT),
+    ("spy", "spy enters conversation."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy joined conversation with double agent."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy leaves conversation."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy left conversation with double agent."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy picks up briefcase."): (
+        TimelineCategory.Briefcase,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy player takes control from ai."): (
+        TimelineCategory.NoCategory,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy puts down briefcase."): (
+        TimelineCategory.Briefcase,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "spy returns briefcase."): (
+        TimelineCategory.Briefcase,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "started fingerprinting book."): (
+        TimelineCategory.Books,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "started fingerprinting briefcase."): (
+        TimelineCategory.Briefcase,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "started fingerprinting drink."): (
+        TimelineCategory.Drinks,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "started fingerprinting statue."): (
+        TimelineCategory.Statues,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "started talking."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "statue swap pending."): (
+        TimelineCategory.Statues,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "statue swapped."): (
+        TimelineCategory.Statues | TimelineCategory.MissionComplete,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "stopped talking."): (
+        TimelineCategory.Conversation,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "suspected double agent cast."): (
+        TimelineCategory.Cast,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "swap statue enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "swap statue selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Swap,
+        ActionTest.NoAT,
+    ),
+    ("spy", "target seduced."): (
+        TimelineCategory.MissionComplete,
+        Missions.Seduce,
+        ActionTest.NoAT,
+    ),
+    ("spy", "took last sip of drink."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "transfer microfilm enabled."): (
+        TimelineCategory.MissionEnabled,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "transfer microfilm selected."): (
+        TimelineCategory.MissionSelected,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "transferred microfilm."): (
+        TimelineCategory.Books | TimelineCategory.MissionComplete,
+        Missions.Transfer,
+        ActionTest.NoAT,
+    ),
+    ("spy", "waiter gave up."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "waiter offered drink."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "waiter stopped offering drink."): (
+        TimelineCategory.Drinks,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "watch checked to add time"): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "watch checked to add time."): (
+        TimelineCategory.Watch | TimelineCategory.TimeAdd,
+        Missions.Zero,
+        ActionTest.NoAT,
+    ),
+    ("spy", "watch checked."): (TimelineCategory.Watch, Missions.Zero, ActionTest.NoAT),
+}
+
+
 @dataclass
 class TimelineEvent:
     actor: str
@@ -76,156 +1503,17 @@ class TimelineEvent:
                 datetime.strptime("00:00.0", "%M:%S.%f")
                 - datetime.strptime(self._raw_time_str, "-%M:%S.%f")
             ).total_seconds()
-        self.categorize()
+        self.category, self.mission, self.action_test = CATEGORIZATION_DICTIONARY[
+            (self.actor, self.event)
+        ]
+
+        if self.event.startswith("delegated purloin to "):
+            # assume there will be a single a character here, use that for the name
+            self.event = "delegated purloin to {}.".format(
+                CHARACTERS_TO_STRING[self.cast_name[0]].lower()
+            )
 
         assert len(self.cast_name) == len(self.role)
-
-    def categorize(self):
-        if self.event == "took shot." and self.actor == "sniper":
-            self.category = TimelineCategory.SniperShot
-            return
-
-        if self.event.endswith("cast."):
-            self.category = TimelineCategory.Cast
-            return
-
-        if self.actor == "game":
-            return self.classify_game_events()
-
-        if self.event.endswith(" enabled."):
-            self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
-                self.event[: -len(" enabled.")]
-            ]
-            self.category = TimelineCategory.MissionEnabled
-            return
-
-        if self.event.endswith(" selected."):
-            self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
-                self.event[: -len(" selected.")]
-            ]
-            self.category = TimelineCategory.MissionSelected
-            return
-
-        if self.event.endswith(" pending."):
-            self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
-                self.event[: -len(" pending.")]
-            ]
-
-        if self.event == "character picked up pending statue.":
-            self.category |= TimelineCategory.Statues
-            self.mission = Missions.Swap
-
-        if self.event.endswith(" aborted."):
-            self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
-                self.event[: -len(" aborted.")]
-            ]
-
-            return
-
-        if "flirt" in self.event or "seduc" in self.event:
-            self.mission = Missions.Seduce
-
-            if self.event.endswith("%"):
-                self.category = TimelineCategory.MissionPartial
-            elif "expired" in self.event:
-                self.category = TimelineCategory.NoCategory
-
-        if "bug" in self.event:
-            self.mission = Missions.Bug
-
-        if "purloin" in self.event or "guest list" in self.event:
-            self.mission = Missions.Purloin
-            self.category |= TimelineCategory.Drinks
-            if self.event.startswith("delegated purloin to "):
-                # assume there will be a single a character here, use that for the name
-                self.event = "delegated purloin to {}.".format(
-                    CHARACTERS_TO_STRING[self.cast_name[0]].lower()
-                )
-
-        if "fingerprint" in self.event:
-            self.mission = Missions.Fingerprint
-
-        if "45 seconds" in self.event:
-            self.category |= TimelineCategory.TimeAdd
-
-        if "banana bread" in self.event:
-            self.mission = Missions.Contact
-            self.category |= TimelineCategory.BananaBread
-
-        if self.event.startswith("action"):
-            if self.event.startswith("action test"):
-                self.category = TimelineCategory.ActionTest
-                self.action_test = assign_color(self.event)
-                if "watch" in self.event:
-                    self.category |= TimelineCategory.TimeAdd
-
-            if self.event.startswith("action triggered:"):
-                self.category = TimelineCategory.ActionTriggered
-
-            self.mission = MISSION_GENERIC_TIMELINE_TO_ENUM[
-                self.event.split(":")[1].strip()
-            ]
-
-        if self.event in MISSION_COMPLETE_TIMELINE_TO_ENUM.keys():
-            self.category = TimelineCategory.MissionComplete
-            self.mission = MISSION_COMPLETE_TIMELINE_TO_ENUM[self.event]
-
-        if self.event in MISSION_PARTIAL_TO_ENUM.keys():
-            self.category = TimelineCategory.MissionPartial
-            self.mission = MISSION_PARTIAL_TO_ENUM[self.event]
-
-        if self.actor == "sniper" and self.event.startswith("marked"):
-            self.category |= TimelineCategory.SniperLights
-
-        # Assign Objects
-        if "watch" in self.event:
-            self.category |= TimelineCategory.Watch
-            if "to add time" in self.event:
-                self.category |= TimelineCategory.TimeAdd
-
-        if (
-            "conversation" in self.event
-            or "talking" in self.event
-            or ("interrupted" in self.event and "inspect" not in self.event)
-        ):
-            self.category |= TimelineCategory.Conversation
-
-        if "briefcase" in self.event:
-            self.category |= TimelineCategory.Briefcase
-
-        if "statue" in self.event:
-            self.category |= TimelineCategory.Statues
-            if (
-                self.event.startswith("left")
-                or self.event.startswith("held")
-                or self.event.startswith("right")
-            ):
-                self.category |= TimelineCategory.MissionPartial
-
-        if "inspect" in self.event:
-            self.mission = Missions.Inspect
-
-        if "book" in self.event or "microfilm" in self.event:
-            self.category |= TimelineCategory.Books
-
-        if "drink" in self.event or "waiter" in self.event or "bartender" in self.event:
-            self.category |= TimelineCategory.Drinks
-
-    def classify_game_events(self):
-        if self.event == "game started.":
-            self.category = TimelineCategory.GameStart
-        elif self.event.startswith("missions completed."):
-            self.category = TimelineCategory.MissionCountdown
-        elif "overtime" in self.event:
-            self.category |= TimelineCategory.Overtime
-        elif "sync" not in self.event:
-            self.category = TimelineCategory.GameEnd
-
-    def __repr__(self):
-        return self.__str__()
-
-    def __str__(self):
-        return f"{self.actor:<7} {self.time} {self.event}"
 
     def __hash__(self):
         return hash(
