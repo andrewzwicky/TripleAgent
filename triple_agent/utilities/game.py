@@ -93,10 +93,7 @@ class Game:
 
             previous_time = event.time
 
-            if event.event == "45 seconds added to match.":
-                previous_timeadd = True
-            else:
-                previous_timeadd = False
+            previous_timeadd = event.event == "45 seconds added to match."
 
         return coherent
 
