@@ -136,227 +136,227 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Zero,
         ActionTest.NoAT,
     ),
-    ("spy", "action test canceled:check watch"): (
+    ("spy", "action test canceled: check watch"): (
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
         Missions.Zero,
         ActionTest.Canceled,
     ),
-    ("spy", "action test canceled:contact double agent"): (
+    ("spy", "action test canceled: contact double agent"): (
         TimelineCategory.ActionTest,
         Missions.Contact,
         ActionTest.Canceled,
     ),
-    ("spy", "action test canceled:purloin guest list"): (
+    ("spy", "action test canceled: purloin guest list"): (
         TimelineCategory.ActionTest,
         Missions.Purloin,
         ActionTest.Canceled,
     ),
-    ("spy", "action test canceled:seduce target"): (
+    ("spy", "action test canceled: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
         ActionTest.Canceled,
     ),
-    ("spy", "action test canceled:transfer microfilm"): (
+    ("spy", "action test canceled: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTest,
         Missions.Transfer,
         ActionTest.Canceled,
     ),
-    ("spy", "action test green:check watch"): (
+    ("spy", "action test green: check watch"): (
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
         Missions.Zero,
         ActionTest.Green,
     ),
-    ("spy", "action test green:contact double agent"): (
+    ("spy", "action test green: contact double agent"): (
         TimelineCategory.ActionTest,
         Missions.Contact,
         ActionTest.Green,
     ),
-    ("spy", "action test green:fingerprint ambassador"): (
+    ("spy", "action test green: fingerprint ambassador"): (
         TimelineCategory.ActionTest,
         Missions.Fingerprint,
         ActionTest.Green,
     ),
-    ("spy", "action test green:inspect statues"): (
+    ("spy", "action test green: inspect statues"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Inspect,
         ActionTest.Green,
     ),
-    ("spy", "action test green:purloin guest list"): (
+    ("spy", "action test green: purloin guest list"): (
         TimelineCategory.ActionTest,
         Missions.Purloin,
         ActionTest.Green,
     ),
-    ("spy", "action test green:seduce target"): (
+    ("spy", "action test green: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
         ActionTest.Green,
     ),
-    ("spy", "action test green:swap statue"): (
+    ("spy", "action test green: swap statue"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Swap,
         ActionTest.Green,
     ),
-    ("spy", "action test green:transfer microfilm"): (
+    ("spy", "action test green: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTest,
         Missions.Transfer,
         ActionTest.Green,
     ),
-    ("spy", "action test ignored:check watch"): (
+    ("spy", "action test ignored: check watch"): (
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
         Missions.Zero,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:contact double agent"): (
+    ("spy", "action test ignored: contact double agent"): (
         TimelineCategory.ActionTest,
         Missions.Contact,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:fingerprint ambassador"): (
+    ("spy", "action test ignored: fingerprint ambassador"): (
         TimelineCategory.ActionTest,
         Missions.Fingerprint,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:inspect statues"): (
+    ("spy", "action test ignored: inspect statues"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Inspect,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:purloin guest list"): (
+    ("spy", "action test ignored: purloin guest list"): (
         TimelineCategory.ActionTest,
         Missions.Purloin,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:seduce target"): (
+    ("spy", "action test ignored: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:swap statue"): (
+    ("spy", "action test ignored: swap statue"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Swap,
         ActionTest.Ignored,
     ),
-    ("spy", "action test ignored:transfer microfilm"): (
+    ("spy", "action test ignored: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTest,
         Missions.Transfer,
         ActionTest.Ignored,
     ),
-    ("spy", "action test red:check watch"): (
+    ("spy", "action test red: check watch"): (
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
         Missions.Zero,
         ActionTest.Red,
     ),
-    ("spy", "action test red:contact double agent"): (
+    ("spy", "action test red: contact double agent"): (
         TimelineCategory.ActionTest,
         Missions.Contact,
         ActionTest.Red,
     ),
-    ("spy", "action test red:fingerprint ambassador"): (
+    ("spy", "action test red: fingerprint ambassador"): (
         TimelineCategory.ActionTest,
         Missions.Fingerprint,
         ActionTest.Red,
     ),
-    ("spy", "action test red:inspect statues"): (
+    ("spy", "action test red: inspect statues"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Inspect,
         ActionTest.Red,
     ),
-    ("spy", "action test red:purloin guest list"): (
+    ("spy", "action test red: purloin guest list"): (
         TimelineCategory.ActionTest,
         Missions.Purloin,
         ActionTest.Red,
     ),
-    ("spy", "action test red:seduce target"): (
+    ("spy", "action test red: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
         ActionTest.Red,
     ),
-    ("spy", "action test red:swap statue"): (
+    ("spy", "action test red: swap statue"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Swap,
         ActionTest.Red,
     ),
-    ("spy", "action test red:transfer microfilm"): (
+    ("spy", "action test red: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTest,
         Missions.Transfer,
         ActionTest.Red,
     ),
-    ("spy", "action test white:check watch"): (
+    ("spy", "action test white: check watch"): (
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
         Missions.Zero,
         ActionTest.White,
     ),
-    ("spy", "action test white:contact double agent"): (
+    ("spy", "action test white: contact double agent"): (
         TimelineCategory.ActionTest,
         Missions.Contact,
         ActionTest.White,
     ),
-    ("spy", "action test white:inspect statues"): (
+    ("spy", "action test white: inspect statues"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Inspect,
         ActionTest.White,
     ),
-    ("spy", "action test white:purloin guest list"): (
+    ("spy", "action test white: purloin guest list"): (
         TimelineCategory.ActionTest,
         Missions.Purloin,
         ActionTest.White,
     ),
-    ("spy", "action test white:seduce target"): (
+    ("spy", "action test white: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
         ActionTest.White,
     ),
-    ("spy", "action test white:swap statue"): (
+    ("spy", "action test white: swap statue"): (
         TimelineCategory.Statues | TimelineCategory.ActionTest,
         Missions.Swap,
         ActionTest.White,
     ),
-    ("spy", "action test white:transfer microfilm"): (
+    ("spy", "action test white: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTest,
         Missions.Transfer,
         ActionTest.White,
     ),
-    ("spy", "action triggered:bug ambassador"): (
+    ("spy", "action triggered: bug ambassador"): (
         TimelineCategory.ActionTriggered,
         Missions.Bug,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:check watch"): (
+    ("spy", "action triggered: check watch"): (
         TimelineCategory.Watch | TimelineCategory.ActionTriggered,
         Missions.Zero,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:contact double agent"): (
+    ("spy", "action triggered: contact double agent"): (
         TimelineCategory.ActionTriggered,
         Missions.Contact,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:fingerprint ambassador"): (
+    ("spy", "action triggered: fingerprint ambassador"): (
         TimelineCategory.ActionTriggered,
         Missions.Fingerprint,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:inspect statues"): (
+    ("spy", "action triggered: inspect statues"): (
         TimelineCategory.Statues | TimelineCategory.ActionTriggered,
         Missions.Inspect,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:purloin guest list"): (
+    ("spy", "action triggered: purloin guest list"): (
         TimelineCategory.ActionTriggered,
         Missions.Purloin,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:seduce target"): (
+    ("spy", "action triggered: seduce target"): (
         TimelineCategory.ActionTriggered,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:swap statue"): (
+    ("spy", "action triggered: swap statue"): (
         TimelineCategory.Statues | TimelineCategory.ActionTriggered,
         Missions.Swap,
         ActionTest.NoAT,
     ),
-    ("spy", "action triggered:transfer microfilm"): (
+    ("spy", "action triggered: transfer microfilm"): (
         TimelineCategory.Books | TimelineCategory.ActionTriggered,
         Missions.Transfer,
         ActionTest.NoAT,
@@ -677,432 +677,432 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Fingerprint,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:100%"): (
+    ("spy", "flirt with seduction target: 100%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:15%"): (
+    ("spy", "flirt with seduction target: 15%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:16%"): (
+    ("spy", "flirt with seduction target: 16%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:17%"): (
+    ("spy", "flirt with seduction target: 17%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:18%"): (
+    ("spy", "flirt with seduction target: 18%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:19%"): (
+    ("spy", "flirt with seduction target: 19%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:20%"): (
+    ("spy", "flirt with seduction target: 20%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:21%"): (
+    ("spy", "flirt with seduction target: 21%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:22%"): (
+    ("spy", "flirt with seduction target: 22%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:23%"): (
+    ("spy", "flirt with seduction target: 23%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:24%"): (
+    ("spy", "flirt with seduction target: 24%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:25%"): (
+    ("spy", "flirt with seduction target: 25%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:26%"): (
+    ("spy", "flirt with seduction target: 26%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:27%"): (
+    ("spy", "flirt with seduction target: 27%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:28%"): (
+    ("spy", "flirt with seduction target: 28%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:29%"): (
+    ("spy", "flirt with seduction target: 29%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:30%"): (
+    ("spy", "flirt with seduction target: 30%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:31%"): (
+    ("spy", "flirt with seduction target: 31%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:32%"): (
+    ("spy", "flirt with seduction target: 32%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:33%"): (
+    ("spy", "flirt with seduction target: 33%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:34%"): (
+    ("spy", "flirt with seduction target: 34%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:35%"): (
+    ("spy", "flirt with seduction target: 35%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:36%"): (
+    ("spy", "flirt with seduction target: 36%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:37%"): (
+    ("spy", "flirt with seduction target: 37%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:38%"): (
+    ("spy", "flirt with seduction target: 38%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:39%"): (
+    ("spy", "flirt with seduction target: 39%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:40%"): (
+    ("spy", "flirt with seduction target: 40%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:41%"): (
+    ("spy", "flirt with seduction target: 41%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:42%"): (
+    ("spy", "flirt with seduction target: 42%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:43%"): (
+    ("spy", "flirt with seduction target: 43%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:44%"): (
+    ("spy", "flirt with seduction target: 44%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:45%"): (
+    ("spy", "flirt with seduction target: 45%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:46%"): (
+    ("spy", "flirt with seduction target: 46%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:47%"): (
+    ("spy", "flirt with seduction target: 47%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:48%"): (
+    ("spy", "flirt with seduction target: 48%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:49%"): (
+    ("spy", "flirt with seduction target: 49%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:50%"): (
+    ("spy", "flirt with seduction target: 50%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:51%"): (
+    ("spy", "flirt with seduction target: 51%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:52%"): (
+    ("spy", "flirt with seduction target: 52%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:53%"): (
+    ("spy", "flirt with seduction target: 53%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:54%"): (
+    ("spy", "flirt with seduction target: 54%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:55%"): (
+    ("spy", "flirt with seduction target: 55%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:56%"): (
+    ("spy", "flirt with seduction target: 56%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:57%"): (
+    ("spy", "flirt with seduction target: 57%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:58%"): (
+    ("spy", "flirt with seduction target: 58%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:59%"): (
+    ("spy", "flirt with seduction target: 59%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:60%"): (
+    ("spy", "flirt with seduction target: 60%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:61%"): (
+    ("spy", "flirt with seduction target: 61%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:62%"): (
+    ("spy", "flirt with seduction target: 62%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:63%"): (
+    ("spy", "flirt with seduction target: 63%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:64%"): (
+    ("spy", "flirt with seduction target: 64%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:65%"): (
+    ("spy", "flirt with seduction target: 65%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:66%"): (
+    ("spy", "flirt with seduction target: 66%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:67%"): (
+    ("spy", "flirt with seduction target: 67%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:68%"): (
+    ("spy", "flirt with seduction target: 68%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:69%"): (
+    ("spy", "flirt with seduction target: 69%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:70%"): (
+    ("spy", "flirt with seduction target: 70%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:71%"): (
+    ("spy", "flirt with seduction target: 71%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:72%"): (
+    ("spy", "flirt with seduction target: 72%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:73%"): (
+    ("spy", "flirt with seduction target: 73%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:74%"): (
+    ("spy", "flirt with seduction target: 74%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:75%"): (
+    ("spy", "flirt with seduction target: 75%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:76%"): (
+    ("spy", "flirt with seduction target: 76%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:77%"): (
+    ("spy", "flirt with seduction target: 77%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:78%"): (
+    ("spy", "flirt with seduction target: 78%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:79%"): (
+    ("spy", "flirt with seduction target: 79%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:80%"): (
+    ("spy", "flirt with seduction target: 80%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:81%"): (
+    ("spy", "flirt with seduction target: 81%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:82%"): (
+    ("spy", "flirt with seduction target: 82%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:83%"): (
+    ("spy", "flirt with seduction target: 83%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:84%"): (
+    ("spy", "flirt with seduction target: 84%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:85%"): (
+    ("spy", "flirt with seduction target: 85%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:86%"): (
+    ("spy", "flirt with seduction target: 86%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:87%"): (
+    ("spy", "flirt with seduction target: 87%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:88%"): (
+    ("spy", "flirt with seduction target: 88%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:89%"): (
+    ("spy", "flirt with seduction target: 89%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:90%"): (
+    ("spy", "flirt with seduction target: 90%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:91%"): (
+    ("spy", "flirt with seduction target: 91%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:92%"): (
+    ("spy", "flirt with seduction target: 92%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:93%"): (
+    ("spy", "flirt with seduction target: 93%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:94%"): (
+    ("spy", "flirt with seduction target: 94%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:95%"): (
+    ("spy", "flirt with seduction target: 95%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:96%"): (
+    ("spy", "flirt with seduction target: 96%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:97%"): (
+    ("spy", "flirt with seduction target: 97%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:98%"): (
+    ("spy", "flirt with seduction target: 98%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
     ),
-    ("spy", "flirt with seduction target:99%"): (
+    ("spy", "flirt with seduction target: 99%"): (
         TimelineCategory.MissionPartial,
         Missions.Seduce,
         ActionTest.NoAT,
