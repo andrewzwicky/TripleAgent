@@ -1,6 +1,6 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import Any, Union, Callable
+from typing import Any, Union, Callable, Tuple, List
 
 
 def limit_categories(categories, limit):
@@ -10,7 +10,7 @@ def limit_categories(categories, limit):
     return categories
 
 
-def create_data_stacks(categories, data_dictionary, data_stack_order):
+def create_data_stacks(categories, data_dictionary, data_stack_order) -> Tuple[List[str], Any[List[Any[int, float]], List[List[Any[int, float]]]]]:
     """
     this function rearranges the data to stack in the proper order.  For example,
     if the data is grouped by venue, and each stack includes each win type (mission win,
@@ -44,19 +44,21 @@ def create_data_stacks(categories, data_dictionary, data_stack_order):
 
         # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
         # This also means that misspelled args in data_stack_order might be difficult to find.
-        stacked_data = [data_dictionary[data_part] for data_part in data_stack_order]
+        # intentionally make this a list inside list, so that the plotting functions can always
+        # expect a list of depth 2.
+        stacked_data = [[data_dictionary[data_part] for data_part in data_stack_order]]
     else:
         raise ValueError
 
     return data_stack_order, stacked_data
 
 
-def create_data_label(count, total):
+def create_data_label(count, total, delimiter="\n"):
     percent = 0 if total == 0 else (count / total)
     if count == total and total != 0:
-        return f"{total:>3}\n{percent:>5.1%}"
+        return f"{total:>3}{delimiter}{percent:>5.1%}"
 
-    return f"{count:>3}/{total:>3}\n{percent:>5.1%}"
+    return f"{count:>3}/{total:>3}{delimiter}{percent:>5.1%}"
 
 
 def create_sorted_categories(
@@ -64,7 +66,7 @@ def create_sorted_categories(
     category_data_order: Any = None,
     reversed_data_sort: bool = False,
     category_name_order: Callable[[str], int] = None,
-):
+) -> List[str]:
     categories = list(data_dictionary.keys())
     category_lambdas = dict()
     category_lambdas["callable"] = lambda c: category_data_order(data_dictionary[c])
@@ -96,7 +98,7 @@ def create_sorted_categories(
     return categories
 
 
-def create_data_dictionaries(games, query_function, groupby):
+def create_data_dictionary(games, query_function, groupby, percent=False) -> Union[defaultdict, Counter]:
     """
     This function will create the data used for the plots.  The expected formats are either:
     -A defaultdict(Counter), with the 1st level keys being the groupby categories and the 2nd level keys
@@ -106,16 +108,10 @@ def create_data_dictionaries(games, query_function, groupby):
     """
     # TODO: data_dictionary_percent being a counter doesn't really make much sense
     if groupby is None:
-        data_dictionary = Counter()
-        data_dictionary_percent = Counter()
-
-        populate_individual_counter(
-            games, data_dictionary, data_dictionary_percent, query_function
-        )
+        data_dictionary = populate_individual_counter(games, Counter(), query_function, percent)
 
     else:
         data_dictionary = defaultdict(Counter)
-        data_dictionary_percent = defaultdict(Counter)
 
         for category, cat_games in itertools.groupby(
             sorted(games, key=groupby), key=groupby
@@ -123,21 +119,22 @@ def create_data_dictionaries(games, query_function, groupby):
             populate_individual_counter(
                 cat_games,
                 data_dictionary[category],
-                data_dictionary_percent[category],
                 query_function,
+                percent
             )
 
-    return data_dictionary, data_dictionary_percent
+    return data_dictionary
 
 
 def populate_individual_counter(
-    games, data_dictionary, data_dictionary_percent, query_function
-):
+    games, data_dictionary, query_function, percent=False
+) -> Counter:
     query_function(games, data_dictionary)
-    data_sum = sum(data_dictionary.values())
-    data_dictionary_percent.update(
-        {k: 0 if data_sum == 0 else v / data_sum for k, v in data_dictionary.items()}
-    )
+    if percent:
+        data_sum = sum(data_dictionary.values())
+        return Counter({k: 0 if data_sum == 0 else v / data_sum for k, v in data_dictionary.items()})
+
+    return data_dictionary
 
 
 def tableize_data_dict(

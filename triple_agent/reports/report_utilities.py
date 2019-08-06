@@ -17,12 +17,13 @@ def create_line_plot(
     x_label=None,
     colors: Optional[List[str]] = None,
     legend_labels: List[str] = None,
-    label_rotation: int = 0,
+    label_rotation: int = 90,
     percentage: bool = False,
     portrait_x_axis=False,
     # TODO: division logos on x axis
     no_show=False,
     savefig=None,
+    **kwargs,
 ):
     if colors is None:
         if len(data) == 1:
@@ -139,7 +140,7 @@ def create_bar_plot(
     y_label=None,
     x_label=None,
     colors: Optional[List[str]] = None,
-    hatches: Optional[List[Optional[str]]] = None,
+    data_hatching: Optional[List[Optional[str]]] = None,
     legend_labels: List[str] = None,
     bar_labels: Optional[List[List[str]]] = None,
     label_rotation: int = 0,
@@ -148,6 +149,7 @@ def create_bar_plot(
     # TODO: division logos on x axis
     no_show=False,
     savefig=None,
+    **kwargs,
 ):
     if colors is None:
         if len(data) == 1:
@@ -198,10 +200,10 @@ def create_bar_plot(
                         horizontalalignment="center",
                         verticalalignment=v_align,
                     )
-        if hatches is not None:
+        if data_hatching is not None:
             for patch in patches:
-                if hatches[i] is not None:
-                    patch.set_hatch(hatches[i])
+                if data_hatching[i] is not None:
+                    patch.set_hatch(data_hatching[i])
 
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
@@ -277,20 +279,22 @@ def create_bar_plot(
     return axis
 
 
-def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None):
+def create_pie_chart(
+    title, data, labels, colors=None, data_hatching=None, savefig=None, **kwargs
+):
     _, axis = plt.subplots(figsize=(8, 8))
 
     axis.set_title(title)
 
     patches = axis.pie(
         data,
-        labels=labels,
+        labels=[l if d else "" for l, d in zip(labels, data)],
         colors=colors,
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    if hatches is not None:
-        for data_hatch, patch in zip(hatches, patches[0]):
+    if data_hatching is not None:
+        for data_hatch, patch in zip(data_hatching, patches[0]):
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 
@@ -309,6 +313,7 @@ def create_histogram(
     y_label=None,
     cumulative_also=False,
     savefig=None,
+    **kwargs,
 ):
     _, axis = plt.subplots(figsize=(12, 8))
     max_data_point = max(data)

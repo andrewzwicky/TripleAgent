@@ -3,7 +3,7 @@ from collections import defaultdict, Counter
 import pytest
 
 from triple_agent.reports.plot_utilities import (
-    create_data_dictionaries,
+    create_data_dictionary,
     create_sorted_categories,
     create_data_stacks,
     create_data_label,
@@ -229,7 +229,7 @@ def test_create_data_dictionaries(
     expected_data_dict_percent,
     init_test_games,
 ):
-    data_dict, data_dict_percent = create_data_dictionaries(
+    data_dict, data_dict_percent = create_data_dictionary(
         init_test_games, query_function, groupby
     )
 
