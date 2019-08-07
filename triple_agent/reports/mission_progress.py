@@ -1,9 +1,10 @@
 from typing import List
 
+from matplotlib import pyplot as plt
+
 from triple_agent.utilities.game import Game
 from triple_agent.utilities.outcomes import WINTYPES_TO_COLORS
 from triple_agent.utilities.timeline import TimelineCategory
-from triple_agent.reports.report_utilities import create_overlapping_lines_plot
 
 
 def mission_progress(games: List[Game], title: str):
@@ -28,10 +29,23 @@ def mission_progress(games: List[Game], title: str):
             progresses.append(game_progress)
             colors.append(WINTYPES_TO_COLORS[game.win_type])
 
-    create_overlapping_lines_plot(
-        title,
-        [progresses, times],
-        colors=colors,
-        x_label="Percent of Start Time Elapsed",
-        y_label="Mission Progress",
-    )
+    _, axis = plt.subplots(figsize=(14, 10))
+
+    alpha = 0.05
+
+    for time, progress, color in zip(times, progresses, colors):
+        axis.plot(time, progress, linewidth=4, alpha=alpha, color=color)
+        # axis.scatter(t[-1], p[-1], alpha=alpha, marker="o", color="k")
+
+    axis.set_ylim(bottom=0)
+    axis.set_xlim(left=0)
+
+    axis.set_xlabel("Percent of Start Time Elapsed")
+    axis.set_ylabel("Mission Progress")
+
+    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
+    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
+
+    axis.set_title(title)
+
+    plt.show()

@@ -6,61 +6,40 @@ from triple_agent.reports.plot_utilities import (
     create_data_dictionaries,
     create_sorted_categories,
     create_data_stacks,
-    create_data_label,
 )
 from triple_agent.replays.get_parsed_replays import get_parsed_replays
 from triple_agent.utilities.action_tests import ActionTest
 from triple_agent.utilities.timeline import TimelineCategory
 
 
-@pytest.fixture(scope="session")
-def init_test_games():
-    test_game_uuids = [
-        "8uf6pUK7TFegBD8Cbr2qMw",
-        "as-RnR1RQruzhRDZr7JP9A",
-        "h_fNkizcR0mBFlokph3yEw",
-        "jhx6e7UpTmeKueggeGcAKg",
-        "k415gCwtS3ml9_EzUPpWFw",
-        "k8x3n_zfTtiw9FSS6rM13w",
-        "lOGf7W_MSlu1RRYxW2MMsA",
-        "OiG7qvC9QOaSKVGlesdpWQ",
-        "TPWiwN2aQc6EHEf6jKDKaA",
-        "UgPZ7k1cQoCT9c6a_oG46w",
-        "vgAlD77AQw2XKTZq3H4NTg",
-    ]
+TEST_GAME_UUIDS = [
+    "8uf6pUK7TFegBD8Cbr2qMw",
+    "as-RnR1RQruzhRDZr7JP9A",
+    "h_fNkizcR0mBFlokph3yEw",
+    "jhx6e7UpTmeKueggeGcAKg",
+    "k415gCwtS3ml9_EzUPpWFw",
+    "k8x3n_zfTtiw9FSS6rM13w",
+    "lOGf7W_MSlu1RRYxW2MMsA",
+    "OiG7qvC9QOaSKVGlesdpWQ",
+    "TPWiwN2aQc6EHEf6jKDKaA",
+    "UgPZ7k1cQoCT9c6a_oG46w",
+    "vgAlD77AQw2XKTZq3H4NTg",
+]
 
-    return get_parsed_replays(lambda game: game.uuid in test_game_uuids)
-
+TEST_GAMES = get_parsed_replays(lambda game: game.uuid in TEST_GAME_UUIDS)
 
 # This is a generic test query so that dependencies from
 # other modules aren't brought into this module.
-def __test_at_count(games, data_dictionary):
+def TEST_AT_COUNT(games, data_dictionary):
     for game in games:
         for event in game.timeline:
             if event.category & TimelineCategory.ActionTest:
                 data_dictionary[event.action_test] += 1
 
 
-CREATE_DATA_LABEL_TEST_CASES = [
-    (5, 10, "  5/ 10\n50.0%"),
-    (200, 400, "200/400\n50.0%"),
-    (100, 400, "100/400\n25.0%"),
-    (100, 0, "100/  0\n 0.0%"),
-    (100, 100, "100\n100.0%"),
-    (20, 20, " 20\n100.0%"),
-]
-
-
-@pytest.mark.parametrize("count,total,expected_string", CREATE_DATA_LABEL_TEST_CASES)
-def test_create_labels(count, total, expected_string):
-    actual_string = create_data_label(count, total)
-
-    assert actual_string == expected_string
-
-
 CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
-        __test_at_count,
+        TEST_AT_COUNT,
         None,
         Counter(
             {
@@ -82,7 +61,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         ),
     ),
     (
-        __test_at_count,
+        TEST_AT_COUNT,
         lambda x: x.spy,
         defaultdict(
             Counter,
@@ -122,7 +101,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         ),
     ),
     (
-        __test_at_count,
+        TEST_AT_COUNT,
         lambda x: x.sniper,
         defaultdict(
             Counter,
@@ -162,7 +141,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         ),
     ),
     (
-        __test_at_count,
+        TEST_AT_COUNT,
         lambda x: x.venue,
         defaultdict(
             Counter,
@@ -223,14 +202,10 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
 def test_create_data_dictionaries(
-    query_function,
-    groupby,
-    expected_data_dict,
-    expected_data_dict_percent,
-    init_test_games,
+    query_function, groupby, expected_data_dict, expected_data_dict_percent
 ):
     data_dict, data_dict_percent = create_data_dictionaries(
-        init_test_games, query_function, groupby
+        TEST_GAMES, query_function, groupby
     )
 
     assert data_dict == expected_data_dict
