@@ -7,26 +7,10 @@ from triple_agent.reports.plot_utilities import (
     create_sorted_categories,
     create_data_stacks,
 )
-from triple_agent.replays.get_parsed_replays import get_parsed_replays
+
 from triple_agent.utilities.action_tests import ActionTest
 from triple_agent.utilities.timeline import TimelineCategory
 
-
-TEST_GAME_UUIDS = [
-    "8uf6pUK7TFegBD8Cbr2qMw",
-    "as-RnR1RQruzhRDZr7JP9A",
-    "h_fNkizcR0mBFlokph3yEw",
-    "jhx6e7UpTmeKueggeGcAKg",
-    "k415gCwtS3ml9_EzUPpWFw",
-    "k8x3n_zfTtiw9FSS6rM13w",
-    "lOGf7W_MSlu1RRYxW2MMsA",
-    "OiG7qvC9QOaSKVGlesdpWQ",
-    "TPWiwN2aQc6EHEf6jKDKaA",
-    "UgPZ7k1cQoCT9c6a_oG46w",
-    "vgAlD77AQw2XKTZq3H4NTg",
-]
-
-TEST_GAMES = get_parsed_replays(lambda game: game.uuid in TEST_GAME_UUIDS)
 
 # This is a generic test query so that dependencies from
 # other modules aren't brought into this module.
@@ -202,10 +186,10 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
 def test_create_data_dictionaries(
-    query_function, groupby, expected_data_dict, expected_data_dict_percent
+    query_function, groupby, expected_data_dict, expected_data_dict_percent, get_test_games
 ):
     data_dict, data_dict_percent = create_data_dictionaries(
-        TEST_GAMES, query_function, groupby
+        get_test_games, query_function, groupby
     )
 
     assert data_dict == expected_data_dict
