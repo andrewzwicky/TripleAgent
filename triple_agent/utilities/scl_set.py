@@ -27,7 +27,7 @@ class SCLSet:
         return [scores_dict[p] for p in self.players]
 
 
-def sort_games_into_sets(games: List[Game]):
+def sort_games_into_sets(games: List[Game]) -> List[SCLSet]:
     # make sure all games are from the same event
     sorted_games = sorted(games, key=lambda g: (g.week, g.division))
     assert len({game.event for game in sorted_games}) == 1

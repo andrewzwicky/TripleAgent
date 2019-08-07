@@ -94,11 +94,7 @@ MISSION_PARTIAL_TO_ENUM = {
 }
 
 
-def print_mission_letters() -> str:
-    return "".join(MISSION_LETTERS_TO_ENUM.keys())
-
-
-def print_complete_string(missions_enum) -> str:
+def print_complete_string(missions_enum: Missions) -> str:
     completes = ""
     for miss, letter in MISSIONS_ENUM_TO_LETTER.items():
         if missions_enum & miss:
@@ -116,13 +112,3 @@ def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:
         missions_enum |= Missions[mission_string]
 
     return missions_enum
-
-
-def convert_mission_enum_to_set(missions_enum: Missions) -> Set[Missions]:
-    missions_set = set()
-
-    for mission in Missions:
-        if mission & missions_enum and mission != Missions.Zero:
-            missions_set.add(mission)
-
-    return missions_set

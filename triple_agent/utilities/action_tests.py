@@ -10,7 +10,7 @@ class ActionTest(IntEnum):
     Canceled = auto()
 
 
-def assign_color(event_text):
+def assign_color(event_text: str) -> ActionTest:
     if "green" in event_text:
         return ActionTest.Green
 
