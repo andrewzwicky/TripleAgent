@@ -3,7 +3,7 @@ import pickle
 import re
 from typing import List
 
-from triple_agent.utilities.timeline import TimelineEvent
+from triple_agent.classes.timeline import TimelineEvent
 
 with open(os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "rb") as pik:
     ALL_MESSAGES = pickle.load(pik)

@@ -18,9 +18,9 @@ from triple_agent.timeline.parse_timeline import (
     remove_overlap,
     is_game_loaded,
 )
-from triple_agent.utilities.game import Game, get_game_expected_pkl
-from triple_agent.utilities.paths import LONG_FILE_HEADER, PICKLE_ISOLATION, PARSE_LOG
-from triple_agent.utilities.timeline import Timeline
+from triple_agent.classes.game import Game, get_game_expected_pkl
+from triple_agent.constants.paths import LONG_FILE_HEADER, PICKLE_ISOLATION, PARSE_LOG
+from triple_agent.classes.timeline import Timeline
 
 
 def get_app_handles() -> Tuple[Optional[int], Optional[int]]:

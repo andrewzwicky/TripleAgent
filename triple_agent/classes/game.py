@@ -3,11 +3,11 @@ import pickle
 from datetime import datetime
 from typing import Set, Optional
 
-from triple_agent.utilities.missions import convert_mission_set_to_enum, Missions
-from triple_agent.utilities.outcomes import WinType
-from triple_agent.utilities.roles import Roles
-from triple_agent.utilities.timeline import TimelineCategory
-from triple_agent.utilities.paths import REPLAY_PICKLE_FOLDER
+from triple_agent.classes.missions import convert_mission_set_to_enum, Missions
+from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.roles import Roles
+from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
 class Game:

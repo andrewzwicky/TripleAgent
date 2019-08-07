@@ -3,8 +3,8 @@ from collections import Counter
 from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.missions import MISSION_PLOT_ORDER, Missions
+from triple_agent.classes.game import Game
+from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
 
 
 def _count_mission_choices(games: List[Game], data_dictionary: Counter):

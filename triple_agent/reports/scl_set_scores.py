@@ -1,7 +1,7 @@
 from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.game import Game
+from triple_agent.classes.game import Game
 
 
 def _count_scores(sets, data_dictionary):

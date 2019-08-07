@@ -2,8 +2,8 @@ from collections import Counter
 from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.outcomes import (
+from triple_agent.classes.game import Game
+from triple_agent.classes.outcomes import (
     WINTYPES_TO_COLORS,
     WINTYPE_PREFERRED_PIE_CHART_ORDER,
 )

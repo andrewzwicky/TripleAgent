@@ -13,8 +13,8 @@ from triple_agent.reports.plot_utilities import (
     limit_categories,
     create_data_stacks,
 )
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.scl_set import SCLSet
+from triple_agent.classes.game import Game
+from triple_agent.classes.scl_set import SCLSet
 
 
 def query(

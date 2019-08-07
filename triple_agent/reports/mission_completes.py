@@ -3,8 +3,8 @@ from typing import List, Dict
 
 from triple_agent.reports.report_utilities import create_bar_plot
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.missions import (
+from triple_agent.classes.game import Game
+from triple_agent.classes.missions import (
     MISSIONS_ENUM_TO_COLOR,
     MISSION_PLOT_ORDER,
     MISSION_LETTERS_TO_ENUM,

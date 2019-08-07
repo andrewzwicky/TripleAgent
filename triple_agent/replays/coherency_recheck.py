@@ -1,7 +1,7 @@
 import pickle
 import os
 
-from triple_agent.utilities.paths import REPLAY_PICKLE_FOLDER
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
 def recheck_parsed_replays():

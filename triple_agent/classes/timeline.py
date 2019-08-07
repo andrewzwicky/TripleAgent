@@ -4,16 +4,16 @@ from datetime import datetime
 from enum import IntFlag, auto
 from typing import Optional, List, Tuple
 
-from triple_agent.utilities.action_tests import ActionTest, assign_color
-from triple_agent.utilities.books import Books
-from triple_agent.utilities.characters import Characters, CHARACTERS_TO_STRING
-from triple_agent.utilities.missions import (
+from triple_agent.classes.action_tests import ActionTest, assign_color
+from triple_agent.classes.books import Books
+from triple_agent.classes.characters import Characters, CHARACTERS_TO_STRING
+from triple_agent.classes.missions import (
     MISSION_COMPLETE_TIMELINE_TO_ENUM,
     MISSION_GENERIC_TIMELINE_TO_ENUM,
     MISSION_PARTIAL_TO_ENUM,
     Missions,
 )
-from triple_agent.utilities.roles import Roles
+from triple_agent.classes.roles import Roles
 
 
 class TimelineCategory(IntFlag):

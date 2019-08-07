@@ -2,8 +2,8 @@ import os
 from multiprocessing import Pool
 from typing import List
 
-from triple_agent.utilities.paths import REPLAY_PICKLE_FOLDER
-from triple_agent.utilities.game import game_unpickle, Game
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
+from triple_agent.classes.game import game_unpickle, Game
 
 
 def get_parsed_replays(game_filter) -> List[Game]:

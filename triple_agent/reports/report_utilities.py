@@ -6,7 +6,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 
-from triple_agent.utilities.paths import PORTRAITS_FOLDER
+from triple_agent.constants.paths import PORTRAITS_FOLDER
 
 
 def create_line_plot(

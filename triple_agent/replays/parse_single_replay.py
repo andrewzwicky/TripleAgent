@@ -2,7 +2,7 @@ from collections import defaultdict
 from typing import Optional, Dict, AnyStr
 
 from spyparty.ReplayParser import ReplayParser
-from triple_agent.utilities.game import Game, game_load_or_new
+from triple_agent.classes.game import Game, game_load_or_new
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:

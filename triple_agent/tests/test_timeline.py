@@ -1,8 +1,8 @@
 import pytest
 
-from triple_agent.utilities.characters import Characters
-from triple_agent.utilities.roles import Roles
-from triple_agent.utilities.timeline import TimelineEvent, Timeline
+from triple_agent.classes.characters import Characters
+from triple_agent.classes.roles import Roles
+from triple_agent.classes.timeline import TimelineEvent, Timeline
 
 
 def test_calculate_elapsed_time():

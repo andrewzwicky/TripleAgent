@@ -1,10 +1,10 @@
 from collections import defaultdict
 from typing import List, Optional
 
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.roles import Roles
-from triple_agent.utilities.characters import Characters
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.game import Game
+from triple_agent.classes.roles import Roles
+from triple_agent.classes.characters import Characters
+from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generic_query import query
 
 

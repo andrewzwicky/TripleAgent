@@ -1,10 +1,10 @@
 from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.books import Books
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.missions import Missions
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.books import Books
+from triple_agent.classes.game import Game
+from triple_agent.classes.missions import Missions
+from triple_agent.classes.timeline import TimelineCategory
 
 _DIRECT = "direct"
 _AT = "action test"

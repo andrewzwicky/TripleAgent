@@ -3,12 +3,12 @@ import pickle
 
 import pytest
 
-from triple_agent.utilities.action_tests import ActionTest
-from triple_agent.utilities.books import Books
-from triple_agent.utilities.characters import Characters
-from triple_agent.utilities.missions import Missions
-from triple_agent.utilities.roles import Roles
-from triple_agent.utilities.timeline import TimelineEvent, TimelineCategory
+from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.books import Books
+from triple_agent.classes.characters import Characters
+from triple_agent.classes.missions import Missions
+from triple_agent.classes.roles import Roles
+from triple_agent.classes.timeline import TimelineEvent, TimelineCategory
 
 CATEGORY_TEST_CASES = [
     (

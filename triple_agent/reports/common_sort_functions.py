@@ -1,4 +1,4 @@
-from triple_agent.utilities.outcomes import WinType
+from triple_agent.classes.outcomes import WinType
 
 
 def sort_by_spy_wins(data_dictionary):

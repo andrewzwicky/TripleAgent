@@ -1,14 +1,14 @@
 from typing import List
 
 from triple_agent.reports.generic_query import query
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.objects import (
+from triple_agent.classes.game import Game
+from triple_agent.classes.objects import (
     OBJECT_PLOT_ORDER_DIFFICULT,
     OBJECT_TO_COLORS_RGB,
     OBJECT_PLOT_HATCHING_DIFFICULT,
     OBJECT_PLOT_LABEL_DICT_DIFFICULT,
 )
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.timeline import TimelineCategory
 
 
 def __iterate_and_count_potential_prints(game, timeline_event, data_dictionary):

@@ -2,9 +2,9 @@ from typing import List
 
 from matplotlib import pyplot as plt
 
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.outcomes import WINTYPES_TO_COLORS
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.game import Game
+from triple_agent.classes.outcomes import WINTYPES_TO_COLORS
+from triple_agent.classes.timeline import TimelineCategory
 
 
 def mission_progress(games: List[Game], title: str):

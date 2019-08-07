@@ -1,9 +1,9 @@
 from typing import List
 
 from triple_agent.reports.report_utilities import create_histogram
-from triple_agent.utilities.game import Game
-from triple_agent.utilities.missions import Missions
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.game import Game
+from triple_agent.classes.missions import Missions
+from triple_agent.classes.timeline import TimelineCategory
 
 
 def first_flirt_timing(games: List[Game], title: str):

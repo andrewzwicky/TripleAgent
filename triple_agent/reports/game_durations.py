@@ -1,7 +1,7 @@
 from typing import List
 
 from triple_agent.reports.report_utilities import create_histogram
-from triple_agent.utilities.game import Game
+from triple_agent.classes.game import Game
 
 
 def game_durations(games: List[Game], title: str):

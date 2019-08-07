@@ -8,8 +8,8 @@ from triple_agent.reports.plot_utilities import (
     create_data_stacks,
 )
 
-from triple_agent.utilities.action_tests import ActionTest
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.timeline import TimelineCategory
 
 
 # This is a generic test query so that dependencies from

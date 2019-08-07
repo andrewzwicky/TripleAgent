@@ -11,10 +11,10 @@ import pytesseract
 from mss import mss
 
 from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
-from triple_agent.utilities.books import Books, COLORS_TO_BOOKS_ENUM
-from triple_agent.utilities.characters import Characters, PORTRAIT_MD5_DICT
-from triple_agent.utilities.roles import ROLE_COLORS_TO_ENUM, Roles
-from triple_agent.utilities.timeline import TimelineEvent
+from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
+from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT
+from triple_agent.classes.roles import ROLE_COLORS_TO_ENUM, Roles
+from triple_agent.classes.timeline import TimelineEvent
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract"
 

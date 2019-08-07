@@ -2,7 +2,7 @@ import os
 from shutil import rmtree, copyfile
 
 from triple_agent.timeline.parse_game_timelines_parallel import parse_timeline_parallel
-from triple_agent.utilities.paths import UNPARSED_REPLAYS_FOLDER, LONG_FILE_HEADER
+from triple_agent.constants.paths import UNPARSED_REPLAYS_FOLDER, LONG_FILE_HEADER
 from triple_agent.replays.replay_file_iterator import iterate_over_event_replays
 
 

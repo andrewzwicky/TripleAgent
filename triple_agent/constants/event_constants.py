@@ -1,4 +1,4 @@
-from triple_agent.utilities.game import Game
+from triple_agent.classes.game import Game
 
 SCL5_VENUE_MODES = {
     "Ballroom": "a4/8",

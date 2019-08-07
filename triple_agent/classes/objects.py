@@ -1,4 +1,4 @@
-from triple_agent.utilities.timeline import TimelineCategory
+from triple_agent.classes.timeline import TimelineCategory
 
 
 OBJECT_TO_COLORS_RGB = {
