@@ -8,6 +8,7 @@ from triple_agent.constants.paths import (
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
     UNPARSED_REPLAYS_FOLDER,
+    REPLAY_PICKLE_FOLDER,
 )
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
@@ -17,6 +18,7 @@ def parse_replays(
     game_filter,
     unparsed_folder: str = UNPARSED_REPLAYS_FOLDER,
     events_folder: str = ALL_EVENTS_FOLDER,
+    pickle_folder: str = REPLAY_PICKLE_FOLDER,
 ):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
@@ -70,7 +72,11 @@ def parse_replays(
                 replay_file, LONG_FILE_HEADER + os.path.join(unparsed_folder, file_name)
             )
 
-        parse_timeline_parallel(unparsed_game_list, get_mss_screenshots)
+        parse_timeline_parallel(
+            unparsed_game_list,
+            screenshot_iterator=get_mss_screenshots,
+            pickle_folder=pickle_folder,
+        )
 
         try:
             rmtree(unparsed_folder)
