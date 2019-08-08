@@ -1,5 +1,5 @@
 import re
-from collections.abc import Sequence
+from collections import Sequence
 from datetime import datetime
 from enum import IntFlag, auto
 from typing import Optional, List, Tuple
