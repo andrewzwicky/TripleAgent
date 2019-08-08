@@ -52,12 +52,18 @@ def mock_screenshot_iterator(
         yield output
 
 
-def test_parse_timeline_parallel(get_unparsed_test_games, monkeypatch):
+def test_parse_timeline_parallel(
+    get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
+):
     games = get_unparsed_test_games
 
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    parse_timeline_parallel(games, mock_screenshot_iterator)
+    parse_timeline_parallel(
+        games,
+        screenshot_iterator=mock_screenshot_iterator,
+        pickle_folder=get_test_replay_pickle_folder,
+    )
 
     games.sort(key=lambda g: g.start_time)
 
