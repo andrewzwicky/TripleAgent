@@ -146,17 +146,6 @@ def get_mss_screenshots(
             # starts with identifying the last one.
             print(f"{game_index} {screenshot_index} taken")
 
-            import pathlib
-
-            pathlib.Path(
-                f"C:\\Users\Andrew\\Workspace\\TripleAgent\\triple_agent\\tests\\test_parallel_replay_screenshots\\{game.uuid}"
-            ).mkdir(parents=True, exist_ok=True)
-
-            cv2.imwrite(
-                f"C:\\Users\Andrew\\Workspace\\TripleAgent\\triple_agent\\tests\\test_parallel_replay_screenshots\\{game.uuid}\\{screenshot_index}.png",
-                screenshot,
-            )
-
             if is_last_screenshot(screenshot):
                 yield (game_index, screenshot_index, screenshot, True)
 
