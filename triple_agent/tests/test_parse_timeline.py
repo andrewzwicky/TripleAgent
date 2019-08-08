@@ -4,7 +4,7 @@ from typing import List, Tuple
 import cv2
 import pytest
 
-from triple_agent.parsing.timeline.parse_timeline import parse_single_screenshot
+from triple_agent.parsing.timeline.parse_timeline import parse_screenshot
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
 from triple_agent.classes.characters import Characters
@@ -6601,7 +6601,7 @@ def test_parse_timeline(
     screenshot_img = cv2.imread(
         os.path.join(TEST_FOLDER, "test_screenshots", f"{image_name}.png")
     )
-    timeline_events = parse_single_screenshot(screenshot_img, test_output_disable=True)
+    timeline_events = parse_screenshot(screenshot_img, test_output_disable=True)
 
     for event, exp in zip(timeline_events, expecteds):
         e_actor, e_raw_time_str, e_event, e_cast_name, e_time_in_sec, e_role, e_books, e_category, e_mission, e_action_test = (

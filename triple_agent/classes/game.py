@@ -204,5 +204,5 @@ def game_load_or_new(*args, **kwargs) -> Game:
     return Game(*args, **kwargs)
 
 
-def get_game_expected_pkl(uuid: str) -> str:
-    return os.path.join(REPLAY_PICKLE_FOLDER, f"{uuid}.pkl")
+def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) -> str:
+    return os.path.join(pickle_folder, f"{uuid}.pkl")

@@ -1,7 +1,7 @@
 import os
 from shutil import rmtree, copyfile
 
-from triple_agent.organization.replay_file_iterator import iterate_over_event_replays
+from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.constants.paths import SPECTATE_REPLAYS_FOLDER, LONG_FILE_HEADER
 
 
@@ -12,7 +12,7 @@ def extract_spectate_replays(game_filter):
         pass
     os.makedirs(SPECTATE_REPLAYS_FOLDER, exist_ok=True)
 
-    for replay_file in iterate_over_event_replays(game_filter):
+    for replay_file in iterate_over_replays(game_filter):
         file_name = os.path.split(replay_file)[1]
         copyfile(
             replay_file,

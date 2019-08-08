@@ -1,14 +1,10 @@
-import ctypes
 import hashlib
 from multiprocessing import Pool
-from time import sleep
 from typing import List, Tuple, Optional, Iterator
 
 import cv2
 import numpy as np
-import pyautogui
 import pytesseract
-from mss import mss
 
 from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
 from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
@@ -91,103 +87,6 @@ def ocr_core(
         text = "-" + text
 
     return text
-
-
-def is_game_loaded(spy_party_handle: Optional[int], pycharm_handle: Optional[int]):
-    total_time = 0
-
-    while True:
-        refresh_window(spy_party_handle, pycharm_handle)
-
-        with mss() as sct:
-            p_button = cv2.cvtColor(
-                np.asarray(
-                    sct.grab(
-                        monitor={
-                            "top": SPY_P_TOP,
-                            "left": SPY_P_LEFT,
-                            "width": SPY_P_WIDTH,
-                            "height": SPY_P_HEIGHT,
-                        }
-                    )
-                ),
-                cv2.COLOR_BGRA2BGR,
-            )
-
-        # if the game isn't loaded, there will be a blue P,
-        # use those colors to detect whether the game is loaded
-        r_mask = p_button[..., 0] == SPY_MISSIONS_COLOR[0]
-        g_mask = p_button[..., 1] == SPY_MISSIONS_COLOR[1]
-        b_mask = p_button[..., 2] == SPY_MISSIONS_COLOR[2]
-
-        if not (np.all(r_mask) and np.all(g_mask) and np.all(b_mask)):
-            return True
-
-        sleep(TIME_STEP)
-        total_time += TIME_STEP
-        if total_time > TIMEOUT:
-            return False
-
-
-def refresh_window(spy_party_handle, pycharm_handle):
-    ctypes.windll.user32.SetForegroundWindow(pycharm_handle)
-    sleep(0.2)
-    ctypes.windll.user32.SetForegroundWindow(spy_party_handle)
-    sleep(0.2)
-
-
-def get_screenshots(
-    spy_party_handle: Optional[int], pycharm_handle: Optional[int]
-) -> Iterator[Tuple[np.ndarray, bool]]:
-    # this is the pyautogui version
-    screenshot_num = 1
-
-    while True:
-        refresh_window(spy_party_handle, pycharm_handle)
-
-        with mss() as sct:
-            screenshot = cv2.cvtColor(
-                np.asarray(
-                    sct.grab(
-                        monitor={
-                            "top": TIMELINE_TOP - OVERALL_CAPTURE_BORDER,
-                            "left": TIMELINE_LEFT - OVERALL_CAPTURE_BORDER,
-                            "width": TIMELINE_WIDTH + (2 * OVERALL_CAPTURE_BORDER),
-                            "height": TIMELINE_HEIGHT + (2 * OVERALL_CAPTURE_BORDER),
-                        }
-                    )
-                ),
-                cv2.COLOR_BGRA2BGR,
-            )
-
-        # need a way to communicate through the queue that
-        # all screenshots for this file have been processed,
-        # starts with identifying the last one.
-        print(f"{screenshot_num} taken")
-
-        if is_last_screenshot(screenshot):
-            yield (screenshot_num, screenshot, True)
-            break
-
-        else:
-            yield (screenshot_num, screenshot, False)
-            for _ in range(30):
-                pyautogui.scroll(-1)
-                sleep(0.02)
-
-        screenshot_num += 1
-
-
-def is_last_screenshot(screenshot: np.ndarray):
-    arrow_location = screenshot[
-        ARROW_ROW : ARROW_ROW + ARROW_HEIGHT, ARROW_COL : ARROW_COL + ARROW_WIDTH
-    ]
-
-    # arrow is still present, indicating more in the timeline
-    if np.all(arrow_location == ARROW_COLOR[0]):
-        return False
-
-    return True
 
 
 def separate_line_images(screenshot: np.ndarray) -> List[np.ndarray]:
@@ -457,7 +356,7 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
     return TimelineEvent(actor, time, event, characters, roles, books)
 
 
-def parse_single_screenshot(
+def parse_screenshot(
     screenshot: np.ndarray, test_output_disable: bool = False
 ) -> List[TimelineEvent]:
     lines = separate_line_images(screenshot)

@@ -5,7 +5,8 @@ from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
     parse_timeline_parallel,
 )
 from triple_agent.constants.paths import UNPARSED_REPLAYS_FOLDER, LONG_FILE_HEADER
-from triple_agent.organization.replay_file_iterator import iterate_over_event_replays
+from triple_agent.organization.replay_file_iterator import iterate_over_replays
+from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
 
 
 def parse_replays(game_filter):
@@ -31,7 +32,7 @@ def parse_replays(game_filter):
         is parsing replays).
     ---Once parsed, timelines will be applied and the game will finally be pickled.
     """
-    game_list = list(iterate_over_event_replays(game_filter))
+    game_list = list(iterate_over_replays(game_filter))
 
     # check that there are no duplicates from the same file existing twice.
     assert len({game.uuid for game in game_list}) == len(game_list)
@@ -62,7 +63,7 @@ def parse_replays(game_filter):
                 LONG_FILE_HEADER + os.path.join(UNPARSED_REPLAYS_FOLDER, file_name),
             )
 
-        parse_timeline_parallel(unparsed_game_list)
+        parse_timeline_parallel(unparsed_game_list, get_mss_screenshots)
 
         try:
             rmtree(UNPARSED_REPLAYS_FOLDER)

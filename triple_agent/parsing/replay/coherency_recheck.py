@@ -1,11 +1,11 @@
 import pickle
 import os
-
+from pathlib import Path
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
-def recheck_parsed_replays():
-    for pickle_file in REPLAY_PICKLE_FOLDER.iterdir():
+def recheck_parsed_replays(pickle_folder: Path = REPLAY_PICKLE_FOLDER):
+    for pickle_file in pickle_folder.iterdir():
         unpickled_game = pickle.load(open(pickle_file, "rb"))
         coh_bool, coh_reasons = unpickled_game.is_timeline_coherent()
         if not coh_bool:

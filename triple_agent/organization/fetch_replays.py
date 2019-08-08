@@ -96,11 +96,11 @@ def fetch_replays(url: str):
         rmtree(TEMP_EXTRACT_FOLDER)
 
 
-def check_for_duplicate_files():
+def check_for_duplicate_files(events_folder: str = ALL_EVENTS_FOLDER):
     found_dict = dict()
 
-    for root, _, files in os.walk(ALL_EVENTS_FOLDER):
-        if root != ALL_EVENTS_FOLDER:
+    for root, _, files in os.walk(events_folder):
+        if root != events_folder:
             for file in files:
                 if file.endswith(".replay"):
                     if file not in found_dict.keys():
@@ -109,8 +109,8 @@ def check_for_duplicate_files():
                         print(
                             "XXX",
                             file,
-                            os.path.relpath(ALL_EVENTS_FOLDER, root),
-                            os.path.relpath(ALL_EVENTS_FOLDER, found_dict[file]),
+                            os.path.relpath(events_folder, root),
+                            os.path.relpath(events_folder, found_dict[file]),
                         )
 
 

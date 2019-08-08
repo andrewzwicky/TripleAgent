@@ -3,7 +3,7 @@ import os
 import cv2
 import pytest
 
-from triple_agent.parsing.timeline.parse_timeline import is_last_screenshot
+from triple_agent.parsing.timeline.screenshot_iterator import is_last_screenshot
 
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
