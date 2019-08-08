@@ -22,9 +22,10 @@ from triple_agent.classes.timeline import Timeline
 
 
 def parse_timeline_parallel(
-        games: List[Game],
-        screenshot_iterator: Callable,
-        pickle_folder: str = REPLAY_PICKLE_FOLDER):
+    games: List[Game],
+    screenshot_iterator: Callable,
+    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+):
 
     mutex = threading.Lock()
     num_worker_threads = 2
