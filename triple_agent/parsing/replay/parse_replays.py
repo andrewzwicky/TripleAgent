@@ -2,7 +2,7 @@ import os
 from shutil import rmtree, copyfile
 
 from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
-    parse_timeline_parallel
+    parse_timeline_parallel,
 )
 from triple_agent.constants.paths import (
     LONG_FILE_HEADER,

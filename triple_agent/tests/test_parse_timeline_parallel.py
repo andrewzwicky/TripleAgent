@@ -4,7 +4,7 @@ from typing import List, Iterator, Tuple
 import cv2
 import os
 from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
-    parse_timeline_parallel
+    parse_timeline_parallel,
 )
 from triple_agent.classes.characters import Characters
 
