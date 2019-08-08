@@ -8,7 +8,6 @@ from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
 )
 from triple_agent.classes.characters import Characters
 
-from triple_agent.classes.timeline import TimelineEvent
 import random
 
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
