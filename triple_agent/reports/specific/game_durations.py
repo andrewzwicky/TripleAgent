@@ -1,6 +1,6 @@
 from typing import List
 
-from triple_agent.reports.report_utilities import create_histogram
+from triple_agent.reports.generation.report_utilities import create_histogram
 from triple_agent.classes.game import Game
 
 

@@ -1,6 +1,6 @@
 from typing import List
 
-from triple_agent.reports.generic_query import query
+from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.action_tests import (
     AT_TO_COLORS_RGB,
     AT_PREFERRED_PIE_CHART_ORDER,

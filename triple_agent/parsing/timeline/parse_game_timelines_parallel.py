@@ -11,8 +11,8 @@ from typing import Tuple, Optional
 
 import pyautogui
 
-from triple_agent.timeline.parse_timeline import TimelineParseException
-from triple_agent.timeline.parse_timeline import (
+from triple_agent.parsing.timeline.parse_timeline import TimelineParseException
+from triple_agent.parsing.timeline.parse_timeline import (
     parse_single_screenshot,
     get_screenshots,
     remove_overlap,

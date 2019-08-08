@@ -1,7 +1,7 @@
 import os
 from typing import Callable
 
-from triple_agent.replays.parse_single_replay import parse_single_replay
+from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 from triple_agent.constants.paths import ALL_EVENTS_FOLDER, LONG_FILE_HEADER
 
 

@@ -5,7 +5,7 @@ from triple_agent.classes.game import Game
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.timeline import TimelineCategory
-from triple_agent.reports.generic_query import query
+from triple_agent.reports.generation.generic_query import query
 
 
 def _determine_spy(games, data_dictionary):

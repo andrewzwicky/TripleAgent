@@ -6,6 +6,7 @@ from triple_agent.classes.game import Game, game_load_or_new
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
+    # noinspection PyBroadException
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
     # no option, the parser raises general exceptions

@@ -2,7 +2,7 @@ from collections import defaultdict, Counter
 
 import pytest
 
-from triple_agent.reports.plot_utilities import (
+from triple_agent.reports.generation.plot_utilities import (
     create_data_dictionaries,
     create_sorted_categories,
     create_data_stacks,

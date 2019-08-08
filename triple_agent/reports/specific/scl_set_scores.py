@@ -1,6 +1,6 @@
 from typing import List
 
-from triple_agent.reports.generic_query import query
+from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.game import Game
 
 

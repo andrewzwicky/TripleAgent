@@ -1,4 +1,4 @@
-from triple_agent.replays.get_parsed_replays import get_parsed_replays
+from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 import pytest
 
 

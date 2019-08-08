@@ -2,12 +2,12 @@ from collections import Counter, defaultdict
 from enum import Enum
 from typing import List, Callable, Optional, Any, Dict, Union
 
-from triple_agent.reports.report_utilities import (
+from triple_agent.reports.generation.report_utilities import (
     create_pie_chart,
     create_bar_plot,
     create_line_plot,
 )
-from triple_agent.reports.plot_utilities import (
+from triple_agent.reports.generation.plot_utilities import (
     create_sorted_categories,
     create_data_dictionaries,
     limit_categories,

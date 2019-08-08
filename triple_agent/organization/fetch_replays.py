@@ -35,8 +35,8 @@ SCL_REPLAY_ZIP_RE = re.compile(
 )
 
 
-def fetch_scl5_replays():
-    soup = BeautifulSoup(requests.get(SCL5_REPLAYS_URL).text, "xml")
+def fetch_replays(url: str):
+    soup = BeautifulSoup(requests.get(url).text, "xml")
 
     existing_zip_files = os.listdir(ZIP_EXTRACT_FOLDER)
 
@@ -67,7 +67,7 @@ def fetch_scl5_replays():
             zip_file_match.group("week"),
         )
         sleep(random.randint(2, 4))
-        urlretrieve(SCL5_REPLAYS_URL + quote(zip_file_match.string), zip_file_dest)
+        urlretrieve(url + quote(zip_file_match.string), zip_file_dest)
 
         os.makedirs(extract_folder, exist_ok=True)
         try:
@@ -115,5 +115,5 @@ def check_for_duplicate_files():
 
 
 if __name__ == "__main__":
-    fetch_scl5_replays()
+    fetch_replays(SCL5_REPLAYS_URL)
     check_for_duplicate_files()
