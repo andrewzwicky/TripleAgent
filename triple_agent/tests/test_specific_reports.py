@@ -25,9 +25,11 @@ SPECIFIC_REPORT_TEST_CASES = [
 @pytest.mark.parametrize(
     "query_function, expected_data_dict", SPECIFIC_REPORT_TEST_CASES
 )
-def test_specific_reports(query_function, expected_data_dict, get_test_games):
+def test_specific_reports(
+    query_function, expected_data_dict, get_preparsed_timeline_games
+):
     data_dict = Counter()
 
-    query_function(get_test_games, data_dict)
+    query_function(get_preparsed_timeline_games, data_dict)
 
     assert data_dict == expected_data_dict

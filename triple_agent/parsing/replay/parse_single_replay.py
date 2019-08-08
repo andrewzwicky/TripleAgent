@@ -3,6 +3,7 @@ from typing import Optional, Dict, AnyStr
 
 from spyparty.ReplayParser import ReplayParser
 from triple_agent.classes.game import Game, game_load_or_new
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
@@ -18,7 +19,10 @@ def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
 
 
 def parse_replay_dict_into_game(
-    replay_dict: Optional[Dict[str, AnyStr]], replay_file: str, **kwargs
+    replay_dict: Optional[Dict[str, AnyStr]],
+    replay_file: str,
+    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    **kwargs,
 ) -> Optional[Game]:
     if replay_dict is None:
         return None
@@ -39,11 +43,14 @@ def parse_replay_dict_into_game(
         uuid=replay_dict["uuid"],
         file=replay_file,
         initial_pickle=False,
+        pickle_folder=pickle_folder,
         **kwargs,
     )
 
 
-def parse_single_replay(replay_file: str, **kwargs) -> Optional[Game]:
+def parse_single_replay(
+    replay_file: str, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+) -> Optional[Game]:
     return parse_replay_dict_into_game(
-        get_replay_dict(replay_file), replay_file, **kwargs
+        get_replay_dict(replay_file), replay_file, pickle_folder=pickle_folder, **kwargs
     )

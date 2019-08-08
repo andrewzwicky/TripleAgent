@@ -31,6 +31,7 @@ class Game:
         division: str = None,
         week: str = None,
         initial_pickle=True,
+        pickle_folder=REPLAY_PICKLE_FOLDER,
     ):
         self.spy = spy if not spy.endswith("/steam") else spy[:-6]
         self.sniper = sniper if not sniper.endswith("/steam") else sniper[:-6]
@@ -54,10 +55,10 @@ class Game:
         self.file = file
         self.timeline = None
         if initial_pickle:
-            self.repickle()
+            self.repickle(pickle_folder=pickle_folder)
 
-    def repickle(self):
-        with open(get_game_expected_pkl(self.uuid), "wb") as pik:
+    def repickle(self, pickle_folder: str = REPLAY_PICKLE_FOLDER):
+        with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
             pickle.dump(self, pik)
 
     def is_timeline_coherent(self):
@@ -194,14 +195,16 @@ def game_unpickle(expected_file: str) -> Optional[Game]:
     return None
 
 
-def game_load_or_new(*args, **kwargs) -> Game:
-    expected_file = get_game_expected_pkl(kwargs["uuid"])
+def game_load_or_new(
+    *args, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+) -> Game:
+    expected_file = get_game_expected_pkl(kwargs["uuid"], pickle_folder)
     unpickled_game = game_unpickle(expected_file)
 
     if unpickled_game is not None:
         return unpickled_game
 
-    return Game(*args, **kwargs)
+    return Game(*args, pickle_folder=pickle_folder, **kwargs)
 
 
 def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) -> str:

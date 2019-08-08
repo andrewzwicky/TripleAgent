@@ -190,10 +190,10 @@ def test_create_data_dictionaries(
     groupby,
     expected_data_dict,
     expected_data_dict_percent,
-    get_test_games,
+    get_preparsed_timeline_games,
 ):
     data_dict, data_dict_percent = create_data_dictionaries(
-        get_test_games, query_function, groupby
+        get_preparsed_timeline_games, query_function, groupby
     )
 
     assert data_dict == expected_data_dict

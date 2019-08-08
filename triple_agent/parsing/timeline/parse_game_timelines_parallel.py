@@ -7,6 +7,7 @@ from shutil import move
 from time import sleep
 from typing import List
 from typing import Callable
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
 from triple_agent.parsing.timeline.parse_timeline import (
@@ -20,7 +21,10 @@ from triple_agent.constants.paths import LONG_FILE_HEADER, PICKLE_ISOLATION, PAR
 from triple_agent.classes.timeline import Timeline
 
 
-def parse_timeline_parallel(games: List[Game], screenshot_iterator: Callable):
+def parse_timeline_parallel(
+        games: List[Game],
+        screenshot_iterator: Callable,
+        pickle_folder: str = REPLAY_PICKLE_FOLDER):
 
     mutex = threading.Lock()
     num_worker_threads = 2
@@ -62,7 +66,7 @@ def parse_timeline_parallel(games: List[Game], screenshot_iterator: Callable):
                 try:
                     games[game_index].timeline = timeline
                     coh_bool, coh_reasons = games[game_index].is_timeline_coherent()
-                    games[game_index].repickle()
+                    games[game_index].repickle(pickle_folder=pickle_folder)
                     if not coh_bool:
                         print(games[game_index], coh_reasons)
                         with open(PARSE_LOG, "a+") as parse_log:
@@ -70,6 +74,7 @@ def parse_timeline_parallel(games: List[Game], screenshot_iterator: Callable):
                                 f"incoherent timeline {games[game_index].spy} vs. {games[game_index].sniper} on {games[game_index].venue} {games[game_index].uuid} : {coh_reasons}\n"
                             )
 
+                        # TODO: find a way to get this to allow for passing the pickle folder argument.
                         pkl_loc = get_game_expected_pkl(games[game_index].uuid)
                         pkl_name = os.path.split(pkl_loc)[1]
                         move(

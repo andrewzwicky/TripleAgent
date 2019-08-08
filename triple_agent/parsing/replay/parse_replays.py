@@ -2,14 +2,22 @@ import os
 from shutil import rmtree, copyfile
 
 from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
-    parse_timeline_parallel,
+    parse_timeline_parallel
 )
-from triple_agent.constants.paths import UNPARSED_REPLAYS_FOLDER, LONG_FILE_HEADER
+from triple_agent.constants.paths import (
+    LONG_FILE_HEADER,
+    ALL_EVENTS_FOLDER,
+    UNPARSED_REPLAYS_FOLDER,
+)
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
 
 
-def parse_replays(game_filter):
+def parse_replays(
+    game_filter,
+    unparsed_folder: str = UNPARSED_REPLAYS_FOLDER,
+    events_folder: str = ALL_EVENTS_FOLDER,
+):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
     that particular game should be included in the return list.  This cannot include any
@@ -32,7 +40,7 @@ def parse_replays(game_filter):
         is parsing replays).
     ---Once parsed, timelines will be applied and the game will finally be pickled.
     """
-    game_list = list(iterate_over_replays(game_filter))
+    game_list = list(iterate_over_replays(game_filter, events_folder))
 
     # check that there are no duplicates from the same file existing twice.
     assert len({game.uuid for game in game_list}) == len(game_list)
@@ -46,10 +54,10 @@ def parse_replays(game_filter):
         print(f"{len(unparsed_game_list)} games to parse.")
 
         try:
-            rmtree(UNPARSED_REPLAYS_FOLDER)
+            rmtree(unparsed_folder)
         except FileNotFoundError:
             pass
-        os.makedirs(UNPARSED_REPLAYS_FOLDER, exist_ok=True)
+        os.makedirs(unparsed_folder, exist_ok=True)
 
         # it's important to get the replays in the correct order so that when
         # they are done in spy party, the files and the game line up correctly.
@@ -59,14 +67,13 @@ def parse_replays(game_filter):
             replay_file = game.file
             file_name = os.path.split(replay_file)[1]
             copyfile(
-                replay_file,
-                LONG_FILE_HEADER + os.path.join(UNPARSED_REPLAYS_FOLDER, file_name),
+                replay_file, LONG_FILE_HEADER + os.path.join(unparsed_folder, file_name)
             )
 
         parse_timeline_parallel(unparsed_game_list, get_mss_screenshots)
 
         try:
-            rmtree(UNPARSED_REPLAYS_FOLDER)
+            rmtree(unparsed_folder)
         except FileNotFoundError:
             pass
 
