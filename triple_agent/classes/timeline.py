@@ -1,7 +1,7 @@
 import re
 from collections.abc import Sequence
 from datetime import datetime
-from enum import IntFlag, auto
+from enum import IntFlag, auto, Flag
 from typing import Optional, List, Tuple
 
 from triple_agent.classes.action_tests import ActionTest, assign_color
@@ -14,6 +14,21 @@ from triple_agent.classes.missions import (
     Missions,
 )
 from triple_agent.classes.roles import Roles
+
+
+class TimelineCoherency(Flag):
+    Coherent = 0
+    NoTimeline = auto()
+    TimeRewind = auto()
+    BookMissingColor = auto()
+    NoGameStart = auto()
+    NoGameEnding = auto()
+    StartClockMismatch = auto()
+    PickedMissionsMismatch = auto()
+    CompletedMissionsMismatch = auto()
+    SelectedMissionsMismatch = auto()
+    GuestCountMismatch = auto()
+    SpyNotCastInBeginning = auto()
 
 
 class TimelineCategory(IntFlag):

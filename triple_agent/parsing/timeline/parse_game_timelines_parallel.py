@@ -9,7 +9,7 @@ from typing import List
 from typing import Callable
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
-
+from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (
     TimelineParseException,
     parse_screenshot,
@@ -66,10 +66,10 @@ def parse_timeline_parallel(
                 mutex.acquire()
                 try:
                     games[game_index].timeline = timeline
-                    coh_bool, coh_reasons = games[game_index].is_timeline_coherent()
+                    coherency = games[game_index].is_timeline_coherent()
                     games[game_index].repickle(pickle_folder=pickle_folder)
-                    if not coh_bool:
-                        print(games[game_index], coh_reasons)
+                    if coherency != TimelineCoherency.Coherent:
+                        print(games[game_index], str(coherency))
                         with open(PARSE_LOG, "a+") as parse_log:
                             parse_log.write(
                                 f"incoherent timeline {games[game_index].spy} vs. {games[game_index].sniper} on {games[game_index].venue} {games[game_index].uuid} : {coh_reasons}\n"
