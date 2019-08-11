@@ -1,7 +1,8 @@
 import os
-from typing import Callable
+from typing import Callable, Iterator
 
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
+from triple_agent.classes.game import Game
 from triple_agent.constants.paths import (
     ALL_EVENTS_FOLDER,
     LONG_FILE_HEADER,
@@ -13,7 +14,7 @@ def iterate_over_replays(
     game_filter: Callable,
     events_folder: str = ALL_EVENTS_FOLDER,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
-):
+) -> Iterator[Game]:
     for root, _, files in os.walk(events_folder):
         for file in files:
             if file.endswith(".replay"):

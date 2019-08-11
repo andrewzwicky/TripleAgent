@@ -20,8 +20,6 @@ def extract_spectate_replays(
         pass
     os.makedirs(spectate_folder, exist_ok=True)
 
-    for replay_file in iterate_over_replays(game_filter, events_folder):
-        file_name = os.path.split(replay_file)[1]
-        copyfile(
-            replay_file, LONG_FILE_HEADER + os.path.join(spectate_folder, file_name)
-        )
+    for game in iterate_over_replays(game_filter, events_folder):
+        file_name = os.path.split(game.file)[1]
+        copyfile(game.file, LONG_FILE_HEADER + os.path.join(spectate_folder, file_name))
