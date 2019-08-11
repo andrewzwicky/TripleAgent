@@ -2,3 +2,6 @@
 omit =
     triple_agent/tests/*
     */__init__.py
+    triple_agent/parsing/timeline/screenshot_iterator.py
+    triple_agent/organization/extract_spectation_replays.py
+    triple_agent/organization/fetch_replays.py
