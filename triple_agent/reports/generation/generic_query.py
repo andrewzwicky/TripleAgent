@@ -95,7 +95,7 @@ def query(
                 title,
                 [stacked_data],
                 labels=data_stack_labels_counts,
-                bar_labels=[stacked_data],
+                bar_labels=[[labelify(d) for d in stacked_data]],
                 # legend_labels=data_stack_labels,
                 colors=data_colors_counts,
                 hatches=data_hatching,
@@ -210,10 +210,19 @@ def create_data_plot_labels(data_stack_label_dict, data_stack_order):
         ]
 
     else:
-        data_plot_order_labels = [
-            plot_order_item.name
-            if isinstance(plot_order_item, Enum)
-            else str(plot_order_item)
-            for plot_order_item in data_stack_order
-        ]
+        data_plot_order_labels = []
+
+        for plot_order_item in data_stack_order:
+            data_plot_order_labels.append(labelify(plot_order_item))
+
     return data_plot_order_labels
+
+
+def labelify(plot_order_item):
+    if isinstance(plot_order_item, Enum):
+        return plot_order_item.name
+    elif isinstance(plot_order_item, float):
+        # TODO: check this for other use cases
+        return f"{plot_order_item:3>.5}"
+    else:
+        return str(plot_order_item)

@@ -72,7 +72,7 @@ def parse_timeline_parallel(
                         print(games[game_index], str(coherency))
                         with open(PARSE_LOG, "a+") as parse_log:
                             parse_log.write(
-                                f"incoherent timeline {games[game_index].spy} vs. {games[game_index].sniper} on {games[game_index].venue} {games[game_index].uuid} : {coh_reasons}\n"
+                                f"incoherent timeline {games[game_index].spy} vs. {games[game_index].sniper} on {games[game_index].venue} {games[game_index].uuid} : {str(coherency)}\n"
                             )
 
                         # TODO: find a way to get this to allow for passing the pickle folder argument.

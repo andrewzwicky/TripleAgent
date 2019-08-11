@@ -172,7 +172,7 @@ def create_bar_plot(
 
     current_bottom = [0] * len(data[0])
 
-    for i, (this_data, this_color) in enumerate(zip(data, colors)):
+    for current_data_stack, (this_data, this_color) in enumerate(zip(data, colors)):
         patches = axis.bar(
             ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
         )
@@ -180,7 +180,7 @@ def create_bar_plot(
 
         if bar_labels is not None:
             for this_tick, this_value, this_label in zip(
-                ticks, current_bottom, bar_labels[i]
+                ticks, current_bottom, bar_labels[current_data_stack]
             ):
                 if this_value != 0:
                     if this_value < max_bar_value * 0.05:
@@ -200,8 +200,8 @@ def create_bar_plot(
                     )
         if hatches is not None:
             for patch in patches:
-                if hatches[i] is not None:
-                    patch.set_hatch(hatches[i])
+                if hatches[current_data_stack] is not None:
+                    patch.set_hatch(hatches[current_data_stack])
 
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
@@ -240,7 +240,7 @@ def create_bar_plot(
     else:
         axis.set_xticklabels(labels, rotation=label_rotation)
 
-    if legend_labels is not None:
+    if legend_labels is not None and current_data_stack != 0:
         # Shrink current axis by 20%
         box = axis.get_position()
         axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
