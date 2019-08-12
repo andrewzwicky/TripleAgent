@@ -35,6 +35,7 @@ def id_func(val):
     return ""
 
 
+@pytest.mark.quick
 @pytest.mark.parametrize("image_name, expected_is_last", SCREENSHOT_TEST_CASES)
 def test_is_last_screenshot(image_name: str, expected_is_last: bool):
     screenshot_img = cv2.imread(

@@ -1,8 +1,11 @@
+import pytest
+
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.books import Books
 from triple_agent.classes.timeline import TimelineCoherency, Timeline
 
 
+@pytest.mark.quick
 def test_timeline_coherent_correct(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
 
@@ -10,6 +13,7 @@ def test_timeline_coherent_correct(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.Coherent
 
 
+@pytest.mark.quick
 def test_timeline_coherent_no_timeline(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     game.timeline = None
@@ -17,6 +21,7 @@ def test_timeline_coherent_no_timeline(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.NoTimeline
 
 
+@pytest.mark.quick
 def test_timeline_coherent_no_game_start(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -25,6 +30,7 @@ def test_timeline_coherent_no_game_start(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.NoGameStart
 
 
+@pytest.mark.quick
 def test_timeline_coherent_no_game_end(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove end event from timeline
@@ -33,6 +39,7 @@ def test_timeline_coherent_no_game_end(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.NoGameEnding
 
 
+@pytest.mark.quick
 def test_timeline_coherent_no_game_start_or_end(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -44,6 +51,7 @@ def test_timeline_coherent_no_game_start_or_end(get_preparsed_timeline_games):
     )
 
 
+@pytest.mark.quick
 def test_timeline_coherent_guest_count_and_spy(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -56,6 +64,7 @@ def test_timeline_coherent_guest_count_and_spy(get_preparsed_timeline_games):
     )
 
 
+@pytest.mark.quick
 def test_timeline_coherent_guest_count(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -64,6 +73,7 @@ def test_timeline_coherent_guest_count(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.GuestCountMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_start_clock(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -75,6 +85,7 @@ def test_timeline_coherent_start_clock(get_preparsed_timeline_games):
     )
 
 
+@pytest.mark.quick
 def test_timeline_coherent_start_clock_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -83,6 +94,7 @@ def test_timeline_coherent_start_clock_2(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.StartClockMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_guest_count_amba(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -91,6 +103,7 @@ def test_timeline_coherent_guest_count_amba(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.GuestCountMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_missing_book(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -99,6 +112,7 @@ def test_timeline_coherent_missing_book(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.BookMissingColor
 
 
+@pytest.mark.quick
 def test_timeline_coherent_rewind(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -107,6 +121,7 @@ def test_timeline_coherent_rewind(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.TimeRewind
 
 
+@pytest.mark.quick
 def test_timeline_coherent_complete_mismatch(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -115,6 +130,7 @@ def test_timeline_coherent_complete_mismatch(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.CompletedMissionsMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_selected_mismatch(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -123,6 +139,7 @@ def test_timeline_coherent_selected_mismatch(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.SelectedMissionsMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_picked_mismatch(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -131,6 +148,7 @@ def test_timeline_coherent_picked_mismatch(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_complete_mismatch_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -139,6 +157,7 @@ def test_timeline_coherent_complete_mismatch_2(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.CompletedMissionsMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_selected_mismatch_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline
@@ -147,6 +166,7 @@ def test_timeline_coherent_selected_mismatch_2(get_preparsed_timeline_games):
     assert game.is_timeline_coherent() == TimelineCoherency.SelectedMissionsMismatch
 
 
+@pytest.mark.quick
 def test_timeline_coherent_picked_mismatch_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     # remove start event from timeline

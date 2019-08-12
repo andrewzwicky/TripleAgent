@@ -1,9 +1,12 @@
+import pytest
+
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
 import datetime
 
 
+@pytest.mark.quick
 def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_folder):
     # this test is to confirm that replays can be successfully found in the folder structure
     # and assigned the correct event, week, division, etc.

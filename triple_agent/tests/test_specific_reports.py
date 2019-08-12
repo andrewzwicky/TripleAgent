@@ -146,6 +146,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
 ]
 
 
+@pytest.mark.quick
 @pytest.mark.parametrize(
     "query_function,groupby,expected_data_dict,expected_data_dict_percent",
     CREATE_DATA_DICTIONARY_TEST_CASES,

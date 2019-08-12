@@ -11,6 +11,7 @@ AT_TEST_CASES = [
 ]
 
 
+@pytest.mark.quick
 @pytest.mark.parametrize("in_string, expected_at", AT_TEST_CASES)
 def test_assign_color(in_string, expected_at):
     assert assign_color(in_string) == expected_at

@@ -357,6 +357,7 @@ CREATE_DATA_STACKS_TEST_CASES = [
 ]
 
 
+@pytest.mark.quick
 @pytest.mark.parametrize(
     "categories, data_dictionary, data_stack_order, expected_data_stack_order, expected_stacked_data",
     CREATE_DATA_STACKS_TEST_CASES,
@@ -376,6 +377,7 @@ def test_create_data_stacks(
     assert stacked_data == expected_stacked_data
 
 
+@pytest.mark.quick
 def test_data_stacks_raise_value():
     with pytest.raises(ValueError):
         create_data_stacks(["a"], [1, 2, 3], None)
