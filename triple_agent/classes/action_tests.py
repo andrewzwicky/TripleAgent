@@ -10,25 +10,6 @@ class ActionTest(IntEnum):
     Canceled = auto()
 
 
-def assign_color(event_text: str) -> ActionTest:
-    if "green" in event_text:
-        return ActionTest.Green
-
-    if "white" in event_text:
-        return ActionTest.White
-
-    if "ignored" in event_text:
-        return ActionTest.Ignored
-
-    if "canceled" in event_text:
-        return ActionTest.Canceled
-
-    if "red" in event_text:
-        return ActionTest.Red
-
-    return ActionTest.NoAT
-
-
 AT_TO_COLORS_RGB = {
     ActionTest.Green: "xkcd:green",
     ActionTest.White: "xkcd:white",
