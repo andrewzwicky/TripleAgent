@@ -48,21 +48,13 @@ class Game:
         with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
             pickle.dump(self, pik)
 
-    def is_timeline_coherent(self) -> TimelineCoherency:
-        coherency = TimelineCoherency.Coherent
-
+    def collect_general_timeline_info(self):
         timeline_picked_missions = Missions.Zero
         timeline_selected_missions = Missions.Zero
         timeline_completed_missions = Missions.Zero
         timeline_guest_count = 0
-        timeline_time_adds = 0
-        previous_time = None
-        previous_timeadd = False
         ending_included = False
         start_included = False
-
-        if self.timeline is None:
-            return TimelineCoherency.NoTimeline
 
         for event in self.timeline:
             if event.category & TimelineCategory.MissionEnabled:
@@ -77,28 +69,54 @@ class Game:
             if event.category & TimelineCategory.Cast:
                 timeline_guest_count += 1
 
+            if event.category & TimelineCategory.GameEnd:
+                ending_included = True
+
+            if event.category & TimelineCategory.GameStart:
+                start_included = True
+
+        return (
+            timeline_picked_missions,
+            timeline_selected_missions,
+            timeline_completed_missions,
+            timeline_guest_count,
+            ending_included,
+            start_included,
+        )
+
+    def check_time_adds(self, coherency: TimelineCoherency) -> TimelineCoherency:
+        previous_time = None
+        previous_timeadd = False
+
+        for event in self.timeline:
             if previous_time is not None:
                 if event.time > previous_time and not previous_timeadd:
                     coherency |= TimelineCoherency.TimeRewind
 
             previous_time = event.time
 
-            if event.event == "45 seconds added to match.":
-                timeline_time_adds += 1
-                previous_timeadd = True
-            else:
-                previous_timeadd = False
+            previous_timeadd = event.event == "45 seconds added to match."
 
+        return coherency
+
+    def check_book_colors(self, coherency: TimelineCoherency) -> TimelineCoherency:
+        for event in self.timeline:
             if len(event.books) > 1:
                 for book in event.books:
                     if book is None:
                         coherency |= TimelineCoherency.BookMissingColor
 
-            if event.category & TimelineCategory.GameEnd:
-                ending_included = True
+        return coherency
 
-            if event.category & TimelineCategory.GameStart:
-                start_included = True
+    def is_timeline_coherent(self) -> TimelineCoherency:
+        coherency = TimelineCoherency.Coherent
+
+        if self.timeline is None:
+            return TimelineCoherency.NoTimeline
+
+        timeline_picked_missions, timeline_selected_missions, timeline_completed_missions, timeline_guest_count, ending_included, start_included = (
+            self.collect_general_timeline_info()
+        )
 
         if not ending_included:
             coherency |= TimelineCoherency.NoGameEnding
@@ -106,28 +124,31 @@ class Game:
         if not start_included:
             coherency |= TimelineCoherency.NoGameStart
 
-        if (
-            self.timeline[0].time != self.start_clock_seconds
-            and self.start_clock_seconds is not None
-        ):
-            coherency |= TimelineCoherency.StartClockMismatch
+        coherency = self.check_time_adds(coherency)
 
-        if timeline_picked_missions != self.picked_missions:
-            coherency |= TimelineCoherency.PickedMissionsMismatch
+        coherency = self.check_book_colors(coherency)
 
-        if timeline_completed_missions != self.completed_missions:
-            coherency |= TimelineCoherency.CompletedMissionsMismatch
+        coherency = self.check_start_clock(coherency)
 
-        if timeline_selected_missions != self.selected_missions:
-            coherency |= TimelineCoherency.SelectedMissionsMismatch
+        coherency = self.check_picked_missions(coherency, timeline_picked_missions)
 
-        if timeline_guest_count != self.guest_count and self.guest_count is not None:
-            coherency |= TimelineCoherency.GuestCountMismatch
+        coherency = self.check_completed_missions(
+            coherency, timeline_completed_missions
+        )
 
-        # TODO: unsure what this was checking for.
+        coherency = self.check_selected_missions(coherency, timeline_selected_missions)
+
+        coherency = self.check_guest_count(coherency, timeline_guest_count)
+
+        # TODO: figure out why I added this
         # if len(self.timeline[0].role) != 1:
         #     coherent = False
 
+        coherency = self.check_spy_in_beginning(coherency)
+
+        return coherency
+
+    def check_spy_in_beginning(self, coherency: TimelineCoherency) -> TimelineCoherency:
         # It's possible for sniper lights to appear as the first thing in the timeline,
         # so check the first two items in the timeline
         if self.timeline[0].role == tuple or self.timeline[0].role[0] != Roles.Spy:
@@ -137,6 +158,43 @@ class Game:
                     or self.timeline[2].role[0] != Roles.Spy
                 ):
                     coherency |= TimelineCoherency.SpyNotCastInBeginning
+
+        return coherency
+
+    def check_guest_count(
+        self, coherency: TimelineCoherency, timeline_guest_count: int
+    ) -> TimelineCoherency:
+        if timeline_guest_count != self.guest_count and self.guest_count is not None:
+            coherency |= TimelineCoherency.GuestCountMismatch
+        return coherency
+
+    def check_selected_missions(
+        self, coherency: TimelineCoherency, timeline_selected_missions
+    ) -> TimelineCoherency:
+        if timeline_selected_missions != self.selected_missions:
+            coherency |= TimelineCoherency.SelectedMissionsMismatch
+        return coherency
+
+    def check_completed_missions(
+        self, coherency: TimelineCoherency, timeline_completed_missions
+    ) -> TimelineCoherency:
+        if timeline_completed_missions != self.completed_missions:
+            coherency |= TimelineCoherency.CompletedMissionsMismatch
+        return coherency
+
+    def check_picked_missions(
+        self, coherency: TimelineCoherency, timeline_picked_missions
+    ) -> TimelineCoherency:
+        if timeline_picked_missions != self.picked_missions:
+            coherency |= TimelineCoherency.PickedMissionsMismatch
+        return coherency
+
+    def check_start_clock(self, coherency: TimelineCoherency):
+        if (
+            self.timeline[0].time != self.start_clock_seconds
+            and self.start_clock_seconds is not None
+        ):
+            coherency |= TimelineCoherency.StartClockMismatch
 
         return coherency
 
