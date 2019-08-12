@@ -1,61 +1,48 @@
 import os
 import pickle
 from datetime import datetime
-from typing import Set, Optional, Tuple
+from typing import Optional
+from dataclasses import dataclass, field
 
-from triple_agent.classes.missions import convert_mission_set_to_enum, Missions
+from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.roles import Roles
-from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency
+from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
+@dataclass
 class Game:
-    def __init__(
-        self,
-        spy: str,
-        sniper: str,
-        venue: str,
-        win_type: str,
-        game_type: str,
-        picked_missions: Set[str],
-        selected_missions: Set[str],
-        completed_missions: Set[str],
-        start_time: datetime = None,
-        guest_count: Optional[int] = None,
-        start_clock_seconds: Optional[int] = None,
-        duration: Optional[int] = None,
-        uuid: str = None,
-        file: str = None,
-        event: str = None,
-        division: str = None,
-        week: str = None,
-        initial_pickle=True,
-        pickle_folder=REPLAY_PICKLE_FOLDER,
-    ):
-        self.spy = spy if not spy.endswith("/steam") else spy[:-6]
-        self.sniper = sniper if not sniper.endswith("/steam") else sniper[:-6]
-        self.venue = venue
-        self.win_type = WinType[win_type]
-        self.game_type = game_type
+    spy: str
+    sniper: str
+    venue: str
+    win_type: WinType
+    game_type: str
+    picked_missions: Missions
+    selected_missions: Missions
+    completed_missions: Missions
+    start_time: datetime = None
+    guest_count: Optional[int] = None
+    start_clock_seconds: Optional[int] = None
+    duration: Optional[int] = None
+    uuid: str = None
+    file: str = None
+    event: str = None
+    division: str = None
+    week: str = None
+    initial_pickle: bool = True
+    pickle_folder: str = REPLAY_PICKLE_FOLDER
+    timeline: Optional[Timeline] = None
+    winner: str = field(init=False)
+
+    def __post_init__(self):
+        self.spy = self.spy if not self.spy.endswith("/steam") else self.spy[:-6]
+        self.sniper = (
+            self.sniper if not self.sniper.endswith("/steam") else self.sniper[:-6]
+        )
         self.winner = self.spy if self.win_type & WinType.SpyWin else self.sniper
-        # picked missions are for pick mode
-        # this is 'enabled' in replay
-        self.picked_missions = convert_mission_set_to_enum(picked_missions)
-        self.selected_missions = convert_mission_set_to_enum(selected_missions)
-        self.completed_missions = convert_mission_set_to_enum(completed_missions)
-        self.start_time = start_time
-        self.guest_count = guest_count
-        self.start_clock_seconds = start_clock_seconds
-        self.duration = duration
-        self.uuid = uuid
-        self.event = event
-        self.division = division
-        self.week = week
-        self.file = file
-        self.timeline = None
-        if initial_pickle:
-            self.repickle(pickle_folder=pickle_folder)
+        if self.initial_pickle:
+            self.repickle(pickle_folder=self.pickle_folder)
 
     def repickle(self, pickle_folder: str = REPLAY_PICKLE_FOLDER):
         with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
@@ -152,13 +139,6 @@ class Game:
                     coherency |= TimelineCoherency.SpyNotCastInBeginning
 
         return coherency
-
-    def __repr__(self):
-        # TODO: this should contain more information
-        return (
-            f"{self.spy} vs {self.sniper} on {self.venue} | {self.winner} wins | "
-            f"{str(self.win_type)} | {str(self.completed_missions)}"
-        )
 
 
 def game_unpickle(expected_file: str) -> Optional[Game]:
