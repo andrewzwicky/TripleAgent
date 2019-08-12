@@ -34,7 +34,7 @@ def _determine_role_games(games, data_dictionary, role):
 def determine_character_in_role(game, role) -> Optional[Characters]:
     for event in game.timeline:
         if (event.category & TimelineCategory.Cast) and (role in event.role):
-            return event.cast_name[0]
+            return event.cast_name[0].name
 
     return None
 
