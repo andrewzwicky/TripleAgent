@@ -21,6 +21,20 @@ from triple_agent.constants.paths import LONG_FILE_HEADER, PICKLE_ISOLATION, PAR
 from triple_agent.classes.timeline import Timeline
 
 
+def all_timeline_pieces_present(pieces_dict: dict) -> bool:
+    num_parsed_pieces = 0
+    last_num = 0
+    last_seen = False
+
+    for (_n, _l) in pieces_dict.keys():
+        num_parsed_pieces += 1
+        if _l:
+            last_seen = True
+            last_num = _n
+
+    return last_seen and num_parsed_pieces == last_num
+
+
 def parse_timeline_parallel(
     games: List[Game],
     screenshot_iterator: Callable,
@@ -87,19 +101,6 @@ def parse_timeline_parallel(
                     mutex.release()
 
             queue.task_done()
-
-    def all_timeline_pieces_present(pieces_dict: dict) -> bool:
-        num_parsed_pieces = 0
-        last_num = 0
-        last_seen = False
-
-        for (_n, _l) in pieces_dict.keys():
-            num_parsed_pieces += 1
-            if _l:
-                last_seen = True
-                last_num = _n
-
-        return last_seen and num_parsed_pieces == last_num
 
     for _ in range(num_worker_threads):
         thread = threading.Thread(target=screenshot_consumer)
