@@ -221,7 +221,8 @@ def create_data_plot_labels(data_stack_label_dict, data_stack_order):
 def labelify(plot_order_item):
     if isinstance(plot_order_item, Enum):
         return plot_order_item.name
-    elif isinstance(plot_order_item, float):
+
+    if isinstance(plot_order_item, float):
         # TODO: check this for other use cases
         return f"{plot_order_item:3>.5}"
 
