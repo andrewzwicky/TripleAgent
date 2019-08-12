@@ -9,6 +9,74 @@ from matplotlib.ticker import MultipleLocator
 from triple_agent.constants.paths import PORTRAITS_FOLDER
 
 
+def _create_figure_and_axis(legend_labels):
+    if legend_labels is not None:
+        # account for space at bottom of figure
+        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
+    else:
+        fig, axis = plt.subplots(figsize=(12, 8))
+    return axis, fig
+
+
+def _get_plot_colors(colors, data):
+    if colors is None:
+        if len(data) == 1:
+            colors = ["xkcd:green"]
+        else:
+            colors = itertools.repeat(None)
+    return colors
+
+
+def _set_y_axis_percentage(axis, max_value, percentage):
+    if percentage:
+        axis.yaxis.set_major_locator(MultipleLocator(0.1))
+        vals = axis.get_yticks()
+        axis.set_yticklabels(["{:,.0%}".format(x) for x in vals])
+
+        if max_value >= 0.99:
+            axis.set_ylim(top=1)
+
+    else:
+        num_majors = 12
+        increment = round(max_value / num_majors)
+        if increment < 1:
+            increment = 1
+        axis.yaxis.set_major_locator(MultipleLocator(increment))
+        rounded_top = ((max_value + increment) // increment) * increment
+        axis.set_ylim(top=rounded_top)
+
+
+def _set_axis_labels(axis, x_label, y_label):
+    if y_label is not None:
+        axis.set_ylabel(y_label)
+    if x_label is not None:
+        axis.set_xlabel(x_label)
+
+
+def _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis):
+    if portrait_x_axis:
+        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
+        fig.canvas.draw()
+        for label in axis.xaxis.get_ticklabels():
+            ext = label.get_window_extent()
+            name = label.get_text().strip().lower()
+            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
+
+            portrait_image = plt.imread(
+                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+            )
+            port_size = 0.045
+            middle = (left + right) / 2
+            port_start = middle - (port_size / 2)
+            newax = fig.add_axes(
+                [port_start, top - port_size, port_size, port_size], zorder=-1
+            )
+            newax.imshow(portrait_image)
+            newax.axis("off")
+    else:
+        axis.set_xticklabels(labels, rotation=label_rotation)
+
+
 def create_line_plot(
     title: str,
     data: List[List[Union[int, float]]],
@@ -24,23 +92,16 @@ def create_line_plot(
     no_show=False,
     savefig=None,
 ):
-    if colors is None:
-        if len(data) == 1:
-            colors = ["xkcd:green"]
-        else:
-            colors = itertools.repeat(None)
+    colors = _get_plot_colors(colors, data)
 
-    if legend_labels is not None:
-        # account for space at bottom of figure
-        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
-    else:
-        fig, axis = plt.subplots(figsize=(12, 8))
+    axis, fig = _create_figure_and_axis(legend_labels)
+
     ticks = list(range(len(data[0])))
 
     # make sure all individual data sets are the same length
     assert len({len(d) for d in data}) == 1
 
-    max_bar_value = max((map(max, zip(*data))))
+    max_value = max((map(max, zip(*data))))
 
     axis.set_title(title)
 
@@ -58,42 +119,18 @@ def create_line_plot(
         )
         current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
 
+    _set_y_axis_percentage(axis, max_value, percentage)
+
+    _set_axis_labels(axis, x_label, y_label)
+
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
 
-    if percentage:
-        axis.yaxis.set_major_locator(MultipleLocator(0.1))
-        vals = axis.get_yticks()
-        axis.set_yticklabels(["{:,.0%}".format(x) for x in vals])
-
-        if max_bar_value >= 0.99:
-            axis.set_ylim(top=1)
-
-    else:
-        num_majors = 12
-        increment = round(max_bar_value / num_majors)
-        if increment < 1:
-            increment = 1
-        axis.yaxis.set_major_locator(MultipleLocator(increment))
-        rounded_top = ((max_bar_value + increment) // increment) * increment
-        axis.set_ylim(top=rounded_top)
-
     axis.set_ylim(bottom=0)
+
     axis.yaxis.grid(which="major", color="k")
     axis.yaxis.grid(which="minor", linestyle="--")
-
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-
-    if x_label is not None:
-        axis.set_xlabel(x_label)
-
     axis.set_axisbelow(True)
-
-    if portrait_x_axis:
-        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
-    else:
-        axis.set_xticklabels(labels, rotation=label_rotation)
 
     if legend_labels is not None:
         # Shrink current axis by 20%
@@ -103,25 +140,7 @@ def create_line_plot(
         # Put a legend to the right of the current axis
         axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
-    if portrait_x_axis:
-        fig.canvas.draw()
-        for label in axis.xaxis.get_ticklabels():
-
-            ext = label.get_window_extent()
-            name = label.get_text().strip().lower()
-            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
-
-            portrait_image = plt.imread(
-                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
-            )
-            port_size = 0.045
-            middle = (left + right) / 2
-            port_start = middle - (port_size / 2)
-            newax = fig.add_axes(
-                [port_start, top - port_size, port_size, port_size], zorder=-1
-            )
-            newax.imshow(portrait_image)
-            newax.axis("off")
+    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
 
     if savefig:
         plt.savefig(savefig, bbox_inches="tight")
@@ -149,17 +168,10 @@ def create_bar_plot(
     no_show=False,
     savefig=None,
 ):
-    if colors is None:
-        if len(data) == 1:
-            colors = ["xkcd:green"]
-        else:
-            colors = itertools.repeat(None)
+    colors = _get_plot_colors(colors, data)
 
-    if legend_labels is not None:
-        # account for space at bottom of figure
-        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
-    else:
-        fig, axis = plt.subplots(figsize=(12, 8))
+    axis, fig = _create_figure_and_axis(legend_labels)
+
     ticks = list(range(len(data[0])))
 
     # make sure all individual data sets are the same length
@@ -171,6 +183,8 @@ def create_bar_plot(
     axis.set_title(title)
 
     current_bottom = [0] * len(data[0])
+
+    current_data_stack = 0
 
     for current_data_stack, (this_data, this_color) in enumerate(zip(data, colors)):
         patches = axis.bar(
@@ -203,42 +217,18 @@ def create_bar_plot(
                 if hatches[current_data_stack] is not None:
                     patch.set_hatch(hatches[current_data_stack])
 
+    _set_y_axis_percentage(axis, max_bar_value, percentage)
+
+    _set_axis_labels(axis, x_label, y_label)
+
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
 
-    if percentage:
-        axis.yaxis.set_major_locator(MultipleLocator(0.1))
-        vals = axis.get_yticks()
-        axis.set_yticklabels(["{:,.0%}".format(x) for x in vals])
-
-        if max_bar_value >= 0.99:
-            axis.set_ylim(top=1)
-
-    else:
-        num_majors = 12
-        increment = round(max_bar_value / num_majors)
-        if increment < 1:
-            increment = 1
-        axis.yaxis.set_major_locator(MultipleLocator(increment))
-        rounded_top = ((max_bar_value + increment) // increment) * increment
-        axis.set_ylim(top=rounded_top)
-
     axis.set_ylim(bottom=0)
+
     axis.yaxis.grid(which="major", color="k")
     axis.yaxis.grid(which="minor", linestyle="--")
-
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-
-    if x_label is not None:
-        axis.set_xlabel(x_label)
-
     axis.set_axisbelow(True)
-
-    if portrait_x_axis:
-        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
-    else:
-        axis.set_xticklabels(labels, rotation=label_rotation)
 
     if legend_labels is not None and current_data_stack != 0:
         # Shrink current axis by 20%
@@ -248,25 +238,7 @@ def create_bar_plot(
         # Put a legend to the right of the current axis
         axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
-    if portrait_x_axis:
-        fig.canvas.draw()
-        for label in axis.xaxis.get_ticklabels():
-
-            ext = label.get_window_extent()
-            name = label.get_text().strip().lower()
-            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
-
-            portrait_image = plt.imread(
-                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
-            )
-            port_size = 0.045
-            middle = (left + right) / 2
-            port_start = middle - (port_size / 2)
-            newax = fig.add_axes(
-                [port_start, top - port_size, port_size, port_size], zorder=-1
-            )
-            newax.imshow(portrait_image)
-            newax.axis("off")
+    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
 
     if savefig:
         plt.savefig(savefig, bbox_inches="tight")
@@ -350,11 +322,7 @@ def create_histogram(
 
     axis.set_title(title)
 
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-
-    if x_label is not None:
-        axis.set_xlabel(x_label)
+    _set_axis_labels(axis, x_label, y_label)
 
     if savefig:
         plt.savefig(savefig, bbox_inches="tight")
@@ -371,11 +339,7 @@ def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=No
     axis.set_ylim(bottom=0)
     axis.set_xlim(left=0)
 
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-
-    if x_label is not None:
-        axis.set_xlabel(x_label)
+    _set_axis_labels(axis, x_label, y_label)
 
     axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
     axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
