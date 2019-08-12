@@ -224,5 +224,5 @@ def labelify(plot_order_item):
     elif isinstance(plot_order_item, float):
         # TODO: check this for other use cases
         return f"{plot_order_item:3>.5}"
-    else:
-        return str(plot_order_item)
+
+    return str(plot_order_item)
