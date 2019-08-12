@@ -360,3 +360,25 @@ def create_histogram(
         plt.savefig(savefig, bbox_inches="tight")
 
     plt.show()
+
+
+def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=None):
+    _, axis = plt.subplots(figsize=(14, 10))
+
+    for x_d, y_d, color in zip(x_data, y_data, colors):
+        axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
+
+    axis.set_ylim(bottom=0)
+    axis.set_xlim(left=0)
+
+    if y_label is not None:
+        axis.set_ylabel(y_label)
+
+    if x_label is not None:
+        axis.set_xlabel(x_label)
+
+    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
+    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
+
+    axis.set_title(title)
+    plt.show()
