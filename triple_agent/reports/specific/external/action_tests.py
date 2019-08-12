@@ -40,11 +40,11 @@ def caster_report_action_tests():
     )
 
     scl5_nice_name_character_dict = {
-        player: {character.name: rate for character, rate in sub_dict.items()}
+        player: {at.name: rate for at, rate in sub_dict.items()}
         for player, sub_dict in scl5_data_dict_percent.items()
     }
     all_nice_name_character_dict = {
-        player: {character.name: rate for character, rate in sub_dict.items()}
+        player: {at.name: rate for at, rate in sub_dict.items()}
         for player, sub_dict in all_data_dict_percent.items()
     }
 
