@@ -21,9 +21,7 @@ def _save_fig_if_needed(fig, savefig):
 def _create_legend_if_needed(
     axis, fig, stack_labels: Optional[List[str]], data_stack_level=None
 ):
-    if stack_labels is not None and (
-        data_stack_level is None or data_stack_level > 0
-    ):
+    if stack_labels is not None and (data_stack_level is None or data_stack_level > 0):
         # resize the plot to allow size for legend.
         # increase figure by 25%
         width, height = fig.get_size_inches()
@@ -34,9 +32,7 @@ def _create_legend_if_needed(
         axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
         # Put a legend to the right of the current axis
-        axis.legend(
-            labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5)
-        )
+        axis.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
 def _get_plot_colors(colors: Optional[List[str]], data: List[List[Union[int, float]]]):
