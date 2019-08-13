@@ -4,6 +4,7 @@ from triple_agent.classes.game import Game
 from triple_agent.classes.outcomes import WINTYPES_TO_COLORS
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.report_utilities import create_progress_plot
+from triple_agent.reports.generation.plot_specs import AxisProperties
 
 
 def mission_progress(games: List[Game], title: str):
@@ -32,7 +33,9 @@ def mission_progress(games: List[Game], title: str):
         times,
         progresses,
         colors,
-        title,
-        x_label="Percent of Start Time Elapsed",
-        y_label="Mission Progress",
+        AxisProperties(
+            title=title,
+            x_axis_label="Percent of Start Time Elapsed",
+            y_axis_label="Mission Progress",
+        ),
     )

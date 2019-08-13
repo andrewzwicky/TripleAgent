@@ -19,7 +19,7 @@ class DataPlotProperties:
     data: List[List[Union[int, float]]] = None
     category_labels: List[str] = None
     stack_labels: Optional[List[str]] = None
-    bar_labels: List[List[Union[int, float]]] = None
+    data_labels: List[List[Union[int, float]]] = None
     colors: Optional[List[str]] = None
     data_hatching: Optional[List[Optional[str]]] = None
 

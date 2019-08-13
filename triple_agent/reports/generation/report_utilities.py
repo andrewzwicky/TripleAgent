@@ -56,7 +56,7 @@ def _get_plot_colors(colors: Optional[List[str]], data: List[List[Union[int, flo
     return colors
 
 
-def _set_y_axis_scale_and_ticks(axis, max_value, percentage):
+def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):
     if percentage:
         axis.yaxis.set_major_locator(MultipleLocator(0.1))
         vals = axis.get_yticks()
@@ -98,14 +98,14 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
         axis.set_xticklabels(labels, rotation=90)
 
 
-def _set_axis_properties(axis, ticks, axis_labels: AxisProperties):
-    axis.set_title(axis_labels.title)
+def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
+    axis.set_title(axis_properties.title)
 
-    if axis_labels.y_axis_label is not None:
-        axis.set_ylabel(axis_labels.y_axis_label)
+    if axis_properties.y_axis_label is not None:
+        axis.set_ylabel(axis_properties.y_axis_label)
 
-    if axis_labels.x_axis_label is not None:
-        axis.set_xlabel(axis_labels.x_axis_label)
+    if axis_properties.x_axis_label is not None:
+        axis.set_xlabel(axis_properties.x_axis_label)
 
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
@@ -171,8 +171,6 @@ def create_bar_plot(
 
     max_value = max((map(sum, zip(*data_properties.data))))
 
-    text_padding = max_value * 0.01
-
     current_bottom = [0] * len(data_properties.data[0])
 
     current_data_stack = 0
@@ -185,26 +183,12 @@ def create_bar_plot(
         )
         current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
 
-        if data_properties.bar_labels is not None:
-            for this_tick, this_value, this_label in zip(
-                ticks, current_bottom, data_properties.bar_labels[current_data_stack]
+        if data_properties.data_labels is not None:
+            for tick_value_label_tuple in zip(
+                ticks, current_bottom, data_properties.data_labels[current_data_stack]
             ):
-                if this_value != 0:
-                    if this_value < max_value * 0.05:
-                        y_value = this_value + text_padding
-                        v_align = "bottom"
-                    else:
-                        y_value = this_value - text_padding
-                        v_align = "top"
+                _create_data_label(axis, max_value, *tick_value_label_tuple)
 
-                    axis.text(
-                        this_tick,
-                        y_value,
-                        str(this_label),
-                        color="black",
-                        horizontalalignment="center",
-                        verticalalignment=v_align,
-                    )
         if data_properties.data_hatching is not None:
             for patch in patches:
                 if data_properties.data_hatching[current_data_stack] is not None:
@@ -225,6 +209,27 @@ def create_bar_plot(
     _save_fig_if_needed(fig, axis_properties.savefig)
 
     plt.show()
+
+
+def _create_data_label(axis, max_value, this_label, this_tick, this_value):
+    text_padding = max_value * 0.01
+
+    if this_value != 0:
+        if this_value < max_value * 0.05:
+            y_value = this_value + text_padding
+            v_align = "bottom"
+        else:
+            y_value = this_value - text_padding
+            v_align = "top"
+
+        axis.text(
+            this_tick,
+            y_value,
+            str(this_label),
+            color="black",
+            horizontalalignment="center",
+            verticalalignment=v_align,
+        )
 
 
 def trim_empty_labels(
@@ -277,21 +282,16 @@ def create_pie_chart(
 
 
 def create_histogram(
-    title,
+    axis_properties: AxisProperties,
     data,
     bin_size,
     major_locator=60,
-    x_label=None,
-    y_label=None,
     cumulative_also=False,
     **kwargs,
 ):
     fig, axis = plt.subplots(figsize=(12, 8))
-    max_data_point = max(data)
-    last_bin_right = bin_size * round(max_data_point / bin_size) + bin_size
-    data_bins = np.arange(0, last_bin_right + bin_size, bin_size)
-    cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
-    axis.set_xlim(0, last_bin_right)
+
+    cumulative_bins, data_bins = create_bins(bin_size, data)
 
     heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
 
@@ -299,7 +299,7 @@ def create_histogram(
         axis2 = axis.twinx()
         axis2.hist(
             data,
-            bins=cumul_bins,
+            bins=cumulative_bins,
             density=True,
             histtype="step",
             cumulative=True,
@@ -309,31 +309,29 @@ def create_histogram(
 
         axis2.set_ylim(0, 1)
 
-    max_bar_value = max(heights)
-    num_majors = 12
-    increment = round(max_bar_value / num_majors)
-    if increment < 1:
-        increment = 1
-    axis.yaxis.set_major_locator(MultipleLocator(increment))
-    rounded_top = ((max_bar_value + increment) // increment) * increment
-    axis.set_ylim(top=rounded_top)
-
-    # axis.yaxis.set_major_locator(MultipleLocator(1))
+    _set_y_axis_scale_and_ticks(axis, max(heights), False)
 
     # TODO: figure out a better major locator size
     axis.xaxis.set_major_locator(MultipleLocator(major_locator))
     axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
 
-    axis.set_title(title)
-
-    _set_axis_properties(axis, x_label, y_label)
+    _set_axis_properties(axis, data_bins, axis_properties)
 
     _save_fig_if_needed(fig, kwargs)
 
     plt.show()
 
 
-def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=None):
+def create_bins(bin_size, data):
+    max_data_point = max(data)
+    last_bin_right = bin_size * round(max_data_point / bin_size) + bin_size
+    data_bins = np.arange(0, last_bin_right + bin_size, bin_size)
+    cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
+
+    return cumul_bins, data_bins
+
+
+def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties):
     _, axis = plt.subplots(figsize=(14, 10))
 
     for x_d, y_d, color in zip(x_data, y_data, colors):
@@ -342,11 +340,15 @@ def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=No
     axis.set_ylim(bottom=0)
     axis.set_xlim(left=0)
 
-    _set_axis_properties(axis, x_label, y_label)
-
     axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
     axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
 
-    axis.set_title(title)
+    axis.set_title(axis_properties.title)
+
+    if axis_properties.y_axis_label is not None:
+        axis.set_ylabel(axis_properties.y_axis_label)
+
+    if axis_properties.x_axis_label is not None:
+        axis.set_xlabel(axis_properties.x_axis_label)
 
     plt.show()
