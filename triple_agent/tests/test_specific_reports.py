@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 
 import pytest
-from triple_agent.reports.generation.plot_utilities import create_data_dictionaries
+from triple_agent.reports.generation.plot_utilities import create_data_dictionary
 from triple_agent.reports.specific.action_tests import (
     _at_rates_excluding_difficults,
     _difficult_at_rate,
@@ -10,10 +10,12 @@ from triple_agent.classes.action_tests import ActionTest
 
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
-    (_difficult_at_rate, None, Counter(), Counter()),
+    (_difficult_at_rate, None, False, Counter()),
+    (_difficult_at_rate, None, True, Counter()),
     (
         _at_rates_excluding_difficults,
         None,
+        False,
         Counter(
             {
                 ActionTest.Green: 13,
@@ -22,6 +24,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ActionTest.Ignored: 1,
             }
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        None,
+        True,
         Counter(
             {
                 ActionTest.Green: 13 / 34,
@@ -34,6 +41,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
         _at_rates_excluding_difficults,
         lambda x: x.spy,
+        False,
         defaultdict(
             Counter,
             {
@@ -50,6 +58,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.spy,
+        True,
         defaultdict(
             Counter,
             {
@@ -70,6 +83,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
         _at_rates_excluding_difficults,
         lambda x: x.sniper,
+        False,
         defaultdict(
             Counter,
             {
@@ -84,6 +98,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.sniper,
+        True,
         defaultdict(
             Counter,
             {
@@ -104,6 +123,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
         _at_rates_excluding_difficults,
         lambda x: x.venue,
+        False,
         defaultdict(
             Counter,
             {
@@ -117,6 +137,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.venue,
+        True,
         defaultdict(
             Counter,
             {
@@ -148,19 +173,19 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
 
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "query_function,groupby,expected_data_dict,expected_data_dict_percent",
+    "query_function,groupby,percent_normalized_data,expected_data_dict",
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
 def test_included_reports(
     query_function,
     groupby,
+    percent_normalized_data,
     expected_data_dict,
-    expected_data_dict_percent,
     get_preparsed_timeline_games,
 ):
-    data_dict, data_dict_percent = create_data_dictionaries(
-        get_preparsed_timeline_games, query_function, groupby
+    data_dict = create_data_dictionary(
+        get_preparsed_timeline_games, query_function, groupby, percent_normalized_data
     )
 
     assert data_dict == expected_data_dict
-    assert data_dict_percent == expected_data_dict_percent
+    assert type(data_dict) == type(expected_data_dict)
