@@ -39,3 +39,11 @@ class DataQueryProperties:
     reversed_data_sort: bool = False
     limit: Optional[int] = None
     percent_normalized_data: bool = False
+    data_hatching: Optional[List[Optional[str]]] = None
+
+
+def create_properties_if_none(axis_properties, data_query):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
+
+    return axis_properties, data_query

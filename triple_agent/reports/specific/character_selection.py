@@ -9,6 +9,7 @@ from triple_agent.reports.generation.generic_query import query
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
+    create_properties_if_none,
 )
 
 
@@ -48,8 +49,7 @@ def spy_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _determine_spy
     data_query.data_color_dict = defaultdict(lambda: "xkcd:green")
@@ -65,8 +65,7 @@ def st_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _determine_st
     data_query.data_color_dict = defaultdict(lambda: "xkcd:light red")
@@ -82,8 +81,7 @@ def amba_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _determine_amba
     data_query.data_color_dict = defaultdict(lambda: "xkcd:light magenta")
@@ -99,8 +97,7 @@ def double_agent_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _determine_da
     data_query.data_color_dict = defaultdict(lambda: "xkcd:light yellow")

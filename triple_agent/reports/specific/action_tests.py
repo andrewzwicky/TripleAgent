@@ -11,6 +11,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
+    create_properties_if_none,
 )
 
 
@@ -35,8 +36,7 @@ def action_test_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _at_rates_excluding_difficults
     data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER
@@ -50,8 +50,7 @@ def diff_action_test_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _difficult_at_rate
     data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER

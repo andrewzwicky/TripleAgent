@@ -9,6 +9,12 @@ from triple_agent.classes.missions import (
     MISSION_PLOT_ORDER,
     Missions,
 )
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    DataPlotProperties,
+    create_properties_if_none,
+)
 
 
 def _mission_completes(games: List[Game], data_dictionary: Counter):
@@ -30,15 +36,18 @@ def _mission_completes_details(games: List[Game], data_dictionary: defaultdict):
                     data_dictionary[mission][False] += 1
 
 
-def mission_completion_query(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": MISSION_PLOT_ORDER,
-        "data_color_dict": MISSIONS_ENUM_TO_COLOR,
-    }
+def mission_completion_query(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    create_properties_if_none(axis_properties, data_query)
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _mission_completes
+    data_query.data_stack_order = MISSION_PLOT_ORDER
+    data_query.data_color_dict = MISSIONS_ENUM_TO_COLOR
 
-    query(games, title, _mission_completes, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
 def mission_completion(games: List[Game], title: str):
@@ -78,11 +87,12 @@ def mission_completion(games: List[Game], title: str):
                 f"{available:>3}/{total_games:>3}\n{perc_avail:>5.1%}"
             )
 
-    create_bar_plot(
-        title,
-        [complete_percentage, incomplete_percentage],
-        [m.name for m in Missions if m is not Missions.Zero],
-        bar_labels=[complete_labels, incomplete_labels],
+    axis_properties = AxisProperties(title=title, y_axis_percentage=True)
+    data_plot_properties = DataPlotProperties(
+        data=[complete_percentage, incomplete_percentage],
         colors=["xkcd:green", "xkcd:light grey"],
-        percentage=True,
+        category_labels=[m.name for m in Missions if m is not Missions.Zero]
+        # bar_labels = [complete_labels, incomplete_labels]
     )
+
+    create_bar_plot(axis_properties, data_plot_properties)

@@ -7,6 +7,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
+    create_properties_if_none,
 )
 
 _FAKE = "fake"
@@ -52,9 +53,7 @@ def all_banana_bread_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _all_banana_breads
     data_query.data_stack_order = FAKE_REAL_ORDER
@@ -68,9 +67,7 @@ def first_banana_bread_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _first_banana_bread
     data_query.data_stack_order = FAKE_REAL_ORDER

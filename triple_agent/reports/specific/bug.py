@@ -5,6 +5,11 @@ from triple_agent.reports.generation.report_utilities import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    create_properties_if_none,
+)
 
 BUG_TO_COLORS_RGB = {
     ("Walking", True): "xkcd:sea blue",
@@ -88,14 +93,17 @@ def _categorize_bugs(games, data_dictionary):
         data_dictionary[("Standing", False)] += standing_attempts - standing_success
 
 
-def bug_success_rate(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": BUG_PLOT_ORDER,
-        "data_color_dict": BUG_TO_COLORS_RGB,
-        "data_hatching": BUG_PLOT_HATCHING,
-        "data_stack_label_dict": BUG_PLOT_LABEL_DICT,
-    }
+def bug_success_rate(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _categorize_bugs
+    data_query.data_stack_order = BUG_PLOT_ORDER
+    data_query.data_color_dict = BUG_TO_COLORS_RGB
+    data_query.data_stack_label_dict = BUG_PLOT_LABEL_DICT
+    data_query.data_hatching = BUG_PLOT_HATCHING
 
-    query(games, title, _categorize_bugs, **default_kwargs)
+    query(games, data_query, axis_properties)

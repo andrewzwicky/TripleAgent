@@ -9,6 +9,11 @@ from triple_agent.classes.objects import (
     OBJECT_PLOT_LABEL_DICT_DIFFICULT,
 )
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    create_properties_if_none,
+)
 
 
 def __iterate_and_count_potential_prints(game, timeline_event, data_dictionary):
@@ -47,14 +52,17 @@ def _categorize_fp_sources(games, data_dictionary):
                 )
 
 
-def attempted_fingerprint_sources(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": OBJECT_PLOT_ORDER_DIFFICULT,
-        "data_color_dict": OBJECT_TO_COLORS_RGB,
-        "data_hatching": OBJECT_PLOT_HATCHING_DIFFICULT,
-        "data_stack_label_dict": OBJECT_PLOT_LABEL_DICT_DIFFICULT,
-    }
+def attempted_fingerprint_sources(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    create_properties_if_none(axis_properties, data_query)
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _categorize_fp_sources
+    data_query.data_stack_order = OBJECT_PLOT_ORDER_DIFFICULT
+    data_query.data_color_dict = OBJECT_TO_COLORS_RGB
+    data_query.data_stack_label_dict = OBJECT_PLOT_LABEL_DICT_DIFFICULT
+    data_query.data_hatching = OBJECT_PLOT_HATCHING_DIFFICULT
 
-    query(games, title, _categorize_fp_sources, **default_kwargs)
+    query(games, data_query, axis_properties)
