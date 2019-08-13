@@ -1,6 +1,6 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import Any, Union, Callable
+from typing import Any, Union, Callable, List, Tuple
 
 
 def limit_categories(categories, limit):
@@ -10,7 +10,9 @@ def limit_categories(categories, limit):
     return categories
 
 
-def create_data_stacks(categories, data_dictionary, data_stack_order):
+def create_data_stacks(
+    categories, data_dictionary, data_stack_order
+) -> Tuple[List[str], List[List[Union[int, float]]]]:
     """
     this function rearranges the data to stack in the proper order.  For example,
     if the data is grouped by venue, and each stack includes each win type (mission win,
@@ -41,10 +43,12 @@ def create_data_stacks(categories, data_dictionary, data_stack_order):
         # In the simple counter case, the categories are also the data_parts
         if data_stack_order is None:
             data_stack_order = categories
+        else:
+            data_stack_order = sorted(categories, key=data_stack_order.index)
 
         # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
         # This also means that misspelled args in data_stack_order might be difficult to find.
-        stacked_data = [data_dictionary[data_part] for data_part in data_stack_order]
+        stacked_data = [[data_dictionary[data_part] for data_part in data_stack_order]]
     else:
         raise ValueError
 

@@ -7,18 +7,39 @@ from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 
 from triple_agent.constants.paths import PORTRAITS_FOLDER
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataPlotProperties,
+)
 
 
-def _create_figure_and_axis(legend_labels):
-    if legend_labels is not None:
-        # account for space at bottom of figure
-        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
-    else:
-        fig, axis = plt.subplots(figsize=(12, 8))
-    return axis, fig
+def _save_fig_if_needed(fig, savefig):
+    if savefig:
+        fig.savefig(savefig, bbox_inches="tight")
 
 
-def _get_plot_colors(colors, data):
+def _create_legend_if_needed(
+    axis, fig, stack_labels: Optional[List[str]], data_stack_level=None
+):
+    if stack_labels is not None and (
+        data_stack_level is None or data_stack_level > 0
+    ):
+        # resize the plot to allow size for legend.
+        # increase figure by 25%
+        width, height = fig.get_size_inches()
+        fig.set_size_inches((width * 1.25, height), forward=True)
+
+        # Shrink current axis by 20%
+        box = axis.get_position()
+        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+        # Put a legend to the right of the current axis
+        axis.legend(
+            labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5)
+        )
+
+
+def _get_plot_colors(colors: Optional[List[str]], data: List[List[Union[int, float]]]):
     if colors is None:
         if len(data) == 1:
             colors = ["xkcd:green"]
@@ -27,7 +48,7 @@ def _get_plot_colors(colors, data):
     return colors
 
 
-def _set_y_axis_percentage(axis, max_value, percentage):
+def _set_y_axis_scale_and_ticks(axis, max_value, percentage):
     if percentage:
         axis.yaxis.set_major_locator(MultipleLocator(0.1))
         vals = axis.get_yticks()
@@ -46,16 +67,9 @@ def _set_y_axis_percentage(axis, max_value, percentage):
         axis.set_ylim(top=rounded_top)
 
 
-def _set_axis_labels(axis, x_label, y_label):
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-    if x_label is not None:
-        axis.set_xlabel(x_label)
-
-
-def _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis):
+def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
     if portrait_x_axis:
-        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
+        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=90)
         fig.canvas.draw()
         for label in axis.xaxis.get_ticklabels():
             ext = label.get_window_extent()
@@ -74,54 +88,17 @@ def _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis):
             newax.imshow(portrait_image)
             newax.axis("off")
     else:
-        axis.set_xticklabels(labels, rotation=label_rotation)
+        axis.set_xticklabels(labels, rotation=90)
 
 
-def create_line_plot(
-    title: str,
-    data: List[List[Union[int, float]]],
-    labels: List[str],
-    y_label=None,
-    x_label=None,
-    colors: Optional[List[str]] = None,
-    legend_labels: List[str] = None,
-    label_rotation: int = 0,
-    percentage: bool = False,
-    portrait_x_axis=False,
-    # TODO: division logos on x axis
-    no_show=False,
-    savefig=None,
-):
-    colors = _get_plot_colors(colors, data)
+def _set_axis_properties(axis, ticks, axis_labels: AxisProperties):
+    axis.set_title(axis_labels.title)
 
-    axis, fig = _create_figure_and_axis(legend_labels)
+    if axis_labels.y_axis_label is not None:
+        axis.set_ylabel(axis_labels.y_axis_label)
 
-    ticks = list(range(len(data[0])))
-
-    # make sure all individual data sets are the same length
-    assert len({len(d) for d in data}) == 1
-
-    max_value = max((map(max, zip(*data))))
-
-    axis.set_title(title)
-
-    current_bottom = [0] * len(data[0])
-
-    for _, (this_data, this_color) in enumerate(zip(data, colors)):
-        axis.plot(
-            ticks,
-            this_data,
-            color=this_color,
-            linestyle="-",
-            marker="o",
-            markersize=12,
-            linewidth=4,
-        )
-        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
-
-    _set_y_axis_percentage(axis, max_value, percentage)
-
-    _set_axis_labels(axis, x_label, y_label)
+    if axis_labels.x_axis_label is not None:
+        axis.set_xlabel(axis_labels.x_axis_label)
 
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
@@ -132,72 +109,81 @@ def create_line_plot(
     axis.yaxis.grid(which="minor", linestyle="--")
     axis.set_axisbelow(True)
 
-    if legend_labels is not None:
-        # Shrink current axis by 20%
-        box = axis.get_position()
-        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-        # Put a legend to the right of the current axis
-        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+def create_line_plot(
+    axis_properties: AxisProperties, data_properties: DataPlotProperties
+):
+    fig, axis = plt.subplots(figsize=(12, 8))
 
-    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
+    colors = _get_plot_colors(data_properties.colors, data_properties.data)
 
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
+    ticks = list(range(len(data_properties.data[0])))
 
-    if not no_show:
-        plt.show()
+    # make sure all individual data sets are the same length
+    assert len({len(d) for d in data_properties.data}) == 1
 
-    return axis
+    max_value = max((map(max, zip(*data_properties.data))))
+
+    for _, (this_data, this_color) in enumerate(zip(data_properties.data, colors)):
+        axis.plot(
+            ticks,
+            this_data,
+            color=this_color,
+            linestyle="-",
+            marker="o",
+            markersize=12,
+            linewidth=4,
+        )
+
+    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
+
+    _create_legend_if_needed(axis, fig, data_properties.stack_labels)
+
+    _set_axis_properties(axis, ticks, axis_properties)
+
+    _add_portrait_x_axis_if_needed(
+        axis, fig, data_properties, axis_properties.x_axis_portrait
+    )
+
+    _save_fig_if_needed(fig, axis_properties.savefig)
+
+    plt.show()
 
 
 def create_bar_plot(
-    title: str,
-    data: List[List[Union[int, float]]],
-    labels: List[str],
-    y_label=None,
-    x_label=None,
-    colors: Optional[List[str]] = None,
-    hatches: Optional[List[Optional[str]]] = None,
-    legend_labels: List[str] = None,
-    bar_labels: Optional[List[List[str]]] = None,
-    label_rotation: int = 0,
-    percentage: bool = False,
-    portrait_x_axis=False,
-    # TODO: division logos on x axis
-    no_show=False,
-    savefig=None,
+    axis_properties: AxisProperties, data_properties: DataPlotProperties
 ):
-    colors = _get_plot_colors(colors, data)
+    fig, axis = plt.subplots(figsize=(12, 8))
 
-    axis, fig = _create_figure_and_axis(legend_labels)
+    colors = _get_plot_colors(data_properties.colors, data_properties.data)
 
-    ticks = list(range(len(data[0])))
+    ticks = list(range(len(data_properties.data[0])))
 
     # make sure all individual data sets are the same length
-    assert len({len(d) for d in data}) == 1
+    assert len({len(d) for d in data_properties.data}) == 1
 
-    max_bar_value = max((map(sum, zip(*data))))
-    text_padding = max_bar_value * 0.01
+    max_value = max((map(sum, zip(*data_properties.data))))
 
-    axis.set_title(title)
+    text_padding = max_value * 0.01
 
-    current_bottom = [0] * len(data[0])
+    current_bottom = [0] * len(data_properties.data[0])
 
     current_data_stack = 0
 
-    for current_data_stack, (this_data, this_color) in enumerate(zip(data, colors)):
+    for current_data_stack, (this_data, this_color) in enumerate(
+        zip(data_properties.data, colors)
+    ):
         patches = axis.bar(
             ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
         )
         current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
 
-        if bar_labels is not None:
+        if data_properties.bar_labels is not None:
             for this_tick, this_value, this_label in zip(
-                ticks, current_bottom, bar_labels[current_data_stack]
+                ticks, current_bottom, data_properties.bar_labels[current_data_stack]
             ):
                 if this_value != 0:
-                    if this_value < max_bar_value * 0.05:
+                    if this_value < max_value * 0.05:
                         y_value = this_value + text_padding
                         v_align = "bottom"
                     else:
@@ -212,62 +198,49 @@ def create_bar_plot(
                         horizontalalignment="center",
                         verticalalignment=v_align,
                     )
-        if hatches is not None:
+        if data_properties.data_hatching is not None:
             for patch in patches:
-                if hatches[current_data_stack] is not None:
-                    patch.set_hatch(hatches[current_data_stack])
+                if data_properties.data_hatching[current_data_stack] is not None:
+                    patch.set_hatch(data_properties.data_hatching[current_data_stack])
 
-    _set_y_axis_percentage(axis, max_bar_value, percentage)
+    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    _set_axis_labels(axis, x_label, y_label)
+    _create_legend_if_needed(
+        axis, fig, data_properties.stack_labels, data_stack_level=current_data_stack
+    )
 
-    axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
-    axis.set_xticks(ticks)
+    _set_axis_properties(axis, ticks, axis_properties)
 
-    axis.set_ylim(bottom=0)
+    _add_portrait_x_axis_if_needed(
+        axis, fig, data_properties.category_labels, axis_properties.x_axis_portrait
+    )
 
-    axis.yaxis.grid(which="major", color="k")
-    axis.yaxis.grid(which="minor", linestyle="--")
-    axis.set_axisbelow(True)
+    _save_fig_if_needed(fig, axis_properties.savefig)
 
-    if legend_labels is not None and current_data_stack != 0:
-        # Shrink current axis by 20%
-        box = axis.get_position()
-        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-
-        # Put a legend to the right of the current axis
-        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
-
-    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
-
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
-
-    if not no_show:
-        plt.show()
-
-    return axis
+    plt.show()
 
 
-def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None):
-    _, axis = plt.subplots(figsize=(8, 8))
+def create_pie_chart(
+    axis_properties: AxisProperties, data_properties: DataPlotProperties
+):
+    fig, axis = plt.subplots(figsize=(8, 8))
 
-    axis.set_title(title)
+    axis.set_title(axis_properties.title)
 
     patches = axis.pie(
-        data,
-        labels=labels,
-        colors=colors,
+        # pie is only going to use the lowest data "stack"
+        data_properties.data[0],
+        labels=data_properties.category_labels,
+        colors=data_properties.colors,
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    if hatches is not None:
-        for data_hatch, patch in zip(hatches, patches[0]):
+    if data_properties.data_hatching is not None:
+        for data_hatch, patch in zip(data_properties.data_hatching, patches[0]):
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
+    _save_fig_if_needed(fig, axis_properties.savefig)
 
     plt.show()
 
@@ -280,9 +253,9 @@ def create_histogram(
     x_label=None,
     y_label=None,
     cumulative_also=False,
-    savefig=None,
+    **kwargs,
 ):
-    _, axis = plt.subplots(figsize=(12, 8))
+    fig, axis = plt.subplots(figsize=(12, 8))
     max_data_point = max(data)
     last_bin_right = bin_size * round(max_data_point / bin_size) + bin_size
     data_bins = np.arange(0, last_bin_right + bin_size, bin_size)
@@ -322,10 +295,9 @@ def create_histogram(
 
     axis.set_title(title)
 
-    _set_axis_labels(axis, x_label, y_label)
+    _set_axis_properties(axis, x_label, y_label)
 
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
+    _save_fig_if_needed(fig, kwargs)
 
     plt.show()
 
@@ -339,10 +311,11 @@ def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=No
     axis.set_ylim(bottom=0)
     axis.set_xlim(left=0)
 
-    _set_axis_labels(axis, x_label, y_label)
+    _set_axis_properties(axis, x_label, y_label)
 
     axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
     axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
 
     axis.set_title(title)
+
     plt.show()

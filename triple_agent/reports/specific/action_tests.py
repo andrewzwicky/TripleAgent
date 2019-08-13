@@ -8,6 +8,10 @@ from triple_agent.classes.action_tests import (
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+)
 
 
 def _at_rates_excluding_difficults(games, data_dictionary):
@@ -26,23 +30,37 @@ def _difficult_at_rate(games, data_dictionary):
                     data_dictionary[timeline_event.action_test] += 1
 
 
-def action_test_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": AT_PREFERRED_PIE_CHART_ORDER,
-        "data_color_dict": AT_TO_COLORS_RGB,
-    }
+def action_test_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    if axis_properties is None:
+        axis_properties = AxisProperties()
 
-    default_kwargs.update(kwargs)
+    if data_query is None:
+        data_query = DataQueryProperties()
 
-    query(games, title, _at_rates_excluding_difficults, **default_kwargs)
+    data_query.query_function = _at_rates_excluding_difficults
+    data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER
+    data_query.data_color_dict = AT_TO_COLORS_RGB
+
+    query(games, data_query, axis_properties)
 
 
-def diff_action_test_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": AT_PREFERRED_PIE_CHART_ORDER,
-        "data_color_dict": AT_TO_COLORS_RGB,
-    }
+def diff_action_test_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    if axis_properties is None:
+        axis_properties = AxisProperties()
 
-    default_kwargs.update(kwargs)
+    if data_query is None:
+        data_query = DataQueryProperties()
 
-    query(games, title, _difficult_at_rate, **default_kwargs)
+    data_query.query_function = _difficult_at_rate
+    data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER
+    data_query.data_color_dict = AT_TO_COLORS_RGB
+
+    query(games, data_query, axis_properties)
