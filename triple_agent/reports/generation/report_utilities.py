@@ -1,6 +1,7 @@
 import itertools
 import os
 from typing import List, Optional, Union
+from enum import Enum
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -11,6 +12,17 @@ from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataPlotProperties,
 )
+
+
+def labelify(plot_order_item):
+    if isinstance(plot_order_item, Enum):
+        return plot_order_item.name
+
+    if isinstance(plot_order_item, float):
+        # TODO: check this for other use cases
+        return f"{plot_order_item:3>.5}"
+
+    return str(plot_order_item)
 
 
 def _save_fig_if_needed(fig, savefig):
@@ -216,6 +228,27 @@ def create_bar_plot(
     plt.show()
 
 
+def trim_empty_labels(
+    wedge_data: List[Union[int, float]], stack_labels: [List[str]]
+) -> List[str]:
+    # assume if plotting pie chart, only 1 stack is present
+    total_samples = sum(wedge_data)
+    results_labels = []
+    for value, label in zip(wedge_data, stack_labels):
+        if not value:
+            results_labels.append("")
+        else:
+            if total_samples:
+                results_labels.append(
+                    labelify(label)
+                    + f"  {value}/{total_samples} {value / total_samples:.0%}"
+                )
+            else:
+                results_labels.append(labelify(label) + f"  {value}")
+
+    return results_labels
+
+
 def create_pie_chart(
     axis_properties: AxisProperties, data_properties: DataPlotProperties
 ):
@@ -223,10 +256,13 @@ def create_pie_chart(
 
     axis.set_title(axis_properties.title)
 
+    # pie is only going to use the lowest data "stack"
+    wedge_data = data_properties.data[0]
+    wedge_labels = trim_empty_labels(wedge_data, data_properties.stack_labels)
+
     patches = axis.pie(
-        # pie is only going to use the lowest data "stack"
         data_properties.data[0],
-        labels=data_properties.category_labels,
+        labels=wedge_labels,
         colors=data_properties.colors,
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )

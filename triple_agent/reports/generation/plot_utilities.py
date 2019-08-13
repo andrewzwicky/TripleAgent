@@ -1,6 +1,7 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import Any, Union, Callable, List, Tuple
+from typing import Any, Union, Callable, List, Tuple, Optional
+from triple_agent.classes.game import Game
 
 
 def limit_categories(categories, limit):
@@ -43,8 +44,6 @@ def create_data_stacks(
         # In the simple counter case, the categories are also the data_parts
         if data_stack_order is None:
             data_stack_order = categories
-        else:
-            data_stack_order = sorted(categories, key=data_stack_order.index)
 
         # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
         # This also means that misspelled args in data_stack_order might be difficult to find.
@@ -92,7 +91,12 @@ def create_sorted_categories(
     return categories
 
 
-def create_data_dictionaries(games, query_function, groupby):
+def create_data_dictionary(
+    games: List[Game],
+    query_function: Callable,
+    groupby: Optional[Callable] = None,
+    percent_normalized_data: bool = False,
+):
     """
     This function will create the data used for the plots.  The expected formats are either:
     -A defaultdict(Counter), with the 1st level keys being the groupby categories and the 2nd level keys
@@ -102,38 +106,41 @@ def create_data_dictionaries(games, query_function, groupby):
     """
     # TODO: data_dictionary_percent being a counter doesn't really make much sense
     if groupby is None:
-        data_dictionary = Counter()
-        data_dictionary_percent = Counter()
-
-        populate_individual_counter(
-            games, data_dictionary, data_dictionary_percent, query_function
+        data_dictionary = populate_individual_counter(
+            games, Counter(), query_function, percent_normalized_data
         )
 
     else:
         data_dictionary = defaultdict(Counter)
-        data_dictionary_percent = defaultdict(Counter)
 
         for category, cat_games in itertools.groupby(
             sorted(games, key=groupby), key=groupby
         ):
-            populate_individual_counter(
+            data_dictionary[category] = populate_individual_counter(
                 cat_games,
                 data_dictionary[category],
-                data_dictionary_percent[category],
                 query_function,
+                percent_normalized_data,
             )
 
-    return data_dictionary, data_dictionary_percent
+    return data_dictionary
 
 
 def populate_individual_counter(
-    games, data_dictionary, data_dictionary_percent, query_function
+    games, data_dictionary, query_function, percent_normalized_data: bool = False
 ):
     query_function(games, data_dictionary)
-    data_sum = sum(data_dictionary.values())
-    data_dictionary_percent.update(
-        {k: 0 if data_sum == 0 else v / data_sum for k, v in data_dictionary.items()}
-    )
+
+    if percent_normalized_data:
+        data_sum = sum(data_dictionary.values())
+        data_dictionary = Counter(
+            {
+                k: 0 if data_sum == 0 else v / data_sum
+                for k, v in data_dictionary.items()
+            }
+        )
+
+    return data_dictionary
 
 
 def tableize_data_dict(

@@ -6,6 +6,10 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.generic_query import query
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+)
 
 
 def _determine_spy(games, data_dictionary):
@@ -39,49 +43,69 @@ def determine_character_in_role(game, role) -> Optional[Characters]:
     return None
 
 
-def spy_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:green"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def spy_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _determine_spy
+    data_query.data_color_dict = defaultdict(lambda: "xkcd:green")
 
-    query(games, title, _determine_spy, **default_kwargs)
+    axis_properties.force_bar = True
+    axis_properties.x_axis_portrait = True
 
-
-def st_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light red"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
-
-    default_kwargs.update(kwargs)
-
-    query(games, title, _determine_st, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
-def amba_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light magenta"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def st_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _determine_st
+    data_query.data_color_dict = defaultdict(lambda: "xkcd:light red")
 
-    query(games, title, _determine_amba, **default_kwargs)
+    axis_properties.force_bar = True
+    axis_properties.x_axis_portrait = True
+
+    query(games, data_query, axis_properties)
 
 
-def double_agent_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light yellow"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def amba_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _determine_amba
+    data_query.data_color_dict = defaultdict(lambda: "xkcd:light magenta")
 
-    query(games, title, _determine_da, **default_kwargs)
+    axis_properties.force_bar = True
+    axis_properties.x_axis_portrait = True
+
+    query(games, data_query, axis_properties)
+
+
+def double_agent_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
+
+    data_query.query_function = _determine_da
+    data_query.data_color_dict = defaultdict(lambda: "xkcd:light yellow")
+
+    axis_properties.force_bar = True
+    axis_properties.x_axis_portrait = True
+
+    query(games, data_query, axis_properties)

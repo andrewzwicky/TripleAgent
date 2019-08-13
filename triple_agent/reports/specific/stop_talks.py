@@ -2,6 +2,10 @@ from typing import List
 
 from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.game import Game
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+)
 
 NOSTOP_TO_COLORS_RGB = {"NoStop": "xkcd:sea blue", "Stop": "xkcd:pumpkin"}
 
@@ -18,12 +22,16 @@ def _categorize_stop_talks(games, data_dictionary):
         data_dictionary["NoStop"] += 1
 
 
-def stop_talk_in_game_percentage(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": NOSTOP_PLOT_ORDER,
-        "data_color_dict": NOSTOP_TO_COLORS_RGB,
-    }
+def stop_talk_in_game_percentage(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    default_kwargs.update(kwargs)
+    data_query.query_function = _categorize_stop_talks
+    data_query.data_stack_order = NOSTOP_PLOT_ORDER
+    data_query.data_color_dict = NOSTOP_TO_COLORS_RGB
 
-    query(games, title, _categorize_stop_talks, **default_kwargs)
+    query(games, data_query, axis_properties)

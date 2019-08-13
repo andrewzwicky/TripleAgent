@@ -10,6 +10,8 @@ class AxisProperties:
     y_axis_percentage: bool = False
     x_axis_portrait: bool = False
     savefig: Optional[str] = None
+    force_bar: bool = False
+    force_line: bool = False
 
 
 @dataclass
@@ -36,6 +38,4 @@ class DataQueryProperties:
     category_data_order: Any = None
     reversed_data_sort: bool = False
     limit: Optional[int] = None
-    force_bar: bool = False
-    force_line: bool = False
-    percent_data: bool = False
+    percent_normalized_data: bool = False

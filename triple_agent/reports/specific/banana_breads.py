@@ -4,6 +4,10 @@ from triple_agent.reports.generation.generic_query import query
 from triple_agent.reports.generation.report_utilities import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+)
 
 _FAKE = "fake"
 _REAL = "real"
@@ -43,26 +47,36 @@ def _first_banana_bread(games, data_dictionary):
                 first_seen = True
 
 
-def all_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": FAKE_REAL_ORDER,
-        "data_color_dict": FAKE_REAL_COLORS,
-    }
+def all_banana_bread_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
 
-    default_kwargs.update(kwargs)
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    query(games, title, _all_banana_breads, **default_kwargs)
+    data_query.query_function = _all_banana_breads
+    data_query.data_stack_order = FAKE_REAL_ORDER
+    data_query.data_color_dict = FAKE_REAL_COLORS
+
+    query(games, data_query, axis_properties)
 
 
-def first_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": FAKE_REAL_ORDER,
-        "data_color_dict": FAKE_REAL_COLORS,
-    }
+def first_banana_bread_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):
 
-    default_kwargs.update(kwargs)
+    axis_properties = AxisProperties() if axis_properties is None else axis_properties
+    data_query = DataQueryProperties() if data_query is None else data_query
 
-    query(games, title, _first_banana_bread, **default_kwargs)
+    data_query.query_function = _first_banana_bread
+    data_query.data_stack_order = FAKE_REAL_ORDER
+    data_query.data_color_dict = FAKE_REAL_COLORS
+
+    query(games, data_query, axis_properties)
 
 
 def banana_split(games: List[Game], title: str):
