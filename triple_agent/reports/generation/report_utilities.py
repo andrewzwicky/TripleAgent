@@ -88,8 +88,7 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
                 os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
             )
             port_size = 0.045
-            middle = (left + right) / 2
-            port_start = middle - (port_size / 2)
+            port_start = ((left + right) / 2) - (port_size / 2)
             newax = fig.add_axes(
                 [port_start, top - port_size, port_size, port_size], zorder=-1
             )
