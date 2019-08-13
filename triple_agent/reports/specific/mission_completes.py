@@ -87,12 +87,12 @@ def mission_completion(games: List[Game], title: str):
                 f"{available:>3}/{total_games:>3}\n{perc_avail:>5.1%}"
             )
 
-    axis_properties = AxisProperties(title=title, y_axis_percentage=True)
-    data_plot_properties = DataPlotProperties(
-        data=[complete_percentage, incomplete_percentage],
-        colors=["xkcd:green", "xkcd:light grey"],
-        category_labels=[m.name for m in Missions if m is not Missions.Zero]
-        # bar_labels = [complete_labels, incomplete_labels]
+    create_bar_plot(
+        AxisProperties(title=title, y_axis_percentage=True),
+        DataPlotProperties(
+            data=[complete_percentage, incomplete_percentage],
+            colors=["xkcd:green", "xkcd:light grey"],
+            category_labels=[m.name for m in Missions if m is not Missions.Zero]
+            # bar_labels = [complete_labels, incomplete_labels]
+        ),
     )
-
-    create_bar_plot(axis_properties, data_plot_properties)
