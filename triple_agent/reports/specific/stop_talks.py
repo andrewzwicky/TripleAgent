@@ -28,7 +28,7 @@ def stop_talk_in_game_percentage(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _categorize_stop_talks
     data_query.data_stack_order = NOSTOP_PLOT_ORDER

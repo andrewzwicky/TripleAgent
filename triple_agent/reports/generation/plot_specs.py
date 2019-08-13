@@ -32,6 +32,7 @@ class DataQueryProperties:
     query_function: Callable = None
     data_stack_order: List[Any] = None
     data_stack_label_dict: Dict[Any, str] = None
+    # TODO: make hatching a dict instead of list
     data_color_dict: Dict[str, str] = None
     groupby: Callable = None
     category_name_order: Callable[[str], int] = None

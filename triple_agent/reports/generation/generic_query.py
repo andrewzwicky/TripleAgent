@@ -35,6 +35,9 @@ def query(
     if axis_properties is None:
         axis_properties = AxisProperties()
 
+    if data_query.percent_normalized_data:
+        axis_properties.y_axis_percentage = True
+
     data_props = DataPlotProperties()
 
     # create data dictionary

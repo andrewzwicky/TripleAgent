@@ -149,7 +149,7 @@ def create_line_plot(
     _set_axis_properties(axis, ticks, axis_properties)
 
     _add_portrait_x_axis_if_needed(
-        axis, fig, data_properties, axis_properties.x_axis_portrait
+        axis, fig, data_properties.category_labels, axis_properties.x_axis_portrait
     )
 
     _save_fig_if_needed(fig, axis_properties.savefig)
