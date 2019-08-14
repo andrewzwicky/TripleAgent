@@ -70,7 +70,7 @@ def at_or_direct_mf(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
+    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
 
     data_query.query_function = _classify_microfilms
     data_query.data_color_dict = TRANSFER_TO_COLORS_RGB

@@ -47,18 +47,22 @@ def bug_attempt_timings(games: List[Game], title: str):
                 bug_times_remaining.append(timeline_event.time)
 
     create_histogram(
-        title + " [Remaining]",
+        AxisProperties(
+            title=title + " [Remaining]",
+            x_axis_label="Time Remaining [sec]",
+            y_axis_label="Attempts in Time Period",
+        ),
         bug_times_elapsed,
-        10,
-        x_label="Time Remaining [sec]",
-        y_label="Attempts in Time Period",
+        15,
     )
     create_histogram(
-        title + " [Elapsed]",
+        AxisProperties(
+            title=title + " [Elapsed]",
+            x_axis_label="Time Elapsed [sec]",
+            y_axis_label="Attempts in Time Period",
+        ),
         bug_times_remaining,
-        10,
-        x_label="Time Elapsed [sec]",
-        y_label="Attempts in Time Period",
+        15,
     )
 
 

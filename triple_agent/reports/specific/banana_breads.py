@@ -104,11 +104,13 @@ def banana_split(games: List[Game], title: str):
                 bb_time_elapsed = 0
 
     create_histogram(
-        title,
+        AxisProperties(
+            title=title,
+            x_axis_label="Time Elapsed Since BB [sec]",
+            y_axis_label="Number of Leaves in Window",
+        ),
         bb_times,
         1,
         major_locator=10,
-        x_label="Time Elapsed Since BB [sec]",
-        y_label="Number of Leaves in Window",
         cumulative_also=True,
     )

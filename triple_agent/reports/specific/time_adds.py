@@ -51,17 +51,21 @@ def time_add_times(games: List[Game], title: str):
                 time_adds_remaining.append(timeline_event.time)
 
     create_histogram(
-        title + " [Elapsed]",
+        AxisProperties(
+            title=title + " [Elapsed]",
+            x_axis_label="Time Elapsed [sec]",
+            y_axis_label="Time Adds in Time Period",
+        ),
         time_adds_elapsed,
         10,
-        x_label="Time Elapsed [sec]",
-        y_label="Time Adds in Time Period",
     )
 
     create_histogram(
-        title + " [Remaining]",
+        AxisProperties(
+            title=title + " [Remaining]",
+            x_axis_label="Time Remaining [sec]",
+            y_axis_label="Time Adds in Time Period",
+        ),
         time_adds_remaining,
         10,
-        x_label="Time Remaining [sec]",
-        y_label="Time Adds in Time Period",
     )
