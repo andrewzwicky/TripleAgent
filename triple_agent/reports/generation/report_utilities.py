@@ -189,10 +189,10 @@ def create_bar_plot(
             ):
                 _create_data_label(axis, max_value, *tick_value_label_tuple)
 
-        if data_properties.data_hatching is not None:
+        if data_properties.hatching is not None:
             for patch in patches:
-                if data_properties.data_hatching[current_data_stack] is not None:
-                    patch.set_hatch(data_properties.data_hatching[current_data_stack])
+                if data_properties.hatching[current_data_stack] is not None:
+                    patch.set_hatch(data_properties.hatching[current_data_stack])
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
@@ -271,8 +271,8 @@ def create_pie_chart(
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    if data_properties.data_hatching is not None:
-        for data_hatch, patch in zip(data_properties.data_hatching, patches[0]):
+    if data_properties.hatching is not None:
+        for data_hatch, patch in zip(data_properties.hatching, patches[0]):
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 

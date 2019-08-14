@@ -21,7 +21,7 @@ class DataPlotProperties:
     stack_labels: Optional[List[str]] = None
     data_labels: List[List[Union[int, float]]] = None
     colors: Optional[List[str]] = None
-    data_hatching: Optional[List[Optional[str]]] = None
+    hatching: Optional[List[Optional[str]]] = None
 
 
 @dataclass
@@ -31,8 +31,8 @@ class DataQueryProperties:
     # data stacks and data labels, but shouldn't be needed in actual plotting routines.
     query_function: Callable = None
     data_stack_order: List[Any] = None
-    data_stack_label_dict: Dict[Any, str] = None
-    # TODO: make hatching a dict instead of list
+    data_stack_label_dict: Optional[Dict[Any, str]] = None
+    data_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     data_color_dict: Dict[str, str] = None
     groupby: Callable = None
     category_name_order: Callable[[str], int] = None
@@ -40,7 +40,6 @@ class DataQueryProperties:
     reversed_data_sort: bool = False
     limit: Optional[int] = None
     percent_normalized_data: bool = False
-    data_hatching: Optional[List[Optional[str]]] = None
 
 
 def create_properties_if_none(axis_properties, data_query):

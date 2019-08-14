@@ -5,7 +5,7 @@ from triple_agent.classes.game import Game
 from triple_agent.classes.objects import (
     OBJECT_PLOT_ORDER_DIFFICULT,
     OBJECT_TO_COLORS_RGB,
-    OBJECT_PLOT_HATCHING_DIFFICULT,
+    OBJECT_PLOT_HATCH_DICT,
     OBJECT_PLOT_LABEL_DICT_DIFFICULT,
 )
 from triple_agent.classes.timeline import TimelineCategory
@@ -63,6 +63,6 @@ def attempted_fingerprint_sources(
     data_query.data_stack_order = OBJECT_PLOT_ORDER_DIFFICULT
     data_query.data_color_dict = OBJECT_TO_COLORS_RGB
     data_query.data_stack_label_dict = OBJECT_PLOT_LABEL_DICT_DIFFICULT
-    data_query.data_hatching = OBJECT_PLOT_HATCHING_DIFFICULT
+    data_query.data_hatch_dict = OBJECT_PLOT_HATCH_DICT
 
     query(games, data_query, axis_properties)

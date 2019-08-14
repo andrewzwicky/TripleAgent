@@ -28,9 +28,7 @@ BUG_PLOT_LABEL_DICT = {
 
 BUG_PLOT_ORDER = list(BUG_PLOT_LABEL_DICT.keys())
 
-BUG_PLOT_HATCHING = [
-    r"\\" if not success else None for bug_type, success in BUG_PLOT_ORDER
-]
+BUG_PLOT_HATCH_DICT = {(obj, diff): r"\\" if not diff else None for (obj, diff) in BUG_PLOT_ORDER}
 
 
 def bug_attempt_timings(games: List[Game], title: str):
@@ -108,6 +106,6 @@ def bug_success_rate(
     data_query.data_stack_order = BUG_PLOT_ORDER
     data_query.data_color_dict = BUG_TO_COLORS_RGB
     data_query.data_stack_label_dict = BUG_PLOT_LABEL_DICT
-    data_query.data_hatching = BUG_PLOT_HATCHING
+    data_query.data_hatch_dict = BUG_PLOT_HATCH_DICT
 
     query(games, data_query, axis_properties)

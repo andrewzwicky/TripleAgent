@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List, Union, Any, Dict
+from typing import List, Union, Any, Dict, Optional
 
 from triple_agent.reports.generation.report_utilities import (
     create_pie_chart,
@@ -63,21 +63,23 @@ def query(
     )
 
     # sort
-    data_props.stack_labels, data_props.data = create_data_stacks(
+    data_stack_order, data_props.data = create_data_stacks(
         data_props.category_labels, data_dictionary, data_query.data_stack_order
     )
 
     data_props.colors = create_data_colors(
-        data_query.data_color_dict, data_props.stack_labels
+        data_query.data_color_dict, data_stack_order
     )
 
     # TODO: reversed legend labels/handles
     # create data stack labels
-    data_props.stack_labels = rename_data_stacks(
-        data_query.data_stack_label_dict, data_props.stack_labels
+    data_props.stack_labels = create_data_stack_labels(
+        data_query.data_stack_label_dict, data_stack_order
     )
 
-    data_props.stack_labels = list(map(labelify, data_props.stack_labels))
+    data_props.hatching = create_data_hatching(
+        data_query.data_hatch_dict, data_stack_order
+    )
 
     if axis_properties.force_line:
         create_line_plot(axis_properties, data_props)
@@ -97,12 +99,23 @@ def create_data_colors(data_color_dict, data_stack_order):
     )
 
 
-def rename_data_stacks(
-    data_stack_label_dict: Dict[Any, str], stack_labels: List[Any]
+def create_data_stack_labels(
+    data_stack_label_dict: Dict[Any, str], data_stack_order: List[Any]
 ) -> List[str]:
     if data_stack_label_dict is not None:
         return [
-            data_stack_label_dict[plot_order_item] for plot_order_item in stack_labels
+            data_stack_label_dict[plot_order_item] for plot_order_item in data_stack_order
         ]
 
-    return stack_labels
+    return list(map(labelify, data_stack_order))
+
+
+def create_data_hatching(
+    data_hatch_dict: Optional[Dict[Any, Optional[str]]], data_stack_order: List[Any]
+) -> Optional[List[Optional[str]]]:
+    if data_hatch_dict is not None:
+        return [
+            data_hatch_dict[plot_order_item] for plot_order_item in data_stack_order
+        ]
+
+    return None
