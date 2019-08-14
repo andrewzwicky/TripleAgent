@@ -48,7 +48,7 @@ def spy_selection(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
@@ -65,7 +65,7 @@ def st_selection(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
@@ -82,7 +82,7 @@ def amba_selection(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
@@ -99,7 +99,7 @@ def double_agent_selection(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,

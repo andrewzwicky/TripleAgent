@@ -27,7 +27,7 @@ def time_add_times_per_game(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,

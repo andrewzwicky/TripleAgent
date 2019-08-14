@@ -22,7 +22,7 @@ def game_outcomes(
     games: List[Game],
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
