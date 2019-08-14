@@ -207,11 +207,14 @@ def test_mission_completion_query(get_preparsed_timeline_games):
     data_query.query_function = _mission_completes
     data_query.data_stack_order = MISSION_PLOT_ORDER
     data_query.data_color_dict = MISSIONS_ENUM_TO_COLOR
-    data_query.groupby = (lambda g: g.spy,)
-    data_query.category_data_order = (Missions.Fingerprint,)
-    data_query.data_stack_order = (
-        [Missions.Fingerprint, Missions.Seduce, Missions.Bug, Missions.Contact],
-    )
+    data_query.groupby = lambda g: g.spy
+    data_query.category_data_order = Missions.Fingerprint
+    data_query.data_stack_order = [
+        Missions.Fingerprint,
+        Missions.Seduce,
+        Missions.Bug,
+        Missions.Contact,
+    ]
 
     axis_properties, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
