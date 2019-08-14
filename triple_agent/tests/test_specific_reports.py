@@ -2,12 +2,22 @@ from collections import Counter, defaultdict
 
 import pytest
 from triple_agent.reports.generation.plot_utilities import create_data_dictionary
+from triple_agent.reports.generation.generic_query import populate_data_properties
 from triple_agent.reports.specific.action_tests import (
     _at_rates_excluding_difficults,
     _difficult_at_rate,
 )
 from triple_agent.classes.action_tests import ActionTest
-
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+)
+from triple_agent.classes.missions import (
+    MISSIONS_ENUM_TO_COLOR,
+    MISSION_PLOT_ORDER,
+    Missions,
+)
+from triple_agent.reports.specific.mission_completes import _mission_completes
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
     (_difficult_at_rate, None, False, Counter()),
@@ -189,3 +199,20 @@ def test_included_reports(
 
     assert data_dict == expected_data_dict
     assert type(data_dict) == type(expected_data_dict)
+
+
+def test_mission_completion_query(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _mission_completes
+    data_query.data_stack_order = MISSION_PLOT_ORDER
+    data_query.data_color_dict = MISSIONS_ENUM_TO_COLOR
+    data_query.groupby = (lambda g: g.spy,)
+    data_query.category_data_order = (Missions.Fingerprint,)
+    data_query.data_stack_order = (
+        [Missions.Fingerprint, Missions.Seduce, Missions.Bug, Missions.Contact],
+    )
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )

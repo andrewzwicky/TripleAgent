@@ -10,7 +10,7 @@ from triple_agent.classes.outcomes import (
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -23,10 +23,13 @@ def game_outcomes(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _categorize_outcomes
-    data_query.data_stack_order = WINTYPE_PREFERRED_PIE_CHART_ORDER
-    data_query.data_color_dict = WINTYPES_TO_COLORS
-
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_categorize_outcomes,
+            data_stack_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
+            data_color_dict=WINTYPES_TO_COLORS,
+        ),
+    )
     query(games, data_query, axis_properties)

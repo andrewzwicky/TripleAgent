@@ -12,7 +12,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -57,12 +57,16 @@ def attempted_fingerprint_sources(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _categorize_fp_sources
-    data_query.data_stack_order = OBJECT_PLOT_ORDER_DIFFICULT
-    data_query.data_color_dict = OBJECT_TO_COLORS_RGB
-    data_query.data_stack_label_dict = OBJECT_PLOT_LABEL_DICT_DIFFICULT
-    data_query.data_hatch_dict = OBJECT_PLOT_HATCH_DICT
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+            data_stack_order=OBJECT_PLOT_ORDER_DIFFICULT,
+            data_color_dict=OBJECT_TO_COLORS_RGB,
+            data_stack_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
+            data_hatch_dict=OBJECT_PLOT_HATCH_DICT,
+        ),
+    )
 
     query(games, data_query, axis_properties)

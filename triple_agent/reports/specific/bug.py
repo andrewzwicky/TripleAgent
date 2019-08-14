@@ -8,7 +8,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 BUG_TO_COLORS_RGB = {
@@ -28,7 +28,9 @@ BUG_PLOT_LABEL_DICT = {
 
 BUG_PLOT_ORDER = list(BUG_PLOT_LABEL_DICT.keys())
 
-BUG_PLOT_HATCH_DICT = {(obj, diff): r"\\" if not diff else None for (obj, diff) in BUG_PLOT_ORDER}
+BUG_PLOT_HATCH_DICT = {
+    (obj, diff): r"\\" if not diff else None for (obj, diff) in BUG_PLOT_ORDER
+}
 
 
 def bug_attempt_timings(games: List[Game], title: str):
@@ -100,12 +102,16 @@ def bug_success_rate(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _categorize_bugs
-    data_query.data_stack_order = BUG_PLOT_ORDER
-    data_query.data_color_dict = BUG_TO_COLORS_RGB
-    data_query.data_stack_label_dict = BUG_PLOT_LABEL_DICT
-    data_query.data_hatch_dict = BUG_PLOT_HATCH_DICT
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_categorize_bugs,
+            data_stack_order=BUG_PLOT_ORDER,
+            data_color_dict=BUG_TO_COLORS_RGB,
+            data_stack_label_dict=BUG_PLOT_LABEL_DICT,
+            data_hatch_dict=BUG_PLOT_HATCH_DICT,
+        ),
+    )
 
     query(games, data_query, axis_properties)

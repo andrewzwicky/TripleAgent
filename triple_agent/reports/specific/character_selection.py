@@ -9,7 +9,7 @@ from triple_agent.reports.generation.generic_query import query
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -49,13 +49,14 @@ def spy_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _determine_spy
-    data_query.data_color_dict = defaultdict(lambda: "xkcd:green")
-
-    axis_properties.force_bar = True
-    axis_properties.x_axis_portrait = True
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_determine_spy,
+            data_color_dict=defaultdict(lambda: "xkcd:green"),
+        ),
+    )
 
     query(games, data_query, axis_properties)
 
@@ -65,13 +66,14 @@ def st_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _determine_st
-    data_query.data_color_dict = defaultdict(lambda: "xkcd:light red")
-
-    axis_properties.force_bar = True
-    axis_properties.x_axis_portrait = True
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_determine_st,
+            data_color_dict=defaultdict(lambda: "xkcd:light red"),
+        ),
+    )
 
     query(games, data_query, axis_properties)
 
@@ -81,13 +83,14 @@ def amba_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _determine_amba
-    data_query.data_color_dict = defaultdict(lambda: "xkcd:light magenta")
-
-    axis_properties.force_bar = True
-    axis_properties.x_axis_portrait = True
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_determine_amba,
+            data_color_dict=defaultdict(lambda: "xkcd:light magenta"),
+        ),
+    )
 
     query(games, data_query, axis_properties)
 
@@ -97,12 +100,13 @@ def double_agent_selection(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _determine_da
-    data_query.data_color_dict = defaultdict(lambda: "xkcd:light yellow")
-
-    axis_properties.force_bar = True
-    axis_properties.x_axis_portrait = True
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_determine_da,
+            data_color_dict=defaultdict(lambda: "xkcd:light yellow"),
+        ),
+    )
 
     query(games, data_query, axis_properties)

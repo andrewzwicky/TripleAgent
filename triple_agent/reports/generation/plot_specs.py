@@ -33,7 +33,7 @@ class DataQueryProperties:
     data_stack_order: List[Any] = None
     data_stack_label_dict: Optional[Dict[Any, str]] = None
     data_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
-    data_color_dict: Dict[str, str] = None
+    data_color_dict: Dict[Any, str] = None
     groupby: Callable = None
     category_name_order: Callable[[str], int] = None
     category_data_order: Any = None
@@ -41,9 +41,24 @@ class DataQueryProperties:
     limit: Optional[int] = None
     percent_normalized_data: bool = False
 
+    def update(self, suggested_data_query):
+        if isinstance(suggested_data_query, DataQueryProperties):
+            for attr_name, value in vars(self).items():
+                if (
+                    value is None
+                    and getattr(suggested_data_query, attr_name) is not None
+                ):
+                    setattr(self, attr_name, getattr(suggested_data_query, attr_name))
 
-def create_properties_if_none(axis_properties, data_query):
+
+def initialize_properties(
+    axis_properties: Optional[AxisProperties],
+    data_query: Optional[AxisProperties],
+    suggested_data_query: DataQueryProperties = None,
+):
     axis_properties = AxisProperties() if axis_properties is None else axis_properties
     data_query = DataQueryProperties() if data_query is None else data_query
+
+    data_query.update(suggested_data_query)
 
     return axis_properties, data_query

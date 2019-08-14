@@ -11,7 +11,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -36,11 +36,15 @@ def action_test_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _at_rates_excluding_difficults
-    data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER
-    data_query.data_color_dict = AT_TO_COLORS_RGB
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_at_rates_excluding_difficults,
+            data_stack_order=AT_PREFERRED_PIE_CHART_ORDER,
+            data_color_dict=AT_TO_COLORS_RGB,
+        ),
+    )
 
     query(games, data_query, axis_properties)
 
@@ -50,10 +54,14 @@ def diff_action_test_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _difficult_at_rate
-    data_query.data_stack_order = AT_PREFERRED_PIE_CHART_ORDER
-    data_query.data_color_dict = AT_TO_COLORS_RGB
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_difficult_at_rate,
+            data_stack_order=AT_PREFERRED_PIE_CHART_ORDER,
+            data_color_dict=AT_TO_COLORS_RGB,
+        ),
+    )
 
     query(games, data_query, axis_properties)

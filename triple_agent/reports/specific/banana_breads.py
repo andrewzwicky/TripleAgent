@@ -7,7 +7,7 @@ from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 _FAKE = "fake"
@@ -53,11 +53,15 @@ def all_banana_bread_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _all_banana_breads
-    data_query.data_stack_order = FAKE_REAL_ORDER
-    data_query.data_color_dict = FAKE_REAL_COLORS
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_all_banana_breads,
+            data_stack_order=FAKE_REAL_ORDER,
+            data_color_dict=FAKE_REAL_COLORS,
+        ),
+    )
 
     query(games, data_query, axis_properties)
 
@@ -67,11 +71,15 @@ def first_banana_bread_percentages(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _first_banana_bread
-    data_query.data_stack_order = FAKE_REAL_ORDER
-    data_query.data_color_dict = FAKE_REAL_COLORS
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_first_banana_bread,
+            data_stack_order=FAKE_REAL_ORDER,
+            data_color_dict=FAKE_REAL_COLORS,
+        ),
+    )
 
     query(games, data_query, axis_properties)
 

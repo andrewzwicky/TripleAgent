@@ -5,7 +5,7 @@ from triple_agent.classes.game import Game
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -25,9 +25,9 @@ def scl_set_scores_categorize(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _count_scores
+    axis_properties, data_query = initialize_properties(
+        axis_properties, data_query, DataQueryProperties(query_function=_count_scores)
+    )
 
     query(games, data_query, axis_properties)
 
@@ -37,10 +37,10 @@ def game_differential(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    axis_properties, data_query = create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _game_differential
-
-    axis_properties.force_bar = True
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(query_function=_game_differential),
+    )
 
     query(games, data_query, axis_properties)

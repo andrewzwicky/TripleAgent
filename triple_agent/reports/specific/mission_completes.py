@@ -13,7 +13,7 @@ from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
     DataPlotProperties,
-    create_properties_if_none,
+    initialize_properties,
 )
 
 
@@ -41,11 +41,15 @@ def mission_completion_query(
     data_query: DataQueryProperties = None,
     axis_properties: AxisProperties = None,
 ):
-    create_properties_if_none(axis_properties, data_query)
-
-    data_query.query_function = _mission_completes
-    data_query.data_stack_order = MISSION_PLOT_ORDER
-    data_query.data_color_dict = MISSIONS_ENUM_TO_COLOR
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        DataQueryProperties(
+            query_function=_mission_completes,
+            data_stack_order=MISSION_PLOT_ORDER,
+            data_color_dict=MISSIONS_ENUM_TO_COLOR,
+        ),
+    )
 
     query(games, data_query, axis_properties)
 

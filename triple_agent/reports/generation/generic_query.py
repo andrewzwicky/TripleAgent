@@ -1,4 +1,3 @@
-from collections import defaultdict
 from typing import List, Union, Any, Dict, Optional
 
 from triple_agent.reports.generation.report_utilities import (
@@ -32,6 +31,23 @@ def query(
     classidy them, it will plot either a pie chart, bar plot, or stacked bar plot.  Can be used to
     created simple queries quickly.
     """
+    axis_properties, data_props = populate_data_properties(
+        games, data_query, axis_properties
+    )
+
+    if axis_properties.force_line:
+        create_line_plot(axis_properties, data_props)
+    elif axis_properties.force_bar or len(data_props.data) > 1:
+        create_bar_plot(axis_properties, data_props)
+    else:
+        create_pie_chart(axis_properties, data_props)
+
+
+def populate_data_properties(
+    games: List[Game],
+    data_query: DataQueryProperties,
+    axis_properties: Optional[AxisProperties] = None,
+):
     if axis_properties is None:
         axis_properties = AxisProperties()
 
@@ -67,9 +83,7 @@ def query(
         data_props.category_labels, data_dictionary, data_query.data_stack_order
     )
 
-    data_props.colors = create_data_colors(
-        data_query.data_color_dict, data_stack_order
-    )
+    data_props.colors = create_data_colors(data_query.data_color_dict, data_stack_order)
 
     # TODO: reversed legend labels/handles
     # create data stack labels
@@ -81,14 +95,7 @@ def query(
         data_query.data_hatch_dict, data_stack_order
     )
 
-    if axis_properties.force_line:
-        create_line_plot(axis_properties, data_props)
-    elif axis_properties.force_bar or isinstance(data_dictionary, defaultdict):
-        create_bar_plot(axis_properties, data_props)
-    else:
-        create_pie_chart(axis_properties, data_props)
-
-    return data_props
+    return axis_properties, data_props
 
 
 def create_data_colors(data_color_dict, data_stack_order):
@@ -104,7 +111,8 @@ def create_data_stack_labels(
 ) -> List[str]:
     if data_stack_label_dict is not None:
         return [
-            data_stack_label_dict[plot_order_item] for plot_order_item in data_stack_order
+            data_stack_label_dict[plot_order_item]
+            for plot_order_item in data_stack_order
         ]
 
     return list(map(labelify, data_stack_order))
