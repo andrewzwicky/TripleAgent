@@ -12,7 +12,7 @@ def limit_categories(categories, limit):
 
 
 def create_data_stacks(
-    categories, data_dictionary, data_stack_order
+    categories, data_dictionary, stack_order
 ) -> Tuple[List[str], List[List[Union[int, float]]]]:
     """
     this function rearranges the data to stack in the proper order.  For example,
@@ -23,35 +23,35 @@ def create_data_stacks(
     This is still relevant even for pie charts, because it will change the order the
     slices appear in.
 
-    data_stack_order that's missing things can omit data from the result.
+    stack_order that's missing things can omit data from the result.
     """
     # TODO: data stack order in defaultdict (stacked bar) will omit data
     stacked_data = []
 
     if isinstance(data_dictionary, defaultdict):
         # if nothing is supplied, use the given data_part names and sort them.
-        if data_stack_order is None:
+        if stack_order is None:
             data_parts = set()
             for value in data_dictionary.values():
                 for inner_key in value.keys():
                     data_parts.add(inner_key)
 
-            data_stack_order = sorted(data_parts)
+            stack_order = sorted(data_parts)
 
-        for data_part in data_stack_order:
+        for data_part in stack_order:
             stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
     elif isinstance(data_dictionary, Counter):
         # In the simple counter case, the categories are also the data_parts
-        if data_stack_order is None:
-            data_stack_order = categories
+        if stack_order is None:
+            stack_order = categories
 
         # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
-        # This also means that misspelled args in data_stack_order might be difficult to find.
-        stacked_data = [[data_dictionary[data_part] for data_part in data_stack_order]]
+        # This also means that misspelled args in stack_order might be difficult to find.
+        stacked_data = [[data_dictionary[data_part] for data_part in stack_order]]
     else:
         raise ValueError
 
-    return data_stack_order, stacked_data
+    return stack_order, stacked_data
 
 
 def create_sorted_categories(

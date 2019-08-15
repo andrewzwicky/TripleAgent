@@ -28,7 +28,7 @@ def game_outcomes(
         data_query,
         DataQueryProperties(
             query_function=_categorize_outcomes,
-            data_stack_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
+            stack_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
             data_color_dict=WINTYPES_TO_COLORS,
         ),
     )

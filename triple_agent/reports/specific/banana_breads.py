@@ -58,7 +58,7 @@ def all_banana_bread_percentages(
         data_query,
         DataQueryProperties(
             query_function=_all_banana_breads,
-            data_stack_order=FAKE_REAL_ORDER,
+            stack_order=FAKE_REAL_ORDER,
             data_color_dict=FAKE_REAL_COLORS,
         ),
     )
@@ -76,7 +76,7 @@ def first_banana_bread_percentages(
         data_query,
         DataQueryProperties(
             query_function=_first_banana_bread,
-            data_stack_order=FAKE_REAL_ORDER,
+            stack_order=FAKE_REAL_ORDER,
             data_color_dict=FAKE_REAL_COLORS,
         ),
     )

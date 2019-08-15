@@ -41,7 +41,7 @@ def action_test_percentages(
         data_query,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
-            data_stack_order=AT_PREFERRED_PIE_CHART_ORDER,
+            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
             data_color_dict=AT_TO_COLORS_RGB,
         ),
     )
@@ -59,7 +59,7 @@ def diff_action_test_percentages(
         data_query,
         DataQueryProperties(
             query_function=_difficult_at_rate,
-            data_stack_order=AT_PREFERRED_PIE_CHART_ORDER,
+            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
             data_color_dict=AT_TO_COLORS_RGB,
         ),
     )

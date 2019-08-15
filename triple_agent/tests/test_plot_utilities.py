@@ -385,21 +385,21 @@ CREATE_DATA_STACKS_TEST_CASES = [
 
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "categories, data_dictionary, data_stack_order, expected_data_stack_order, expected_stacked_data",
+    "categories, data_dictionary, stack_order, expected_stack_order, expected_stacked_data",
     CREATE_DATA_STACKS_TEST_CASES,
 )
 def test_create_data_stacks(
     categories,
     data_dictionary,
-    data_stack_order,
-    expected_data_stack_order,
+    stack_order,
+    expected_stack_order,
     expected_stacked_data,
 ):
-    data_stack_order, stacked_data = create_data_stacks(
-        categories, data_dictionary, data_stack_order
+    stack_order, stacked_data = create_data_stacks(
+        categories, data_dictionary, stack_order
     )
 
-    assert data_stack_order == expected_data_stack_order
+    assert stack_order == expected_stack_order
     assert stacked_data == expected_stacked_data
 
 

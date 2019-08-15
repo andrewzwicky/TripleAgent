@@ -66,7 +66,7 @@ def populate_data_properties(
 
     # create the list of x-axis categories. percentile needs to be it's own list
     # so it can be separately sorted between the counts plot and the percentile plot
-    data_props.category_labels = create_sorted_categories(
+    data_props.category_order = create_sorted_categories(
         data_dictionary,
         data_query.category_data_order,
         data_query.reversed_data_sort,
@@ -74,56 +74,13 @@ def populate_data_properties(
     )
 
     # limit categories to reduce clutter
-    data_props.category_labels = limit_categories(
-        data_props.category_labels, data_query.limit
+    data_props.category_order = limit_categories(
+        data_props.category_order, data_query.limit
     )
 
     # sort
-    data_stack_order, data_props.data = create_data_stacks(
-        data_props.category_labels, data_dictionary, data_query.data_stack_order
-    )
-
-    data_props.colors = create_data_colors(data_query.data_color_dict, data_stack_order)
-
-    # TODO: reversed legend labels/handles
-    # create data stack labels
-    data_props.stack_labels = create_data_stack_labels(
-        data_query.data_stack_label_dict, data_stack_order
-    )
-
-    data_props.hatching = create_data_hatching(
-        data_query.data_hatch_dict, data_stack_order
+    data_props.stack_order, data_props.data = create_data_stacks(
+        data_props.category_order, data_dictionary, data_query.stack_order
     )
 
     return axis_properties, data_props
-
-
-def create_data_colors(data_color_dict, data_stack_order):
-    return (
-        None
-        if data_color_dict is None
-        else [data_color_dict[data_part] for data_part in data_stack_order]
-    )
-
-
-def create_data_stack_labels(
-    data_stack_label_dict: Dict[Any, str], data_stack_order: List[Any]
-) -> List[str]:
-    if data_stack_label_dict is not None:
-        return [
-            data_stack_label_dict[plot_order_item]
-            for plot_order_item in data_stack_order
-        ]
-
-    return list(map(labelify, data_stack_order))
-
-
-def create_data_hatching(
-    data_hatch_dict: Optional[Dict[Any, Optional[str]]], data_stack_order: List[Any]
-) -> Optional[List[Optional[str]]]:
-    if data_hatch_dict is not None:
-        return [
-            data_hatch_dict[plot_order_item] for plot_order_item in data_stack_order
-        ]
-
-    return None

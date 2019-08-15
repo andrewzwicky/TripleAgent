@@ -33,7 +33,7 @@ def stop_talk_in_game_percentage(
         data_query,
         DataQueryProperties(
             query_function=_categorize_stop_talks,
-            data_stack_order=NOSTOP_PLOT_ORDER,
+            stack_order=NOSTOP_PLOT_ORDER,
             data_color_dict=NOSTOP_TO_COLORS_RGB,
         ),
     )

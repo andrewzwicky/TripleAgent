@@ -46,7 +46,7 @@ def mission_completion_query(
         data_query,
         DataQueryProperties(
             query_function=_mission_completes,
-            data_stack_order=MISSION_PLOT_ORDER,
+            stack_order=MISSION_PLOT_ORDER,
             data_color_dict=MISSIONS_ENUM_TO_COLOR,
         ),
     )

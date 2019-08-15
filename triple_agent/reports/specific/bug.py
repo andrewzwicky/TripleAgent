@@ -107,7 +107,7 @@ def bug_success_rate(
         data_query,
         DataQueryProperties(
             query_function=_categorize_bugs,
-            data_stack_order=BUG_PLOT_ORDER,
+            stack_order=BUG_PLOT_ORDER,
             data_color_dict=BUG_TO_COLORS_RGB,
             data_stack_label_dict=BUG_PLOT_LABEL_DICT,
             data_hatch_dict=BUG_PLOT_HATCH_DICT,

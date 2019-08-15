@@ -28,7 +28,7 @@ def mission_choices(
         axis_properties,
         data_query,
         DataQueryProperties(
-            query_function=_count_mission_choices, data_stack_order=MISSION_PLOT_ORDER
+            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER
         ),
     )
 

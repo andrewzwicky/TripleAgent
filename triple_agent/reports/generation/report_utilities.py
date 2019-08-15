@@ -1,6 +1,6 @@
 import itertools
 import os
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Any, Dict, Iterator
 from enum import Enum
 
 import numpy as np
@@ -11,18 +11,22 @@ from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataPlotProperties,
+    PlotLabelStyle,
 )
 
 
-def labelify(plot_order_item):
-    if isinstance(plot_order_item, Enum):
-        return plot_order_item.name
+def labelify(unknown_item: Any, label_name_dictionary: Optional[Dict[Any, str]] = None):
+    if label_name_dictionary is not None:
+        return label_name_dictionary[unknown_item]
 
-    if isinstance(plot_order_item, float):
+    if isinstance(unknown_item, Enum):
+        return unknown_item.name
+
+    if isinstance(unknown_item, float):
         # TODO: check this for other use cases
-        return f"{plot_order_item:3>.5}"
+        return f"{unknown_item:3>.5}"
 
-    return str(plot_order_item)
+    return str(unknown_item)
 
 
 def _save_fig_if_needed(fig, savefig):
@@ -47,13 +51,27 @@ def _create_legend_if_needed(
         axis.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
-def _get_plot_colors(colors: Optional[List[str]], data: List[List[Union[int, float]]]):
-    if colors is None:
+def _get_plot_colors(
+    data_color_dict: Dict[Any, str],
+    data: List[List[Union[int, float]]],
+    stack_order: Optional[List[Any]],
+) -> Union[List[Optional[str]], Iterator[Optional[str]]]:
+    if data_color_dict is None:
         if len(data) == 1:
-            colors = ["xkcd:green"]
+            return ["xkcd:green"]
         else:
-            colors = itertools.repeat(None)
-    return colors
+            return itertools.repeat(None)
+    else:
+        return [data_color_dict[data_part] for data_part in stack_order]
+
+
+def _get_plot_hatching(
+    data_hatch_dict: Dict[Any, str], stack_order: Optional[List[Any]]
+):
+    if data_hatch_dict is None:
+        return itertools.repeat(None)
+    else:
+        return [data_hatch_dict[data_part] for data_part in stack_order]
 
 
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):
@@ -144,12 +162,12 @@ def create_line_plot(
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    _create_legend_if_needed(axis, fig, data_properties.stack_labels)
+    _create_legend_if_needed(axis, fig, data_properties.stack_order)
 
     _set_axis_properties(axis, ticks, axis_properties)
 
     _add_portrait_x_axis_if_needed(
-        axis, fig, data_properties.category_labels, axis_properties.x_axis_portrait
+        axis, fig, data_properties.category_order, axis_properties.x_axis_portrait
     )
 
     _save_fig_if_needed(fig, axis_properties.savefig)
@@ -197,13 +215,13 @@ def create_bar_plot(
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
     _create_legend_if_needed(
-        axis, fig, data_properties.stack_labels, data_stack_level=current_data_stack
+        axis, fig, data_properties.stack_order, data_stack_level=current_data_stack
     )
 
     _set_axis_properties(axis, ticks, axis_properties)
 
     _add_portrait_x_axis_if_needed(
-        axis, fig, data_properties.category_labels, axis_properties.x_axis_portrait
+        axis, fig, data_properties.category_order, axis_properties.x_axis_portrait
     )
 
     _save_fig_if_needed(fig, axis_properties.savefig)
@@ -233,7 +251,7 @@ def _create_data_label(axis, max_value, this_label, this_tick, this_value):
 
 
 def trim_empty_labels(
-    wedge_data: List[Union[int, float]], stack_labels: [List[str]]
+    wedge_data: List[Union[int, float]], stack_labels: List[str]
 ) -> List[str]:
     # assume if plotting pie chart, only 1 stack is present
     total_samples = sum(wedge_data)
@@ -259,10 +277,15 @@ def create_pie_chart(
     fig, axis = plt.subplots(figsize=(8, 8))
 
     axis.set_title(axis_properties.title)
+    hatching = _get_plot_hatching(
+        axis_properties.data_hatch_dict, data_properties.stack_order
+    )
 
     # pie is only going to use the lowest data "stack"
     wedge_data = data_properties.data[0]
-    wedge_labels = trim_empty_labels(wedge_data, data_properties.stack_labels)
+    wedge_labels = trim_empty_labels(
+        wedge_data, [labelify(item) for item in data_properties.stack_order]
+    )
 
     patches = axis.pie(
         data_properties.data[0],
@@ -271,8 +294,8 @@ def create_pie_chart(
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    if data_properties.hatching is not None:
-        for data_hatch, patch in zip(data_properties.hatching, patches[0]):
+    if hatching is not None:
+        for data_hatch, patch in zip(hatching, patches[0]):
             if data_hatch is not None:
                 patch.set_hatch(data_hatch)
 
@@ -352,3 +375,12 @@ def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties
         axis.set_xlabel(axis_properties.x_axis_label)
 
     plt.show()
+
+
+def create_data_hatching(
+    data_hatch_dict: Optional[Dict[Any, Optional[str]]], stack_order: List[Any]
+) -> Optional[List[Optional[str]]]:
+    if data_hatch_dict is not None:
+        return [data_hatch_dict[plot_order_item] for plot_order_item in stack_order]
+
+    return None

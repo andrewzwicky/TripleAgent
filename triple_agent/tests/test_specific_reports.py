@@ -18,6 +18,7 @@ from triple_agent.classes.missions import (
     Missions,
 )
 from triple_agent.reports.specific.mission_completes import _mission_completes
+from triple_agent.reports.specific.mission_choices import _count_mission_choices
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
     (_difficult_at_rate, None, False, Counter()),
@@ -204,18 +205,167 @@ def test_included_reports(
 def test_mission_completion_query(get_preparsed_timeline_games):
     data_query = DataQueryProperties()
 
-    data_query.query_function = _mission_completes
-    data_query.data_stack_order = MISSION_PLOT_ORDER
-    data_query.data_color_dict = MISSIONS_ENUM_TO_COLOR
-    data_query.groupby = lambda g: g.spy
-    data_query.category_data_order = Missions.Fingerprint
-    data_query.data_stack_order = [
-        Missions.Fingerprint,
-        Missions.Seduce,
-        Missions.Bug,
-        Missions.Contact,
-    ]
+    data_query.query_function = _count_mission_choices
 
     axis_properties, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
     )
+
+    assert data_properties.data == [[8, 8, 7, 8, 7, 7, 7, 4]]
+    assert data_properties.category_order == MISSION_PLOT_ORDER
+    assert data_properties.stack_order == MISSION_PLOT_ORDER
+    assert data_properties.colors is None
+    assert data_properties.hatching is None
+
+
+def test_mission_completion_query_groupby(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.groupby = lambda g: g.spy
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [
+        [4, 4],
+        [4, 4],
+        [4, 3],
+        [4, 4],
+        [4, 3],
+        [3, 4],
+        [3, 4],
+        [2, 2],
+    ]
+    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
+    assert data_properties.stack_order == MISSION_PLOT_ORDER
+    assert data_properties.colors is None
+    assert data_properties.hatching is None
+
+
+def test_mission_completion_query_hatching(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.groupby = lambda g: g.spy
+    data_query.data_hatch_dict = defaultdict(lambda: None, {Missions.Fingerprint: "x"})
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [
+        [4, 4],
+        [4, 4],
+        [4, 3],
+        [4, 4],
+        [4, 3],
+        [3, 4],
+        [3, 4],
+        [2, 2],
+    ]
+    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
+    assert data_properties.stack_order == MISSION_PLOT_ORDER
+    assert data_properties.colors is None
+    assert data_properties.hatching == [None, None, "x", None, None, None, None, None]
+
+
+def test_mission_completion_query_colors(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.groupby = lambda g: g.spy
+    data_query.data_color_dict = defaultdict(
+        lambda: None, {Missions.Fingerprint: "xkcd:red", Missions.Inspect: "xkcd:blue"}
+    )
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [
+        [4, 4],
+        [4, 4],
+        [4, 3],
+        [4, 4],
+        [4, 3],
+        [3, 4],
+        [3, 4],
+        [2, 2],
+    ]
+    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
+    assert data_properties.stack_order == MISSION_PLOT_ORDER
+    assert data_properties.colors == [
+        None,
+        "xkcd:blue",
+        "xkcd:red",
+        None,
+        None,
+        None,
+        None,
+        None,
+    ]
+    assert data_properties.hatching is None
+
+
+def test_mission_completion_query_reversed(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.stack_order = MISSION_PLOT_ORDER[::-1]
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [[4, 7, 7, 7, 8, 7, 8, 8]]
+    assert data_properties.category_order == MISSION_PLOT_ORDER
+    assert data_properties.stack_order == MISSION_PLOT_ORDER[::-1]
+    assert data_properties.colors is None
+    assert data_properties.hatching is None
+
+
+def test_mission_completion_query_missing_stack_items(get_preparsed_timeline_games):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.stack_order = [Missions.Fingerprint, Missions.Inspect, Missions.Seduce]
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [[7, 8, 8]]
+    assert data_properties.category_order == MISSION_PLOT_ORDER
+    assert data_properties.stack_order == [
+        Missions.Fingerprint,
+        Missions.Inspect,
+        Missions.Seduce,
+    ]
+    assert data_properties.colors is None
+    assert data_properties.hatching is None
+
+
+def test_mission_completion_query_missing_stack_items_groupby(
+    get_preparsed_timeline_games
+):
+    data_query = DataQueryProperties()
+
+    data_query.query_function = _count_mission_choices
+    data_query.stack_order = [Missions.Fingerprint, Missions.Inspect, Missions.Seduce]
+    data_query.groupby = lambda g: g.spy
+
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    assert data_properties.data == [[4, 3], [4, 4], [4, 4]]
+    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
+    assert data_properties.stack_order == [
+        Missions.Fingerprint,
+        Missions.Inspect,
+        Missions.Seduce,
+    ]
+    assert data_properties.colors is None
+    assert data_properties.hatching is None
