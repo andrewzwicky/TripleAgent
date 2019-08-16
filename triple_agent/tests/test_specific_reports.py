@@ -12,7 +12,9 @@ from triple_agent.reports.generation.plot_specs import DataQueryProperties
 from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
 from triple_agent.reports.specific.mission_choices import _count_mission_choices
 from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
+from triple_agent.reports.specific.fingerprints import _categorize_fp_sources
 from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.timeline import TimelineCategory
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
     (_difficult_at_rate, None, False, Counter()),
@@ -208,128 +210,63 @@ def test_create_data_dictionary(
     assert type(data_dict) == type(expected_data_dict)
 
 
-def test_mission_completion_query(get_preparsed_timeline_games):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-
-    axis_properties, data_properties = populate_data_properties(
-        get_preparsed_timeline_games, data_query
-    )
-
-    assert data_properties.data == [[8, 8, 7, 8, 7, 7, 7, 4]]
-    assert data_properties.category_order == MISSION_PLOT_ORDER
-    assert data_properties.stack_order == None
-
-
-def test_mission_completion_query_groupby(get_preparsed_timeline_games):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-    data_query.groupby = lambda g: g.spy
-
-    axis_properties, data_properties = populate_data_properties(
-        get_preparsed_timeline_games, data_query
-    )
-
-    assert data_properties.data == [
-        [4, 4],
-        [4, 4],
-        [4, 3],
-        [4, 4],
-        [4, 3],
-        [3, 4],
-        [3, 4],
-        [2, 2],
-    ]
-    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
-    assert data_properties.stack_order == MISSION_PLOT_ORDER
-
-
-def test_mission_completion_query_hatching(get_preparsed_timeline_games):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-    data_query.groupby = lambda g: g.spy
-    data_query.data_hatch_dict = defaultdict(lambda: None, {Missions.Fingerprint: "x"})
-
-    axis_properties, data_properties = populate_data_properties(
-        get_preparsed_timeline_games, data_query
-    )
-
-    assert data_properties.data == [
-        [4, 4],
-        [4, 4],
-        [4, 3],
-        [4, 4],
-        [4, 3],
-        [3, 4],
-        [3, 4],
-        [2, 2],
-    ]
-    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
-    assert data_properties.stack_order == MISSION_PLOT_ORDER
+SPECIFIC_REPORT_CASES = [
+    (
+        DataQueryProperties(query_function=_count_mission_choices),
+        [[8, 8, 7, 8, 7, 7, 7, 4]],
+        MISSION_PLOT_ORDER,
+        None,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices, groupby=lambda g: g.spy
+        ),
+        [[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
+        ["Calvin Schoolidge", "zerotka"],
+        MISSION_PLOT_ORDER,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices, reversed_data_sort=True
+        ),
+        [[4, 7, 7, 7, 8, 7, 8, 8]],
+        MISSION_PLOT_ORDER,
+        None,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        [[4, 3], [4, 4], [4, 4]],
+        ["Calvin Schoolidge", "zerotka"],
+        [Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+    ),
+    (
+        DataQueryProperties(query_function=_categorize_fp_sources),
+        [[1, 1]],
+        # TODO: be more explicit about sort here, not sure why this is the way it is
+        [(TimelineCategory.Books, False), (TimelineCategory.Statues, False)],
+        None,
+    ),
+]
 
 
-def test_mission_completion_query_colors(get_preparsed_timeline_games):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-    data_query.groupby = lambda g: g.spy
-    data_query.data_color_dict = defaultdict(
-        lambda: None, {Missions.Fingerprint: "xkcd:red", Missions.Inspect: "xkcd:blue"}
-    )
-
-    axis_properties, data_properties = populate_data_properties(
-        get_preparsed_timeline_games, data_query
-    )
-
-    assert data_properties.data == [
-        [4, 4],
-        [4, 4],
-        [4, 3],
-        [4, 4],
-        [4, 3],
-        [3, 4],
-        [3, 4],
-        [2, 2],
-    ]
-    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
-    assert data_properties.stack_order == MISSION_PLOT_ORDER
-
-
-def test_mission_completion_query_reversed(get_preparsed_timeline_games):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-    data_query.stack_order = MISSION_PLOT_ORDER[::-1]
-
-    axis_properties, data_properties = populate_data_properties(
-        get_preparsed_timeline_games, data_query
-    )
-
-    assert data_properties.data == [[8, 8, 7, 8, 7, 7, 7, 4]]
-    assert data_properties.category_order == MISSION_PLOT_ORDER
-    assert data_properties.stack_order == None
-
-
-def test_mission_completion_query_missing_stack_items_groupby(
-    get_preparsed_timeline_games
+@pytest.mark.parametrize(
+    "data_query,exp_data,exp_category_order,exp_stack_order", SPECIFIC_REPORT_CASES
+)
+def test_each_report(
+    data_query,
+    exp_data,
+    exp_category_order,
+    exp_stack_order,
+    get_preparsed_timeline_games,
 ):
-    data_query = DataQueryProperties()
-
-    data_query.query_function = _count_mission_choices
-    data_query.stack_order = [Missions.Fingerprint, Missions.Inspect, Missions.Seduce]
-    data_query.groupby = lambda g: g.spy
-
     axis_properties, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
     )
 
-    assert data_properties.data == [[4, 3], [4, 4], [4, 4]]
-    assert data_properties.category_order == ["Calvin Schoolidge", "zerotka"]
-    assert data_properties.stack_order == [
-        Missions.Fingerprint,
-        Missions.Inspect,
-        Missions.Seduce,
-    ]
+    assert data_properties.data == exp_data
+    assert data_properties.category_order == exp_category_order
+    assert data_properties.stack_order == exp_stack_order

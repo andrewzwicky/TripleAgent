@@ -52,6 +52,7 @@ class DataQueryProperties:
     groupby: Callable = None
     category_name_order: Callable[[str], int] = None
     category_data_order: Any = None
+    # TODO: change reversed_data_sort to be clear it's regarding categories not stacks.
     reversed_data_sort: bool = False
     limit: Optional[int] = None
     percent_normalized_data: bool = False
