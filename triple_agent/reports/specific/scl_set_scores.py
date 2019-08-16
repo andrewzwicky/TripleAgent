@@ -26,7 +26,10 @@ def scl_set_scores_categorize(
     axis_properties: AxisProperties = None,
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
-        axis_properties, data_query, DataQueryProperties(query_function=_count_scores)
+        axis_properties,
+        data_query,
+        None,
+        DataQueryProperties(query_function=_count_scores),
     )
 
     query(games, data_query, axis_properties)
@@ -40,6 +43,7 @@ def game_differential(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
+        None,
         DataQueryProperties(query_function=_game_differential),
     )
 

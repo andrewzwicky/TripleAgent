@@ -7,15 +7,14 @@ from shutil import move
 from time import sleep
 from typing import List
 from typing import Callable
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (
     TimelineParseException,
     parse_screenshot,
     remove_overlap,
 )
-
 from triple_agent.classes.game import Game, get_game_expected_pkl
 from triple_agent.constants.paths import LONG_FILE_HEADER, PICKLE_ISOLATION, PARSE_LOG
 from triple_agent.classes.timeline import Timeline

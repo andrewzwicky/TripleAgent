@@ -39,10 +39,10 @@ def action_test_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
+        AxisProperties(data_color_dict=AT_TO_COLORS_RGB),
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
-            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
-            data_color_dict=AT_TO_COLORS_RGB,
+            # category_data_order=AT_PREFERRED_PIE_CHART_ORDER.index
         ),
     )
 
@@ -57,10 +57,9 @@ def diff_action_test_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
+        AxisProperties(data_color_dict=AT_TO_COLORS_RGB),
         DataQueryProperties(
-            query_function=_difficult_at_rate,
-            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
-            data_color_dict=AT_TO_COLORS_RGB,
+            query_function=_difficult_at_rate, stack_order=AT_PREFERRED_PIE_CHART_ORDER
         ),
     )
 

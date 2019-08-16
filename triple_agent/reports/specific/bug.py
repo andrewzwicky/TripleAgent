@@ -1,7 +1,7 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
@@ -105,12 +105,13 @@ def bug_success_rate(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        DataQueryProperties(
-            query_function=_categorize_bugs,
-            stack_order=BUG_PLOT_ORDER,
+        AxisProperties(
             data_color_dict=BUG_TO_COLORS_RGB,
             data_stack_label_dict=BUG_PLOT_LABEL_DICT,
             data_hatch_dict=BUG_PLOT_HATCH_DICT,
+        ),
+        DataQueryProperties(
+            query_function=_categorize_bugs, stack_order=BUG_PLOT_ORDER
         ),
     )
 

@@ -10,6 +10,7 @@ from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
     initialize_properties,
+    PlotLabelStyle,
 )
 
 
@@ -52,10 +53,12 @@ def spy_selection(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        DataQueryProperties(
-            query_function=_determine_spy,
+        AxisProperties(
             data_color_dict=defaultdict(lambda: "xkcd:green"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
         ),
+        DataQueryProperties(query_function=_determine_spy),
     )
 
     query(games, data_query, axis_properties)
@@ -69,10 +72,12 @@ def st_selection(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        DataQueryProperties(
-            query_function=_determine_st,
+        AxisProperties(
             data_color_dict=defaultdict(lambda: "xkcd:light red"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
         ),
+        DataQueryProperties(query_function=_determine_st),
     )
 
     query(games, data_query, axis_properties)
@@ -86,10 +91,12 @@ def amba_selection(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        DataQueryProperties(
-            query_function=_determine_amba,
+        AxisProperties(
             data_color_dict=defaultdict(lambda: "xkcd:light magenta"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
         ),
+        DataQueryProperties(query_function=_determine_amba),
     )
 
     query(games, data_query, axis_properties)
@@ -103,10 +110,12 @@ def double_agent_selection(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        DataQueryProperties(
-            query_function=_determine_da,
+        AxisProperties(
             data_color_dict=defaultdict(lambda: "xkcd:light yellow"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
         ),
+        DataQueryProperties(query_function=_determine_da),
     )
 
     query(games, data_query, axis_properties)

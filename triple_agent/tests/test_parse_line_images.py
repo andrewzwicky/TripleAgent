@@ -3,7 +3,6 @@ from typing import Tuple
 
 import cv2
 import pytest
-
 from triple_agent.parsing.timeline.parse_timeline import process_line_image
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books

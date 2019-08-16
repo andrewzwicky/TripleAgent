@@ -3,16 +3,11 @@ import os
 from typing import List, Optional, Union, Any, Dict, Iterator
 from enum import Enum
 
-import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
-
+import numpy as np
 from triple_agent.constants.paths import PORTRAITS_FOLDER
-from triple_agent.reports.generation.plot_specs import (
-    AxisProperties,
-    DataPlotProperties,
-    PlotLabelStyle,
-)
+from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
 
 
 def labelify(unknown_item: Any, label_name_dictionary: Optional[Dict[Any, str]] = None):
@@ -34,10 +29,8 @@ def _save_fig_if_needed(fig, savefig):
         fig.savefig(savefig, bbox_inches="tight")
 
 
-def _create_legend_if_needed(
-    axis, fig, stack_labels: Optional[List[str]], data_stack_level=None
-):
-    if stack_labels is not None and (data_stack_level is None or data_stack_level > 0):
+def _create_legend_if_needed(axis, fig, stack_labels: Optional[List[str]]):
+    if stack_labels is not None:
         # resize the plot to allow size for legend.
         # increase figure by 25%
         width, height = fig.get_size_inches()
@@ -51,27 +44,58 @@ def _create_legend_if_needed(
         axis.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
-def _get_plot_colors(
-    data_color_dict: Dict[Any, str],
-    data: List[List[Union[int, float]]],
-    stack_order: Optional[List[Any]],
-) -> Union[List[Optional[str]], Iterator[Optional[str]]]:
+def create_category_labels(categories: List[Any]) -> List[str]:
+    return list(map(labelify, categories))
+
+
+def create_stack_labels(
+    data_stack_label_dict: Dict[Any, str], stack_order: Optional[List[Any]]
+) -> Optional[List[str]]:
+    # stack_order should only be none in the case of a single stack, i.e. straight bar plot
+    if stack_order is None:
+        return None
+
+    if data_stack_label_dict is None:
+        return [labelify(data_part) for data_part in stack_order]
+
+    return [data_stack_label_dict[data_part] for data_part in stack_order]
+
+
+def create_plot_colors(
+    data_color_dict: Optional[Dict[Any, Optional[str]]],
+    color_order: Optional[List[Any]],
+) -> Optional[Union[List[Optional[str]], Iterator[Optional[str]]]]:
+    # color order is ambiguous here because in pie charts, it is category order
+    # but in stacked bar it is stack_order
+    if color_order is None:
+        return ["xkcd:green"]
+
     if data_color_dict is None:
-        if len(data) == 1:
-            return ["xkcd:green"]
-        else:
-            return itertools.repeat(None)
-    else:
-        return [data_color_dict[data_part] for data_part in stack_order]
+        return itertools.repeat(None)
+
+    return [data_color_dict[data_part] for data_part in color_order]
 
 
-def _get_plot_hatching(
-    data_hatch_dict: Dict[Any, str], stack_order: Optional[List[Any]]
+def _get_data_labels(
+    data: List[List[Union[int, float]]],
+    data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels,
+) -> List[List[str]]:
+    if data_label_style == PlotLabelStyle.NoLabels:
+        return [["" for _ in stack] for stack in data]
+
+    if data_label_style == PlotLabelStyle.Plain:
+        return [[labelify(item) for item in stack] for stack in data]
+
+    return [["" for _ in stack] for stack in data]
+
+
+def create_plot_hatching(
+    data_hatch_dict: Dict[Any, str], hatch_order: Optional[List[Any]]
 ):
     if data_hatch_dict is None:
-        return itertools.repeat(None)
-    else:
-        return [data_hatch_dict[data_part] for data_part in stack_order]
+        return None
+
+    return [data_hatch_dict[data_part] for data_part in hatch_order]
 
 
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):
@@ -135,101 +159,7 @@ def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
     axis.set_axisbelow(True)
 
 
-def create_line_plot(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
-):
-    fig, axis = plt.subplots(figsize=(12, 8))
-
-    colors = _get_plot_colors(data_properties.colors, data_properties.data)
-
-    ticks = list(range(len(data_properties.data[0])))
-
-    # make sure all individual data sets are the same length
-    assert len({len(d) for d in data_properties.data}) == 1
-
-    max_value = max((map(max, zip(*data_properties.data))))
-
-    for _, (this_data, this_color) in enumerate(zip(data_properties.data, colors)):
-        axis.plot(
-            ticks,
-            this_data,
-            color=this_color,
-            linestyle="-",
-            marker="o",
-            markersize=12,
-            linewidth=4,
-        )
-
-    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
-
-    _create_legend_if_needed(axis, fig, data_properties.stack_order)
-
-    _set_axis_properties(axis, ticks, axis_properties)
-
-    _add_portrait_x_axis_if_needed(
-        axis, fig, data_properties.category_order, axis_properties.x_axis_portrait
-    )
-
-    _save_fig_if_needed(fig, axis_properties.savefig)
-
-    plt.show()
-
-
-def create_bar_plot(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
-):
-    fig, axis = plt.subplots(figsize=(12, 8))
-
-    colors = _get_plot_colors(data_properties.colors, data_properties.data)
-
-    ticks = list(range(len(data_properties.data[0])))
-
-    # make sure all individual data sets are the same length
-    assert len({len(d) for d in data_properties.data}) == 1
-
-    max_value = max((map(sum, zip(*data_properties.data))))
-
-    current_bottom = [0] * len(data_properties.data[0])
-
-    current_data_stack = 0
-
-    for current_data_stack, (this_data, this_color) in enumerate(
-        zip(data_properties.data, colors)
-    ):
-        patches = axis.bar(
-            ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
-        )
-        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
-
-        if data_properties.data_labels is not None:
-            for tick_value_label_tuple in zip(
-                ticks, current_bottom, data_properties.data_labels[current_data_stack]
-            ):
-                _create_data_label(axis, max_value, *tick_value_label_tuple)
-
-        if data_properties.hatching is not None:
-            for patch in patches:
-                if data_properties.hatching[current_data_stack] is not None:
-                    patch.set_hatch(data_properties.hatching[current_data_stack])
-
-    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
-
-    _create_legend_if_needed(
-        axis, fig, data_properties.stack_order, data_stack_level=current_data_stack
-    )
-
-    _set_axis_properties(axis, ticks, axis_properties)
-
-    _add_portrait_x_axis_if_needed(
-        axis, fig, data_properties.category_order, axis_properties.x_axis_portrait
-    )
-
-    _save_fig_if_needed(fig, axis_properties.savefig)
-
-    plt.show()
-
-
-def _create_data_label(axis, max_value, this_label, this_tick, this_value):
+def _create_data_label(axis, max_value, this_tick, this_value, this_label):
     text_padding = max_value * 0.01
 
     if this_value != 0:
@@ -271,80 +201,6 @@ def trim_empty_labels(
     return results_labels
 
 
-def create_pie_chart(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
-):
-    fig, axis = plt.subplots(figsize=(8, 8))
-
-    axis.set_title(axis_properties.title)
-    hatching = _get_plot_hatching(
-        axis_properties.data_hatch_dict, data_properties.stack_order
-    )
-
-    # pie is only going to use the lowest data "stack"
-    wedge_data = data_properties.data[0]
-    wedge_labels = trim_empty_labels(
-        wedge_data, [labelify(item) for item in data_properties.stack_order]
-    )
-
-    patches = axis.pie(
-        data_properties.data[0],
-        labels=wedge_labels,
-        colors=data_properties.colors,
-        wedgeprops={"edgecolor": "k", "linewidth": 1},
-    )
-
-    if hatching is not None:
-        for data_hatch, patch in zip(hatching, patches[0]):
-            if data_hatch is not None:
-                patch.set_hatch(data_hatch)
-
-    _save_fig_if_needed(fig, axis_properties.savefig)
-
-    plt.show()
-
-
-def create_histogram(
-    axis_properties: AxisProperties,
-    data,
-    bin_size,
-    major_locator=60,
-    cumulative_also=False,
-    **kwargs,
-):
-    fig, axis = plt.subplots(figsize=(12, 8))
-
-    cumulative_bins, data_bins = create_bins(bin_size, data)
-
-    heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
-
-    if cumulative_also:
-        axis2 = axis.twinx()
-        axis2.hist(
-            data,
-            bins=cumulative_bins,
-            density=True,
-            histtype="step",
-            cumulative=True,
-            color="xkcd:orange",
-            linewidth=3,
-        )
-
-        axis2.set_ylim(0, 1)
-
-    _set_y_axis_scale_and_ticks(axis, max(heights), False)
-
-    # TODO: figure out a better major locator size
-    axis.xaxis.set_major_locator(MultipleLocator(major_locator))
-    axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
-
-    _set_axis_properties(axis, data_bins, axis_properties)
-
-    _save_fig_if_needed(fig, kwargs)
-
-    plt.show()
-
-
 def create_bins(bin_size, data):
     max_data_point = max(data)
     last_bin_right = bin_size * round(max_data_point / bin_size) + bin_size
@@ -352,35 +208,3 @@ def create_bins(bin_size, data):
     cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
 
     return cumul_bins, data_bins
-
-
-def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties):
-    _, axis = plt.subplots(figsize=(14, 10))
-
-    for x_d, y_d, color in zip(x_data, y_data, colors):
-        axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
-
-    axis.set_ylim(bottom=0)
-    axis.set_xlim(left=0)
-
-    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
-    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
-
-    axis.set_title(axis_properties.title)
-
-    if axis_properties.y_axis_label is not None:
-        axis.set_ylabel(axis_properties.y_axis_label)
-
-    if axis_properties.x_axis_label is not None:
-        axis.set_xlabel(axis_properties.x_axis_label)
-
-    plt.show()
-
-
-def create_data_hatching(
-    data_hatch_dict: Optional[Dict[Any, Optional[str]]], stack_order: List[Any]
-) -> Optional[List[Optional[str]]]:
-    if data_hatch_dict is not None:
-        return [data_hatch_dict[plot_order_item] for plot_order_item in stack_order]
-
-    return None

@@ -6,9 +6,7 @@ import cv2
 import numpy as np
 import pyautogui
 from mss import mss
-
 from triple_agent.classes.game import Game
-
 from triple_agent.parsing.timeline.parse_timeline import (
     SPY_P_TOP,
     SPY_P_LEFT,

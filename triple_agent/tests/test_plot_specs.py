@@ -1,5 +1,9 @@
 import pytest
-from triple_agent.reports.generation.plot_specs import DataQueryProperties
+from triple_agent.reports.generation.plot_specs import (
+    DataQueryProperties,
+    AxisProperties,
+    PlotLabelStyle,
+)
 
 DATA_QUERY_CASES = [
     (DataQueryProperties(), DataQueryProperties(), DataQueryProperties()),
@@ -23,11 +27,27 @@ DATA_QUERY_CASES = [
         DataQueryProperties(stack_order=[4, 5, 6]),
         DataQueryProperties(stack_order=[1, 2, 3]),
     ),
+    (AxisProperties(), AxisProperties(), AxisProperties()),
+    (
+        AxisProperties(title="test"),
+        AxisProperties(title="test not this"),
+        AxisProperties(title="test"),
+    ),
+    (
+        AxisProperties(),
+        AxisProperties(data_color_dict={"x": "x", "p": "l"}),
+        AxisProperties(data_color_dict={"x": "x", "p": "l"}),
+    ),
+    (
+        AxisProperties(data_label_style=PlotLabelStyle.Full),
+        None,
+        AxisProperties(data_label_style=PlotLabelStyle.Full),
+    ),
 ]
 
 
 @pytest.mark.parametrize("initial,suggested,expected", DATA_QUERY_CASES)
-def test_data_query_properties(initial, suggested, expected):
+def test_update_plot_specs(initial, suggested, expected):
     initial.update(suggested)
 
     assert initial == expected

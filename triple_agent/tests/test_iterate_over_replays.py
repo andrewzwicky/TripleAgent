@@ -3,7 +3,6 @@ import pytest
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
-import datetime
 
 
 @pytest.mark.quick

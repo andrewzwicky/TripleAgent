@@ -1,10 +1,9 @@
-from typing import List, Union, Any, Dict, Optional
+from typing import List, Union, Optional
 
-from triple_agent.reports.generation.report_utilities import (
-    create_pie_chart,
-    create_bar_plot,
+from triple_agent.reports.generation.plot_types import (
     create_line_plot,
-    labelify,
+    create_bar_plot,
+    create_pie_chart,
 )
 from triple_agent.reports.generation.plot_utilities import (
     create_sorted_categories,
@@ -31,6 +30,7 @@ def query(
     classidy them, it will plot either a pie chart, bar plot, or stacked bar plot.  Can be used to
     created simple queries quickly.
     """
+
     axis_properties, data_props = populate_data_properties(
         games, data_query, axis_properties
     )
@@ -44,7 +44,7 @@ def query(
 
 
 def populate_data_properties(
-    games: List[Game],
+    games: Union[List[Game], List[SCLSet]],
     data_query: DataQueryProperties,
     axis_properties: Optional[AxisProperties] = None,
 ):

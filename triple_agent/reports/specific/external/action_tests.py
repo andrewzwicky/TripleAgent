@@ -2,7 +2,6 @@ import os
 import json
 
 from tabulate import tabulate
-
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 from triple_agent.constants.events import select_scl5_with_drops
 from triple_agent.constants.paths import CASTER_DATA_FOLDER

@@ -1,10 +1,12 @@
 import itertools
 from collections import Counter, defaultdict
 from typing import Any, Union, Callable, List, Tuple, Optional
+
 from triple_agent.classes.game import Game
+from triple_agent.classes.scl_set import SCLSet
 
 
-def limit_categories(categories, limit):
+def limit_categories(categories: List[Any], limit: Optional[int]) -> List[Any]:
     if limit is not None:
         if limit < len(categories):
             categories = categories[:limit]
@@ -12,8 +14,10 @@ def limit_categories(categories, limit):
 
 
 def create_data_stacks(
-    categories, data_dictionary, stack_order
-) -> Tuple[List[str], List[List[Union[int, float]]]]:
+    categories: List[Any],
+    data_dictionary: Union[defaultdict, Counter],
+    stack_order: List[Any],
+) -> Tuple[Optional[List[Any]], List[List[Union[int, float]]]]:
     """
     this function rearranges the data to stack in the proper order.  For example,
     if the data is grouped by venue, and each stack includes each win type (mission win,
@@ -23,9 +27,11 @@ def create_data_stacks(
     This is still relevant even for pie charts, because it will change the order the
     slices appear in.
 
-    stack_order that's missing things can omit data from the result.
+    stack_order that's missing things CAN omit data from the result.
+
+    This should produce a list that is N items long, where N is the number of stacks.
+    Each of those stacks should contain M items, where M is the number of categories.
     """
-    # TODO: data stack order in defaultdict (stacked bar) will omit data
     stacked_data = []
 
     if isinstance(data_dictionary, defaultdict):
@@ -41,15 +47,22 @@ def create_data_stacks(
         for data_part in stack_order:
             stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
     elif isinstance(data_dictionary, Counter):
-        # In the simple counter case, the categories are also the data_parts
-        if stack_order is None:
-            stack_order = categories
+        # In the case of a simple counter, stack_order has no functionality.
+        # If category ordering is desired, it should be done through category_name_order or category_data_order
+        # Set this to None to prevent accidental use downstream.
+        stack_order = None
 
         # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
         # This also means that misspelled args in stack_order might be difficult to find.
-        stacked_data = [[data_dictionary[data_part] for data_part in stack_order]]
+        stacked_data = [[data_dictionary[cat] for cat in categories]]
     else:
         raise ValueError
+
+    # make sure all individual data stacks are the same length
+    assert len({len(d) for d in stacked_data}) == 1
+
+    # make sure each stack has enough data to cover all the categories
+    assert len(categories) == len(stacked_data[0])
 
     return stack_order, stacked_data
 
@@ -59,7 +72,7 @@ def create_sorted_categories(
     category_data_order: Any = None,
     reversed_data_sort: bool = False,
     category_name_order: Callable[[str], int] = None,
-):
+) -> List[Any]:
     categories = list(data_dictionary.keys())
     category_lambdas = dict()
     category_lambdas["callable"] = lambda c: category_data_order(data_dictionary[c])
@@ -74,6 +87,7 @@ def create_sorted_categories(
         raise ValueError
 
     # sort the categories
+    # data_order takes priority if both are provided
     if category_data_order is not None:
         if category_data_order is sum:
             categories.sort(key=category_lambdas["sum"])
@@ -92,11 +106,11 @@ def create_sorted_categories(
 
 
 def create_data_dictionary(
-    games: List[Game],
+    games: Union[List[Game], List[SCLSet]],
     query_function: Callable,
     groupby: Optional[Callable] = None,
     percent_normalized_data: bool = False,
-):
+) -> Union[defaultdict, Counter]:
     """
     This function will create the data used for the plots.  The expected formats are either:
     -A defaultdict(Counter), with the 1st level keys being the groupby categories and the 2nd level keys
@@ -117,7 +131,7 @@ def create_data_dictionary(
             sorted(games, key=groupby), key=groupby
         ):
             data_dictionary[category] = populate_individual_counter(
-                cat_games,
+                list(cat_games),
                 data_dictionary[category],
                 query_function,
                 percent_normalized_data,
@@ -127,8 +141,11 @@ def create_data_dictionary(
 
 
 def populate_individual_counter(
-    games, data_dictionary, query_function, percent_normalized_data: bool = False
-):
+    games: Union[List[Game], List[SCLSet]],
+    data_dictionary: Counter,
+    query_function: Callable,
+    percent_normalized_data: bool = False,
+) -> Counter:
     query_function(games, data_dictionary)
 
     if percent_normalized_data:

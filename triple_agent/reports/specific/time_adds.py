@@ -1,7 +1,7 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
@@ -31,6 +31,7 @@ def time_add_times_per_game(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
+        None,
         DataQueryProperties(query_function=_count_time_adds),
     )
 

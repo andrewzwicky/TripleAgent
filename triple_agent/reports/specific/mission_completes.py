@@ -1,7 +1,7 @@
 from collections import defaultdict, Counter
 from typing import List
 
-from triple_agent.reports.generation.report_utilities import create_bar_plot
+from triple_agent.reports.generation.plot_types import create_bar_plot
 from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import (
@@ -44,10 +44,9 @@ def mission_completion_query(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
+        AxisProperties(data_color_dict=MISSIONS_ENUM_TO_COLOR),
         DataQueryProperties(
-            query_function=_mission_completes,
-            stack_order=MISSION_PLOT_ORDER,
-            data_color_dict=MISSIONS_ENUM_TO_COLOR,
+            query_function=_mission_completes, stack_order=MISSION_PLOT_ORDER
         ),
     )
 
@@ -92,11 +91,15 @@ def mission_completion(games: List[Game], title: str):
             )
 
     create_bar_plot(
-        AxisProperties(title=title, y_axis_percentage=True),
+        AxisProperties(
+            title=title,
+            y_axis_percentage=True,
+            data_color_dict={True: "xkcd:green", False: "xkcd:light grey"},
+            data_stack_label_dict={True: "Complete", False: "Incomplete"},
+        ),
         DataPlotProperties(
+            category_order=MISSION_PLOT_ORDER,
+            stack_order=[True, False],
             data=[complete_percentage, incomplete_percentage],
-            colors=["xkcd:green", "xkcd:light grey"],
-            category_labels=[m.name for m in Missions if m is not Missions.Zero]
-            # bar_labels = [complete_labels, incomplete_labels]
         ),
     )

@@ -1,6 +1,6 @@
 from typing import List
 
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.reports.generation.plot_specs import AxisProperties
 

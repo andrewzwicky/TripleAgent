@@ -1,14 +1,12 @@
 from collections import defaultdict, Counter
 
 import pytest
-
 from triple_agent.reports.generation.plot_utilities import (
     create_sorted_categories,
     create_data_stacks,
 )
-
 from triple_agent.classes.action_tests import ActionTest
-
+from triple_agent.classes.missions import Missions
 
 SORTED_CATEGORY_TEST_CASES = [
     (
@@ -243,36 +241,36 @@ CREATE_DATA_STACKS_TEST_CASES = [
         ["cat_a", "cat_b", "cat_c"],
         Counter({"cat_a": 10, "cat_b": 11, "cat_c": 2}),
         None,
-        ["cat_a", "cat_b", "cat_c"],
+        None,
         [[10, 11, 2]],
     ),
     (
         ["cat_a", "cat_b", "cat_c"],
         Counter({"cat_a": 10, "cat_b": 11, "cat_c": 2}),
         ["cat_a"],
-        ["cat_a"],
-        [[10]],
+        None,
+        [[10, 11, 2]],
     ),
     (
         ["cat_a", "cat_b", "cat_c"],
         Counter({"cat_a": 10, "cat_b": 11, "cat_c": 2}),
         ["cat_b"],
-        ["cat_b"],
-        [[11]],
+        None,
+        [[10, 11, 2]],
     ),
     (
         ["cat_a", "cat_b", "cat_c"],
         Counter({"cat_a": 10, "cat_b": 11, "cat_c": 2}),
         ["cat_b", "cat_c", "cat_a"],
-        ["cat_b", "cat_c", "cat_a"],
-        [[11, 2, 10]],
+        None,
+        [[10, 11, 2]],
     ),
     (
         ["cat_a", "cat_b", "cat_c"],
         Counter({"cat_a": 10, "cat_b": 11, "cat_c": 2}),
         ["cat_b", "cat_c", "cat_a", "cat_d"],
-        ["cat_b", "cat_c", "cat_a", "cat_d"],
-        [[11, 2, 10, 0]],
+        None,
+        [[10, 11, 2]],
     ),
     (
         ["Balcony", "Terrace", "Gallery", "Ballroom"],
@@ -371,14 +369,33 @@ CREATE_DATA_STACKS_TEST_CASES = [
             ActionTest.Red,
             ActionTest.Canceled,
         ],
+        None,
+        [[4, 2]],
+    ),
+    (
         [
-            ActionTest.Green,
-            ActionTest.White,
-            ActionTest.Ignored,
-            ActionTest.Red,
-            ActionTest.Canceled,
+            Missions.Seduce,
+            Missions.Inspect,
+            Missions.Fingerprint,
+            Missions.Contact,
+            Missions.Bug,
+            Missions.Swap,
+            Missions.Purloin,
         ],
-        [[2, 0, 0, 4, 0]],
+        Counter(
+            {
+                Missions.Seduce: 2,
+                Missions.Inspect: 2,
+                Missions.Fingerprint: 2,
+                Missions.Contact: 2,
+                Missions.Bug: 2,
+                Missions.Swap: 2,
+                Missions.Purloin: 2,
+            }
+        ),
+        [Missions.Fingerprint, Missions.Swap, Missions.Transfer],
+        None,
+        [[2, 2, 2, 2, 2, 2, 2]],
     ),
 ]
 

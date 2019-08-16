@@ -3,7 +3,7 @@ from typing import List
 from triple_agent.classes.game import Game
 from triple_agent.classes.outcomes import WINTYPES_TO_COLORS
 from triple_agent.classes.timeline import TimelineCategory
-from triple_agent.reports.generation.report_utilities import create_progress_plot
+from triple_agent.reports.generation.plot_types import create_progress_plot
 from triple_agent.reports.generation.plot_specs import AxisProperties
 
 

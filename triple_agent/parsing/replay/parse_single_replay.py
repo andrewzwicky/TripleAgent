@@ -1,11 +1,12 @@
 from collections import defaultdict
 from typing import Optional, Dict, AnyStr
 
-from spyparty.ReplayParser import ReplayParser
 from triple_agent.classes.game import Game, game_load_or_new
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 from triple_agent.classes.missions import convert_mission_set_to_enum
 from triple_agent.classes.outcomes import WinType
+
+from spyparty.ReplayParser import ReplayParser
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
