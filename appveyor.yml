@@ -34,7 +34,6 @@ install:
 build: false
 
 test_script:
-  - "black triple_agent --check"
   - "pytest triple_agent --cov=triple_agent --cov-report term-missing:skip-covered"
+  - "black triple_agent --check"
   - "pylint triple_agent"
-

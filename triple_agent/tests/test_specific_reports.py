@@ -180,15 +180,8 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "zerotka": Counter(
-                    {WinType.CivilianShot: 1, WinType.SpyShot: 3}
-                ),
-                "Calvin Schoolidge": Counter(
-                    {
-                        WinType.TimeOut: 1,
-                        WinType.SpyShot: 3
-                    }
-                ),
+                "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
             },
         ),
     ),
