@@ -51,7 +51,7 @@ def parse_replay_dict_into_game(
         duration=replay_dict["duration"],
         uuid=replay_dict["uuid"],
         file=replay_file,
-        initial_pickle=False,
+        initial_pickle=kwargs.pop("initial_pickle", False),
         pickle_folder=pickle_folder,
         **kwargs,
     )

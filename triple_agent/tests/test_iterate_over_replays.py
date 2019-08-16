@@ -3,6 +3,8 @@ import pytest
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
+from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
+import os
 
 
 @pytest.mark.quick
@@ -114,3 +116,35 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     #     day=2, hour=15, minute=17, month=6, second=32, year=2019
     # )
     assert games[1].duration == 318
+
+
+def test_initial_pickle_and_repickle(
+    get_unparsed_test_games, get_test_replay_pickle_folder, get_test_events_folder
+):
+    this_test_replay = os.path.join(
+        get_test_events_folder,
+        r"SCL5\Copper\8\SpyPartyReplay-20190422-20-32-21-Max Edward Snax%2fsteam-vs-Calvin Schoolidge%2fsteam-OiG7qvC9QOaSKVGlesdpWQ-v25.replay",
+    )
+
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+    )
+
+    # test that initial pickle will actually pickle the file.
+    this_game = parse_single_replay(
+        this_test_replay, get_test_replay_pickle_folder, initial_pickle=True
+    )
+
+    this_game.winner = 'Calvin Schoolidge'
+
+    # test fixture will remove the files after the test
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+    )
+
+    this_game.winner = 'TEST_WINNER'
+    this_game.repickle(pickle_folder=get_test_replay_pickle_folder)
+
+    newly_parsed_game = parse_single_replay(this_test_replay, get_test_replay_pickle_folder)
+
+    assert newly_parsed_game.winner == 'TEST_WINNER'
