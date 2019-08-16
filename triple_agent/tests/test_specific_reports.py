@@ -230,7 +230,7 @@ SPECIFIC_REPORT_CASES = [
             query_function=_count_mission_choices, reversed_data_sort=True
         ),
         [[4, 7, 7, 7, 8, 7, 8, 8]],
-        MISSION_PLOT_ORDER,
+        MISSION_PLOT_ORDER[::-1],
         None,
     ),
     (
