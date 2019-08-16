@@ -135,16 +135,18 @@ def test_initial_pickle_and_repickle(
         this_test_replay, get_test_replay_pickle_folder, initial_pickle=True
     )
 
-    this_game.winner = 'Calvin Schoolidge'
+    this_game.winner = "Calvin Schoolidge"
 
     # test fixture will remove the files after the test
     assert os.path.exists(
         os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
     )
 
-    this_game.winner = 'TEST_WINNER'
+    this_game.winner = "TEST_WINNER"
     this_game.repickle(pickle_folder=get_test_replay_pickle_folder)
 
-    newly_parsed_game = parse_single_replay(this_test_replay, get_test_replay_pickle_folder)
+    newly_parsed_game = parse_single_replay(
+        this_test_replay, get_test_replay_pickle_folder
+    )
 
-    assert newly_parsed_game.winner == 'TEST_WINNER'
+    assert newly_parsed_game.winner == "TEST_WINNER"
