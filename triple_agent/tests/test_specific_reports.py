@@ -11,6 +11,8 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.reports.generation.plot_specs import DataQueryProperties
 from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
 from triple_agent.reports.specific.mission_choices import _count_mission_choices
+from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
+from triple_agent.classes.outcomes import WinType
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
     (_difficult_at_rate, None, False, Counter()),
@@ -171,6 +173,25 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             },
         ),
     ),
+    (
+        _categorize_outcomes,
+        lambda g: g.sniper,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "zerotka": Counter(
+                    {WinType.CivilianShot: 1, WinType.SpyShot: 3}
+                ),
+                "Calvin Schoolidge": Counter(
+                    {
+                        WinType.TimeOut: 1,
+                        WinType.SpyShot: 3
+                    }
+                ),
+            },
+        ),
+    ),
 ]
 
 
@@ -179,7 +200,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     "query_function,groupby,percent_normalized_data,expected_data_dict",
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
-def test_included_reports(
+def test_create_data_dictionary(
     query_function,
     groupby,
     percent_normalized_data,

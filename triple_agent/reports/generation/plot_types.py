@@ -20,11 +20,8 @@ from triple_agent.reports.generation.report_utilities import (
     _get_data_labels,
 )
 
-
-"""
-TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
-Right now, it's a bit of a hodge-podge with stack_order being used in both ways.
-"""
+# TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
+# Right now, it's a bit of a hodge-podge with stack_order being used in both ways.
 
 
 def create_line_plot(
