@@ -1490,10 +1490,10 @@ CATEGORIZATION_DICTIONARY = {
 }
 
 
-@dataclass(eq=True)
+@dataclass
 class TimelineEvent:
     actor: str
-    _raw_time_str: str = field(compare=False, repr=False)
+    _raw_time_str: str
     event: str
     cast_name: Tuple[Optional[Characters]]
     role: Tuple[Optional[Roles]]
@@ -1529,6 +1529,44 @@ class TimelineEvent:
             )
 
         assert len(self.cast_name) == len(self.role)
+
+    def __hash__(self):
+        return hash(
+            (
+                self.actor,
+                self.time,
+                self.event,
+                self.cast_name,
+                self.books,
+                self.role,
+                self.category,
+                self.mission,
+                self.action_test,
+            )
+        )
+
+    def __eq__(self, other):
+        return (
+            self.actor,
+            self.time,
+            self.event,
+            self.cast_name,
+            self.books,
+            self.role,
+            self.category,
+            self.mission,
+            self.action_test,
+        ) == (
+            other.actor,
+            other.time,
+            other.event,
+            other.cast_name,
+            other.books,
+            other.role,
+            other.category,
+            other.mission,
+            other.action_test,
+        )
 
 
 class Timeline(Sequence):
