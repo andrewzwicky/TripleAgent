@@ -148,7 +148,9 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
         for tick_value_label_tuple in zip(ticks, current_bottom, row_data_labels):
             _create_data_label(axis, max_value, *tick_value_label_tuple)
 
-        apply_hatches(hatching[current_data_stack], patches)
+        apply_hatches(
+            None if hatching is None else hatching[current_data_stack], patches
+        )
 
 
 def apply_hatches(hatching, patches):
