@@ -7,6 +7,7 @@ from triple_agent.reports.generation.plot_utilities import (
     create_data_stacks,
     create_initial_data_frame,
     sort_and_limit_frame_categories,
+    sort_frame_stacks,
 )
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.missions import Missions
@@ -860,6 +861,33 @@ SORT_FRAME_CASES = [
             ],
         ),
     ),
+    (
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+        None,
+        False,
+        None,
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+    ),
 ]
 
 
@@ -875,5 +903,110 @@ def test_sort_frame_categories(
     frame = sort_and_limit_frame_categories(
         input_frame, category_data_order, category_name_order, reversed_data_sort
     )
+
+    pandas.testing.assert_frame_equal(frame, exp_frame)
+
+
+SORT_FRAME_STACK_CASES = [
+    (
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+        None,
+        True,
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+    ),
+    (
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+        [ActionTest.White, ActionTest.Green],
+        True,
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+    ),
+    (
+        pandas.DataFrame(
+            data=[
+                [6, 2, 5, 1],
+                [7, 7, 17, 3],
+                [1, 0, 1, 0],
+                [0, 1, 1, 0],
+                [0, 0, 1, 0],
+            ],
+            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            index=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Ignored,
+                ActionTest.Red,
+                ActionTest.Canceled,
+            ],
+        ),
+        None,
+        False,
+        pandas.DataFrame(
+            data=[
+                [6, 2, 5, 1],
+                [7, 7, 17, 3],
+                [1, 0, 1, 0],
+                [0, 1, 1, 0],
+                [0, 0, 1, 0],
+            ],
+            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            index=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Ignored,
+                ActionTest.Red,
+                ActionTest.Canceled,
+            ],
+        ),
+    ),
+]
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "input_frame, stack_order, stacks_are_categories, exp_frame", SORT_FRAME_STACK_CASES
+)
+def test_sort_frame_stacks(input_frame, stack_order, stacks_are_categories, exp_frame):
+    frame = sort_frame_stacks(input_frame, stack_order, stacks_are_categories)
 
     pandas.testing.assert_frame_equal(frame, exp_frame)

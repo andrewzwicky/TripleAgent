@@ -3,32 +3,84 @@ from itertools import repeat
 import pytest
 from triple_agent.reports.generation.report_utilities import (
     create_plot_colors,
-    create_stack_labels,
+    create_legend_labels,
+    create_plot_hatching,
+    create_data_labels,
 )
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.reports.generation.plot_specs import PlotLabelStyle
+import pandas
 
 COLOR_TEST_CASES = [
-    (None, None, ["xkcd:green"]),
-    ({"x": "blue", "y": "red"}, None, ["xkcd:green"]),
-    ({"x": "blue", "y": "red"}, ["y", "x"], ["red", "blue"]),
-    ({"x": "blue", "y": "red"}, ["y"], ["red"]),
-    (None, ["a", "b", "c"], repeat(None)),
+    (
+        None,
+        pandas.DataFrame(
+            data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
+        ),
+        True,
+        [["xkcd:green", "xkcd:green"]],
+    ),
+    # this test doesn't make sense because of this disconnect between stacks_are_categories and the index == [None]a
+    (
+        None,
+        pandas.DataFrame(
+            data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
+        ),
+        False,
+        [[None, None]],
+    ),
+    (
+        {"x": "blue", "y": "red"},
+        pandas.DataFrame(
+            data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
+        ),
+        False,
+        [["blue", "blue", "blue"], ["red", "red", "red"]],
+    ),
+    (
+        {"x": "blue", "y": "red", "test": "green"},
+        pandas.DataFrame(data=[[3, 4, 1]], columns=["test", "x", "y"], index=[None]),
+        True,
+        [["green", "blue", "red"]],
+    ),
 ]
 
 
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "data_color_dict, color_order, expected_colors", COLOR_TEST_CASES
+    "data_color_dict, frame, stacks_are_categories, expected_colors", COLOR_TEST_CASES
 )
-def test_create_plot_colors(data_color_dict, color_order, expected_colors):
-    colors = create_plot_colors(data_color_dict, color_order)
+def test_create_plot_colors(
+    data_color_dict, frame, stacks_are_categories, expected_colors
+):
+    colors = create_plot_colors(data_color_dict, frame, stacks_are_categories)
 
-    if isinstance(expected_colors, repeat):
-        assert type(colors) == type(expected_colors)
-        assert next(colors) == next(expected_colors)
-    else:
-        assert colors == expected_colors
+    assert colors == expected_colors
+
+
+HATCH_TEST_CASES = [
+    (None, [ActionTest.White, ActionTest.Green], [None], True, None),
+    # this test doesn't make sense because of this disconnect between stacks_are_categories and the index == [None]a
+    (None, [ActionTest.White, ActionTest.Green], [None], False, None),
+    ({"x": "//", "y": "-"}, ["test", "a", "b"], ["x", "y"], False, ["//", "-"]),
+    ({"x": "//", "y": "-"}, ["x", "y"], [None], True, ["//", "-"]),
+    (None, ["test", "a", "b"], ["x", "y"], False, None),
+]
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+@pytest.mark.parametrize(
+    "hatch_dict, columns, index, stacks_are_categories, expected_hatch",
+    HATCH_TEST_CASES,
+)
+def test_create_plot_hatching(
+    hatch_dict, columns, index, stacks_are_categories, expected_hatch
+):
+    hatch = create_plot_hatching(hatch_dict, columns, index, stacks_are_categories)
+
+    assert hatch == expected_hatch
 
 
 STACK_LABEL_CASES = [
@@ -52,6 +104,73 @@ STACK_LABEL_CASES = [
     "data_stack_label_dict, stack_order, expected_labels", STACK_LABEL_CASES
 )
 def test_create_stack_labels(data_stack_label_dict, stack_order, expected_labels):
-    labels = create_stack_labels(data_stack_label_dict, stack_order)
+    labels = create_legend_labels(data_stack_label_dict, stack_order)
+
+    assert labels == expected_labels
+
+
+DATA_LABEL_CASES = [
+    (
+        pandas.DataFrame(
+            data=[
+                [6, 2, 5, 1],
+                [7, 7, 17, 3],
+                [1, 0, 1, 0],
+                [0, 1, 1, 0],
+                [0, 0, 1, 0],
+            ],
+            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            index=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Ignored,
+                ActionTest.Red,
+                ActionTest.Canceled,
+            ],
+        ),
+        PlotLabelStyle.NoLabels,
+        [
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+        ],
+    ),
+    (
+        pandas.DataFrame(
+            data=[
+                [6, 2, 5, 1],
+                [7, 7, 17, 3],
+                [1, 0, 1, 0],
+                [0, 1, 1, 0],
+                [0, 0, 1, 0],
+            ],
+            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            index=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Ignored,
+                ActionTest.Red,
+                ActionTest.Canceled,
+            ],
+        ),
+        PlotLabelStyle.Plain,
+        [
+            ["6", "2", "5", "1"],
+            ["7", "7", "17", "3"],
+            ["1", "0", "1", "0"],
+            ["0", "1", "1", "0"],
+            ["0", "0", "1", "0"],
+        ],
+    ),
+]
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+@pytest.mark.parametrize("input_frame, label_style, expected_labels", DATA_LABEL_CASES)
+def test_create_data_labels(input_frame, label_style, expected_labels):
+    labels = create_data_labels(input_frame, label_style)
 
     assert labels == expected_labels

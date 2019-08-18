@@ -37,7 +37,8 @@ def query(
 
     if axis_properties.force_line:
         create_line_plot(axis_properties, data_props)
-    elif axis_properties.force_bar or data_props.category_order != [None]:
+    # If the stacks haven't been converted to categories, pie chart is not possible.
+    elif axis_properties.force_bar or not data_props.stacks_are_categories:
         create_bar_plot(axis_properties, data_props)
     else:
         create_pie_chart(axis_properties, data_props)
@@ -75,8 +76,9 @@ def populate_data_properties(
         data_query.limit,
     )
 
-    data_props.frame = sort_frame_stacks(data_props.frame, data_query.stack_order)
-
+    data_props.frame = sort_frame_stacks(
+        data_props.frame, data_query.stack_order, data_props.stacks_are_categories
+    )
     # # create the list of x-axis categories. percentile needs to be it's own list
     # # so it can be separately sorted between the counts plot and the percentile plot
     # data_props.category_order = create_sorted_categories(

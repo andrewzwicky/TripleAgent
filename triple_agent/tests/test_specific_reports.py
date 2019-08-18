@@ -238,9 +238,9 @@ SPECIFIC_REPORT_CASES = [
             query_function=_count_mission_choices, groupby=lambda g: g.spy
         ),
         pandas.DataFrame(
-            data=[[2, 2], [3, 4], [3, 4], [4, 3], [4, 4], [4, 3], [4, 4], [4, 4]],
+            data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
             columns=["Calvin Schoolidge", "zerotka"],
-            index=MISSION_PLOT_ORDER[::-1],
+            index=MISSION_PLOT_ORDER,
         ),
     ),
     (

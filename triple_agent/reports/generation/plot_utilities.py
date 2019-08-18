@@ -88,11 +88,16 @@ def create_sorted_categories(
 
 
 def sort_frame_stacks(
-    frame: pandas.DataFrame, stack_order: List[Any] = None
+    frame: pandas.DataFrame,
+    stack_order: Optional[List[Any]] = None,
+    stacks_are_categories: bool = False,
 ) -> pandas.DataFrame:
+    if stacks_are_categories:
+        return frame
+
     # if nothing is supplied, use the given data_part names and sort them.
     if stack_order is None:
-        return frame.sort_index(axis="rows", ascending=False)
+        return frame.sort_index(axis="rows")
 
     return frame.reindex(stack_order, axis="rows")
 
@@ -104,7 +109,6 @@ def sort_and_limit_frame_categories(
     reversed_categories: bool = False,
     limit: Optional[int] = None,
 ) -> pandas.DataFrame:
-
     # sort the categories
     # data_order takes priority if both are provided
     if category_data_order is not None:

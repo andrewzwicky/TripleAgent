@@ -1,11 +1,11 @@
-import itertools
 import os
-from typing import List, Optional, Union, Any, Dict, Iterator
+from typing import List, Optional, Union, Any, Dict, Tuple
 from enum import Enum
 
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import numpy as np
+import pandas
 from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
 
@@ -33,8 +33,8 @@ def _create_legend_if_needed(axis, fig, stack_labels: Optional[List[str]]):
     if stack_labels is not None:
         # resize the plot to allow size for legend.
         # increase figure by 25%
-        width, height = fig.get_size_inches()
-        fig.set_size_inches((width * 1.25, height), forward=True)
+        _, height = fig.get_size_inches()
+        fig.set_size_inches((15, height), forward=True)
 
         # Shrink current axis by 20%
         box = axis.get_position()
@@ -44,11 +44,32 @@ def _create_legend_if_needed(axis, fig, stack_labels: Optional[List[str]]):
         axis.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
+def create_category_legend_labels(
+    data_stack_label_dict: Dict[Any, str],
+    columns: List[Any],
+    index: List[Any],
+    stacks_are_categories: bool = False,
+) -> Tuple[List[str], Optional[List[str]]]:
+    if stacks_are_categories:
+        if data_stack_label_dict is None:
+            return list(map(labelify, columns)), None
+
+        return [data_stack_label_dict[data_part] for data_part in columns], None
+
+    if data_stack_label_dict is None:
+        return list(map(labelify, columns)), list(map(labelify, index))
+
+    return (
+        list(map(labelify, columns)),
+        [data_stack_label_dict[data_part] for data_part in index],
+    )
+
+
 def create_category_labels(categories: List[Any]) -> List[str]:
     return list(map(labelify, categories))
 
 
-def create_stack_labels(
+def create_legend_labels(
     data_stack_label_dict: Dict[Any, str], stack_order: Optional[List[Any]]
 ) -> Optional[List[str]]:
     # stack_order should only be none in the case of a single stack, i.e. straight bar plot
@@ -63,17 +84,26 @@ def create_stack_labels(
 
 def create_plot_colors(
     data_color_dict: Optional[Dict[Any, Optional[str]]],
-    color_order: Optional[List[Any]],
-) -> Optional[Union[List[Optional[str]], Iterator[Optional[str]]]]:
-    # color order is ambiguous here because in pie charts, it is category order
-    # but in stacked bar it is stack_order
-    if color_order is None:
-        return ["xkcd:green"]
+    frame: pandas.DataFrame,
+    stacks_are_categories: bool = False,
+) -> List[List[Optional[str]]]:
+    if stacks_are_categories:
+        if data_color_dict is None:
+            return frame.applymap(lambda x: "xkcd:green").values.tolist()
+
+        # For some reason, the same operation with index being set to arrays, etc.
+        # wouldn't correctly turn the indexs into a list, they would remain np arrays.
+        # The strange .T will flip it back and forth to get the right values.
+        stack_colors = frame.T.index.map(lambda x: data_color_dict[x]).values
+        return frame.T.apply(lambda x: stack_colors, axis="index").values.T.tolist()
 
     if data_color_dict is None:
-        return itertools.repeat(None)
+        return frame.applymap(lambda x: None).values.tolist()
 
-    return [data_color_dict[data_part] for data_part in color_order]
+    stack_colors = frame.index.map(lambda x: data_color_dict[x]).values
+    return frame.apply(lambda x: stack_colors, axis="index").values.tolist()
+
+    # return itertools.cycle(data_color_dict[data_part] for data_part in index)
 
 
 def _get_data_labels(
@@ -89,13 +119,34 @@ def _get_data_labels(
     return [["" for _ in stack] for stack in data]
 
 
+def create_data_labels(
+    frame: pandas.DataFrame, data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
+) -> List[List[str]]:
+    if data_label_style == PlotLabelStyle.NoLabels:
+        return [["" for _ in stack] for stack in frame.itertuples(index=False)]
+
+    if data_label_style == PlotLabelStyle.Plain:
+        return [
+            [labelify(item) for item in stack]
+            for stack in frame.itertuples(index=False)
+        ]
+
+    return [["" for _ in stack] for stack in frame.itertuples(index=False)]
+
+
 def create_plot_hatching(
-    data_hatch_dict: Dict[Any, str], hatch_order: Optional[List[Any]]
+    data_hatch_dict: Dict[Any, str],
+    columns: List[Any],
+    index: List[Any],
+    stacks_are_categories: bool = False,
 ):
     if data_hatch_dict is None:
         return None
 
-    return [data_hatch_dict[data_part] for data_part in hatch_order]
+    if stacks_are_categories:
+        return [data_hatch_dict[data_part] for data_part in columns]
+
+    return [data_hatch_dict[data_part] for data_part in index]
 
 
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):

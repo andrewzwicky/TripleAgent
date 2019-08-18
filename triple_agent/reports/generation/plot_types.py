@@ -7,6 +7,7 @@ from triple_agent.reports.generation.plot_specs import (
 )
 from triple_agent.reports.generation.report_utilities import (
     create_plot_colors,
+    create_category_legend_labels,
     create_bins,
     _set_y_axis_scale_and_ticks,
     _create_legend_if_needed,
@@ -15,9 +16,9 @@ from triple_agent.reports.generation.report_utilities import (
     _save_fig_if_needed,
     _create_data_label,
     create_plot_hatching,
-    create_stack_labels,
+    create_legend_labels,
     create_category_labels,
-    _get_data_labels,
+    create_data_labels,
 )
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
@@ -30,10 +31,12 @@ def create_line_plot(
     fig, axis = plt.subplots(figsize=(12, 8))
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict, data_properties.stack_order
+        axis_properties.data_color_dict,
+        data_properties.frame,
+        data_properties.stacks_are_categories,
     )
 
-    stack_labels = create_stack_labels(
+    stack_labels = create_legend_labels(
         axis_properties.data_stack_label_dict, data_properties.stack_order
     )
 
@@ -70,58 +73,30 @@ def create_line_plot(
 
 
 def create_bar_plot(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
+    axis_properties: AxisProperties,
+    data_properties: DataPlotProperties,
+    fig: plt.Figure = None,
 ):
-    fig, axis = plt.subplots(figsize=(12, 8))
-
-    colors = create_plot_colors(
-        axis_properties.data_color_dict, data_properties.stack_order
-    )
-
-    hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict, data_properties.stack_order
-    )
-
-    stack_labels = create_stack_labels(
-        axis_properties.data_stack_label_dict, data_properties.stack_order
-    )
-
-    category_labels = create_category_labels(data_properties.category_order)
-
-    data_labels = _get_data_labels(
-        data_properties.data, axis_properties.data_label_style
-    )
-
-    if data_properties.category_order == [None]:
-        data_to_use = list(zip(*data_properties.data))
-        category_labels = stack_labels
+    if fig is None:
+        show = True
+        fig, axis = plt.subplots(figsize=(12, 8))
     else:
-        data_to_use = data_properties.data
+        show = False
+        fig.set_size_inches(12, 8)
+        axis = fig.subplots()
 
-    ticks = list(range(len(data_to_use[0])))
+    category_labels, stack_labels = create_category_legend_labels(
+        axis_properties.data_stack_label_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
+    )
 
-    max_value = max((map(sum, zip(*data_to_use))))
+    ticks = list(range(len(data_properties.frame.columns)))
 
-    current_bottom = [0] * len(data_to_use[0])
+    max_value = max(data_properties.frame.sum())
 
-    for current_data_stack, (this_data, this_color) in enumerate(
-        zip(data_to_use, colors)
-    ):
-        patches = axis.bar(
-            ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
-        )
-        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
-
-        if data_labels is not None:
-            for tick_value_label_tuple in zip(
-                ticks, current_bottom, data_labels[current_data_stack]
-            ):
-                _create_data_label(axis, max_value, *tick_value_label_tuple)
-
-        if hatching is not None:
-            for patch in patches:
-                if hatching[current_data_stack] is not None:
-                    patch.set_hatch(hatching[current_data_stack])
+    draw_bars(axis, axis_properties, data_properties, max_value, ticks)
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
@@ -135,53 +110,111 @@ def create_bar_plot(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    plt.show()
+    if show:
+        plt.show()
+
+
+def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
+    data_labels = create_data_labels(
+        data_properties.frame, axis_properties.data_label_style
+    )
+
+    colors = create_plot_colors(
+        axis_properties.data_color_dict,
+        data_properties.frame,
+        data_properties.stacks_are_categories,
+    )
+
+    hatching = create_plot_hatching(
+        axis_properties.data_hatch_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
+    )
+    # reverse so current_bottom calculation still makes sense
+    for current_data_stack, (stack, color, row_data_labels) in enumerate(
+        zip(
+            data_properties.frame[::-1].itertuples(index=False),
+            reversed(colors),
+            reversed(data_labels),
+        )
+    ):
+        current_bottom = data_properties.frame[::-1].iloc[:current_data_stack].sum()
+
+        patches = axis.bar(
+            ticks, stack, bottom=current_bottom, color=color, edgecolor="black"
+        )
+
+        for tick_value_label_tuple in zip(ticks, current_bottom, row_data_labels):
+            _create_data_label(axis, max_value, *tick_value_label_tuple)
+
+        apply_hatches(hatching[current_data_stack], patches)
+
+
+def apply_hatches(hatching, patches):
+    if hatching is not None:
+        for data_hatch, patch in zip(hatching, patches):
+            if data_hatch is not None:
+                patch.set_hatch(data_hatch)
 
 
 def create_pie_chart(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
+    axis_properties: AxisProperties,
+    data_properties: DataPlotProperties,
+    fig: plt.Figure = None,
 ):
-    fig, axis = plt.subplots(figsize=(8, 8))
+    # Pie chart assumes this will be the case, so confirm.
+    assert data_properties.stacks_are_categories
+
+    if fig is None:
+        show = True
+        fig, axis = plt.subplots(figsize=(8, 8))
+    else:
+        show = False
+        fig.set_size_inches(8, 8)
+        axis = fig.subplots()
 
     axis.set_title(axis_properties.title)
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict, data_properties.stack_order
+        axis_properties.data_color_dict,
+        data_properties.frame,
+        data_properties.stacks_are_categories,
     )
 
     hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict, data_properties.stack_order
+        axis_properties.data_hatch_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
     )
 
-    stack_labels = create_stack_labels(
-        axis_properties.data_stack_label_dict, data_properties.stack_order
+    category_labels, _ = create_category_legend_labels(
+        axis_properties.data_stack_label_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
     )
 
     # pie is only going to use the lowest data "stack"
-    wedge_data = list(zip(*data_properties.data))[0]
+    wedge_data = data_properties.frame.iloc[-1]
 
-    # wedge_labels = trim_empty_labels(
-    #     wedge_data, [labelify(item) for item in data_properties.stack_order]
-    # )
-
-    patches = axis.pie(
+    patches, _, _ = axis.pie(
         wedge_data,
-        labels=stack_labels,
-        colors=colors,
+        labels=category_labels,
+        colors=colors[0],
         autopct="%1.1f%%",
         pctdistance=1.1,
         labeldistance=1.2,
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    if hatching is not None:
-        for data_hatch, patch in zip(hatching, patches[0]):
-            if data_hatch is not None:
-                patch.set_hatch(data_hatch)
+    apply_hatches(hatching, patches)
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    plt.show()
+    if show:
+        plt.show()
 
 
 def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties):
