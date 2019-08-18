@@ -28,12 +28,7 @@ SCREENSHOT_TEST_CASES = [
 ]
 
 
-def id_func(val):
-    if isinstance(val, str):
-        return val
-    return ""
-
-
+@pytest.mark.parsing
 @pytest.mark.quick
 @pytest.mark.parametrize("image_name, expected_is_last", SCREENSHOT_TEST_CASES)
 def test_is_last_screenshot(image_name: str, expected_is_last: bool):

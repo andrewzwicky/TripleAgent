@@ -42,7 +42,7 @@ def action_test_percentages(
         AxisProperties(data_color_dict=AT_TO_COLORS_RGB),
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
-            # category_data_order=AT_PREFERRED_PIE_CHART_ORDER.index
+            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
         ),
     )
 

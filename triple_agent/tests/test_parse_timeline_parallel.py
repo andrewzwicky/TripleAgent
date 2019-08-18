@@ -1,3 +1,4 @@
+import pytest
 import numpy as np
 from triple_agent.classes.game import Game
 from typing import List, Iterator, Tuple
@@ -56,6 +57,7 @@ def mock_screenshot_iterator(
         yield output
 
 
+@pytest.mark.parsing
 def test_parse_timeline_parallel(
     get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
 ):

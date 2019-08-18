@@ -16,6 +16,7 @@ COLOR_TEST_CASES = [
 ]
 
 
+@pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
     "data_color_dict, color_order, expected_colors", COLOR_TEST_CASES
@@ -45,6 +46,7 @@ STACK_LABEL_CASES = [
 ]
 
 
+@pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
     "data_stack_label_dict, stack_order, expected_labels", STACK_LABEL_CASES

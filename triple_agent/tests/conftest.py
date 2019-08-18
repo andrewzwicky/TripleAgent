@@ -4,6 +4,7 @@ from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 import pytest
 
+pytest.register_assert_rewrite("pandas.testing")
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 

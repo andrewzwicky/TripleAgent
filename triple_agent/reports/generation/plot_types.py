@@ -91,14 +91,21 @@ def create_bar_plot(
     data_labels = _get_data_labels(
         data_properties.data, axis_properties.data_label_style
     )
-    ticks = list(range(len(data_properties.data[0])))
 
-    max_value = max((map(sum, zip(*data_properties.data))))
+    if data_properties.category_order == [None]:
+        data_to_use = list(zip(*data_properties.data))
+        category_labels = stack_labels
+    else:
+        data_to_use = data_properties.data
 
-    current_bottom = [0] * len(data_properties.data[0])
+    ticks = list(range(len(data_to_use[0])))
+
+    max_value = max((map(sum, zip(*data_to_use))))
+
+    current_bottom = [0] * len(data_to_use[0])
 
     for current_data_stack, (this_data, this_color) in enumerate(
-        zip(data_properties.data, colors)
+        zip(data_to_use, colors)
     ):
         patches = axis.bar(
             ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
@@ -139,17 +146,19 @@ def create_pie_chart(
     axis.set_title(axis_properties.title)
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict, data_properties.category_order
+        axis_properties.data_color_dict, data_properties.stack_order
     )
 
     hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict, data_properties.category_order
+        axis_properties.data_hatch_dict, data_properties.stack_order
     )
 
-    category_labels = create_category_labels(data_properties.category_order)
+    stack_labels = create_stack_labels(
+        axis_properties.data_stack_label_dict, data_properties.stack_order
+    )
 
     # pie is only going to use the lowest data "stack"
-    wedge_data = data_properties.data[0]
+    wedge_data = list(zip(*data_properties.data))[0]
 
     # wedge_labels = trim_empty_labels(
     #     wedge_data, [labelify(item) for item in data_properties.stack_order]
@@ -157,7 +166,7 @@ def create_pie_chart(
 
     patches = axis.pie(
         wedge_data,
-        labels=category_labels,
+        labels=stack_labels,
         colors=colors,
         autopct="%1.1f%%",
         pctdistance=1.1,

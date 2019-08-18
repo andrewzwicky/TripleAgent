@@ -6571,12 +6571,7 @@ SCREENSHOT_TEST_CASES = [
 ]
 
 
-def id_func(val):
-    if isinstance(val, str):
-        return val
-    return ""
-
-
+@pytest.mark.parsing
 @pytest.mark.parametrize("image_name, expected_len, expecteds", SCREENSHOT_TEST_CASES)
 def test_parse_timeline(
     image_name: str,

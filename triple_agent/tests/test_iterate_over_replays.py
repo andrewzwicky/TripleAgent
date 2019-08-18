@@ -7,6 +7,7 @@ from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 import os
 
 
+@pytest.mark.parsing
 @pytest.mark.quick
 def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_folder):
     # this test is to confirm that replays can be successfully found in the folder structure
@@ -118,6 +119,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[1].duration == 318
 
 
+@pytest.mark.parsing
 def test_initial_pickle_and_repickle(
     get_unparsed_test_games, get_test_replay_pickle_folder, get_test_events_folder
 ):

@@ -7339,6 +7339,7 @@ LINE_IMAGE_TEST_CASES = [
 ]
 
 
+@pytest.mark.parsing
 @pytest.mark.parametrize("image_name, expecteds", LINE_IMAGE_TEST_CASES)
 def test_parse_line_images(
     image_name: str,

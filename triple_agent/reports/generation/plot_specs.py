@@ -1,6 +1,7 @@
 from dataclasses import dataclass, fields
 from typing import Optional, List, Union, Callable, Any, Dict
 from enum import Enum, auto
+import pandas
 
 
 class PlotLabelStyle(Enum):
@@ -20,6 +21,7 @@ class AxisProperties:
     force_bar: bool = False
     force_line: bool = False
     data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
+
     data_stack_label_dict: Optional[Dict[Any, str]] = None
     data_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     data_color_dict: Optional[Dict[Any, Optional[str]]] = None
@@ -37,9 +39,11 @@ class AxisProperties:
 
 @dataclass
 class DataPlotProperties:
+    frame: pandas.DataFrame = None
     data: List[List[Union[int, float]]] = None
     category_order: List[Any] = None
     stack_order: List[Any] = None
+    stacks_are_categories: bool = False
 
 
 @dataclass
@@ -48,12 +52,14 @@ class DataQueryProperties:
     # filter, etc. the data PRIOR to plotting.  These items are used to create the
     # data stacks and data labels, but shouldn't be needed in actual plotting routines.
     query_function: Callable = None
-    stack_order: List[Any] = None
     groupby: Callable = None
+
+    stack_order: List[Any] = None
+
     category_name_order: Callable[[str], int] = None
     category_data_order: Any = None
-    # TODO: change reversed_data_sort to be clear it's regarding categories not stacks.
-    reversed_data_sort: bool = False
+    reversed_categories: bool = False
+
     limit: Optional[int] = None
     percent_normalized_data: bool = False
 

@@ -7,6 +7,8 @@ from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
 from triple_agent.reports.generation.plot_utilities import create_data_dictionary
 
 
+@pytest.mark.plotting
+@pytest.mark.quick
 def test_sort_by_wins(get_preparsed_timeline_games):
     data_dictionary = create_data_dictionary(
         get_preparsed_timeline_games, _categorize_outcomes, groupby=lambda g: g.sniper

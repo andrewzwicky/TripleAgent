@@ -46,6 +46,7 @@ DATA_QUERY_CASES = [
 ]
 
 
+@pytest.mark.plotting
 @pytest.mark.parametrize("initial,suggested,expected", DATA_QUERY_CASES)
 def test_update_plot_specs(initial, suggested, expected):
     initial.update(suggested)

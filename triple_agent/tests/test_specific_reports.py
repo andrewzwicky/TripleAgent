@@ -15,34 +15,49 @@ from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
 from triple_agent.reports.specific.fingerprints import _categorize_fp_sources
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.classes.roles import Roles
+from triple_agent.reports.specific.character_selection import (
+    determine_character_in_role,
+)
+import pandas
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
-    (_difficult_at_rate, None, False, Counter()),
-    (_difficult_at_rate, None, True, Counter()),
+    (_difficult_at_rate, None, False, defaultdict(Counter, {None: Counter()})),
+    (_difficult_at_rate, None, True, defaultdict(Counter, {None: Counter()})),
     (
         _at_rates_excluding_difficults,
         None,
         False,
-        Counter(
+        defaultdict(
+            Counter,
             {
-                ActionTest.Green: 13,
-                ActionTest.White: 19,
-                ActionTest.Red: 1,
-                ActionTest.Ignored: 1,
-            }
+                None: Counter(
+                    {
+                        ActionTest.Green: 13,
+                        ActionTest.White: 19,
+                        ActionTest.Red: 1,
+                        ActionTest.Ignored: 1,
+                    }
+                )
+            },
         ),
     ),
     (
         _at_rates_excluding_difficults,
         None,
         True,
-        Counter(
+        defaultdict(
+            Counter,
             {
-                ActionTest.Green: 13 / 34,
-                ActionTest.White: 19 / 34,
-                ActionTest.Red: 1 / 34,
-                ActionTest.Ignored: 1 / 34,
-            }
+                None: Counter(
+                    {
+                        ActionTest.Green: 13 / 34,
+                        ActionTest.White: 19 / 34,
+                        ActionTest.Red: 1 / 34,
+                        ActionTest.Ignored: 1 / 34,
+                    }
+                )
+            },
         ),
     ),
     (
@@ -190,6 +205,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
 ]
 
 
+@pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
     "query_function,groupby,percent_normalized_data,expected_data_dict",
@@ -213,25 +229,29 @@ def test_create_data_dictionary(
 SPECIFIC_REPORT_CASES = [
     (
         DataQueryProperties(query_function=_count_mission_choices),
-        [[8, 8, 7, 8, 7, 7, 7, 4]],
-        MISSION_PLOT_ORDER,
-        None,
+        pandas.DataFrame(
+            data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
+        ),
     ),
     (
         DataQueryProperties(
             query_function=_count_mission_choices, groupby=lambda g: g.spy
         ),
-        [[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
-        ["Calvin Schoolidge", "zerotka"],
-        MISSION_PLOT_ORDER,
+        pandas.DataFrame(
+            data=[[2, 2], [3, 4], [3, 4], [4, 3], [4, 4], [4, 3], [4, 4], [4, 4]],
+            columns=["Calvin Schoolidge", "zerotka"],
+            index=MISSION_PLOT_ORDER[::-1],
+        ),
     ),
     (
         DataQueryProperties(
-            query_function=_count_mission_choices, reversed_data_sort=True
+            query_function=_count_mission_choices, reversed_categories=True
         ),
-        [[4, 7, 7, 7, 8, 7, 8, 8]],
-        MISSION_PLOT_ORDER[::-1],
-        None,
+        pandas.DataFrame(
+            data=[[4, 7, 7, 7, 8, 7, 8, 8]],
+            columns=MISSION_PLOT_ORDER[::-1],
+            index=[None],
+        ),
     ),
     (
         DataQueryProperties(
@@ -239,34 +259,32 @@ SPECIFIC_REPORT_CASES = [
             groupby=lambda g: g.spy,
             stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
-        [[4, 3], [4, 4], [4, 4]],
-        ["Calvin Schoolidge", "zerotka"],
-        [Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        pandas.DataFrame(
+            data=[[4, 3], [4, 4], [4, 4]],
+            columns=["Calvin Schoolidge", "zerotka"],
+            index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
     ),
     (
         DataQueryProperties(query_function=_categorize_fp_sources),
-        [[1, 1]],
-        # TODO: be more explicit about sort here, not sure why this is the way it is
-        [(TimelineCategory.Books, False), (TimelineCategory.Statues, False)],
-        None,
+        pandas.DataFrame(
+            data=[[1, 1]],
+            index=[None],
+            # TODO: be more explicit about sort here, not sure why this is the way it is
+            columns=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Books, False),
+            ],
+        ),
     ),
 ]
 
 
-@pytest.mark.parametrize(
-    "data_query,exp_data,exp_category_order,exp_stack_order", SPECIFIC_REPORT_CASES
-)
-def test_each_report(
-    data_query,
-    exp_data,
-    exp_category_order,
-    exp_stack_order,
-    get_preparsed_timeline_games,
-):
-    axis_properties, data_properties = populate_data_properties(
+@pytest.mark.plotting
+@pytest.mark.parametrize("data_query,exp_frame", SPECIFIC_REPORT_CASES)
+def test_each_report(data_query, exp_frame, get_preparsed_timeline_games):
+    _, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
     )
 
-    assert data_properties.data == exp_data
-    assert data_properties.category_order == exp_category_order
-    assert data_properties.stack_order == exp_stack_order
+    pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)

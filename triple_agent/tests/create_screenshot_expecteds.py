@@ -3,12 +3,14 @@ import pickle
 import re
 from typing import List
 
+import pytest
 from triple_agent.classes.timeline import TimelineEvent
 
 with open(os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "rb") as pik:
     ALL_MESSAGES = pickle.load(pik)
 
 
+@pytest.mark.plotting
 def confirm_categorizations(timeline_events: List[TimelineEvent]):
 
     new_events = []

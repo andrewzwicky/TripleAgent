@@ -1,7 +1,8 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import Any, Union, Callable, List, Tuple, Optional
+from typing import Any, Union, Callable, List, Tuple, Optional, DefaultDict
 
+import pandas
 from triple_agent.classes.game import Game
 from triple_agent.classes.scl_set import SCLSet
 
@@ -15,9 +16,9 @@ def limit_categories(categories: List[Any], limit: Optional[int]) -> List[Any]:
 
 def create_data_stacks(
     categories: List[Any],
-    data_dictionary: Union[defaultdict, Counter],
-    stack_order: List[Any],
-) -> Tuple[Optional[List[Any]], List[List[Union[int, float]]]]:
+    data_dictionary: DefaultDict[Any, Counter],
+    stack_order: List[Any] = None,
+) -> Tuple[List[Any], List[List[Union[int, float]]]]:
     """
     this function rearranges the data to stack in the proper order.  For example,
     if the data is grouped by venue, and each stack includes each win type (mission win,
@@ -32,31 +33,20 @@ def create_data_stacks(
     This should produce a list that is N items long, where N is the number of stacks.
     Each of those stacks should contain M items, where M is the number of categories.
     """
-    stacked_data = []
+    # if nothing is supplied, use the given data_part names and sort them.
+    if stack_order is None:
+        data_parts = set()
+        for inner_dict in data_dictionary.values():
+            for inner_key in inner_dict.keys():
+                data_parts.add(inner_key)
 
-    if isinstance(data_dictionary, defaultdict):
-        # if nothing is supplied, use the given data_part names and sort them.
-        if stack_order is None:
-            data_parts = set()
-            for value in data_dictionary.values():
-                for inner_key in value.keys():
-                    data_parts.add(inner_key)
+        # TODO: this is preventing enums from being normal enums instead of IntEnum
+        stack_order = sorted(data_parts)
 
-            stack_order = sorted(data_parts)
-
-        for data_part in stack_order:
-            stacked_data.append([data_dictionary[cat][data_part] for cat in categories])
-    elif isinstance(data_dictionary, Counter):
-        # In the case of a simple counter, stack_order has no functionality.
-        # If category ordering is desired, it should be done through category_name_order or category_data_order
-        # Set this to None to prevent accidental use downstream.
-        stack_order = None
-
-        # KeyError not an issue here, as these will be Counter classes, so 0 will be returned.
-        # This also means that misspelled args in stack_order might be difficult to find.
-        stacked_data = [[data_dictionary[cat] for cat in categories]]
-    else:
-        raise ValueError
+    stacked_data = [
+        [data_dictionary[cat][data_part] for cat in categories]
+        for data_part in stack_order
+    ]
 
     # make sure all individual data stacks are the same length
     assert len({len(d) for d in stacked_data}) == 1
@@ -68,33 +58,25 @@ def create_data_stacks(
 
 
 def create_sorted_categories(
-    data_dictionary: Union[Counter, defaultdict],
+    data_dictionary: DefaultDict[Any, Counter],
     category_data_order: Any = None,
+    category_name_order: Callable[[Any], int] = None,
     reversed_data_sort: bool = False,
-    category_name_order: Callable[[str], int] = None,
 ) -> List[Any]:
     categories = list(data_dictionary.keys())
-    category_lambdas = dict()
-    category_lambdas["callable"] = lambda c: category_data_order(data_dictionary[c])
 
-    if isinstance(data_dictionary, Counter):
-        category_lambdas["sum"] = lambda c: data_dictionary[c]
-        category_lambdas["none"] = lambda c: True
-    elif isinstance(data_dictionary, defaultdict):
-        category_lambdas["sum"] = lambda c: -sum(data_dictionary[c].values())
-        category_lambdas["none"] = lambda c: -data_dictionary[c][category_data_order]
-    else:
-        raise ValueError
+    if categories == [None]:
+        return categories
 
     # sort the categories
     # data_order takes priority if both are provided
     if category_data_order is not None:
         if category_data_order is sum:
-            categories.sort(key=category_lambdas["sum"])
+            categories.sort(key=lambda c: -sum(data_dictionary[c].values()))
         elif callable(category_data_order):
-            categories.sort(key=category_lambdas["callable"])
+            categories.sort(key=lambda c: category_data_order(data_dictionary[c]))
         else:
-            categories.sort(key=category_lambdas["none"])
+            categories.sort(key=lambda c: -data_dictionary[c][category_data_order])
 
     elif category_name_order is not None:
         categories.sort(key=category_name_order)
@@ -105,12 +87,63 @@ def create_sorted_categories(
     return categories
 
 
+def sort_frame_stacks(
+    frame: pandas.DataFrame, stack_order: List[Any] = None
+) -> pandas.DataFrame:
+    # if nothing is supplied, use the given data_part names and sort them.
+    if stack_order is None:
+        return frame.sort_index(axis="rows", ascending=False)
+
+    return frame.reindex(stack_order, axis="rows")
+
+
+def sort_and_limit_frame_categories(
+    frame: pandas.DataFrame,
+    category_data_order: Optional[Any] = None,
+    category_name_order: Optional[Callable[[Any], int]] = None,
+    reversed_categories: bool = False,
+    limit: Optional[int] = None,
+) -> pandas.DataFrame:
+
+    # sort the categories
+    # data_order takes priority if both are provided
+    if category_data_order is not None:
+        if category_data_order is sum:
+            frame = frame.reindex(
+                frame.sum().sort_values(ascending=False, kind="stable").index,
+                axis="columns",
+            )
+        elif callable(category_data_order):
+            sorted_categories = sorted(
+                frame.columns, key=category_data_order, reverse=False
+            )
+            frame = frame.reindex(sorted_categories, axis="columns")
+        else:
+            frame = frame.reindex(
+                frame.loc[category_data_order, :]
+                .sort_values(ascending=False, kind="stable")
+                .index,
+                axis="columns",
+            )
+
+    elif category_name_order is not None:
+        frame = frame.reindex(category_name_order, axis="columns", fill_value=0)
+
+    # limit categories, None is OK here, and larger than the number of columns
+    frame = frame.iloc[:, :limit]
+
+    if reversed_categories:
+        frame = frame[frame.columns[::-1]]
+
+    return frame
+
+
 def create_data_dictionary(
     games: Union[List[Game], List[SCLSet]],
     query_function: Callable,
     groupby: Optional[Callable] = None,
     percent_normalized_data: bool = False,
-) -> Union[defaultdict, Counter]:
+) -> DefaultDict[Any, Counter]:
     """
     This function will create the data used for the plots.  The expected formats are either:
     -A defaultdict(Counter), with the 1st level keys being the groupby categories and the 2nd level keys
@@ -119,14 +152,14 @@ def create_data_dictionary(
     This method will return both a counts based data_dictionary and a percentile_based_data_dictionary.
     """
     # TODO: data_dictionary_percent being a counter doesn't really make much sense
+    data_dictionary = defaultdict(Counter)
+
     if groupby is None:
-        data_dictionary = populate_individual_counter(
-            games, Counter(), query_function, percent_normalized_data
+        data_dictionary[None] = populate_individual_counter(
+            games, data_dictionary[None], query_function, percent_normalized_data
         )
 
     else:
-        data_dictionary = defaultdict(Counter)
-
         for category, cat_games in itertools.groupby(
             sorted(games, key=groupby), key=groupby
         ):
@@ -142,22 +175,53 @@ def create_data_dictionary(
 
 def populate_individual_counter(
     games: Union[List[Game], List[SCLSet]],
-    data_dictionary: Counter,
+    category_dictionary: Counter,
     query_function: Callable,
     percent_normalized_data: bool = False,
 ) -> Counter:
-    query_function(games, data_dictionary)
+    query_function(games, category_dictionary)
 
     if percent_normalized_data:
-        data_sum = sum(data_dictionary.values())
-        data_dictionary = Counter(
+        data_sum = sum(category_dictionary.values())
+        category_dictionary = Counter(
             {
                 k: 0 if data_sum == 0 else v / data_sum
-                for k, v in data_dictionary.items()
+                for k, v in category_dictionary.items()
             }
         )
 
-    return data_dictionary
+    return category_dictionary
+
+
+def create_initial_data_frame(
+    data_dictionary: DefaultDict[Any, Counter]
+) -> Tuple[pandas.DataFrame, bool]:
+    stacks_are_categories = False
+
+    categories = list(data_dictionary.keys())
+
+    data_parts = set()
+    for inner_dict in data_dictionary.values():
+        for inner_key in inner_dict.keys():
+            data_parts.add(inner_key)
+
+    # TODO: This is preventing going to normal Enum instead of IntEnum
+    stacks = sorted(list(data_parts))
+
+    # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
+    frame = pandas.DataFrame(
+        data={cat: [data_dictionary[cat][s] for s in stacks] for cat in categories},
+        columns=categories,
+        index=stacks,
+    )
+
+    _, num_columns = frame.shape
+
+    if num_columns == 1:
+        stacks_are_categories = True
+        frame = frame.transpose()
+
+    return frame, stacks_are_categories
 
 
 def tableize_data_dict(
