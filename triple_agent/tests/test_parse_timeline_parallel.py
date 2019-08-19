@@ -73,17 +73,17 @@ def test_parse_timeline_parallel(
 
     games.sort(key=lambda g: g.start_time)
 
-    assert len(games[0]) == 119
-    assert len(games[1]) == 74
-    assert len(games[2]) == 136
-    assert len(games[3]) == 129
-    assert len(games[4]) == 52
-    assert len(games[5]) == 49
-    assert len(games[6]) == 56
-    assert len(games[7]) == 76
-    assert len(games[8]) == 108
-    assert len(games[9]) == 85
-    assert len(games[10]) == 112
+    assert len(games[0].timeline) == 119
+    assert len(games[1].timeline) == 74
+    assert len(games[3].timeline) == 129
+    assert len(games[2].timeline) == 136
+    assert len(games[4].timeline) == 52
+    assert len(games[5].timeline) == 49
+    assert len(games[6].timeline) == 56
+    assert len(games[7].timeline) == 76
+    assert len(games[8].timeline) == 108
+    assert len(games[9].timeline) == 85
+    assert len(games[10].timeline) == 112
 
     assert games[0].uuid == "OiG7qvC9QOaSKVGlesdpWQ"
     assert games[0].timeline[0].action_test == ActionTest.NoAT
