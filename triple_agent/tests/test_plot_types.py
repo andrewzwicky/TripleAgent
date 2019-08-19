@@ -68,7 +68,13 @@ def test_pie_chart_AT_labels(test_figure, reference_figure):
     ref_ax.pie(
         [1, 2, 3, 4, 4],
         labels=["Green", "White", "Red", "Canceled", "Ignored"],
-        colors=["xkcd:green", "xkcd:white", "xkcd:red", "xkcd:light grey", "xkcd:off white"],
+        colors=[
+            "xkcd:green",
+            "xkcd:white",
+            "xkcd:red",
+            "xkcd:light grey",
+            "xkcd:off white",
+        ],
         autopct="%1.1f%%",
         pctdistance=1.1,
         labeldistance=1.2,

@@ -28,7 +28,7 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if fig is None:   # pragma: no cover
+    if fig is None:  # pragma: no cover
         show = True
         fig, axis = plt.subplots(figsize=(12, 8))
     else:
