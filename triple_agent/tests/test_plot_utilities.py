@@ -269,18 +269,18 @@ SORTED_CATEGORY_TEST_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "input_data_dict, category_data_order, reversed_data_sort, category_name_order, expected_categories",
+    "input_data_dict, category_data_order, reversed_categories, category_name_order, expected_categories",
     SORTED_CATEGORY_TEST_CASES,
 )
 def test_create_sorted_categories(
     input_data_dict,
     category_data_order,
-    reversed_data_sort,
+    reversed_categories,
     category_name_order,
     expected_categories,
 ):
     actual_categories = create_sorted_categories(
-        input_data_dict, category_data_order, category_name_order, reversed_data_sort
+        input_data_dict, category_data_order, category_name_order, reversed_categories
     )
 
     assert actual_categories == expected_categories
@@ -894,14 +894,18 @@ SORT_FRAME_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "input_frame, category_data_order, reversed_data_sort, category_name_order, exp_frame",
+    "input_frame, category_data_order, reversed_categories, category_name_order, exp_frame",
     SORT_FRAME_CASES,
 )
 def test_sort_frame_categories(
-    input_frame, category_data_order, reversed_data_sort, category_name_order, exp_frame
+    input_frame,
+    category_data_order,
+    reversed_categories,
+    category_name_order,
+    exp_frame,
 ):
     frame = sort_and_limit_frame_categories(
-        input_frame, category_data_order, category_name_order, reversed_data_sort
+        input_frame, category_data_order, category_name_order, reversed_categories
     )
 
     pandas.testing.assert_frame_equal(frame, exp_frame)
