@@ -2,7 +2,7 @@
 import re
 from collections.abc import Sequence
 from datetime import datetime
-from enum import IntFlag, auto, Flag
+from enum import Flag, auto, Flag
 from typing import Optional, List, Tuple
 from dataclasses import dataclass, field
 
@@ -28,7 +28,7 @@ class TimelineCoherency(Flag):
     SpyNotCastInBeginning = auto()
 
 
-class TimelineCategory(IntFlag):
+class TimelineCategory(Flag):
     NoCategory = 0
     ActionTest = auto()
     ActionTriggered = auto()

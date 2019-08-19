@@ -1,8 +1,7 @@
-from enum import IntEnum, auto
+from enum import Enum, auto
 
-# TODO: change from IntEnum to Enum
 # TODO: add civilian instead of NoRole
-class Roles(IntEnum):
+class Roles(Enum):
     NoRole = 0
     Spy = auto()
     Ambassador = auto()
