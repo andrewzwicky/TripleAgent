@@ -1,9 +1,9 @@
-from enum import IntFlag, auto
+from enum import Flag, auto
 
 from typing import Set
 
-# TODO: change from IntFlag to Flag
-class Missions(IntFlag):
+
+class Missions(Flag):
     Zero = 0
     Seduce = auto()
     Inspect = auto()
