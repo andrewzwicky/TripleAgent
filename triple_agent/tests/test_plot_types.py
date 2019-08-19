@@ -17,6 +17,7 @@ from triple_agent.reports.generation.plot_types import (
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.reports.specific.time_adds import _count_time_adds
 
 
 @pytest.mark.plotting
@@ -391,6 +392,24 @@ def test_mission_choice_bar(test_figure, reference_figure):
     data_plot_properties = DataPlotProperties(
         pandas.DataFrame(
             data=[[4, 7, 7, 7, 8, 7, 8, 8]], columns=MISSION_PLOT_ORDER, index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_autocolored_stacked_bar(test_figure, reference_figure):
+
+    axis_properties = AxisProperties(title="Time Adds", force_bar=True)
+    data_plot_properties = DataPlotProperties(
+        pandas.DataFrame(
+            data=[[1, 0, 7], [0, 1, 2], [0, 1, 0]],
+            columns=["Ballroom", "Veranda", "Balcony"],
+            index=[2, 1, 0],
         ),
         stacks_are_categories=True,
     )
