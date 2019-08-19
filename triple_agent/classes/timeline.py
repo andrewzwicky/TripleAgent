@@ -2,7 +2,7 @@
 import re
 from collections.abc import Sequence
 from datetime import datetime
-from enum import Flag, auto, Flag
+from enum import auto, Flag
 from typing import Optional, List, Tuple
 from dataclasses import dataclass, field
 
