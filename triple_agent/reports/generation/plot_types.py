@@ -28,7 +28,7 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if fig is None:
+    if fig is None:   # pragma: no cover
         show = True
         fig, axis = plt.subplots(figsize=(12, 8))
     else:
@@ -87,7 +87,7 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if fig is None:
+    if fig is None:  # pragma: no cover
         show = True
         fig, axis = plt.subplots(figsize=(12, 8))
     else:
@@ -184,7 +184,7 @@ def create_pie_chart(
     # Pie chart assumes this will be the case, so confirm.
     assert data_properties.stacks_are_categories
 
-    if fig is None:
+    if fig is None:  # pragma: no cover
         show = True
         fig, axis = plt.subplots(figsize=(8, 8))
     else:

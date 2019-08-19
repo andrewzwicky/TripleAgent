@@ -151,7 +151,8 @@ def test_create_initial_data_frame(
 ):
     frame, stacks_are_categories = create_initial_data_frame(data_dictionary)
 
-    pandas.testing.assert_frame_equal(frame, exp_data_frame)
+    # ignore the order of rows/columns, those will be sorted later
+    pandas.testing.assert_frame_equal(frame, exp_data_frame, check_like=True)
     assert stacks_are_categories == exp_stacks_are_categories
 
 

@@ -1,7 +1,7 @@
-from enum import IntEnum, auto
+from enum import Enum, auto
 
 
-class ActionTest(IntEnum):
+class ActionTest(Enum):
     NoAT = 0
     Green = auto()
     White = auto()

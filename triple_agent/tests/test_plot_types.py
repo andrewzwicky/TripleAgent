@@ -16,6 +16,7 @@ from triple_agent.reports.generation.plot_types import (
 )
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
+from triple_agent.classes.action_tests import ActionTest
 
 
 @pytest.mark.plotting
@@ -49,6 +50,52 @@ def test_pie_chart_simple(test_figure, reference_figure):
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
             data=[[1, 2, 3, 4, 4]], columns=["A", "B", "C", "D", "E"], index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_pie_chart_AT_labels(test_figure, reference_figure):
+
+    reference_figure.set_size_inches(8, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("AT Pie Chart")
+    ref_ax.pie(
+        [1, 2, 3, 4, 4],
+        labels=["Green", "White", "Red", "Canceled", "Ignored"],
+        colors=["xkcd:green", "xkcd:white", "xkcd:red", "xkcd:light grey", "xkcd:off white"],
+        autopct="%1.1f%%",
+        pctdistance=1.1,
+        labeldistance=1.2,
+        wedgeprops={"edgecolor": "k", "linewidth": 1},
+    )
+
+    axis_properties = AxisProperties(
+        title="AT Pie Chart",
+        data_color_dict={
+            ActionTest.Green: "xkcd:green",
+            ActionTest.White: "xkcd:white",
+            ActionTest.Ignored: "xkcd:off white",
+            ActionTest.Red: "xkcd:red",
+            ActionTest.Canceled: "xkcd:light grey",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[1, 2, 3, 4, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Canceled,
+                ActionTest.Ignored,
+            ],
+            index=[None],
         ),
         stacks_are_categories=True,
     )
