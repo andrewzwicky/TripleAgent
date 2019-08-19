@@ -75,8 +75,8 @@ def test_parse_timeline_parallel(
 
     assert len(games[0].timeline) == 119
     assert len(games[1].timeline) == 74
-    assert len(games[3].timeline) == 129
     assert len(games[2].timeline) == 136
+    assert len(games[3].timeline) == 129
     assert len(games[4].timeline) == 52
     assert len(games[5].timeline) == 49
     assert len(games[6].timeline) == 56
