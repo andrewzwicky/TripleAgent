@@ -1581,10 +1581,10 @@ class Timeline(Sequence):
     def __len__(self):
         return len(self.lines)
 
-    def __repr__(self):
+    def __repr__(self):  # pragma: no cover
         return self.__str__()
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         return "\n".join(str(line) for line in self.lines)
 
     def get_next_spy_action(self, event: TimelineEvent) -> Optional[TimelineEvent]:
