@@ -149,10 +149,16 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
             reversed(data_labels),
         )
     ):
-        current_bottom = data_properties.frame[::-1].iloc[:current_data_stack].sum()
+        current_bottom = (
+            data_properties.frame[::-1].iloc[:current_data_stack].sum().values.tolist()
+        )
 
         patches = axis.bar(
-            ticks, stack, bottom=current_bottom, color=color, edgecolor="black"
+            x=ticks,
+            height=list(stack),
+            bottom=current_bottom,
+            color=color,
+            edgecolor="black",
         )
 
         for tick_value_label_tuple in zip(ticks, current_bottom, row_data_labels):

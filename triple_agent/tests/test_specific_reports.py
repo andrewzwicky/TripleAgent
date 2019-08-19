@@ -228,30 +228,40 @@ def test_create_data_dictionary(
 
 SPECIFIC_REPORT_CASES = [
     (
-        DataQueryProperties(query_function=_count_mission_choices),
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            category_data_order=MISSION_PLOT_ORDER.index,
+        ),
         pandas.DataFrame(
             data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
         ),
+        True,
     ),
     (
         DataQueryProperties(
-            query_function=_count_mission_choices, groupby=lambda g: g.spy
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            stack_order=MISSION_PLOT_ORDER,
         ),
         pandas.DataFrame(
             data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
             columns=["Calvin Schoolidge", "zerotka"],
             index=MISSION_PLOT_ORDER,
         ),
+        False,
     ),
     (
         DataQueryProperties(
-            query_function=_count_mission_choices, reversed_categories=True
+            query_function=_count_mission_choices,
+            reversed_categories=True,
+            category_data_order=MISSION_PLOT_ORDER.index,
         ),
         pandas.DataFrame(
             data=[[4, 7, 7, 7, 8, 7, 8, 8]],
             columns=MISSION_PLOT_ORDER[::-1],
             index=[None],
         ),
+        True,
     ),
     (
         DataQueryProperties(
@@ -264,6 +274,7 @@ SPECIFIC_REPORT_CASES = [
             columns=["Calvin Schoolidge", "zerotka"],
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
+        False,
     ),
     (
         DataQueryProperties(query_function=_categorize_fp_sources),
@@ -276,15 +287,21 @@ SPECIFIC_REPORT_CASES = [
                 (TimelineCategory.Books, False),
             ],
         ),
+        True,
     ),
 ]
 
 
 @pytest.mark.plotting
-@pytest.mark.parametrize("data_query,exp_frame", SPECIFIC_REPORT_CASES)
-def test_each_report(data_query, exp_frame, get_preparsed_timeline_games):
+@pytest.mark.parametrize(
+    "data_query,exp_frame, exp_stacks_as_categories", SPECIFIC_REPORT_CASES
+)
+def test_each_report(
+    data_query, exp_frame, exp_stacks_as_categories, get_preparsed_timeline_games
+):
     _, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
     )
 
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
+    assert data_properties.stacks_are_categories == exp_stacks_as_categories

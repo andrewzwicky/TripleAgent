@@ -15,6 +15,8 @@ from triple_agent.reports.generation.plot_types import (
     create_line_plot,
 )
 
+from triple_agent.classes.missions import MISSION_PLOT_ORDER
+
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
@@ -292,3 +294,52 @@ def test_line_plot(test_figure, reference_figure):
     )
 
     create_line_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_mission_choice_bar(test_figure, reference_figure):
+
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Mission Choices")
+    ref_ax.bar(
+        range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="xkcd:green", edgecolor="black"
+    )
+
+    ref_ax.set_xticklabels(
+        [
+            "Seduce",
+            "Inspect",
+            "Fingerprint",
+            "Contact",
+            "Bug",
+            "Swap",
+            "Purloin",
+            "Transfer",
+        ],
+        rotation=90,
+    )
+
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=9)
+
+    ref_ax.set_xlim(-0.5, 7.5)
+    ref_ax.set_xticks(range(8))
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    axis_properties = AxisProperties(title="Mission Choices", force_bar=True)
+    data_plot_properties = DataPlotProperties(
+        pandas.DataFrame(
+            data=[[4, 7, 7, 7, 8, 7, 8, 8]], columns=MISSION_PLOT_ORDER, index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)

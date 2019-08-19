@@ -17,7 +17,11 @@ def sort_frame_stacks(
 
     # if nothing is supplied, use the given data_part names and sort them.
     if stack_order is None:
-        return frame.sort_index(axis="rows")
+        try:
+            return frame.sort_index(axis="rows")
+        except TypeError:
+            # Unsortable and no order given, nothing to do here.
+            return frame
 
     return frame.reindex(stack_order, axis="rows")
 
@@ -129,8 +133,13 @@ def create_initial_data_frame(
         for inner_key in inner_dict.keys():
             data_parts.add(inner_key)
 
-    # TODO: This is preventing going to normal Enum instead of IntEnum
-    stacks = sorted(list(data_parts))
+    stacks = list(data_parts)
+
+    try:
+        stacks.sort()
+    except TypeError:
+        # Unosrtable types will need to be specified to be displayed in a particular order
+        pass
 
     # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
     frame = pandas.DataFrame(

@@ -2,7 +2,7 @@ from enum import IntFlag, auto
 
 from typing import Set
 
-
+# TODO: change from IntFlag to Flag
 class Missions(IntFlag):
     Zero = 0
     Seduce = auto()
