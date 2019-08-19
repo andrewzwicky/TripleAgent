@@ -16,8 +16,6 @@ from triple_agent.reports.generation.report_utilities import (
     _save_fig_if_needed,
     _create_data_label,
     create_plot_hatching,
-    create_legend_labels,
-    create_category_labels,
     create_data_labels,
 )
 
@@ -26,9 +24,17 @@ from triple_agent.reports.generation.report_utilities import (
 
 
 def create_line_plot(
-    axis_properties: AxisProperties, data_properties: DataPlotProperties
+    axis_properties: AxisProperties,
+    data_properties: DataPlotProperties,
+    fig: plt.Figure = None,
 ):
-    fig, axis = plt.subplots(figsize=(12, 8))
+    if fig is None:
+        show = True
+        fig, axis = plt.subplots(figsize=(12, 8))
+    else:
+        show = False
+        fig.set_size_inches(12, 8)
+        axis = fig.subplots()
 
     colors = create_plot_colors(
         axis_properties.data_color_dict,
@@ -36,21 +42,24 @@ def create_line_plot(
         data_properties.stacks_are_categories,
     )
 
-    stack_labels = create_legend_labels(
-        axis_properties.data_stack_label_dict, data_properties.stack_order
+    category_labels, stack_labels = create_category_legend_labels(
+        axis_properties.data_stack_label_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
     )
 
-    category_labels = create_category_labels(data_properties.category_order)
+    ticks = list(range(len(data_properties.frame.iloc[-1])))
 
-    ticks = list(range(len(data_properties.data[0])))
+    max_value = data_properties.frame.max().max()
 
-    max_value = max((map(max, zip(*data_properties.data))))
-
-    for _, (this_data, this_color) in enumerate(zip(data_properties.data, colors)):
+    for _, (this_data, this_color) in enumerate(
+        zip(data_properties.frame.itertuples(index=False), colors)
+    ):
         axis.plot(
             ticks,
             this_data,
-            color=this_color,
+            color=this_color[0],
             linestyle="-",
             marker="o",
             markersize=12,
@@ -69,7 +78,8 @@ def create_line_plot(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    plt.show()
+    if show:
+        plt.show()
 
 
 def create_bar_plot(

@@ -79,23 +79,5 @@ def populate_data_properties(
     data_props.frame = sort_frame_stacks(
         data_props.frame, data_query.stack_order, data_props.stacks_are_categories
     )
-    # # create the list of x-axis categories. percentile needs to be it's own list
-    # # so it can be separately sorted between the counts plot and the percentile plot
-    # data_props.category_order = create_sorted_categories(
-    #     data_dictionary,
-    #     data_query.category_data_order,
-    #     data_query.category_name_order,
-    #     data_query.reversed_categories,
-    # )
-    #
-    # # limit categories to reduce clutter
-    # data_props.category_order = limit_categories(
-    #     data_props.category_order, data_query.limit
-    # )
-    #
-    # # sort
-    # data_props.stack_order, data_props.data = create_data_stacks(
-    #     data_props.category_order, data_dictionary, data_query.stack_order
-    # )
 
     return axis_properties, data_props

@@ -1,5 +1,5 @@
 from dataclasses import dataclass, fields
-from typing import Optional, List, Union, Callable, Any, Dict
+from typing import Optional, List, Callable, Any, Dict
 from enum import Enum, auto
 import pandas
 
@@ -15,13 +15,16 @@ class AxisProperties:
     title: Optional[str] = None
     x_axis_label: Optional[str] = None
     y_axis_label: Optional[str] = None
+
     y_axis_percentage: bool = False
     x_axis_portrait: bool = False
+
     savefig: Optional[str] = None
+
     force_bar: bool = False
     force_line: bool = False
-    data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
 
+    data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
     data_stack_label_dict: Optional[Dict[Any, str]] = None
     data_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     data_color_dict: Optional[Dict[Any, Optional[str]]] = None
@@ -40,9 +43,6 @@ class AxisProperties:
 @dataclass
 class DataPlotProperties:
     frame: pandas.DataFrame = None
-    data: List[List[Union[int, float]]] = None
-    category_order: List[Any] = None
-    stack_order: List[Any] = None
     stacks_are_categories: bool = False
 
 

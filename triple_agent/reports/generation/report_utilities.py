@@ -65,23 +65,6 @@ def create_category_legend_labels(
     )
 
 
-def create_category_labels(categories: List[Any]) -> List[str]:
-    return list(map(labelify, categories))
-
-
-def create_legend_labels(
-    data_stack_label_dict: Dict[Any, str], stack_order: Optional[List[Any]]
-) -> Optional[List[str]]:
-    # stack_order should only be none in the case of a single stack, i.e. straight bar plot
-    if stack_order is None:
-        return None
-
-    if data_stack_label_dict is None:
-        return [labelify(data_part) for data_part in stack_order]
-
-    return [data_stack_label_dict[data_part] for data_part in stack_order]
-
-
 def create_plot_colors(
     data_color_dict: Optional[Dict[Any, Optional[str]]],
     frame: pandas.DataFrame,
@@ -104,19 +87,6 @@ def create_plot_colors(
     return frame.apply(lambda x: stack_colors, axis="index").values.tolist()
 
     # return itertools.cycle(data_color_dict[data_part] for data_part in index)
-
-
-def _get_data_labels(
-    data: List[List[Union[int, float]]],
-    data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels,
-) -> List[List[str]]:
-    if data_label_style == PlotLabelStyle.NoLabels:
-        return [["" for _ in stack] for stack in data]
-
-    if data_label_style == PlotLabelStyle.Plain:
-        return [[labelify(item) for item in stack] for stack in data]
-
-    return [["" for _ in stack] for stack in data]
 
 
 def create_data_labels(
