@@ -28,7 +28,7 @@ def sort_frame_stacks(
 
     else:
         try:
-            frame = frame.sort_index(axis="index")
+            frame = frame.sort_index(axis="index", ascending=False)
         except TypeError:
             # unsortable and nothing supplied, leave as-is
             pass

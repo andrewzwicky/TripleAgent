@@ -730,7 +730,7 @@ SORT_FRAME_STACK_CASES = [
             index=["Veranda", "Ballroom", "Balcony"],
         ),
         None,
-        False,
+        True,
         pandas.DataFrame(
             data=[[0, 1], [8, 11], [7, 6]],
             columns=["Calvin Schoolidge", "zerotka"],
@@ -744,7 +744,7 @@ SORT_FRAME_STACK_CASES = [
             index=[1, 2, 3],
         ),
         None,
-        False,
+        True,
         pandas.DataFrame(
             data=[[7, 6, 4, 5], [8, 11, 0, 2], [0, 1, 4, 5]],
             columns=["A", "B", "D", "C"],
@@ -758,7 +758,7 @@ SORT_FRAME_STACK_CASES = [
             index=[1, 2, 3],
         ),
         None,
-        True,
+        False,
         pandas.DataFrame(
             data=[[0, 1, 4, 5], [8, 11, 0, 2], [7, 6, 4, 5]],
             columns=["A", "B", "D", "C"],
