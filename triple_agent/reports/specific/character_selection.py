@@ -6,6 +6,12 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.generic_query import query
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+    PlotLabelStyle,
+)
 
 
 def _determine_spy(games, data_dictionary):
@@ -39,49 +45,77 @@ def determine_character_in_role(game, role) -> Optional[Characters]:
     return None
 
 
-def spy_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:green"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def spy_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            data_color_dict=defaultdict(lambda: "xkcd:green"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
+        ),
+        DataQueryProperties(query_function=_determine_spy),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _determine_spy, **default_kwargs)
-
-
-def st_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light red"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
-
-    default_kwargs.update(kwargs)
-
-    query(games, title, _determine_st, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
-def amba_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light magenta"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def st_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            data_color_dict=defaultdict(lambda: "xkcd:light red"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
+        ),
+        DataQueryProperties(query_function=_determine_st),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _determine_amba, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
-def double_agent_selection(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_color_dict": defaultdict(lambda: "xkcd:light yellow"),
-        "force_bar": True,
-        "portrait_x_axis": True,
-    }
+def amba_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            data_color_dict=defaultdict(lambda: "xkcd:light magenta"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
+        ),
+        DataQueryProperties(query_function=_determine_amba),
+    )
 
-    default_kwargs.update(kwargs)
+    query(games, data_query, axis_properties)
 
-    query(games, title, _determine_da, **default_kwargs)
+
+def double_agent_selection(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            data_color_dict=defaultdict(lambda: "xkcd:light yellow"),
+            force_bar=True,
+            data_label_style=PlotLabelStyle.Plain,
+        ),
+        DataQueryProperties(query_function=_determine_da),
+    )
+
+    query(games, data_query, axis_properties)

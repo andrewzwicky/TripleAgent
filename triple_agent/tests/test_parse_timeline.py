@@ -3,7 +3,6 @@ from typing import List, Tuple
 
 import cv2
 import pytest
-
 from triple_agent.parsing.timeline.parse_timeline import parse_screenshot
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
@@ -6572,12 +6571,7 @@ SCREENSHOT_TEST_CASES = [
 ]
 
 
-def id_func(val):
-    if isinstance(val, str):
-        return val
-    return ""
-
-
+@pytest.mark.parsing
 @pytest.mark.parametrize("image_name, expected_len, expecteds", SCREENSHOT_TEST_CASES)
 def test_parse_timeline(
     image_name: str,

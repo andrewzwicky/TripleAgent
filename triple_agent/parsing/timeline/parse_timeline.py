@@ -5,7 +5,6 @@ from typing import List, Tuple, Optional, Iterator
 import cv2
 import numpy as np
 import pytesseract
-
 from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
 from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
 from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT

@@ -1,10 +1,15 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 BUG_TO_COLORS_RGB = {
     ("Walking", True): "xkcd:sea blue",
@@ -23,9 +28,9 @@ BUG_PLOT_LABEL_DICT = {
 
 BUG_PLOT_ORDER = list(BUG_PLOT_LABEL_DICT.keys())
 
-BUG_PLOT_HATCHING = [
-    r"\\" if not success else None for bug_type, success in BUG_PLOT_ORDER
-]
+BUG_PLOT_HATCH_DICT = {
+    (obj, diff): r"\\" if not diff else None for (obj, diff) in BUG_PLOT_ORDER
+}
 
 
 def bug_attempt_timings(games: List[Game], title: str):
@@ -42,18 +47,22 @@ def bug_attempt_timings(games: List[Game], title: str):
                 bug_times_remaining.append(timeline_event.time)
 
     create_histogram(
-        title + " [Remaining]",
+        AxisProperties(
+            title=title + " [Remaining]",
+            x_axis_label="Time Remaining [sec]",
+            y_axis_label="Attempts in Time Period",
+        ),
         bug_times_elapsed,
-        10,
-        x_label="Time Remaining [sec]",
-        y_label="Attempts in Time Period",
+        15,
     )
     create_histogram(
-        title + " [Elapsed]",
+        AxisProperties(
+            title=title + " [Elapsed]",
+            x_axis_label="Time Elapsed [sec]",
+            y_axis_label="Attempts in Time Period",
+        ),
         bug_times_remaining,
-        10,
-        x_label="Time Elapsed [sec]",
-        y_label="Attempts in Time Period",
+        15,
     )
 
 
@@ -88,14 +97,22 @@ def _categorize_bugs(games, data_dictionary):
         data_dictionary[("Standing", False)] += standing_attempts - standing_success
 
 
-def bug_success_rate(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": BUG_PLOT_ORDER,
-        "data_color_dict": BUG_TO_COLORS_RGB,
-        "data_hatching": BUG_PLOT_HATCHING,
-        "data_stack_label_dict": BUG_PLOT_LABEL_DICT,
-    }
+def bug_success_rate(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            data_color_dict=BUG_TO_COLORS_RGB,
+            data_stack_label_dict=BUG_PLOT_LABEL_DICT,
+            data_hatch_dict=BUG_PLOT_HATCH_DICT,
+        ),
+        DataQueryProperties(
+            query_function=_categorize_bugs, stack_order=BUG_PLOT_ORDER
+        ),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _categorize_bugs, **default_kwargs)
+    query(games, data_query, axis_properties)

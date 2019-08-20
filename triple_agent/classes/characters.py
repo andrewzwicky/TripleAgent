@@ -1,7 +1,7 @@
-from enum import IntEnum, auto
+from enum import Enum, auto
 
 
-class Characters(IntEnum):
+class Characters(Enum):
     Smallman = auto()
     Duke = auto()
     Salmon = auto()

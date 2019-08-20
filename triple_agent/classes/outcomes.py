@@ -1,7 +1,7 @@
-from enum import IntFlag, auto
+from enum import Flag, auto
 
 
-class WinType(IntFlag):
+class WinType(Flag):
     TimeOut = auto()
     SpyShot = auto()
     SniperWin = TimeOut | SpyShot

@@ -5,6 +5,11 @@ from triple_agent.classes.books import Books
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 _DIRECT = "direct"
 _AT = "action test"
@@ -60,16 +65,35 @@ def _microfilm_direction(games, data_dictionary):
                     data_dictionary[BOOK_PLOT_LABEL_DICT[timeline_event.books]] += 1
 
 
-def at_or_direct_mf(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": TRANSFER_PLOT_ORDER,
-        "data_color_dict": TRANSFER_TO_COLORS_RGB,
-    }
+def at_or_direct_mf(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(data_color_dict=TRANSFER_TO_COLORS_RGB),
+        DataQueryProperties(
+            query_function=_classify_microfilms, stack_order=TRANSFER_PLOT_ORDER
+        ),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _classify_microfilms, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
-def microfilm_direction(games: List[Game], title: str, **kwargs):
-    query(games, title, _microfilm_direction, **kwargs)
+def microfilm_direction(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(data_color_dict=TRANSFER_TO_COLORS_RGB),
+        DataQueryProperties(
+            query_function=_microfilm_direction, stack_order=TRANSFER_PLOT_ORDER
+        ),
+    )
+
+    query(games, data_query, axis_properties)

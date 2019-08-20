@@ -1,9 +1,10 @@
 from typing import List
 
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import AxisProperties
 
 
 def first_flirt_timing(games: List[Game], title: str):
@@ -26,11 +27,13 @@ def first_flirt_timing(games: List[Game], title: str):
             first_flirt_times.append(game.timeline[-1].elapsed_time)
 
     create_histogram(
-        title,
+        AxisProperties(
+            title=title,
+            x_axis_label="Elapsed Time at First Flirt [sec]",
+            y_axis_label="Number of Flirts in Time Period",
+        ),
         first_flirt_times,
         2,
         major_locator=30,
-        x_label="Elapsed Time at First Flirt [sec]",
-        y_label="Number of Flirts in Time Period",
         cumulative_also=True,
     )

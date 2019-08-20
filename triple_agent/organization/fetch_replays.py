@@ -9,7 +9,6 @@ from urllib.request import urlretrieve
 
 import requests
 from bs4 import BeautifulSoup
-
 from triple_agent.constants.paths import (
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,

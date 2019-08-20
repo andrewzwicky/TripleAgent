@@ -1,9 +1,14 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 _FAKE = "fake"
 _REAL = "real"
@@ -43,26 +48,38 @@ def _first_banana_bread(games, data_dictionary):
                 first_seen = True
 
 
-def all_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": FAKE_REAL_ORDER,
-        "data_color_dict": FAKE_REAL_COLORS,
-    }
+def all_banana_bread_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(data_color_dict=FAKE_REAL_COLORS),
+        DataQueryProperties(
+            query_function=_all_banana_breads, stack_order=FAKE_REAL_ORDER
+        ),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _all_banana_breads, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
-def first_banana_bread_percentages(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": FAKE_REAL_ORDER,
-        "data_color_dict": FAKE_REAL_COLORS,
-    }
+def first_banana_bread_percentages(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(data_color_dict=FAKE_REAL_COLORS),
+        DataQueryProperties(
+            query_function=_first_banana_bread, stack_order=FAKE_REAL_ORDER
+        ),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _first_banana_bread, **default_kwargs)
+    query(games, data_query, axis_properties)
 
 
 def banana_split(games: List[Game], title: str):
@@ -93,11 +110,13 @@ def banana_split(games: List[Game], title: str):
                 bb_time_elapsed = 0
 
     create_histogram(
-        title,
+        AxisProperties(
+            title=title,
+            x_axis_label="Time Elapsed Since BB [sec]",
+            y_axis_label="Number of Leaves in Window",
+        ),
         bb_times,
         1,
         major_locator=10,
-        x_label="Time Elapsed Since BB [sec]",
-        y_label="Number of Leaves in Window",
         cumulative_also=True,
     )

@@ -7,18 +7,29 @@ from triple_agent.classes.outcomes import (
     WINTYPES_TO_COLORS,
     WINTYPE_PREFERRED_PIE_CHART_ORDER,
 )
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 
 def _categorize_outcomes(games, data_dictionary):
     data_dictionary.update(Counter([game.win_type for game in games]))
 
 
-def game_outcomes(games: List[Game], title: str, **kwargs):
-    default_kwargs = {
-        "data_stack_order": WINTYPE_PREFERRED_PIE_CHART_ORDER,
-        "data_color_dict": WINTYPES_TO_COLORS,
-    }
-
-    default_kwargs.update(kwargs)
-
-    query(games, title, _categorize_outcomes, **default_kwargs)
+def game_outcomes(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(data_color_dict=WINTYPES_TO_COLORS),
+        DataQueryProperties(
+            query_function=_categorize_outcomes,
+            stack_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
+        ),
+    )
+    query(games, data_query, axis_properties)

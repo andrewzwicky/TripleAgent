@@ -2,13 +2,12 @@ import os
 import json
 
 from tabulate import tabulate
-
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 from triple_agent.constants.events import select_scl5_with_drops
 from triple_agent.constants.paths import CASTER_DATA_FOLDER
 from triple_agent.reports.specific.action_tests import _at_rates_excluding_difficults
 from triple_agent.reports.generation.plot_utilities import (
-    create_data_dictionaries,
+    create_data_dictionary,
     tableize_data_dict,
 )
 from triple_agent.classes.action_tests import ActionTest
@@ -18,10 +17,10 @@ def caster_report_action_tests():
     scl5_replays = get_parsed_replays(select_scl5_with_drops)
     all_replays = get_parsed_replays(lambda x: True)
 
-    _, scl5_data_dict_percent = create_data_dictionaries(
+    _, scl5_data_dict_percent = create_data_dictionary(
         scl5_replays, _at_rates_excluding_difficults, lambda game: game.spy
     )
-    _, all_data_dict_percent = create_data_dictionaries(
+    _, all_data_dict_percent = create_data_dictionary(
         all_replays, _at_rates_excluding_difficults, lambda game: game.spy
     )
 

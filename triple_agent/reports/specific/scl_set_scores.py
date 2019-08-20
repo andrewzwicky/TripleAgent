@@ -2,6 +2,11 @@ from typing import List
 
 from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.game import Game
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 
 def _count_scores(sets, data_dictionary):
@@ -15,13 +20,31 @@ def _game_differential(games, data_dictionary):
         data_dictionary[game.spy if game.sniper == game.winner else game.sniper] -= 1
 
 
-def scl_set_scores_categorize(games: List[Game], title: str, **kwargs):
-    query(games, title, _count_scores, **kwargs)
+def scl_set_scores_categorize(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        None,
+        DataQueryProperties(query_function=_count_scores),
+    )
+
+    query(games, data_query, axis_properties)
 
 
-def game_differential(games: List[Game], title: str, **kwargs):
-    default_kwargs = {"force_bar": True}
+def game_differential(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        None,
+        DataQueryProperties(query_function=_game_differential),
+    )
 
-    default_kwargs.update(kwargs)
-
-    query(games, title, _game_differential, **default_kwargs)
+    query(games, data_query, axis_properties)

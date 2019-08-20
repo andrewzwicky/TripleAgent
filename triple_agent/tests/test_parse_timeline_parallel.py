@@ -1,3 +1,4 @@
+import pytest
 import numpy as np
 from triple_agent.classes.game import Game
 from typing import List, Iterator, Tuple
@@ -56,6 +57,7 @@ def mock_screenshot_iterator(
         yield output
 
 
+@pytest.mark.parsing
 def test_parse_timeline_parallel(
     get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
 ):
@@ -70,6 +72,18 @@ def test_parse_timeline_parallel(
     )
 
     games.sort(key=lambda g: g.start_time)
+
+    assert len(games[0].timeline) == 119
+    assert len(games[1].timeline) == 74
+    assert len(games[2].timeline) == 136
+    assert len(games[3].timeline) == 129
+    assert len(games[4].timeline) == 52
+    assert len(games[5].timeline) == 49
+    assert len(games[6].timeline) == 56
+    assert len(games[7].timeline) == 76
+    assert len(games[8].timeline) == 108
+    assert len(games[9].timeline) == 85
+    assert len(games[10].timeline) == 112
 
     assert games[0].uuid == "OiG7qvC9QOaSKVGlesdpWQ"
     assert games[0].timeline[0].action_test == ActionTest.NoAT
@@ -1414,6 +1428,8 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[118].role == (Roles.Spy,)
     assert games[0].timeline[118].time == 1.1
 
+    assert games[0].timeline.get_next_spy_action(games[0].timeline[118]) is None
+
     assert games[1].uuid == "vgAlD77AQw2XKTZq3H4NTg"
     assert games[1].timeline[0].action_test == ActionTest.NoAT
     assert games[1].timeline[0].actor == "spy"
@@ -2239,6 +2255,8 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[73].mission == Missions.Zero
     assert games[1].timeline[73].role == (Roles.Spy,)
     assert games[1].timeline[73].time == 160.1
+
+    assert games[1].timeline.get_next_spy_action(games[1].timeline[73]) is None
 
     assert games[2].uuid == "k8x3n_zfTtiw9FSS6rM13w"
     assert games[2].timeline[0].action_test == ActionTest.NoAT
@@ -3782,6 +3800,8 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[135].role == (None,)
     assert games[2].timeline[135].time == 0.0
 
+    assert games[2].timeline.get_next_spy_action(games[2].timeline[135]) is None
+
     assert games[3].uuid == "lOGf7W_MSlu1RRYxW2MMsA"
     assert games[3].timeline[0].action_test == ActionTest.NoAT
     assert games[3].timeline[0].actor == "spy"
@@ -5238,6 +5258,8 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[128].role == (None,)
     assert games[3].timeline[128].time == -3.3
 
+    assert games[3].timeline.get_next_spy_action(games[3].timeline[128]) is None
+
     assert games[4].uuid == "UgPZ7k1cQoCT9c6a_oG46w"
     assert games[4].timeline[0].action_test == ActionTest.NoAT
     assert games[4].timeline[0].actor == "spy"
@@ -5811,6 +5833,8 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[51].role == (None,)
     assert games[4].timeline[51].time == 23.0
 
+    assert games[4].timeline.get_next_spy_action(games[4].timeline[51]) is None
+
     assert games[5].uuid == "jhx6e7UpTmeKueggeGcAKg"
     assert games[5].timeline[0].action_test == ActionTest.NoAT
     assert games[5].timeline[0].actor == "spy"
@@ -6353,6 +6377,8 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[48].mission == Missions.Zero
     assert games[5].timeline[48].role == (Roles.Spy,)
     assert games[5].timeline[48].time == 10.0
+
+    assert games[5].timeline.get_next_spy_action(games[5].timeline[48]) is None
 
     assert games[6].uuid == "k415gCwtS3ml9_EzUPpWFw"
     assert games[6].timeline[0].action_test == ActionTest.NoAT
@@ -6970,6 +6996,8 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[55].mission == Missions.Zero
     assert games[6].timeline[55].role == (None,)
     assert games[6].timeline[55].time == 1.0
+
+    assert games[6].timeline.get_next_spy_action(games[6].timeline[55]) is None
 
     assert games[7].uuid == "8uf6pUK7TFegBD8Cbr2qMw"
     assert games[7].timeline[0].action_test == ActionTest.NoAT
@@ -7810,6 +7838,8 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[75].mission == Missions.Zero
     assert games[7].timeline[75].role == (None,)
     assert games[7].timeline[75].time == -4.1
+
+    assert games[7].timeline.get_next_spy_action(games[7].timeline[75]) is None
 
     assert games[8].uuid == "h_fNkizcR0mBFlokph3yEw"
     assert games[8].timeline[0].action_test == ActionTest.NoAT
@@ -9000,6 +9030,8 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[107].role == (Roles.Spy,)
     assert games[8].timeline[107].time == -4.1
 
+    assert games[8].timeline.get_next_spy_action(games[8].timeline[107]) is None
+
     assert games[9].uuid == "TPWiwN2aQc6EHEf6jKDKaA"
     assert games[9].timeline[0].action_test == ActionTest.NoAT
     assert games[9].timeline[0].actor == "spy"
@@ -9947,6 +9979,8 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[84].mission == Missions.Zero
     assert games[9].timeline[84].role == (None,)
     assert games[9].timeline[84].time == 53.5
+
+    assert games[9].timeline.get_next_spy_action(games[9].timeline[84]) is None
 
     assert games[10].uuid == "as-RnR1RQruzhRDZr7JP9A"
     assert games[10].timeline[0].action_test == ActionTest.NoAT
@@ -11207,3 +11241,5 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[111].mission == Missions.Zero
     assert games[10].timeline[111].role == (Roles.Spy,)
     assert games[10].timeline[111].time == 0.0
+
+    assert games[10].timeline.get_next_spy_action(games[10].timeline[111]) is None

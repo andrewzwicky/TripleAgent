@@ -1,33 +1,135 @@
-import itertools
 import os
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Any, Dict, Tuple
+from enum import Enum
 
-import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
-
+import numpy as np
+import pandas
 from triple_agent.constants.paths import PORTRAITS_FOLDER
+from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
 
 
-def _create_figure_and_axis(legend_labels):
-    if legend_labels is not None:
-        # account for space at bottom of figure
-        fig, axis = plt.subplots(figsize=(12 * 1.25, 8))
-    else:
-        fig, axis = plt.subplots(figsize=(12, 8))
-    return axis, fig
+def labelify(unknown_item: Any, label_name_dictionary: Optional[Dict[Any, str]] = None):
+    if label_name_dictionary is not None:
+        return label_name_dictionary[unknown_item]
+
+    if isinstance(unknown_item, Enum):
+        return unknown_item.name
+
+    if isinstance(unknown_item, float):
+        # TODO: check this for other use cases
+        return f"{unknown_item:3>.5}"
+
+    return str(unknown_item)
 
 
-def _get_plot_colors(colors, data):
-    if colors is None:
-        if len(data) == 1:
-            colors = ["xkcd:green"]
-        else:
-            colors = itertools.repeat(None)
-    return colors
+def _save_fig_if_needed(fig, savefig):
+    if savefig:
+        fig.savefig(savefig, bbox_inches="tight")
 
 
-def _set_y_axis_percentage(axis, max_value, percentage):
+def _create_legend_if_needed(axis, fig):
+    handles, _ = axis.get_legend_handles_labels()
+    if handles:
+        # resize the plot to allow size for legend.
+        # increase figure by 25%
+        _, height = fig.get_size_inches()
+        fig.set_size_inches((15, height), forward=True)
+
+        # Shrink current axis by 20%
+        box = axis.get_position()
+        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+        # Put a legend to the right of the current axis
+
+        axis.legend(loc="center left", bbox_to_anchor=(1, 0.5))
+        # s.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+
+
+def create_category_legend_labels(
+    data_stack_label_dict: Dict[Any, str],
+    columns: List[Any],
+    index: List[Any],
+    stacks_are_categories: bool = False,
+) -> Tuple[List[str], List[Optional[str]]]:
+    if stacks_are_categories:
+        if data_stack_label_dict is None:
+            return list(map(labelify, columns)), [None for _ in index]
+
+        return (
+            [data_stack_label_dict[data_part] for data_part in columns],
+            [None for _ in index],
+        )
+
+    if data_stack_label_dict is None:
+        return list(map(labelify, columns)), list(map(labelify, index))
+
+    return (
+        list(map(labelify, columns)),
+        [data_stack_label_dict[data_part] for data_part in index],
+    )
+
+
+def create_plot_colors(
+    data_color_dict: Optional[Dict[Any, Optional[str]]],
+    frame: pandas.DataFrame,
+    stacks_are_categories: bool = False,
+    is_pie_chart: bool = False,
+) -> List[Optional[List[str]]]:
+    if stacks_are_categories:
+        if data_color_dict is None:
+            if is_pie_chart:
+                return [None for _ in frame.index]
+
+            return frame.applymap(lambda x: "xkcd:green").values.tolist()
+
+        # For some reason, the same operation with index being set to arrays, etc.
+        # wouldn't correctly turn the indexs into a list, they would remain np arrays.
+        # The strange .T will flip it back and forth to get the right values.
+        stack_colors = frame.T.index.map(lambda x: data_color_dict[x]).values
+        return frame.T.apply(lambda x: stack_colors, axis="index").values.T.tolist()
+
+    if data_color_dict is None:
+        return [None for _ in frame.index]
+
+    stack_colors = frame.index.map(lambda x: data_color_dict[x]).values
+    return frame.apply(lambda x: stack_colors, axis="index").values.tolist()
+
+    # return itertools.cycle(data_color_dict[data_part] for data_part in index)
+
+
+def create_data_labels(
+    frame: pandas.DataFrame, data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
+) -> List[List[str]]:
+    if data_label_style == PlotLabelStyle.NoLabels:
+        return [["" for _ in stack] for stack in frame.itertuples(index=False)]
+
+    if data_label_style == PlotLabelStyle.Plain:
+        return [
+            [labelify(item) for item in stack]
+            for stack in frame.itertuples(index=False)
+        ]
+
+    return [["" for _ in stack] for stack in frame.itertuples(index=False)]
+
+
+def create_plot_hatching(
+    data_hatch_dict: Dict[Any, str],
+    columns: List[Any],
+    index: List[Any],
+    stacks_are_categories: bool = False,
+) -> List[List[Optional[str]]]:
+    if data_hatch_dict is None:
+        return [[None for _ in columns] for _ in index]
+
+    if stacks_are_categories:
+        return [[data_hatch_dict[data_part] for data_part in columns] for _ in index]
+
+    return [[data_hatch_dict[data_part] for _ in columns] for data_part in index]
+
+
+def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):
     if percentage:
         axis.yaxis.set_major_locator(MultipleLocator(0.1))
         vals = axis.get_yticks()
@@ -46,16 +148,9 @@ def _set_y_axis_percentage(axis, max_value, percentage):
         axis.set_ylim(top=rounded_top)
 
 
-def _set_axis_labels(axis, x_label, y_label):
-    if y_label is not None:
-        axis.set_ylabel(y_label)
-    if x_label is not None:
-        axis.set_xlabel(x_label)
-
-
-def _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis):
+def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
     if portrait_x_axis:
-        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=label_rotation)
+        axis.set_xticklabels([l + " " * 10 for l in labels], rotation=90)
         fig.canvas.draw()
         for label in axis.xaxis.get_ticklabels():
             ext = label.get_window_extent()
@@ -66,62 +161,24 @@ def _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis):
                 os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
             )
             port_size = 0.045
-            middle = (left + right) / 2
-            port_start = middle - (port_size / 2)
+            port_start = ((left + right) / 2) - (port_size / 2)
             newax = fig.add_axes(
                 [port_start, top - port_size, port_size, port_size], zorder=-1
             )
             newax.imshow(portrait_image)
             newax.axis("off")
     else:
-        axis.set_xticklabels(labels, rotation=label_rotation)
+        axis.set_xticklabels(labels, rotation=90)
 
 
-def create_line_plot(
-    title: str,
-    data: List[List[Union[int, float]]],
-    labels: List[str],
-    y_label=None,
-    x_label=None,
-    colors: Optional[List[str]] = None,
-    legend_labels: List[str] = None,
-    label_rotation: int = 0,
-    percentage: bool = False,
-    portrait_x_axis=False,
-    # TODO: division logos on x axis
-    no_show=False,
-    savefig=None,
-):
-    colors = _get_plot_colors(colors, data)
+def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
+    axis.set_title(axis_properties.title)
 
-    axis, fig = _create_figure_and_axis(legend_labels)
+    if axis_properties.y_axis_label is not None:
+        axis.set_ylabel(axis_properties.y_axis_label)
 
-    ticks = list(range(len(data[0])))
-
-    # make sure all individual data sets are the same length
-    assert len({len(d) for d in data}) == 1
-
-    max_value = max((map(max, zip(*data))))
-
-    axis.set_title(title)
-
-    current_bottom = [0] * len(data[0])
-
-    for _, (this_data, this_color) in enumerate(zip(data, colors)):
-        axis.plot(
-            ticks,
-            this_data,
-            color=this_color,
-            linestyle="-",
-            marker="o",
-            markersize=12,
-            linewidth=4,
-        )
-        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
-
-    _set_y_axis_percentage(axis, max_value, percentage)
-
-    _set_axis_labels(axis, x_label, y_label)
+    if axis_properties.x_axis_label is not None:
+        axis.set_xlabel(axis_properties.x_axis_label)
 
     axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
     axis.set_xticks(ticks)
@@ -132,217 +189,54 @@ def create_line_plot(
     axis.yaxis.grid(which="minor", linestyle="--")
     axis.set_axisbelow(True)
 
-    if legend_labels is not None:
-        # Shrink current axis by 20%
-        box = axis.get_position()
-        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-        # Put a legend to the right of the current axis
-        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+def apply_data_labels(axis, max_value, bar_patches, row_data_labels):
+    text_padding = max_value * 0.01
 
-    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
+    for this_patch, this_label in zip(bar_patches, row_data_labels):
+        if this_patch.get_height() != 0:
+            if this_patch.get_height() < max_value * 0.05:
+                y_value = this_patch.get_height() + text_padding
+                v_align = "bottom"
+            else:
+                y_value = this_patch.get_height() - text_padding
+                v_align = "top"
 
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
-
-    if not no_show:
-        plt.show()
-
-    return axis
-
-
-def create_bar_plot(
-    title: str,
-    data: List[List[Union[int, float]]],
-    labels: List[str],
-    y_label=None,
-    x_label=None,
-    colors: Optional[List[str]] = None,
-    hatches: Optional[List[Optional[str]]] = None,
-    legend_labels: List[str] = None,
-    bar_labels: Optional[List[List[str]]] = None,
-    label_rotation: int = 0,
-    percentage: bool = False,
-    portrait_x_axis=False,
-    # TODO: division logos on x axis
-    no_show=False,
-    savefig=None,
-):
-    colors = _get_plot_colors(colors, data)
-
-    axis, fig = _create_figure_and_axis(legend_labels)
-
-    ticks = list(range(len(data[0])))
-
-    # make sure all individual data sets are the same length
-    assert len({len(d) for d in data}) == 1
-
-    max_bar_value = max((map(sum, zip(*data))))
-    text_padding = max_bar_value * 0.01
-
-    axis.set_title(title)
-
-    current_bottom = [0] * len(data[0])
-
-    current_data_stack = 0
-
-    for current_data_stack, (this_data, this_color) in enumerate(zip(data, colors)):
-        patches = axis.bar(
-            ticks, this_data, bottom=current_bottom, color=this_color, edgecolor="black"
-        )
-        current_bottom = [c + d for c, d in zip(current_bottom, this_data)]
-
-        if bar_labels is not None:
-            for this_tick, this_value, this_label in zip(
-                ticks, current_bottom, bar_labels[current_data_stack]
-            ):
-                if this_value != 0:
-                    if this_value < max_bar_value * 0.05:
-                        y_value = this_value + text_padding
-                        v_align = "bottom"
-                    else:
-                        y_value = this_value - text_padding
-                        v_align = "top"
-
-                    axis.text(
-                        this_tick,
-                        y_value,
-                        str(this_label),
-                        color="black",
-                        horizontalalignment="center",
-                        verticalalignment=v_align,
-                    )
-        if hatches is not None:
-            for patch in patches:
-                if hatches[current_data_stack] is not None:
-                    patch.set_hatch(hatches[current_data_stack])
-
-    _set_y_axis_percentage(axis, max_bar_value, percentage)
-
-    _set_axis_labels(axis, x_label, y_label)
-
-    axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
-    axis.set_xticks(ticks)
-
-    axis.set_ylim(bottom=0)
-
-    axis.yaxis.grid(which="major", color="k")
-    axis.yaxis.grid(which="minor", linestyle="--")
-    axis.set_axisbelow(True)
-
-    if legend_labels is not None and current_data_stack != 0:
-        # Shrink current axis by 20%
-        box = axis.get_position()
-        axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
-
-        # Put a legend to the right of the current axis
-        axis.legend(labels=legend_labels, loc="center left", bbox_to_anchor=(1, 0.5))
-
-    _add_portrait_x_axis(axis, fig, label_rotation, labels, portrait_x_axis)
-
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
-
-    if not no_show:
-        plt.show()
-
-    return axis
+            axis.text(
+                this_patch.get_x() + (this_patch.get_width() / 2),
+                y_value,
+                str(this_label),
+                color="black",
+                horizontalalignment="center",
+                verticalalignment=v_align,
+            )
 
 
-def create_pie_chart(title, data, labels, colors=None, hatches=None, savefig=None):
-    _, axis = plt.subplots(figsize=(8, 8))
+def trim_empty_labels(
+    wedge_data: List[Union[int, float]], stack_labels: List[str]
+) -> List[str]:
+    # assume if plotting pie chart, only 1 stack is present
+    total_samples = sum(wedge_data)
+    results_labels = []
+    for value, label in zip(wedge_data, stack_labels):
+        if not value:
+            results_labels.append("")
+        else:
+            if total_samples:
+                results_labels.append(
+                    labelify(label)
+                    + f"  {value}/{total_samples} {value / total_samples:.0%}"
+                )
+            else:
+                results_labels.append(labelify(label) + f"  {value}")
 
-    axis.set_title(title)
-
-    patches = axis.pie(
-        data,
-        labels=labels,
-        colors=colors,
-        wedgeprops={"edgecolor": "k", "linewidth": 1},
-    )
-
-    if hatches is not None:
-        for data_hatch, patch in zip(hatches, patches[0]):
-            if data_hatch is not None:
-                patch.set_hatch(data_hatch)
-
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
-
-    plt.show()
+    return results_labels
 
 
-def create_histogram(
-    title,
-    data,
-    bin_size,
-    major_locator=60,
-    x_label=None,
-    y_label=None,
-    cumulative_also=False,
-    savefig=None,
-):
-    _, axis = plt.subplots(figsize=(12, 8))
+def create_bins(bin_size, data):
     max_data_point = max(data)
     last_bin_right = bin_size * round(max_data_point / bin_size) + bin_size
     data_bins = np.arange(0, last_bin_right + bin_size, bin_size)
     cumul_bins = np.arange(0, last_bin_right + bin_size + bin_size, bin_size)
-    axis.set_xlim(0, last_bin_right)
 
-    heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
-
-    if cumulative_also:
-        axis2 = axis.twinx()
-        axis2.hist(
-            data,
-            bins=cumul_bins,
-            density=True,
-            histtype="step",
-            cumulative=True,
-            color="xkcd:orange",
-            linewidth=3,
-        )
-
-        axis2.set_ylim(0, 1)
-
-    max_bar_value = max(heights)
-    num_majors = 12
-    increment = round(max_bar_value / num_majors)
-    if increment < 1:
-        increment = 1
-    axis.yaxis.set_major_locator(MultipleLocator(increment))
-    rounded_top = ((max_bar_value + increment) // increment) * increment
-    axis.set_ylim(top=rounded_top)
-
-    # axis.yaxis.set_major_locator(MultipleLocator(1))
-
-    # TODO: figure out a better major locator size
-    axis.xaxis.set_major_locator(MultipleLocator(major_locator))
-    axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
-
-    axis.set_title(title)
-
-    _set_axis_labels(axis, x_label, y_label)
-
-    if savefig:
-        plt.savefig(savefig, bbox_inches="tight")
-
-    plt.show()
-
-
-def create_progress_plot(x_data, y_data, colors, title, x_label=None, y_label=None):
-    _, axis = plt.subplots(figsize=(14, 10))
-
-    for x_d, y_d, color in zip(x_data, y_data, colors):
-        axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
-
-    axis.set_ylim(bottom=0)
-    axis.set_xlim(left=0)
-
-    _set_axis_labels(axis, x_label, y_label)
-
-    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
-    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
-
-    axis.set_title(title)
-    plt.show()
+    return cumul_bins, data_bins

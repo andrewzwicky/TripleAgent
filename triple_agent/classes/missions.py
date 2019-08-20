@@ -1,9 +1,9 @@
-from enum import IntFlag, auto
+from enum import Flag, auto
 
 from typing import Set
 
 
-class Missions(IntFlag):
+class Missions(Flag):
     Zero = 0
     Seduce = auto()
     Inspect = auto()
@@ -92,17 +92,6 @@ MISSION_PARTIAL_TO_ENUM = {
     "held statue inspected.": Missions.Inspect,
     "right statue inspected.": Missions.Inspect,
 }
-
-
-def print_complete_string(missions_enum: Missions) -> str:
-    completes = ""
-    for miss, letter in MISSIONS_ENUM_TO_LETTER.items():
-        if missions_enum & miss:
-            completes = completes + letter
-        else:
-            completes = completes + " "
-
-    return completes
 
 
 def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:

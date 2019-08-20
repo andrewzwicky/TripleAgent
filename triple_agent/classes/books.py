@@ -1,7 +1,7 @@
-from enum import IntEnum, auto
+from enum import Enum, auto
 
 
-class Books(IntEnum):
+class Books(Enum):
     NoColor = 0
     Red = auto()
     Yellow = auto()

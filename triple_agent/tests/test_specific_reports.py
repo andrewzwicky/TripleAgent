@@ -1,39 +1,69 @@
 from collections import Counter, defaultdict
 
 import pytest
-from triple_agent.reports.generation.plot_utilities import create_data_dictionaries
+from triple_agent.reports.generation.plot_utilities import create_data_dictionary
+from triple_agent.reports.generation.generic_query import populate_data_properties
 from triple_agent.reports.specific.action_tests import (
     _at_rates_excluding_difficults,
     _difficult_at_rate,
 )
 from triple_agent.classes.action_tests import ActionTest
-
+from triple_agent.reports.generation.plot_specs import DataQueryProperties
+from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
+from triple_agent.reports.specific.mission_choices import _count_mission_choices
+from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
+from triple_agent.reports.specific.fingerprints import _categorize_fp_sources
+from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.classes.roles import Roles
+from triple_agent.reports.specific.character_selection import (
+    determine_character_in_role,
+)
+import pandas
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
-    (_difficult_at_rate, None, Counter(), Counter()),
+    (_difficult_at_rate, None, False, defaultdict(Counter, {None: Counter()})),
+    (_difficult_at_rate, None, True, defaultdict(Counter, {None: Counter()})),
     (
         _at_rates_excluding_difficults,
         None,
-        Counter(
+        False,
+        defaultdict(
+            Counter,
             {
-                ActionTest.Green: 13,
-                ActionTest.White: 19,
-                ActionTest.Red: 1,
-                ActionTest.Ignored: 1,
-            }
+                None: Counter(
+                    {
+                        ActionTest.Green: 13,
+                        ActionTest.White: 19,
+                        ActionTest.Red: 1,
+                        ActionTest.Ignored: 1,
+                    }
+                )
+            },
         ),
-        Counter(
+    ),
+    (
+        _at_rates_excluding_difficults,
+        None,
+        True,
+        defaultdict(
+            Counter,
             {
-                ActionTest.Green: 13 / 34,
-                ActionTest.White: 19 / 34,
-                ActionTest.Red: 1 / 34,
-                ActionTest.Ignored: 1 / 34,
-            }
+                None: Counter(
+                    {
+                        ActionTest.Green: 13 / 34,
+                        ActionTest.White: 19 / 34,
+                        ActionTest.Red: 1 / 34,
+                        ActionTest.Ignored: 1 / 34,
+                    }
+                )
+            },
         ),
     ),
     (
         _at_rates_excluding_difficults,
         lambda x: x.spy,
+        False,
         defaultdict(
             Counter,
             {
@@ -50,6 +80,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.spy,
+        True,
         defaultdict(
             Counter,
             {
@@ -70,6 +105,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
         _at_rates_excluding_difficults,
         lambda x: x.sniper,
+        False,
         defaultdict(
             Counter,
             {
@@ -84,6 +120,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.sniper,
+        True,
         defaultdict(
             Counter,
             {
@@ -104,6 +145,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
     (
         _at_rates_excluding_difficults,
         lambda x: x.venue,
+        False,
         defaultdict(
             Counter,
             {
@@ -117,6 +159,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
             },
         ),
+    ),
+    (
+        _at_rates_excluding_difficults,
+        lambda x: x.venue,
+        True,
         defaultdict(
             Counter,
             {
@@ -143,24 +190,134 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             },
         ),
     ),
+    (
+        _categorize_outcomes,
+        lambda g: g.sniper,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+            },
+        ),
+    ),
 ]
 
 
+@pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "query_function,groupby,expected_data_dict,expected_data_dict_percent",
+    "query_function,groupby,percent_normalized_data,expected_data_dict",
     CREATE_DATA_DICTIONARY_TEST_CASES,
 )
-def test_included_reports(
+def test_create_data_dictionary(
     query_function,
     groupby,
+    percent_normalized_data,
     expected_data_dict,
-    expected_data_dict_percent,
     get_preparsed_timeline_games,
 ):
-    data_dict, data_dict_percent = create_data_dictionaries(
-        get_preparsed_timeline_games, query_function, groupby
+    data_dict = create_data_dictionary(
+        get_preparsed_timeline_games, query_function, groupby, percent_normalized_data
     )
 
     assert data_dict == expected_data_dict
-    assert data_dict_percent == expected_data_dict_percent
+    assert type(data_dict) == type(expected_data_dict)
+
+
+SPECIFIC_REPORT_CASES = [
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER
+        ),
+        pandas.DataFrame(
+            data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
+        ),
+        True,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            stack_order=MISSION_PLOT_ORDER,
+        ),
+        pandas.DataFrame(
+            data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
+            columns=["Calvin Schoolidge", "zerotka"],
+            index=MISSION_PLOT_ORDER,
+        ),
+        False,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER[::-1]
+        ),
+        pandas.DataFrame(
+            data=[[4, 7, 7, 7, 8, 7, 8, 8]],
+            columns=MISSION_PLOT_ORDER[::-1],
+            index=[None],
+        ),
+        True,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        pandas.DataFrame(
+            data=[[4, 3], [4, 4], [4, 4]],
+            columns=["Calvin Schoolidge", "zerotka"],
+            index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        False,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            reverse_category_order=True,
+            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        pandas.DataFrame(
+            data=[[3, 4], [4, 4], [4, 4]],
+            columns=["zerotka", "Calvin Schoolidge"],
+            index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        False,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+            stack_order=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Books, False),
+            ],
+        ),
+        pandas.DataFrame(
+            data=[[1, 1]],
+            index=[None],
+            columns=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Books, False),
+            ],
+        ),
+        True,
+    ),
+]
+
+
+@pytest.mark.plotting
+@pytest.mark.parametrize(
+    "data_query,exp_frame, exp_stacks_as_categories", SPECIFIC_REPORT_CASES
+)
+def test_each_report(
+    data_query, exp_frame, exp_stacks_as_categories, get_preparsed_timeline_games
+):
+    _, data_properties = populate_data_properties(
+        get_preparsed_timeline_games, data_query
+    )
+
+    pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
+    assert data_properties.stacks_are_categories == exp_stacks_as_categories

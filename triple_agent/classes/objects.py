@@ -32,6 +32,6 @@ OBJECT_PLOT_LABEL_DICT_DIFFICULT = {
 
 OBJECT_PLOT_ORDER_DIFFICULT = list(OBJECT_PLOT_LABEL_DICT_DIFFICULT.keys())
 
-OBJECT_PLOT_HATCHING_DIFFICULT = [
-    r"\\" if diff else None for obj, diff in OBJECT_PLOT_ORDER_DIFFICULT
-]
+OBJECT_PLOT_HATCH_DICT = {
+    (obj, diff): r"\\" if diff else None for (obj, diff) in OBJECT_PLOT_ORDER_DIFFICULT
+}

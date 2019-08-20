@@ -1,9 +1,14 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.reports.generation.report_utilities import create_histogram
+from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.reports.generation.plot_specs import (
+    AxisProperties,
+    DataQueryProperties,
+    initialize_properties,
+)
 
 
 def _count_time_adds(games, data_dictionary):
@@ -18,8 +23,19 @@ def _count_time_adds(games, data_dictionary):
         data_dictionary[this_game_time_adds] += 1
 
 
-def time_add_times_per_game(games: List[Game], title: str, **kwargs):
-    query(games, title, _count_time_adds, **kwargs)
+def time_add_times_per_game(
+    games: List[Game],
+    data_query: DataQueryProperties = None,
+    axis_properties: AxisProperties = None,
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        None,
+        DataQueryProperties(query_function=_count_time_adds),
+    )
+
+    query(games, data_query, axis_properties)
 
 
 def time_add_times(games: List[Game], title: str):
@@ -38,17 +54,21 @@ def time_add_times(games: List[Game], title: str):
                 time_adds_remaining.append(timeline_event.time)
 
     create_histogram(
-        title + " [Elapsed]",
+        AxisProperties(
+            title=title + " [Elapsed]",
+            x_axis_label="Time Elapsed [sec]",
+            y_axis_label="Time Adds in Time Period",
+        ),
         time_adds_elapsed,
         10,
-        x_label="Time Elapsed [sec]",
-        y_label="Time Adds in Time Period",
     )
 
     create_histogram(
-        title + " [Remaining]",
+        AxisProperties(
+            title=title + " [Remaining]",
+            x_axis_label="Time Remaining [sec]",
+            y_axis_label="Time Adds in Time Period",
+        ),
         time_adds_remaining,
         10,
-        x_label="Time Remaining [sec]",
-        y_label="Time Adds in Time Period",
     )

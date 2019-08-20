@@ -2,7 +2,6 @@ import os
 import pickle
 
 import pytest
-
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
 from triple_agent.classes.characters import Characters
@@ -5212,6 +5211,7 @@ CATEGORY_TEST_CASES = [
 ]
 
 
+@pytest.mark.parsing
 @pytest.mark.quick
 def test_unclassified_messages():
     with open(os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "rb") as pik:
@@ -5261,6 +5261,7 @@ def test_unclassified_messages():
 
 
 @pytest.mark.tryfirst
+@pytest.mark.parsing
 @pytest.mark.quick
 @pytest.mark.parametrize(
     "actor, time_str, event, cast_name, exp_time, role, books, exp_category, exp_mission, exp_action_test",

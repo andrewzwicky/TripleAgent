@@ -5,6 +5,7 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineEvent, Timeline
 
 
+@pytest.mark.parsing
 @pytest.mark.quick
 def test_calculate_elapsed_time():
     events = [

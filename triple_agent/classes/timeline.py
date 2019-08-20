@@ -2,7 +2,7 @@
 import re
 from collections.abc import Sequence
 from datetime import datetime
-from enum import IntFlag, auto, Flag
+from enum import auto, Flag
 from typing import Optional, List, Tuple
 from dataclasses import dataclass, field
 
@@ -28,7 +28,7 @@ class TimelineCoherency(Flag):
     SpyNotCastInBeginning = auto()
 
 
-class TimelineCategory(IntFlag):
+class TimelineCategory(Flag):
     NoCategory = 0
     ActionTest = auto()
     ActionTriggered = auto()
@@ -1581,10 +1581,10 @@ class Timeline(Sequence):
     def __len__(self):
         return len(self.lines)
 
-    def __repr__(self):
+    def __repr__(self):  # pragma: no cover
         return self.__str__()
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         return "\n".join(str(line) for line in self.lines)
 
     def get_next_spy_action(self, event: TimelineEvent) -> Optional[TimelineEvent]:

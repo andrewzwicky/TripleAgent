@@ -1,9 +1,22 @@
+import os
+
+from matplotlib import pyplot as plt
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 import pytest
-import os
 
+pytest.register_assert_rewrite("pandas.testing")
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
+
+# this fixture is needed because check_figures_equal doesn't clean up after itself automatically.
+# the matplotlib tests do that automatically for all tests.
+# https://github.com/matplotlib/matplotlib/issues/15079
+@pytest.fixture(autouse=True)
+def auto_close_all_figures(request):
+    yield
+
+    if "matplotlib" in request.keywords:
+        plt.close("all")
 
 
 @pytest.fixture(scope="session")
