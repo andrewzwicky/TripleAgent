@@ -30,7 +30,6 @@ def query(
     classidy them, it will plot either a pie chart, bar plot, or stacked bar plot.  Can be used to
     created simple queries quickly.
     """
-
     axis_properties, data_props = populate_data_properties(
         games, data_query, axis_properties
     )
@@ -74,7 +73,9 @@ def populate_data_properties(
         data_query.limit,
     )
 
-    data_props.frame = sort_frame_stacks(data_props.frame, data_query.stack_order)
+    data_props.frame = sort_frame_stacks(
+        data_props.frame, data_query.stack_order, data_query.reverse_stack_order
+    )
 
     _, num_columns = data_props.frame.shape
 
