@@ -1,4 +1,4 @@
-|icon| Triple Agent |py_version| |platform| |license| |build_status| 
+|icon| Triple Agent |py_version| |formatting| |platform| |license| |build_status| 
 ========================================================
 Triple Agent is a utility to parse and analyze the timeline component of SpyParty replays. [1]_  The Triple Agent repository also contained pre-parsed games from recent Spy Party competitive events that can be analyzed without spending the time to parse.
 
@@ -66,6 +66,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 
 
 .. |py_version| image:: https://img.shields.io/badge/python-3.7-blue.svg
+.. |formatting| image:: https://img.shields.io/badge/code%20style-black-000000.svg
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
 .. |build_status| image:: https://ci.appveyor.com/api/projects/status/github/andrewzwicky/tripleagent?branch=master&svg=true
   :target: https://ci.appveyor.com/project/andrewzwicky/tripleagent
