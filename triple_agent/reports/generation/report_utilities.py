@@ -75,9 +75,13 @@ def create_plot_colors(
     data_color_dict: Optional[Dict[Any, Optional[str]]],
     frame: pandas.DataFrame,
     stacks_are_categories: bool = False,
-) -> List[List[Optional[str]]]:
+    is_pie_chart: bool = False,
+) -> List[Optional[List[str]]]:
     if stacks_are_categories:
         if data_color_dict is None:
+            if is_pie_chart:
+                return [None for _ in frame.index]
+
             return frame.applymap(lambda x: "xkcd:green").values.tolist()
 
         # For some reason, the same operation with index being set to arrays, etc.

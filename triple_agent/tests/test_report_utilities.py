@@ -15,7 +15,17 @@ COLOR_TEST_CASES = [
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
         ),
         True,
+        False,
         [["xkcd:green", "xkcd:green"]],
+    ),
+    (
+        None,
+        pandas.DataFrame(
+            data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
+        ),
+        True,
+        True,
+        [None],
     ),
     # this test doesn't make sense because of this disconnect between stacks_are_categories and the index == [None]a
     (
@@ -23,6 +33,7 @@ COLOR_TEST_CASES = [
         pandas.DataFrame(
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
         ),
+        False,
         False,
         [None],
     ),
@@ -32,6 +43,7 @@ COLOR_TEST_CASES = [
             data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
         ),
         False,
+        False,
         [["blue", "blue", "blue"], ["red", "red", "red"]],
     ),
     (
@@ -40,12 +52,14 @@ COLOR_TEST_CASES = [
             data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
         ),
         False,
+        False,
         [None, None],
     ),
     (
         {"x": "blue", "y": "red", "test": "green"},
         pandas.DataFrame(data=[[3, 4, 1]], columns=["test", "x", "y"], index=[None]),
         True,
+        False,
         [["green", "blue", "red"]],
     ),
 ]
@@ -54,12 +68,15 @@ COLOR_TEST_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "data_color_dict, frame, stacks_are_categories, expected_colors", COLOR_TEST_CASES
+    "data_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors",
+    COLOR_TEST_CASES,
 )
 def test_create_plot_colors(
-    data_color_dict, frame, stacks_are_categories, expected_colors
+    data_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors
 ):
-    colors = create_plot_colors(data_color_dict, frame, stacks_are_categories)
+    colors = create_plot_colors(
+        data_color_dict, frame, stacks_are_categories, is_pie_chart
+    )
 
     assert colors == expected_colors
 

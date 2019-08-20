@@ -201,6 +201,7 @@ def create_pie_chart(
         axis_properties.data_color_dict,
         data_properties.frame,
         data_properties.stacks_are_categories,
+        is_pie_chart=True,
     )
 
     hatching = create_plot_hatching(
