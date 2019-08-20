@@ -299,6 +299,60 @@ def test_bar_stacked(test_figure, reference_figure):
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
+def test_bar_stacked_no_color(test_figure, reference_figure):
+
+    reference_figure.set_size_inches(15, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Bar")
+    patches = ref_ax.bar(
+        [0, 1, 2, 3, 4],
+        [1, 2, 3, 1, 6],
+        edgecolor="black",
+        bottom=[4, 5, 7, 9, 2],
+        label="Top",
+    )
+    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], edgecolor="black", label="Bottom")
+
+    for p in patches:
+        p.set_hatch("\\")
+
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=11)
+
+    ref_ax.set_xlim(-0.5, 4.5)
+    ref_ax.set_xticks([0, 1, 2, 3, 4])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(["A", "B", "C", "D", "E"], rotation=90)
+
+    box = ref_ax.get_position()
+    ref_ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+    ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
+
+    axis_properties = AxisProperties(
+        title="Bar", data_hatch_dict={"Top": "\\", "Bottom": None}
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[1, 2, 3, 1, 6], [4, 5, 7, 9, 2]],
+            columns=["A", "B", "C", "D", "E"],
+            index=["Top", "Bottom"],
+        ),
+        stacks_are_categories=False,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
 def test_line_plot(test_figure, reference_figure):
 
     reference_figure.set_size_inches(15, 8)

@@ -87,7 +87,7 @@ def create_plot_colors(
         return frame.T.apply(lambda x: stack_colors, axis="index").values.T.tolist()
 
     if data_color_dict is None:
-        return frame.applymap(lambda x: None).values.tolist()
+        return [None for _ in frame.index]
 
     stack_colors = frame.index.map(lambda x: data_color_dict[x]).values
     return frame.apply(lambda x: stack_colors, axis="index").values.tolist()
