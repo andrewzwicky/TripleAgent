@@ -24,7 +24,7 @@ COLOR_TEST_CASES = [
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
         ),
         False,
-        [[None, None]],
+        [None],
     ),
     (
         {"x": "blue", "y": "red"},
@@ -33,6 +33,14 @@ COLOR_TEST_CASES = [
         ),
         False,
         [["blue", "blue", "blue"], ["red", "red", "red"]],
+    ),
+    (
+        None,
+        pandas.DataFrame(
+            data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
+        ),
+        False,
+        [None, None],
     ),
     (
         {"x": "blue", "y": "red", "test": "green"},
