@@ -8,6 +8,7 @@ import pandas
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataPlotProperties,
+    PlotLabelStyle,
 )
 from triple_agent.reports.generation.plot_types import (
     create_pie_chart,
@@ -17,7 +18,6 @@ from triple_agent.reports.generation.plot_types import (
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
 from triple_agent.classes.action_tests import ActionTest
-from triple_agent.reports.specific.time_adds import _count_time_adds
 
 
 @pytest.mark.plotting
@@ -408,19 +408,94 @@ def test_mission_choice_bar(test_figure, reference_figure):
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
 
-# @pytest.mark.plotting
-# @pytest.mark.matplotlib
-# @check_figures_equal(extensions=["png"])
-# def test_autocolored_stacked_bar(test_figure, reference_figure):
-#
-#     axis_properties = AxisProperties(title="Time Adds", force_bar=True)
-#     data_plot_properties = DataPlotProperties(
-#         pandas.DataFrame(
-#             data=[[1, 0, 7], [0, 1, 2], [0, 1, 0]],
-#             columns=["Ballroom", "Veranda", "Balcony"],
-#             index=[2, 1, 0],
-#         ),
-#         stacks_are_categories=True,
-#     )
-#
-#     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_bar_simple_labels(test_figure, reference_figure):
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Bar")
+    ref_ax.bar(
+        [0, 1, 2, 3, 4],
+        [4, 5, 7, 10, 2],
+        color=["red", "blue", "black", "yellow", "white"],
+        edgecolor="black",
+    )
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=11)
+
+    ref_ax.set_xlim(-0.5, 4.5)
+    ref_ax.set_xticks([0, 1, 2, 3, 4])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(["A", "B", "C", "D", "E"], rotation=90)
+
+    ref_ax.text(
+        0,
+        4 - (10 * 0.01),
+        str(4),
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    ref_ax.text(
+        1,
+        5 - (10 * 0.01),
+        str(5),
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    ref_ax.text(
+        2,
+        7 - (10 * 0.01),
+        str(7),
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    ref_ax.text(
+        3,
+        10 - (10 * 0.01),
+        str(10),
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    ref_ax.text(
+        4,
+        2 - (10 * 0.01),
+        str(2),
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    axis_properties = AxisProperties(
+        title="Bar",
+        data_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+        data_label_style=PlotLabelStyle.Plain,
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[4, 5, 7, 10, 2]], columns=["A", "B", "C", "D", "E"], index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
