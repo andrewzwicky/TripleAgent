@@ -57,12 +57,24 @@ def test_create_plot_colors(
 
 
 HATCH_TEST_CASES = [
-    (None, [ActionTest.White, ActionTest.Green], [None], True, None),
+    (None, [ActionTest.White, ActionTest.Green], [None], True, [[None, None]]),
     # this test doesn't make sense because of this disconnect between stacks_are_categories and the index == [None]a
-    (None, [ActionTest.White, ActionTest.Green], [None], False, None),
-    ({"x": "//", "y": "-"}, ["test", "a", "b"], ["x", "y"], False, ["//", "-"]),
-    ({"x": "//", "y": "-"}, ["x", "y"], [None], True, ["//", "-"]),
-    (None, ["test", "a", "b"], ["x", "y"], False, None),
+    (None, [ActionTest.White, ActionTest.Green], [None], False, [[None, None]]),
+    (
+        {"x": "//", "y": "-"},
+        ["test", "a", "b"],
+        ["x", "y"],
+        False,
+        [["//", "//", "//"], ["-", "-", "-"]],
+    ),
+    ({"x": "//", "y": "-"}, ["x", "y"], [None], True, [["//", "-"]]),
+    (
+        None,
+        ["test", "a", "b"],
+        ["x", "y"],
+        False,
+        [[None, None, None], [None, None, None]],
+    ),
 ]
 
 

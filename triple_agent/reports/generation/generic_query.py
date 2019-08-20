@@ -65,19 +65,21 @@ def populate_data_properties(
         data_query.percent_normalized_data,
     )
 
-    data_props.frame, data_props.stacks_are_categories = create_initial_data_frame(
-        data_dictionary
-    )
+    data_props.frame = create_initial_data_frame(data_dictionary)
+
     data_props.frame = sort_and_limit_frame_categories(
         data_props.frame,
-        data_query.category_data_order,
-        data_query.category_name_order,
-        data_query.reversed_categories,
+        data_query.category_order,
+        data_query.reverse_category_order,
         data_query.limit,
     )
 
-    data_props.frame = sort_frame_stacks(
-        data_props.frame, data_query.stack_order, data_props.stacks_are_categories
-    )
+    data_props.frame = sort_frame_stacks(data_props.frame, data_query.stack_order)
+
+    _, num_columns = data_props.frame.shape
+
+    if num_columns == 1:
+        data_props.stacks_are_categories = True
+        data_props.frame = data_props.frame.transpose()
 
     return axis_properties, data_props

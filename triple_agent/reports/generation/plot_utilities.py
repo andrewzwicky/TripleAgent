@@ -1,6 +1,6 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import Any, Union, Callable, List, Tuple, Optional, DefaultDict
+from typing import Any, Union, Callable, List, Optional, DefaultDict
 
 import pandas
 from triple_agent.classes.game import Game
@@ -9,59 +9,69 @@ from triple_agent.classes.scl_set import SCLSet
 
 def sort_frame_stacks(
     frame: pandas.DataFrame,
-    stack_order: Optional[List[Any]] = None,
-    stacks_are_categories: bool = False,
+    stack_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None,
+    reverse_stack_order: bool = False,
 ) -> pandas.DataFrame:
-    if stacks_are_categories:
-        return frame
 
-    # if nothing is supplied, use the given data_part names and sort them.
-    if stack_order is None:
+    if callable(stack_order):
+        if stack_order is sum:
+            frame = frame.reindex(
+                frame.T.sum().sort_values(kind="stable").index, axis="index"
+            )
+        else:
+            sorted_items = sorted(frame.T.items(), key=stack_order)
+            sorted_index, _ = zip(*sorted_items)
+            frame = frame.reindex(sorted_index, axis="index")
+
+    elif isinstance(stack_order, list):
+        frame = frame.reindex(stack_order, axis="index", fill_value=0)
+
+    else:
         try:
-            return frame.sort_index(axis="rows")
+            frame = frame.sort_index(axis="index")
         except TypeError:
-            # Unsortable and no order given, nothing to do here.
-            return frame
+            # unsortable and nothing supplied, leave as-is
+            pass
 
-    return frame.reindex(stack_order, axis="rows")
+    if reverse_stack_order:
+        frame = frame.iloc[::-1, :]
+
+    return frame
 
 
 def sort_and_limit_frame_categories(
     frame: pandas.DataFrame,
-    category_data_order: Optional[Any] = None,
-    category_name_order: Optional[Callable[[Any], int]] = None,
-    reversed_categories: bool = False,
+    category_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None,
+    reverse_category_order: bool = False,
     limit: Optional[int] = None,
 ) -> pandas.DataFrame:
     # sort the categories
     # data_order takes priority if both are provided
-    if category_data_order is not None:
-        if category_data_order is sum:
+    if callable(category_order):
+        if category_order is sum:
             frame = frame.reindex(
-                frame.sum().sort_values(ascending=False, kind="stable").index,
-                axis="columns",
+                frame.sum().sort_values(kind="stable").index, axis="columns"
             )
-        elif callable(category_data_order):
-            sorted_categories = sorted(
-                frame.columns, key=category_data_order, reverse=False
-            )
-            frame = frame.reindex(sorted_categories, axis="columns")
         else:
-            frame = frame.reindex(
-                frame.loc[category_data_order, :]
-                .sort_values(ascending=False, kind="stable")
-                .index,
-                axis="columns",
-            )
+            sorted_items = sorted(frame.items(), key=category_order)
+            sorted_colums, _ = zip(*sorted_items)
+            frame = frame.reindex(sorted_colums, axis="columns")
 
-    elif category_name_order is not None:
-        frame = frame.reindex(category_name_order, axis="columns", fill_value=0)
+    elif isinstance(category_order, list):
+        frame = frame.reindex(category_order, axis="columns", fill_value=0)
+
+    else:
+        try:
+            frame = frame.sort_index(axis="columns")
+        except TypeError:
+            # unsortable and nothing supplied, leave as-is
+            pass
 
     # limit categories, None is OK here, and larger than the number of columns
     frame = frame.iloc[:, :limit]
 
-    if reversed_categories:
-        frame = frame[frame.columns[::-1]]
+    if reverse_category_order:
+        frame = frame.iloc[:, ::-1]
 
     return frame
 
@@ -121,42 +131,6 @@ def populate_individual_counter(
     return category_dictionary
 
 
-def create_initial_data_frame(
-    data_dictionary: DefaultDict[Any, Counter]
-) -> Tuple[pandas.DataFrame, bool]:
-    stacks_are_categories = False
-
-    categories = list(data_dictionary.keys())
-
-    data_parts = set()
-    for inner_dict in data_dictionary.values():
-        for inner_key in inner_dict.keys():
-            data_parts.add(inner_key)
-
-    stacks = list(data_parts)
-
-    try:
-        stacks.sort()
-    except TypeError:
-        # Unosrtable types will need to be specified to be displayed in a particular order
-        pass
-
-    # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
-    frame = pandas.DataFrame(
-        data={cat: [data_dictionary[cat][s] for s in stacks] for cat in categories},
-        columns=categories,
-        index=stacks,
-    )
-
-    _, num_columns = frame.shape
-
-    if num_columns == 1:
-        stacks_are_categories = True
-        frame = frame.transpose()
-
-    return frame, stacks_are_categories
-
-
 def tableize_data_dict(
     data_dict, header_enum_type, title="", excluded_header_values=None
 ):
@@ -179,3 +153,25 @@ def tableize_data_dict(
     header_row = [title] + header_strings
 
     return data_table, header_row
+
+
+def create_initial_data_frame(
+    data_dictionary: DefaultDict[Any, Counter]
+) -> pandas.DataFrame:
+    categories = list(data_dictionary.keys())
+
+    data_parts = set()
+    for inner_dict in data_dictionary.values():
+        for inner_key in inner_dict.keys():
+            data_parts.add(inner_key)
+
+    stacks = list(data_parts)
+
+    # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
+    frame = pandas.DataFrame(
+        data={cat: [data_dictionary[cat][s] for s in stacks] for cat in categories},
+        columns=categories,
+        index=stacks,
+    )
+
+    return frame

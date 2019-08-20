@@ -229,8 +229,7 @@ def test_create_data_dictionary(
 SPECIFIC_REPORT_CASES = [
     (
         DataQueryProperties(
-            query_function=_count_mission_choices,
-            category_data_order=MISSION_PLOT_ORDER.index,
+            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER
         ),
         pandas.DataFrame(
             data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
@@ -252,9 +251,7 @@ SPECIFIC_REPORT_CASES = [
     ),
     (
         DataQueryProperties(
-            query_function=_count_mission_choices,
-            reversed_categories=True,
-            category_data_order=MISSION_PLOT_ORDER.index,
+            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER[::-1]
         ),
         pandas.DataFrame(
             data=[[4, 7, 7, 7, 8, 7, 8, 8]],
@@ -277,11 +274,30 @@ SPECIFIC_REPORT_CASES = [
         False,
     ),
     (
-        DataQueryProperties(query_function=_categorize_fp_sources),
+        DataQueryProperties(
+            query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            reverse_category_order=True,
+            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        pandas.DataFrame(
+            data=[[3, 4], [4, 4], [4, 4]],
+            columns=["zerotka", "Calvin Schoolidge"],
+            index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+        ),
+        False,
+    ),
+    (
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+            stack_order=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Books, False),
+            ],
+        ),
         pandas.DataFrame(
             data=[[1, 1]],
             index=[None],
-            # TODO: be more explicit about sort here, not sure why this is the way it is
             columns=[
                 (TimelineCategory.Statues, False),
                 (TimelineCategory.Books, False),

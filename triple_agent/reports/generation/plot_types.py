@@ -53,8 +53,10 @@ def create_line_plot(
 
     max_value = data_properties.frame.max().max()
 
-    for _, (this_data, this_color) in enumerate(
-        zip(data_properties.frame.itertuples(index=False), colors)
+    for this_data, this_color, stack_label in zip(
+        reversed(list(data_properties.frame.itertuples(index=False))),
+        reversed(colors),
+        reversed(stack_labels),
     ):
         axis.plot(
             ticks,
@@ -64,11 +66,12 @@ def create_line_plot(
             marker="o",
             markersize=12,
             linewidth=4,
+            label=stack_label,
         )
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    _create_legend_if_needed(axis, fig, stack_labels)
+    _create_legend_if_needed(axis, fig)
 
     _set_axis_properties(axis, ticks, axis_properties)
 
@@ -106,11 +109,11 @@ def create_bar_plot(
 
     max_value = max(data_properties.frame.sum())
 
-    draw_bars(axis, axis_properties, data_properties, max_value, ticks)
+    draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_labels)
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    _create_legend_if_needed(axis, fig, stack_labels)
+    _create_legend_if_needed(axis, fig)
 
     _set_axis_properties(axis, ticks, axis_properties)
 
@@ -124,7 +127,7 @@ def create_bar_plot(
         plt.show()
 
 
-def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
+def draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_labels):
     data_labels = create_data_labels(
         data_properties.frame, axis_properties.data_label_style
     )
@@ -142,11 +145,12 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
         data_properties.stacks_are_categories,
     )
     # reverse so current_bottom calculation still makes sense
-    for current_data_stack, (stack, color, row_data_labels) in enumerate(
+    for current_data_stack, (stack, color, row_data_labels, stack_label) in enumerate(
         zip(
             data_properties.frame[::-1].itertuples(index=False),
             reversed(colors),
             reversed(data_labels),
+            reversed(stack_labels),
         )
     ):
         current_bottom = (
@@ -159,21 +163,18 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks):
             bottom=current_bottom,
             color=color,
             edgecolor="black",
+            label=stack_label,
         )
 
         for tick_value_label_tuple in zip(ticks, current_bottom, row_data_labels):
             _create_data_label(axis, max_value, *tick_value_label_tuple)
 
-        apply_hatches(
-            None if hatching is None else hatching[current_data_stack], patches
-        )
+        apply_hatches(hatching[::-1][current_data_stack], patches)
 
 
 def apply_hatches(hatching, patches):
-    if hatching is not None:
-        for data_hatch, patch in zip(hatching, patches):
-            if data_hatch is not None:
-                patch.set_hatch(data_hatch)
+    for data_hatch, patch in zip(hatching, patches):
+        patch.set_hatch(data_hatch)
 
 
 def create_pie_chart(
@@ -227,7 +228,7 @@ def create_pie_chart(
         wedgeprops={"edgecolor": "k", "linewidth": 1},
     )
 
-    apply_hatches(hatching, patches)
+    apply_hatches(hatching[0], patches)
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 

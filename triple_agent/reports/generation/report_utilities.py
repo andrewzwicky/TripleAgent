@@ -29,8 +29,9 @@ def _save_fig_if_needed(fig, savefig):
         fig.savefig(savefig, bbox_inches="tight")
 
 
-def _create_legend_if_needed(axis, fig, stack_labels: Optional[List[str]]):
-    if stack_labels is not None:
+def _create_legend_if_needed(axis, fig):
+    handles, labels = axis.get_legend_handles_labels()
+    if handles:
         # resize the plot to allow size for legend.
         # increase figure by 25%
         _, height = fig.get_size_inches()
@@ -41,7 +42,11 @@ def _create_legend_if_needed(axis, fig, stack_labels: Optional[List[str]]):
         axis.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
         # Put a legend to the right of the current axis
-        axis.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
+
+        axis.legend(
+            handles[::-1], labels[::-1], loc="center left", bbox_to_anchor=(1, 0.5)
+        )
+        # s.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
 def create_category_legend_labels(
@@ -49,12 +54,15 @@ def create_category_legend_labels(
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,
-) -> Tuple[List[str], Optional[List[str]]]:
+) -> Tuple[List[str], List[Optional[str]]]:
     if stacks_are_categories:
         if data_stack_label_dict is None:
-            return list(map(labelify, columns)), None
+            return list(map(labelify, columns)), [None for _ in index]
 
-        return [data_stack_label_dict[data_part] for data_part in columns], None
+        return (
+            [data_stack_label_dict[data_part] for data_part in columns],
+            [None for _ in index],
+        )
 
     if data_stack_label_dict is None:
         return list(map(labelify, columns)), list(map(labelify, index))
@@ -109,14 +117,14 @@ def create_plot_hatching(
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,
-):
+) -> List[List[Optional[str]]]:
     if data_hatch_dict is None:
-        return None
+        return [[None for _ in columns] for _ in index]
 
     if stacks_are_categories:
-        return [data_hatch_dict[data_part] for data_part in columns]
+        return [[data_hatch_dict[data_part] for data_part in columns] for _ in index]
 
-    return [data_hatch_dict[data_part] for data_part in index]
+    return [[data_hatch_dict[data_part] for _ in columns] for data_part in index]
 
 
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):

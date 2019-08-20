@@ -1,5 +1,5 @@
 from dataclasses import dataclass, fields
-from typing import Optional, List, Callable, Any, Dict
+from typing import Optional, List, Callable, Any, Dict, Union
 from enum import Enum, auto
 import pandas
 
@@ -51,16 +51,24 @@ class DataQueryProperties:
     # DataQueryProperties are things that are used to group, sort, collect
     # filter, etc. the data PRIOR to plotting.  These items are used to create the
     # data stacks and data labels, but shouldn't be needed in actual plotting routines.
+
+    # query_function is the function that will be called for each game to collect the data.
     query_function: Callable = None
+
+    # groupby can be used to group the data into buckets, by spy or by sniper for example.
     groupby: Callable = None
 
-    stack_order: List[Any] = None
+    # stack_order and category_order can be used to control the order that the data appears in.
+    # If they are a function, they take in either a pandas Series or pandas Index and return an int.
+    # If they are a list, they will replace the existing column or index completely (retaining old data).
+    stack_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None
+    category_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None
 
-    category_name_order: Callable[[str], int] = None
-    category_data_order: Any = None
-    reversed_categories: bool = False
+    reverse_stack_order: bool = False
+    reverse_category_order: bool = False
 
     limit: Optional[int] = None
+
     percent_normalized_data: bool = False
 
     def update(self, suggested_data_query):
