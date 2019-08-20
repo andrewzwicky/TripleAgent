@@ -30,7 +30,7 @@ def _save_fig_if_needed(fig, savefig):
 
 
 def _create_legend_if_needed(axis, fig):
-    handles, labels = axis.get_legend_handles_labels()
+    handles, _ = axis.get_legend_handles_labels()
     if handles:
         # resize the plot to allow size for legend.
         # increase figure by 25%
@@ -43,9 +43,7 @@ def _create_legend_if_needed(axis, fig):
 
         # Put a legend to the right of the current axis
 
-        axis.legend(
-            handles[::-1], labels[::-1], loc="center left", bbox_to_anchor=(1, 0.5)
-        )
+        axis.legend(loc="center left", bbox_to_anchor=(1, 0.5))
         # s.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 

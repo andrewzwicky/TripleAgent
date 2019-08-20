@@ -245,9 +245,6 @@ def test_bar_stacked(test_figure, reference_figure):
     reference_figure.set_size_inches(15, 8)
     ref_ax = reference_figure.subplots()
     ref_ax.set_title("Bar")
-    ref_ax.bar(
-        [0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="red", edgecolor="black", label="Bottom"
-    )
     patches = ref_ax.bar(
         [0, 1, 2, 3, 4],
         [1, 2, 3, 1, 6],
@@ -255,6 +252,9 @@ def test_bar_stacked(test_figure, reference_figure):
         edgecolor="black",
         bottom=[4, 5, 7, 9, 2],
         label="Top",
+    )
+    ref_ax.bar(
+        [0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="red", edgecolor="black", label="Bottom"
     )
 
     for p in patches:
@@ -277,10 +277,7 @@ def test_bar_stacked(test_figure, reference_figure):
     box = ref_ax.get_position()
     ref_ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-    handles, labels = ref_ax.get_legend_handles_labels()
-    ref_ax.legend(
-        handles[::-1], labels[::-1], loc="center left", bbox_to_anchor=(1, 0.5)
-    )
+    ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
     axis_properties = AxisProperties(
         title="Bar",
@@ -309,8 +306,8 @@ def test_line_plot(test_figure, reference_figure):
     ref_ax.set_title("Bar")
     ref_ax.plot(
         [0, 1, 2, 3, 4],
-        [4, 5, 7, 9, 2],
-        color="red",
+        [1, 2, 3, 1, 6],
+        color="blue",
         linestyle="-",
         marker="o",
         markersize=12,
@@ -319,8 +316,8 @@ def test_line_plot(test_figure, reference_figure):
     )
     ref_ax.plot(
         [0, 1, 2, 3, 4],
-        [1, 2, 3, 1, 6],
-        color="blue",
+        [4, 5, 7, 9, 2],
+        color="red",
         linestyle="-",
         marker="o",
         markersize=12,
@@ -345,9 +342,7 @@ def test_line_plot(test_figure, reference_figure):
     box = ref_ax.get_position()
     ref_ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
-    handles, labels = ref_ax.get_legend_handles_labels()
-    ref_ax.legend(handles[::-1], labels, loc="center left", bbox_to_anchor=(1, 0.5))
-    # ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
+    ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
     axis_properties = AxisProperties(
         title="Bar", data_color_dict={"Bottom": "red", "Top": "blue"}

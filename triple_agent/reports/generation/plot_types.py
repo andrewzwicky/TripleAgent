@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
-
+import numpy as np
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataPlotProperties,
@@ -54,9 +54,7 @@ def create_line_plot(
     max_value = data_properties.frame.max().max()
 
     for this_data, this_color, stack_label in zip(
-        reversed(list(data_properties.frame.itertuples(index=False))),
-        reversed(colors),
-        reversed(stack_labels),
+        data_properties.frame.itertuples(index=False), colors, stack_labels
     ):
         axis.plot(
             ticks,
@@ -144,32 +142,35 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_la
         data_properties.frame.index,
         data_properties.stacks_are_categories,
     )
-    # reverse so current_bottom calculation still makes sense
-    for current_data_stack, (stack, color, row_data_labels, stack_label) in enumerate(
-        zip(
-            data_properties.frame[::-1].itertuples(index=False),
-            reversed(colors),
-            reversed(data_labels),
-            reversed(stack_labels),
-        )
-    ):
-        current_bottom = (
-            data_properties.frame[::-1].iloc[:current_data_stack].sum().values.tolist()
-        )
 
+    bottoms = data_properties.frame.iloc[::-1, :].cumsum().iloc[::-1, :].values
+
+    bottoms = np.append(
+        bottoms[1:, :], np.zeros((1, bottoms.shape[1]), int), axis=0
+    ).tolist()
+
+    # reverse so current_bottom calculation still makes sense
+    for stack, color, bottom, row_data_labels, stack_label, this_hatch in zip(
+        data_properties.frame.itertuples(index=False),
+        colors,
+        bottoms,
+        data_labels,
+        stack_labels,
+        hatching,
+    ):
         patches = axis.bar(
             x=ticks,
             height=list(stack),
-            bottom=current_bottom,
+            bottom=bottom,
             color=color,
             edgecolor="black",
             label=stack_label,
         )
 
-        for tick_value_label_tuple in zip(ticks, current_bottom, row_data_labels):
+        for tick_value_label_tuple in zip(ticks, bottom, row_data_labels):
             _create_data_label(axis, max_value, *tick_value_label_tuple)
 
-        apply_hatches(hatching[::-1][current_data_stack], patches)
+        apply_hatches(this_hatch, patches)
 
 
 def apply_hatches(hatching, patches):
