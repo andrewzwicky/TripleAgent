@@ -2,7 +2,12 @@ from collections import defaultdict, Counter
 from typing import List
 
 from triple_agent.reports.generation.plot_types import create_bar_plot
-from triple_agent.reports.generation.generic_query import query, create_initial_data_frame, sort_and_limit_frame_categories, sort_frame_stacks
+from triple_agent.reports.generation.generic_query import (
+    query,
+    create_initial_data_frame,
+    sort_and_limit_frame_categories,
+    sort_frame_stacks,
+)
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import (
     MISSIONS_ENUM_TO_COLOR,
@@ -61,24 +66,19 @@ def mission_completion(games: List[Game], title: str):
     by mission, rather than by an attribute of the game itself.  This means
     it doesn't exactly fit into the existing report workflow
     """
-
-    total_games = len(games)
-
     data_dictionary = defaultdict(Counter)
 
     _mission_completes_details(games, data_dictionary)
 
     frame = create_initial_data_frame(data_dictionary)
 
-    frame = sort_and_limit_frame_categories(
-        frame,
-        category_order=MISSION_PLOT_ORDER,
-    )
+    frame = sort_and_limit_frame_categories(frame, category_order=MISSION_PLOT_ORDER)
 
     frame = sort_frame_stacks(frame)
 
     frame = frame / frame.sum()
 
+    # total_games = len(games)
     # complete_labels = []
     # incomplete_labels = []
     #
@@ -111,7 +111,5 @@ def mission_completion(games: List[Game], title: str):
             data_color_dict={1: "xkcd:green", 2: "xkcd:eggshell", 3: "xkcd:light grey"},
             data_stack_label_dict={1: "Complete", 2: "Incomplete", 3: "Disabled"},
         ),
-        DataPlotProperties(
-            frame=frame
-        ),
+        DataPlotProperties(frame=frame),
     )
