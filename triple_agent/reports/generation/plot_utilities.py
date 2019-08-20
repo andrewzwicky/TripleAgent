@@ -67,11 +67,11 @@ def sort_and_limit_frame_categories(
             # unsortable and nothing supplied, leave as-is
             pass
 
-    # limit categories, None is OK here, and larger than the number of columns
-    frame = frame.iloc[:, :limit]
-
     if reverse_category_order:
         frame = frame.iloc[:, ::-1]
+
+    # limit categories, None is OK here, and larger than the number of columns
+    frame = frame.iloc[:, :limit]
 
     return frame
 
