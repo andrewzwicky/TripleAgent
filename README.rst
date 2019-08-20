@@ -67,6 +67,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 
 .. |py_version| image:: https://img.shields.io/badge/python-3.7-blue.svg
 .. |formatting| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+  :target: https://github.com/psf/black
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
 .. |build_status| image:: https://ci.appveyor.com/api/projects/status/github/andrewzwicky/tripleagent?branch=master&svg=true
   :target: https://ci.appveyor.com/project/andrewzwicky/tripleagent
