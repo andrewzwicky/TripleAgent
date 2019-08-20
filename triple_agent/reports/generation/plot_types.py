@@ -14,7 +14,7 @@ from triple_agent.reports.generation.report_utilities import (
     _set_axis_properties,
     _add_portrait_x_axis_if_needed,
     _save_fig_if_needed,
-    _create_data_label,
+    apply_data_labels,
     create_plot_hatching,
     create_data_labels,
 )
@@ -103,11 +103,26 @@ def create_bar_plot(
         data_properties.stacks_are_categories,
     )
 
+    hatching = create_plot_hatching(
+        axis_properties.data_hatch_dict,
+        data_properties.frame.columns,
+        data_properties.frame.index,
+        data_properties.stacks_are_categories,
+    )
+
+    data_labels = create_data_labels(
+        data_properties.frame, axis_properties.data_label_style
+    )
+
     ticks = list(range(len(data_properties.frame.columns)))
 
     max_value = max(data_properties.frame.sum())
 
-    draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_labels)
+    patches = draw_bars(axis, axis_properties, data_properties, ticks, stack_labels)
+
+    for row_hatch, row_patches, row_data_labels in zip(hatching, patches, data_labels):
+        apply_hatches(row_hatch, row_patches)
+        apply_data_labels(axis, max_value, row_patches, row_data_labels)
 
     _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
@@ -125,21 +140,11 @@ def create_bar_plot(
         plt.show()
 
 
-def draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_labels):
-    data_labels = create_data_labels(
-        data_properties.frame, axis_properties.data_label_style
-    )
+def draw_bars(axis, axis_properties, data_properties, ticks, stack_labels):
 
     colors = create_plot_colors(
         axis_properties.data_color_dict,
         data_properties.frame,
-        data_properties.stacks_are_categories,
-    )
-
-    hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
         data_properties.stacks_are_categories,
     )
 
@@ -149,28 +154,24 @@ def draw_bars(axis, axis_properties, data_properties, max_value, ticks, stack_la
         bottoms[1:, :], np.zeros((1, bottoms.shape[1]), int), axis=0
     ).tolist()
 
+    patches = []
+
     # reverse so current_bottom calculation still makes sense
-    for stack, color, bottom, row_data_labels, stack_label, this_hatch in zip(
-        data_properties.frame.itertuples(index=False),
-        colors,
-        bottoms,
-        data_labels,
-        stack_labels,
-        hatching,
+    for stack, color, bottom, stack_label in zip(
+        data_properties.frame.itertuples(index=False), colors, bottoms, stack_labels
     ):
-        patches = axis.bar(
-            x=ticks,
-            height=list(stack),
-            bottom=bottom,
-            color=color,
-            edgecolor="black",
-            label=stack_label,
+        patches.append(
+            axis.bar(
+                x=ticks,
+                height=list(stack),
+                bottom=bottom,
+                color=color,
+                edgecolor="black",
+                label=stack_label,
+            )
         )
 
-        for tick_value_label_tuple in zip(ticks, bottom, row_data_labels):
-            _create_data_label(axis, max_value, *tick_value_label_tuple)
-
-        apply_hatches(this_hatch, patches)
+    return patches
 
 
 def apply_hatches(hatching, patches):

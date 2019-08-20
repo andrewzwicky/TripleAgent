@@ -186,25 +186,26 @@ def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
     axis.set_axisbelow(True)
 
 
-def _create_data_label(axis, max_value, this_tick, this_value, this_label):
+def apply_data_labels(axis, max_value, bar_patches, row_data_labels):
     text_padding = max_value * 0.01
 
-    if this_value != 0:
-        if this_value < max_value * 0.05:
-            y_value = this_value + text_padding
-            v_align = "bottom"
-        else:
-            y_value = this_value - text_padding
-            v_align = "top"
+    for this_patch, this_label in zip(bar_patches, row_data_labels):
+        if this_patch.get_height() != 0:
+            if this_patch.get_height() < max_value * 0.05:
+                y_value = this_patch.get_height() + text_padding
+                v_align = "bottom"
+            else:
+                y_value = this_patch.get_height() - text_padding
+                v_align = "top"
 
-        axis.text(
-            this_tick,
-            y_value,
-            str(this_label),
-            color="black",
-            horizontalalignment="center",
-            verticalalignment=v_align,
-        )
+            axis.text(
+                this_patch.get_x() + (this_patch.get_width() / 2),
+                y_value,
+                str(this_label),
+                color="black",
+                horizontalalignment="center",
+                verticalalignment=v_align,
+            )
 
 
 def trim_empty_labels(
