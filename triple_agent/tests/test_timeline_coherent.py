@@ -27,6 +27,26 @@ def test_timeline_coherent_no_timeline(get_preparsed_timeline_games):
 
 @pytest.mark.parsing
 @pytest.mark.quick
+def test_timeline_coherent_no_role(get_preparsed_timeline_games):
+    game = get_preparsed_timeline_games[0]
+    assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
+    game.timeline[6].role = (None,)
+
+    assert game.is_timeline_coherent() == TimelineCoherency.CharacterNotAssignedRole
+
+
+@pytest.mark.parsing
+@pytest.mark.quick
+def test_timeline_coherent_no_role(get_preparsed_timeline_games):
+    game = get_preparsed_timeline_games[0]
+    assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
+    game.timeline[6].cast_name = (None,)
+
+    assert game.is_timeline_coherent() == TimelineCoherency.RoleWithNoCharacter
+
+
+@pytest.mark.parsing
+@pytest.mark.quick
 def test_timeline_coherent_no_game_start(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     assert game.uuid == "07WVnz3aR3i6445zgSCZjA"

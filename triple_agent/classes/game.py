@@ -108,6 +108,18 @@ class Game:
 
         return coherency
 
+    def check_roles_and_characters_align(
+        self, coherency: TimelineCoherency
+    ) -> TimelineCoherency:
+        for event in self.timeline:
+            if None in event.role and event.cast_name != (None,):
+                coherency |= TimelineCoherency.CharacterNotAssignedRole
+
+            if None in event.cast_name and event.role != (None,):
+                coherency |= TimelineCoherency.RoleWithNoCharacter
+
+        return coherency
+
     def is_timeline_coherent(self) -> TimelineCoherency:
         coherency = TimelineCoherency.Coherent
 
@@ -139,6 +151,8 @@ class Game:
         coherency = self.check_selected_missions(coherency, timeline_selected_missions)
 
         coherency = self.check_guest_count(coherency, timeline_guest_count)
+
+        coherency = self.check_roles_and_characters_align(coherency)
 
         # TODO: figure out why I added this
         # if len(self.timeline[0].role) != 1:
