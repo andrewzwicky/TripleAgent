@@ -108,7 +108,7 @@ class Game:
 
         return coherency
 
-    def check_roles_and_characters_align(
+    def check_role_character_match(
         self, coherency: TimelineCoherency
     ) -> TimelineCoherency:
         for event in self.timeline:
@@ -152,7 +152,7 @@ class Game:
 
         coherency = self.check_guest_count(coherency, timeline_guest_count)
 
-        coherency = self.check_roles_and_characters_align(coherency)
+        coherency = self.check_role_character_match(coherency)
 
         # TODO: figure out why I added this
         # if len(self.timeline[0].role) != 1:

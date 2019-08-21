@@ -37,7 +37,7 @@ def generate_external_reports(
 def spf_character_selection_report(games):
     output_dictionary = {}
 
-    for game in all_replays:
+    for game in games:
         output_dictionary[game.uuid] = defaultdict(list)
         for event in game.timeline:
             if event.category & TimelineCategory.Cast:
@@ -54,11 +54,11 @@ def spf_character_selection_report(games):
 
 
 if __name__ == "__main__":
-    all_replays = get_parsed_replays(lambda x: True)
-    scl5_replays = get_parsed_replays(select_scl5_with_drops)
+    ALL_REPLAYS = get_parsed_replays(lambda x: True)
+    SCL5_REPLAYS = get_parsed_replays(select_scl5_with_drops)
 
     generate_external_reports(
-        scl5_replays,
+        SCL5_REPLAYS,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             groupby=lambda game: game.spy,
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     )
 
     generate_external_reports(
-        all_replays,
+        ALL_REPLAYS,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             groupby=lambda game: game.spy,
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     )
 
     generate_external_reports(
-        scl5_replays,
+        SCL5_REPLAYS,
         DataQueryProperties(
             query_function=_determine_spy,
             groupby=lambda game: game.spy,
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     )
 
     generate_external_reports(
-        all_replays,
+        ALL_REPLAYS,
         DataQueryProperties(
             query_function=_determine_spy,
             groupby=lambda game: game.spy,
@@ -103,4 +103,4 @@ if __name__ == "__main__":
         os.path.join(CASTER_DATA_FOLDER, "spy_selection_all.html"),
     )
 
-    spf_character_selection_report(all_replays)
+    spf_character_selection_report(ALL_REPLAYS)
