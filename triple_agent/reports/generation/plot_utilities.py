@@ -131,30 +131,6 @@ def populate_individual_counter(
     return category_dictionary
 
 
-def tableize_data_dict(
-    data_dict, header_enum_type, title="", excluded_header_values=None
-):
-    if excluded_header_values is None:
-        excluded_header_values = []
-
-    data_table = []
-
-    header_values = [
-        val for val in header_enum_type if val not in excluded_header_values
-    ]
-    header_strings = [val.name for val in header_values]
-
-    for player, count_info in data_dict.items():
-        data_row = [player] + [count_info[val] for val in header_values]
-        data_table.append(data_row)
-
-    # sort by first item in data lists
-    data_table.sort(key=lambda row: row[0].lower())
-    header_row = [title] + header_strings
-
-    return data_table, header_row
-
-
 def create_initial_data_frame(
     data_dictionary: DefaultDict[Any, Counter]
 ) -> pandas.DataFrame:
