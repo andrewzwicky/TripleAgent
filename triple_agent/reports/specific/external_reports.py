@@ -3,6 +3,7 @@ import os
 import json
 from enum import Enum
 
+from triple_agent.classes.action_tests import AT_PREFERRED_PIE_CHART_ORDER
 from triple_agent.reports.specific.action_tests import _at_rates_excluding_difficults
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 from triple_agent.constants.events import select_scl5_with_drops
@@ -33,16 +34,15 @@ def generate_external_reports(
     data_props.frame.T.to_html(html_file_path)
 
 
-def spf_character_selection_report():
+def spf_character_selection_report(games):
     output_dictionary = {}
-
-    all_replays = get_parsed_replays(lambda x: True)
 
     for game in all_replays:
         output_dictionary[game.uuid] = defaultdict(list)
         for event in game.timeline:
             if event.category & TimelineCategory.Cast:
                 # assume there will only be one role in the cast portion
+                # assume there will be a role in the Cast timeline events.
                 output_dictionary[game.uuid][
                     event.role[0].name if event.role[0] else Roles.Civilian.name
                 ].append(event.cast_name[0].name)
@@ -54,30 +54,35 @@ def spf_character_selection_report():
 
 
 if __name__ == "__main__":
+    all_replays = get_parsed_replays(lambda x: True)
+    scl5_replays = get_parsed_replays(select_scl5_with_drops)
+
     generate_external_reports(
-        get_parsed_replays(select_scl5_with_drops),
+        scl5_replays,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             groupby=lambda game: game.spy,
             percent_normalized_data=True,
+            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
         ),
         os.path.join(CASTER_DATA_FOLDER, "action_test_scl5.json"),
         os.path.join(CASTER_DATA_FOLDER, "action_test_scl5.html"),
     )
 
     generate_external_reports(
-        get_parsed_replays(lambda x: True),
+        all_replays,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             groupby=lambda game: game.spy,
             percent_normalized_data=True,
+            stack_order=AT_PREFERRED_PIE_CHART_ORDER,
         ),
         os.path.join(CASTER_DATA_FOLDER, "action_test_all.json"),
         os.path.join(CASTER_DATA_FOLDER, "action_test_all.html"),
     )
 
     generate_external_reports(
-        get_parsed_replays(select_scl5_with_drops),
+        scl5_replays,
         DataQueryProperties(
             query_function=_determine_spy,
             groupby=lambda game: game.spy,
@@ -88,7 +93,7 @@ if __name__ == "__main__":
     )
 
     generate_external_reports(
-        get_parsed_replays(lambda x: True),
+        all_replays,
         DataQueryProperties(
             query_function=_determine_spy,
             groupby=lambda game: game.spy,
@@ -98,4 +103,4 @@ if __name__ == "__main__":
         os.path.join(CASTER_DATA_FOLDER, "spy_selection_all.html"),
     )
 
-    spf_character_selection_report()
+    spf_character_selection_report(all_replays)
