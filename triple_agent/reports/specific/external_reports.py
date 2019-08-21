@@ -44,7 +44,7 @@ def spf_character_selection_report():
             if event.category & TimelineCategory.Cast:
                 # assume there will only be one role in the cast portion
                 output_dictionary[game.uuid][
-                    event.role[0].name if event.role[0] else Roles.NoRole.name
+                    event.role[0].name if event.role[0] else Roles.Civilian.name
                 ].append(event.cast_name[0].name)
 
     with open(
