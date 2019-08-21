@@ -226,7 +226,9 @@ def separate_portraits(
                 ),
             )
 
-        roles = tuple(ROLE_COLORS_TO_ENUM.get(color, None) for color in role_colors)
+        roles = tuple(
+            ROLE_COLORS_TO_ENUM.get(color, Roles.Civilian) for color in role_colors
+        )
 
         line_image[:, first_portrait_index:last_portrait_index] = BACKGROUND_COLOR
 

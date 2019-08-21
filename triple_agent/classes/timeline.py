@@ -26,6 +26,8 @@ class TimelineCoherency(Flag):
     SelectedMissionsMismatch = auto()
     GuestCountMismatch = auto()
     SpyNotCastInBeginning = auto()
+    CharacterNotAssignedRole = auto()
+    RoleWithNoCharacter = auto()
 
 
 class TimelineCategory(Flag):

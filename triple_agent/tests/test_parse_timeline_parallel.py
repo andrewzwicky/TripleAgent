@@ -149,7 +149,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[5].elapsed_time == 0.0
     assert games[0].timeline[5].event == "civilian cast."
     assert games[0].timeline[5].mission == Missions.Zero
-    assert games[0].timeline[5].role == (None,)
+    assert games[0].timeline[5].role == (Roles.Civilian,)
     assert games[0].timeline[5].time == 225.0
 
     assert games[0].timeline[6].action_test == ActionTest.NoAT
@@ -160,7 +160,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[6].elapsed_time == 0.0
     assert games[0].timeline[6].event == "civilian cast."
     assert games[0].timeline[6].mission == Missions.Zero
-    assert games[0].timeline[6].role == (None,)
+    assert games[0].timeline[6].role == (Roles.Civilian,)
     assert games[0].timeline[6].time == 225.0
 
     assert games[0].timeline[7].action_test == ActionTest.NoAT
@@ -171,7 +171,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[7].elapsed_time == 0.0
     assert games[0].timeline[7].event == "civilian cast."
     assert games[0].timeline[7].mission == Missions.Zero
-    assert games[0].timeline[7].role == (None,)
+    assert games[0].timeline[7].role == (Roles.Civilian,)
     assert games[0].timeline[7].time == 225.0
 
     assert games[0].timeline[8].action_test == ActionTest.NoAT
@@ -182,7 +182,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[8].elapsed_time == 0.0
     assert games[0].timeline[8].event == "civilian cast."
     assert games[0].timeline[8].mission == Missions.Zero
-    assert games[0].timeline[8].role == (None,)
+    assert games[0].timeline[8].role == (Roles.Civilian,)
     assert games[0].timeline[8].time == 225.0
 
     assert games[0].timeline[9].action_test == ActionTest.NoAT
@@ -193,7 +193,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[9].elapsed_time == 0.0
     assert games[0].timeline[9].event == "civilian cast."
     assert games[0].timeline[9].mission == Missions.Zero
-    assert games[0].timeline[9].role == (None,)
+    assert games[0].timeline[9].role == (Roles.Civilian,)
     assert games[0].timeline[9].time == 225.0
 
     assert games[0].timeline[10].action_test == ActionTest.NoAT
@@ -204,7 +204,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[10].elapsed_time == 0.0
     assert games[0].timeline[10].event == "civilian cast."
     assert games[0].timeline[10].mission == Missions.Zero
-    assert games[0].timeline[10].role == (None,)
+    assert games[0].timeline[10].role == (Roles.Civilian,)
     assert games[0].timeline[10].time == 225.0
 
     assert games[0].timeline[11].action_test == ActionTest.NoAT
@@ -215,7 +215,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[11].elapsed_time == 0.0
     assert games[0].timeline[11].event == "civilian cast."
     assert games[0].timeline[11].mission == Missions.Zero
-    assert games[0].timeline[11].role == (None,)
+    assert games[0].timeline[11].role == (Roles.Civilian,)
     assert games[0].timeline[11].time == 225.0
 
     assert games[0].timeline[12].action_test == ActionTest.NoAT
@@ -226,7 +226,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[12].elapsed_time == 0.0
     assert games[0].timeline[12].event == "civilian cast."
     assert games[0].timeline[12].mission == Missions.Zero
-    assert games[0].timeline[12].role == (None,)
+    assert games[0].timeline[12].role == (Roles.Civilian,)
     assert games[0].timeline[12].time == 225.0
 
     assert games[0].timeline[13].action_test == ActionTest.NoAT
@@ -237,7 +237,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[13].elapsed_time == 0.0
     assert games[0].timeline[13].event == "civilian cast."
     assert games[0].timeline[13].mission == Missions.Zero
-    assert games[0].timeline[13].role == (None,)
+    assert games[0].timeline[13].role == (Roles.Civilian,)
     assert games[0].timeline[13].time == 225.0
 
     assert games[0].timeline[14].action_test == ActionTest.NoAT
@@ -248,7 +248,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[14].elapsed_time == 0.0
     assert games[0].timeline[14].event == "civilian cast."
     assert games[0].timeline[14].mission == Missions.Zero
-    assert games[0].timeline[14].role == (None,)
+    assert games[0].timeline[14].role == (Roles.Civilian,)
     assert games[0].timeline[14].time == 225.0
 
     assert games[0].timeline[15].action_test == ActionTest.NoAT
@@ -259,7 +259,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[15].elapsed_time == 0.0
     assert games[0].timeline[15].event == "civilian cast."
     assert games[0].timeline[15].mission == Missions.Zero
-    assert games[0].timeline[15].role == (None,)
+    assert games[0].timeline[15].role == (Roles.Civilian,)
     assert games[0].timeline[15].time == 225.0
 
     assert games[0].timeline[16].action_test == ActionTest.NoAT
@@ -270,7 +270,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[16].elapsed_time == 0.0
     assert games[0].timeline[16].event == "civilian cast."
     assert games[0].timeline[16].mission == Missions.Zero
-    assert games[0].timeline[16].role == (None,)
+    assert games[0].timeline[16].role == (Roles.Civilian,)
     assert games[0].timeline[16].time == 225.0
 
     assert games[0].timeline[17].action_test == ActionTest.NoAT
@@ -281,7 +281,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[17].elapsed_time == 0.0
     assert games[0].timeline[17].event == "civilian cast."
     assert games[0].timeline[17].mission == Missions.Zero
-    assert games[0].timeline[17].role == (None,)
+    assert games[0].timeline[17].role == (Roles.Civilian,)
     assert games[0].timeline[17].time == 225.0
 
     assert games[0].timeline[18].action_test == ActionTest.NoAT
@@ -292,7 +292,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[18].elapsed_time == 0.0
     assert games[0].timeline[18].event == "civilian cast."
     assert games[0].timeline[18].mission == Missions.Zero
-    assert games[0].timeline[18].role == (None,)
+    assert games[0].timeline[18].role == (Roles.Civilian,)
     assert games[0].timeline[18].time == 225.0
 
     assert games[0].timeline[19].action_test == ActionTest.NoAT
@@ -303,7 +303,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[19].elapsed_time == 0.0
     assert games[0].timeline[19].event == "civilian cast."
     assert games[0].timeline[19].mission == Missions.Zero
-    assert games[0].timeline[19].role == (None,)
+    assert games[0].timeline[19].role == (Roles.Civilian,)
     assert games[0].timeline[19].time == 225.0
 
     assert games[0].timeline[20].action_test == ActionTest.NoAT
@@ -314,7 +314,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[20].elapsed_time == 0.0
     assert games[0].timeline[20].event == "civilian cast."
     assert games[0].timeline[20].mission == Missions.Zero
-    assert games[0].timeline[20].role == (None,)
+    assert games[0].timeline[20].role == (Roles.Civilian,)
     assert games[0].timeline[20].time == 225.0
 
     assert games[0].timeline[21].action_test == ActionTest.NoAT
@@ -614,7 +614,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[47].elapsed_time == 11.099999999999994
     assert games[0].timeline[47].event == "marked book."
     assert games[0].timeline[47].mission == Missions.Zero
-    assert games[0].timeline[47].role == (None,)
+    assert games[0].timeline[47].role == (Roles.Civilian,)
     assert games[0].timeline[47].time == 213.9
 
     assert games[0].timeline[48].action_test == ActionTest.NoAT
@@ -661,7 +661,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[51].elapsed_time == 20.900000000000006
     assert games[0].timeline[51].event == "marked suspicious."
     assert games[0].timeline[51].mission == Missions.Zero
-    assert games[0].timeline[51].role == (None,)
+    assert games[0].timeline[51].role == (Roles.Civilian,)
     assert games[0].timeline[51].time == 204.1
 
     assert games[0].timeline[52].action_test == ActionTest.NoAT
@@ -672,7 +672,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[52].elapsed_time == 21.30000000000001
     assert games[0].timeline[52].event == "marked suspicious."
     assert games[0].timeline[52].mission == Missions.Zero
-    assert games[0].timeline[52].role == (None,)
+    assert games[0].timeline[52].role == (Roles.Civilian,)
     assert games[0].timeline[52].time == 203.7
 
     assert games[0].timeline[53].action_test == ActionTest.NoAT
@@ -683,7 +683,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[53].elapsed_time == 21.69999999999999
     assert games[0].timeline[53].event == "marked suspicious."
     assert games[0].timeline[53].mission == Missions.Zero
-    assert games[0].timeline[53].role == (None,)
+    assert games[0].timeline[53].role == (Roles.Civilian,)
     assert games[0].timeline[53].time == 203.3
 
     assert games[0].timeline[54].action_test == ActionTest.NoAT
@@ -719,7 +719,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[56].elapsed_time == 37.400000000000006
     assert games[0].timeline[56].event == "marked book."
     assert games[0].timeline[56].mission == Missions.Zero
-    assert games[0].timeline[56].role == (None,)
+    assert games[0].timeline[56].role == (Roles.Civilian,)
     assert games[0].timeline[56].time == 187.6
 
     assert games[0].timeline[57].action_test == ActionTest.NoAT
@@ -730,7 +730,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[57].elapsed_time == 40.099999999999994
     assert games[0].timeline[57].event == "marked suspicious."
     assert games[0].timeline[57].mission == Missions.Zero
-    assert games[0].timeline[57].role == (None,)
+    assert games[0].timeline[57].role == (Roles.Civilian,)
     assert games[0].timeline[57].time == 184.9
 
     assert games[0].timeline[58].action_test == ActionTest.NoAT
@@ -840,7 +840,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[67].elapsed_time == 89.9
     assert games[0].timeline[67].event == "marked suspicious."
     assert games[0].timeline[67].mission == Missions.Zero
-    assert games[0].timeline[67].role == (None,)
+    assert games[0].timeline[67].role == (Roles.Civilian,)
     assert games[0].timeline[67].time == 135.1
 
     assert games[0].timeline[68].action_test == ActionTest.NoAT
@@ -931,7 +931,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[75].elapsed_time == 126.4
     assert games[0].timeline[75].event == "marked book."
     assert games[0].timeline[75].mission == Missions.Zero
-    assert games[0].timeline[75].role == (None,)
+    assert games[0].timeline[75].role == (Roles.Civilian,)
     assert games[0].timeline[75].time == 98.6
 
     assert games[0].timeline[76].action_test == ActionTest.NoAT
@@ -942,7 +942,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[76].elapsed_time == 128.8
     assert games[0].timeline[76].event == "marked suspicious."
     assert games[0].timeline[76].mission == Missions.Zero
-    assert games[0].timeline[76].role == (None,)
+    assert games[0].timeline[76].role == (Roles.Civilian,)
     assert games[0].timeline[76].time == 96.2
 
     assert games[0].timeline[77].action_test == ActionTest.NoAT
@@ -1172,7 +1172,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[95].elapsed_time == 181.0
     assert games[0].timeline[95].event == "marked less suspicious."
     assert games[0].timeline[95].mission == Missions.Zero
-    assert games[0].timeline[95].role == (None,)
+    assert games[0].timeline[95].role == (Roles.Civilian,)
     assert games[0].timeline[95].time == 44.0
 
     assert games[0].timeline[96].action_test == ActionTest.NoAT
@@ -1183,7 +1183,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[96].elapsed_time == 198.6
     assert games[0].timeline[96].event == "marked suspicious."
     assert games[0].timeline[96].mission == Missions.Zero
-    assert games[0].timeline[96].role == (None,)
+    assert games[0].timeline[96].role == (Roles.Civilian,)
     assert games[0].timeline[96].time == 26.4
 
     assert games[0].timeline[97].action_test == ActionTest.NoAT
@@ -1326,7 +1326,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[109].elapsed_time == 213.5
     assert games[0].timeline[109].event == "marked less suspicious."
     assert games[0].timeline[109].mission == Missions.Zero
-    assert games[0].timeline[109].role == (None,)
+    assert games[0].timeline[109].role == (Roles.Civilian,)
     assert games[0].timeline[109].time == 11.5
 
     assert games[0].timeline[110].action_test == ActionTest.NoAT
@@ -1337,7 +1337,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[110].elapsed_time == 213.9
     assert games[0].timeline[110].event == "marked less suspicious."
     assert games[0].timeline[110].mission == Missions.Zero
-    assert games[0].timeline[110].role == (None,)
+    assert games[0].timeline[110].role == (Roles.Civilian,)
     assert games[0].timeline[110].time == 11.1
 
     assert games[0].timeline[111].action_test == ActionTest.NoAT
@@ -1348,7 +1348,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[111].elapsed_time == 214.3
     assert games[0].timeline[111].event == "marked less suspicious."
     assert games[0].timeline[111].mission == Missions.Zero
-    assert games[0].timeline[111].role == (None,)
+    assert games[0].timeline[111].role == (Roles.Civilian,)
     assert games[0].timeline[111].time == 10.7
 
     assert games[0].timeline[112].action_test == ActionTest.NoAT
@@ -1359,7 +1359,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[112].elapsed_time == 216.0
     assert games[0].timeline[112].event == "marked less suspicious."
     assert games[0].timeline[112].mission == Missions.Zero
-    assert games[0].timeline[112].role == (None,)
+    assert games[0].timeline[112].role == (Roles.Civilian,)
     assert games[0].timeline[112].time == 9.0
 
     assert games[0].timeline[113].action_test == ActionTest.NoAT
@@ -1370,7 +1370,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[113].elapsed_time == 216.4
     assert games[0].timeline[113].event == "marked less suspicious."
     assert games[0].timeline[113].mission == Missions.Zero
-    assert games[0].timeline[113].role == (None,)
+    assert games[0].timeline[113].role == (Roles.Civilian,)
     assert games[0].timeline[113].time == 8.6
 
     assert games[0].timeline[114].action_test == ActionTest.NoAT
@@ -1381,7 +1381,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[114].elapsed_time == 216.7
     assert games[0].timeline[114].event == "marked less suspicious."
     assert games[0].timeline[114].mission == Missions.Zero
-    assert games[0].timeline[114].role == (None,)
+    assert games[0].timeline[114].role == (Roles.Civilian,)
     assert games[0].timeline[114].time == 8.3
 
     assert games[0].timeline[115].action_test == ActionTest.NoAT
@@ -1494,7 +1494,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[5].elapsed_time == 0.0
     assert games[1].timeline[5].event == "civilian cast."
     assert games[1].timeline[5].mission == Missions.Zero
-    assert games[1].timeline[5].role == (None,)
+    assert games[1].timeline[5].role == (Roles.Civilian,)
     assert games[1].timeline[5].time == 225.0
 
     assert games[1].timeline[6].action_test == ActionTest.NoAT
@@ -1505,7 +1505,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[6].elapsed_time == 0.0
     assert games[1].timeline[6].event == "civilian cast."
     assert games[1].timeline[6].mission == Missions.Zero
-    assert games[1].timeline[6].role == (None,)
+    assert games[1].timeline[6].role == (Roles.Civilian,)
     assert games[1].timeline[6].time == 225.0
 
     assert games[1].timeline[7].action_test == ActionTest.NoAT
@@ -1516,7 +1516,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[7].elapsed_time == 0.0
     assert games[1].timeline[7].event == "civilian cast."
     assert games[1].timeline[7].mission == Missions.Zero
-    assert games[1].timeline[7].role == (None,)
+    assert games[1].timeline[7].role == (Roles.Civilian,)
     assert games[1].timeline[7].time == 225.0
 
     assert games[1].timeline[8].action_test == ActionTest.NoAT
@@ -1527,7 +1527,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[8].elapsed_time == 0.0
     assert games[1].timeline[8].event == "civilian cast."
     assert games[1].timeline[8].mission == Missions.Zero
-    assert games[1].timeline[8].role == (None,)
+    assert games[1].timeline[8].role == (Roles.Civilian,)
     assert games[1].timeline[8].time == 225.0
 
     assert games[1].timeline[9].action_test == ActionTest.NoAT
@@ -1538,7 +1538,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[9].elapsed_time == 0.0
     assert games[1].timeline[9].event == "civilian cast."
     assert games[1].timeline[9].mission == Missions.Zero
-    assert games[1].timeline[9].role == (None,)
+    assert games[1].timeline[9].role == (Roles.Civilian,)
     assert games[1].timeline[9].time == 225.0
 
     assert games[1].timeline[10].action_test == ActionTest.NoAT
@@ -1549,7 +1549,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[10].elapsed_time == 0.0
     assert games[1].timeline[10].event == "civilian cast."
     assert games[1].timeline[10].mission == Missions.Zero
-    assert games[1].timeline[10].role == (None,)
+    assert games[1].timeline[10].role == (Roles.Civilian,)
     assert games[1].timeline[10].time == 225.0
 
     assert games[1].timeline[11].action_test == ActionTest.NoAT
@@ -1560,7 +1560,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[11].elapsed_time == 0.0
     assert games[1].timeline[11].event == "civilian cast."
     assert games[1].timeline[11].mission == Missions.Zero
-    assert games[1].timeline[11].role == (None,)
+    assert games[1].timeline[11].role == (Roles.Civilian,)
     assert games[1].timeline[11].time == 225.0
 
     assert games[1].timeline[12].action_test == ActionTest.NoAT
@@ -1571,7 +1571,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[12].elapsed_time == 0.0
     assert games[1].timeline[12].event == "civilian cast."
     assert games[1].timeline[12].mission == Missions.Zero
-    assert games[1].timeline[12].role == (None,)
+    assert games[1].timeline[12].role == (Roles.Civilian,)
     assert games[1].timeline[12].time == 225.0
 
     assert games[1].timeline[13].action_test == ActionTest.NoAT
@@ -1582,7 +1582,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[13].elapsed_time == 0.0
     assert games[1].timeline[13].event == "civilian cast."
     assert games[1].timeline[13].mission == Missions.Zero
-    assert games[1].timeline[13].role == (None,)
+    assert games[1].timeline[13].role == (Roles.Civilian,)
     assert games[1].timeline[13].time == 225.0
 
     assert games[1].timeline[14].action_test == ActionTest.NoAT
@@ -1593,7 +1593,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[14].elapsed_time == 0.0
     assert games[1].timeline[14].event == "civilian cast."
     assert games[1].timeline[14].mission == Missions.Zero
-    assert games[1].timeline[14].role == (None,)
+    assert games[1].timeline[14].role == (Roles.Civilian,)
     assert games[1].timeline[14].time == 225.0
 
     assert games[1].timeline[15].action_test == ActionTest.NoAT
@@ -1604,7 +1604,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[15].elapsed_time == 0.0
     assert games[1].timeline[15].event == "civilian cast."
     assert games[1].timeline[15].mission == Missions.Zero
-    assert games[1].timeline[15].role == (None,)
+    assert games[1].timeline[15].role == (Roles.Civilian,)
     assert games[1].timeline[15].time == 225.0
 
     assert games[1].timeline[16].action_test == ActionTest.NoAT
@@ -1615,7 +1615,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[16].elapsed_time == 0.0
     assert games[1].timeline[16].event == "civilian cast."
     assert games[1].timeline[16].mission == Missions.Zero
-    assert games[1].timeline[16].role == (None,)
+    assert games[1].timeline[16].role == (Roles.Civilian,)
     assert games[1].timeline[16].time == 225.0
 
     assert games[1].timeline[17].action_test == ActionTest.NoAT
@@ -1626,7 +1626,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[17].elapsed_time == 0.0
     assert games[1].timeline[17].event == "civilian cast."
     assert games[1].timeline[17].mission == Missions.Zero
-    assert games[1].timeline[17].role == (None,)
+    assert games[1].timeline[17].role == (Roles.Civilian,)
     assert games[1].timeline[17].time == 225.0
 
     assert games[1].timeline[18].action_test == ActionTest.NoAT
@@ -1637,7 +1637,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[18].elapsed_time == 0.0
     assert games[1].timeline[18].event == "civilian cast."
     assert games[1].timeline[18].mission == Missions.Zero
-    assert games[1].timeline[18].role == (None,)
+    assert games[1].timeline[18].role == (Roles.Civilian,)
     assert games[1].timeline[18].time == 225.0
 
     assert games[1].timeline[19].action_test == ActionTest.NoAT
@@ -1648,7 +1648,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[19].elapsed_time == 0.0
     assert games[1].timeline[19].event == "civilian cast."
     assert games[1].timeline[19].mission == Missions.Zero
-    assert games[1].timeline[19].role == (None,)
+    assert games[1].timeline[19].role == (Roles.Civilian,)
     assert games[1].timeline[19].time == 225.0
 
     assert games[1].timeline[20].action_test == ActionTest.NoAT
@@ -1659,7 +1659,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[20].elapsed_time == 0.0
     assert games[1].timeline[20].event == "civilian cast."
     assert games[1].timeline[20].mission == Missions.Zero
-    assert games[1].timeline[20].role == (None,)
+    assert games[1].timeline[20].role == (Roles.Civilian,)
     assert games[1].timeline[20].time == 225.0
 
     assert games[1].timeline[21].action_test == ActionTest.NoAT
@@ -1890,7 +1890,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[41].elapsed_time == 11.5
     assert games[1].timeline[41].event == "marked suspicious."
     assert games[1].timeline[41].mission == Missions.Zero
-    assert games[1].timeline[41].role == (None,)
+    assert games[1].timeline[41].role == (Roles.Civilian,)
     assert games[1].timeline[41].time == 213.5
 
     assert games[1].timeline[42].action_test == ActionTest.NoAT
@@ -1901,7 +1901,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[42].elapsed_time == 12.300000000000011
     assert games[1].timeline[42].event == "marked suspicious."
     assert games[1].timeline[42].mission == Missions.Zero
-    assert games[1].timeline[42].role == (None,)
+    assert games[1].timeline[42].role == (Roles.Civilian,)
     assert games[1].timeline[42].time == 212.7
 
     assert games[1].timeline[43].action_test == ActionTest.NoAT
@@ -1945,7 +1945,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[46].elapsed_time == 27.69999999999999
     assert games[1].timeline[46].event == "marked suspicious."
     assert games[1].timeline[46].mission == Missions.Zero
-    assert games[1].timeline[46].role == (None,)
+    assert games[1].timeline[46].role == (Roles.Civilian,)
     assert games[1].timeline[46].time == 197.3
 
     assert games[1].timeline[47].action_test == ActionTest.NoAT
@@ -2088,7 +2088,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[58].elapsed_time == 61.900000000000006
     assert games[1].timeline[58].event == "marked less suspicious."
     assert games[1].timeline[58].mission == Missions.Zero
-    assert games[1].timeline[58].role == (None,)
+    assert games[1].timeline[58].role == (Roles.Civilian,)
     assert games[1].timeline[58].time == 163.1
 
     assert games[1].timeline[59].action_test == ActionTest.NoAT
@@ -2198,7 +2198,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[68].elapsed_time == 91.6
     assert games[1].timeline[68].event == "marked less suspicious."
     assert games[1].timeline[68].mission == Missions.Zero
-    assert games[1].timeline[68].role == (None,)
+    assert games[1].timeline[68].role == (Roles.Civilian,)
     assert games[1].timeline[68].time == 178.4
 
     assert games[1].timeline[69].action_test == ActionTest.NoAT
@@ -2322,7 +2322,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[5].elapsed_time == 0.0
     assert games[2].timeline[5].event == "civilian cast."
     assert games[2].timeline[5].mission == Missions.Zero
-    assert games[2].timeline[5].role == (None,)
+    assert games[2].timeline[5].role == (Roles.Civilian,)
     assert games[2].timeline[5].time == 225.0
 
     assert games[2].timeline[6].action_test == ActionTest.NoAT
@@ -2333,7 +2333,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[6].elapsed_time == 0.0
     assert games[2].timeline[6].event == "civilian cast."
     assert games[2].timeline[6].mission == Missions.Zero
-    assert games[2].timeline[6].role == (None,)
+    assert games[2].timeline[6].role == (Roles.Civilian,)
     assert games[2].timeline[6].time == 225.0
 
     assert games[2].timeline[7].action_test == ActionTest.NoAT
@@ -2344,7 +2344,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[7].elapsed_time == 0.0
     assert games[2].timeline[7].event == "civilian cast."
     assert games[2].timeline[7].mission == Missions.Zero
-    assert games[2].timeline[7].role == (None,)
+    assert games[2].timeline[7].role == (Roles.Civilian,)
     assert games[2].timeline[7].time == 225.0
 
     assert games[2].timeline[8].action_test == ActionTest.NoAT
@@ -2355,7 +2355,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[8].elapsed_time == 0.0
     assert games[2].timeline[8].event == "civilian cast."
     assert games[2].timeline[8].mission == Missions.Zero
-    assert games[2].timeline[8].role == (None,)
+    assert games[2].timeline[8].role == (Roles.Civilian,)
     assert games[2].timeline[8].time == 225.0
 
     assert games[2].timeline[9].action_test == ActionTest.NoAT
@@ -2366,7 +2366,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[9].elapsed_time == 0.0
     assert games[2].timeline[9].event == "civilian cast."
     assert games[2].timeline[9].mission == Missions.Zero
-    assert games[2].timeline[9].role == (None,)
+    assert games[2].timeline[9].role == (Roles.Civilian,)
     assert games[2].timeline[9].time == 225.0
 
     assert games[2].timeline[10].action_test == ActionTest.NoAT
@@ -2377,7 +2377,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[10].elapsed_time == 0.0
     assert games[2].timeline[10].event == "civilian cast."
     assert games[2].timeline[10].mission == Missions.Zero
-    assert games[2].timeline[10].role == (None,)
+    assert games[2].timeline[10].role == (Roles.Civilian,)
     assert games[2].timeline[10].time == 225.0
 
     assert games[2].timeline[11].action_test == ActionTest.NoAT
@@ -2388,7 +2388,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[11].elapsed_time == 0.0
     assert games[2].timeline[11].event == "civilian cast."
     assert games[2].timeline[11].mission == Missions.Zero
-    assert games[2].timeline[11].role == (None,)
+    assert games[2].timeline[11].role == (Roles.Civilian,)
     assert games[2].timeline[11].time == 225.0
 
     assert games[2].timeline[12].action_test == ActionTest.NoAT
@@ -2399,7 +2399,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[12].elapsed_time == 0.0
     assert games[2].timeline[12].event == "civilian cast."
     assert games[2].timeline[12].mission == Missions.Zero
-    assert games[2].timeline[12].role == (None,)
+    assert games[2].timeline[12].role == (Roles.Civilian,)
     assert games[2].timeline[12].time == 225.0
 
     assert games[2].timeline[13].action_test == ActionTest.NoAT
@@ -2410,7 +2410,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[13].elapsed_time == 0.0
     assert games[2].timeline[13].event == "civilian cast."
     assert games[2].timeline[13].mission == Missions.Zero
-    assert games[2].timeline[13].role == (None,)
+    assert games[2].timeline[13].role == (Roles.Civilian,)
     assert games[2].timeline[13].time == 225.0
 
     assert games[2].timeline[14].action_test == ActionTest.NoAT
@@ -2421,7 +2421,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[14].elapsed_time == 0.0
     assert games[2].timeline[14].event == "civilian cast."
     assert games[2].timeline[14].mission == Missions.Zero
-    assert games[2].timeline[14].role == (None,)
+    assert games[2].timeline[14].role == (Roles.Civilian,)
     assert games[2].timeline[14].time == 225.0
 
     assert games[2].timeline[15].action_test == ActionTest.NoAT
@@ -2432,7 +2432,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[15].elapsed_time == 0.0
     assert games[2].timeline[15].event == "civilian cast."
     assert games[2].timeline[15].mission == Missions.Zero
-    assert games[2].timeline[15].role == (None,)
+    assert games[2].timeline[15].role == (Roles.Civilian,)
     assert games[2].timeline[15].time == 225.0
 
     assert games[2].timeline[16].action_test == ActionTest.NoAT
@@ -2443,7 +2443,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[16].elapsed_time == 0.0
     assert games[2].timeline[16].event == "civilian cast."
     assert games[2].timeline[16].mission == Missions.Zero
-    assert games[2].timeline[16].role == (None,)
+    assert games[2].timeline[16].role == (Roles.Civilian,)
     assert games[2].timeline[16].time == 225.0
 
     assert games[2].timeline[17].action_test == ActionTest.NoAT
@@ -2454,7 +2454,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[17].elapsed_time == 0.0
     assert games[2].timeline[17].event == "civilian cast."
     assert games[2].timeline[17].mission == Missions.Zero
-    assert games[2].timeline[17].role == (None,)
+    assert games[2].timeline[17].role == (Roles.Civilian,)
     assert games[2].timeline[17].time == 225.0
 
     assert games[2].timeline[18].action_test == ActionTest.NoAT
@@ -2465,7 +2465,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[18].elapsed_time == 0.0
     assert games[2].timeline[18].event == "civilian cast."
     assert games[2].timeline[18].mission == Missions.Zero
-    assert games[2].timeline[18].role == (None,)
+    assert games[2].timeline[18].role == (Roles.Civilian,)
     assert games[2].timeline[18].time == 225.0
 
     assert games[2].timeline[19].action_test == ActionTest.NoAT
@@ -2476,7 +2476,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[19].elapsed_time == 0.0
     assert games[2].timeline[19].event == "civilian cast."
     assert games[2].timeline[19].mission == Missions.Zero
-    assert games[2].timeline[19].role == (None,)
+    assert games[2].timeline[19].role == (Roles.Civilian,)
     assert games[2].timeline[19].time == 225.0
 
     assert games[2].timeline[20].action_test == ActionTest.NoAT
@@ -2487,7 +2487,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[20].elapsed_time == 0.0
     assert games[2].timeline[20].event == "civilian cast."
     assert games[2].timeline[20].mission == Missions.Zero
-    assert games[2].timeline[20].role == (None,)
+    assert games[2].timeline[20].role == (Roles.Civilian,)
     assert games[2].timeline[20].time == 225.0
 
     assert games[2].timeline[21].action_test == ActionTest.NoAT
@@ -2718,7 +2718,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[41].elapsed_time == 4.400000000000006
     assert games[2].timeline[41].event == "marked suspicious."
     assert games[2].timeline[41].mission == Missions.Zero
-    assert games[2].timeline[41].role == (None,)
+    assert games[2].timeline[41].role == (Roles.Civilian,)
     assert games[2].timeline[41].time == 220.6
 
     assert games[2].timeline[42].action_test == ActionTest.NoAT
@@ -2798,7 +2798,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[48].elapsed_time == 17.900000000000006
     assert games[2].timeline[48].event == "marked book."
     assert games[2].timeline[48].mission == Missions.Zero
-    assert games[2].timeline[48].role == (None,)
+    assert games[2].timeline[48].role == (Roles.Civilian,)
     assert games[2].timeline[48].time == 207.1
 
     assert games[2].timeline[49].action_test == ActionTest.NoAT
@@ -2812,7 +2812,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[49].elapsed_time == 22.099999999999994
     assert games[2].timeline[49].event == "marked book."
     assert games[2].timeline[49].mission == Missions.Zero
-    assert games[2].timeline[49].role == (None,)
+    assert games[2].timeline[49].role == (Roles.Civilian,)
     assert games[2].timeline[49].time == 202.9
 
     assert games[2].timeline[50].action_test == ActionTest.NoAT
@@ -2826,7 +2826,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[50].elapsed_time == 23.69999999999999
     assert games[2].timeline[50].event == "marked book."
     assert games[2].timeline[50].mission == Missions.Zero
-    assert games[2].timeline[50].role == (None,)
+    assert games[2].timeline[50].role == (Roles.Civilian,)
     assert games[2].timeline[50].time == 201.3
 
     assert games[2].timeline[51].action_test == ActionTest.NoAT
@@ -2859,7 +2859,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[53].elapsed_time == 26.69999999999999
     assert games[2].timeline[53].event == "marked suspicious."
     assert games[2].timeline[53].mission == Missions.Zero
-    assert games[2].timeline[53].role == (None,)
+    assert games[2].timeline[53].role == (Roles.Civilian,)
     assert games[2].timeline[53].time == 198.3
 
     assert games[2].timeline[54].action_test == ActionTest.NoAT
@@ -2881,7 +2881,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[55].elapsed_time == 41.5
     assert games[2].timeline[55].event == "marked suspicious."
     assert games[2].timeline[55].mission == Missions.Zero
-    assert games[2].timeline[55].role == (None,)
+    assert games[2].timeline[55].role == (Roles.Civilian,)
     assert games[2].timeline[55].time == 183.5
 
     assert games[2].timeline[56].action_test == ActionTest.NoAT
@@ -2917,7 +2917,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[58].elapsed_time == 58.599999999999994
     assert games[2].timeline[58].event == "marked book."
     assert games[2].timeline[58].mission == Missions.Zero
-    assert games[2].timeline[58].role == (None,)
+    assert games[2].timeline[58].role == (Roles.Civilian,)
     assert games[2].timeline[58].time == 166.4
 
     assert games[2].timeline[59].action_test == ActionTest.NoAT
@@ -2975,7 +2975,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[63].elapsed_time == 72.69999999999999
     assert games[2].timeline[63].event == "marked book."
     assert games[2].timeline[63].mission == Missions.Zero
-    assert games[2].timeline[63].role == (None,)
+    assert games[2].timeline[63].role == (Roles.Civilian,)
     assert games[2].timeline[63].time == 152.3
 
     assert games[2].timeline[64].action_test == ActionTest.NoAT
@@ -3008,7 +3008,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[66].elapsed_time == 93.5
     assert games[2].timeline[66].event == "marked suspicious."
     assert games[2].timeline[66].mission == Missions.Zero
-    assert games[2].timeline[66].role == (None,)
+    assert games[2].timeline[66].role == (Roles.Civilian,)
     assert games[2].timeline[66].time == 131.5
 
     assert games[2].timeline[67].action_test == ActionTest.NoAT
@@ -3019,7 +3019,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[67].elapsed_time == 94.30000000000001
     assert games[2].timeline[67].event == "marked suspicious."
     assert games[2].timeline[67].mission == Missions.Zero
-    assert games[2].timeline[67].role == (None,)
+    assert games[2].timeline[67].role == (Roles.Civilian,)
     assert games[2].timeline[67].time == 130.7
 
     assert games[2].timeline[68].action_test == ActionTest.NoAT
@@ -3030,7 +3030,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[68].elapsed_time == 94.6
     assert games[2].timeline[68].event == "marked neutral suspicion."
     assert games[2].timeline[68].mission == Missions.Zero
-    assert games[2].timeline[68].role == (None,)
+    assert games[2].timeline[68].role == (Roles.Civilian,)
     assert games[2].timeline[68].time == 130.4
 
     assert games[2].timeline[69].action_test == ActionTest.NoAT
@@ -3121,7 +3121,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[76].elapsed_time == 114.3
     assert games[2].timeline[76].event == "marked book."
     assert games[2].timeline[76].mission == Missions.Zero
-    assert games[2].timeline[76].role == (None,)
+    assert games[2].timeline[76].role == (Roles.Civilian,)
     assert games[2].timeline[76].time == 110.7
 
     assert games[2].timeline[77].action_test == ActionTest.NoAT
@@ -3270,7 +3270,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[89].elapsed_time == 153.3
     assert games[2].timeline[89].event == "marked book."
     assert games[2].timeline[89].mission == Missions.Zero
-    assert games[2].timeline[89].role == (None,)
+    assert games[2].timeline[89].role == (Roles.Civilian,)
     assert games[2].timeline[89].time == 71.7
 
     assert games[2].timeline[90].action_test == ActionTest.NoAT
@@ -3379,7 +3379,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[97].elapsed_time == 164.1
     assert games[2].timeline[97].event == "marked book."
     assert games[2].timeline[97].mission == Missions.Zero
-    assert games[2].timeline[97].role == (None,)
+    assert games[2].timeline[97].role == (Roles.Civilian,)
     assert games[2].timeline[97].time == 60.9
 
     assert games[2].timeline[98].action_test == ActionTest.NoAT
@@ -3456,7 +3456,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[104].elapsed_time == 175.6
     assert games[2].timeline[104].event == "marked suspicious."
     assert games[2].timeline[104].mission == Missions.Zero
-    assert games[2].timeline[104].role == (None,)
+    assert games[2].timeline[104].role == (Roles.Civilian,)
     assert games[2].timeline[104].time == 49.4
 
     assert games[2].timeline[105].action_test == ActionTest.NoAT
@@ -3489,7 +3489,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[107].elapsed_time == 177.0
     assert games[2].timeline[107].event == "marked less suspicious."
     assert games[2].timeline[107].mission == Missions.Zero
-    assert games[2].timeline[107].role == (None,)
+    assert games[2].timeline[107].role == (Roles.Civilian,)
     assert games[2].timeline[107].time == 48.0
 
     assert games[2].timeline[108].action_test == ActionTest.NoAT
@@ -3500,7 +3500,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[108].elapsed_time == 177.3
     assert games[2].timeline[108].event == "marked less suspicious."
     assert games[2].timeline[108].mission == Missions.Zero
-    assert games[2].timeline[108].role == (None,)
+    assert games[2].timeline[108].role == (Roles.Civilian,)
     assert games[2].timeline[108].time == 47.7
 
     assert games[2].timeline[109].action_test == ActionTest.NoAT
@@ -3511,7 +3511,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[109].elapsed_time == 178.4
     assert games[2].timeline[109].event == "marked less suspicious."
     assert games[2].timeline[109].mission == Missions.Zero
-    assert games[2].timeline[109].role == (None,)
+    assert games[2].timeline[109].role == (Roles.Civilian,)
     assert games[2].timeline[109].time == 46.6
 
     assert games[2].timeline[110].action_test == ActionTest.NoAT
@@ -3522,7 +3522,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[110].elapsed_time == 178.8
     assert games[2].timeline[110].event == "marked less suspicious."
     assert games[2].timeline[110].mission == Missions.Zero
-    assert games[2].timeline[110].role == (None,)
+    assert games[2].timeline[110].role == (Roles.Civilian,)
     assert games[2].timeline[110].time == 46.2
 
     assert games[2].timeline[111].action_test == ActionTest.NoAT
@@ -3533,7 +3533,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[111].elapsed_time == 179.7
     assert games[2].timeline[111].event == "marked less suspicious."
     assert games[2].timeline[111].mission == Missions.Zero
-    assert games[2].timeline[111].role == (None,)
+    assert games[2].timeline[111].role == (Roles.Civilian,)
     assert games[2].timeline[111].time == 45.3
 
     assert games[2].timeline[112].action_test == ActionTest.NoAT
@@ -3544,7 +3544,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[112].elapsed_time == 181.0
     assert games[2].timeline[112].event == "marked less suspicious."
     assert games[2].timeline[112].mission == Missions.Zero
-    assert games[2].timeline[112].role == (None,)
+    assert games[2].timeline[112].role == (Roles.Civilian,)
     assert games[2].timeline[112].time == 44.0
 
     assert games[2].timeline[113].action_test == ActionTest.NoAT
@@ -3555,7 +3555,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[113].elapsed_time == 181.8
     assert games[2].timeline[113].event == "marked less suspicious."
     assert games[2].timeline[113].mission == Missions.Zero
-    assert games[2].timeline[113].role == (None,)
+    assert games[2].timeline[113].role == (Roles.Civilian,)
     assert games[2].timeline[113].time == 43.2
 
     assert games[2].timeline[114].action_test == ActionTest.NoAT
@@ -3566,7 +3566,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[114].elapsed_time == 182.4
     assert games[2].timeline[114].event == "marked less suspicious."
     assert games[2].timeline[114].mission == Missions.Zero
-    assert games[2].timeline[114].role == (None,)
+    assert games[2].timeline[114].role == (Roles.Civilian,)
     assert games[2].timeline[114].time == 42.6
 
     assert games[2].timeline[115].action_test == ActionTest.NoAT
@@ -3577,7 +3577,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[115].elapsed_time == 183.7
     assert games[2].timeline[115].event == "marked less suspicious."
     assert games[2].timeline[115].mission == Missions.Zero
-    assert games[2].timeline[115].role == (None,)
+    assert games[2].timeline[115].role == (Roles.Civilian,)
     assert games[2].timeline[115].time == 41.3
 
     assert games[2].timeline[116].action_test == ActionTest.NoAT
@@ -3588,7 +3588,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[116].elapsed_time == 184.7
     assert games[2].timeline[116].event == "marked less suspicious."
     assert games[2].timeline[116].mission == Missions.Zero
-    assert games[2].timeline[116].role == (None,)
+    assert games[2].timeline[116].role == (Roles.Civilian,)
     assert games[2].timeline[116].time == 40.3
 
     assert games[2].timeline[117].action_test == ActionTest.NoAT
@@ -3599,7 +3599,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[117].elapsed_time == 185.2
     assert games[2].timeline[117].event == "marked less suspicious."
     assert games[2].timeline[117].mission == Missions.Zero
-    assert games[2].timeline[117].role == (None,)
+    assert games[2].timeline[117].role == (Roles.Civilian,)
     assert games[2].timeline[117].time == 39.8
 
     assert games[2].timeline[118].action_test == ActionTest.NoAT
@@ -3610,7 +3610,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[118].elapsed_time == 186.0
     assert games[2].timeline[118].event == "marked suspicious."
     assert games[2].timeline[118].mission == Missions.Zero
-    assert games[2].timeline[118].role == (None,)
+    assert games[2].timeline[118].role == (Roles.Civilian,)
     assert games[2].timeline[118].time == 39.0
 
     assert games[2].timeline[119].action_test == ActionTest.NoAT
@@ -3621,7 +3621,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[119].elapsed_time == 188.7
     assert games[2].timeline[119].event == "marked suspicious."
     assert games[2].timeline[119].mission == Missions.Zero
-    assert games[2].timeline[119].role == (None,)
+    assert games[2].timeline[119].role == (Roles.Civilian,)
     assert games[2].timeline[119].time == 36.3
 
     assert games[2].timeline[120].action_test == ActionTest.NoAT
@@ -3866,7 +3866,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[5].elapsed_time == 0.0
     assert games[3].timeline[5].event == "civilian cast."
     assert games[3].timeline[5].mission == Missions.Zero
-    assert games[3].timeline[5].role == (None,)
+    assert games[3].timeline[5].role == (Roles.Civilian,)
     assert games[3].timeline[5].time == 225.0
 
     assert games[3].timeline[6].action_test == ActionTest.NoAT
@@ -3877,7 +3877,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[6].elapsed_time == 0.0
     assert games[3].timeline[6].event == "civilian cast."
     assert games[3].timeline[6].mission == Missions.Zero
-    assert games[3].timeline[6].role == (None,)
+    assert games[3].timeline[6].role == (Roles.Civilian,)
     assert games[3].timeline[6].time == 225.0
 
     assert games[3].timeline[7].action_test == ActionTest.NoAT
@@ -3888,7 +3888,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[7].elapsed_time == 0.0
     assert games[3].timeline[7].event == "civilian cast."
     assert games[3].timeline[7].mission == Missions.Zero
-    assert games[3].timeline[7].role == (None,)
+    assert games[3].timeline[7].role == (Roles.Civilian,)
     assert games[3].timeline[7].time == 225.0
 
     assert games[3].timeline[8].action_test == ActionTest.NoAT
@@ -3899,7 +3899,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[8].elapsed_time == 0.0
     assert games[3].timeline[8].event == "civilian cast."
     assert games[3].timeline[8].mission == Missions.Zero
-    assert games[3].timeline[8].role == (None,)
+    assert games[3].timeline[8].role == (Roles.Civilian,)
     assert games[3].timeline[8].time == 225.0
 
     assert games[3].timeline[9].action_test == ActionTest.NoAT
@@ -3910,7 +3910,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[9].elapsed_time == 0.0
     assert games[3].timeline[9].event == "civilian cast."
     assert games[3].timeline[9].mission == Missions.Zero
-    assert games[3].timeline[9].role == (None,)
+    assert games[3].timeline[9].role == (Roles.Civilian,)
     assert games[3].timeline[9].time == 225.0
 
     assert games[3].timeline[10].action_test == ActionTest.NoAT
@@ -3921,7 +3921,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[10].elapsed_time == 0.0
     assert games[3].timeline[10].event == "civilian cast."
     assert games[3].timeline[10].mission == Missions.Zero
-    assert games[3].timeline[10].role == (None,)
+    assert games[3].timeline[10].role == (Roles.Civilian,)
     assert games[3].timeline[10].time == 225.0
 
     assert games[3].timeline[11].action_test == ActionTest.NoAT
@@ -3932,7 +3932,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[11].elapsed_time == 0.0
     assert games[3].timeline[11].event == "civilian cast."
     assert games[3].timeline[11].mission == Missions.Zero
-    assert games[3].timeline[11].role == (None,)
+    assert games[3].timeline[11].role == (Roles.Civilian,)
     assert games[3].timeline[11].time == 225.0
 
     assert games[3].timeline[12].action_test == ActionTest.NoAT
@@ -3943,7 +3943,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[12].elapsed_time == 0.0
     assert games[3].timeline[12].event == "civilian cast."
     assert games[3].timeline[12].mission == Missions.Zero
-    assert games[3].timeline[12].role == (None,)
+    assert games[3].timeline[12].role == (Roles.Civilian,)
     assert games[3].timeline[12].time == 225.0
 
     assert games[3].timeline[13].action_test == ActionTest.NoAT
@@ -3954,7 +3954,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[13].elapsed_time == 0.0
     assert games[3].timeline[13].event == "civilian cast."
     assert games[3].timeline[13].mission == Missions.Zero
-    assert games[3].timeline[13].role == (None,)
+    assert games[3].timeline[13].role == (Roles.Civilian,)
     assert games[3].timeline[13].time == 225.0
 
     assert games[3].timeline[14].action_test == ActionTest.NoAT
@@ -3965,7 +3965,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[14].elapsed_time == 0.0
     assert games[3].timeline[14].event == "civilian cast."
     assert games[3].timeline[14].mission == Missions.Zero
-    assert games[3].timeline[14].role == (None,)
+    assert games[3].timeline[14].role == (Roles.Civilian,)
     assert games[3].timeline[14].time == 225.0
 
     assert games[3].timeline[15].action_test == ActionTest.NoAT
@@ -3976,7 +3976,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[15].elapsed_time == 0.0
     assert games[3].timeline[15].event == "civilian cast."
     assert games[3].timeline[15].mission == Missions.Zero
-    assert games[3].timeline[15].role == (None,)
+    assert games[3].timeline[15].role == (Roles.Civilian,)
     assert games[3].timeline[15].time == 225.0
 
     assert games[3].timeline[16].action_test == ActionTest.NoAT
@@ -3987,7 +3987,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[16].elapsed_time == 0.0
     assert games[3].timeline[16].event == "civilian cast."
     assert games[3].timeline[16].mission == Missions.Zero
-    assert games[3].timeline[16].role == (None,)
+    assert games[3].timeline[16].role == (Roles.Civilian,)
     assert games[3].timeline[16].time == 225.0
 
     assert games[3].timeline[17].action_test == ActionTest.NoAT
@@ -3998,7 +3998,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[17].elapsed_time == 0.0
     assert games[3].timeline[17].event == "civilian cast."
     assert games[3].timeline[17].mission == Missions.Zero
-    assert games[3].timeline[17].role == (None,)
+    assert games[3].timeline[17].role == (Roles.Civilian,)
     assert games[3].timeline[17].time == 225.0
 
     assert games[3].timeline[18].action_test == ActionTest.NoAT
@@ -4009,7 +4009,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[18].elapsed_time == 0.0
     assert games[3].timeline[18].event == "civilian cast."
     assert games[3].timeline[18].mission == Missions.Zero
-    assert games[3].timeline[18].role == (None,)
+    assert games[3].timeline[18].role == (Roles.Civilian,)
     assert games[3].timeline[18].time == 225.0
 
     assert games[3].timeline[19].action_test == ActionTest.NoAT
@@ -4020,7 +4020,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[19].elapsed_time == 0.0
     assert games[3].timeline[19].event == "civilian cast."
     assert games[3].timeline[19].mission == Missions.Zero
-    assert games[3].timeline[19].role == (None,)
+    assert games[3].timeline[19].role == (Roles.Civilian,)
     assert games[3].timeline[19].time == 225.0
 
     assert games[3].timeline[20].action_test == ActionTest.NoAT
@@ -4031,7 +4031,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[20].elapsed_time == 0.0
     assert games[3].timeline[20].event == "civilian cast."
     assert games[3].timeline[20].mission == Missions.Zero
-    assert games[3].timeline[20].role == (None,)
+    assert games[3].timeline[20].role == (Roles.Civilian,)
     assert games[3].timeline[20].time == 225.0
 
     assert games[3].timeline[21].action_test == ActionTest.NoAT
@@ -4229,7 +4229,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[38].elapsed_time == 3.4000000000000057
     assert games[3].timeline[38].event == "marked suspicious."
     assert games[3].timeline[38].mission == Missions.Zero
-    assert games[3].timeline[38].role == (None,)
+    assert games[3].timeline[38].role == (Roles.Civilian,)
     assert games[3].timeline[38].time == 221.6
 
     assert games[3].timeline[39].action_test == ActionTest.NoAT
@@ -4262,7 +4262,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[41].elapsed_time == 5.0
     assert games[3].timeline[41].event == "marked neutral suspicion."
     assert games[3].timeline[41].mission == Missions.Zero
-    assert games[3].timeline[41].role == (None,)
+    assert games[3].timeline[41].role == (Roles.Civilian,)
     assert games[3].timeline[41].time == 220.0
 
     assert games[3].timeline[42].action_test == ActionTest.NoAT
@@ -4339,7 +4339,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[48].elapsed_time == 23.400000000000006
     assert games[3].timeline[48].event == "marked less suspicious."
     assert games[3].timeline[48].mission == Missions.Zero
-    assert games[3].timeline[48].role == (None,)
+    assert games[3].timeline[48].role == (Roles.Civilian,)
     assert games[3].timeline[48].time == 201.6
 
     assert games[3].timeline[49].action_test == ActionTest.NoAT
@@ -4562,7 +4562,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[68].elapsed_time == 95.19999999999999
     assert games[3].timeline[68].event == "marked suspicious."
     assert games[3].timeline[68].mission == Missions.Zero
-    assert games[3].timeline[68].role == (None,)
+    assert games[3].timeline[68].role == (Roles.Civilian,)
     assert games[3].timeline[68].time == 129.8
 
     assert games[3].timeline[69].action_test == ActionTest.NoAT
@@ -4676,7 +4676,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[77].elapsed_time == 114.1
     assert games[3].timeline[77].event == "marked suspicious."
     assert games[3].timeline[77].mission == Missions.Zero
-    assert games[3].timeline[77].role == (None,)
+    assert games[3].timeline[77].role == (Roles.Civilian,)
     assert games[3].timeline[77].time == 110.9
 
     assert games[3].timeline[78].action_test == ActionTest.NoAT
@@ -4866,7 +4866,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[94].elapsed_time == 157.5
     assert games[3].timeline[94].event == "marked less suspicious."
     assert games[3].timeline[94].mission == Missions.Zero
-    assert games[3].timeline[94].role == (None,)
+    assert games[3].timeline[94].role == (Roles.Civilian,)
     assert games[3].timeline[94].time == 67.5
 
     assert games[3].timeline[95].action_test == ActionTest.NoAT
@@ -4877,7 +4877,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[95].elapsed_time == 158.5
     assert games[3].timeline[95].event == "marked less suspicious."
     assert games[3].timeline[95].mission == Missions.Zero
-    assert games[3].timeline[95].role == (None,)
+    assert games[3].timeline[95].role == (Roles.Civilian,)
     assert games[3].timeline[95].time == 66.5
 
     assert games[3].timeline[96].action_test == ActionTest.NoAT
@@ -4888,7 +4888,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[96].elapsed_time == 158.9
     assert games[3].timeline[96].event == "marked less suspicious."
     assert games[3].timeline[96].mission == Missions.Zero
-    assert games[3].timeline[96].role == (None,)
+    assert games[3].timeline[96].role == (Roles.Civilian,)
     assert games[3].timeline[96].time == 66.1
 
     assert games[3].timeline[97].action_test == ActionTest.NoAT
@@ -4899,7 +4899,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[97].elapsed_time == 161.5
     assert games[3].timeline[97].event == "marked less suspicious."
     assert games[3].timeline[97].mission == Missions.Zero
-    assert games[3].timeline[97].role == (None,)
+    assert games[3].timeline[97].role == (Roles.Civilian,)
     assert games[3].timeline[97].time == 63.5
 
     assert games[3].timeline[98].action_test == ActionTest.NoAT
@@ -4921,7 +4921,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[99].elapsed_time == 163.9
     assert games[3].timeline[99].event == "marked neutral suspicion."
     assert games[3].timeline[99].mission == Missions.Zero
-    assert games[3].timeline[99].role == (None,)
+    assert games[3].timeline[99].role == (Roles.Civilian,)
     assert games[3].timeline[99].time == 61.1
 
     assert games[3].timeline[100].action_test == ActionTest.NoAT
@@ -4932,7 +4932,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[100].elapsed_time == 165.1
     assert games[3].timeline[100].event == "marked less suspicious."
     assert games[3].timeline[100].mission == Missions.Zero
-    assert games[3].timeline[100].role == (None,)
+    assert games[3].timeline[100].role == (Roles.Civilian,)
     assert games[3].timeline[100].time == 59.9
 
     assert games[3].timeline[101].action_test == ActionTest.NoAT
@@ -4943,7 +4943,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[101].elapsed_time == 165.4
     assert games[3].timeline[101].event == "marked less suspicious."
     assert games[3].timeline[101].mission == Missions.Zero
-    assert games[3].timeline[101].role == (None,)
+    assert games[3].timeline[101].role == (Roles.Civilian,)
     assert games[3].timeline[101].time == 59.6
 
     assert games[3].timeline[102].action_test == ActionTest.NoAT
@@ -5244,7 +5244,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[127].elapsed_time == 225.0
     assert games[3].timeline[127].event == "took shot."
     assert games[3].timeline[127].mission == Missions.Zero
-    assert games[3].timeline[127].role == (None,)
+    assert games[3].timeline[127].role == (Roles.Civilian,)
     assert games[3].timeline[127].time == 0.0
 
     assert games[3].timeline[128].action_test == ActionTest.NoAT
@@ -5255,7 +5255,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[128].elapsed_time == 228.3
     assert games[3].timeline[128].event == "sniper shot civilian."
     assert games[3].timeline[128].mission == Missions.Zero
-    assert games[3].timeline[128].role == (None,)
+    assert games[3].timeline[128].role == (Roles.Civilian,)
     assert games[3].timeline[128].time == -3.3
 
     assert games[3].timeline.get_next_spy_action(games[3].timeline[128]) is None
@@ -5313,7 +5313,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[4].elapsed_time == 0.0
     assert games[4].timeline[4].event == "civilian cast."
     assert games[4].timeline[4].mission == Missions.Zero
-    assert games[4].timeline[4].role == (None,)
+    assert games[4].timeline[4].role == (Roles.Civilian,)
     assert games[4].timeline[4].time == 120.0
 
     assert games[4].timeline[5].action_test == ActionTest.NoAT
@@ -5324,7 +5324,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[5].elapsed_time == 0.0
     assert games[4].timeline[5].event == "civilian cast."
     assert games[4].timeline[5].mission == Missions.Zero
-    assert games[4].timeline[5].role == (None,)
+    assert games[4].timeline[5].role == (Roles.Civilian,)
     assert games[4].timeline[5].time == 120.0
 
     assert games[4].timeline[6].action_test == ActionTest.NoAT
@@ -5335,7 +5335,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[6].elapsed_time == 0.0
     assert games[4].timeline[6].event == "civilian cast."
     assert games[4].timeline[6].mission == Missions.Zero
-    assert games[4].timeline[6].role == (None,)
+    assert games[4].timeline[6].role == (Roles.Civilian,)
     assert games[4].timeline[6].time == 120.0
 
     assert games[4].timeline[7].action_test == ActionTest.NoAT
@@ -5555,7 +5555,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[26].elapsed_time == 22.799999999999997
     assert games[4].timeline[26].event == "marked suspicious."
     assert games[4].timeline[26].mission == Missions.Zero
-    assert games[4].timeline[26].role == (None,)
+    assert games[4].timeline[26].role == (Roles.Civilian,)
     assert games[4].timeline[26].time == 97.2
 
     assert games[4].timeline[27].action_test == ActionTest.NoAT
@@ -5797,7 +5797,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[48].elapsed_time == 93.9
     assert games[4].timeline[48].event == "took shot."
     assert games[4].timeline[48].mission == Missions.Zero
-    assert games[4].timeline[48].role == (None,)
+    assert games[4].timeline[48].role == (Roles.Civilian,)
     assert games[4].timeline[48].time == 26.1
 
     assert games[4].timeline[49].action_test == ActionTest.NoAT
@@ -5830,7 +5830,7 @@ def test_parse_timeline_parallel(
     assert games[4].timeline[51].elapsed_time == 97.0
     assert games[4].timeline[51].event == "sniper shot civilian."
     assert games[4].timeline[51].mission == Missions.Zero
-    assert games[4].timeline[51].role == (None,)
+    assert games[4].timeline[51].role == (Roles.Civilian,)
     assert games[4].timeline[51].time == 23.0
 
     assert games[4].timeline.get_next_spy_action(games[4].timeline[51]) is None
@@ -5888,7 +5888,7 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[4].elapsed_time == 0.0
     assert games[5].timeline[4].event == "civilian cast."
     assert games[5].timeline[4].mission == Missions.Zero
-    assert games[5].timeline[4].role == (None,)
+    assert games[5].timeline[4].role == (Roles.Civilian,)
     assert games[5].timeline[4].time == 120.0
 
     assert games[5].timeline[5].action_test == ActionTest.NoAT
@@ -5899,7 +5899,7 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[5].elapsed_time == 0.0
     assert games[5].timeline[5].event == "civilian cast."
     assert games[5].timeline[5].mission == Missions.Zero
-    assert games[5].timeline[5].role == (None,)
+    assert games[5].timeline[5].role == (Roles.Civilian,)
     assert games[5].timeline[5].time == 120.0
 
     assert games[5].timeline[6].action_test == ActionTest.NoAT
@@ -5910,7 +5910,7 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[6].elapsed_time == 0.0
     assert games[5].timeline[6].event == "civilian cast."
     assert games[5].timeline[6].mission == Missions.Zero
-    assert games[5].timeline[6].role == (None,)
+    assert games[5].timeline[6].role == (Roles.Civilian,)
     assert games[5].timeline[6].time == 120.0
 
     assert games[5].timeline[7].action_test == ActionTest.NoAT
@@ -6075,7 +6075,7 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[21].elapsed_time == 23.099999999999994
     assert games[5].timeline[21].event == "marked suspicious."
     assert games[5].timeline[21].mission == Missions.Zero
-    assert games[5].timeline[21].role == (None,)
+    assert games[5].timeline[21].role == (Roles.Civilian,)
     assert games[5].timeline[21].time == 96.9
 
     assert games[5].timeline[22].action_test == ActionTest.NoAT
@@ -6353,7 +6353,7 @@ def test_parse_timeline_parallel(
     assert games[5].timeline[46].elapsed_time == 98.4
     assert games[5].timeline[46].event == "marked less suspicious."
     assert games[5].timeline[46].mission == Missions.Zero
-    assert games[5].timeline[46].role == (None,)
+    assert games[5].timeline[46].role == (Roles.Civilian,)
     assert games[5].timeline[46].time == 21.6
 
     assert games[5].timeline[47].action_test == ActionTest.NoAT
@@ -6433,7 +6433,7 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[4].elapsed_time == 0.0
     assert games[6].timeline[4].event == "civilian cast."
     assert games[6].timeline[4].mission == Missions.Zero
-    assert games[6].timeline[4].role == (None,)
+    assert games[6].timeline[4].role == (Roles.Civilian,)
     assert games[6].timeline[4].time == 120.0
 
     assert games[6].timeline[5].action_test == ActionTest.NoAT
@@ -6444,7 +6444,7 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[5].elapsed_time == 0.0
     assert games[6].timeline[5].event == "civilian cast."
     assert games[6].timeline[5].mission == Missions.Zero
-    assert games[6].timeline[5].role == (None,)
+    assert games[6].timeline[5].role == (Roles.Civilian,)
     assert games[6].timeline[5].time == 120.0
 
     assert games[6].timeline[6].action_test == ActionTest.NoAT
@@ -6455,7 +6455,7 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[6].elapsed_time == 0.0
     assert games[6].timeline[6].event == "civilian cast."
     assert games[6].timeline[6].mission == Missions.Zero
-    assert games[6].timeline[6].role == (None,)
+    assert games[6].timeline[6].role == (Roles.Civilian,)
     assert games[6].timeline[6].time == 120.0
 
     assert games[6].timeline[7].action_test == ActionTest.NoAT
@@ -6576,7 +6576,7 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[17].elapsed_time == 5.900000000000006
     assert games[6].timeline[17].event == "marked suspicious."
     assert games[6].timeline[17].mission == Missions.Zero
-    assert games[6].timeline[17].role == (None,)
+    assert games[6].timeline[17].role == (Roles.Civilian,)
     assert games[6].timeline[17].time == 114.1
 
     assert games[6].timeline[18].action_test == ActionTest.NoAT
@@ -6730,7 +6730,7 @@ def test_parse_timeline_parallel(
     assert games[6].timeline[31].elapsed_time == 38.0
     assert games[6].timeline[31].event == "marked less suspicious."
     assert games[6].timeline[31].mission == Missions.Zero
-    assert games[6].timeline[31].role == (None,)
+    assert games[6].timeline[31].role == (Roles.Civilian,)
     assert games[6].timeline[31].time == 82.0
 
     assert games[6].timeline[32].action_test == ActionTest.NoAT
@@ -7052,7 +7052,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[4].elapsed_time == 0.0
     assert games[7].timeline[4].event == "civilian cast."
     assert games[7].timeline[4].mission == Missions.Zero
-    assert games[7].timeline[4].role == (None,)
+    assert games[7].timeline[4].role == (Roles.Civilian,)
     assert games[7].timeline[4].time == 120.0
 
     assert games[7].timeline[5].action_test == ActionTest.NoAT
@@ -7063,7 +7063,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[5].elapsed_time == 0.0
     assert games[7].timeline[5].event == "civilian cast."
     assert games[7].timeline[5].mission == Missions.Zero
-    assert games[7].timeline[5].role == (None,)
+    assert games[7].timeline[5].role == (Roles.Civilian,)
     assert games[7].timeline[5].time == 120.0
 
     assert games[7].timeline[6].action_test == ActionTest.NoAT
@@ -7074,7 +7074,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[6].elapsed_time == 0.0
     assert games[7].timeline[6].event == "civilian cast."
     assert games[7].timeline[6].mission == Missions.Zero
-    assert games[7].timeline[6].role == (None,)
+    assert games[7].timeline[6].role == (Roles.Civilian,)
     assert games[7].timeline[6].time == 120.0
 
     assert games[7].timeline[7].action_test == ActionTest.NoAT
@@ -7206,7 +7206,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[18].elapsed_time == 10.200000000000003
     assert games[7].timeline[18].event == "marked suspicious."
     assert games[7].timeline[18].mission == Missions.Zero
-    assert games[7].timeline[18].role == (None,)
+    assert games[7].timeline[18].role == (Roles.Civilian,)
     assert games[7].timeline[18].time == 109.8
 
     assert games[7].timeline[19].action_test == ActionTest.NoAT
@@ -7319,7 +7319,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[28].elapsed_time == 33.099999999999994
     assert games[7].timeline[28].event == "marked suspicious."
     assert games[7].timeline[28].mission == Missions.Zero
-    assert games[7].timeline[28].role == (None,)
+    assert games[7].timeline[28].role == (Roles.Civilian,)
     assert games[7].timeline[28].time == 86.9
 
     assert games[7].timeline[29].action_test == ActionTest.NoAT
@@ -7374,7 +7374,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[33].elapsed_time == 37.0
     assert games[7].timeline[33].event == "marked neutral suspicion."
     assert games[7].timeline[33].mission == Missions.Zero
-    assert games[7].timeline[33].role == (None,)
+    assert games[7].timeline[33].role == (Roles.Civilian,)
     assert games[7].timeline[33].time == 83.0
 
     assert games[7].timeline[34].action_test == ActionTest.Green
@@ -7418,7 +7418,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[37].elapsed_time == 38.3
     assert games[7].timeline[37].event == "marked suspicious."
     assert games[7].timeline[37].mission == Missions.Zero
-    assert games[7].timeline[37].role == (None,)
+    assert games[7].timeline[37].role == (Roles.Civilian,)
     assert games[7].timeline[37].time == 81.7
 
     assert games[7].timeline[38].action_test == ActionTest.NoAT
@@ -7528,7 +7528,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[47].elapsed_time == 66.7
     assert games[7].timeline[47].event == "marked suspicious."
     assert games[7].timeline[47].mission == Missions.Zero
-    assert games[7].timeline[47].role == (None,)
+    assert games[7].timeline[47].role == (Roles.Civilian,)
     assert games[7].timeline[47].time == 53.3
 
     assert games[7].timeline[48].action_test == ActionTest.NoAT
@@ -7539,7 +7539,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[48].elapsed_time == 67.6
     assert games[7].timeline[48].event == "marked neutral suspicion."
     assert games[7].timeline[48].mission == Missions.Zero
-    assert games[7].timeline[48].role == (None,)
+    assert games[7].timeline[48].role == (Roles.Civilian,)
     assert games[7].timeline[48].time == 52.4
 
     assert games[7].timeline[49].action_test == ActionTest.NoAT
@@ -7605,7 +7605,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[54].elapsed_time == 71.5
     assert games[7].timeline[54].event == "marked suspicious."
     assert games[7].timeline[54].mission == Missions.Zero
-    assert games[7].timeline[54].role == (None,)
+    assert games[7].timeline[54].role == (Roles.Civilian,)
     assert games[7].timeline[54].time == 48.5
 
     assert games[7].timeline[55].action_test == ActionTest.NoAT
@@ -7825,7 +7825,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[74].elapsed_time == 120.3
     assert games[7].timeline[74].event == "took shot."
     assert games[7].timeline[74].mission == Missions.Zero
-    assert games[7].timeline[74].role == (None,)
+    assert games[7].timeline[74].role == (Roles.Civilian,)
     assert games[7].timeline[74].time == -0.3
 
     assert games[7].timeline[75].action_test == ActionTest.NoAT
@@ -7836,7 +7836,7 @@ def test_parse_timeline_parallel(
     assert games[7].timeline[75].elapsed_time == 124.1
     assert games[7].timeline[75].event == "sniper shot civilian."
     assert games[7].timeline[75].mission == Missions.Zero
-    assert games[7].timeline[75].role == (None,)
+    assert games[7].timeline[75].role == (Roles.Civilian,)
     assert games[7].timeline[75].time == -4.1
 
     assert games[7].timeline.get_next_spy_action(games[7].timeline[75]) is None
@@ -7894,7 +7894,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[4].elapsed_time == 0.0
     assert games[8].timeline[4].event == "civilian cast."
     assert games[8].timeline[4].mission == Missions.Zero
-    assert games[8].timeline[4].role == (None,)
+    assert games[8].timeline[4].role == (Roles.Civilian,)
     assert games[8].timeline[4].time == 210.0
 
     assert games[8].timeline[5].action_test == ActionTest.NoAT
@@ -7905,7 +7905,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[5].elapsed_time == 0.0
     assert games[8].timeline[5].event == "civilian cast."
     assert games[8].timeline[5].mission == Missions.Zero
-    assert games[8].timeline[5].role == (None,)
+    assert games[8].timeline[5].role == (Roles.Civilian,)
     assert games[8].timeline[5].time == 210.0
 
     assert games[8].timeline[6].action_test == ActionTest.NoAT
@@ -7916,7 +7916,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[6].elapsed_time == 0.0
     assert games[8].timeline[6].event == "civilian cast."
     assert games[8].timeline[6].mission == Missions.Zero
-    assert games[8].timeline[6].role == (None,)
+    assert games[8].timeline[6].role == (Roles.Civilian,)
     assert games[8].timeline[6].time == 210.0
 
     assert games[8].timeline[7].action_test == ActionTest.NoAT
@@ -7927,7 +7927,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[7].elapsed_time == 0.0
     assert games[8].timeline[7].event == "civilian cast."
     assert games[8].timeline[7].mission == Missions.Zero
-    assert games[8].timeline[7].role == (None,)
+    assert games[8].timeline[7].role == (Roles.Civilian,)
     assert games[8].timeline[7].time == 210.0
 
     assert games[8].timeline[8].action_test == ActionTest.NoAT
@@ -7938,7 +7938,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[8].elapsed_time == 0.0
     assert games[8].timeline[8].event == "civilian cast."
     assert games[8].timeline[8].mission == Missions.Zero
-    assert games[8].timeline[8].role == (None,)
+    assert games[8].timeline[8].role == (Roles.Civilian,)
     assert games[8].timeline[8].time == 210.0
 
     assert games[8].timeline[9].action_test == ActionTest.NoAT
@@ -7949,7 +7949,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[9].elapsed_time == 0.0
     assert games[8].timeline[9].event == "civilian cast."
     assert games[8].timeline[9].mission == Missions.Zero
-    assert games[8].timeline[9].role == (None,)
+    assert games[8].timeline[9].role == (Roles.Civilian,)
     assert games[8].timeline[9].time == 210.0
 
     assert games[8].timeline[10].action_test == ActionTest.NoAT
@@ -7960,7 +7960,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[10].elapsed_time == 0.0
     assert games[8].timeline[10].event == "civilian cast."
     assert games[8].timeline[10].mission == Missions.Zero
-    assert games[8].timeline[10].role == (None,)
+    assert games[8].timeline[10].role == (Roles.Civilian,)
     assert games[8].timeline[10].time == 210.0
 
     assert games[8].timeline[11].action_test == ActionTest.NoAT
@@ -7971,7 +7971,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[11].elapsed_time == 0.0
     assert games[8].timeline[11].event == "civilian cast."
     assert games[8].timeline[11].mission == Missions.Zero
-    assert games[8].timeline[11].role == (None,)
+    assert games[8].timeline[11].role == (Roles.Civilian,)
     assert games[8].timeline[11].time == 210.0
 
     assert games[8].timeline[12].action_test == ActionTest.NoAT
@@ -8147,7 +8147,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[27].elapsed_time == 5.699999999999989
     assert games[8].timeline[27].event == "marked suspicious."
     assert games[8].timeline[27].mission == Missions.Zero
-    assert games[8].timeline[27].role == (None,)
+    assert games[8].timeline[27].role == (Roles.Civilian,)
     assert games[8].timeline[27].time == 204.3
 
     assert games[8].timeline[28].action_test == ActionTest.NoAT
@@ -8312,7 +8312,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[42].elapsed_time == 49.19999999999999
     assert games[8].timeline[42].event == "marked less suspicious."
     assert games[8].timeline[42].mission == Missions.Zero
-    assert games[8].timeline[42].role == (None,)
+    assert games[8].timeline[42].role == (Roles.Civilian,)
     assert games[8].timeline[42].time == 160.8
 
     assert games[8].timeline[43].action_test == ActionTest.NoAT
@@ -8323,7 +8323,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[43].elapsed_time == 50.400000000000006
     assert games[8].timeline[43].event == "marked suspicious."
     assert games[8].timeline[43].mission == Missions.Zero
-    assert games[8].timeline[43].role == (None,)
+    assert games[8].timeline[43].role == (Roles.Civilian,)
     assert games[8].timeline[43].time == 159.6
 
     assert games[8].timeline[44].action_test == ActionTest.NoAT
@@ -8411,7 +8411,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[51].elapsed_time == 76.6
     assert games[8].timeline[51].event == "marked suspicious."
     assert games[8].timeline[51].mission == Missions.Zero
-    assert games[8].timeline[51].role == (None,)
+    assert games[8].timeline[51].role == (Roles.Civilian,)
     assert games[8].timeline[51].time == 133.4
 
     assert games[8].timeline[52].action_test == ActionTest.NoAT
@@ -8422,7 +8422,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[52].elapsed_time == 77.6
     assert games[8].timeline[52].event == "marked suspicious."
     assert games[8].timeline[52].mission == Missions.Zero
-    assert games[8].timeline[52].role == (None,)
+    assert games[8].timeline[52].role == (Roles.Civilian,)
     assert games[8].timeline[52].time == 132.4
 
     assert games[8].timeline[53].action_test == ActionTest.NoAT
@@ -8444,7 +8444,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[54].elapsed_time == 85.1
     assert games[8].timeline[54].event == "marked suspicious."
     assert games[8].timeline[54].mission == Missions.Zero
-    assert games[8].timeline[54].role == (None,)
+    assert games[8].timeline[54].role == (Roles.Civilian,)
     assert games[8].timeline[54].time == 124.9
 
     assert games[8].timeline[55].action_test == ActionTest.NoAT
@@ -8455,7 +8455,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[55].elapsed_time == 85.4
     assert games[8].timeline[55].event == "marked suspicious."
     assert games[8].timeline[55].mission == Missions.Zero
-    assert games[8].timeline[55].role == (None,)
+    assert games[8].timeline[55].role == (Roles.Civilian,)
     assert games[8].timeline[55].time == 124.6
 
     assert games[8].timeline[56].action_test == ActionTest.NoAT
@@ -8466,7 +8466,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[56].elapsed_time == 86.1
     assert games[8].timeline[56].event == "marked neutral suspicion."
     assert games[8].timeline[56].mission == Missions.Zero
-    assert games[8].timeline[56].role == (None,)
+    assert games[8].timeline[56].role == (Roles.Civilian,)
     assert games[8].timeline[56].time == 123.9
 
     assert games[8].timeline[57].action_test == ActionTest.NoAT
@@ -8477,7 +8477,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[57].elapsed_time == 86.4
     assert games[8].timeline[57].event == "marked neutral suspicion."
     assert games[8].timeline[57].mission == Missions.Zero
-    assert games[8].timeline[57].role == (None,)
+    assert games[8].timeline[57].role == (Roles.Civilian,)
     assert games[8].timeline[57].time == 123.6
 
     assert games[8].timeline[58].action_test == ActionTest.NoAT
@@ -8565,7 +8565,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[65].elapsed_time == 115.6
     assert games[8].timeline[65].event == "marked less suspicious."
     assert games[8].timeline[65].mission == Missions.Zero
-    assert games[8].timeline[65].role == (None,)
+    assert games[8].timeline[65].role == (Roles.Civilian,)
     assert games[8].timeline[65].time == 94.4
 
     assert games[8].timeline[66].action_test == ActionTest.NoAT
@@ -8576,7 +8576,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[66].elapsed_time == 116.7
     assert games[8].timeline[66].event == "marked less suspicious."
     assert games[8].timeline[66].mission == Missions.Zero
-    assert games[8].timeline[66].role == (None,)
+    assert games[8].timeline[66].role == (Roles.Civilian,)
     assert games[8].timeline[66].time == 93.3
 
     assert games[8].timeline[67].action_test == ActionTest.NoAT
@@ -8609,7 +8609,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[69].elapsed_time == 117.4
     assert games[8].timeline[69].event == "marked less suspicious."
     assert games[8].timeline[69].mission == Missions.Zero
-    assert games[8].timeline[69].role == (None,)
+    assert games[8].timeline[69].role == (Roles.Civilian,)
     assert games[8].timeline[69].time == 92.6
 
     assert games[8].timeline[70].action_test == ActionTest.White
@@ -8796,7 +8796,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[86].elapsed_time == 176.9
     assert games[8].timeline[86].event == "marked neutral suspicion."
     assert games[8].timeline[86].mission == Missions.Zero
-    assert games[8].timeline[86].role == (None,)
+    assert games[8].timeline[86].role == (Roles.Civilian,)
     assert games[8].timeline[86].time == 33.1
 
     assert games[8].timeline[87].action_test == ActionTest.NoAT
@@ -8807,7 +8807,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[87].elapsed_time == 179.3
     assert games[8].timeline[87].event == "marked less suspicious."
     assert games[8].timeline[87].mission == Missions.Zero
-    assert games[8].timeline[87].role == (None,)
+    assert games[8].timeline[87].role == (Roles.Civilian,)
     assert games[8].timeline[87].time == 30.7
 
     assert games[8].timeline[88].action_test == ActionTest.NoAT
@@ -8818,7 +8818,7 @@ def test_parse_timeline_parallel(
     assert games[8].timeline[88].elapsed_time == 180.4
     assert games[8].timeline[88].event == "marked neutral suspicion."
     assert games[8].timeline[88].mission == Missions.Zero
-    assert games[8].timeline[88].role == (None,)
+    assert games[8].timeline[88].role == (Roles.Civilian,)
     assert games[8].timeline[88].time == 29.6
 
     assert games[8].timeline[89].action_test == ActionTest.NoAT
@@ -9085,7 +9085,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[4].elapsed_time == 0.0
     assert games[9].timeline[4].event == "civilian cast."
     assert games[9].timeline[4].mission == Missions.Zero
-    assert games[9].timeline[4].role == (None,)
+    assert games[9].timeline[4].role == (Roles.Civilian,)
     assert games[9].timeline[4].time == 210.0
 
     assert games[9].timeline[5].action_test == ActionTest.NoAT
@@ -9096,7 +9096,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[5].elapsed_time == 0.0
     assert games[9].timeline[5].event == "civilian cast."
     assert games[9].timeline[5].mission == Missions.Zero
-    assert games[9].timeline[5].role == (None,)
+    assert games[9].timeline[5].role == (Roles.Civilian,)
     assert games[9].timeline[5].time == 210.0
 
     assert games[9].timeline[6].action_test == ActionTest.NoAT
@@ -9107,7 +9107,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[6].elapsed_time == 0.0
     assert games[9].timeline[6].event == "civilian cast."
     assert games[9].timeline[6].mission == Missions.Zero
-    assert games[9].timeline[6].role == (None,)
+    assert games[9].timeline[6].role == (Roles.Civilian,)
     assert games[9].timeline[6].time == 210.0
 
     assert games[9].timeline[7].action_test == ActionTest.NoAT
@@ -9118,7 +9118,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[7].elapsed_time == 0.0
     assert games[9].timeline[7].event == "civilian cast."
     assert games[9].timeline[7].mission == Missions.Zero
-    assert games[9].timeline[7].role == (None,)
+    assert games[9].timeline[7].role == (Roles.Civilian,)
     assert games[9].timeline[7].time == 210.0
 
     assert games[9].timeline[8].action_test == ActionTest.NoAT
@@ -9129,7 +9129,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[8].elapsed_time == 0.0
     assert games[9].timeline[8].event == "civilian cast."
     assert games[9].timeline[8].mission == Missions.Zero
-    assert games[9].timeline[8].role == (None,)
+    assert games[9].timeline[8].role == (Roles.Civilian,)
     assert games[9].timeline[8].time == 210.0
 
     assert games[9].timeline[9].action_test == ActionTest.NoAT
@@ -9140,7 +9140,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[9].elapsed_time == 0.0
     assert games[9].timeline[9].event == "civilian cast."
     assert games[9].timeline[9].mission == Missions.Zero
-    assert games[9].timeline[9].role == (None,)
+    assert games[9].timeline[9].role == (Roles.Civilian,)
     assert games[9].timeline[9].time == 210.0
 
     assert games[9].timeline[10].action_test == ActionTest.NoAT
@@ -9151,7 +9151,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[10].elapsed_time == 0.0
     assert games[9].timeline[10].event == "civilian cast."
     assert games[9].timeline[10].mission == Missions.Zero
-    assert games[9].timeline[10].role == (None,)
+    assert games[9].timeline[10].role == (Roles.Civilian,)
     assert games[9].timeline[10].time == 210.0
 
     assert games[9].timeline[11].action_test == ActionTest.NoAT
@@ -9162,7 +9162,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[11].elapsed_time == 0.0
     assert games[9].timeline[11].event == "civilian cast."
     assert games[9].timeline[11].mission == Missions.Zero
-    assert games[9].timeline[11].role == (None,)
+    assert games[9].timeline[11].role == (Roles.Civilian,)
     assert games[9].timeline[11].time == 210.0
 
     assert games[9].timeline[12].action_test == ActionTest.NoAT
@@ -9404,7 +9404,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[33].elapsed_time == 6.400000000000006
     assert games[9].timeline[33].event == "marked suspicious."
     assert games[9].timeline[33].mission == Missions.Zero
-    assert games[9].timeline[33].role == (None,)
+    assert games[9].timeline[33].role == (Roles.Civilian,)
     assert games[9].timeline[33].time == 203.6
 
     assert games[9].timeline[34].action_test == ActionTest.NoAT
@@ -9426,7 +9426,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[35].elapsed_time == 33.099999999999994
     assert games[9].timeline[35].event == "marked suspicious."
     assert games[9].timeline[35].mission == Missions.Zero
-    assert games[9].timeline[35].role == (None,)
+    assert games[9].timeline[35].role == (Roles.Civilian,)
     assert games[9].timeline[35].time == 176.9
 
     assert games[9].timeline[36].action_test == ActionTest.NoAT
@@ -9553,7 +9553,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[46].elapsed_time == 58.80000000000001
     assert games[9].timeline[46].event == "marked suspicious."
     assert games[9].timeline[46].mission == Missions.Zero
-    assert games[9].timeline[46].role == (None,)
+    assert games[9].timeline[46].role == (Roles.Civilian,)
     assert games[9].timeline[46].time == 151.2
 
     assert games[9].timeline[47].action_test == ActionTest.NoAT
@@ -9564,7 +9564,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[47].elapsed_time == 60.900000000000006
     assert games[9].timeline[47].event == "marked neutral suspicion."
     assert games[9].timeline[47].mission == Missions.Zero
-    assert games[9].timeline[47].role == (None,)
+    assert games[9].timeline[47].role == (Roles.Civilian,)
     assert games[9].timeline[47].time == 149.1
 
     assert games[9].timeline[48].action_test == ActionTest.NoAT
@@ -9652,7 +9652,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[55].elapsed_time == 78.4
     assert games[9].timeline[55].event == "marked suspicious."
     assert games[9].timeline[55].mission == Missions.Zero
-    assert games[9].timeline[55].role == (None,)
+    assert games[9].timeline[55].role == (Roles.Civilian,)
     assert games[9].timeline[55].time == 131.6
 
     assert games[9].timeline[56].action_test == ActionTest.NoAT
@@ -9663,7 +9663,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[56].elapsed_time == 79.30000000000001
     assert games[9].timeline[56].event == "marked suspicious."
     assert games[9].timeline[56].mission == Missions.Zero
-    assert games[9].timeline[56].role == (None,)
+    assert games[9].timeline[56].role == (Roles.Civilian,)
     assert games[9].timeline[56].time == 130.7
 
     assert games[9].timeline[57].action_test == ActionTest.NoAT
@@ -9674,7 +9674,7 @@ def test_parse_timeline_parallel(
     assert games[9].timeline[57].elapsed_time == 80.4
     assert games[9].timeline[57].event == "marked suspicious."
     assert games[9].timeline[57].mission == Missions.Zero
-    assert games[9].timeline[57].role == (None,)
+    assert games[9].timeline[57].role == (Roles.Civilian,)
     assert games[9].timeline[57].time == 129.6
 
     assert games[9].timeline[58].action_test == ActionTest.NoAT
@@ -10046,7 +10046,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[5].elapsed_time == 0.0
     assert games[10].timeline[5].event == "civilian cast."
     assert games[10].timeline[5].mission == Missions.Zero
-    assert games[10].timeline[5].role == (None,)
+    assert games[10].timeline[5].role == (Roles.Civilian,)
     assert games[10].timeline[5].time == 210.0
 
     assert games[10].timeline[6].action_test == ActionTest.NoAT
@@ -10057,7 +10057,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[6].elapsed_time == 0.0
     assert games[10].timeline[6].event == "civilian cast."
     assert games[10].timeline[6].mission == Missions.Zero
-    assert games[10].timeline[6].role == (None,)
+    assert games[10].timeline[6].role == (Roles.Civilian,)
     assert games[10].timeline[6].time == 210.0
 
     assert games[10].timeline[7].action_test == ActionTest.NoAT
@@ -10068,7 +10068,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[7].elapsed_time == 0.0
     assert games[10].timeline[7].event == "civilian cast."
     assert games[10].timeline[7].mission == Missions.Zero
-    assert games[10].timeline[7].role == (None,)
+    assert games[10].timeline[7].role == (Roles.Civilian,)
     assert games[10].timeline[7].time == 210.0
 
     assert games[10].timeline[8].action_test == ActionTest.NoAT
@@ -10079,7 +10079,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[8].elapsed_time == 0.0
     assert games[10].timeline[8].event == "civilian cast."
     assert games[10].timeline[8].mission == Missions.Zero
-    assert games[10].timeline[8].role == (None,)
+    assert games[10].timeline[8].role == (Roles.Civilian,)
     assert games[10].timeline[8].time == 210.0
 
     assert games[10].timeline[9].action_test == ActionTest.NoAT
@@ -10090,7 +10090,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[9].elapsed_time == 0.0
     assert games[10].timeline[9].event == "civilian cast."
     assert games[10].timeline[9].mission == Missions.Zero
-    assert games[10].timeline[9].role == (None,)
+    assert games[10].timeline[9].role == (Roles.Civilian,)
     assert games[10].timeline[9].time == 210.0
 
     assert games[10].timeline[10].action_test == ActionTest.NoAT
@@ -10101,7 +10101,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[10].elapsed_time == 0.0
     assert games[10].timeline[10].event == "civilian cast."
     assert games[10].timeline[10].mission == Missions.Zero
-    assert games[10].timeline[10].role == (None,)
+    assert games[10].timeline[10].role == (Roles.Civilian,)
     assert games[10].timeline[10].time == 210.0
 
     assert games[10].timeline[11].action_test == ActionTest.NoAT
@@ -10112,7 +10112,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[11].elapsed_time == 0.0
     assert games[10].timeline[11].event == "civilian cast."
     assert games[10].timeline[11].mission == Missions.Zero
-    assert games[10].timeline[11].role == (None,)
+    assert games[10].timeline[11].role == (Roles.Civilian,)
     assert games[10].timeline[11].time == 210.0
 
     assert games[10].timeline[12].action_test == ActionTest.NoAT
@@ -10123,7 +10123,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[12].elapsed_time == 0.0
     assert games[10].timeline[12].event == "civilian cast."
     assert games[10].timeline[12].mission == Missions.Zero
-    assert games[10].timeline[12].role == (None,)
+    assert games[10].timeline[12].role == (Roles.Civilian,)
     assert games[10].timeline[12].time == 210.0
 
     assert games[10].timeline[13].action_test == ActionTest.NoAT
@@ -10134,7 +10134,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[13].elapsed_time == 0.0
     assert games[10].timeline[13].event == "civilian cast."
     assert games[10].timeline[13].mission == Missions.Zero
-    assert games[10].timeline[13].role == (None,)
+    assert games[10].timeline[13].role == (Roles.Civilian,)
     assert games[10].timeline[13].time == 210.0
 
     assert games[10].timeline[14].action_test == ActionTest.NoAT
@@ -10145,7 +10145,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[14].elapsed_time == 0.0
     assert games[10].timeline[14].event == "civilian cast."
     assert games[10].timeline[14].mission == Missions.Zero
-    assert games[10].timeline[14].role == (None,)
+    assert games[10].timeline[14].role == (Roles.Civilian,)
     assert games[10].timeline[14].time == 210.0
 
     assert games[10].timeline[15].action_test == ActionTest.NoAT
@@ -10453,7 +10453,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[42].elapsed_time == 11.099999999999994
     assert games[10].timeline[42].event == "marked suspicious."
     assert games[10].timeline[42].mission == Missions.Zero
-    assert games[10].timeline[42].role == (None,)
+    assert games[10].timeline[42].role == (Roles.Civilian,)
     assert games[10].timeline[42].time == 198.9
 
     assert games[10].timeline[43].action_test == ActionTest.NoAT
@@ -10464,7 +10464,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[43].elapsed_time == 11.5
     assert games[10].timeline[43].event == "marked suspicious."
     assert games[10].timeline[43].mission == Missions.Zero
-    assert games[10].timeline[43].role == (None,)
+    assert games[10].timeline[43].role == (Roles.Civilian,)
     assert games[10].timeline[43].time == 198.5
 
     assert games[10].timeline[44].action_test == ActionTest.NoAT
@@ -10486,7 +10486,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[45].elapsed_time == 14.099999999999994
     assert games[10].timeline[45].event == "marked suspicious."
     assert games[10].timeline[45].mission == Missions.Zero
-    assert games[10].timeline[45].role == (None,)
+    assert games[10].timeline[45].role == (Roles.Civilian,)
     assert games[10].timeline[45].time == 195.9
 
     assert games[10].timeline[46].action_test == ActionTest.NoAT
@@ -10522,7 +10522,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[48].elapsed_time == 31.099999999999994
     assert games[10].timeline[48].event == "marked book."
     assert games[10].timeline[48].mission == Missions.Zero
-    assert games[10].timeline[48].role == (None,)
+    assert games[10].timeline[48].role == (Roles.Civilian,)
     assert games[10].timeline[48].time == 178.9
 
     assert games[10].timeline[49].action_test == ActionTest.NoAT
@@ -10555,7 +10555,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[51].elapsed_time == 35.400000000000006
     assert games[10].timeline[51].event == "marked suspicious."
     assert games[10].timeline[51].mission == Missions.Zero
-    assert games[10].timeline[51].role == (None,)
+    assert games[10].timeline[51].role == (Roles.Civilian,)
     assert games[10].timeline[51].time == 174.6
 
     assert games[10].timeline[52].action_test == ActionTest.NoAT
@@ -10566,7 +10566,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[52].elapsed_time == 36.19999999999999
     assert games[10].timeline[52].event == "marked neutral suspicion."
     assert games[10].timeline[52].mission == Missions.Zero
-    assert games[10].timeline[52].role == (None,)
+    assert games[10].timeline[52].role == (Roles.Civilian,)
     assert games[10].timeline[52].time == 173.8
 
     assert games[10].timeline[53].action_test == ActionTest.NoAT
@@ -10580,7 +10580,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[53].elapsed_time == 37.19999999999999
     assert games[10].timeline[53].event == "marked book."
     assert games[10].timeline[53].mission == Missions.Zero
-    assert games[10].timeline[53].role == (None,)
+    assert games[10].timeline[53].role == (Roles.Civilian,)
     assert games[10].timeline[53].time == 172.8
 
     assert games[10].timeline[54].action_test == ActionTest.NoAT
@@ -10646,7 +10646,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[59].elapsed_time == 48.0
     assert games[10].timeline[59].event == "marked suspicious."
     assert games[10].timeline[59].mission == Missions.Zero
-    assert games[10].timeline[59].role == (None,)
+    assert games[10].timeline[59].role == (Roles.Civilian,)
     assert games[10].timeline[59].time == 162.0
 
     assert games[10].timeline[60].action_test == ActionTest.NoAT
@@ -10682,7 +10682,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[62].elapsed_time == 61.19999999999999
     assert games[10].timeline[62].event == "marked book."
     assert games[10].timeline[62].mission == Missions.Zero
-    assert games[10].timeline[62].role == (None,)
+    assert games[10].timeline[62].role == (Roles.Civilian,)
     assert games[10].timeline[62].time == 148.8
 
     assert games[10].timeline[63].action_test == ActionTest.NoAT
@@ -10842,7 +10842,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[76].elapsed_time == 92.9
     assert games[10].timeline[76].event == "marked suspicious."
     assert games[10].timeline[76].mission == Missions.Zero
-    assert games[10].timeline[76].role == (None,)
+    assert games[10].timeline[76].role == (Roles.Civilian,)
     assert games[10].timeline[76].time == 117.1
 
     assert games[10].timeline[77].action_test == ActionTest.NoAT
@@ -10864,7 +10864,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[78].elapsed_time == 94.2
     assert games[10].timeline[78].event == "marked suspicious."
     assert games[10].timeline[78].mission == Missions.Zero
-    assert games[10].timeline[78].role == (None,)
+    assert games[10].timeline[78].role == (Roles.Civilian,)
     assert games[10].timeline[78].time == 115.8
 
     assert games[10].timeline[79].action_test == ActionTest.NoAT
@@ -10930,7 +10930,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[84].elapsed_time == 101.8
     assert games[10].timeline[84].event == "marked less suspicious."
     assert games[10].timeline[84].mission == Missions.Zero
-    assert games[10].timeline[84].role == (None,)
+    assert games[10].timeline[84].role == (Roles.Civilian,)
     assert games[10].timeline[84].time == 108.2
 
     assert games[10].timeline[85].action_test == ActionTest.NoAT
@@ -10963,7 +10963,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[87].elapsed_time == 104.2
     assert games[10].timeline[87].event == "marked less suspicious."
     assert games[10].timeline[87].mission == Missions.Zero
-    assert games[10].timeline[87].role == (None,)
+    assert games[10].timeline[87].role == (Roles.Civilian,)
     assert games[10].timeline[87].time == 105.8
 
     assert games[10].timeline[88].action_test == ActionTest.NoAT
