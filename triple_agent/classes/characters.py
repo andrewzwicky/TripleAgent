@@ -28,28 +28,30 @@ class Characters(Enum):
 
 
 CHARACTERS_TO_STRING = {
-    Characters.Smallman: "Mr. S",
-    Characters.Duke: "Mr. U",
-    Characters.Salmon: "Mr. Q",
-    Characters.Rocker: "Ms. L",
-    Characters.Taft: "Mr. C",
-    Characters.Alice: "Ms. F",
-    Characters.Teal: "Ms. R",
-    Characters.Sikh: "Mr. K",
-    Characters.Carlos: "Mr. P",
-    Characters.Sari: "Ms. T",
-    Characters.Bling: "Dr. N",
-    Characters.Morgan: "Mr. D",
-    Characters.Plain: "Dr. M",
-    Characters.Oprah: "Ms. H",
-    Characters.Queen: "Ms. J",
-    Characters.Boots: "Ms. B",
-    Characters.General: "Mr. G",
     Characters.Disney: "Mr. A",
+    Characters.Boots: "Ms. B",
+    Characters.Taft: "Mr. C",
+    Characters.Morgan: "Mr. D",
     Characters.Helen: "Ms. E",
-    Characters.Irish: "Ms. O",
+    Characters.Alice: "Ms. F",
+    Characters.General: "Mr. G",
+    Characters.Oprah: "Ms. H",
     Characters.Wheels: "Mr. I",
+    Characters.Queen: "Ms. J",
+    Characters.Sikh: "Mr. K",
+    Characters.Rocker: "Ms. L",
+    Characters.Plain: "Dr. M",
+    Characters.Bling: "Dr. N",
+    Characters.Irish: "Ms. O",
+    Characters.Carlos: "Mr. P",
+    Characters.Salmon: "Mr. Q",
+    Characters.Teal: "Ms. R",
+    Characters.Smallman: "Mr. S",
+    Characters.Sari: "Ms. T",
+    Characters.Duke: "Mr. U",
 }
+
+CHARACTER_PLOT_ORDER = list(CHARACTERS_TO_STRING.keys())
 
 PORTRAIT_MD5_DICT = {
     "dc1eaaaecfc24b1cbae0e3dd22cb47e4": Characters.Smallman,
