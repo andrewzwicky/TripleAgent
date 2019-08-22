@@ -68,14 +68,14 @@ COLOR_TEST_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "data_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors",
+    "primary_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors",
     COLOR_TEST_CASES,
 )
 def test_create_plot_colors(
-    data_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors
+    primary_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors
 ):
     colors = create_plot_colors(
-        data_color_dict, frame, stacks_are_categories, is_pie_chart
+        primary_color_dict, frame, stacks_are_categories, is_pie_chart
     )
 
     assert colors == expected_colors

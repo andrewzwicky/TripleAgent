@@ -229,7 +229,7 @@ def test_create_data_dictionary(
 SPECIFIC_REPORT_CASES = [
     (
         DataQueryProperties(
-            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER
+            query_function=_count_mission_choices, primary_order=MISSION_PLOT_ORDER
         ),
         pandas.DataFrame(
             data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
@@ -240,7 +240,7 @@ SPECIFIC_REPORT_CASES = [
         DataQueryProperties(
             query_function=_count_mission_choices,
             groupby=lambda g: g.spy,
-            stack_order=MISSION_PLOT_ORDER,
+            primary_order=MISSION_PLOT_ORDER,
         ),
         pandas.DataFrame(
             data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
@@ -251,7 +251,8 @@ SPECIFIC_REPORT_CASES = [
     ),
     (
         DataQueryProperties(
-            query_function=_count_mission_choices, stack_order=MISSION_PLOT_ORDER[::-1]
+            query_function=_count_mission_choices,
+            primary_order=MISSION_PLOT_ORDER[::-1],
         ),
         pandas.DataFrame(
             data=[[4, 7, 7, 7, 8, 7, 8, 8]],
@@ -264,7 +265,7 @@ SPECIFIC_REPORT_CASES = [
         DataQueryProperties(
             query_function=_count_mission_choices,
             groupby=lambda g: g.spy,
-            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+            primary_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         pandas.DataFrame(
             data=[[4, 3], [4, 4], [4, 4]],
@@ -277,8 +278,8 @@ SPECIFIC_REPORT_CASES = [
         DataQueryProperties(
             query_function=_count_mission_choices,
             groupby=lambda g: g.spy,
-            reverse_category_order=True,
-            stack_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
+            reverse_secondary_order=True,
+            primary_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         pandas.DataFrame(
             data=[[3, 4], [4, 4], [4, 4]],
@@ -290,7 +291,7 @@ SPECIFIC_REPORT_CASES = [
     (
         DataQueryProperties(
             query_function=_categorize_fp_sources,
-            stack_order=[
+            primary_order=[
                 (TimelineCategory.Statues, False),
                 (TimelineCategory.Books, False),
             ],

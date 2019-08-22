@@ -26,10 +26,10 @@ def game_outcomes(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=WINTYPES_TO_COLORS),
+        AxisProperties(primary_color_dict=WINTYPES_TO_COLORS),
         DataQueryProperties(
             query_function=_categorize_outcomes,
-            stack_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
+            primary_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
         ),
     )
     query(games, data_query, axis_properties)

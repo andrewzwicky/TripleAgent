@@ -48,37 +48,37 @@ def _create_legend_if_needed(axis, fig):
 
 
 def create_category_legend_labels(
-    data_stack_label_dict: Dict[Any, str],
+    primary_label_dict: Dict[Any, str],
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,
 ) -> Tuple[List[str], List[Optional[str]]]:
     if stacks_are_categories:
-        if data_stack_label_dict is None:
+        if primary_label_dict is None:
             return list(map(labelify, columns)), [None for _ in index]
 
         return (
-            [data_stack_label_dict[data_part] for data_part in columns],
+            [primary_label_dict[data_part] for data_part in columns],
             [None for _ in index],
         )
 
-    if data_stack_label_dict is None:
+    if primary_label_dict is None:
         return list(map(labelify, columns)), list(map(labelify, index))
 
     return (
         list(map(labelify, columns)),
-        [data_stack_label_dict[data_part] for data_part in index],
+        [primary_label_dict[data_part] for data_part in index],
     )
 
 
 def create_plot_colors(
-    data_color_dict: Optional[Dict[Any, Optional[str]]],
+    primary_color_dict: Optional[Dict[Any, Optional[str]]],
     frame: pandas.DataFrame,
     stacks_are_categories: bool = False,
     is_pie_chart: bool = False,
 ) -> List[Optional[List[str]]]:
     if stacks_are_categories:
-        if data_color_dict is None:
+        if primary_color_dict is None:
             if is_pie_chart:
                 return [None for _ in frame.index]
 
@@ -87,16 +87,16 @@ def create_plot_colors(
         # For some reason, the same operation with index being set to arrays, etc.
         # wouldn't correctly turn the indexs into a list, they would remain np arrays.
         # The strange .T will flip it back and forth to get the right values.
-        stack_colors = frame.T.index.map(lambda x: data_color_dict[x]).values
+        stack_colors = frame.T.index.map(lambda x: primary_color_dict[x]).values
         return frame.T.apply(lambda x: stack_colors, axis="index").values.T.tolist()
 
-    if data_color_dict is None:
+    if primary_color_dict is None:
         return [None for _ in frame.index]
 
-    stack_colors = frame.index.map(lambda x: data_color_dict[x]).values
+    stack_colors = frame.index.map(lambda x: primary_color_dict[x]).values
     return frame.apply(lambda x: stack_colors, axis="index").values.tolist()
 
-    # return itertools.cycle(data_color_dict[data_part] for data_part in index)
+    # return itertools.cycle(primary_color_dict[data_part] for data_part in index)
 
 
 def create_data_labels(
@@ -115,18 +115,18 @@ def create_data_labels(
 
 
 def create_plot_hatching(
-    data_hatch_dict: Dict[Any, str],
+    primary_hatch_dict: Dict[Any, str],
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,
 ) -> List[List[Optional[str]]]:
-    if data_hatch_dict is None:
+    if primary_hatch_dict is None:
         return [[None for _ in columns] for _ in index]
 
     if stacks_are_categories:
-        return [[data_hatch_dict[data_part] for data_part in columns] for _ in index]
+        return [[primary_hatch_dict[data_part] for data_part in columns] for _ in index]
 
-    return [[data_hatch_dict[data_part] for _ in columns] for data_part in index]
+    return [[primary_hatch_dict[data_part] for _ in columns] for data_part in index]
 
 
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):

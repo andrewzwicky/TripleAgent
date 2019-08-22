@@ -56,9 +56,9 @@ def all_banana_bread_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=FAKE_REAL_COLORS),
+        AxisProperties(primary_color_dict=FAKE_REAL_COLORS),
         DataQueryProperties(
-            query_function=_all_banana_breads, stack_order=FAKE_REAL_ORDER
+            query_function=_all_banana_breads, primary_order=FAKE_REAL_ORDER
         ),
     )
 
@@ -73,9 +73,9 @@ def first_banana_bread_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=FAKE_REAL_COLORS),
+        AxisProperties(primary_color_dict=FAKE_REAL_COLORS),
         DataQueryProperties(
-            query_function=_first_banana_bread, stack_order=FAKE_REAL_ORDER
+            query_function=_first_banana_bread, primary_order=FAKE_REAL_ORDER
         ),
     )
 

@@ -25,9 +25,9 @@ class AxisProperties:
     force_line: bool = False
 
     data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
-    data_stack_label_dict: Optional[Dict[Any, str]] = None
-    data_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
-    data_color_dict: Optional[Dict[Any, Optional[str]]] = None
+    primary_label_dict: Optional[Dict[Any, str]] = None
+    primary_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
+    primary_color_dict: Optional[Dict[Any, Optional[str]]] = None
 
     def update(self, suggested_axis_properties):
         if suggested_axis_properties is not None:
@@ -58,14 +58,14 @@ class DataQueryProperties:
     # groupby can be used to group the data into buckets, by spy or by sniper for example.
     groupby: Callable = None
 
-    # stack_order and category_order can be used to control the order that the data appears in.
+    # primary_order and secondary_order can be used to control the order that the data appears in.
     # If they are a function, they take in either a pandas Series or pandas Index and return an int.
     # If they are a list, they will replace the existing column or index completely (retaining old data).
-    stack_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None
-    category_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None
+    primary_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None
+    secondary_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None
 
-    reverse_stack_order: bool = False
-    reverse_category_order: bool = False
+    reverse_primary_order: bool = False
+    reverse_secondary_order: bool = False
 
     limit: Optional[int] = None
 

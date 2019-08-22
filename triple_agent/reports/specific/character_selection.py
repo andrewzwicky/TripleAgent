@@ -54,7 +54,7 @@ def spy_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=defaultdict(lambda: "xkcd:green"),
+            primary_color_dict=defaultdict(lambda: "xkcd:green"),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -73,7 +73,7 @@ def st_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=defaultdict(lambda: "xkcd:light red"),
+            primary_color_dict=defaultdict(lambda: "xkcd:light red"),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -92,7 +92,7 @@ def amba_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=defaultdict(lambda: "xkcd:light magenta"),
+            primary_color_dict=defaultdict(lambda: "xkcd:light magenta"),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -111,7 +111,7 @@ def double_agent_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=defaultdict(lambda: "xkcd:light yellow"),
+            primary_color_dict=defaultdict(lambda: "xkcd:light yellow"),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),

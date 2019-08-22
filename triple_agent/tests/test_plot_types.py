@@ -40,7 +40,7 @@ def test_pie_chart_simple(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Test Title",
-        data_color_dict={
+        primary_color_dict={
             "A": "red",
             "B": "blue",
             "C": "black",
@@ -84,7 +84,7 @@ def test_pie_chart_AT_labels(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="AT Pie Chart",
-        data_color_dict={
+        primary_color_dict={
             ActionTest.Green: "xkcd:green",
             ActionTest.White: "xkcd:white",
             ActionTest.Ignored: "xkcd:off white",
@@ -131,14 +131,14 @@ def test_pie_chart_hatch(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Test Title",
-        data_color_dict={
+        primary_color_dict={
             "A": "red",
             "B": "blue",
             "C": "black",
             "D": "yellow",
             "E": "white",
         },
-        data_hatch_dict=defaultdict(lambda: None, {"A": "-"}),
+        primary_hatch_dict=defaultdict(lambda: None, {"A": "-"}),
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -170,14 +170,14 @@ def test_pie_chart_stack_label_dict(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Test Title",
-        data_color_dict={
+        primary_color_dict={
             "A": "red",
             "B": "blue",
             "C": "black",
             "D": "yellow",
             "E": "white",
         },
-        data_stack_label_dict=defaultdict(lambda: "", {"A": "ATest", "B": "BTest"}),
+        primary_label_dict=defaultdict(lambda: "", {"A": "ATest", "B": "BTest"}),
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -219,7 +219,7 @@ def test_bar_simple(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Bar",
-        data_color_dict={
+        primary_color_dict={
             "A": "red",
             "B": "blue",
             "C": "black",
@@ -281,8 +281,8 @@ def test_bar_stacked(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Bar",
-        data_color_dict={"Bottom": "red", "Top": "blue"},
-        data_hatch_dict={"Top": "\\", "Bottom": None},
+        primary_color_dict={"Bottom": "red", "Top": "blue"},
+        primary_hatch_dict={"Top": "\\", "Bottom": None},
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -336,7 +336,7 @@ def test_bar_stacked_no_color(test_figure, reference_figure):
     ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
     axis_properties = AxisProperties(
-        title="Bar", data_hatch_dict={"Top": "\\", "Bottom": None}
+        title="Bar", primary_hatch_dict={"Top": "\\", "Bottom": None}
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -399,7 +399,7 @@ def test_line_plot(test_figure, reference_figure):
     ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
     axis_properties = AxisProperties(
-        title="Bar", data_color_dict={"Bottom": "red", "Top": "blue"}
+        title="Bar", primary_color_dict={"Bottom": "red", "Top": "blue"}
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -536,7 +536,7 @@ def test_bar_simple_labels(test_figure, reference_figure):
 
     axis_properties = AxisProperties(
         title="Bar",
-        data_color_dict={
+        primary_color_dict={
             "A": "red",
             "B": "blue",
             "C": "black",

@@ -8,24 +8,24 @@ from triple_agent.reports.generation.plot_specs import (
 DATA_QUERY_CASES = [
     (DataQueryProperties(), DataQueryProperties(), DataQueryProperties()),
     (
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
         DataQueryProperties(),
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
     ),
     (
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
         5,
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
     ),
     (
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
         DataQueryProperties(limit=20),
-        DataQueryProperties(stack_order=[1, 2, 3], limit=20),
+        DataQueryProperties(primary_order=[1, 2, 3], limit=20),
     ),
     (
-        DataQueryProperties(stack_order=[1, 2, 3]),
-        DataQueryProperties(stack_order=[4, 5, 6]),
-        DataQueryProperties(stack_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
+        DataQueryProperties(primary_order=[4, 5, 6]),
+        DataQueryProperties(primary_order=[1, 2, 3]),
     ),
     (AxisProperties(), AxisProperties(), AxisProperties()),
     (
@@ -35,8 +35,8 @@ DATA_QUERY_CASES = [
     ),
     (
         AxisProperties(),
-        AxisProperties(data_color_dict={"x": "x", "p": "l"}),
-        AxisProperties(data_color_dict={"x": "x", "p": "l"}),
+        AxisProperties(primary_color_dict={"x": "x", "p": "l"}),
+        AxisProperties(primary_color_dict={"x": "x", "p": "l"}),
     ),
     (
         AxisProperties(data_label_style=PlotLabelStyle.Full),

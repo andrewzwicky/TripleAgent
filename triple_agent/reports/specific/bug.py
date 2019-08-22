@@ -106,12 +106,12 @@ def bug_success_rate(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=BUG_TO_COLORS_RGB,
-            data_stack_label_dict=BUG_PLOT_LABEL_DICT,
-            data_hatch_dict=BUG_PLOT_HATCH_DICT,
+            primary_color_dict=BUG_TO_COLORS_RGB,
+            primary_label_dict=BUG_PLOT_LABEL_DICT,
+            primary_hatch_dict=BUG_PLOT_HATCH_DICT,
         ),
         DataQueryProperties(
-            query_function=_categorize_bugs, stack_order=BUG_PLOT_ORDER
+            query_function=_categorize_bugs, primary_order=BUG_PLOT_ORDER
         ),
     )
 

@@ -9,22 +9,22 @@ from triple_agent.classes.scl_set import SCLSet
 
 def sort_frame_stacks(
     frame: pandas.DataFrame,
-    stack_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None,
-    reverse_stack_order: bool = False,
+    primary_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None,
+    reverse_primary_order: bool = False,
 ) -> pandas.DataFrame:
 
-    if callable(stack_order):
-        if stack_order is sum:
+    if callable(primary_order):
+        if primary_order is sum:
             frame = frame.reindex(
                 frame.T.sum().sort_values(kind="stable").index, axis="index"
             )
         else:
-            sorted_items = sorted(frame.T.items(), key=stack_order)
+            sorted_items = sorted(frame.T.items(), key=primary_order)
             sorted_index, _ = zip(*sorted_items)
             frame = frame.reindex(sorted_index, axis="index")
 
-    elif isinstance(stack_order, list):
-        frame = frame.reindex(stack_order, axis="index", fill_value=0)
+    elif isinstance(primary_order, list):
+        frame = frame.reindex(primary_order, axis="index", fill_value=0)
 
     else:
         try:
@@ -33,7 +33,7 @@ def sort_frame_stacks(
             # unsortable and nothing supplied, leave as-is
             pass
 
-    if reverse_stack_order:
+    if reverse_primary_order:
         frame = frame.iloc[::-1, :]
 
     return frame
@@ -41,24 +41,24 @@ def sort_frame_stacks(
 
 def sort_and_limit_frame_categories(
     frame: pandas.DataFrame,
-    category_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None,
-    reverse_category_order: bool = False,
+    secondary_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None,
+    reverse_secondary_order: bool = False,
     limit: Optional[int] = None,
 ) -> pandas.DataFrame:
     # sort the categories
     # data_order takes priority if both are provided
-    if callable(category_order):
-        if category_order is sum:
+    if callable(secondary_order):
+        if secondary_order is sum:
             frame = frame.reindex(
                 frame.sum().sort_values(kind="stable").index, axis="columns"
             )
         else:
-            sorted_items = sorted(frame.items(), key=category_order)
+            sorted_items = sorted(frame.items(), key=secondary_order)
             sorted_colums, _ = zip(*sorted_items)
             frame = frame.reindex(sorted_colums, axis="columns")
 
-    elif isinstance(category_order, list):
-        frame = frame.reindex(category_order, axis="columns", fill_value=0)
+    elif isinstance(secondary_order, list):
+        frame = frame.reindex(secondary_order, axis="columns", fill_value=0)
 
     else:
         try:
@@ -67,7 +67,7 @@ def sort_and_limit_frame_categories(
             # unsortable and nothing supplied, leave as-is
             pass
 
-    if reverse_category_order:
+    if reverse_secondary_order:
         frame = frame.iloc[:, ::-1]
 
     # limit categories, None is OK here, and larger than the number of columns

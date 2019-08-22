@@ -51,9 +51,9 @@ def mission_completion_query(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=MISSIONS_ENUM_TO_COLOR),
+        AxisProperties(primary_color_dict=MISSIONS_ENUM_TO_COLOR),
         DataQueryProperties(
-            query_function=_mission_completes, stack_order=MISSION_PLOT_ORDER
+            query_function=_mission_completes, primary_order=MISSION_PLOT_ORDER
         ),
     )
 
@@ -72,7 +72,7 @@ def mission_completion(games: List[Game], title: str):
 
     frame = create_initial_data_frame(data_dictionary)
 
-    frame = sort_and_limit_frame_categories(frame, category_order=MISSION_PLOT_ORDER)
+    frame = sort_and_limit_frame_categories(frame, secondary_order=MISSION_PLOT_ORDER)
 
     frame = sort_frame_stacks(frame)
 
@@ -108,8 +108,12 @@ def mission_completion(games: List[Game], title: str):
             title=title,
             # TODO: make the data percentage based.
             y_axis_percentage=True,
-            data_color_dict={1: "xkcd:green", 2: "xkcd:eggshell", 3: "xkcd:light grey"},
-            data_stack_label_dict={1: "Complete", 2: "Incomplete", 3: "Disabled"},
+            primary_color_dict={
+                1: "xkcd:green",
+                2: "xkcd:eggshell",
+                3: "xkcd:light grey",
+            },
+            primary_label_dict={1: "Complete", 2: "Incomplete", 3: "Disabled"},
         ),
         DataPlotProperties(frame=frame),
     )

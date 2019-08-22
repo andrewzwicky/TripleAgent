@@ -61,13 +61,13 @@ def attempted_fingerprint_sources(
         axis_properties,
         data_query,
         AxisProperties(
-            data_color_dict=OBJECT_TO_COLORS_RGB,
-            data_stack_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
-            data_hatch_dict=OBJECT_PLOT_HATCH_DICT,
+            primary_color_dict=OBJECT_TO_COLORS_RGB,
+            primary_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
+            primary_hatch_dict=OBJECT_PLOT_HATCH_DICT,
         ),
         DataQueryProperties(
             query_function=_categorize_fp_sources,
-            stack_order=OBJECT_PLOT_ORDER_DIFFICULT,
+            primary_order=OBJECT_PLOT_ORDER_DIFFICULT,
         ),
     )
 

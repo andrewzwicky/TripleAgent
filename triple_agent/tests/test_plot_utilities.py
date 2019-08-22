@@ -543,14 +543,14 @@ SORT_FRAME_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "input_frame, category_order, reverse_category_order, limit, exp_frame",
+    "input_frame, secondary_order, reverse_secondary_order, limit, exp_frame",
     SORT_FRAME_CASES,
 )
 def test_sort_frame_categories(
-    input_frame, category_order, reverse_category_order, limit, exp_frame
+    input_frame, secondary_order, reverse_secondary_order, limit, exp_frame
 ):
     frame = sort_and_limit_frame_categories(
-        input_frame, category_order, reverse_category_order, limit
+        input_frame, secondary_order, reverse_secondary_order, limit
     )
 
     pandas.testing.assert_frame_equal(frame, exp_frame)
@@ -771,9 +771,12 @@ SORT_FRAME_STACK_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "input_frame, stack_order, reverse_stack_order, exp_frame", SORT_FRAME_STACK_CASES
+    "input_frame, primary_order, reverse_primary_order, exp_frame",
+    SORT_FRAME_STACK_CASES,
 )
-def test_sort_frame_stacks(input_frame, stack_order, reverse_stack_order, exp_frame):
-    frame = sort_frame_stacks(input_frame, stack_order, reverse_stack_order)
+def test_sort_frame_stacks(
+    input_frame, primary_order, reverse_primary_order, exp_frame
+):
+    frame = sort_frame_stacks(input_frame, primary_order, reverse_primary_order)
 
     pandas.testing.assert_frame_equal(frame, exp_frame)

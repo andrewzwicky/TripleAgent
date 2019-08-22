@@ -20,7 +20,7 @@ from triple_agent.reports.generation.report_utilities import (
 )
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
-# Right now, it's a bit of a hodge-podge with stack_order being used in both ways.
+# Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
 
 
 def create_line_plot(
@@ -37,13 +37,13 @@ def create_line_plot(
         axis = fig.subplots()
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict,
+        axis_properties.primary_color_dict,
         data_properties.frame,
         data_properties.stacks_are_categories,
     )
 
     category_labels, stack_labels = create_category_legend_labels(
-        axis_properties.data_stack_label_dict,
+        axis_properties.primary_label_dict,
         data_properties.frame.columns,
         data_properties.frame.index,
         data_properties.stacks_are_categories,
@@ -97,14 +97,14 @@ def create_bar_plot(
         axis = fig.subplots()
 
     category_labels, stack_labels = create_category_legend_labels(
-        axis_properties.data_stack_label_dict,
+        axis_properties.primary_label_dict,
         data_properties.frame.columns,
         data_properties.frame.index,
         data_properties.stacks_are_categories,
     )
 
     hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict,
+        axis_properties.primary_hatch_dict,
         data_properties.frame.columns,
         data_properties.frame.index,
         data_properties.stacks_are_categories,
@@ -143,7 +143,7 @@ def create_bar_plot(
 def draw_bars(axis, axis_properties, data_properties, ticks, stack_labels):
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict,
+        axis_properties.primary_color_dict,
         data_properties.frame,
         data_properties.stacks_are_categories,
     )
@@ -198,21 +198,21 @@ def create_pie_chart(
     axis.set_title(axis_properties.title)
 
     colors = create_plot_colors(
-        axis_properties.data_color_dict,
+        axis_properties.primary_color_dict,
         data_properties.frame,
         data_properties.stacks_are_categories,
         is_pie_chart=True,
     )
 
     hatching = create_plot_hatching(
-        axis_properties.data_hatch_dict,
+        axis_properties.primary_hatch_dict,
         data_properties.frame.columns,
         data_properties.frame.index,
         data_properties.stacks_are_categories,
     )
 
     category_labels, _ = create_category_legend_labels(
-        axis_properties.data_stack_label_dict,
+        axis_properties.primary_label_dict,
         data_properties.frame.columns,
         data_properties.frame.index,
         data_properties.stacks_are_categories,

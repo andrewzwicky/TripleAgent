@@ -68,13 +68,13 @@ def populate_data_properties(
 
     data_props.frame = sort_and_limit_frame_categories(
         data_props.frame,
-        data_query.category_order,
-        data_query.reverse_category_order,
+        data_query.secondary_order,
+        data_query.reverse_secondary_order,
         data_query.limit,
     )
 
     data_props.frame = sort_frame_stacks(
-        data_props.frame, data_query.stack_order, data_query.reverse_stack_order
+        data_props.frame, data_query.primary_order, data_query.reverse_primary_order
     )
 
     _, num_columns = data_props.frame.shape

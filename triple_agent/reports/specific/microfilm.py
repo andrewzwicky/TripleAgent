@@ -73,9 +73,9 @@ def at_or_direct_mf(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=TRANSFER_TO_COLORS_RGB),
+        AxisProperties(primary_color_dict=TRANSFER_TO_COLORS_RGB),
         DataQueryProperties(
-            query_function=_classify_microfilms, stack_order=TRANSFER_PLOT_ORDER
+            query_function=_classify_microfilms, primary_order=TRANSFER_PLOT_ORDER
         ),
     )
 
@@ -90,9 +90,9 @@ def microfilm_direction(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(data_color_dict=TRANSFER_TO_COLORS_RGB),
+        AxisProperties(primary_color_dict=TRANSFER_TO_COLORS_RGB),
         DataQueryProperties(
-            query_function=_microfilm_direction, stack_order=TRANSFER_PLOT_ORDER
+            query_function=_microfilm_direction, primary_order=TRANSFER_PLOT_ORDER
         ),
     )
 
