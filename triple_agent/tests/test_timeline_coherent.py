@@ -37,7 +37,7 @@ def test_timeline_coherent_no_role(get_preparsed_timeline_games):
 
 @pytest.mark.parsing
 @pytest.mark.quick
-def test_timeline_coherent_no_role(get_preparsed_timeline_games):
+def test_timeline_coherent_no_cast_name(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
     game.timeline[6].cast_name = (None,)
