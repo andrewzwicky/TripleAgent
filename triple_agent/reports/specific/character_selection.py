@@ -27,7 +27,7 @@ def _determine_amba(games, data_dictionary):
 
 
 def _determine_da(games, data_dictionary):
-    _determine_role_games(games, data_dictionary, Roles.DoubleAgents)
+    _determine_role_games(games, data_dictionary, Roles.DoubleAgent)
 
 
 def _determine_role_games(games, data_dictionary, role):

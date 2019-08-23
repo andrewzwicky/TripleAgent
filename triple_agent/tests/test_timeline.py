@@ -111,7 +111,7 @@ def test_calculate_elapsed_time():
             "01:12.1",
             "spy joined conversation with double agent.",
             (Characters.Duke,),
-            (Roles.DoubleAgents,),
+            (Roles.DoubleAgent,),
             (None,),
         ),
         ("sniper", "00:58.0", "took shot.", (Characters.Sari,), (None,), (None,)),
