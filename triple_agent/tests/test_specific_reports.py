@@ -255,6 +255,30 @@ SPECIFIC_REPORT_CASES = [
     (
         DataQueryProperties(
             query_function=_count_mission_choices,
+            groupby=lambda g: g.spy,
+            primary_order=MISSION_PLOT_ORDER,
+            percent_normalized_data=True,
+        ),
+        pandas.DataFrame(
+            data=[
+                [4 / 28, 4 / 28],
+                [4 / 28, 4 / 28],
+                [4 / 28, 3 / 28],
+                [4 / 28, 4 / 28],
+                [4 / 28, 3 / 28],
+                [3 / 28, 4 / 28],
+                [3 / 28, 4 / 28],
+                [2 / 28, 2 / 28],
+            ],
+            columns=["Calvin Schoolidge", "zerotka"],
+            index=MISSION_PLOT_ORDER,
+        ),
+        False,
+        AxisProperties(y_axis_percentage=True),
+    ),
+    (
+        DataQueryProperties(
+            query_function=_count_mission_choices,
             primary_order=MISSION_PLOT_ORDER[::-1],
         ),
         pandas.DataFrame(
@@ -334,4 +358,4 @@ def test_each_report(
 
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
     assert data_properties.stacks_are_categories == exp_stacks_as_categories
-    assert axis_properties == exp_frame
+    assert axis_properties == exp_axis_properties
