@@ -1574,7 +1574,7 @@ class TimelineEvent:
 class Timeline(Sequence):
     def __init__(self, lines: List[TimelineEvent]):
         self.lines = lines
-        self.reclassify_suspected_double_agents()
+        self.parse_suspected_double_agents()
 
         super().__init__()
 
@@ -1615,7 +1615,7 @@ class Timeline(Sequence):
             ):
                 num_time_adds += 1
 
-    def reclassify_suspected_double_agents(self):
+    def parse_suspected_double_agents(self):
         # Games are parsed with all the yellow bars being assumed to be DoubleAgent.
         # Only after the game are the the suspected double agents identified and classified.
         suspected_das = set()

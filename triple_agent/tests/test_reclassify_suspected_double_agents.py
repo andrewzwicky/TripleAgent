@@ -5,6 +5,7 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineEvent, Timeline
 from triple_agent.classes.books import Books
 
+
 @pytest.mark.parsing
 @pytest.mark.quick
 def test_reclassify_suspected_double_agents():
@@ -2722,7 +2723,3 @@ def test_reclassify_suspected_double_agents():
 
     for in_event, exp_event in zip(timeline, expected_events):
         assert in_event == exp_event
-
-
-
-
