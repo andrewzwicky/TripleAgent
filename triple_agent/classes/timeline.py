@@ -1497,9 +1497,9 @@ class TimelineEvent:
     actor: str
     _raw_time_str: str
     event: str
-    cast_name: Tuple[Optional[Characters]]
-    role: Tuple[Optional[Roles]]
-    books: Tuple[Optional[Books]]
+    cast_name: Tuple[Optional[Characters], ...]
+    role: Tuple[Optional[Roles], ...]
+    books: Tuple[Optional[Books], ...]
     elapsed_time: float = field(default=0, init=False)
     time: float = field(default=0, init=False)
     category: TimelineCategory = field(default=TimelineCategory.NoCategory, init=False)
@@ -1574,6 +1574,7 @@ class TimelineEvent:
 class Timeline(Sequence):
     def __init__(self, lines: List[TimelineEvent]):
         self.lines = lines
+        self.reclassify_suspected_double_agents()
 
         super().__init__()
 
@@ -1613,3 +1614,28 @@ class Timeline(Sequence):
                 "45 seconds"
             ):
                 num_time_adds += 1
+
+    def reclassify_suspected_double_agents(self):
+        # Games are parsed with all the yellow bars being assumed to be DoubleAgent.
+        # Only after the game are the the suspected double agents identified and classified.
+        suspected_das = set()
+
+        for event in self:
+            if (event.category & TimelineCategory.Cast) and (
+                Roles.DoubleAgent in event.role
+            ):
+                assert len(event.role) == 1
+                assert len(event.cast_name) == 1
+
+                if event.event.startswith("suspected"):
+                    suspected_das.add(event.cast_name[0])
+
+        # iterate again in case there were sniper lights before cast assignment.
+        for event in self:
+            if set(event.cast_name) & suspected_das:
+                event.role = tuple(
+                    [
+                        Roles.SuspectedDoubleAgent if cast in suspected_das else role
+                        for cast, role in zip(event.cast_name, event.role)
+                    ]
+                )

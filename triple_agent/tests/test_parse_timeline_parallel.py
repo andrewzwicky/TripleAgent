@@ -127,7 +127,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[3].elapsed_time == 0.0
     assert games[0].timeline[3].event == "suspected double agent cast."
     assert games[0].timeline[3].mission == Missions.Zero
-    assert games[0].timeline[3].role == (Roles.DoubleAgent,)
+    assert games[0].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[0].timeline[3].time == 225.0
 
     assert games[0].timeline[4].action_test == ActionTest.NoAT
@@ -567,7 +567,7 @@ def test_parse_timeline_parallel(
     assert games[0].timeline[43].elapsed_time == 9.900000000000006
     assert games[0].timeline[43].event == "marked less suspicious."
     assert games[0].timeline[43].mission == Missions.Zero
-    assert games[0].timeline[43].role == (Roles.DoubleAgent,)
+    assert games[0].timeline[43].role == (Roles.SuspectedDoubleAgent,)
     assert games[0].timeline[43].time == 215.1
 
     assert games[0].timeline[44].action_test == ActionTest.NoAT
@@ -1472,7 +1472,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[3].elapsed_time == 0.0
     assert games[1].timeline[3].event == "suspected double agent cast."
     assert games[1].timeline[3].mission == Missions.Zero
-    assert games[1].timeline[3].role == (Roles.DoubleAgent,)
+    assert games[1].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[1].timeline[3].time == 225.0
 
     assert games[1].timeline[4].action_test == ActionTest.NoAT
@@ -1923,7 +1923,7 @@ def test_parse_timeline_parallel(
     assert games[1].timeline[44].elapsed_time == 16.0
     assert games[1].timeline[44].event == "marked less suspicious."
     assert games[1].timeline[44].mission == Missions.Zero
-    assert games[1].timeline[44].role == (Roles.DoubleAgent,)
+    assert games[1].timeline[44].role == (Roles.SuspectedDoubleAgent,)
     assert games[1].timeline[44].time == 209.0
 
     assert games[1].timeline[45].action_test == ActionTest.NoAT
@@ -2300,7 +2300,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[3].elapsed_time == 0.0
     assert games[2].timeline[3].event == "suspected double agent cast."
     assert games[2].timeline[3].mission == Missions.Zero
-    assert games[2].timeline[3].role == (Roles.DoubleAgent,)
+    assert games[2].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[3].time == 225.0
 
     assert games[2].timeline[4].action_test == ActionTest.NoAT
@@ -2892,7 +2892,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[56].elapsed_time == 42.69999999999999
     assert games[2].timeline[56].event == "marked less suspicious."
     assert games[2].timeline[56].mission == Missions.Zero
-    assert games[2].timeline[56].role == (Roles.DoubleAgent,)
+    assert games[2].timeline[56].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[56].time == 182.3
 
     assert games[2].timeline[57].action_test == ActionTest.NoAT
@@ -3041,7 +3041,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[69].elapsed_time == 97.4
     assert games[2].timeline[69].event == "marked neutral suspicion."
     assert games[2].timeline[69].mission == Missions.Zero
-    assert games[2].timeline[69].role == (Roles.DoubleAgent,)
+    assert games[2].timeline[69].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[69].time == 127.6
 
     assert games[2].timeline[70].action_test == ActionTest.NoAT
@@ -3052,7 +3052,7 @@ def test_parse_timeline_parallel(
     assert games[2].timeline[70].elapsed_time == 98.0
     assert games[2].timeline[70].event == "marked less suspicious."
     assert games[2].timeline[70].mission == Missions.Zero
-    assert games[2].timeline[70].role == (Roles.DoubleAgent,)
+    assert games[2].timeline[70].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[70].time == 127.0
 
     assert games[2].timeline[71].action_test == ActionTest.NoAT
@@ -3844,7 +3844,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[3].elapsed_time == 0.0
     assert games[3].timeline[3].event == "suspected double agent cast."
     assert games[3].timeline[3].mission == Missions.Zero
-    assert games[3].timeline[3].role == (Roles.DoubleAgent,)
+    assert games[3].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[3].timeline[3].time == 225.0
 
     assert games[3].timeline[4].action_test == ActionTest.NoAT
@@ -4284,7 +4284,7 @@ def test_parse_timeline_parallel(
     assert games[3].timeline[43].elapsed_time == 10.300000000000011
     assert games[3].timeline[43].event == "marked less suspicious."
     assert games[3].timeline[43].mission == Missions.Zero
-    assert games[3].timeline[43].role == (Roles.DoubleAgent,)
+    assert games[3].timeline[43].role == (Roles.SuspectedDoubleAgent,)
     assert games[3].timeline[43].time == 214.7
 
     assert games[3].timeline[44].action_test == ActionTest.NoAT
@@ -10024,7 +10024,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[3].elapsed_time == 0.0
     assert games[10].timeline[3].event == "suspected double agent cast."
     assert games[10].timeline[3].mission == Missions.Zero
-    assert games[10].timeline[3].role == (Roles.DoubleAgent,)
+    assert games[10].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[10].timeline[3].time == 210.0
 
     assert games[10].timeline[4].action_test == ActionTest.NoAT
@@ -10398,7 +10398,7 @@ def test_parse_timeline_parallel(
     assert games[10].timeline[37].elapsed_time == 7.5
     assert games[10].timeline[37].event == "marked less suspicious."
     assert games[10].timeline[37].mission == Missions.Zero
-    assert games[10].timeline[37].role == (Roles.DoubleAgent,)
+    assert games[10].timeline[37].role == (Roles.SuspectedDoubleAgent,)
     assert games[10].timeline[37].time == 202.5
 
     assert games[10].timeline[38].action_test == ActionTest.Green
