@@ -24,7 +24,7 @@ def query(
     games: Union[List[Game], List[SCLSet]],
     data_query: DataQueryProperties,
     axis_properties: AxisProperties = None,
-):
+):  # pragma: no cover
     """
     query is the default plotting interface.  Given a list of games/sets, and a function to
     classidy them, it will plot either a pie chart, bar plot, or stacked bar plot.  Can be used to

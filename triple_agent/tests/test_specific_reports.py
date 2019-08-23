@@ -19,6 +19,7 @@ from triple_agent.classes.roles import Roles
 from triple_agent.reports.specific.character_selection import (
     determine_character_in_role,
 )
+from triple_agent.reports.generation.plot_specs import AxisProperties
 import pandas
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
@@ -235,6 +236,7 @@ SPECIFIC_REPORT_CASES = [
             data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
         ),
         True,
+        AxisProperties(),
     ),
     (
         DataQueryProperties(
@@ -248,6 +250,7 @@ SPECIFIC_REPORT_CASES = [
             index=MISSION_PLOT_ORDER,
         ),
         False,
+        AxisProperties(),
     ),
     (
         DataQueryProperties(
@@ -260,6 +263,7 @@ SPECIFIC_REPORT_CASES = [
             index=[None],
         ),
         True,
+        AxisProperties(),
     ),
     (
         DataQueryProperties(
@@ -273,6 +277,7 @@ SPECIFIC_REPORT_CASES = [
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,
+        AxisProperties(),
     ),
     (
         DataQueryProperties(
@@ -287,6 +292,7 @@ SPECIFIC_REPORT_CASES = [
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,
+        AxisProperties(),
     ),
     (
         DataQueryProperties(
@@ -305,20 +311,27 @@ SPECIFIC_REPORT_CASES = [
             ],
         ),
         True,
+        AxisProperties(),
     ),
 ]
 
 
 @pytest.mark.plotting
 @pytest.mark.parametrize(
-    "data_query,exp_frame, exp_stacks_as_categories", SPECIFIC_REPORT_CASES
+    "data_query,exp_frame, exp_stacks_as_categories, exp_axis_properties",
+    SPECIFIC_REPORT_CASES,
 )
 def test_each_report(
-    data_query, exp_frame, exp_stacks_as_categories, get_preparsed_timeline_games
+    data_query,
+    exp_frame,
+    exp_stacks_as_categories,
+    get_preparsed_timeline_games,
+    exp_axis_properties,
 ):
-    _, data_properties = populate_data_properties(
+    axis_properties, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
     )
 
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
     assert data_properties.stacks_are_categories == exp_stacks_as_categories
+    assert axis_properties == exp_frame
