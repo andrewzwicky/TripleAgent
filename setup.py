@@ -45,7 +45,6 @@ setup(
         "plot": [
             "matplotlib>=3.1.0",
             "jupyterlab>=0.35.6",
-            "tabulate>=0.8.3",
             "pandas>=0.25",
         ],
         "retrieve": ["requests>=2.22.0", "beautifulsoup4>=4.7.1"],
