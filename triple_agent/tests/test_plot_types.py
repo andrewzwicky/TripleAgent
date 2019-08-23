@@ -277,7 +277,9 @@ def test_bar_simple_portrait(test_figure, reference_figure):
     for label in ref_ax.xaxis.get_ticklabels():
         ext = label.get_window_extent()
         name = label.get_text().strip().lower()
-        [[left, _], [right, top]] = reference_figure.transFigure.inverted().transform(ext)
+        [[left, _], [right, top]] = reference_figure.transFigure.inverted().transform(
+            ext
+        )
 
         portrait_image = plt.imread(
             os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
