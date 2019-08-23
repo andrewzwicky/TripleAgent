@@ -1,8 +1,11 @@
 from collections import defaultdict
+import os
+
 
 import pytest
 from matplotlib.testing.decorators import check_figures_equal
 from matplotlib.ticker import MultipleLocator
+from matplotlib import pyplot as plt
 
 import pandas
 from triple_agent.reports.generation.plot_specs import (
@@ -18,6 +21,8 @@ from triple_agent.reports.generation.plot_types import (
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.characters import Characters
+from triple_agent.constants.paths import PORTRAITS_FOLDER
 
 
 @pytest.mark.plotting
@@ -236,6 +241,74 @@ def test_bar_simple(test_figure, reference_figure):
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_bar_simple_portrait(test_figure, reference_figure):
+
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Bar")
+    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="xkcd:green", edgecolor="black")
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=10)
+
+    ref_ax.set_xlim(-0.5, 4.5)
+    ref_ax.set_xticks([0, 1, 2, 3, 4])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(
+        [
+            "Irish          ",
+            "Duke          ",
+            "Smallman          ",
+            "Carlos          ",
+            "Alice          ",
+        ],
+        rotation=90,
+    )
+    reference_figure.canvas.draw()
+    for label in ref_ax.xaxis.get_ticklabels():
+        ext = label.get_window_extent()
+        name = label.get_text().strip().lower()
+        [[left, _], [right, top]] = reference_figure.transFigure.inverted().transform(ext)
+
+        portrait_image = plt.imread(
+            os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+        )
+        port_size = 0.045
+        port_start = ((left + right) / 2) - (port_size / 2)
+        newax = reference_figure.add_axes(
+            [port_start, top - port_size, port_size, port_size], zorder=-1
+        )
+        newax.imshow(portrait_image)
+        newax.axis("off")
+
+    axis_properties = AxisProperties(title="Bar", x_axis_portrait=True)
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[4, 5, 7, 9, 2]],
+            columns=[
+                Characters.Irish,
+                Characters.Duke,
+                Characters.Smallman,
+                Characters.Carlos,
+                Characters.Alice,
+            ],
+            index=[None],
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
@@ -246,7 +319,7 @@ def test_bar_simple_float_short(test_figure, reference_figure):
     ref_ax.set_title("Bar")
     ref_ax.bar(
         [0, 1, 2, 3, 4],
-        [.2, 0.5, .7, .9, .2],
+        [0.2, 0.5, 0.7, 0.9, 0.2],
         color=["red", "blue", "black", "yellow", "white"],
         edgecolor="black",
     )
@@ -276,7 +349,9 @@ def test_bar_simple_float_short(test_figure, reference_figure):
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
-            data=[[.2, .5, .7, .9, .2]], columns=["A", "B", "C", "D", "E"], index=[None]
+            data=[[0.2, 0.5, 0.7, 0.9, 0.2]],
+            columns=["A", "B", "C", "D", "E"],
+            index=[None],
         ),
         stacks_are_categories=True,
     )
@@ -342,6 +417,7 @@ def test_bar_stacked(test_figure, reference_figure):
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
@@ -352,14 +428,18 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.set_title("Bar")
     patches = ref_ax.bar(
         [0, 1, 2, 3, 4],
-        [1/5, 2/7, 3/10, 1/10, 6/8],
+        [1 / 5, 2 / 7, 3 / 10, 1 / 10, 6 / 8],
         color="blue",
         edgecolor="black",
-        bottom=[4/5, 5/7, 7/10, 9/10, 2/8],
+        bottom=[4 / 5, 5 / 7, 7 / 10, 9 / 10, 2 / 8],
         label="Top",
     )
     ref_ax.bar(
-        [0, 1, 2, 3, 4], [4/5, 5/7, 7/10, 9/10, 2/8], color="red", edgecolor="black", label="Bottom"
+        [0, 1, 2, 3, 4],
+        [4 / 5, 5 / 7, 7 / 10, 9 / 10, 2 / 8],
+        color="red",
+        edgecolor="black",
+        label="Bottom",
     )
 
     ref_ax.set_xlim(-0.5, 4.5)
@@ -385,7 +465,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         0,
-        1-0.01,
+        1 - 0.01,
         "0.20",
         color="black",
         horizontalalignment="center",
@@ -394,7 +474,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         1,
-        1-0.01,
+        1 - 0.01,
         "0.29",
         color="black",
         horizontalalignment="center",
@@ -403,7 +483,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         2,
-        1-0.01,
+        1 - 0.01,
         "0.30",
         color="black",
         horizontalalignment="center",
@@ -412,7 +492,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         3,
-        1-0.01,
+        1 - 0.01,
         "0.10",
         color="black",
         horizontalalignment="center",
@@ -421,16 +501,16 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         4,
-        1-0.01,
+        1 - 0.01,
         "0.75",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
     )
-    #[4 / 5, 5 / 7, 7 / 10, 9 / 10, 2 / 8]
+    # [4 / 5, 5 / 7, 7 / 10, 9 / 10, 2 / 8]
     ref_ax.text(
         0,
-        (4/5)-0.01,
+        (4 / 5) - 0.01,
         "0.80",
         color="black",
         horizontalalignment="center",
@@ -439,7 +519,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         1,
-        (5/7)-0.01,
+        (5 / 7) - 0.01,
         "0.71",
         color="black",
         horizontalalignment="center",
@@ -448,7 +528,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         2,
-        (7/10)-0.01,
+        (7 / 10) - 0.01,
         "0.70",
         color="black",
         horizontalalignment="center",
@@ -457,7 +537,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         3,
-        (9/10)-0.01,
+        (9 / 10) - 0.01,
         "0.90",
         color="black",
         horizontalalignment="center",
@@ -466,7 +546,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.text(
         4,
-        (2/8)-0.01,
+        (2 / 8) - 0.01,
         "0.25",
         color="black",
         horizontalalignment="center",
@@ -477,11 +557,14 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
         title="Bar",
         primary_color_dict={"Bottom": "red", "Top": "blue"},
         y_axis_percentage=True,
-        data_label_style=PlotLabelStyle.Plain
+        data_label_style=PlotLabelStyle.Plain,
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
-            data=[[1/5, 2/7, 3/10, 1/10, 6/8], [4/5, 5/7, 7/10, 9/10, 2/8]],
+            data=[
+                [1 / 5, 2 / 7, 3 / 10, 1 / 10, 6 / 8],
+                [4 / 5, 5 / 7, 7 / 10, 9 / 10, 2 / 8],
+            ],
             columns=["A", "B", "C", "D", "E"],
             index=["Top", "Bottom"],
         ),
@@ -489,6 +572,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     )
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
@@ -593,7 +677,9 @@ def test_line_plot(test_figure, reference_figure):
     ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
     axis_properties = AxisProperties(
-        title="Bar", primary_color_dict={"Bottom": "red", "Top": "blue"}, primary_label_dict={"Top":"TOPTOP", "Bottom":"BOTTOMBOTTOM"}
+        title="Bar",
+        primary_color_dict={"Bottom": "red", "Top": "blue"},
+        primary_label_dict={"Top": "TOPTOP", "Bottom": "BOTTOMBOTTOM"},
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
