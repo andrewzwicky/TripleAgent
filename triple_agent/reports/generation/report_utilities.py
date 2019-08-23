@@ -10,21 +10,18 @@ from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
 
 
-def labelify(unknown_item: Any, label_name_dictionary: Optional[Dict[Any, str]] = None):
-    if label_name_dictionary is not None:
-        return label_name_dictionary[unknown_item]
-
+def labelify(unknown_item: Any):
     if isinstance(unknown_item, Enum):
         return unknown_item.name
 
     if isinstance(unknown_item, float):
         # TODO: check this for other use cases
-        return f"{unknown_item:3>.5}"
+        return f"{unknown_item:04.2f}"
 
     return str(unknown_item)
 
 
-def _save_fig_if_needed(fig, savefig):
+def _save_fig_if_needed(fig, savefig):  # pragma: no cover
     if savefig:
         fig.savefig(savefig, bbox_inches="tight")
 
@@ -44,7 +41,6 @@ def _create_legend_if_needed(axis, fig):
         # Put a legend to the right of the current axis
 
         axis.legend(loc="center left", bbox_to_anchor=(1, 0.5))
-        # s.legend(labels=stack_labels, loc="center left", bbox_to_anchor=(1, 0.5))
 
 
 def create_category_legend_labels(
@@ -102,9 +98,6 @@ def create_plot_colors(
 def create_data_labels(
     frame: pandas.DataFrame, data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
 ) -> List[List[str]]:
-    if data_label_style == PlotLabelStyle.NoLabels:
-        return [["" for _ in stack] for stack in frame.itertuples(index=False)]
-
     if data_label_style == PlotLabelStyle.Plain:
         return [
             [labelify(item) for item in stack]
@@ -195,11 +188,11 @@ def apply_data_labels(axis, max_value, bar_patches, row_data_labels):
 
     for this_patch, this_label in zip(bar_patches, row_data_labels):
         if this_patch.get_height() != 0:
-            if this_patch.get_height() < max_value * 0.05:
-                y_value = this_patch.get_height() + text_padding
+            if this_patch.get_height() + this_patch.get_y() < max_value * 0.05:
+                y_value = this_patch.get_height() + this_patch.get_y() + text_padding
                 v_align = "bottom"
             else:
-                y_value = this_patch.get_height() - text_padding
+                y_value = this_patch.get_height() + this_patch.get_y() - text_padding
                 v_align = "top"
 
             axis.text(
