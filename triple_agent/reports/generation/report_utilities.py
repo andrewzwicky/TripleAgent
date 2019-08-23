@@ -135,7 +135,7 @@ def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: 
         num_majors = 12
         increment = round(max_value / num_majors)
         if increment < 1:
-            increment = 1
+            increment = 0.1
         axis.yaxis.set_major_locator(MultipleLocator(increment))
         rounded_top = ((max_value + increment) // increment) * increment
         axis.set_ylim(top=rounded_top)

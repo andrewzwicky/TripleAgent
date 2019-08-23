@@ -236,6 +236,53 @@ def test_bar_simple(test_figure, reference_figure):
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_bar_simple_float_short(test_figure, reference_figure):
+
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Bar")
+    ref_ax.bar(
+        [0, 1, 2, 3, 4],
+        [.2, 0.5, .7, .9, .2],
+        color=["red", "blue", "black", "yellow", "white"],
+        edgecolor="black",
+    )
+    ref_ax.yaxis.set_major_locator(MultipleLocator(0.1))
+    ref_ax.set_ylim(top=0.9)
+
+    ref_ax.set_xlim(-0.5, 4.5)
+    ref_ax.set_xticks([0, 1, 2, 3, 4])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(["A", "B", "C", "D", "E"], rotation=90)
+
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[.2, .5, .7, .9, .2]], columns=["A", "B", "C", "D", "E"], index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
