@@ -17,6 +17,7 @@ from triple_agent.reports.generation.report_utilities import (
     apply_data_labels,
     create_plot_hatching,
     create_data_labels,
+    trim_empty_labels
 )
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
@@ -221,11 +222,13 @@ def create_pie_chart(
     # pie is only going to use the lowest data "stack"
     wedge_data = data_properties.frame.iloc[-1]
 
+    trimmed_labels = trim_empty_labels(wedge_data, category_labels)
+
     patches, _, _ = axis.pie(
         wedge_data,
-        labels=category_labels,
+        labels=trimmed_labels,
         colors=colors[0],
-        autopct="%1.1f%%",
+        autopct=lambda x: "" if x == 0 else f"{x:1.1f}%",
         pctdistance=1.1,
         labeldistance=1.2,
         wedgeprops={"edgecolor": "k", "linewidth": 1},

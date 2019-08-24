@@ -133,8 +133,8 @@ def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: 
 
     else:
         num_majors = 12
-        increment = round(max_value / num_majors)
-        if increment < 1:
+        increment = max(round(max_value / num_majors), 1)
+        if max_value < 1:
             increment = 0.1
         axis.yaxis.set_major_locator(MultipleLocator(increment))
         rounded_top = ((max_value + increment) // increment) * increment
@@ -209,19 +209,12 @@ def trim_empty_labels(
     wedge_data: List[Union[int, float]], stack_labels: List[str]
 ) -> List[str]:
     # assume if plotting pie chart, only 1 stack is present
-    total_samples = sum(wedge_data)
     results_labels = []
     for value, label in zip(wedge_data, stack_labels):
         if not value:
             results_labels.append("")
         else:
-            if total_samples:
-                results_labels.append(
-                    labelify(label)
-                    + f"  {value}/{total_samples} {value / total_samples:.0%}"
-                )
-            else:
-                results_labels.append(labelify(label) + f"  {value}")
+            results_labels.append(labelify(label))
 
     return results_labels
 
