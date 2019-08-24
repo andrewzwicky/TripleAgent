@@ -19,6 +19,8 @@ class AxisProperties:
     y_axis_percentage: bool = False
     x_axis_portrait: bool = False
 
+    cumulative_histogram: bool = False
+
     savefig: Optional[str] = None
 
     force_bar: bool = False

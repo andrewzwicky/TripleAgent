@@ -11,11 +11,11 @@ def game_durations(games: List[Game], title: str):
             title=title,
             x_axis_label="Game Duration [sec]",
             y_axis_label="Game Ends in Time Period",
+            cumulative_histogram=True,
         ),
         [game.timeline[-1].elapsed_time for game in games],
         5,
         major_locator=30,
-        cumulative_also=True,
     )
 
     create_histogram(
@@ -23,6 +23,7 @@ def game_durations(games: List[Game], title: str):
             title=title,
             x_axis_label="Game Duration [%]",
             y_axis_label="Game Ends in Time Period",
+            cumulative_histogram=True,
         ),
         [
             (game.timeline[-1].elapsed_time / game.start_clock_seconds) * 100
@@ -30,5 +31,4 @@ def game_durations(games: List[Game], title: str):
         ],
         2,
         major_locator=10,
-        cumulative_also=True,
     )

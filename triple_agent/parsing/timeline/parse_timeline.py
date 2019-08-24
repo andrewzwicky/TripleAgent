@@ -329,7 +329,6 @@ def remove_overlap(events: Iterator[TimelineEvent]) -> List[TimelineEvent]:
             ):
                 del all_events_list[-30:-last_page_index]
 
-
     return all_events_list
 
 

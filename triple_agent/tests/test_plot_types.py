@@ -17,6 +17,7 @@ from triple_agent.reports.generation.plot_types import (
     create_pie_chart,
     create_bar_plot,
     create_line_plot,
+    create_histogram,
 )
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
@@ -279,6 +280,7 @@ def test_bar_simple(test_figure, reference_figure):
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
@@ -286,12 +288,7 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
     reference_figure.set_size_inches(12, 8)
     ref_ax = reference_figure.subplots()
     ref_ax.set_title("Bar")
-    ref_ax.bar(
-        [0, 1],
-        [0.1, 5],
-        color=["red", "blue"],
-        edgecolor="black",
-    )
+    ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
     ref_ax.set_ylim(top=6)
 
@@ -333,12 +330,10 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
             "D": "yellow",
             "E": "white",
         },
-        data_label_style=PlotLabelStyle.Plain
+        data_label_style=PlotLabelStyle.Plain,
     )
     data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(
-            data=[[0.1, 5]], columns=["A", "B"], index=[None]
-        ),
+        frame=pandas.DataFrame(data=[[0.1, 5]], columns=["A", "B"], index=[None]),
         stacks_are_categories=True,
     )
 
@@ -454,7 +449,7 @@ def test_bar_simple_float_short(test_figure, reference_figure):
             "E": "white",
         },
         y_axis_label="ylabel",
-        x_axis_label="xlabel"
+        x_axis_label="xlabel",
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
@@ -942,3 +937,54 @@ def test_bar_simple_labels(test_figure, reference_figure):
     )
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_histogram(test_figure, reference_figure):
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+
+    ref_ax.set_title("Histogram")
+    ref_ax.bar(
+        [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        [0, 6, 4, 3, 1, 0, 0, 0, 3],
+        color="xkcd:green",
+        edgecolor="black",
+        width=1,
+        align="edge",
+    )
+
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(0, 7)
+
+    ref_ax.set_xlim(0, 9)
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.xaxis.set_major_locator(MultipleLocator(5))
+    ref_ax.xaxis.set_minor_locator(MultipleLocator(1))
+
+    axis_properties = AxisProperties(
+        title="Histogram",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+
+    create_histogram(
+        axis_properties,
+        [1, 1, 1, 1, 2, 2, 3, 4, 3, 3, 2, 2, 1, 1, 8, 8, 8],
+        fig=test_figure,
+        bin_size=1,
+        major_locator=5,
+    )

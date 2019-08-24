@@ -17,7 +17,7 @@ from triple_agent.reports.generation.report_utilities import (
     apply_data_labels,
     create_plot_hatching,
     create_data_labels,
-    trim_empty_labels
+    trim_empty_labels,
 )
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
@@ -266,20 +266,21 @@ def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties
 
 
 def create_histogram(
-    axis_properties: AxisProperties,
-    data,
-    bin_size,
-    major_locator=60,
-    cumulative_also=False,
-    **kwargs,
+    axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
-    fig, axis = plt.subplots(figsize=(12, 8))
+    if fig is None:  # pragma: no cover
+        show = True
+        fig, axis = plt.subplots(figsize=(12, 8))
+    else:
+        show = False
+        fig.set_size_inches(12, 8)
+        axis = fig.subplots()
 
     cumulative_bins, data_bins = create_bins(bin_size, data)
 
     heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
 
-    if cumulative_also:
+    if axis_properties.cumulative_histogram:
         axis2 = axis.twinx()
         axis2.hist(
             data,
@@ -295,12 +296,13 @@ def create_histogram(
 
     _set_y_axis_scale_and_ticks(axis, max(heights), False)
 
+    _set_axis_properties(axis, data_bins, axis_properties, tight=True)
+
     # TODO: figure out a better major locator size
     axis.xaxis.set_major_locator(MultipleLocator(major_locator))
     axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
 
-    _set_axis_properties(axis, data_bins, axis_properties)
+    _save_fig_if_needed(fig, axis_properties.savefig)
 
-    _save_fig_if_needed(fig, kwargs)
-
-    plt.show()
+    if show:
+        plt.show()

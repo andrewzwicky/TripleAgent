@@ -114,9 +114,9 @@ def banana_split(games: List[Game], title: str):
             title=title,
             x_axis_label="Time Elapsed Since BB [sec]",
             y_axis_label="Number of Leaves in Window",
+            cumulative_histogram=True,
         ),
         bb_times,
         1,
         major_locator=10,
-        cumulative_also=True,
     )

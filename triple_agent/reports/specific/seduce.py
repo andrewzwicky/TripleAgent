@@ -31,9 +31,9 @@ def first_flirt_timing(games: List[Game], title: str):
             title=title,
             x_axis_label="Elapsed Time at First Flirt [sec]",
             y_axis_label="Number of Flirts in Time Period",
+            cumulative_histogram=True,
         ),
         first_flirt_times,
         2,
         major_locator=30,
-        cumulative_also=True,
     )

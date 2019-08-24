@@ -164,7 +164,7 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
         axis.set_xticklabels(labels, rotation=90)
 
 
-def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
+def _set_axis_properties(axis, ticks, axis_properties: AxisProperties, tight=False):
     axis.set_title(axis_properties.title)
 
     if axis_properties.y_axis_label is not None:
@@ -173,7 +173,11 @@ def _set_axis_properties(axis, ticks, axis_properties: AxisProperties):
     if axis_properties.x_axis_label is not None:
         axis.set_xlabel(axis_properties.x_axis_label)
 
-    axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
+    if tight:
+        axis.set_xlim(min(ticks), max(ticks))
+    else:
+        axis.set_xlim(min(ticks) - 0.5, max(ticks) + 0.5)
+
     axis.set_xticks(ticks)
 
     axis.set_ylim(bottom=0)
