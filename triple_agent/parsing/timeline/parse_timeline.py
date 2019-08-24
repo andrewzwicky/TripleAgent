@@ -320,14 +320,15 @@ def remove_overlap(events: Iterator[TimelineEvent]) -> List[TimelineEvent]:
                 overlap = True
                 break
 
+        # if there is overlap, but not equal, the timeline should fail
+        # coherency check
         if overlap:
             if np.array_equal(
                 last_page_hashes[:-last_page_index],
                 second_last_page_hashes[last_page_index:],
             ):
                 del all_events_list[-30:-last_page_index]
-            else:
-                raise ValueError("overlap detected, but arrays not equal")
+
 
     return all_events_list
 

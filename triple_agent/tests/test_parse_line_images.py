@@ -3,7 +3,7 @@ from typing import Tuple
 
 import cv2
 import pytest
-from triple_agent.parsing.timeline.parse_timeline import process_line_image
+from triple_agent.parsing.timeline.parse_timeline import process_line_image, TimelineParseException
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
 from triple_agent.classes.characters import Characters
@@ -7375,3 +7375,13 @@ def test_parse_line_images(
     assert event.category == e_category
     assert event.mission == e_mission
     assert event.action_test == e_action_test
+
+
+@pytest.mark.parsing
+def test_parse_line_image_bad_portrait():
+    line_image = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_line_images", "merged_cause_portrait_fail.png")
+    )
+
+    with pytest.raises(TimelineParseException):
+        process_line_image(line_image)

@@ -765,6 +765,20 @@ SORT_FRAME_STACK_CASES = [
             index=[3, 2, 1],
         ),
     ),
+    (
+        pandas.DataFrame(
+            data=[[7, 6, 4, 5], [8, 11, 0, 2], [0, 1, 4, 5]],
+            columns=["A", "B", "D", "C"],
+            index=[1, 2, 3],
+        ),
+        sum,
+        False,
+        pandas.DataFrame(
+            data=[[0, 1, 4, 5], [8, 11, 0, 2], [7, 6, 4, 5]],
+            columns=["A", "B", "D", "C"],
+            index=[3, 2, 1],
+        ),
+    ),
 ]
 
 
