@@ -242,7 +242,9 @@ def create_pie_chart(
         plt.show()
 
 
-def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None):
+def create_progress_plot(
+    x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
+):
     if fig is None:  # pragma: no cover
         show = True
         fig, axis = plt.subplots(figsize=(12, 8))

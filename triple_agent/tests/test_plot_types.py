@@ -18,7 +18,7 @@ from triple_agent.reports.generation.plot_types import (
     create_bar_plot,
     create_line_plot,
     create_histogram,
-    create_progress_plot
+    create_progress_plot,
 )
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
@@ -1008,7 +1008,6 @@ def test_histogram(test_figure, reference_figure):
         align="edge",
     )
 
-
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
     ref_ax.set_ylim(0, 7)
 
@@ -1045,7 +1044,7 @@ def test_histogram(test_figure, reference_figure):
             "D": "yellow",
             "E": "white",
         },
-        cumulative_histogram=True
+        cumulative_histogram=True,
     )
 
     create_histogram(
@@ -1056,6 +1055,7 @@ def test_histogram(test_figure, reference_figure):
         major_locator=5,
     )
 
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
@@ -1063,9 +1063,13 @@ def test_create_progress_plot(test_figure, reference_figure):
     reference_figure.set_size_inches(12, 8)
     ref_ax = reference_figure.subplots()
 
-    ref_ax.plot([0,.25,.65,1], [0, .25, .65, 1], linewidth=4, alpha=0.05, color="red")
-    ref_ax.plot([0,.25,.65], [0, .45, .6], linewidth=4, alpha=0.05, color="blue")
-    ref_ax.plot([0,.15,.75,1], [0, .75, .85, 1], linewidth=4, alpha=0.05, color="green")
+    ref_ax.plot(
+        [0, 0.25, 0.65, 1], [0, 0.25, 0.65, 1], linewidth=4, alpha=0.05, color="red"
+    )
+    ref_ax.plot([0, 0.25, 0.65], [0, 0.45, 0.6], linewidth=4, alpha=0.05, color="blue")
+    ref_ax.plot(
+        [0, 0.15, 0.75, 1], [0, 0.75, 0.85, 1], linewidth=4, alpha=0.05, color="green"
+    )
 
     ref_ax.set_ylim(bottom=0)
     ref_ax.set_xlim(left=0)
@@ -1079,19 +1083,13 @@ def test_create_progress_plot(test_figure, reference_figure):
     ref_ax.set_title("Progress")
 
     axis_properties = AxisProperties(
-        title="Progress",
-        x_axis_label="xlabel",
-        y_axis_label="ylabel"
+        title="Progress", x_axis_label="xlabel", y_axis_label="ylabel"
     )
 
     create_progress_plot(
-        [[0,.25,.65,1],
-         [0, .25, .65],
-         [0, .15, .75, 1]],
-        [[0, .25, .65, 1],
-         [0, .45, .6 ],
-         [0, .75, .85, 1]],
+        [[0, 0.25, 0.65, 1], [0, 0.25, 0.65], [0, 0.15, 0.75, 1]],
+        [[0, 0.25, 0.65, 1], [0, 0.45, 0.6], [0, 0.75, 0.85, 1]],
         ["red", "blue", "green"],
         axis_properties=axis_properties,
-        fig=test_figure
+        fig=test_figure,
     )
