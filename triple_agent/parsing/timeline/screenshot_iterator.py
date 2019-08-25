@@ -116,7 +116,8 @@ def get_mss_screenshots(
 
     for game_index, game in enumerate(games):
         print(
-            f"{game.spy} vs. {game.sniper} on {game.venue} [{game.uuid}, {game_index + 1}/{len(games)}]"
+            f"{game.spy} vs. {game.sniper} on {game.venue} [{game.uuid}, {game_index + 1}/{len(games)}]",
+            end=''
         )
         screenshot_index = 1
 
@@ -142,14 +143,15 @@ def get_mss_screenshots(
             # need a way to communicate through the queue that
             # all screenshots for this file have been processed,
             # starts with identifying the last one.
-            print(f"{game_index} {screenshot_index} taken")
+            print(".", end='')
 
             if is_last_screenshot(screenshot):
                 yield (game_index, screenshot_index, screenshot, True)
 
                 if game_index != (len(games) - 1):
                     go_to_next_game(pycharm_handle, spyparty_handle)
-
+                
+                print()
                 break
 
             else:

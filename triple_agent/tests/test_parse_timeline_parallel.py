@@ -58,6 +58,53 @@ def mock_screenshot_iterator(
 
 
 @pytest.mark.parsing
+def test_parse_timeline_parallel_timeline_exception(
+    get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
+):
+    games = get_unparsed_test_games
+    games[0].uuid = games[0].uuid + "_exception"
+
+    monkeypatch.setattr("builtins.input", lambda x: None)
+
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl")
+    )
+
+    parse_timeline_parallel(
+        [games[0]],
+        screenshot_iterator=mock_screenshot_iterator,
+        pickle_folder=get_test_replay_pickle_folder,
+    )
+
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl")
+    )
+
+@pytest.mark.parsing
+def test_parse_timeline_parallel_incoherent(
+    get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
+):
+    games = get_unparsed_test_games
+    games[0].uuid = games[0].uuid + "_incoherent"
+
+    monkeypatch.setattr("builtins.input", lambda x: None)
+
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl")
+    )
+
+    parse_timeline_parallel(
+        [games[0]],
+        screenshot_iterator=mock_screenshot_iterator,
+        pickle_folder=get_test_replay_pickle_folder,
+    )
+
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl")
+    )
+
+
+@pytest.mark.parsing
 def test_parse_timeline_parallel(
     get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
 ):
@@ -65,10 +112,66 @@ def test_parse_timeline_parallel(
 
     monkeypatch.setattr("builtins.input", lambda x: None)
 
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "vgAlD77AQw2XKTZq3H4NTg.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "k8x3n_zfTtiw9FSS6rM13w.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "lOGf7W_MSlu1RRYxW2MMsA.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "jhx6e7UpTmeKueggeGcAKg.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "k415gCwtS3ml9_EzUPpWFw.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "8uf6pUK7TFegBD8Cbr2qMw.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "TPWiwN2aQc6EHEf6jKDKaA.pkl")
+    )
+    assert not os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "as-RnR1RQruzhRDZr7JP9A.pkl")
+    )
+
     parse_timeline_parallel(
         games,
         screenshot_iterator=mock_screenshot_iterator,
         pickle_folder=get_test_replay_pickle_folder,
+    )
+
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "vgAlD77AQw2XKTZq3H4NTg.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "k8x3n_zfTtiw9FSS6rM13w.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "lOGf7W_MSlu1RRYxW2MMsA.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "jhx6e7UpTmeKueggeGcAKg.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "k415gCwtS3ml9_EzUPpWFw.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "8uf6pUK7TFegBD8Cbr2qMw.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "TPWiwN2aQc6EHEf6jKDKaA.pkl")
+    )
+    assert os.path.exists(
+        os.path.join(get_test_replay_pickle_folder, "as-RnR1RQruzhRDZr7JP9A.pkl")
     )
 
     games.sort(key=lambda g: g.start_time)
