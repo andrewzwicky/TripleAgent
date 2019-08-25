@@ -27,6 +27,11 @@ def get_test_replay_pickle_folder():
 
 
 @pytest.fixture(scope="session")
+def get_test_unparsed_folder():
+    return os.path.join(TEST_FOLDER, "test_example_folder_structure", "test_unparsed")
+
+
+@pytest.fixture(scope="session")
 def get_test_events_folder():
     return os.path.join(TEST_FOLDER, "test_example_folder_structure", "test_events")
 

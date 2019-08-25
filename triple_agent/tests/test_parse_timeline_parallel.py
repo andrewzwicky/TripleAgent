@@ -7,6 +7,7 @@ import os
 from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
     parse_timeline_parallel,
 )
+from triple_agent.parsing.replay.parse_replays import parse_replays
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.action_tests import ActionTest
@@ -58,7 +59,7 @@ def mock_screenshot_iterator(
 
 
 @pytest.mark.parsing
-def test_parse_timeline_parallel_timeline_exception(
+def test_parse_exception_timeline_parallel(
     get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
 ):
     games = get_unparsed_test_games
@@ -86,7 +87,7 @@ def test_parse_timeline_parallel_timeline_exception(
 
 
 @pytest.mark.parsing
-def test_parse_timeline_parallel_incoherent(
+def test_parse_incoherent_timeline_parallel(
     get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
 ):
     games = get_unparsed_test_games
@@ -114,11 +115,12 @@ def test_parse_timeline_parallel_incoherent(
 
 
 @pytest.mark.parsing
-def test_parse_timeline_parallel(
-    get_unparsed_test_games, get_test_replay_pickle_folder, monkeypatch
+def test_parse_timeline_parallel_normal(
+    get_test_replay_pickle_folder,
+    get_test_events_folder,
+    get_test_unparsed_folder,
+    monkeypatch,
 ):
-    games = get_unparsed_test_games
-
     monkeypatch.setattr("builtins.input", lambda x: None)
 
     assert not os.path.exists(
@@ -149,10 +151,12 @@ def test_parse_timeline_parallel(
         os.path.join(get_test_replay_pickle_folder, "as-RnR1RQruzhRDZr7JP9A.pkl")
     )
 
-    parse_timeline_parallel(
-        games,
-        screenshot_iterator=mock_screenshot_iterator,
+    games = parse_replays(
+        lambda game: game.division == "Copper",
+        unparsed_folder=get_test_unparsed_folder,
+        events_folder=get_test_events_folder,
         pickle_folder=get_test_replay_pickle_folder,
+        screenshot_iterator=mock_screenshot_iterator,
     )
 
     assert os.path.exists(

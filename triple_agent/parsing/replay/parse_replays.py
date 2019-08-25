@@ -1,5 +1,6 @@
 import os
 from shutil import rmtree, copyfile
+from typing import Callable
 
 from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
     parse_timeline_parallel,
@@ -19,6 +20,7 @@ def parse_replays(
     unparsed_folder: str = UNPARSED_REPLAYS_FOLDER,
     events_folder: str = ALL_EVENTS_FOLDER,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    screenshot_iterator: Callable = get_mss_screenshots,
 ):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
@@ -42,7 +44,7 @@ def parse_replays(
         is parsing replays).
     ---Once parsed, timelines will be applied and the game will finally be pickled.
     """
-    game_list = list(iterate_over_replays(game_filter, events_folder))
+    game_list = list(iterate_over_replays(game_filter, events_folder, pickle_folder))
 
     # check that there are no duplicates from the same file existing twice.
     assert len({game.uuid for game in game_list}) == len(game_list)
@@ -74,7 +76,7 @@ def parse_replays(
 
         parse_timeline_parallel(
             unparsed_game_list,
-            screenshot_iterator=get_mss_screenshots,
+            screenshot_iterator=screenshot_iterator,
             pickle_folder=pickle_folder,
         )
 
