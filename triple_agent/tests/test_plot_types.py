@@ -18,6 +18,7 @@ from triple_agent.reports.generation.plot_types import (
     create_bar_plot,
     create_line_plot,
     create_histogram,
+    create_progress_plot
 )
 
 from triple_agent.classes.missions import MISSION_PLOT_ORDER
@@ -987,4 +988,110 @@ def test_histogram(test_figure, reference_figure):
         fig=test_figure,
         bin_size=1,
         major_locator=5,
+    )
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_histogram(test_figure, reference_figure):
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+
+    ref_ax.set_title("Histogram")
+    ref_ax.bar(
+        [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        [0, 6, 4, 3, 1, 0, 0, 0, 3],
+        color="xkcd:green",
+        edgecolor="black",
+        width=1,
+        align="edge",
+    )
+
+
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(0, 7)
+
+    ref_ax.set_xlim(0, 9)
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major", color="k")
+
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.xaxis.set_major_locator(MultipleLocator(5))
+    ref_ax.xaxis.set_minor_locator(MultipleLocator(1))
+
+    axis2 = ref_ax.twinx()
+    axis2.hist(
+        [1, 1, 1, 1, 2, 2, 3, 4, 3, 3, 2, 2, 1, 1, 8, 8, 8],
+        bins=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        density=True,
+        histtype="step",
+        cumulative=True,
+        color="xkcd:orange",
+        linewidth=3,
+    )
+
+    axis2.set_ylim(0, 1)
+
+    axis_properties = AxisProperties(
+        title="Histogram",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+        cumulative_histogram=True
+    )
+
+    create_histogram(
+        axis_properties,
+        [1, 1, 1, 1, 2, 2, 3, 4, 3, 3, 2, 2, 1, 1, 8, 8, 8],
+        fig=test_figure,
+        bin_size=1,
+        major_locator=5,
+    )
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_create_progress_plot(test_figure, reference_figure):
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+
+    ref_ax.plot([0,.25,.65,1], [0, .25, .65, 1], linewidth=4, alpha=0.05, color="red")
+    ref_ax.plot([0,.25,.65], [0, .45, .6], linewidth=4, alpha=0.05, color="blue")
+    ref_ax.plot([0,.15,.75,1], [0, .75, .85, 1], linewidth=4, alpha=0.05, color="green")
+
+    ref_ax.set_ylim(bottom=0)
+    ref_ax.set_xlim(left=0)
+
+    ref_ax.set_yticklabels(["{:,.0%}".format(x) for x in ref_ax.get_yticks()])
+    ref_ax.set_xticklabels(["{:,.0%}".format(x) for x in ref_ax.get_xticks()])
+
+    ref_ax.set_xlabel("xlabel")
+    ref_ax.set_ylabel("ylabel")
+
+    ref_ax.set_title("Progress")
+
+    axis_properties = AxisProperties(
+        title="Progress",
+        x_axis_label="xlabel",
+        y_axis_label="ylabel"
+    )
+
+    create_progress_plot(
+        [[0,.25,.65,1],
+         [0, .25, .65],
+         [0, .15, .75, 1]],
+        [[0, .25, .65, 1],
+         [0, .45, .6 ],
+         [0, .75, .85, 1]],
+        ["red", "blue", "green"],
+        axis_properties=axis_properties,
+        fig=test_figure
     )

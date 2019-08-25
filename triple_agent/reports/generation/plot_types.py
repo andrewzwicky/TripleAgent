@@ -80,7 +80,7 @@ def create_line_plot(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    if show:
+    if show:  # pragma: no cover
         plt.show()
 
 
@@ -137,7 +137,7 @@ def create_bar_plot(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    if show:
+    if show:  # pragma: no cover
         plt.show()
 
 
@@ -238,12 +238,18 @@ def create_pie_chart(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    if show:
+    if show:  # pragma: no cover
         plt.show()
 
 
-def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties):
-    _, axis = plt.subplots(figsize=(14, 10))
+def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None):
+    if fig is None:  # pragma: no cover
+        show = True
+        fig, axis = plt.subplots(figsize=(12, 8))
+    else:
+        show = False
+        fig.set_size_inches(12, 8)
+        axis = fig.subplots()
 
     for x_d, y_d, color in zip(x_data, y_data, colors):
         axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
@@ -262,7 +268,8 @@ def create_progress_plot(x_data, y_data, colors, axis_properties: AxisProperties
     if axis_properties.x_axis_label is not None:
         axis.set_xlabel(axis_properties.x_axis_label)
 
-    plt.show()
+    if show:  # pragma: no cover
+        plt.show()
 
 
 def create_histogram(
@@ -304,5 +311,5 @@ def create_histogram(
 
     _save_fig_if_needed(fig, axis_properties.savefig)
 
-    if show:
+    if show:  # pragma: no cover
         plt.show()
