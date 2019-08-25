@@ -79,10 +79,11 @@ def parse_timeline_parallel(
                     coherency = games[game_index].is_timeline_coherent()
 
                     if coherency != TimelineCoherency.Coherent:
-                        print(f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n")
+                        print(
+                            f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n"
+                        )
                     else:
                         games[game_index].repickle(pickle_folder=pickle_folder)
-
 
                 finally:
                     mutex.release()

@@ -67,7 +67,9 @@ def test_parse_timeline_parallel_timeline_exception(
     monkeypatch.setattr("builtins.input", lambda x: None)
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl")
+        os.path.join(
+            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
+        )
     )
 
     parse_timeline_parallel(
@@ -77,8 +79,11 @@ def test_parse_timeline_parallel_timeline_exception(
     )
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl")
+        os.path.join(
+            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
+        )
     )
+
 
 @pytest.mark.parsing
 def test_parse_timeline_parallel_incoherent(
@@ -90,7 +95,9 @@ def test_parse_timeline_parallel_incoherent(
     monkeypatch.setattr("builtins.input", lambda x: None)
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl")
+        os.path.join(
+            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
+        )
     )
 
     parse_timeline_parallel(
@@ -100,7 +107,9 @@ def test_parse_timeline_parallel_incoherent(
     )
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl")
+        os.path.join(
+            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
+        )
     )
 
 
