@@ -19,6 +19,10 @@ from triple_agent.classes.roles import Roles
 from triple_agent.reports.specific.character_selection import (
     determine_character_in_role,
 )
+from triple_agent.reports.specific.banana_breads import (
+    _all_banana_breads,
+    _first_banana_bread,
+)
 from triple_agent.reports.generation.plot_specs import AxisProperties
 import pandas
 
@@ -200,6 +204,66 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
                 "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+            },
+        ),
+    ),
+    (
+        _categorize_outcomes,
+        lambda g: g.sniper,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+            },
+        ),
+    ),
+    (
+        _all_banana_breads,
+        None,
+        False,
+        defaultdict(Counter, {None: Counter({"fake": 1, "real": 7})}),
+    ),
+    (
+        _all_banana_breads,
+        lambda g: g.uuid,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "07WVnz3aR3i6445zgSCZjA": Counter({"real": 2}),
+                "6OXfxIiITjm3I7xsGCl-fw": Counter({"fake": 1}),
+                "AlwXGqeIS5-uDk4ezZgdSg": Counter({"real": 1}),
+                "E3CAEUaVT82HIJmL03s_5A": Counter({"real": 1}),
+                "hOGDHc8AQRupgwGrKm7lfg": Counter({"real": 1}),
+                "mPZZrUvxQzeJYLQRbZOd7g": Counter({"real": 1}),
+                "yF0YmgbdQLKsKMw097DlIQ": Counter({"real": 1}),
+                "etwrSFKATD2hRWfz-KDXXg": Counter(),
+            },
+        ),
+    ),
+    (
+        _first_banana_bread,
+        None,
+        False,
+        defaultdict(Counter, {None: Counter({"fake": 1, "real": 6})}),
+    ),
+    (
+        _first_banana_bread,
+        lambda g: g.uuid,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "07WVnz3aR3i6445zgSCZjA": Counter({"real": 1}),
+                "6OXfxIiITjm3I7xsGCl-fw": Counter({"fake": 1}),
+                "AlwXGqeIS5-uDk4ezZgdSg": Counter({"real": 1}),
+                "E3CAEUaVT82HIJmL03s_5A": Counter({"real": 1}),
+                "hOGDHc8AQRupgwGrKm7lfg": Counter({"real": 1}),
+                "mPZZrUvxQzeJYLQRbZOd7g": Counter({"real": 1}),
+                "yF0YmgbdQLKsKMw097DlIQ": Counter({"real": 1}),
+                "etwrSFKATD2hRWfz-KDXXg": Counter(),
             },
         ),
     ),

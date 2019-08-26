@@ -72,7 +72,7 @@ SCL5_DIVISIONS = [
 ]
 
 
-def select_scl5(game: Game) -> bool:
+def select_scl5(game: Game) -> bool:  # pragma: no cover
     return (
         game.event == "SCL5"
         and game.spy not in SCL5_DROPPED_PLAYERS
@@ -80,5 +80,5 @@ def select_scl5(game: Game) -> bool:
     )
 
 
-def select_scl5_with_drops(game: Game) -> bool:
+def select_scl5_with_drops(game: Game) -> bool:  # pragma: no cover
     return game.event == "SCL5"
