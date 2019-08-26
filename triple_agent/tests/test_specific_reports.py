@@ -23,6 +23,7 @@ from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
     _first_banana_bread,
 )
+from triple_agent.reports.specific.bug import _categorize_bugs
 from triple_agent.reports.generation.plot_specs import AxisProperties
 import pandas
 
@@ -264,6 +265,98 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "mPZZrUvxQzeJYLQRbZOd7g": Counter({"real": 1}),
                 "yF0YmgbdQLKsKMw097DlIQ": Counter({"real": 1}),
                 "etwrSFKATD2hRWfz-KDXXg": Counter(),
+            },
+        ),
+    ),
+    (
+        _categorize_bugs,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        ("Walking", False): 1,
+                        ("Walking", True): 1,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                )
+            },
+        ),
+    ),
+    (
+        _categorize_bugs,
+        lambda g: g.uuid,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "07WVnz3aR3i6445zgSCZjA": Counter(
+                    {
+                        ("Walking", False): 1,
+                        ("Walking", True): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "6OXfxIiITjm3I7xsGCl-fw": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "AlwXGqeIS5-uDk4ezZgdSg": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "E3CAEUaVT82HIJmL03s_5A": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "etwrSFKATD2hRWfz-KDXXg": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "hOGDHc8AQRupgwGrKm7lfg": Counter(
+                    {
+                        ("Walking", True): 1,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "mPZZrUvxQzeJYLQRbZOd7g": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
+                "yF0YmgbdQLKsKMw097DlIQ": Counter(
+                    {
+                        ("Walking", True): 0,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
             },
         ),
     ),

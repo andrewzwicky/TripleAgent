@@ -43,9 +43,6 @@ def get_preparsed_timeline_games(get_test_events_folder, get_test_replay_pickle_
         lambda game: game.event == "Summer Cup 2019",
         pickle_folder=get_test_replay_pickle_folder,
     )
-    # perform the teardown code (delete any pickled games)
-    # for test_file in os.listdir(get_test_replay_pickle_folder):
-    #     os.remove(os.path.join(get_test_replay_pickle_folder, test_file))
 
 
 @pytest.fixture
