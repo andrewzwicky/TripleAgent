@@ -59,7 +59,7 @@ def parse_replays(
 
         try:
             rmtree(unparsed_folder)
-        except FileNotFoundError:
+        except FileNotFoundError:  # pragma: no cover
             pass
         os.makedirs(unparsed_folder, exist_ok=True)
 
@@ -82,11 +82,11 @@ def parse_replays(
 
         try:
             rmtree(unparsed_folder)
-        except FileNotFoundError:
+        except FileNotFoundError:  # pragma: no cover
             pass
 
     return game_list
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     parse_replays(lambda g: True)
