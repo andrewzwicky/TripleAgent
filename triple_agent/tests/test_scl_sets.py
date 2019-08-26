@@ -7,7 +7,8 @@ from triple_agent.classes.scl_set import sort_games_into_sets
 @pytest.mark.plotting
 def test_scl_set():
     games = get_parsed_replays(
-        lambda g: g.event == "SCL5" and g.division == "Diamond" and g.week == 3
+        lambda g: g.event == "SCL5" and g.division == "Diamond" and g.week == 3,
+        num_processes=1
     )
 
     sets = sort_games_into_sets(games)

@@ -7,9 +7,9 @@ from triple_agent.classes.game import game_unpickle, Game
 
 
 def get_parsed_replays(
-    game_filter, pickle_folder: str = REPLAY_PICKLE_FOLDER
+    game_filter, pickle_folder: str = REPLAY_PICKLE_FOLDER, num_processes=4
 ) -> List[Game]:
-    pool = Pool(processes=4)
+    pool = Pool(processes=num_processes)
 
     try:
         replay_pickle_paths = [
