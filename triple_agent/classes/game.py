@@ -49,9 +49,9 @@ class Game:
             pickle.dump(self, pik)
 
     def collect_general_timeline_info(self):
-        timeline_picked_missions = Missions.Zero
-        timeline_selected_missions = Missions.Zero
-        timeline_completed_missions = Missions.Zero
+        timeline_picked_missions = Missions.NoMission
+        timeline_selected_missions = Missions.NoMission
+        timeline_completed_missions = Missions.NoMission
         timeline_guest_count = 0
         ending_included = False
         start_included = False

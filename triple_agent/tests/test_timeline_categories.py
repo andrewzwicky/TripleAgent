@@ -31,7 +31,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -43,7 +43,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -55,7 +55,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -91,7 +91,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -103,7 +103,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Books | TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -151,7 +151,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -163,7 +163,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -187,7 +187,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -199,7 +199,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory | TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -259,7 +259,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -271,7 +271,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory | TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -283,7 +283,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory | TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -343,7 +343,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -367,7 +367,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -379,7 +379,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -403,7 +403,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.ActionTriggered | TimelineCategory.Watch,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -415,7 +415,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -427,7 +427,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -439,7 +439,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.ActionTest | TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.White,
     ),
     (
@@ -451,7 +451,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -463,7 +463,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -475,7 +475,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Ambassador,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -487,7 +487,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -499,7 +499,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -511,7 +511,7 @@ CATEGORY_TEST_CASES = [
         (Roles.SeductionTarget,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -523,7 +523,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -535,7 +535,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -547,7 +547,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -559,7 +559,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -571,7 +571,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -583,7 +583,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -595,7 +595,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -607,7 +607,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -619,7 +619,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -631,7 +631,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Cast,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -835,7 +835,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.GameStart,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -847,7 +847,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Overtime,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -859,7 +859,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -871,7 +871,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -883,7 +883,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -979,7 +979,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1003,7 +1003,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1015,7 +1015,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1123,7 +1123,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1135,7 +1135,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1147,7 +1147,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1159,7 +1159,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.Red,
     ),
     (
@@ -1195,7 +1195,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1255,7 +1255,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1267,7 +1267,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1291,7 +1291,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.MissionCountdown,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1303,7 +1303,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.GameEnd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1375,7 +1375,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1387,7 +1387,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1399,7 +1399,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1411,7 +1411,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1423,7 +1423,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1519,7 +1519,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1531,7 +1531,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1543,7 +1543,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1579,7 +1579,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1603,7 +1603,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1615,7 +1615,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1627,7 +1627,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1639,7 +1639,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1651,7 +1651,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1663,7 +1663,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1675,7 +1675,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1687,7 +1687,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1699,7 +1699,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1723,7 +1723,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1759,7 +1759,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1843,7 +1843,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1867,7 +1867,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1879,7 +1879,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1891,7 +1891,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1903,7 +1903,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1915,7 +1915,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1927,7 +1927,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1939,7 +1939,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1951,7 +1951,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1963,7 +1963,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1975,7 +1975,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1987,7 +1987,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -1999,7 +1999,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2011,7 +2011,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2023,7 +2023,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2083,7 +2083,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2095,7 +2095,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2107,7 +2107,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2191,7 +2191,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2203,7 +2203,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2215,7 +2215,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2239,7 +2239,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2287,7 +2287,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.MissionCountdown,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2299,7 +2299,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.MissionCountdown,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2311,7 +2311,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.GameEnd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2323,7 +2323,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2335,7 +2335,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2347,7 +2347,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2359,7 +2359,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2371,7 +2371,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2383,7 +2383,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2395,7 +2395,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.NoCategory,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2407,7 +2407,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2419,7 +2419,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2431,7 +2431,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2443,7 +2443,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2455,7 +2455,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2467,7 +2467,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2479,7 +2479,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2491,7 +2491,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2503,7 +2503,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2563,7 +2563,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.Ignored,
     ),
     (
@@ -2587,7 +2587,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2647,7 +2647,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2659,7 +2659,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2671,7 +2671,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2683,7 +2683,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2695,7 +2695,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2707,7 +2707,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2731,7 +2731,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.Canceled,
     ),
     (
@@ -2755,7 +2755,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2779,7 +2779,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2839,7 +2839,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2875,7 +2875,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Statues,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2887,7 +2887,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2899,7 +2899,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2911,7 +2911,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2947,7 +2947,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2971,7 +2971,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2983,7 +2983,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -2995,7 +2995,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3007,7 +3007,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3019,7 +3019,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3067,7 +3067,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3091,7 +3091,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3103,7 +3103,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3115,7 +3115,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3127,7 +3127,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3139,7 +3139,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3199,7 +3199,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3211,7 +3211,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.SniperShot,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3223,7 +3223,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.GameEnd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3235,7 +3235,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.GameEnd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3439,7 +3439,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Briefcase,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3451,7 +3451,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3463,7 +3463,7 @@ CATEGORY_TEST_CASES = [
         (Roles.DoubleAgent,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3487,7 +3487,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.SniperLights,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3511,7 +3511,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Conversation,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3547,7 +3547,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (None,),
         TimelineCategory.Watch | TimelineCategory.TimeAdd,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3559,7 +3559,7 @@ CATEGORY_TEST_CASES = [
         [None],
         [None],
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.Green,
     ),
     (
@@ -3571,7 +3571,7 @@ CATEGORY_TEST_CASES = [
         [None],
         [None],
         TimelineCategory.Watch | TimelineCategory.TimeAdd | TimelineCategory.ActionTest,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.Ignored,
     ),
     (
@@ -3715,7 +3715,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -3727,7 +3727,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -4843,7 +4843,7 @@ CATEGORY_TEST_CASES = [
         (None,),
         (Books.Yellow,),
         TimelineCategory.Books,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -4879,7 +4879,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -4891,7 +4891,7 @@ CATEGORY_TEST_CASES = [
         [Roles.Spy],
         [None],
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -4903,7 +4903,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (
@@ -4927,7 +4927,7 @@ CATEGORY_TEST_CASES = [
         (Roles.Spy,),
         (None,),
         TimelineCategory.Drinks,
-        Missions.Zero,
+        Missions.NoMission,
         ActionTest.NoAT,
     ),
     (

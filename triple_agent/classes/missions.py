@@ -4,7 +4,7 @@ from typing import Set
 
 
 class Missions(Flag):
-    Zero = 0
+    NoMission = 0
     Seduce = auto()
     Inspect = auto()
     Fingerprint = auto()
@@ -78,7 +78,7 @@ MISSION_GENERIC_TIMELINE_TO_ENUM = {
     "guest list purloin": Missions.Purloin,
     "guest list return": Missions.Purloin,
     "transfer microfilm": Missions.Transfer,
-    "check watch": Missions.Zero,
+    "check watch": Missions.NoMission,
 }
 
 MISSION_PARTIAL_TO_ENUM = {
@@ -95,7 +95,7 @@ MISSION_PARTIAL_TO_ENUM = {
 
 
 def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:
-    missions_enum = Missions.Zero
+    missions_enum = Missions.NoMission
 
     for mission_string in filter(lambda x: x != "None", missions_set):
         missions_enum |= Missions[mission_string]

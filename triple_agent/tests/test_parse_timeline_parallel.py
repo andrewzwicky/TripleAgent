@@ -209,7 +209,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[0].category == TimelineCategory.Cast
     assert games[0].timeline[0].elapsed_time == 0.0
     assert games[0].timeline[0].event == "spy cast."
-    assert games[0].timeline[0].mission == Missions.Zero
+    assert games[0].timeline[0].mission == Missions.NoMission
     assert games[0].timeline[0].role == (Roles.Spy,)
     assert games[0].timeline[0].time == 225.0
 
@@ -220,7 +220,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[1].category == TimelineCategory.Cast
     assert games[0].timeline[1].elapsed_time == 0.0
     assert games[0].timeline[1].event == "ambassador cast."
-    assert games[0].timeline[1].mission == Missions.Zero
+    assert games[0].timeline[1].mission == Missions.NoMission
     assert games[0].timeline[1].role == (Roles.Ambassador,)
     assert games[0].timeline[1].time == 225.0
 
@@ -231,7 +231,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[2].category == TimelineCategory.Cast
     assert games[0].timeline[2].elapsed_time == 0.0
     assert games[0].timeline[2].event == "double agent cast."
-    assert games[0].timeline[2].mission == Missions.Zero
+    assert games[0].timeline[2].mission == Missions.NoMission
     assert games[0].timeline[2].role == (Roles.DoubleAgent,)
     assert games[0].timeline[2].time == 225.0
 
@@ -242,7 +242,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[3].category == TimelineCategory.Cast
     assert games[0].timeline[3].elapsed_time == 0.0
     assert games[0].timeline[3].event == "suspected double agent cast."
-    assert games[0].timeline[3].mission == Missions.Zero
+    assert games[0].timeline[3].mission == Missions.NoMission
     assert games[0].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[0].timeline[3].time == 225.0
 
@@ -253,7 +253,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[4].category == TimelineCategory.Cast
     assert games[0].timeline[4].elapsed_time == 0.0
     assert games[0].timeline[4].event == "seduction target cast."
-    assert games[0].timeline[4].mission == Missions.Zero
+    assert games[0].timeline[4].mission == Missions.NoMission
     assert games[0].timeline[4].role == (Roles.SeductionTarget,)
     assert games[0].timeline[4].time == 225.0
 
@@ -264,7 +264,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[5].category == TimelineCategory.Cast
     assert games[0].timeline[5].elapsed_time == 0.0
     assert games[0].timeline[5].event == "civilian cast."
-    assert games[0].timeline[5].mission == Missions.Zero
+    assert games[0].timeline[5].mission == Missions.NoMission
     assert games[0].timeline[5].role == (Roles.Civilian,)
     assert games[0].timeline[5].time == 225.0
 
@@ -275,7 +275,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[6].category == TimelineCategory.Cast
     assert games[0].timeline[6].elapsed_time == 0.0
     assert games[0].timeline[6].event == "civilian cast."
-    assert games[0].timeline[6].mission == Missions.Zero
+    assert games[0].timeline[6].mission == Missions.NoMission
     assert games[0].timeline[6].role == (Roles.Civilian,)
     assert games[0].timeline[6].time == 225.0
 
@@ -286,7 +286,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[7].category == TimelineCategory.Cast
     assert games[0].timeline[7].elapsed_time == 0.0
     assert games[0].timeline[7].event == "civilian cast."
-    assert games[0].timeline[7].mission == Missions.Zero
+    assert games[0].timeline[7].mission == Missions.NoMission
     assert games[0].timeline[7].role == (Roles.Civilian,)
     assert games[0].timeline[7].time == 225.0
 
@@ -297,7 +297,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[8].category == TimelineCategory.Cast
     assert games[0].timeline[8].elapsed_time == 0.0
     assert games[0].timeline[8].event == "civilian cast."
-    assert games[0].timeline[8].mission == Missions.Zero
+    assert games[0].timeline[8].mission == Missions.NoMission
     assert games[0].timeline[8].role == (Roles.Civilian,)
     assert games[0].timeline[8].time == 225.0
 
@@ -308,7 +308,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[9].category == TimelineCategory.Cast
     assert games[0].timeline[9].elapsed_time == 0.0
     assert games[0].timeline[9].event == "civilian cast."
-    assert games[0].timeline[9].mission == Missions.Zero
+    assert games[0].timeline[9].mission == Missions.NoMission
     assert games[0].timeline[9].role == (Roles.Civilian,)
     assert games[0].timeline[9].time == 225.0
 
@@ -319,7 +319,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[10].category == TimelineCategory.Cast
     assert games[0].timeline[10].elapsed_time == 0.0
     assert games[0].timeline[10].event == "civilian cast."
-    assert games[0].timeline[10].mission == Missions.Zero
+    assert games[0].timeline[10].mission == Missions.NoMission
     assert games[0].timeline[10].role == (Roles.Civilian,)
     assert games[0].timeline[10].time == 225.0
 
@@ -330,7 +330,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[11].category == TimelineCategory.Cast
     assert games[0].timeline[11].elapsed_time == 0.0
     assert games[0].timeline[11].event == "civilian cast."
-    assert games[0].timeline[11].mission == Missions.Zero
+    assert games[0].timeline[11].mission == Missions.NoMission
     assert games[0].timeline[11].role == (Roles.Civilian,)
     assert games[0].timeline[11].time == 225.0
 
@@ -341,7 +341,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[12].category == TimelineCategory.Cast
     assert games[0].timeline[12].elapsed_time == 0.0
     assert games[0].timeline[12].event == "civilian cast."
-    assert games[0].timeline[12].mission == Missions.Zero
+    assert games[0].timeline[12].mission == Missions.NoMission
     assert games[0].timeline[12].role == (Roles.Civilian,)
     assert games[0].timeline[12].time == 225.0
 
@@ -352,7 +352,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[13].category == TimelineCategory.Cast
     assert games[0].timeline[13].elapsed_time == 0.0
     assert games[0].timeline[13].event == "civilian cast."
-    assert games[0].timeline[13].mission == Missions.Zero
+    assert games[0].timeline[13].mission == Missions.NoMission
     assert games[0].timeline[13].role == (Roles.Civilian,)
     assert games[0].timeline[13].time == 225.0
 
@@ -363,7 +363,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[14].category == TimelineCategory.Cast
     assert games[0].timeline[14].elapsed_time == 0.0
     assert games[0].timeline[14].event == "civilian cast."
-    assert games[0].timeline[14].mission == Missions.Zero
+    assert games[0].timeline[14].mission == Missions.NoMission
     assert games[0].timeline[14].role == (Roles.Civilian,)
     assert games[0].timeline[14].time == 225.0
 
@@ -374,7 +374,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[15].category == TimelineCategory.Cast
     assert games[0].timeline[15].elapsed_time == 0.0
     assert games[0].timeline[15].event == "civilian cast."
-    assert games[0].timeline[15].mission == Missions.Zero
+    assert games[0].timeline[15].mission == Missions.NoMission
     assert games[0].timeline[15].role == (Roles.Civilian,)
     assert games[0].timeline[15].time == 225.0
 
@@ -385,7 +385,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[16].category == TimelineCategory.Cast
     assert games[0].timeline[16].elapsed_time == 0.0
     assert games[0].timeline[16].event == "civilian cast."
-    assert games[0].timeline[16].mission == Missions.Zero
+    assert games[0].timeline[16].mission == Missions.NoMission
     assert games[0].timeline[16].role == (Roles.Civilian,)
     assert games[0].timeline[16].time == 225.0
 
@@ -396,7 +396,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[17].category == TimelineCategory.Cast
     assert games[0].timeline[17].elapsed_time == 0.0
     assert games[0].timeline[17].event == "civilian cast."
-    assert games[0].timeline[17].mission == Missions.Zero
+    assert games[0].timeline[17].mission == Missions.NoMission
     assert games[0].timeline[17].role == (Roles.Civilian,)
     assert games[0].timeline[17].time == 225.0
 
@@ -407,7 +407,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[18].category == TimelineCategory.Cast
     assert games[0].timeline[18].elapsed_time == 0.0
     assert games[0].timeline[18].event == "civilian cast."
-    assert games[0].timeline[18].mission == Missions.Zero
+    assert games[0].timeline[18].mission == Missions.NoMission
     assert games[0].timeline[18].role == (Roles.Civilian,)
     assert games[0].timeline[18].time == 225.0
 
@@ -418,7 +418,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[19].category == TimelineCategory.Cast
     assert games[0].timeline[19].elapsed_time == 0.0
     assert games[0].timeline[19].event == "civilian cast."
-    assert games[0].timeline[19].mission == Missions.Zero
+    assert games[0].timeline[19].mission == Missions.NoMission
     assert games[0].timeline[19].role == (Roles.Civilian,)
     assert games[0].timeline[19].time == 225.0
 
@@ -429,7 +429,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[20].category == TimelineCategory.Cast
     assert games[0].timeline[20].elapsed_time == 0.0
     assert games[0].timeline[20].event == "civilian cast."
-    assert games[0].timeline[20].mission == Missions.Zero
+    assert games[0].timeline[20].mission == Missions.NoMission
     assert games[0].timeline[20].role == (Roles.Civilian,)
     assert games[0].timeline[20].time == 225.0
 
@@ -616,7 +616,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[37].category == TimelineCategory.GameStart
     assert games[0].timeline[37].elapsed_time == 0.0
     assert games[0].timeline[37].event == "game started."
-    assert games[0].timeline[37].mission == Missions.Zero
+    assert games[0].timeline[37].mission == Missions.NoMission
     assert games[0].timeline[37].role == (None,)
     assert games[0].timeline[37].time == 225.0
 
@@ -627,7 +627,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[38].category == TimelineCategory.NoCategory
     assert games[0].timeline[38].elapsed_time == 1.4000000000000057
     assert games[0].timeline[38].event == "spy player takes control from ai."
-    assert games[0].timeline[38].mission == Missions.Zero
+    assert games[0].timeline[38].mission == Missions.NoMission
     assert games[0].timeline[38].role == (None,)
     assert games[0].timeline[38].time == 223.6
 
@@ -638,7 +638,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[39].category == TimelineCategory.SniperLights
     assert games[0].timeline[39].elapsed_time == 3.9000000000000057
     assert games[0].timeline[39].event == "marked suspicious."
-    assert games[0].timeline[39].mission == Missions.Zero
+    assert games[0].timeline[39].mission == Missions.NoMission
     assert games[0].timeline[39].role == (Roles.Ambassador,)
     assert games[0].timeline[39].time == 221.1
 
@@ -649,7 +649,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[40].category == TimelineCategory.SniperLights
     assert games[0].timeline[40].elapsed_time == 5.300000000000011
     assert games[0].timeline[40].event == "marked less suspicious."
-    assert games[0].timeline[40].mission == Missions.Zero
+    assert games[0].timeline[40].mission == Missions.NoMission
     assert games[0].timeline[40].role == (Roles.Staff,)
     assert games[0].timeline[40].time == 219.7
 
@@ -660,7 +660,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[41].category == TimelineCategory.SniperLights
     assert games[0].timeline[41].elapsed_time == 6.400000000000006
     assert games[0].timeline[41].event == "marked suspicious."
-    assert games[0].timeline[41].mission == Missions.Zero
+    assert games[0].timeline[41].mission == Missions.NoMission
     assert games[0].timeline[41].role == (Roles.Staff,)
     assert games[0].timeline[41].time == 218.6
 
@@ -671,7 +671,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[42].category == TimelineCategory.SniperLights
     assert games[0].timeline[42].elapsed_time == 8.900000000000006
     assert games[0].timeline[42].event == "marked less suspicious."
-    assert games[0].timeline[42].mission == Missions.Zero
+    assert games[0].timeline[42].mission == Missions.NoMission
     assert games[0].timeline[42].role == (Roles.DoubleAgent,)
     assert games[0].timeline[42].time == 216.1
 
@@ -682,7 +682,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[43].category == TimelineCategory.SniperLights
     assert games[0].timeline[43].elapsed_time == 9.900000000000006
     assert games[0].timeline[43].event == "marked less suspicious."
-    assert games[0].timeline[43].mission == Missions.Zero
+    assert games[0].timeline[43].mission == Missions.NoMission
     assert games[0].timeline[43].role == (Roles.SuspectedDoubleAgent,)
     assert games[0].timeline[43].time == 215.1
 
@@ -729,7 +729,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[0].timeline[47].elapsed_time == 11.099999999999994
     assert games[0].timeline[47].event == "marked book."
-    assert games[0].timeline[47].mission == Missions.Zero
+    assert games[0].timeline[47].mission == Missions.NoMission
     assert games[0].timeline[47].role == (Roles.Civilian,)
     assert games[0].timeline[47].time == 213.9
 
@@ -754,7 +754,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[0].timeline[49].elapsed_time == 13.800000000000011
     assert games[0].timeline[49].event == "marked book."
-    assert games[0].timeline[49].mission == Missions.Zero
+    assert games[0].timeline[49].mission == Missions.NoMission
     assert games[0].timeline[49].role == (Roles.SeductionTarget,)
     assert games[0].timeline[49].time == 211.2
 
@@ -765,7 +765,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[50].category == TimelineCategory.Books
     assert games[0].timeline[50].elapsed_time == 15.599999999999994
     assert games[0].timeline[50].event == "get book from bookcase."
-    assert games[0].timeline[50].mission == Missions.Zero
+    assert games[0].timeline[50].mission == Missions.NoMission
     assert games[0].timeline[50].role == (None,)
     assert games[0].timeline[50].time == 209.4
 
@@ -776,7 +776,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[51].category == TimelineCategory.SniperLights
     assert games[0].timeline[51].elapsed_time == 20.900000000000006
     assert games[0].timeline[51].event == "marked suspicious."
-    assert games[0].timeline[51].mission == Missions.Zero
+    assert games[0].timeline[51].mission == Missions.NoMission
     assert games[0].timeline[51].role == (Roles.Civilian,)
     assert games[0].timeline[51].time == 204.1
 
@@ -787,7 +787,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[52].category == TimelineCategory.SniperLights
     assert games[0].timeline[52].elapsed_time == 21.30000000000001
     assert games[0].timeline[52].event == "marked suspicious."
-    assert games[0].timeline[52].mission == Missions.Zero
+    assert games[0].timeline[52].mission == Missions.NoMission
     assert games[0].timeline[52].role == (Roles.Civilian,)
     assert games[0].timeline[52].time == 203.7
 
@@ -798,7 +798,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[53].category == TimelineCategory.SniperLights
     assert games[0].timeline[53].elapsed_time == 21.69999999999999
     assert games[0].timeline[53].event == "marked suspicious."
-    assert games[0].timeline[53].mission == Missions.Zero
+    assert games[0].timeline[53].mission == Missions.NoMission
     assert games[0].timeline[53].role == (Roles.Civilian,)
     assert games[0].timeline[53].time == 203.3
 
@@ -820,7 +820,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[55].category == TimelineCategory.Books
     assert games[0].timeline[55].elapsed_time == 37.19999999999999
     assert games[0].timeline[55].event == "put book in bookcase."
-    assert games[0].timeline[55].mission == Missions.Zero
+    assert games[0].timeline[55].mission == Missions.NoMission
     assert games[0].timeline[55].role == (None,)
     assert games[0].timeline[55].time == 187.8
 
@@ -834,7 +834,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[0].timeline[56].elapsed_time == 37.400000000000006
     assert games[0].timeline[56].event == "marked book."
-    assert games[0].timeline[56].mission == Missions.Zero
+    assert games[0].timeline[56].mission == Missions.NoMission
     assert games[0].timeline[56].role == (Roles.Civilian,)
     assert games[0].timeline[56].time == 187.6
 
@@ -845,7 +845,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[57].category == TimelineCategory.SniperLights
     assert games[0].timeline[57].elapsed_time == 40.099999999999994
     assert games[0].timeline[57].event == "marked suspicious."
-    assert games[0].timeline[57].mission == Missions.Zero
+    assert games[0].timeline[57].mission == Missions.NoMission
     assert games[0].timeline[57].role == (Roles.Civilian,)
     assert games[0].timeline[57].time == 184.9
 
@@ -889,7 +889,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[61].category == TimelineCategory.SniperLights
     assert games[0].timeline[61].elapsed_time == 46.80000000000001
     assert games[0].timeline[61].event == "marked spy suspicious."
-    assert games[0].timeline[61].mission == Missions.Zero
+    assert games[0].timeline[61].mission == Missions.NoMission
     assert games[0].timeline[61].role == (Roles.Spy,)
     assert games[0].timeline[61].time == 178.2
 
@@ -900,7 +900,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[62].category == TimelineCategory.Conversation
     assert games[0].timeline[62].elapsed_time == 54.599999999999994
     assert games[0].timeline[62].event == "spy enters conversation."
-    assert games[0].timeline[62].mission == Missions.Zero
+    assert games[0].timeline[62].mission == Missions.NoMission
     assert games[0].timeline[62].role == (None,)
     assert games[0].timeline[62].time == 170.4
 
@@ -955,7 +955,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[67].category == TimelineCategory.SniperLights
     assert games[0].timeline[67].elapsed_time == 89.9
     assert games[0].timeline[67].event == "marked suspicious."
-    assert games[0].timeline[67].mission == Missions.Zero
+    assert games[0].timeline[67].mission == Missions.NoMission
     assert games[0].timeline[67].role == (Roles.Civilian,)
     assert games[0].timeline[67].time == 135.1
 
@@ -1032,7 +1032,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[74].category == TimelineCategory.Conversation
     assert games[0].timeline[74].elapsed_time == 123.6
     assert games[0].timeline[74].event == "spy leaves conversation."
-    assert games[0].timeline[74].mission == Missions.Zero
+    assert games[0].timeline[74].mission == Missions.NoMission
     assert games[0].timeline[74].role == (None,)
     assert games[0].timeline[74].time == 101.4
 
@@ -1046,7 +1046,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[0].timeline[75].elapsed_time == 126.4
     assert games[0].timeline[75].event == "marked book."
-    assert games[0].timeline[75].mission == Missions.Zero
+    assert games[0].timeline[75].mission == Missions.NoMission
     assert games[0].timeline[75].role == (Roles.Civilian,)
     assert games[0].timeline[75].time == 98.6
 
@@ -1057,7 +1057,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[76].category == TimelineCategory.SniperLights
     assert games[0].timeline[76].elapsed_time == 128.8
     assert games[0].timeline[76].event == "marked suspicious."
-    assert games[0].timeline[76].mission == Missions.Zero
+    assert games[0].timeline[76].mission == Missions.NoMission
     assert games[0].timeline[76].role == (Roles.Civilian,)
     assert games[0].timeline[76].time == 96.2
 
@@ -1068,7 +1068,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[77].category == TimelineCategory.Drinks
     assert games[0].timeline[77].elapsed_time == 139.5
     assert games[0].timeline[77].event == "waiter offered drink."
-    assert games[0].timeline[77].mission == Missions.Zero
+    assert games[0].timeline[77].mission == Missions.NoMission
     assert games[0].timeline[77].role == (Roles.Spy,)
     assert games[0].timeline[77].time == 85.5
 
@@ -1079,7 +1079,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[78].category == TimelineCategory.Drinks
     assert games[0].timeline[78].elapsed_time == 143.0
     assert games[0].timeline[78].event == "rejected drink from waiter."
-    assert games[0].timeline[78].mission == Missions.Zero
+    assert games[0].timeline[78].mission == Missions.NoMission
     assert games[0].timeline[78].role == (Roles.Spy,)
     assert games[0].timeline[78].time == 82.0
 
@@ -1090,7 +1090,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[79].category == TimelineCategory.Drinks
     assert games[0].timeline[79].elapsed_time == 143.0
     assert games[0].timeline[79].event == "waiter stopped offering drink."
-    assert games[0].timeline[79].mission == Missions.Zero
+    assert games[0].timeline[79].mission == Missions.NoMission
     assert games[0].timeline[79].role == (Roles.Spy,)
     assert games[0].timeline[79].time == 82.0
 
@@ -1101,7 +1101,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[80].category == TimelineCategory.Statues
     assert games[0].timeline[80].elapsed_time == 150.7
     assert games[0].timeline[80].event == "picked up statue."
-    assert games[0].timeline[80].mission == Missions.Zero
+    assert games[0].timeline[80].mission == Missions.NoMission
     assert games[0].timeline[80].role == (None,)
     assert games[0].timeline[80].time == 74.3
 
@@ -1243,7 +1243,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[91].category == TimelineCategory.Statues
     assert games[0].timeline[91].elapsed_time == 164.1
     assert games[0].timeline[91].event == "put back statue."
-    assert games[0].timeline[91].mission == Missions.Zero
+    assert games[0].timeline[91].mission == Missions.NoMission
     assert games[0].timeline[91].role == (None,)
     assert games[0].timeline[91].time == 60.9
 
@@ -1254,7 +1254,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[92].category == TimelineCategory.Drinks
     assert games[0].timeline[92].elapsed_time == 172.2
     assert games[0].timeline[92].event == "waiter offered drink."
-    assert games[0].timeline[92].mission == Missions.Zero
+    assert games[0].timeline[92].mission == Missions.NoMission
     assert games[0].timeline[92].role == (Roles.Spy,)
     assert games[0].timeline[92].time == 52.8
 
@@ -1265,7 +1265,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[93].category == TimelineCategory.Drinks
     assert games[0].timeline[93].elapsed_time == 176.7
     assert games[0].timeline[93].event == "rejected drink from waiter."
-    assert games[0].timeline[93].mission == Missions.Zero
+    assert games[0].timeline[93].mission == Missions.NoMission
     assert games[0].timeline[93].role == (Roles.Spy,)
     assert games[0].timeline[93].time == 48.3
 
@@ -1276,7 +1276,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[94].category == TimelineCategory.Drinks
     assert games[0].timeline[94].elapsed_time == 176.7
     assert games[0].timeline[94].event == "waiter stopped offering drink."
-    assert games[0].timeline[94].mission == Missions.Zero
+    assert games[0].timeline[94].mission == Missions.NoMission
     assert games[0].timeline[94].role == (Roles.Spy,)
     assert games[0].timeline[94].time == 48.3
 
@@ -1287,7 +1287,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[95].category == TimelineCategory.SniperLights
     assert games[0].timeline[95].elapsed_time == 181.0
     assert games[0].timeline[95].event == "marked less suspicious."
-    assert games[0].timeline[95].mission == Missions.Zero
+    assert games[0].timeline[95].mission == Missions.NoMission
     assert games[0].timeline[95].role == (Roles.Civilian,)
     assert games[0].timeline[95].time == 44.0
 
@@ -1298,7 +1298,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[96].category == TimelineCategory.SniperLights
     assert games[0].timeline[96].elapsed_time == 198.6
     assert games[0].timeline[96].event == "marked suspicious."
-    assert games[0].timeline[96].mission == Missions.Zero
+    assert games[0].timeline[96].mission == Missions.NoMission
     assert games[0].timeline[96].role == (Roles.Civilian,)
     assert games[0].timeline[96].time == 26.4
 
@@ -1309,7 +1309,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[97].category == TimelineCategory.Books
     assert games[0].timeline[97].elapsed_time == 202.1
     assert games[0].timeline[97].event == "get book from bookcase."
-    assert games[0].timeline[97].mission == Missions.Zero
+    assert games[0].timeline[97].mission == Missions.NoMission
     assert games[0].timeline[97].role == (None,)
     assert games[0].timeline[97].time == 22.9
 
@@ -1364,7 +1364,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[102].category == TimelineCategory.Conversation
     assert games[0].timeline[102].elapsed_time == 207.4
     assert games[0].timeline[102].event == "spy enters conversation."
-    assert games[0].timeline[102].mission == Missions.Zero
+    assert games[0].timeline[102].mission == Missions.NoMission
     assert games[0].timeline[102].role == (None,)
     assert games[0].timeline[102].time == 17.6
 
@@ -1375,7 +1375,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[103].category == TimelineCategory.Conversation
     assert games[0].timeline[103].elapsed_time == 207.4
     assert games[0].timeline[103].event == "spy joined conversation with double agent."
-    assert games[0].timeline[103].mission == Missions.Zero
+    assert games[0].timeline[103].mission == Missions.NoMission
     assert games[0].timeline[103].role == (Roles.DoubleAgent,)
     assert games[0].timeline[103].time == 17.6
 
@@ -1441,7 +1441,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[109].category == TimelineCategory.SniperLights
     assert games[0].timeline[109].elapsed_time == 213.5
     assert games[0].timeline[109].event == "marked less suspicious."
-    assert games[0].timeline[109].mission == Missions.Zero
+    assert games[0].timeline[109].mission == Missions.NoMission
     assert games[0].timeline[109].role == (Roles.Civilian,)
     assert games[0].timeline[109].time == 11.5
 
@@ -1452,7 +1452,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[110].category == TimelineCategory.SniperLights
     assert games[0].timeline[110].elapsed_time == 213.9
     assert games[0].timeline[110].event == "marked less suspicious."
-    assert games[0].timeline[110].mission == Missions.Zero
+    assert games[0].timeline[110].mission == Missions.NoMission
     assert games[0].timeline[110].role == (Roles.Civilian,)
     assert games[0].timeline[110].time == 11.1
 
@@ -1463,7 +1463,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[111].category == TimelineCategory.SniperLights
     assert games[0].timeline[111].elapsed_time == 214.3
     assert games[0].timeline[111].event == "marked less suspicious."
-    assert games[0].timeline[111].mission == Missions.Zero
+    assert games[0].timeline[111].mission == Missions.NoMission
     assert games[0].timeline[111].role == (Roles.Civilian,)
     assert games[0].timeline[111].time == 10.7
 
@@ -1474,7 +1474,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[112].category == TimelineCategory.SniperLights
     assert games[0].timeline[112].elapsed_time == 216.0
     assert games[0].timeline[112].event == "marked less suspicious."
-    assert games[0].timeline[112].mission == Missions.Zero
+    assert games[0].timeline[112].mission == Missions.NoMission
     assert games[0].timeline[112].role == (Roles.Civilian,)
     assert games[0].timeline[112].time == 9.0
 
@@ -1485,7 +1485,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[113].category == TimelineCategory.SniperLights
     assert games[0].timeline[113].elapsed_time == 216.4
     assert games[0].timeline[113].event == "marked less suspicious."
-    assert games[0].timeline[113].mission == Missions.Zero
+    assert games[0].timeline[113].mission == Missions.NoMission
     assert games[0].timeline[113].role == (Roles.Civilian,)
     assert games[0].timeline[113].time == 8.6
 
@@ -1496,7 +1496,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[114].category == TimelineCategory.SniperLights
     assert games[0].timeline[114].elapsed_time == 216.7
     assert games[0].timeline[114].event == "marked less suspicious."
-    assert games[0].timeline[114].mission == Missions.Zero
+    assert games[0].timeline[114].mission == Missions.NoMission
     assert games[0].timeline[114].role == (Roles.Civilian,)
     assert games[0].timeline[114].time == 8.3
 
@@ -1507,7 +1507,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[115].category == TimelineCategory.Conversation
     assert games[0].timeline[115].elapsed_time == 217.5
     assert games[0].timeline[115].event == "spy leaves conversation."
-    assert games[0].timeline[115].mission == Missions.Zero
+    assert games[0].timeline[115].mission == Missions.NoMission
     assert games[0].timeline[115].role == (None,)
     assert games[0].timeline[115].time == 7.5
 
@@ -1518,7 +1518,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[116].category == TimelineCategory.Conversation
     assert games[0].timeline[116].elapsed_time == 217.5
     assert games[0].timeline[116].event == "spy left conversation with double agent."
-    assert games[0].timeline[116].mission == Missions.Zero
+    assert games[0].timeline[116].mission == Missions.NoMission
     assert games[0].timeline[116].role == (Roles.DoubleAgent,)
     assert games[0].timeline[116].time == 7.5
 
@@ -1529,7 +1529,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[117].category == TimelineCategory.SniperShot
     assert games[0].timeline[117].elapsed_time == 220.3
     assert games[0].timeline[117].event == "took shot."
-    assert games[0].timeline[117].mission == Missions.Zero
+    assert games[0].timeline[117].mission == Missions.NoMission
     assert games[0].timeline[117].role == (Roles.Spy,)
     assert games[0].timeline[117].time == 4.7
 
@@ -1540,7 +1540,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[118].category == TimelineCategory.GameEnd
     assert games[0].timeline[118].elapsed_time == 223.9
     assert games[0].timeline[118].event == "sniper shot spy."
-    assert games[0].timeline[118].mission == Missions.Zero
+    assert games[0].timeline[118].mission == Missions.NoMission
     assert games[0].timeline[118].role == (Roles.Spy,)
     assert games[0].timeline[118].time == 1.1
 
@@ -1554,7 +1554,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[0].category == TimelineCategory.Cast
     assert games[1].timeline[0].elapsed_time == 0.0
     assert games[1].timeline[0].event == "spy cast."
-    assert games[1].timeline[0].mission == Missions.Zero
+    assert games[1].timeline[0].mission == Missions.NoMission
     assert games[1].timeline[0].role == (Roles.Spy,)
     assert games[1].timeline[0].time == 225.0
 
@@ -1565,7 +1565,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[1].category == TimelineCategory.Cast
     assert games[1].timeline[1].elapsed_time == 0.0
     assert games[1].timeline[1].event == "ambassador cast."
-    assert games[1].timeline[1].mission == Missions.Zero
+    assert games[1].timeline[1].mission == Missions.NoMission
     assert games[1].timeline[1].role == (Roles.Ambassador,)
     assert games[1].timeline[1].time == 225.0
 
@@ -1576,7 +1576,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[2].category == TimelineCategory.Cast
     assert games[1].timeline[2].elapsed_time == 0.0
     assert games[1].timeline[2].event == "double agent cast."
-    assert games[1].timeline[2].mission == Missions.Zero
+    assert games[1].timeline[2].mission == Missions.NoMission
     assert games[1].timeline[2].role == (Roles.DoubleAgent,)
     assert games[1].timeline[2].time == 225.0
 
@@ -1587,7 +1587,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[3].category == TimelineCategory.Cast
     assert games[1].timeline[3].elapsed_time == 0.0
     assert games[1].timeline[3].event == "suspected double agent cast."
-    assert games[1].timeline[3].mission == Missions.Zero
+    assert games[1].timeline[3].mission == Missions.NoMission
     assert games[1].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[1].timeline[3].time == 225.0
 
@@ -1598,7 +1598,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[4].category == TimelineCategory.Cast
     assert games[1].timeline[4].elapsed_time == 0.0
     assert games[1].timeline[4].event == "seduction target cast."
-    assert games[1].timeline[4].mission == Missions.Zero
+    assert games[1].timeline[4].mission == Missions.NoMission
     assert games[1].timeline[4].role == (Roles.SeductionTarget,)
     assert games[1].timeline[4].time == 225.0
 
@@ -1609,7 +1609,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[5].category == TimelineCategory.Cast
     assert games[1].timeline[5].elapsed_time == 0.0
     assert games[1].timeline[5].event == "civilian cast."
-    assert games[1].timeline[5].mission == Missions.Zero
+    assert games[1].timeline[5].mission == Missions.NoMission
     assert games[1].timeline[5].role == (Roles.Civilian,)
     assert games[1].timeline[5].time == 225.0
 
@@ -1620,7 +1620,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[6].category == TimelineCategory.Cast
     assert games[1].timeline[6].elapsed_time == 0.0
     assert games[1].timeline[6].event == "civilian cast."
-    assert games[1].timeline[6].mission == Missions.Zero
+    assert games[1].timeline[6].mission == Missions.NoMission
     assert games[1].timeline[6].role == (Roles.Civilian,)
     assert games[1].timeline[6].time == 225.0
 
@@ -1631,7 +1631,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[7].category == TimelineCategory.Cast
     assert games[1].timeline[7].elapsed_time == 0.0
     assert games[1].timeline[7].event == "civilian cast."
-    assert games[1].timeline[7].mission == Missions.Zero
+    assert games[1].timeline[7].mission == Missions.NoMission
     assert games[1].timeline[7].role == (Roles.Civilian,)
     assert games[1].timeline[7].time == 225.0
 
@@ -1642,7 +1642,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[8].category == TimelineCategory.Cast
     assert games[1].timeline[8].elapsed_time == 0.0
     assert games[1].timeline[8].event == "civilian cast."
-    assert games[1].timeline[8].mission == Missions.Zero
+    assert games[1].timeline[8].mission == Missions.NoMission
     assert games[1].timeline[8].role == (Roles.Civilian,)
     assert games[1].timeline[8].time == 225.0
 
@@ -1653,7 +1653,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[9].category == TimelineCategory.Cast
     assert games[1].timeline[9].elapsed_time == 0.0
     assert games[1].timeline[9].event == "civilian cast."
-    assert games[1].timeline[9].mission == Missions.Zero
+    assert games[1].timeline[9].mission == Missions.NoMission
     assert games[1].timeline[9].role == (Roles.Civilian,)
     assert games[1].timeline[9].time == 225.0
 
@@ -1664,7 +1664,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[10].category == TimelineCategory.Cast
     assert games[1].timeline[10].elapsed_time == 0.0
     assert games[1].timeline[10].event == "civilian cast."
-    assert games[1].timeline[10].mission == Missions.Zero
+    assert games[1].timeline[10].mission == Missions.NoMission
     assert games[1].timeline[10].role == (Roles.Civilian,)
     assert games[1].timeline[10].time == 225.0
 
@@ -1675,7 +1675,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[11].category == TimelineCategory.Cast
     assert games[1].timeline[11].elapsed_time == 0.0
     assert games[1].timeline[11].event == "civilian cast."
-    assert games[1].timeline[11].mission == Missions.Zero
+    assert games[1].timeline[11].mission == Missions.NoMission
     assert games[1].timeline[11].role == (Roles.Civilian,)
     assert games[1].timeline[11].time == 225.0
 
@@ -1686,7 +1686,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[12].category == TimelineCategory.Cast
     assert games[1].timeline[12].elapsed_time == 0.0
     assert games[1].timeline[12].event == "civilian cast."
-    assert games[1].timeline[12].mission == Missions.Zero
+    assert games[1].timeline[12].mission == Missions.NoMission
     assert games[1].timeline[12].role == (Roles.Civilian,)
     assert games[1].timeline[12].time == 225.0
 
@@ -1697,7 +1697,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[13].category == TimelineCategory.Cast
     assert games[1].timeline[13].elapsed_time == 0.0
     assert games[1].timeline[13].event == "civilian cast."
-    assert games[1].timeline[13].mission == Missions.Zero
+    assert games[1].timeline[13].mission == Missions.NoMission
     assert games[1].timeline[13].role == (Roles.Civilian,)
     assert games[1].timeline[13].time == 225.0
 
@@ -1708,7 +1708,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[14].category == TimelineCategory.Cast
     assert games[1].timeline[14].elapsed_time == 0.0
     assert games[1].timeline[14].event == "civilian cast."
-    assert games[1].timeline[14].mission == Missions.Zero
+    assert games[1].timeline[14].mission == Missions.NoMission
     assert games[1].timeline[14].role == (Roles.Civilian,)
     assert games[1].timeline[14].time == 225.0
 
@@ -1719,7 +1719,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[15].category == TimelineCategory.Cast
     assert games[1].timeline[15].elapsed_time == 0.0
     assert games[1].timeline[15].event == "civilian cast."
-    assert games[1].timeline[15].mission == Missions.Zero
+    assert games[1].timeline[15].mission == Missions.NoMission
     assert games[1].timeline[15].role == (Roles.Civilian,)
     assert games[1].timeline[15].time == 225.0
 
@@ -1730,7 +1730,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[16].category == TimelineCategory.Cast
     assert games[1].timeline[16].elapsed_time == 0.0
     assert games[1].timeline[16].event == "civilian cast."
-    assert games[1].timeline[16].mission == Missions.Zero
+    assert games[1].timeline[16].mission == Missions.NoMission
     assert games[1].timeline[16].role == (Roles.Civilian,)
     assert games[1].timeline[16].time == 225.0
 
@@ -1741,7 +1741,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[17].category == TimelineCategory.Cast
     assert games[1].timeline[17].elapsed_time == 0.0
     assert games[1].timeline[17].event == "civilian cast."
-    assert games[1].timeline[17].mission == Missions.Zero
+    assert games[1].timeline[17].mission == Missions.NoMission
     assert games[1].timeline[17].role == (Roles.Civilian,)
     assert games[1].timeline[17].time == 225.0
 
@@ -1752,7 +1752,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[18].category == TimelineCategory.Cast
     assert games[1].timeline[18].elapsed_time == 0.0
     assert games[1].timeline[18].event == "civilian cast."
-    assert games[1].timeline[18].mission == Missions.Zero
+    assert games[1].timeline[18].mission == Missions.NoMission
     assert games[1].timeline[18].role == (Roles.Civilian,)
     assert games[1].timeline[18].time == 225.0
 
@@ -1763,7 +1763,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[19].category == TimelineCategory.Cast
     assert games[1].timeline[19].elapsed_time == 0.0
     assert games[1].timeline[19].event == "civilian cast."
-    assert games[1].timeline[19].mission == Missions.Zero
+    assert games[1].timeline[19].mission == Missions.NoMission
     assert games[1].timeline[19].role == (Roles.Civilian,)
     assert games[1].timeline[19].time == 225.0
 
@@ -1774,7 +1774,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[20].category == TimelineCategory.Cast
     assert games[1].timeline[20].elapsed_time == 0.0
     assert games[1].timeline[20].event == "civilian cast."
-    assert games[1].timeline[20].mission == Missions.Zero
+    assert games[1].timeline[20].mission == Missions.NoMission
     assert games[1].timeline[20].role == (Roles.Civilian,)
     assert games[1].timeline[20].time == 225.0
 
@@ -1961,7 +1961,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[37].category == TimelineCategory.GameStart
     assert games[1].timeline[37].elapsed_time == 0.0
     assert games[1].timeline[37].event == "game started."
-    assert games[1].timeline[37].mission == Missions.Zero
+    assert games[1].timeline[37].mission == Missions.NoMission
     assert games[1].timeline[37].role == (None,)
     assert games[1].timeline[37].time == 225.0
 
@@ -1972,7 +1972,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[38].category == TimelineCategory.NoCategory
     assert games[1].timeline[38].elapsed_time == 1.4000000000000057
     assert games[1].timeline[38].event == "spy player takes control from ai."
-    assert games[1].timeline[38].mission == Missions.Zero
+    assert games[1].timeline[38].mission == Missions.NoMission
     assert games[1].timeline[38].role == (None,)
     assert games[1].timeline[38].time == 223.6
 
@@ -1983,7 +1983,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[39].category == TimelineCategory.SniperLights
     assert games[1].timeline[39].elapsed_time == 9.699999999999989
     assert games[1].timeline[39].event == "marked suspicious."
-    assert games[1].timeline[39].mission == Missions.Zero
+    assert games[1].timeline[39].mission == Missions.NoMission
     assert games[1].timeline[39].role == (Roles.Ambassador,)
     assert games[1].timeline[39].time == 215.3
 
@@ -1994,7 +1994,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[40].category == TimelineCategory.SniperLights
     assert games[1].timeline[40].elapsed_time == 10.900000000000006
     assert games[1].timeline[40].event == "marked suspicious."
-    assert games[1].timeline[40].mission == Missions.Zero
+    assert games[1].timeline[40].mission == Missions.NoMission
     assert games[1].timeline[40].role == (Roles.Staff,)
     assert games[1].timeline[40].time == 214.1
 
@@ -2005,7 +2005,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[41].category == TimelineCategory.SniperLights
     assert games[1].timeline[41].elapsed_time == 11.5
     assert games[1].timeline[41].event == "marked suspicious."
-    assert games[1].timeline[41].mission == Missions.Zero
+    assert games[1].timeline[41].mission == Missions.NoMission
     assert games[1].timeline[41].role == (Roles.Civilian,)
     assert games[1].timeline[41].time == 213.5
 
@@ -2016,7 +2016,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[42].category == TimelineCategory.SniperLights
     assert games[1].timeline[42].elapsed_time == 12.300000000000011
     assert games[1].timeline[42].event == "marked suspicious."
-    assert games[1].timeline[42].mission == Missions.Zero
+    assert games[1].timeline[42].mission == Missions.NoMission
     assert games[1].timeline[42].role == (Roles.Civilian,)
     assert games[1].timeline[42].time == 212.7
 
@@ -2027,7 +2027,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[43].category == TimelineCategory.Drinks
     assert games[1].timeline[43].elapsed_time == 12.699999999999989
     assert games[1].timeline[43].event == "took last sip of drink."
-    assert games[1].timeline[43].mission == Missions.Zero
+    assert games[1].timeline[43].mission == Missions.NoMission
     assert games[1].timeline[43].role == (Roles.Spy,)
     assert games[1].timeline[43].time == 212.3
 
@@ -2038,7 +2038,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[44].category == TimelineCategory.SniperLights
     assert games[1].timeline[44].elapsed_time == 16.0
     assert games[1].timeline[44].event == "marked less suspicious."
-    assert games[1].timeline[44].mission == Missions.Zero
+    assert games[1].timeline[44].mission == Missions.NoMission
     assert games[1].timeline[44].role == (Roles.SuspectedDoubleAgent,)
     assert games[1].timeline[44].time == 209.0
 
@@ -2049,7 +2049,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[45].category == TimelineCategory.Conversation
     assert games[1].timeline[45].elapsed_time == 22.69999999999999
     assert games[1].timeline[45].event == "spy enters conversation."
-    assert games[1].timeline[45].mission == Missions.Zero
+    assert games[1].timeline[45].mission == Missions.NoMission
     assert games[1].timeline[45].role == (None,)
     assert games[1].timeline[45].time == 202.3
 
@@ -2060,7 +2060,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[46].category == TimelineCategory.SniperLights
     assert games[1].timeline[46].elapsed_time == 27.69999999999999
     assert games[1].timeline[46].event == "marked suspicious."
-    assert games[1].timeline[46].mission == Missions.Zero
+    assert games[1].timeline[46].mission == Missions.NoMission
     assert games[1].timeline[46].role == (Roles.Civilian,)
     assert games[1].timeline[46].time == 197.3
 
@@ -2115,7 +2115,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[51].category == TimelineCategory.SniperLights
     assert games[1].timeline[51].elapsed_time == 37.900000000000006
     assert games[1].timeline[51].event == "marked less suspicious."
-    assert games[1].timeline[51].mission == Missions.Zero
+    assert games[1].timeline[51].mission == Missions.NoMission
     assert games[1].timeline[51].role == (Roles.DoubleAgent,)
     assert games[1].timeline[51].time == 187.1
 
@@ -2126,7 +2126,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[52].category == TimelineCategory.Conversation
     assert games[1].timeline[52].elapsed_time == 40.69999999999999
     assert games[1].timeline[52].event == "spy leaves conversation."
-    assert games[1].timeline[52].mission == Missions.Zero
+    assert games[1].timeline[52].mission == Missions.NoMission
     assert games[1].timeline[52].role == (None,)
     assert games[1].timeline[52].time == 184.3
 
@@ -2148,7 +2148,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[54].category == TimelineCategory.SniperLights
     assert games[1].timeline[54].elapsed_time == 54.0
     assert games[1].timeline[54].event == "marked less suspicious."
-    assert games[1].timeline[54].mission == Missions.Zero
+    assert games[1].timeline[54].mission == Missions.NoMission
     assert games[1].timeline[54].role == (Roles.Staff,)
     assert games[1].timeline[54].time == 171.0
 
@@ -2162,7 +2162,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[1].timeline[55].elapsed_time == 59.5
     assert games[1].timeline[55].event == "action triggered: check watch"
-    assert games[1].timeline[55].mission == Missions.Zero
+    assert games[1].timeline[55].mission == Missions.NoMission
     assert games[1].timeline[55].role == (None,)
     assert games[1].timeline[55].time == 165.5
 
@@ -2176,7 +2176,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[1].timeline[56].elapsed_time == 59.5
     assert games[1].timeline[56].event == "watch checked to add time."
-    assert games[1].timeline[56].mission == Missions.Zero
+    assert games[1].timeline[56].mission == Missions.NoMission
     assert games[1].timeline[56].role == (None,)
     assert games[1].timeline[56].time == 165.5
 
@@ -2192,7 +2192,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[1].timeline[57].elapsed_time == 60.599999999999994
     assert games[1].timeline[57].event == "action test white: check watch"
-    assert games[1].timeline[57].mission == Missions.Zero
+    assert games[1].timeline[57].mission == Missions.NoMission
     assert games[1].timeline[57].role == (None,)
     assert games[1].timeline[57].time == 164.4
 
@@ -2203,7 +2203,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[58].category == TimelineCategory.SniperLights
     assert games[1].timeline[58].elapsed_time == 61.900000000000006
     assert games[1].timeline[58].event == "marked less suspicious."
-    assert games[1].timeline[58].mission == Missions.Zero
+    assert games[1].timeline[58].mission == Missions.NoMission
     assert games[1].timeline[58].role == (Roles.Civilian,)
     assert games[1].timeline[58].time == 163.1
 
@@ -2214,7 +2214,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[59].category == TimelineCategory.TimeAdd
     assert games[1].timeline[59].elapsed_time == 62.0
     assert games[1].timeline[59].event == "45 seconds added to match."
-    assert games[1].timeline[59].mission == Missions.Zero
+    assert games[1].timeline[59].mission == Missions.NoMission
     assert games[1].timeline[59].role == (None,)
     assert games[1].timeline[59].time == 163.0
 
@@ -2225,7 +2225,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[60].category == TimelineCategory.Conversation
     assert games[1].timeline[60].elapsed_time == 68.0
     assert games[1].timeline[60].event == "spy enters conversation."
-    assert games[1].timeline[60].mission == Missions.Zero
+    assert games[1].timeline[60].mission == Missions.NoMission
     assert games[1].timeline[60].role == (None,)
     assert games[1].timeline[60].time == 202.0
 
@@ -2313,7 +2313,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[68].category == TimelineCategory.SniperLights
     assert games[1].timeline[68].elapsed_time == 91.6
     assert games[1].timeline[68].event == "marked less suspicious."
-    assert games[1].timeline[68].mission == Missions.Zero
+    assert games[1].timeline[68].mission == Missions.NoMission
     assert games[1].timeline[68].role == (Roles.Civilian,)
     assert games[1].timeline[68].time == 178.4
 
@@ -2357,7 +2357,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[72].category == TimelineCategory.SniperShot
     assert games[1].timeline[72].elapsed_time == 103.9
     assert games[1].timeline[72].event == "took shot."
-    assert games[1].timeline[72].mission == Missions.Zero
+    assert games[1].timeline[72].mission == Missions.NoMission
     assert games[1].timeline[72].role == (Roles.Spy,)
     assert games[1].timeline[72].time == 166.1
 
@@ -2368,7 +2368,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[73].category == TimelineCategory.GameEnd
     assert games[1].timeline[73].elapsed_time == 109.9
     assert games[1].timeline[73].event == "sniper shot spy."
-    assert games[1].timeline[73].mission == Missions.Zero
+    assert games[1].timeline[73].mission == Missions.NoMission
     assert games[1].timeline[73].role == (Roles.Spy,)
     assert games[1].timeline[73].time == 160.1
 
@@ -2382,7 +2382,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[0].category == TimelineCategory.Cast
     assert games[2].timeline[0].elapsed_time == 0.0
     assert games[2].timeline[0].event == "spy cast."
-    assert games[2].timeline[0].mission == Missions.Zero
+    assert games[2].timeline[0].mission == Missions.NoMission
     assert games[2].timeline[0].role == (Roles.Spy,)
     assert games[2].timeline[0].time == 225.0
 
@@ -2393,7 +2393,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[1].category == TimelineCategory.Cast
     assert games[2].timeline[1].elapsed_time == 0.0
     assert games[2].timeline[1].event == "ambassador cast."
-    assert games[2].timeline[1].mission == Missions.Zero
+    assert games[2].timeline[1].mission == Missions.NoMission
     assert games[2].timeline[1].role == (Roles.Ambassador,)
     assert games[2].timeline[1].time == 225.0
 
@@ -2404,7 +2404,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[2].category == TimelineCategory.Cast
     assert games[2].timeline[2].elapsed_time == 0.0
     assert games[2].timeline[2].event == "double agent cast."
-    assert games[2].timeline[2].mission == Missions.Zero
+    assert games[2].timeline[2].mission == Missions.NoMission
     assert games[2].timeline[2].role == (Roles.DoubleAgent,)
     assert games[2].timeline[2].time == 225.0
 
@@ -2415,7 +2415,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[3].category == TimelineCategory.Cast
     assert games[2].timeline[3].elapsed_time == 0.0
     assert games[2].timeline[3].event == "suspected double agent cast."
-    assert games[2].timeline[3].mission == Missions.Zero
+    assert games[2].timeline[3].mission == Missions.NoMission
     assert games[2].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[3].time == 225.0
 
@@ -2426,7 +2426,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[4].category == TimelineCategory.Cast
     assert games[2].timeline[4].elapsed_time == 0.0
     assert games[2].timeline[4].event == "seduction target cast."
-    assert games[2].timeline[4].mission == Missions.Zero
+    assert games[2].timeline[4].mission == Missions.NoMission
     assert games[2].timeline[4].role == (Roles.SeductionTarget,)
     assert games[2].timeline[4].time == 225.0
 
@@ -2437,7 +2437,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[5].category == TimelineCategory.Cast
     assert games[2].timeline[5].elapsed_time == 0.0
     assert games[2].timeline[5].event == "civilian cast."
-    assert games[2].timeline[5].mission == Missions.Zero
+    assert games[2].timeline[5].mission == Missions.NoMission
     assert games[2].timeline[5].role == (Roles.Civilian,)
     assert games[2].timeline[5].time == 225.0
 
@@ -2448,7 +2448,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[6].category == TimelineCategory.Cast
     assert games[2].timeline[6].elapsed_time == 0.0
     assert games[2].timeline[6].event == "civilian cast."
-    assert games[2].timeline[6].mission == Missions.Zero
+    assert games[2].timeline[6].mission == Missions.NoMission
     assert games[2].timeline[6].role == (Roles.Civilian,)
     assert games[2].timeline[6].time == 225.0
 
@@ -2459,7 +2459,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[7].category == TimelineCategory.Cast
     assert games[2].timeline[7].elapsed_time == 0.0
     assert games[2].timeline[7].event == "civilian cast."
-    assert games[2].timeline[7].mission == Missions.Zero
+    assert games[2].timeline[7].mission == Missions.NoMission
     assert games[2].timeline[7].role == (Roles.Civilian,)
     assert games[2].timeline[7].time == 225.0
 
@@ -2470,7 +2470,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[8].category == TimelineCategory.Cast
     assert games[2].timeline[8].elapsed_time == 0.0
     assert games[2].timeline[8].event == "civilian cast."
-    assert games[2].timeline[8].mission == Missions.Zero
+    assert games[2].timeline[8].mission == Missions.NoMission
     assert games[2].timeline[8].role == (Roles.Civilian,)
     assert games[2].timeline[8].time == 225.0
 
@@ -2481,7 +2481,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[9].category == TimelineCategory.Cast
     assert games[2].timeline[9].elapsed_time == 0.0
     assert games[2].timeline[9].event == "civilian cast."
-    assert games[2].timeline[9].mission == Missions.Zero
+    assert games[2].timeline[9].mission == Missions.NoMission
     assert games[2].timeline[9].role == (Roles.Civilian,)
     assert games[2].timeline[9].time == 225.0
 
@@ -2492,7 +2492,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[10].category == TimelineCategory.Cast
     assert games[2].timeline[10].elapsed_time == 0.0
     assert games[2].timeline[10].event == "civilian cast."
-    assert games[2].timeline[10].mission == Missions.Zero
+    assert games[2].timeline[10].mission == Missions.NoMission
     assert games[2].timeline[10].role == (Roles.Civilian,)
     assert games[2].timeline[10].time == 225.0
 
@@ -2503,7 +2503,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[11].category == TimelineCategory.Cast
     assert games[2].timeline[11].elapsed_time == 0.0
     assert games[2].timeline[11].event == "civilian cast."
-    assert games[2].timeline[11].mission == Missions.Zero
+    assert games[2].timeline[11].mission == Missions.NoMission
     assert games[2].timeline[11].role == (Roles.Civilian,)
     assert games[2].timeline[11].time == 225.0
 
@@ -2514,7 +2514,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[12].category == TimelineCategory.Cast
     assert games[2].timeline[12].elapsed_time == 0.0
     assert games[2].timeline[12].event == "civilian cast."
-    assert games[2].timeline[12].mission == Missions.Zero
+    assert games[2].timeline[12].mission == Missions.NoMission
     assert games[2].timeline[12].role == (Roles.Civilian,)
     assert games[2].timeline[12].time == 225.0
 
@@ -2525,7 +2525,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[13].category == TimelineCategory.Cast
     assert games[2].timeline[13].elapsed_time == 0.0
     assert games[2].timeline[13].event == "civilian cast."
-    assert games[2].timeline[13].mission == Missions.Zero
+    assert games[2].timeline[13].mission == Missions.NoMission
     assert games[2].timeline[13].role == (Roles.Civilian,)
     assert games[2].timeline[13].time == 225.0
 
@@ -2536,7 +2536,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[14].category == TimelineCategory.Cast
     assert games[2].timeline[14].elapsed_time == 0.0
     assert games[2].timeline[14].event == "civilian cast."
-    assert games[2].timeline[14].mission == Missions.Zero
+    assert games[2].timeline[14].mission == Missions.NoMission
     assert games[2].timeline[14].role == (Roles.Civilian,)
     assert games[2].timeline[14].time == 225.0
 
@@ -2547,7 +2547,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[15].category == TimelineCategory.Cast
     assert games[2].timeline[15].elapsed_time == 0.0
     assert games[2].timeline[15].event == "civilian cast."
-    assert games[2].timeline[15].mission == Missions.Zero
+    assert games[2].timeline[15].mission == Missions.NoMission
     assert games[2].timeline[15].role == (Roles.Civilian,)
     assert games[2].timeline[15].time == 225.0
 
@@ -2558,7 +2558,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[16].category == TimelineCategory.Cast
     assert games[2].timeline[16].elapsed_time == 0.0
     assert games[2].timeline[16].event == "civilian cast."
-    assert games[2].timeline[16].mission == Missions.Zero
+    assert games[2].timeline[16].mission == Missions.NoMission
     assert games[2].timeline[16].role == (Roles.Civilian,)
     assert games[2].timeline[16].time == 225.0
 
@@ -2569,7 +2569,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[17].category == TimelineCategory.Cast
     assert games[2].timeline[17].elapsed_time == 0.0
     assert games[2].timeline[17].event == "civilian cast."
-    assert games[2].timeline[17].mission == Missions.Zero
+    assert games[2].timeline[17].mission == Missions.NoMission
     assert games[2].timeline[17].role == (Roles.Civilian,)
     assert games[2].timeline[17].time == 225.0
 
@@ -2580,7 +2580,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[18].category == TimelineCategory.Cast
     assert games[2].timeline[18].elapsed_time == 0.0
     assert games[2].timeline[18].event == "civilian cast."
-    assert games[2].timeline[18].mission == Missions.Zero
+    assert games[2].timeline[18].mission == Missions.NoMission
     assert games[2].timeline[18].role == (Roles.Civilian,)
     assert games[2].timeline[18].time == 225.0
 
@@ -2591,7 +2591,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[19].category == TimelineCategory.Cast
     assert games[2].timeline[19].elapsed_time == 0.0
     assert games[2].timeline[19].event == "civilian cast."
-    assert games[2].timeline[19].mission == Missions.Zero
+    assert games[2].timeline[19].mission == Missions.NoMission
     assert games[2].timeline[19].role == (Roles.Civilian,)
     assert games[2].timeline[19].time == 225.0
 
@@ -2602,7 +2602,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[20].category == TimelineCategory.Cast
     assert games[2].timeline[20].elapsed_time == 0.0
     assert games[2].timeline[20].event == "civilian cast."
-    assert games[2].timeline[20].mission == Missions.Zero
+    assert games[2].timeline[20].mission == Missions.NoMission
     assert games[2].timeline[20].role == (Roles.Civilian,)
     assert games[2].timeline[20].time == 225.0
 
@@ -2789,7 +2789,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[37].category == TimelineCategory.GameStart
     assert games[2].timeline[37].elapsed_time == 0.0
     assert games[2].timeline[37].event == "game started."
-    assert games[2].timeline[37].mission == Missions.Zero
+    assert games[2].timeline[37].mission == Missions.NoMission
     assert games[2].timeline[37].role == (None,)
     assert games[2].timeline[37].time == 225.0
 
@@ -2800,7 +2800,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[38].category == TimelineCategory.SniperLights
     assert games[2].timeline[38].elapsed_time == 0.6999999999999886
     assert games[2].timeline[38].event == "marked suspicious."
-    assert games[2].timeline[38].mission == Missions.Zero
+    assert games[2].timeline[38].mission == Missions.NoMission
     assert games[2].timeline[38].role == (Roles.Ambassador,)
     assert games[2].timeline[38].time == 224.3
 
@@ -2811,7 +2811,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[39].category == TimelineCategory.NoCategory
     assert games[2].timeline[39].elapsed_time == 0.9000000000000057
     assert games[2].timeline[39].event == "spy player takes control from ai."
-    assert games[2].timeline[39].mission == Missions.Zero
+    assert games[2].timeline[39].mission == Missions.NoMission
     assert games[2].timeline[39].role == (None,)
     assert games[2].timeline[39].time == 224.1
 
@@ -2822,7 +2822,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[40].category == TimelineCategory.Conversation
     assert games[2].timeline[40].elapsed_time == 3.9000000000000057
     assert games[2].timeline[40].event == "spy enters conversation."
-    assert games[2].timeline[40].mission == Missions.Zero
+    assert games[2].timeline[40].mission == Missions.NoMission
     assert games[2].timeline[40].role == (None,)
     assert games[2].timeline[40].time == 221.1
 
@@ -2833,7 +2833,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[41].category == TimelineCategory.SniperLights
     assert games[2].timeline[41].elapsed_time == 4.400000000000006
     assert games[2].timeline[41].event == "marked suspicious."
-    assert games[2].timeline[41].mission == Missions.Zero
+    assert games[2].timeline[41].mission == Missions.NoMission
     assert games[2].timeline[41].role == (Roles.Civilian,)
     assert games[2].timeline[41].time == 220.6
 
@@ -2888,7 +2888,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[46].category == TimelineCategory.SniperLights
     assert games[2].timeline[46].elapsed_time == 6.699999999999989
     assert games[2].timeline[46].event == "marked suspicious."
-    assert games[2].timeline[46].mission == Missions.Zero
+    assert games[2].timeline[46].mission == Missions.NoMission
     assert games[2].timeline[46].role == (Roles.Staff,)
     assert games[2].timeline[46].time == 218.3
 
@@ -2899,7 +2899,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[47].category == TimelineCategory.SniperLights
     assert games[2].timeline[47].elapsed_time == 8.699999999999989
     assert games[2].timeline[47].event == "marked less suspicious."
-    assert games[2].timeline[47].mission == Missions.Zero
+    assert games[2].timeline[47].mission == Missions.NoMission
     assert games[2].timeline[47].role == (Roles.DoubleAgent,)
     assert games[2].timeline[47].time == 216.3
 
@@ -2913,7 +2913,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[48].elapsed_time == 17.900000000000006
     assert games[2].timeline[48].event == "marked book."
-    assert games[2].timeline[48].mission == Missions.Zero
+    assert games[2].timeline[48].mission == Missions.NoMission
     assert games[2].timeline[48].role == (Roles.Civilian,)
     assert games[2].timeline[48].time == 207.1
 
@@ -2927,7 +2927,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[49].elapsed_time == 22.099999999999994
     assert games[2].timeline[49].event == "marked book."
-    assert games[2].timeline[49].mission == Missions.Zero
+    assert games[2].timeline[49].mission == Missions.NoMission
     assert games[2].timeline[49].role == (Roles.Civilian,)
     assert games[2].timeline[49].time == 202.9
 
@@ -2941,7 +2941,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[50].elapsed_time == 23.69999999999999
     assert games[2].timeline[50].event == "marked book."
-    assert games[2].timeline[50].mission == Missions.Zero
+    assert games[2].timeline[50].mission == Missions.NoMission
     assert games[2].timeline[50].role == (Roles.Civilian,)
     assert games[2].timeline[50].time == 201.3
 
@@ -2952,7 +2952,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[51].category == TimelineCategory.Conversation
     assert games[2].timeline[51].elapsed_time == 26.30000000000001
     assert games[2].timeline[51].event == "spy leaves conversation."
-    assert games[2].timeline[51].mission == Missions.Zero
+    assert games[2].timeline[51].mission == Missions.NoMission
     assert games[2].timeline[51].role == (None,)
     assert games[2].timeline[51].time == 198.7
 
@@ -2974,7 +2974,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[53].category == TimelineCategory.SniperLights
     assert games[2].timeline[53].elapsed_time == 26.69999999999999
     assert games[2].timeline[53].event == "marked suspicious."
-    assert games[2].timeline[53].mission == Missions.Zero
+    assert games[2].timeline[53].mission == Missions.NoMission
     assert games[2].timeline[53].role == (Roles.Civilian,)
     assert games[2].timeline[53].time == 198.3
 
@@ -2985,7 +2985,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[54].category == TimelineCategory.SniperLights
     assert games[2].timeline[54].elapsed_time == 37.69999999999999
     assert games[2].timeline[54].event == "marked less suspicious."
-    assert games[2].timeline[54].mission == Missions.Zero
+    assert games[2].timeline[54].mission == Missions.NoMission
     assert games[2].timeline[54].role == (Roles.Staff,)
     assert games[2].timeline[54].time == 187.3
 
@@ -2996,7 +2996,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[55].category == TimelineCategory.SniperLights
     assert games[2].timeline[55].elapsed_time == 41.5
     assert games[2].timeline[55].event == "marked suspicious."
-    assert games[2].timeline[55].mission == Missions.Zero
+    assert games[2].timeline[55].mission == Missions.NoMission
     assert games[2].timeline[55].role == (Roles.Civilian,)
     assert games[2].timeline[55].time == 183.5
 
@@ -3007,7 +3007,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[56].category == TimelineCategory.SniperLights
     assert games[2].timeline[56].elapsed_time == 42.69999999999999
     assert games[2].timeline[56].event == "marked less suspicious."
-    assert games[2].timeline[56].mission == Missions.Zero
+    assert games[2].timeline[56].mission == Missions.NoMission
     assert games[2].timeline[56].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[56].time == 182.3
 
@@ -3018,7 +3018,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[57].category == TimelineCategory.Drinks
     assert games[2].timeline[57].elapsed_time == 44.099999999999994
     assert games[2].timeline[57].event == "took last sip of drink."
-    assert games[2].timeline[57].mission == Missions.Zero
+    assert games[2].timeline[57].mission == Missions.NoMission
     assert games[2].timeline[57].role == (Roles.Spy,)
     assert games[2].timeline[57].time == 180.9
 
@@ -3032,7 +3032,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[58].elapsed_time == 58.599999999999994
     assert games[2].timeline[58].event == "marked book."
-    assert games[2].timeline[58].mission == Missions.Zero
+    assert games[2].timeline[58].mission == Missions.NoMission
     assert games[2].timeline[58].role == (Roles.Civilian,)
     assert games[2].timeline[58].time == 166.4
 
@@ -3043,7 +3043,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[59].category == TimelineCategory.Conversation
     assert games[2].timeline[59].elapsed_time == 64.9
     assert games[2].timeline[59].event == "spy enters conversation."
-    assert games[2].timeline[59].mission == Missions.Zero
+    assert games[2].timeline[59].mission == Missions.NoMission
     assert games[2].timeline[59].role == (None,)
     assert games[2].timeline[59].time == 160.1
 
@@ -3054,7 +3054,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[60].category == TimelineCategory.Conversation
     assert games[2].timeline[60].elapsed_time == 64.9
     assert games[2].timeline[60].event == "spy joined conversation with double agent."
-    assert games[2].timeline[60].mission == Missions.Zero
+    assert games[2].timeline[60].mission == Missions.NoMission
     assert games[2].timeline[60].role == (Roles.DoubleAgent,)
     assert games[2].timeline[60].time == 160.1
 
@@ -3065,7 +3065,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[61].category == TimelineCategory.Conversation
     assert games[2].timeline[61].elapsed_time == 70.9
     assert games[2].timeline[61].event == "double agent left conversation with spy."
-    assert games[2].timeline[61].mission == Missions.Zero
+    assert games[2].timeline[61].mission == Missions.NoMission
     assert games[2].timeline[61].role == (Roles.DoubleAgent,)
     assert games[2].timeline[61].time == 154.1
 
@@ -3076,7 +3076,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[62].category == TimelineCategory.Drinks
     assert games[2].timeline[62].elapsed_time == 72.6
     assert games[2].timeline[62].event == "waiter offered drink."
-    assert games[2].timeline[62].mission == Missions.Zero
+    assert games[2].timeline[62].mission == Missions.NoMission
     assert games[2].timeline[62].role == (Roles.Spy,)
     assert games[2].timeline[62].time == 152.4
 
@@ -3090,7 +3090,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[63].elapsed_time == 72.69999999999999
     assert games[2].timeline[63].event == "marked book."
-    assert games[2].timeline[63].mission == Missions.Zero
+    assert games[2].timeline[63].mission == Missions.NoMission
     assert games[2].timeline[63].role == (Roles.Civilian,)
     assert games[2].timeline[63].time == 152.3
 
@@ -3101,7 +3101,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[64].category == TimelineCategory.Drinks
     assert games[2].timeline[64].elapsed_time == 76.1
     assert games[2].timeline[64].event == "rejected drink from waiter."
-    assert games[2].timeline[64].mission == Missions.Zero
+    assert games[2].timeline[64].mission == Missions.NoMission
     assert games[2].timeline[64].role == (Roles.Spy,)
     assert games[2].timeline[64].time == 148.9
 
@@ -3112,7 +3112,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[65].category == TimelineCategory.Drinks
     assert games[2].timeline[65].elapsed_time == 76.1
     assert games[2].timeline[65].event == "waiter stopped offering drink."
-    assert games[2].timeline[65].mission == Missions.Zero
+    assert games[2].timeline[65].mission == Missions.NoMission
     assert games[2].timeline[65].role == (Roles.Spy,)
     assert games[2].timeline[65].time == 148.9
 
@@ -3123,7 +3123,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[66].category == TimelineCategory.SniperLights
     assert games[2].timeline[66].elapsed_time == 93.5
     assert games[2].timeline[66].event == "marked suspicious."
-    assert games[2].timeline[66].mission == Missions.Zero
+    assert games[2].timeline[66].mission == Missions.NoMission
     assert games[2].timeline[66].role == (Roles.Civilian,)
     assert games[2].timeline[66].time == 131.5
 
@@ -3134,7 +3134,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[67].category == TimelineCategory.SniperLights
     assert games[2].timeline[67].elapsed_time == 94.30000000000001
     assert games[2].timeline[67].event == "marked suspicious."
-    assert games[2].timeline[67].mission == Missions.Zero
+    assert games[2].timeline[67].mission == Missions.NoMission
     assert games[2].timeline[67].role == (Roles.Civilian,)
     assert games[2].timeline[67].time == 130.7
 
@@ -3145,7 +3145,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[68].category == TimelineCategory.SniperLights
     assert games[2].timeline[68].elapsed_time == 94.6
     assert games[2].timeline[68].event == "marked neutral suspicion."
-    assert games[2].timeline[68].mission == Missions.Zero
+    assert games[2].timeline[68].mission == Missions.NoMission
     assert games[2].timeline[68].role == (Roles.Civilian,)
     assert games[2].timeline[68].time == 130.4
 
@@ -3156,7 +3156,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[69].category == TimelineCategory.SniperLights
     assert games[2].timeline[69].elapsed_time == 97.4
     assert games[2].timeline[69].event == "marked neutral suspicion."
-    assert games[2].timeline[69].mission == Missions.Zero
+    assert games[2].timeline[69].mission == Missions.NoMission
     assert games[2].timeline[69].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[69].time == 127.6
 
@@ -3167,7 +3167,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[70].category == TimelineCategory.SniperLights
     assert games[2].timeline[70].elapsed_time == 98.0
     assert games[2].timeline[70].event == "marked less suspicious."
-    assert games[2].timeline[70].mission == Missions.Zero
+    assert games[2].timeline[70].mission == Missions.NoMission
     assert games[2].timeline[70].role == (Roles.SuspectedDoubleAgent,)
     assert games[2].timeline[70].time == 127.0
 
@@ -3222,7 +3222,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[75].category == TimelineCategory.Conversation
     assert games[2].timeline[75].elapsed_time == 113.2
     assert games[2].timeline[75].event == "double agent joined conversation with spy."
-    assert games[2].timeline[75].mission == Missions.Zero
+    assert games[2].timeline[75].mission == Missions.NoMission
     assert games[2].timeline[75].role == (Roles.DoubleAgent,)
     assert games[2].timeline[75].time == 111.8
 
@@ -3236,7 +3236,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[76].elapsed_time == 114.3
     assert games[2].timeline[76].event == "marked book."
-    assert games[2].timeline[76].mission == Missions.Zero
+    assert games[2].timeline[76].mission == Missions.NoMission
     assert games[2].timeline[76].role == (Roles.Civilian,)
     assert games[2].timeline[76].time == 110.7
 
@@ -3247,7 +3247,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[77].category == TimelineCategory.Drinks
     assert games[2].timeline[77].elapsed_time == 119.5
     assert games[2].timeline[77].event == "waiter offered drink."
-    assert games[2].timeline[77].mission == Missions.Zero
+    assert games[2].timeline[77].mission == Missions.NoMission
     assert games[2].timeline[77].role == (Roles.Spy,)
     assert games[2].timeline[77].time == 105.5
 
@@ -3258,7 +3258,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[78].category == TimelineCategory.Conversation
     assert games[2].timeline[78].elapsed_time == 122.7
     assert games[2].timeline[78].event == "spy leaves conversation."
-    assert games[2].timeline[78].mission == Missions.Zero
+    assert games[2].timeline[78].mission == Missions.NoMission
     assert games[2].timeline[78].role == (None,)
     assert games[2].timeline[78].time == 102.3
 
@@ -3269,7 +3269,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[79].category == TimelineCategory.Conversation
     assert games[2].timeline[79].elapsed_time == 122.7
     assert games[2].timeline[79].event == "spy left conversation with double agent."
-    assert games[2].timeline[79].mission == Missions.Zero
+    assert games[2].timeline[79].mission == Missions.NoMission
     assert games[2].timeline[79].role == (Roles.DoubleAgent,)
     assert games[2].timeline[79].time == 102.3
 
@@ -3280,7 +3280,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[80].category == TimelineCategory.Drinks
     assert games[2].timeline[80].elapsed_time == 122.7
     assert games[2].timeline[80].event == "rejected drink from waiter."
-    assert games[2].timeline[80].mission == Missions.Zero
+    assert games[2].timeline[80].mission == Missions.NoMission
     assert games[2].timeline[80].role == (Roles.Spy,)
     assert games[2].timeline[80].time == 102.3
 
@@ -3291,7 +3291,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[81].category == TimelineCategory.Drinks
     assert games[2].timeline[81].elapsed_time == 122.7
     assert games[2].timeline[81].event == "waiter stopped offering drink."
-    assert games[2].timeline[81].mission == Missions.Zero
+    assert games[2].timeline[81].mission == Missions.NoMission
     assert games[2].timeline[81].role == (Roles.Spy,)
     assert games[2].timeline[81].time == 102.3
 
@@ -3302,7 +3302,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[82].category == TimelineCategory.Books
     assert games[2].timeline[82].elapsed_time == 129.3
     assert games[2].timeline[82].event == "get book from bookcase."
-    assert games[2].timeline[82].mission == Missions.Zero
+    assert games[2].timeline[82].mission == Missions.NoMission
     assert games[2].timeline[82].role == (None,)
     assert games[2].timeline[82].time == 95.7
 
@@ -3313,7 +3313,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[83].category == TimelineCategory.SniperLights
     assert games[2].timeline[83].elapsed_time == 134.7
     assert games[2].timeline[83].event == "marked spy suspicious."
-    assert games[2].timeline[83].mission == Missions.Zero
+    assert games[2].timeline[83].mission == Missions.NoMission
     assert games[2].timeline[83].role == (Roles.Spy,)
     assert games[2].timeline[83].time == 90.3
 
@@ -3327,7 +3327,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[84].elapsed_time == 135.4
     assert games[2].timeline[84].event == "marked book."
-    assert games[2].timeline[84].mission == Missions.Zero
+    assert games[2].timeline[84].mission == Missions.NoMission
     assert games[2].timeline[84].role == (Roles.Spy,)
     assert games[2].timeline[84].time == 89.6
 
@@ -3349,7 +3349,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[86].category == TimelineCategory.SniperLights
     assert games[2].timeline[86].elapsed_time == 137.0
     assert games[2].timeline[86].event == "marked spy neutral suspicion."
-    assert games[2].timeline[86].mission == Missions.Zero
+    assert games[2].timeline[86].mission == Missions.NoMission
     assert games[2].timeline[86].role == (Roles.Spy,)
     assert games[2].timeline[86].time == 88.0
 
@@ -3360,7 +3360,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[87].category == TimelineCategory.Books
     assert games[2].timeline[87].elapsed_time == 138.0
     assert games[2].timeline[87].event == "put book in bookcase."
-    assert games[2].timeline[87].mission == Missions.Zero
+    assert games[2].timeline[87].mission == Missions.NoMission
     assert games[2].timeline[87].role == (None,)
     assert games[2].timeline[87].time == 87.0
 
@@ -3371,7 +3371,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[88].category == TimelineCategory.Statues
     assert games[2].timeline[88].elapsed_time == 151.9
     assert games[2].timeline[88].event == "picked up statue."
-    assert games[2].timeline[88].mission == Missions.Zero
+    assert games[2].timeline[88].mission == Missions.NoMission
     assert games[2].timeline[88].role == (None,)
     assert games[2].timeline[88].time == 73.1
 
@@ -3385,7 +3385,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[89].elapsed_time == 153.3
     assert games[2].timeline[89].event == "marked book."
-    assert games[2].timeline[89].mission == Missions.Zero
+    assert games[2].timeline[89].mission == Missions.NoMission
     assert games[2].timeline[89].role == (Roles.Civilian,)
     assert games[2].timeline[89].time == 71.7
 
@@ -3466,7 +3466,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[95].category == TimelineCategory.SniperLights
     assert games[2].timeline[95].elapsed_time == 161.8
     assert games[2].timeline[95].event == "marked spy suspicious."
-    assert games[2].timeline[95].mission == Missions.Zero
+    assert games[2].timeline[95].mission == Missions.NoMission
     assert games[2].timeline[95].role == (Roles.Spy,)
     assert games[2].timeline[95].time == 63.2
 
@@ -3494,7 +3494,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[2].timeline[97].elapsed_time == 164.1
     assert games[2].timeline[97].event == "marked book."
-    assert games[2].timeline[97].mission == Missions.Zero
+    assert games[2].timeline[97].mission == Missions.NoMission
     assert games[2].timeline[97].role == (Roles.Civilian,)
     assert games[2].timeline[97].time == 60.9
 
@@ -3505,7 +3505,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[98].category == TimelineCategory.Statues
     assert games[2].timeline[98].elapsed_time == 165.7
     assert games[2].timeline[98].event == "put back statue."
-    assert games[2].timeline[98].mission == Missions.Zero
+    assert games[2].timeline[98].mission == Missions.NoMission
     assert games[2].timeline[98].role == (None,)
     assert games[2].timeline[98].time == 59.3
 
@@ -3516,7 +3516,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[99].category == TimelineCategory.Conversation
     assert games[2].timeline[99].elapsed_time == 174.1
     assert games[2].timeline[99].event == "spy enters conversation."
-    assert games[2].timeline[99].mission == Missions.Zero
+    assert games[2].timeline[99].mission == Missions.NoMission
     assert games[2].timeline[99].role == (None,)
     assert games[2].timeline[99].time == 50.9
 
@@ -3527,7 +3527,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[100].category == TimelineCategory.Conversation
     assert games[2].timeline[100].elapsed_time == 174.1
     assert games[2].timeline[100].event == "spy joined conversation with double agent."
-    assert games[2].timeline[100].mission == Missions.Zero
+    assert games[2].timeline[100].mission == Missions.NoMission
     assert games[2].timeline[100].role == (Roles.DoubleAgent,)
     assert games[2].timeline[100].time == 50.9
 
@@ -3571,7 +3571,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[104].category == TimelineCategory.SniperLights
     assert games[2].timeline[104].elapsed_time == 175.6
     assert games[2].timeline[104].event == "marked suspicious."
-    assert games[2].timeline[104].mission == Missions.Zero
+    assert games[2].timeline[104].mission == Missions.NoMission
     assert games[2].timeline[104].role == (Roles.Civilian,)
     assert games[2].timeline[104].time == 49.4
 
@@ -3604,7 +3604,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[107].category == TimelineCategory.SniperLights
     assert games[2].timeline[107].elapsed_time == 177.0
     assert games[2].timeline[107].event == "marked less suspicious."
-    assert games[2].timeline[107].mission == Missions.Zero
+    assert games[2].timeline[107].mission == Missions.NoMission
     assert games[2].timeline[107].role == (Roles.Civilian,)
     assert games[2].timeline[107].time == 48.0
 
@@ -3615,7 +3615,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[108].category == TimelineCategory.SniperLights
     assert games[2].timeline[108].elapsed_time == 177.3
     assert games[2].timeline[108].event == "marked less suspicious."
-    assert games[2].timeline[108].mission == Missions.Zero
+    assert games[2].timeline[108].mission == Missions.NoMission
     assert games[2].timeline[108].role == (Roles.Civilian,)
     assert games[2].timeline[108].time == 47.7
 
@@ -3626,7 +3626,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[109].category == TimelineCategory.SniperLights
     assert games[2].timeline[109].elapsed_time == 178.4
     assert games[2].timeline[109].event == "marked less suspicious."
-    assert games[2].timeline[109].mission == Missions.Zero
+    assert games[2].timeline[109].mission == Missions.NoMission
     assert games[2].timeline[109].role == (Roles.Civilian,)
     assert games[2].timeline[109].time == 46.6
 
@@ -3637,7 +3637,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[110].category == TimelineCategory.SniperLights
     assert games[2].timeline[110].elapsed_time == 178.8
     assert games[2].timeline[110].event == "marked less suspicious."
-    assert games[2].timeline[110].mission == Missions.Zero
+    assert games[2].timeline[110].mission == Missions.NoMission
     assert games[2].timeline[110].role == (Roles.Civilian,)
     assert games[2].timeline[110].time == 46.2
 
@@ -3648,7 +3648,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[111].category == TimelineCategory.SniperLights
     assert games[2].timeline[111].elapsed_time == 179.7
     assert games[2].timeline[111].event == "marked less suspicious."
-    assert games[2].timeline[111].mission == Missions.Zero
+    assert games[2].timeline[111].mission == Missions.NoMission
     assert games[2].timeline[111].role == (Roles.Civilian,)
     assert games[2].timeline[111].time == 45.3
 
@@ -3659,7 +3659,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[112].category == TimelineCategory.SniperLights
     assert games[2].timeline[112].elapsed_time == 181.0
     assert games[2].timeline[112].event == "marked less suspicious."
-    assert games[2].timeline[112].mission == Missions.Zero
+    assert games[2].timeline[112].mission == Missions.NoMission
     assert games[2].timeline[112].role == (Roles.Civilian,)
     assert games[2].timeline[112].time == 44.0
 
@@ -3670,7 +3670,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[113].category == TimelineCategory.SniperLights
     assert games[2].timeline[113].elapsed_time == 181.8
     assert games[2].timeline[113].event == "marked less suspicious."
-    assert games[2].timeline[113].mission == Missions.Zero
+    assert games[2].timeline[113].mission == Missions.NoMission
     assert games[2].timeline[113].role == (Roles.Civilian,)
     assert games[2].timeline[113].time == 43.2
 
@@ -3681,7 +3681,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[114].category == TimelineCategory.SniperLights
     assert games[2].timeline[114].elapsed_time == 182.4
     assert games[2].timeline[114].event == "marked less suspicious."
-    assert games[2].timeline[114].mission == Missions.Zero
+    assert games[2].timeline[114].mission == Missions.NoMission
     assert games[2].timeline[114].role == (Roles.Civilian,)
     assert games[2].timeline[114].time == 42.6
 
@@ -3692,7 +3692,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[115].category == TimelineCategory.SniperLights
     assert games[2].timeline[115].elapsed_time == 183.7
     assert games[2].timeline[115].event == "marked less suspicious."
-    assert games[2].timeline[115].mission == Missions.Zero
+    assert games[2].timeline[115].mission == Missions.NoMission
     assert games[2].timeline[115].role == (Roles.Civilian,)
     assert games[2].timeline[115].time == 41.3
 
@@ -3703,7 +3703,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[116].category == TimelineCategory.SniperLights
     assert games[2].timeline[116].elapsed_time == 184.7
     assert games[2].timeline[116].event == "marked less suspicious."
-    assert games[2].timeline[116].mission == Missions.Zero
+    assert games[2].timeline[116].mission == Missions.NoMission
     assert games[2].timeline[116].role == (Roles.Civilian,)
     assert games[2].timeline[116].time == 40.3
 
@@ -3714,7 +3714,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[117].category == TimelineCategory.SniperLights
     assert games[2].timeline[117].elapsed_time == 185.2
     assert games[2].timeline[117].event == "marked less suspicious."
-    assert games[2].timeline[117].mission == Missions.Zero
+    assert games[2].timeline[117].mission == Missions.NoMission
     assert games[2].timeline[117].role == (Roles.Civilian,)
     assert games[2].timeline[117].time == 39.8
 
@@ -3725,7 +3725,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[118].category == TimelineCategory.SniperLights
     assert games[2].timeline[118].elapsed_time == 186.0
     assert games[2].timeline[118].event == "marked suspicious."
-    assert games[2].timeline[118].mission == Missions.Zero
+    assert games[2].timeline[118].mission == Missions.NoMission
     assert games[2].timeline[118].role == (Roles.Civilian,)
     assert games[2].timeline[118].time == 39.0
 
@@ -3736,7 +3736,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[119].category == TimelineCategory.SniperLights
     assert games[2].timeline[119].elapsed_time == 188.7
     assert games[2].timeline[119].event == "marked suspicious."
-    assert games[2].timeline[119].mission == Missions.Zero
+    assert games[2].timeline[119].mission == Missions.NoMission
     assert games[2].timeline[119].role == (Roles.Civilian,)
     assert games[2].timeline[119].time == 36.3
 
@@ -3769,7 +3769,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[122].category == TimelineCategory.Conversation
     assert games[2].timeline[122].elapsed_time == 192.5
     assert games[2].timeline[122].event == "spy leaves conversation."
-    assert games[2].timeline[122].mission == Missions.Zero
+    assert games[2].timeline[122].mission == Missions.NoMission
     assert games[2].timeline[122].role == (None,)
     assert games[2].timeline[122].time == 32.5
 
@@ -3780,7 +3780,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[123].category == TimelineCategory.Conversation
     assert games[2].timeline[123].elapsed_time == 192.5
     assert games[2].timeline[123].event == "spy left conversation with double agent."
-    assert games[2].timeline[123].mission == Missions.Zero
+    assert games[2].timeline[123].mission == Missions.NoMission
     assert games[2].timeline[123].role == (Roles.DoubleAgent,)
     assert games[2].timeline[123].time == 32.5
 
@@ -3813,7 +3813,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[126].category == TimelineCategory.Conversation
     assert games[2].timeline[126].elapsed_time == 200.2
     assert games[2].timeline[126].event == "spy enters conversation."
-    assert games[2].timeline[126].mission == Missions.Zero
+    assert games[2].timeline[126].mission == Missions.NoMission
     assert games[2].timeline[126].role == (None,)
     assert games[2].timeline[126].time == 24.8
 
@@ -3868,7 +3868,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[131].category == TimelineCategory.Drinks
     assert games[2].timeline[131].elapsed_time == 210.1
     assert games[2].timeline[131].event == "request drink from waiter."
-    assert games[2].timeline[131].mission == Missions.Zero
+    assert games[2].timeline[131].mission == Missions.NoMission
     assert games[2].timeline[131].role == (Roles.Spy,)
     assert games[2].timeline[131].time == 14.9
 
@@ -3879,7 +3879,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[132].category == TimelineCategory.Conversation
     assert games[2].timeline[132].elapsed_time == 213.0
     assert games[2].timeline[132].event == "spy leaves conversation."
-    assert games[2].timeline[132].mission == Missions.Zero
+    assert games[2].timeline[132].mission == Missions.NoMission
     assert games[2].timeline[132].role == (None,)
     assert games[2].timeline[132].time == 12.0
 
@@ -3901,7 +3901,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[134].category == TimelineCategory.Statues
     assert games[2].timeline[134].elapsed_time == 223.4
     assert games[2].timeline[134].event == "picked up statue."
-    assert games[2].timeline[134].mission == Missions.Zero
+    assert games[2].timeline[134].mission == Missions.NoMission
     assert games[2].timeline[134].role == (None,)
     assert games[2].timeline[134].time == 1.6
 
@@ -3912,7 +3912,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[135].category == TimelineCategory.GameEnd
     assert games[2].timeline[135].elapsed_time == 225.0
     assert games[2].timeline[135].event == "spy ran out of time."
-    assert games[2].timeline[135].mission == Missions.Zero
+    assert games[2].timeline[135].mission == Missions.NoMission
     assert games[2].timeline[135].role == (None,)
     assert games[2].timeline[135].time == 0.0
 
@@ -3926,7 +3926,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[0].category == TimelineCategory.Cast
     assert games[3].timeline[0].elapsed_time == 0.0
     assert games[3].timeline[0].event == "spy cast."
-    assert games[3].timeline[0].mission == Missions.Zero
+    assert games[3].timeline[0].mission == Missions.NoMission
     assert games[3].timeline[0].role == (Roles.Spy,)
     assert games[3].timeline[0].time == 225.0
 
@@ -3937,7 +3937,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[1].category == TimelineCategory.Cast
     assert games[3].timeline[1].elapsed_time == 0.0
     assert games[3].timeline[1].event == "ambassador cast."
-    assert games[3].timeline[1].mission == Missions.Zero
+    assert games[3].timeline[1].mission == Missions.NoMission
     assert games[3].timeline[1].role == (Roles.Ambassador,)
     assert games[3].timeline[1].time == 225.0
 
@@ -3948,7 +3948,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[2].category == TimelineCategory.Cast
     assert games[3].timeline[2].elapsed_time == 0.0
     assert games[3].timeline[2].event == "double agent cast."
-    assert games[3].timeline[2].mission == Missions.Zero
+    assert games[3].timeline[2].mission == Missions.NoMission
     assert games[3].timeline[2].role == (Roles.DoubleAgent,)
     assert games[3].timeline[2].time == 225.0
 
@@ -3959,7 +3959,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[3].category == TimelineCategory.Cast
     assert games[3].timeline[3].elapsed_time == 0.0
     assert games[3].timeline[3].event == "suspected double agent cast."
-    assert games[3].timeline[3].mission == Missions.Zero
+    assert games[3].timeline[3].mission == Missions.NoMission
     assert games[3].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[3].timeline[3].time == 225.0
 
@@ -3970,7 +3970,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[4].category == TimelineCategory.Cast
     assert games[3].timeline[4].elapsed_time == 0.0
     assert games[3].timeline[4].event == "seduction target cast."
-    assert games[3].timeline[4].mission == Missions.Zero
+    assert games[3].timeline[4].mission == Missions.NoMission
     assert games[3].timeline[4].role == (Roles.SeductionTarget,)
     assert games[3].timeline[4].time == 225.0
 
@@ -3981,7 +3981,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[5].category == TimelineCategory.Cast
     assert games[3].timeline[5].elapsed_time == 0.0
     assert games[3].timeline[5].event == "civilian cast."
-    assert games[3].timeline[5].mission == Missions.Zero
+    assert games[3].timeline[5].mission == Missions.NoMission
     assert games[3].timeline[5].role == (Roles.Civilian,)
     assert games[3].timeline[5].time == 225.0
 
@@ -3992,7 +3992,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[6].category == TimelineCategory.Cast
     assert games[3].timeline[6].elapsed_time == 0.0
     assert games[3].timeline[6].event == "civilian cast."
-    assert games[3].timeline[6].mission == Missions.Zero
+    assert games[3].timeline[6].mission == Missions.NoMission
     assert games[3].timeline[6].role == (Roles.Civilian,)
     assert games[3].timeline[6].time == 225.0
 
@@ -4003,7 +4003,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[7].category == TimelineCategory.Cast
     assert games[3].timeline[7].elapsed_time == 0.0
     assert games[3].timeline[7].event == "civilian cast."
-    assert games[3].timeline[7].mission == Missions.Zero
+    assert games[3].timeline[7].mission == Missions.NoMission
     assert games[3].timeline[7].role == (Roles.Civilian,)
     assert games[3].timeline[7].time == 225.0
 
@@ -4014,7 +4014,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[8].category == TimelineCategory.Cast
     assert games[3].timeline[8].elapsed_time == 0.0
     assert games[3].timeline[8].event == "civilian cast."
-    assert games[3].timeline[8].mission == Missions.Zero
+    assert games[3].timeline[8].mission == Missions.NoMission
     assert games[3].timeline[8].role == (Roles.Civilian,)
     assert games[3].timeline[8].time == 225.0
 
@@ -4025,7 +4025,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[9].category == TimelineCategory.Cast
     assert games[3].timeline[9].elapsed_time == 0.0
     assert games[3].timeline[9].event == "civilian cast."
-    assert games[3].timeline[9].mission == Missions.Zero
+    assert games[3].timeline[9].mission == Missions.NoMission
     assert games[3].timeline[9].role == (Roles.Civilian,)
     assert games[3].timeline[9].time == 225.0
 
@@ -4036,7 +4036,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[10].category == TimelineCategory.Cast
     assert games[3].timeline[10].elapsed_time == 0.0
     assert games[3].timeline[10].event == "civilian cast."
-    assert games[3].timeline[10].mission == Missions.Zero
+    assert games[3].timeline[10].mission == Missions.NoMission
     assert games[3].timeline[10].role == (Roles.Civilian,)
     assert games[3].timeline[10].time == 225.0
 
@@ -4047,7 +4047,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[11].category == TimelineCategory.Cast
     assert games[3].timeline[11].elapsed_time == 0.0
     assert games[3].timeline[11].event == "civilian cast."
-    assert games[3].timeline[11].mission == Missions.Zero
+    assert games[3].timeline[11].mission == Missions.NoMission
     assert games[3].timeline[11].role == (Roles.Civilian,)
     assert games[3].timeline[11].time == 225.0
 
@@ -4058,7 +4058,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[12].category == TimelineCategory.Cast
     assert games[3].timeline[12].elapsed_time == 0.0
     assert games[3].timeline[12].event == "civilian cast."
-    assert games[3].timeline[12].mission == Missions.Zero
+    assert games[3].timeline[12].mission == Missions.NoMission
     assert games[3].timeline[12].role == (Roles.Civilian,)
     assert games[3].timeline[12].time == 225.0
 
@@ -4069,7 +4069,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[13].category == TimelineCategory.Cast
     assert games[3].timeline[13].elapsed_time == 0.0
     assert games[3].timeline[13].event == "civilian cast."
-    assert games[3].timeline[13].mission == Missions.Zero
+    assert games[3].timeline[13].mission == Missions.NoMission
     assert games[3].timeline[13].role == (Roles.Civilian,)
     assert games[3].timeline[13].time == 225.0
 
@@ -4080,7 +4080,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[14].category == TimelineCategory.Cast
     assert games[3].timeline[14].elapsed_time == 0.0
     assert games[3].timeline[14].event == "civilian cast."
-    assert games[3].timeline[14].mission == Missions.Zero
+    assert games[3].timeline[14].mission == Missions.NoMission
     assert games[3].timeline[14].role == (Roles.Civilian,)
     assert games[3].timeline[14].time == 225.0
 
@@ -4091,7 +4091,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[15].category == TimelineCategory.Cast
     assert games[3].timeline[15].elapsed_time == 0.0
     assert games[3].timeline[15].event == "civilian cast."
-    assert games[3].timeline[15].mission == Missions.Zero
+    assert games[3].timeline[15].mission == Missions.NoMission
     assert games[3].timeline[15].role == (Roles.Civilian,)
     assert games[3].timeline[15].time == 225.0
 
@@ -4102,7 +4102,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[16].category == TimelineCategory.Cast
     assert games[3].timeline[16].elapsed_time == 0.0
     assert games[3].timeline[16].event == "civilian cast."
-    assert games[3].timeline[16].mission == Missions.Zero
+    assert games[3].timeline[16].mission == Missions.NoMission
     assert games[3].timeline[16].role == (Roles.Civilian,)
     assert games[3].timeline[16].time == 225.0
 
@@ -4113,7 +4113,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[17].category == TimelineCategory.Cast
     assert games[3].timeline[17].elapsed_time == 0.0
     assert games[3].timeline[17].event == "civilian cast."
-    assert games[3].timeline[17].mission == Missions.Zero
+    assert games[3].timeline[17].mission == Missions.NoMission
     assert games[3].timeline[17].role == (Roles.Civilian,)
     assert games[3].timeline[17].time == 225.0
 
@@ -4124,7 +4124,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[18].category == TimelineCategory.Cast
     assert games[3].timeline[18].elapsed_time == 0.0
     assert games[3].timeline[18].event == "civilian cast."
-    assert games[3].timeline[18].mission == Missions.Zero
+    assert games[3].timeline[18].mission == Missions.NoMission
     assert games[3].timeline[18].role == (Roles.Civilian,)
     assert games[3].timeline[18].time == 225.0
 
@@ -4135,7 +4135,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[19].category == TimelineCategory.Cast
     assert games[3].timeline[19].elapsed_time == 0.0
     assert games[3].timeline[19].event == "civilian cast."
-    assert games[3].timeline[19].mission == Missions.Zero
+    assert games[3].timeline[19].mission == Missions.NoMission
     assert games[3].timeline[19].role == (Roles.Civilian,)
     assert games[3].timeline[19].time == 225.0
 
@@ -4146,7 +4146,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[20].category == TimelineCategory.Cast
     assert games[3].timeline[20].elapsed_time == 0.0
     assert games[3].timeline[20].event == "civilian cast."
-    assert games[3].timeline[20].mission == Missions.Zero
+    assert games[3].timeline[20].mission == Missions.NoMission
     assert games[3].timeline[20].role == (Roles.Civilian,)
     assert games[3].timeline[20].time == 225.0
 
@@ -4333,7 +4333,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[37].category == TimelineCategory.GameStart
     assert games[3].timeline[37].elapsed_time == 0.0
     assert games[3].timeline[37].event == "game started."
-    assert games[3].timeline[37].mission == Missions.Zero
+    assert games[3].timeline[37].mission == Missions.NoMission
     assert games[3].timeline[37].role == (None,)
     assert games[3].timeline[37].time == 225.0
 
@@ -4344,7 +4344,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[38].category == TimelineCategory.SniperLights
     assert games[3].timeline[38].elapsed_time == 3.4000000000000057
     assert games[3].timeline[38].event == "marked suspicious."
-    assert games[3].timeline[38].mission == Missions.Zero
+    assert games[3].timeline[38].mission == Missions.NoMission
     assert games[3].timeline[38].role == (Roles.Civilian,)
     assert games[3].timeline[38].time == 221.6
 
@@ -4355,7 +4355,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[39].category == TimelineCategory.SniperLights
     assert games[3].timeline[39].elapsed_time == 4.099999999999994
     assert games[3].timeline[39].event == "marked suspicious."
-    assert games[3].timeline[39].mission == Missions.Zero
+    assert games[3].timeline[39].mission == Missions.NoMission
     assert games[3].timeline[39].role == (Roles.Ambassador,)
     assert games[3].timeline[39].time == 220.9
 
@@ -4366,7 +4366,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[40].category == TimelineCategory.NoCategory
     assert games[3].timeline[40].elapsed_time == 4.900000000000006
     assert games[3].timeline[40].event == "spy player takes control from ai."
-    assert games[3].timeline[40].mission == Missions.Zero
+    assert games[3].timeline[40].mission == Missions.NoMission
     assert games[3].timeline[40].role == (None,)
     assert games[3].timeline[40].time == 220.1
 
@@ -4377,7 +4377,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[41].category == TimelineCategory.SniperLights
     assert games[3].timeline[41].elapsed_time == 5.0
     assert games[3].timeline[41].event == "marked neutral suspicion."
-    assert games[3].timeline[41].mission == Missions.Zero
+    assert games[3].timeline[41].mission == Missions.NoMission
     assert games[3].timeline[41].role == (Roles.Civilian,)
     assert games[3].timeline[41].time == 220.0
 
@@ -4388,7 +4388,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[42].category == TimelineCategory.Conversation
     assert games[3].timeline[42].elapsed_time == 9.5
     assert games[3].timeline[42].event == "spy enters conversation."
-    assert games[3].timeline[42].mission == Missions.Zero
+    assert games[3].timeline[42].mission == Missions.NoMission
     assert games[3].timeline[42].role == (None,)
     assert games[3].timeline[42].time == 215.5
 
@@ -4399,7 +4399,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[43].category == TimelineCategory.SniperLights
     assert games[3].timeline[43].elapsed_time == 10.300000000000011
     assert games[3].timeline[43].event == "marked less suspicious."
-    assert games[3].timeline[43].mission == Missions.Zero
+    assert games[3].timeline[43].mission == Missions.NoMission
     assert games[3].timeline[43].role == (Roles.SuspectedDoubleAgent,)
     assert games[3].timeline[43].time == 214.7
 
@@ -4410,7 +4410,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[44].category == TimelineCategory.SniperLights
     assert games[3].timeline[44].elapsed_time == 11.900000000000006
     assert games[3].timeline[44].event == "marked less suspicious."
-    assert games[3].timeline[44].mission == Missions.Zero
+    assert games[3].timeline[44].mission == Missions.NoMission
     assert games[3].timeline[44].role == (Roles.Staff,)
     assert games[3].timeline[44].time == 213.1
 
@@ -4421,7 +4421,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[45].category == TimelineCategory.SniperLights
     assert games[3].timeline[45].elapsed_time == 12.699999999999989
     assert games[3].timeline[45].event == "marked neutral suspicion."
-    assert games[3].timeline[45].mission == Missions.Zero
+    assert games[3].timeline[45].mission == Missions.NoMission
     assert games[3].timeline[45].role == (Roles.Staff,)
     assert games[3].timeline[45].time == 212.3
 
@@ -4432,7 +4432,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[46].category == TimelineCategory.SniperLights
     assert games[3].timeline[46].elapsed_time == 13.099999999999994
     assert games[3].timeline[46].event == "marked suspicious."
-    assert games[3].timeline[46].mission == Missions.Zero
+    assert games[3].timeline[46].mission == Missions.NoMission
     assert games[3].timeline[46].role == (Roles.Staff,)
     assert games[3].timeline[46].time == 211.9
 
@@ -4443,7 +4443,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[47].category == TimelineCategory.Drinks
     assert games[3].timeline[47].elapsed_time == 20.400000000000006
     assert games[3].timeline[47].event == "took last sip of drink."
-    assert games[3].timeline[47].mission == Missions.Zero
+    assert games[3].timeline[47].mission == Missions.NoMission
     assert games[3].timeline[47].role == (Roles.Spy,)
     assert games[3].timeline[47].time == 204.6
 
@@ -4454,7 +4454,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[48].category == TimelineCategory.SniperLights
     assert games[3].timeline[48].elapsed_time == 23.400000000000006
     assert games[3].timeline[48].event == "marked less suspicious."
-    assert games[3].timeline[48].mission == Missions.Zero
+    assert games[3].timeline[48].mission == Missions.NoMission
     assert games[3].timeline[48].role == (Roles.Civilian,)
     assert games[3].timeline[48].time == 201.6
 
@@ -4509,7 +4509,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[53].category == TimelineCategory.SniperLights
     assert games[3].timeline[53].elapsed_time == 32.5
     assert games[3].timeline[53].event == "marked less suspicious."
-    assert games[3].timeline[53].mission == Missions.Zero
+    assert games[3].timeline[53].mission == Missions.NoMission
     assert games[3].timeline[53].role == (Roles.DoubleAgent,)
     assert games[3].timeline[53].time == 192.5
 
@@ -4575,7 +4575,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[59].category == TimelineCategory.SniperLights
     assert games[3].timeline[59].elapsed_time == 53.5
     assert games[3].timeline[59].event == "marked less suspicious."
-    assert games[3].timeline[59].mission == Missions.Zero
+    assert games[3].timeline[59].mission == Missions.NoMission
     assert games[3].timeline[59].role == (Roles.Staff,)
     assert games[3].timeline[59].time == 171.5
 
@@ -4586,7 +4586,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[60].category == TimelineCategory.Conversation
     assert games[3].timeline[60].elapsed_time == 64.1
     assert games[3].timeline[60].event == "spy leaves conversation."
-    assert games[3].timeline[60].mission == Missions.Zero
+    assert games[3].timeline[60].mission == Missions.NoMission
     assert games[3].timeline[60].role == (None,)
     assert games[3].timeline[60].time == 160.9
 
@@ -4608,7 +4608,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[62].category == TimelineCategory.Briefcase
     assert games[3].timeline[62].elapsed_time == 82.0
     assert games[3].timeline[62].event == "spy picks up briefcase."
-    assert games[3].timeline[62].mission == Missions.Zero
+    assert games[3].timeline[62].mission == Missions.NoMission
     assert games[3].timeline[62].role == (None,)
     assert games[3].timeline[62].time == 143.0
 
@@ -4666,7 +4666,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[67].category == TimelineCategory.Briefcase
     assert games[3].timeline[67].elapsed_time == 94.19999999999999
     assert games[3].timeline[67].event == "spy returns briefcase."
-    assert games[3].timeline[67].mission == Missions.Zero
+    assert games[3].timeline[67].mission == Missions.NoMission
     assert games[3].timeline[67].role == (None,)
     assert games[3].timeline[67].time == 130.8
 
@@ -4677,7 +4677,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[68].category == TimelineCategory.SniperLights
     assert games[3].timeline[68].elapsed_time == 95.19999999999999
     assert games[3].timeline[68].event == "marked suspicious."
-    assert games[3].timeline[68].mission == Missions.Zero
+    assert games[3].timeline[68].mission == Missions.NoMission
     assert games[3].timeline[68].role == (Roles.Civilian,)
     assert games[3].timeline[68].time == 129.8
 
@@ -4688,7 +4688,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[69].category == TimelineCategory.Statues
     assert games[3].timeline[69].elapsed_time == 101.1
     assert games[3].timeline[69].event == "picked up statue."
-    assert games[3].timeline[69].mission == Missions.Zero
+    assert games[3].timeline[69].mission == Missions.NoMission
     assert games[3].timeline[69].role == (None,)
     assert games[3].timeline[69].time == 123.9
 
@@ -4769,7 +4769,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[75].category == TimelineCategory.SniperLights
     assert games[3].timeline[75].elapsed_time == 113.3
     assert games[3].timeline[75].event == "marked suspicious."
-    assert games[3].timeline[75].mission == Missions.Zero
+    assert games[3].timeline[75].mission == Missions.NoMission
     assert games[3].timeline[75].role == (Roles.SeductionTarget,)
     assert games[3].timeline[75].time == 111.7
 
@@ -4780,7 +4780,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[76].category == TimelineCategory.SniperLights
     assert games[3].timeline[76].elapsed_time == 113.8
     assert games[3].timeline[76].event == "marked spy suspicious."
-    assert games[3].timeline[76].mission == Missions.Zero
+    assert games[3].timeline[76].mission == Missions.NoMission
     assert games[3].timeline[76].role == (Roles.Spy,)
     assert games[3].timeline[76].time == 111.2
 
@@ -4791,7 +4791,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[77].category == TimelineCategory.SniperLights
     assert games[3].timeline[77].elapsed_time == 114.1
     assert games[3].timeline[77].event == "marked suspicious."
-    assert games[3].timeline[77].mission == Missions.Zero
+    assert games[3].timeline[77].mission == Missions.NoMission
     assert games[3].timeline[77].role == (Roles.Civilian,)
     assert games[3].timeline[77].time == 110.9
 
@@ -4816,7 +4816,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[79].category == TimelineCategory.Statues
     assert games[3].timeline[79].elapsed_time == 117.2
     assert games[3].timeline[79].event == "put back statue."
-    assert games[3].timeline[79].mission == Missions.Zero
+    assert games[3].timeline[79].mission == Missions.NoMission
     assert games[3].timeline[79].role == (None,)
     assert games[3].timeline[79].time == 107.8
 
@@ -4827,7 +4827,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[80].category == TimelineCategory.Drinks
     assert games[3].timeline[80].elapsed_time == 133.7
     assert games[3].timeline[80].event == "waiter offered drink."
-    assert games[3].timeline[80].mission == Missions.Zero
+    assert games[3].timeline[80].mission == Missions.NoMission
     assert games[3].timeline[80].role == (Roles.Spy,)
     assert games[3].timeline[80].time == 91.3
 
@@ -4838,7 +4838,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[81].category == TimelineCategory.Drinks
     assert games[3].timeline[81].elapsed_time == 135.6
     assert games[3].timeline[81].event == "rejected drink from waiter."
-    assert games[3].timeline[81].mission == Missions.Zero
+    assert games[3].timeline[81].mission == Missions.NoMission
     assert games[3].timeline[81].role == (Roles.Spy,)
     assert games[3].timeline[81].time == 89.4
 
@@ -4849,7 +4849,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[82].category == TimelineCategory.Drinks
     assert games[3].timeline[82].elapsed_time == 135.6
     assert games[3].timeline[82].event == "waiter stopped offering drink."
-    assert games[3].timeline[82].mission == Missions.Zero
+    assert games[3].timeline[82].mission == Missions.NoMission
     assert games[3].timeline[82].role == (Roles.Spy,)
     assert games[3].timeline[82].time == 89.4
 
@@ -4860,7 +4860,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[83].category == TimelineCategory.Conversation
     assert games[3].timeline[83].elapsed_time == 138.5
     assert games[3].timeline[83].event == "spy enters conversation."
-    assert games[3].timeline[83].mission == Missions.Zero
+    assert games[3].timeline[83].mission == Missions.NoMission
     assert games[3].timeline[83].role == (None,)
     assert games[3].timeline[83].time == 86.5
 
@@ -4915,7 +4915,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[88].category == TimelineCategory.Conversation
     assert games[3].timeline[88].elapsed_time == 152.7
     assert games[3].timeline[88].event == "double agent joined conversation with spy."
-    assert games[3].timeline[88].mission == Missions.Zero
+    assert games[3].timeline[88].mission == Missions.NoMission
     assert games[3].timeline[88].role == (Roles.DoubleAgent,)
     assert games[3].timeline[88].time == 72.3
 
@@ -4981,7 +4981,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[94].category == TimelineCategory.SniperLights
     assert games[3].timeline[94].elapsed_time == 157.5
     assert games[3].timeline[94].event == "marked less suspicious."
-    assert games[3].timeline[94].mission == Missions.Zero
+    assert games[3].timeline[94].mission == Missions.NoMission
     assert games[3].timeline[94].role == (Roles.Civilian,)
     assert games[3].timeline[94].time == 67.5
 
@@ -4992,7 +4992,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[95].category == TimelineCategory.SniperLights
     assert games[3].timeline[95].elapsed_time == 158.5
     assert games[3].timeline[95].event == "marked less suspicious."
-    assert games[3].timeline[95].mission == Missions.Zero
+    assert games[3].timeline[95].mission == Missions.NoMission
     assert games[3].timeline[95].role == (Roles.Civilian,)
     assert games[3].timeline[95].time == 66.5
 
@@ -5003,7 +5003,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[96].category == TimelineCategory.SniperLights
     assert games[3].timeline[96].elapsed_time == 158.9
     assert games[3].timeline[96].event == "marked less suspicious."
-    assert games[3].timeline[96].mission == Missions.Zero
+    assert games[3].timeline[96].mission == Missions.NoMission
     assert games[3].timeline[96].role == (Roles.Civilian,)
     assert games[3].timeline[96].time == 66.1
 
@@ -5014,7 +5014,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[97].category == TimelineCategory.SniperLights
     assert games[3].timeline[97].elapsed_time == 161.5
     assert games[3].timeline[97].event == "marked less suspicious."
-    assert games[3].timeline[97].mission == Missions.Zero
+    assert games[3].timeline[97].mission == Missions.NoMission
     assert games[3].timeline[97].role == (Roles.Civilian,)
     assert games[3].timeline[97].time == 63.5
 
@@ -5025,7 +5025,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[98].category == TimelineCategory.Drinks
     assert games[3].timeline[98].elapsed_time == 161.9
     assert games[3].timeline[98].event == "request drink from waiter."
-    assert games[3].timeline[98].mission == Missions.Zero
+    assert games[3].timeline[98].mission == Missions.NoMission
     assert games[3].timeline[98].role == (Roles.Spy,)
     assert games[3].timeline[98].time == 63.1
 
@@ -5036,7 +5036,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[99].category == TimelineCategory.SniperLights
     assert games[3].timeline[99].elapsed_time == 163.9
     assert games[3].timeline[99].event == "marked neutral suspicion."
-    assert games[3].timeline[99].mission == Missions.Zero
+    assert games[3].timeline[99].mission == Missions.NoMission
     assert games[3].timeline[99].role == (Roles.Civilian,)
     assert games[3].timeline[99].time == 61.1
 
@@ -5047,7 +5047,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[100].category == TimelineCategory.SniperLights
     assert games[3].timeline[100].elapsed_time == 165.1
     assert games[3].timeline[100].event == "marked less suspicious."
-    assert games[3].timeline[100].mission == Missions.Zero
+    assert games[3].timeline[100].mission == Missions.NoMission
     assert games[3].timeline[100].role == (Roles.Civilian,)
     assert games[3].timeline[100].time == 59.9
 
@@ -5058,7 +5058,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[101].category == TimelineCategory.SniperLights
     assert games[3].timeline[101].elapsed_time == 165.4
     assert games[3].timeline[101].event == "marked less suspicious."
-    assert games[3].timeline[101].mission == Missions.Zero
+    assert games[3].timeline[101].mission == Missions.NoMission
     assert games[3].timeline[101].role == (Roles.Civilian,)
     assert games[3].timeline[101].time == 59.6
 
@@ -5069,7 +5069,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[102].category == TimelineCategory.Drinks
     assert games[3].timeline[102].elapsed_time == 167.7
     assert games[3].timeline[102].event == "waiter offered drink."
-    assert games[3].timeline[102].mission == Missions.Zero
+    assert games[3].timeline[102].mission == Missions.NoMission
     assert games[3].timeline[102].role == (Roles.Spy,)
     assert games[3].timeline[102].time == 57.3
 
@@ -5080,7 +5080,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[103].category == TimelineCategory.Drinks
     assert games[3].timeline[103].elapsed_time == 172.7
     assert games[3].timeline[103].event == "got drink from waiter."
-    assert games[3].timeline[103].mission == Missions.Zero
+    assert games[3].timeline[103].mission == Missions.NoMission
     assert games[3].timeline[103].role == (Roles.Spy,)
     assert games[3].timeline[103].time == 52.3
 
@@ -5091,7 +5091,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[104].category == TimelineCategory.Drinks
     assert games[3].timeline[104].elapsed_time == 172.7
     assert games[3].timeline[104].event == "waiter stopped offering drink."
-    assert games[3].timeline[104].mission == Missions.Zero
+    assert games[3].timeline[104].mission == Missions.NoMission
     assert games[3].timeline[104].role == (Roles.Spy,)
     assert games[3].timeline[104].time == 52.3
 
@@ -5149,7 +5149,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[109].category == TimelineCategory.Drinks
     assert games[3].timeline[109].elapsed_time == 185.0
     assert games[3].timeline[109].event == "sipped drink."
-    assert games[3].timeline[109].mission == Missions.Zero
+    assert games[3].timeline[109].mission == Missions.NoMission
     assert games[3].timeline[109].role == (Roles.Spy,)
     assert games[3].timeline[109].time == 40.0
 
@@ -5226,7 +5226,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[116].category == TimelineCategory.Conversation
     assert games[3].timeline[116].elapsed_time == 203.1
     assert games[3].timeline[116].event == "spy leaves conversation."
-    assert games[3].timeline[116].mission == Missions.Zero
+    assert games[3].timeline[116].mission == Missions.NoMission
     assert games[3].timeline[116].role == (None,)
     assert games[3].timeline[116].time == 21.9
 
@@ -5237,7 +5237,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[117].category == TimelineCategory.Conversation
     assert games[3].timeline[117].elapsed_time == 203.1
     assert games[3].timeline[117].event == "spy left conversation with double agent."
-    assert games[3].timeline[117].mission == Missions.Zero
+    assert games[3].timeline[117].mission == Missions.NoMission
     assert games[3].timeline[117].role == (Roles.DoubleAgent,)
     assert games[3].timeline[117].time == 21.9
 
@@ -5248,7 +5248,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[118].category == TimelineCategory.Drinks
     assert games[3].timeline[118].elapsed_time == 209.2
     assert games[3].timeline[118].event == "gulped drink."
-    assert games[3].timeline[118].mission == Missions.Zero
+    assert games[3].timeline[118].mission == Missions.NoMission
     assert games[3].timeline[118].role == (Roles.Spy,)
     assert games[3].timeline[118].time == 15.8
 
@@ -5259,7 +5259,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[119].category == TimelineCategory.Statues
     assert games[3].timeline[119].elapsed_time == 212.2
     assert games[3].timeline[119].event == "picked up statue."
-    assert games[3].timeline[119].mission == Missions.Zero
+    assert games[3].timeline[119].mission == Missions.NoMission
     assert games[3].timeline[119].role == (None,)
     assert games[3].timeline[119].time == 12.8
 
@@ -5326,7 +5326,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[124].category == TimelineCategory.MissionCountdown
     assert games[3].timeline[124].elapsed_time == 220.7
     assert games[3].timeline[124].event == "missions completed. 10 second countdown."
-    assert games[3].timeline[124].mission == Missions.Zero
+    assert games[3].timeline[124].mission == Missions.NoMission
     assert games[3].timeline[124].role == (None,)
     assert games[3].timeline[124].time == 4.3
 
@@ -5337,7 +5337,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[125].category == TimelineCategory.Overtime
     assert games[3].timeline[125].elapsed_time == 224.6
     assert games[3].timeline[125].event == "overtime!"
-    assert games[3].timeline[125].mission == Missions.Zero
+    assert games[3].timeline[125].mission == Missions.NoMission
     assert games[3].timeline[125].role == (None,)
     assert games[3].timeline[125].time == 0.4
 
@@ -5348,7 +5348,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[126].category == TimelineCategory.Statues
     assert games[3].timeline[126].elapsed_time == 225.0
     assert games[3].timeline[126].event == "put back statue."
-    assert games[3].timeline[126].mission == Missions.Zero
+    assert games[3].timeline[126].mission == Missions.NoMission
     assert games[3].timeline[126].role == (None,)
     assert games[3].timeline[126].time == 0.0
 
@@ -5359,7 +5359,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[127].category == TimelineCategory.SniperShot
     assert games[3].timeline[127].elapsed_time == 225.0
     assert games[3].timeline[127].event == "took shot."
-    assert games[3].timeline[127].mission == Missions.Zero
+    assert games[3].timeline[127].mission == Missions.NoMission
     assert games[3].timeline[127].role == (Roles.Civilian,)
     assert games[3].timeline[127].time == 0.0
 
@@ -5370,7 +5370,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[128].category == TimelineCategory.GameEnd
     assert games[3].timeline[128].elapsed_time == 228.3
     assert games[3].timeline[128].event == "sniper shot civilian."
-    assert games[3].timeline[128].mission == Missions.Zero
+    assert games[3].timeline[128].mission == Missions.NoMission
     assert games[3].timeline[128].role == (Roles.Civilian,)
     assert games[3].timeline[128].time == -3.3
 
@@ -5384,7 +5384,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[0].category == TimelineCategory.Cast
     assert games[4].timeline[0].elapsed_time == 0.0
     assert games[4].timeline[0].event == "spy cast."
-    assert games[4].timeline[0].mission == Missions.Zero
+    assert games[4].timeline[0].mission == Missions.NoMission
     assert games[4].timeline[0].role == (Roles.Spy,)
     assert games[4].timeline[0].time == 120.0
 
@@ -5395,7 +5395,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[1].category == TimelineCategory.Cast
     assert games[4].timeline[1].elapsed_time == 0.0
     assert games[4].timeline[1].event == "ambassador cast."
-    assert games[4].timeline[1].mission == Missions.Zero
+    assert games[4].timeline[1].mission == Missions.NoMission
     assert games[4].timeline[1].role == (Roles.Ambassador,)
     assert games[4].timeline[1].time == 120.0
 
@@ -5406,7 +5406,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[2].category == TimelineCategory.Cast
     assert games[4].timeline[2].elapsed_time == 0.0
     assert games[4].timeline[2].event == "double agent cast."
-    assert games[4].timeline[2].mission == Missions.Zero
+    assert games[4].timeline[2].mission == Missions.NoMission
     assert games[4].timeline[2].role == (Roles.DoubleAgent,)
     assert games[4].timeline[2].time == 120.0
 
@@ -5417,7 +5417,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[3].category == TimelineCategory.Cast
     assert games[4].timeline[3].elapsed_time == 0.0
     assert games[4].timeline[3].event == "seduction target cast."
-    assert games[4].timeline[3].mission == Missions.Zero
+    assert games[4].timeline[3].mission == Missions.NoMission
     assert games[4].timeline[3].role == (Roles.SeductionTarget,)
     assert games[4].timeline[3].time == 120.0
 
@@ -5428,7 +5428,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[4].category == TimelineCategory.Cast
     assert games[4].timeline[4].elapsed_time == 0.0
     assert games[4].timeline[4].event == "civilian cast."
-    assert games[4].timeline[4].mission == Missions.Zero
+    assert games[4].timeline[4].mission == Missions.NoMission
     assert games[4].timeline[4].role == (Roles.Civilian,)
     assert games[4].timeline[4].time == 120.0
 
@@ -5439,7 +5439,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[5].category == TimelineCategory.Cast
     assert games[4].timeline[5].elapsed_time == 0.0
     assert games[4].timeline[5].event == "civilian cast."
-    assert games[4].timeline[5].mission == Missions.Zero
+    assert games[4].timeline[5].mission == Missions.NoMission
     assert games[4].timeline[5].role == (Roles.Civilian,)
     assert games[4].timeline[5].time == 120.0
 
@@ -5450,7 +5450,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[6].category == TimelineCategory.Cast
     assert games[4].timeline[6].elapsed_time == 0.0
     assert games[4].timeline[6].event == "civilian cast."
-    assert games[4].timeline[6].mission == Missions.Zero
+    assert games[4].timeline[6].mission == Missions.NoMission
     assert games[4].timeline[6].role == (Roles.Civilian,)
     assert games[4].timeline[6].time == 120.0
 
@@ -5527,7 +5527,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[13].category == TimelineCategory.GameStart
     assert games[4].timeline[13].elapsed_time == 0.0
     assert games[4].timeline[13].event == "game started."
-    assert games[4].timeline[13].mission == Missions.Zero
+    assert games[4].timeline[13].mission == Missions.NoMission
     assert games[4].timeline[13].role == (None,)
     assert games[4].timeline[13].time == 120.0
 
@@ -5538,7 +5538,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[14].category == TimelineCategory.NoCategory
     assert games[4].timeline[14].elapsed_time == 1.7000000000000028
     assert games[4].timeline[14].event == "spy player takes control from ai."
-    assert games[4].timeline[14].mission == Missions.Zero
+    assert games[4].timeline[14].mission == Missions.NoMission
     assert games[4].timeline[14].role == (None,)
     assert games[4].timeline[14].time == 118.3
 
@@ -5549,7 +5549,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[15].category == TimelineCategory.Conversation
     assert games[4].timeline[15].elapsed_time == 2.299999999999997
     assert games[4].timeline[15].event == "spy enters conversation."
-    assert games[4].timeline[15].mission == Missions.Zero
+    assert games[4].timeline[15].mission == Missions.NoMission
     assert games[4].timeline[15].role == (None,)
     assert games[4].timeline[15].time == 117.7
 
@@ -5582,7 +5582,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[18].category == TimelineCategory.Conversation
     assert games[4].timeline[18].elapsed_time == 3.200000000000003
     assert games[4].timeline[18].event == "double agent joined conversation with spy."
-    assert games[4].timeline[18].mission == Missions.Zero
+    assert games[4].timeline[18].mission == Missions.NoMission
     assert games[4].timeline[18].role == (Roles.DoubleAgent,)
     assert games[4].timeline[18].time == 116.8
 
@@ -5615,7 +5615,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[21].category == TimelineCategory.SniperLights
     assert games[4].timeline[21].elapsed_time == 6.400000000000006
     assert games[4].timeline[21].event == "marked suspicious."
-    assert games[4].timeline[21].mission == Missions.Zero
+    assert games[4].timeline[21].mission == Missions.NoMission
     assert games[4].timeline[21].role == (Roles.Ambassador,)
     assert games[4].timeline[21].time == 113.6
 
@@ -5626,7 +5626,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[22].category == TimelineCategory.SniperLights
     assert games[4].timeline[22].elapsed_time == 6.900000000000006
     assert games[4].timeline[22].event == "marked less suspicious."
-    assert games[4].timeline[22].mission == Missions.Zero
+    assert games[4].timeline[22].mission == Missions.NoMission
     assert games[4].timeline[22].role == (Roles.Staff,)
     assert games[4].timeline[22].time == 113.1
 
@@ -5637,7 +5637,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[23].category == TimelineCategory.SniperLights
     assert games[4].timeline[23].elapsed_time == 8.0
     assert games[4].timeline[23].event == "marked less suspicious."
-    assert games[4].timeline[23].mission == Missions.Zero
+    assert games[4].timeline[23].mission == Missions.NoMission
     assert games[4].timeline[23].role == (Roles.Staff,)
     assert games[4].timeline[23].time == 112.0
 
@@ -5648,7 +5648,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[24].category == TimelineCategory.Conversation
     assert games[4].timeline[24].elapsed_time == 11.799999999999997
     assert games[4].timeline[24].event == "double agent left conversation with spy."
-    assert games[4].timeline[24].mission == Missions.Zero
+    assert games[4].timeline[24].mission == Missions.NoMission
     assert games[4].timeline[24].role == (Roles.DoubleAgent,)
     assert games[4].timeline[24].time == 108.2
 
@@ -5659,7 +5659,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[25].category == TimelineCategory.SniperLights
     assert games[4].timeline[25].elapsed_time == 12.099999999999994
     assert games[4].timeline[25].event == "marked spy suspicious."
-    assert games[4].timeline[25].mission == Missions.Zero
+    assert games[4].timeline[25].mission == Missions.NoMission
     assert games[4].timeline[25].role == (Roles.Spy,)
     assert games[4].timeline[25].time == 107.9
 
@@ -5670,7 +5670,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[26].category == TimelineCategory.SniperLights
     assert games[4].timeline[26].elapsed_time == 22.799999999999997
     assert games[4].timeline[26].event == "marked suspicious."
-    assert games[4].timeline[26].mission == Missions.Zero
+    assert games[4].timeline[26].mission == Missions.NoMission
     assert games[4].timeline[26].role == (Roles.Civilian,)
     assert games[4].timeline[26].time == 97.2
 
@@ -5681,7 +5681,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[27].category == TimelineCategory.Conversation
     assert games[4].timeline[27].elapsed_time == 24.200000000000003
     assert games[4].timeline[27].event == "double agent joined conversation with spy."
-    assert games[4].timeline[27].mission == Missions.Zero
+    assert games[4].timeline[27].mission == Missions.NoMission
     assert games[4].timeline[27].role == (Roles.DoubleAgent,)
     assert games[4].timeline[27].time == 95.8
 
@@ -5692,7 +5692,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[28].category == TimelineCategory.Drinks
     assert games[4].timeline[28].elapsed_time == 29.200000000000003
     assert games[4].timeline[28].event == "waiter offered drink."
-    assert games[4].timeline[28].mission == Missions.Zero
+    assert games[4].timeline[28].mission == Missions.NoMission
     assert games[4].timeline[28].role == (Roles.Spy,)
     assert games[4].timeline[28].time == 90.8
 
@@ -5703,7 +5703,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[29].category == TimelineCategory.Drinks
     assert games[4].timeline[29].elapsed_time == 34.7
     assert games[4].timeline[29].event == "got drink from waiter."
-    assert games[4].timeline[29].mission == Missions.Zero
+    assert games[4].timeline[29].mission == Missions.NoMission
     assert games[4].timeline[29].role == (Roles.Spy,)
     assert games[4].timeline[29].time == 85.3
 
@@ -5714,7 +5714,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[30].category == TimelineCategory.Drinks
     assert games[4].timeline[30].elapsed_time == 34.7
     assert games[4].timeline[30].event == "waiter stopped offering drink."
-    assert games[4].timeline[30].mission == Missions.Zero
+    assert games[4].timeline[30].mission == Missions.NoMission
     assert games[4].timeline[30].role == (Roles.Spy,)
     assert games[4].timeline[30].time == 85.3
 
@@ -5780,7 +5780,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[36].category == TimelineCategory.Conversation
     assert games[4].timeline[36].elapsed_time == 48.5
     assert games[4].timeline[36].event == "double agent left conversation with spy."
-    assert games[4].timeline[36].mission == Missions.Zero
+    assert games[4].timeline[36].mission == Missions.NoMission
     assert games[4].timeline[36].role == (Roles.DoubleAgent,)
     assert games[4].timeline[36].time == 71.5
 
@@ -5846,7 +5846,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[42].category == TimelineCategory.Conversation
     assert games[4].timeline[42].elapsed_time == 60.4
     assert games[4].timeline[42].event == "spy leaves conversation."
-    assert games[4].timeline[42].mission == Missions.Zero
+    assert games[4].timeline[42].mission == Missions.NoMission
     assert games[4].timeline[42].role == (None,)
     assert games[4].timeline[42].time == 59.6
 
@@ -5857,7 +5857,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[43].category == TimelineCategory.Drinks
     assert games[4].timeline[43].elapsed_time == 70.0
     assert games[4].timeline[43].event == "sipped drink."
-    assert games[4].timeline[43].mission == Missions.Zero
+    assert games[4].timeline[43].mission == Missions.NoMission
     assert games[4].timeline[43].role == (Roles.Spy,)
     assert games[4].timeline[43].time == 50.0
 
@@ -5879,7 +5879,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[45].category == TimelineCategory.SniperLights
     assert games[4].timeline[45].elapsed_time == 74.1
     assert games[4].timeline[45].event == "marked less suspicious."
-    assert games[4].timeline[45].mission == Missions.Zero
+    assert games[4].timeline[45].mission == Missions.NoMission
     assert games[4].timeline[45].role == (Roles.SeductionTarget,)
     assert games[4].timeline[45].time == 45.9
 
@@ -5890,7 +5890,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[46].category == TimelineCategory.Briefcase
     assert games[4].timeline[46].elapsed_time == 82.8
     assert games[4].timeline[46].event == "spy picks up briefcase."
-    assert games[4].timeline[46].mission == Missions.Zero
+    assert games[4].timeline[46].mission == Missions.NoMission
     assert games[4].timeline[46].role == (None,)
     assert games[4].timeline[46].time == 37.2
 
@@ -5901,7 +5901,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[47].category == TimelineCategory.Briefcase
     assert games[4].timeline[47].elapsed_time == 91.2
     assert games[4].timeline[47].event == "spy puts down briefcase."
-    assert games[4].timeline[47].mission == Missions.Zero
+    assert games[4].timeline[47].mission == Missions.NoMission
     assert games[4].timeline[47].role == (None,)
     assert games[4].timeline[47].time == 28.8
 
@@ -5912,7 +5912,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[48].category == TimelineCategory.SniperShot
     assert games[4].timeline[48].elapsed_time == 93.9
     assert games[4].timeline[48].event == "took shot."
-    assert games[4].timeline[48].mission == Missions.Zero
+    assert games[4].timeline[48].mission == Missions.NoMission
     assert games[4].timeline[48].role == (Roles.Civilian,)
     assert games[4].timeline[48].time == 26.1
 
@@ -5923,7 +5923,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[49].category == TimelineCategory.Conversation
     assert games[4].timeline[49].elapsed_time == 94.8
     assert games[4].timeline[49].event == "spy enters conversation."
-    assert games[4].timeline[49].mission == Missions.Zero
+    assert games[4].timeline[49].mission == Missions.NoMission
     assert games[4].timeline[49].role == (None,)
     assert games[4].timeline[49].time == 25.2
 
@@ -5934,7 +5934,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[50].category == TimelineCategory.Conversation
     assert games[4].timeline[50].elapsed_time == 94.8
     assert games[4].timeline[50].event == "spy joined conversation with double agent."
-    assert games[4].timeline[50].mission == Missions.Zero
+    assert games[4].timeline[50].mission == Missions.NoMission
     assert games[4].timeline[50].role == (Roles.DoubleAgent,)
     assert games[4].timeline[50].time == 25.2
 
@@ -5945,7 +5945,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[51].category == TimelineCategory.GameEnd
     assert games[4].timeline[51].elapsed_time == 97.0
     assert games[4].timeline[51].event == "sniper shot civilian."
-    assert games[4].timeline[51].mission == Missions.Zero
+    assert games[4].timeline[51].mission == Missions.NoMission
     assert games[4].timeline[51].role == (Roles.Civilian,)
     assert games[4].timeline[51].time == 23.0
 
@@ -5959,7 +5959,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[0].category == TimelineCategory.Cast
     assert games[5].timeline[0].elapsed_time == 0.0
     assert games[5].timeline[0].event == "spy cast."
-    assert games[5].timeline[0].mission == Missions.Zero
+    assert games[5].timeline[0].mission == Missions.NoMission
     assert games[5].timeline[0].role == (Roles.Spy,)
     assert games[5].timeline[0].time == 120.0
 
@@ -5970,7 +5970,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[1].category == TimelineCategory.Cast
     assert games[5].timeline[1].elapsed_time == 0.0
     assert games[5].timeline[1].event == "ambassador cast."
-    assert games[5].timeline[1].mission == Missions.Zero
+    assert games[5].timeline[1].mission == Missions.NoMission
     assert games[5].timeline[1].role == (Roles.Ambassador,)
     assert games[5].timeline[1].time == 120.0
 
@@ -5981,7 +5981,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[2].category == TimelineCategory.Cast
     assert games[5].timeline[2].elapsed_time == 0.0
     assert games[5].timeline[2].event == "double agent cast."
-    assert games[5].timeline[2].mission == Missions.Zero
+    assert games[5].timeline[2].mission == Missions.NoMission
     assert games[5].timeline[2].role == (Roles.DoubleAgent,)
     assert games[5].timeline[2].time == 120.0
 
@@ -5992,7 +5992,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[3].category == TimelineCategory.Cast
     assert games[5].timeline[3].elapsed_time == 0.0
     assert games[5].timeline[3].event == "seduction target cast."
-    assert games[5].timeline[3].mission == Missions.Zero
+    assert games[5].timeline[3].mission == Missions.NoMission
     assert games[5].timeline[3].role == (Roles.SeductionTarget,)
     assert games[5].timeline[3].time == 120.0
 
@@ -6003,7 +6003,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[4].category == TimelineCategory.Cast
     assert games[5].timeline[4].elapsed_time == 0.0
     assert games[5].timeline[4].event == "civilian cast."
-    assert games[5].timeline[4].mission == Missions.Zero
+    assert games[5].timeline[4].mission == Missions.NoMission
     assert games[5].timeline[4].role == (Roles.Civilian,)
     assert games[5].timeline[4].time == 120.0
 
@@ -6014,7 +6014,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[5].category == TimelineCategory.Cast
     assert games[5].timeline[5].elapsed_time == 0.0
     assert games[5].timeline[5].event == "civilian cast."
-    assert games[5].timeline[5].mission == Missions.Zero
+    assert games[5].timeline[5].mission == Missions.NoMission
     assert games[5].timeline[5].role == (Roles.Civilian,)
     assert games[5].timeline[5].time == 120.0
 
@@ -6025,7 +6025,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[6].category == TimelineCategory.Cast
     assert games[5].timeline[6].elapsed_time == 0.0
     assert games[5].timeline[6].event == "civilian cast."
-    assert games[5].timeline[6].mission == Missions.Zero
+    assert games[5].timeline[6].mission == Missions.NoMission
     assert games[5].timeline[6].role == (Roles.Civilian,)
     assert games[5].timeline[6].time == 120.0
 
@@ -6102,7 +6102,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[13].category == TimelineCategory.GameStart
     assert games[5].timeline[13].elapsed_time == 0.0
     assert games[5].timeline[13].event == "game started."
-    assert games[5].timeline[13].mission == Missions.Zero
+    assert games[5].timeline[13].mission == Missions.NoMission
     assert games[5].timeline[13].role == (None,)
     assert games[5].timeline[13].time == 120.0
 
@@ -6113,7 +6113,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[14].category == TimelineCategory.SniperLights
     assert games[5].timeline[14].elapsed_time == 0.29999999999999716
     assert games[5].timeline[14].event == "marked less suspicious."
-    assert games[5].timeline[14].mission == Missions.Zero
+    assert games[5].timeline[14].mission == Missions.NoMission
     assert games[5].timeline[14].role == (Roles.Ambassador,)
     assert games[5].timeline[14].time == 119.7
 
@@ -6124,7 +6124,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[15].category == TimelineCategory.SniperLights
     assert games[5].timeline[15].elapsed_time == 6.200000000000003
     assert games[5].timeline[15].event == "marked spy suspicious."
-    assert games[5].timeline[15].mission == Missions.Zero
+    assert games[5].timeline[15].mission == Missions.NoMission
     assert games[5].timeline[15].role == (Roles.Spy,)
     assert games[5].timeline[15].time == 113.8
 
@@ -6135,7 +6135,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[16].category == TimelineCategory.Drinks
     assert games[5].timeline[16].elapsed_time == 13.700000000000003
     assert games[5].timeline[16].event == "waiter offered drink."
-    assert games[5].timeline[16].mission == Missions.Zero
+    assert games[5].timeline[16].mission == Missions.NoMission
     assert games[5].timeline[16].role == (Roles.Spy,)
     assert games[5].timeline[16].time == 106.3
 
@@ -6146,7 +6146,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[17].category == TimelineCategory.NoCategory
     assert games[5].timeline[17].elapsed_time == 16.0
     assert games[5].timeline[17].event == "spy player takes control from ai."
-    assert games[5].timeline[17].mission == Missions.Zero
+    assert games[5].timeline[17].mission == Missions.NoMission
     assert games[5].timeline[17].role == (None,)
     assert games[5].timeline[17].time == 104.0
 
@@ -6157,7 +6157,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[18].category == TimelineCategory.Drinks
     assert games[5].timeline[18].elapsed_time == 17.900000000000006
     assert games[5].timeline[18].event == "rejected drink from waiter."
-    assert games[5].timeline[18].mission == Missions.Zero
+    assert games[5].timeline[18].mission == Missions.NoMission
     assert games[5].timeline[18].role == (Roles.Spy,)
     assert games[5].timeline[18].time == 102.1
 
@@ -6168,7 +6168,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[19].category == TimelineCategory.Drinks
     assert games[5].timeline[19].elapsed_time == 17.900000000000006
     assert games[5].timeline[19].event == "waiter stopped offering drink."
-    assert games[5].timeline[19].mission == Missions.Zero
+    assert games[5].timeline[19].mission == Missions.NoMission
     assert games[5].timeline[19].role == (Roles.Spy,)
     assert games[5].timeline[19].time == 102.1
 
@@ -6179,7 +6179,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[20].category == TimelineCategory.SniperLights
     assert games[5].timeline[20].elapsed_time == 20.5
     assert games[5].timeline[20].event == "marked suspicious."
-    assert games[5].timeline[20].mission == Missions.Zero
+    assert games[5].timeline[20].mission == Missions.NoMission
     assert games[5].timeline[20].role == (Roles.SeductionTarget,)
     assert games[5].timeline[20].time == 99.5
 
@@ -6190,7 +6190,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[21].category == TimelineCategory.SniperLights
     assert games[5].timeline[21].elapsed_time == 23.099999999999994
     assert games[5].timeline[21].event == "marked suspicious."
-    assert games[5].timeline[21].mission == Missions.Zero
+    assert games[5].timeline[21].mission == Missions.NoMission
     assert games[5].timeline[21].role == (Roles.Civilian,)
     assert games[5].timeline[21].time == 96.9
 
@@ -6245,7 +6245,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[26].category == TimelineCategory.Conversation
     assert games[5].timeline[26].elapsed_time == 35.2
     assert games[5].timeline[26].event == "double agent joined conversation with spy."
-    assert games[5].timeline[26].mission == Missions.Zero
+    assert games[5].timeline[26].mission == Missions.NoMission
     assert games[5].timeline[26].role == (Roles.DoubleAgent,)
     assert games[5].timeline[26].time == 84.8
 
@@ -6256,7 +6256,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[27].category == TimelineCategory.Conversation
     assert games[5].timeline[27].elapsed_time == 45.8
     assert games[5].timeline[27].event == "spy leaves conversation."
-    assert games[5].timeline[27].mission == Missions.Zero
+    assert games[5].timeline[27].mission == Missions.NoMission
     assert games[5].timeline[27].role == (None,)
     assert games[5].timeline[27].time == 74.2
 
@@ -6267,7 +6267,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[28].category == TimelineCategory.Conversation
     assert games[5].timeline[28].elapsed_time == 45.8
     assert games[5].timeline[28].event == "spy left conversation with double agent."
-    assert games[5].timeline[28].mission == Missions.Zero
+    assert games[5].timeline[28].mission == Missions.NoMission
     assert games[5].timeline[28].role == (Roles.DoubleAgent,)
     assert games[5].timeline[28].time == 74.2
 
@@ -6278,7 +6278,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[29].category == TimelineCategory.SniperLights
     assert games[5].timeline[29].elapsed_time == 47.5
     assert games[5].timeline[29].event == "marked less suspicious."
-    assert games[5].timeline[29].mission == Missions.Zero
+    assert games[5].timeline[29].mission == Missions.NoMission
     assert games[5].timeline[29].role == (Roles.Staff,)
     assert games[5].timeline[29].time == 72.5
 
@@ -6289,7 +6289,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[30].category == TimelineCategory.SniperLights
     assert games[5].timeline[30].elapsed_time == 49.2
     assert games[5].timeline[30].event == "marked neutral suspicion."
-    assert games[5].timeline[30].mission == Missions.Zero
+    assert games[5].timeline[30].mission == Missions.NoMission
     assert games[5].timeline[30].role == (Roles.Staff,)
     assert games[5].timeline[30].time == 70.8
 
@@ -6300,7 +6300,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[31].category == TimelineCategory.SniperLights
     assert games[5].timeline[31].elapsed_time == 49.400000000000006
     assert games[5].timeline[31].event == "marked suspicious."
-    assert games[5].timeline[31].mission == Missions.Zero
+    assert games[5].timeline[31].mission == Missions.NoMission
     assert games[5].timeline[31].role == (Roles.Staff,)
     assert games[5].timeline[31].time == 70.6
 
@@ -6314,7 +6314,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[5].timeline[32].elapsed_time == 56.4
     assert games[5].timeline[32].event == "action triggered: check watch"
-    assert games[5].timeline[32].mission == Missions.Zero
+    assert games[5].timeline[32].mission == Missions.NoMission
     assert games[5].timeline[32].role == (None,)
     assert games[5].timeline[32].time == 63.6
 
@@ -6325,7 +6325,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[33].category == TimelineCategory.Watch
     assert games[5].timeline[33].elapsed_time == 56.4
     assert games[5].timeline[33].event == "watch checked."
-    assert games[5].timeline[33].mission == Missions.Zero
+    assert games[5].timeline[33].mission == Missions.NoMission
     assert games[5].timeline[33].role == (Roles.Spy,)
     assert games[5].timeline[33].time == 63.6
 
@@ -6391,7 +6391,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[39].category == TimelineCategory.Conversation
     assert games[5].timeline[39].elapsed_time == 73.2
     assert games[5].timeline[39].event == "spy enters conversation."
-    assert games[5].timeline[39].mission == Missions.Zero
+    assert games[5].timeline[39].mission == Missions.NoMission
     assert games[5].timeline[39].role == (None,)
     assert games[5].timeline[39].time == 46.8
 
@@ -6402,7 +6402,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[40].category == TimelineCategory.Conversation
     assert games[5].timeline[40].elapsed_time == 73.2
     assert games[5].timeline[40].event == "spy joined conversation with double agent."
-    assert games[5].timeline[40].mission == Missions.Zero
+    assert games[5].timeline[40].mission == Missions.NoMission
     assert games[5].timeline[40].role == (Roles.DoubleAgent,)
     assert games[5].timeline[40].time == 46.8
 
@@ -6468,7 +6468,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[46].category == TimelineCategory.SniperLights
     assert games[5].timeline[46].elapsed_time == 98.4
     assert games[5].timeline[46].event == "marked less suspicious."
-    assert games[5].timeline[46].mission == Missions.Zero
+    assert games[5].timeline[46].mission == Missions.NoMission
     assert games[5].timeline[46].role == (Roles.Civilian,)
     assert games[5].timeline[46].time == 21.6
 
@@ -6479,7 +6479,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[47].category == TimelineCategory.SniperShot
     assert games[5].timeline[47].elapsed_time == 105.4
     assert games[5].timeline[47].event == "took shot."
-    assert games[5].timeline[47].mission == Missions.Zero
+    assert games[5].timeline[47].mission == Missions.NoMission
     assert games[5].timeline[47].role == (Roles.Spy,)
     assert games[5].timeline[47].time == 14.6
 
@@ -6490,7 +6490,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[48].category == TimelineCategory.GameEnd
     assert games[5].timeline[48].elapsed_time == 110.0
     assert games[5].timeline[48].event == "sniper shot spy."
-    assert games[5].timeline[48].mission == Missions.Zero
+    assert games[5].timeline[48].mission == Missions.NoMission
     assert games[5].timeline[48].role == (Roles.Spy,)
     assert games[5].timeline[48].time == 10.0
 
@@ -6504,7 +6504,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[0].category == TimelineCategory.Cast
     assert games[6].timeline[0].elapsed_time == 0.0
     assert games[6].timeline[0].event == "spy cast."
-    assert games[6].timeline[0].mission == Missions.Zero
+    assert games[6].timeline[0].mission == Missions.NoMission
     assert games[6].timeline[0].role == (Roles.Spy,)
     assert games[6].timeline[0].time == 120.0
 
@@ -6515,7 +6515,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[1].category == TimelineCategory.Cast
     assert games[6].timeline[1].elapsed_time == 0.0
     assert games[6].timeline[1].event == "ambassador cast."
-    assert games[6].timeline[1].mission == Missions.Zero
+    assert games[6].timeline[1].mission == Missions.NoMission
     assert games[6].timeline[1].role == (Roles.Ambassador,)
     assert games[6].timeline[1].time == 120.0
 
@@ -6526,7 +6526,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[2].category == TimelineCategory.Cast
     assert games[6].timeline[2].elapsed_time == 0.0
     assert games[6].timeline[2].event == "double agent cast."
-    assert games[6].timeline[2].mission == Missions.Zero
+    assert games[6].timeline[2].mission == Missions.NoMission
     assert games[6].timeline[2].role == (Roles.DoubleAgent,)
     assert games[6].timeline[2].time == 120.0
 
@@ -6537,7 +6537,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[3].category == TimelineCategory.Cast
     assert games[6].timeline[3].elapsed_time == 0.0
     assert games[6].timeline[3].event == "seduction target cast."
-    assert games[6].timeline[3].mission == Missions.Zero
+    assert games[6].timeline[3].mission == Missions.NoMission
     assert games[6].timeline[3].role == (Roles.SeductionTarget,)
     assert games[6].timeline[3].time == 120.0
 
@@ -6548,7 +6548,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[4].category == TimelineCategory.Cast
     assert games[6].timeline[4].elapsed_time == 0.0
     assert games[6].timeline[4].event == "civilian cast."
-    assert games[6].timeline[4].mission == Missions.Zero
+    assert games[6].timeline[4].mission == Missions.NoMission
     assert games[6].timeline[4].role == (Roles.Civilian,)
     assert games[6].timeline[4].time == 120.0
 
@@ -6559,7 +6559,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[5].category == TimelineCategory.Cast
     assert games[6].timeline[5].elapsed_time == 0.0
     assert games[6].timeline[5].event == "civilian cast."
-    assert games[6].timeline[5].mission == Missions.Zero
+    assert games[6].timeline[5].mission == Missions.NoMission
     assert games[6].timeline[5].role == (Roles.Civilian,)
     assert games[6].timeline[5].time == 120.0
 
@@ -6570,7 +6570,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[6].category == TimelineCategory.Cast
     assert games[6].timeline[6].elapsed_time == 0.0
     assert games[6].timeline[6].event == "civilian cast."
-    assert games[6].timeline[6].mission == Missions.Zero
+    assert games[6].timeline[6].mission == Missions.NoMission
     assert games[6].timeline[6].role == (Roles.Civilian,)
     assert games[6].timeline[6].time == 120.0
 
@@ -6647,7 +6647,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[13].category == TimelineCategory.GameStart
     assert games[6].timeline[13].elapsed_time == 0.0
     assert games[6].timeline[13].event == "game started."
-    assert games[6].timeline[13].mission == Missions.Zero
+    assert games[6].timeline[13].mission == Missions.NoMission
     assert games[6].timeline[13].role == (None,)
     assert games[6].timeline[13].time == 120.0
 
@@ -6658,7 +6658,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[14].category == TimelineCategory.SniperLights
     assert games[6].timeline[14].elapsed_time == 2.799999999999997
     assert games[6].timeline[14].event == "marked less suspicious."
-    assert games[6].timeline[14].mission == Missions.Zero
+    assert games[6].timeline[14].mission == Missions.NoMission
     assert games[6].timeline[14].role == (Roles.Staff,)
     assert games[6].timeline[14].time == 117.2
 
@@ -6669,7 +6669,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[15].category == TimelineCategory.NoCategory
     assert games[6].timeline[15].elapsed_time == 3.0
     assert games[6].timeline[15].event == "spy player takes control from ai."
-    assert games[6].timeline[15].mission == Missions.Zero
+    assert games[6].timeline[15].mission == Missions.NoMission
     assert games[6].timeline[15].role == (None,)
     assert games[6].timeline[15].time == 117.0
 
@@ -6680,7 +6680,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[16].category == TimelineCategory.SniperLights
     assert games[6].timeline[16].elapsed_time == 4.299999999999997
     assert games[6].timeline[16].event == "marked less suspicious."
-    assert games[6].timeline[16].mission == Missions.Zero
+    assert games[6].timeline[16].mission == Missions.NoMission
     assert games[6].timeline[16].role == (Roles.Staff,)
     assert games[6].timeline[16].time == 115.7
 
@@ -6691,7 +6691,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[17].category == TimelineCategory.SniperLights
     assert games[6].timeline[17].elapsed_time == 5.900000000000006
     assert games[6].timeline[17].event == "marked suspicious."
-    assert games[6].timeline[17].mission == Missions.Zero
+    assert games[6].timeline[17].mission == Missions.NoMission
     assert games[6].timeline[17].role == (Roles.Civilian,)
     assert games[6].timeline[17].time == 114.1
 
@@ -6702,7 +6702,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[18].category == TimelineCategory.Conversation
     assert games[6].timeline[18].elapsed_time == 15.200000000000003
     assert games[6].timeline[18].event == "spy enters conversation."
-    assert games[6].timeline[18].mission == Missions.Zero
+    assert games[6].timeline[18].mission == Missions.NoMission
     assert games[6].timeline[18].role == (None,)
     assert games[6].timeline[18].time == 104.8
 
@@ -6713,7 +6713,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[19].category == TimelineCategory.Conversation
     assert games[6].timeline[19].elapsed_time == 15.200000000000003
     assert games[6].timeline[19].event == "spy joined conversation with double agent."
-    assert games[6].timeline[19].mission == Missions.Zero
+    assert games[6].timeline[19].mission == Missions.NoMission
     assert games[6].timeline[19].role == (Roles.DoubleAgent,)
     assert games[6].timeline[19].time == 104.8
 
@@ -6724,7 +6724,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[20].category == TimelineCategory.SniperLights
     assert games[6].timeline[20].elapsed_time == 21.900000000000006
     assert games[6].timeline[20].event == "marked suspicious."
-    assert games[6].timeline[20].mission == Missions.Zero
+    assert games[6].timeline[20].mission == Missions.NoMission
     assert games[6].timeline[20].role == (Roles.SeductionTarget,)
     assert games[6].timeline[20].time == 98.1
 
@@ -6757,7 +6757,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[23].category == TimelineCategory.SniperLights
     assert games[6].timeline[23].elapsed_time == 23.0
     assert games[6].timeline[23].event == "marked suspicious."
-    assert games[6].timeline[23].mission == Missions.Zero
+    assert games[6].timeline[23].mission == Missions.NoMission
     assert games[6].timeline[23].role == (Roles.DoubleAgent,)
     assert games[6].timeline[23].time == 97.0
 
@@ -6845,7 +6845,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[31].category == TimelineCategory.SniperLights
     assert games[6].timeline[31].elapsed_time == 38.0
     assert games[6].timeline[31].event == "marked less suspicious."
-    assert games[6].timeline[31].mission == Missions.Zero
+    assert games[6].timeline[31].mission == Missions.NoMission
     assert games[6].timeline[31].role == (Roles.Civilian,)
     assert games[6].timeline[31].time == 82.0
 
@@ -6856,7 +6856,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[32].category == TimelineCategory.Drinks
     assert games[6].timeline[32].elapsed_time == 43.099999999999994
     assert games[6].timeline[32].event == "waiter offered drink."
-    assert games[6].timeline[32].mission == Missions.Zero
+    assert games[6].timeline[32].mission == Missions.NoMission
     assert games[6].timeline[32].role == (Roles.Spy,)
     assert games[6].timeline[32].time == 76.9
 
@@ -6867,7 +6867,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[33].category == TimelineCategory.Drinks
     assert games[6].timeline[33].elapsed_time == 48.7
     assert games[6].timeline[33].event == "got drink from waiter."
-    assert games[6].timeline[33].mission == Missions.Zero
+    assert games[6].timeline[33].mission == Missions.NoMission
     assert games[6].timeline[33].role == (Roles.Spy,)
     assert games[6].timeline[33].time == 71.3
 
@@ -6878,7 +6878,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[34].category == TimelineCategory.Drinks
     assert games[6].timeline[34].elapsed_time == 48.7
     assert games[6].timeline[34].event == "waiter stopped offering drink."
-    assert games[6].timeline[34].mission == Missions.Zero
+    assert games[6].timeline[34].mission == Missions.NoMission
     assert games[6].timeline[34].role == (Roles.Spy,)
     assert games[6].timeline[34].time == 71.3
 
@@ -6922,7 +6922,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[38].category == TimelineCategory.SniperLights
     assert games[6].timeline[38].elapsed_time == 74.4
     assert games[6].timeline[38].event == "marked spy less suspicious."
-    assert games[6].timeline[38].mission == Missions.Zero
+    assert games[6].timeline[38].mission == Missions.NoMission
     assert games[6].timeline[38].role == (Roles.Spy,)
     assert games[6].timeline[38].time == 45.6
 
@@ -6955,7 +6955,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[41].category == TimelineCategory.Conversation
     assert games[6].timeline[41].elapsed_time == 75.1
     assert games[6].timeline[41].event == "double agent left conversation with spy."
-    assert games[6].timeline[41].mission == Missions.Zero
+    assert games[6].timeline[41].mission == Missions.NoMission
     assert games[6].timeline[41].role == (Roles.DoubleAgent,)
     assert games[6].timeline[41].time == 44.9
 
@@ -6966,7 +6966,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[42].category == TimelineCategory.Conversation
     assert games[6].timeline[42].elapsed_time == 84.9
     assert games[6].timeline[42].event == "spy leaves conversation."
-    assert games[6].timeline[42].mission == Missions.Zero
+    assert games[6].timeline[42].mission == Missions.NoMission
     assert games[6].timeline[42].role == (None,)
     assert games[6].timeline[42].time == 35.1
 
@@ -6977,7 +6977,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[43].category == TimelineCategory.Drinks
     assert games[6].timeline[43].elapsed_time == 91.4
     assert games[6].timeline[43].event == "sipped drink."
-    assert games[6].timeline[43].mission == Missions.Zero
+    assert games[6].timeline[43].mission == Missions.NoMission
     assert games[6].timeline[43].role == (Roles.Spy,)
     assert games[6].timeline[43].time == 28.6
 
@@ -6999,7 +6999,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[45].category == TimelineCategory.Conversation
     assert games[6].timeline[45].elapsed_time == 101.2
     assert games[6].timeline[45].event == "spy enters conversation."
-    assert games[6].timeline[45].mission == Missions.Zero
+    assert games[6].timeline[45].mission == Missions.NoMission
     assert games[6].timeline[45].role == (None,)
     assert games[6].timeline[45].time == 18.8
 
@@ -7010,7 +7010,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[46].category == TimelineCategory.Conversation
     assert games[6].timeline[46].elapsed_time == 101.2
     assert games[6].timeline[46].event == "spy joined conversation with double agent."
-    assert games[6].timeline[46].mission == Missions.Zero
+    assert games[6].timeline[46].mission == Missions.NoMission
     assert games[6].timeline[46].role == (Roles.DoubleAgent,)
     assert games[6].timeline[46].time == 18.8
 
@@ -7076,7 +7076,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[52].category == TimelineCategory.MissionCountdown
     assert games[6].timeline[52].elapsed_time == 108.9
     assert games[6].timeline[52].event == "missions completed. 10 second countdown."
-    assert games[6].timeline[52].mission == Missions.Zero
+    assert games[6].timeline[52].mission == Missions.NoMission
     assert games[6].timeline[52].role == (None,)
     assert games[6].timeline[52].time == 11.1
 
@@ -7087,7 +7087,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[53].category == TimelineCategory.Conversation
     assert games[6].timeline[53].elapsed_time == 117.2
     assert games[6].timeline[53].event == "spy leaves conversation."
-    assert games[6].timeline[53].mission == Missions.Zero
+    assert games[6].timeline[53].mission == Missions.NoMission
     assert games[6].timeline[53].role == (None,)
     assert games[6].timeline[53].time == 2.8
 
@@ -7098,7 +7098,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[54].category == TimelineCategory.Conversation
     assert games[6].timeline[54].elapsed_time == 117.2
     assert games[6].timeline[54].event == "spy left conversation with double agent."
-    assert games[6].timeline[54].mission == Missions.Zero
+    assert games[6].timeline[54].mission == Missions.NoMission
     assert games[6].timeline[54].role == (Roles.DoubleAgent,)
     assert games[6].timeline[54].time == 2.8
 
@@ -7109,7 +7109,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[55].category == TimelineCategory.GameEnd
     assert games[6].timeline[55].elapsed_time == 119.0
     assert games[6].timeline[55].event == "missions completed successfully."
-    assert games[6].timeline[55].mission == Missions.Zero
+    assert games[6].timeline[55].mission == Missions.NoMission
     assert games[6].timeline[55].role == (None,)
     assert games[6].timeline[55].time == 1.0
 
@@ -7123,7 +7123,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[0].category == TimelineCategory.Cast
     assert games[7].timeline[0].elapsed_time == 0.0
     assert games[7].timeline[0].event == "spy cast."
-    assert games[7].timeline[0].mission == Missions.Zero
+    assert games[7].timeline[0].mission == Missions.NoMission
     assert games[7].timeline[0].role == (Roles.Spy,)
     assert games[7].timeline[0].time == 120.0
 
@@ -7134,7 +7134,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[1].category == TimelineCategory.Cast
     assert games[7].timeline[1].elapsed_time == 0.0
     assert games[7].timeline[1].event == "ambassador cast."
-    assert games[7].timeline[1].mission == Missions.Zero
+    assert games[7].timeline[1].mission == Missions.NoMission
     assert games[7].timeline[1].role == (Roles.Ambassador,)
     assert games[7].timeline[1].time == 120.0
 
@@ -7145,7 +7145,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[2].category == TimelineCategory.Cast
     assert games[7].timeline[2].elapsed_time == 0.0
     assert games[7].timeline[2].event == "double agent cast."
-    assert games[7].timeline[2].mission == Missions.Zero
+    assert games[7].timeline[2].mission == Missions.NoMission
     assert games[7].timeline[2].role == (Roles.DoubleAgent,)
     assert games[7].timeline[2].time == 120.0
 
@@ -7156,7 +7156,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[3].category == TimelineCategory.Cast
     assert games[7].timeline[3].elapsed_time == 0.0
     assert games[7].timeline[3].event == "seduction target cast."
-    assert games[7].timeline[3].mission == Missions.Zero
+    assert games[7].timeline[3].mission == Missions.NoMission
     assert games[7].timeline[3].role == (Roles.SeductionTarget,)
     assert games[7].timeline[3].time == 120.0
 
@@ -7167,7 +7167,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[4].category == TimelineCategory.Cast
     assert games[7].timeline[4].elapsed_time == 0.0
     assert games[7].timeline[4].event == "civilian cast."
-    assert games[7].timeline[4].mission == Missions.Zero
+    assert games[7].timeline[4].mission == Missions.NoMission
     assert games[7].timeline[4].role == (Roles.Civilian,)
     assert games[7].timeline[4].time == 120.0
 
@@ -7178,7 +7178,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[5].category == TimelineCategory.Cast
     assert games[7].timeline[5].elapsed_time == 0.0
     assert games[7].timeline[5].event == "civilian cast."
-    assert games[7].timeline[5].mission == Missions.Zero
+    assert games[7].timeline[5].mission == Missions.NoMission
     assert games[7].timeline[5].role == (Roles.Civilian,)
     assert games[7].timeline[5].time == 120.0
 
@@ -7189,7 +7189,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[6].category == TimelineCategory.Cast
     assert games[7].timeline[6].elapsed_time == 0.0
     assert games[7].timeline[6].event == "civilian cast."
-    assert games[7].timeline[6].mission == Missions.Zero
+    assert games[7].timeline[6].mission == Missions.NoMission
     assert games[7].timeline[6].role == (Roles.Civilian,)
     assert games[7].timeline[6].time == 120.0
 
@@ -7266,7 +7266,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[13].category == TimelineCategory.GameStart
     assert games[7].timeline[13].elapsed_time == 0.0
     assert games[7].timeline[13].event == "game started."
-    assert games[7].timeline[13].mission == Missions.Zero
+    assert games[7].timeline[13].mission == Missions.NoMission
     assert games[7].timeline[13].role == (None,)
     assert games[7].timeline[13].time == 120.0
 
@@ -7277,7 +7277,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[14].category == TimelineCategory.SniperLights
     assert games[7].timeline[14].elapsed_time == 0.5
     assert games[7].timeline[14].event == "marked less suspicious."
-    assert games[7].timeline[14].mission == Missions.Zero
+    assert games[7].timeline[14].mission == Missions.NoMission
     assert games[7].timeline[14].role == (Roles.Ambassador,)
     assert games[7].timeline[14].time == 119.5
 
@@ -7288,7 +7288,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[15].category == TimelineCategory.NoCategory
     assert games[7].timeline[15].elapsed_time == 3.200000000000003
     assert games[7].timeline[15].event == "spy player takes control from ai."
-    assert games[7].timeline[15].mission == Missions.Zero
+    assert games[7].timeline[15].mission == Missions.NoMission
     assert games[7].timeline[15].role == (None,)
     assert games[7].timeline[15].time == 116.8
 
@@ -7299,7 +7299,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[16].category == TimelineCategory.SniperLights
     assert games[7].timeline[16].elapsed_time == 5.299999999999997
     assert games[7].timeline[16].event == "marked suspicious."
-    assert games[7].timeline[16].mission == Missions.Zero
+    assert games[7].timeline[16].mission == Missions.NoMission
     assert games[7].timeline[16].role == (Roles.Staff,)
     assert games[7].timeline[16].time == 114.7
 
@@ -7310,7 +7310,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[17].category == TimelineCategory.SniperLights
     assert games[7].timeline[17].elapsed_time == 7.200000000000003
     assert games[7].timeline[17].event == "marked suspicious."
-    assert games[7].timeline[17].mission == Missions.Zero
+    assert games[7].timeline[17].mission == Missions.NoMission
     assert games[7].timeline[17].role == (Roles.Staff,)
     assert games[7].timeline[17].time == 112.8
 
@@ -7321,7 +7321,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[18].category == TimelineCategory.SniperLights
     assert games[7].timeline[18].elapsed_time == 10.200000000000003
     assert games[7].timeline[18].event == "marked suspicious."
-    assert games[7].timeline[18].mission == Missions.Zero
+    assert games[7].timeline[18].mission == Missions.NoMission
     assert games[7].timeline[18].role == (Roles.Civilian,)
     assert games[7].timeline[18].time == 109.8
 
@@ -7332,7 +7332,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[19].category == TimelineCategory.Conversation
     assert games[7].timeline[19].elapsed_time == 11.0
     assert games[7].timeline[19].event == "double agent joined conversation with spy."
-    assert games[7].timeline[19].mission == Missions.Zero
+    assert games[7].timeline[19].mission == Missions.NoMission
     assert games[7].timeline[19].role == (Roles.DoubleAgent,)
     assert games[7].timeline[19].time == 109.0
 
@@ -7343,7 +7343,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[20].category == TimelineCategory.Conversation
     assert games[7].timeline[20].elapsed_time == 11.200000000000003
     assert games[7].timeline[20].event == "spy leaves conversation."
-    assert games[7].timeline[20].mission == Missions.Zero
+    assert games[7].timeline[20].mission == Missions.NoMission
     assert games[7].timeline[20].role == (None,)
     assert games[7].timeline[20].time == 108.8
 
@@ -7354,7 +7354,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[21].category == TimelineCategory.Conversation
     assert games[7].timeline[21].elapsed_time == 11.200000000000003
     assert games[7].timeline[21].event == "spy left conversation with double agent."
-    assert games[7].timeline[21].mission == Missions.Zero
+    assert games[7].timeline[21].mission == Missions.NoMission
     assert games[7].timeline[21].role == (Roles.DoubleAgent,)
     assert games[7].timeline[21].time == 108.8
 
@@ -7368,7 +7368,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[7].timeline[22].elapsed_time == 20.099999999999994
     assert games[7].timeline[22].event == "action triggered: check watch"
-    assert games[7].timeline[22].mission == Missions.Zero
+    assert games[7].timeline[22].mission == Missions.NoMission
     assert games[7].timeline[22].role == (None,)
     assert games[7].timeline[22].time == 99.9
 
@@ -7379,7 +7379,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[23].category == TimelineCategory.Watch
     assert games[7].timeline[23].elapsed_time == 20.099999999999994
     assert games[7].timeline[23].event == "watch checked."
-    assert games[7].timeline[23].mission == Missions.Zero
+    assert games[7].timeline[23].mission == Missions.NoMission
     assert games[7].timeline[23].role == (Roles.Spy,)
     assert games[7].timeline[23].time == 99.9
 
@@ -7390,7 +7390,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[24].category == TimelineCategory.Drinks
     assert games[7].timeline[24].elapsed_time == 28.700000000000003
     assert games[7].timeline[24].event == "took last sip of drink."
-    assert games[7].timeline[24].mission == Missions.Zero
+    assert games[7].timeline[24].mission == Missions.NoMission
     assert games[7].timeline[24].role == (Roles.Spy,)
     assert games[7].timeline[24].time == 91.3
 
@@ -7401,7 +7401,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[25].category == TimelineCategory.Drinks
     assert games[7].timeline[25].elapsed_time == 31.5
     assert games[7].timeline[25].event == "waiter offered drink."
-    assert games[7].timeline[25].mission == Missions.Zero
+    assert games[7].timeline[25].mission == Missions.NoMission
     assert games[7].timeline[25].role == (Roles.Spy,)
     assert games[7].timeline[25].time == 88.5
 
@@ -7412,7 +7412,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[26].category == TimelineCategory.Drinks
     assert games[7].timeline[26].elapsed_time == 31.900000000000006
     assert games[7].timeline[26].event == "rejected drink from waiter."
-    assert games[7].timeline[26].mission == Missions.Zero
+    assert games[7].timeline[26].mission == Missions.NoMission
     assert games[7].timeline[26].role == (Roles.Spy,)
     assert games[7].timeline[26].time == 88.1
 
@@ -7423,7 +7423,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[27].category == TimelineCategory.Drinks
     assert games[7].timeline[27].elapsed_time == 31.900000000000006
     assert games[7].timeline[27].event == "waiter stopped offering drink."
-    assert games[7].timeline[27].mission == Missions.Zero
+    assert games[7].timeline[27].mission == Missions.NoMission
     assert games[7].timeline[27].role == (Roles.Spy,)
     assert games[7].timeline[27].time == 88.1
 
@@ -7434,7 +7434,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[28].category == TimelineCategory.SniperLights
     assert games[7].timeline[28].elapsed_time == 33.099999999999994
     assert games[7].timeline[28].event == "marked suspicious."
-    assert games[7].timeline[28].mission == Missions.Zero
+    assert games[7].timeline[28].mission == Missions.NoMission
     assert games[7].timeline[28].role == (Roles.Civilian,)
     assert games[7].timeline[28].time == 86.9
 
@@ -7445,7 +7445,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[29].category == TimelineCategory.Conversation
     assert games[7].timeline[29].elapsed_time == 33.5
     assert games[7].timeline[29].event == "spy enters conversation."
-    assert games[7].timeline[29].mission == Missions.Zero
+    assert games[7].timeline[29].mission == Missions.NoMission
     assert games[7].timeline[29].role == (None,)
     assert games[7].timeline[29].time == 86.5
 
@@ -7456,7 +7456,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[30].category == TimelineCategory.SniperLights
     assert games[7].timeline[30].elapsed_time == 35.2
     assert games[7].timeline[30].event == "marked suspicious."
-    assert games[7].timeline[30].mission == Missions.Zero
+    assert games[7].timeline[30].mission == Missions.NoMission
     assert games[7].timeline[30].role == (Roles.DoubleAgent,)
     assert games[7].timeline[30].time == 84.8
 
@@ -7489,7 +7489,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[33].category == TimelineCategory.SniperLights
     assert games[7].timeline[33].elapsed_time == 37.0
     assert games[7].timeline[33].event == "marked neutral suspicion."
-    assert games[7].timeline[33].mission == Missions.Zero
+    assert games[7].timeline[33].mission == Missions.NoMission
     assert games[7].timeline[33].role == (Roles.Civilian,)
     assert games[7].timeline[33].time == 83.0
 
@@ -7522,7 +7522,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[36].category == TimelineCategory.SniperLights
     assert games[7].timeline[36].elapsed_time == 37.900000000000006
     assert games[7].timeline[36].event == "marked spy less suspicious."
-    assert games[7].timeline[36].mission == Missions.Zero
+    assert games[7].timeline[36].mission == Missions.NoMission
     assert games[7].timeline[36].role == (Roles.Spy,)
     assert games[7].timeline[36].time == 82.1
 
@@ -7533,7 +7533,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[37].category == TimelineCategory.SniperLights
     assert games[7].timeline[37].elapsed_time == 38.3
     assert games[7].timeline[37].event == "marked suspicious."
-    assert games[7].timeline[37].mission == Missions.Zero
+    assert games[7].timeline[37].mission == Missions.NoMission
     assert games[7].timeline[37].role == (Roles.Civilian,)
     assert games[7].timeline[37].time == 81.7
 
@@ -7544,7 +7544,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[38].category == TimelineCategory.SniperLights
     assert games[7].timeline[38].elapsed_time == 39.400000000000006
     assert games[7].timeline[38].event == "marked neutral suspicion."
-    assert games[7].timeline[38].mission == Missions.Zero
+    assert games[7].timeline[38].mission == Missions.NoMission
     assert games[7].timeline[38].role == (Roles.DoubleAgent,)
     assert games[7].timeline[38].time == 80.6
 
@@ -7555,7 +7555,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[39].category == TimelineCategory.SniperLights
     assert games[7].timeline[39].elapsed_time == 44.900000000000006
     assert games[7].timeline[39].event == "marked spy neutral suspicion."
-    assert games[7].timeline[39].mission == Missions.Zero
+    assert games[7].timeline[39].mission == Missions.NoMission
     assert games[7].timeline[39].role == (Roles.Spy,)
     assert games[7].timeline[39].time == 75.1
 
@@ -7566,7 +7566,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[40].category == TimelineCategory.Drinks
     assert games[7].timeline[40].elapsed_time == 45.7
     assert games[7].timeline[40].event == "request drink from waiter."
-    assert games[7].timeline[40].mission == Missions.Zero
+    assert games[7].timeline[40].mission == Missions.NoMission
     assert games[7].timeline[40].role == (Roles.Spy,)
     assert games[7].timeline[40].time == 74.3
 
@@ -7577,7 +7577,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[41].category == TimelineCategory.Drinks
     assert games[7].timeline[41].elapsed_time == 45.900000000000006
     assert games[7].timeline[41].event == "waiter offered drink."
-    assert games[7].timeline[41].mission == Missions.Zero
+    assert games[7].timeline[41].mission == Missions.NoMission
     assert games[7].timeline[41].role == (Roles.Spy,)
     assert games[7].timeline[41].time == 74.1
 
@@ -7588,7 +7588,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[42].category == TimelineCategory.SniperLights
     assert games[7].timeline[42].elapsed_time == 46.099999999999994
     assert games[7].timeline[42].event == "marked spy suspicious."
-    assert games[7].timeline[42].mission == Missions.Zero
+    assert games[7].timeline[42].mission == Missions.NoMission
     assert games[7].timeline[42].role == (Roles.Spy,)
     assert games[7].timeline[42].time == 73.9
 
@@ -7599,7 +7599,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[43].category == TimelineCategory.Drinks
     assert games[7].timeline[43].elapsed_time == 50.599999999999994
     assert games[7].timeline[43].event == "got drink from waiter."
-    assert games[7].timeline[43].mission == Missions.Zero
+    assert games[7].timeline[43].mission == Missions.NoMission
     assert games[7].timeline[43].role == (Roles.Spy,)
     assert games[7].timeline[43].time == 69.4
 
@@ -7610,7 +7610,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[44].category == TimelineCategory.Drinks
     assert games[7].timeline[44].elapsed_time == 50.599999999999994
     assert games[7].timeline[44].event == "waiter stopped offering drink."
-    assert games[7].timeline[44].mission == Missions.Zero
+    assert games[7].timeline[44].mission == Missions.NoMission
     assert games[7].timeline[44].role == (Roles.Spy,)
     assert games[7].timeline[44].time == 69.4
 
@@ -7621,7 +7621,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[45].category == TimelineCategory.Conversation
     assert games[7].timeline[45].elapsed_time == 50.900000000000006
     assert games[7].timeline[45].event == "double agent joined conversation with spy."
-    assert games[7].timeline[45].mission == Missions.Zero
+    assert games[7].timeline[45].mission == Missions.NoMission
     assert games[7].timeline[45].role == (Roles.DoubleAgent,)
     assert games[7].timeline[45].time == 69.1
 
@@ -7632,7 +7632,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[46].category == TimelineCategory.Drinks
     assert games[7].timeline[46].elapsed_time == 63.9
     assert games[7].timeline[46].event == "sipped drink."
-    assert games[7].timeline[46].mission == Missions.Zero
+    assert games[7].timeline[46].mission == Missions.NoMission
     assert games[7].timeline[46].role == (Roles.Spy,)
     assert games[7].timeline[46].time == 56.1
 
@@ -7643,7 +7643,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[47].category == TimelineCategory.SniperLights
     assert games[7].timeline[47].elapsed_time == 66.7
     assert games[7].timeline[47].event == "marked suspicious."
-    assert games[7].timeline[47].mission == Missions.Zero
+    assert games[7].timeline[47].mission == Missions.NoMission
     assert games[7].timeline[47].role == (Roles.Civilian,)
     assert games[7].timeline[47].time == 53.3
 
@@ -7654,7 +7654,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[48].category == TimelineCategory.SniperLights
     assert games[7].timeline[48].elapsed_time == 67.6
     assert games[7].timeline[48].event == "marked neutral suspicion."
-    assert games[7].timeline[48].mission == Missions.Zero
+    assert games[7].timeline[48].mission == Missions.NoMission
     assert games[7].timeline[48].role == (Roles.Civilian,)
     assert games[7].timeline[48].time == 52.4
 
@@ -7720,7 +7720,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[54].category == TimelineCategory.SniperLights
     assert games[7].timeline[54].elapsed_time == 71.5
     assert games[7].timeline[54].event == "marked suspicious."
-    assert games[7].timeline[54].mission == Missions.Zero
+    assert games[7].timeline[54].mission == Missions.NoMission
     assert games[7].timeline[54].role == (Roles.Civilian,)
     assert games[7].timeline[54].time == 48.5
 
@@ -7731,7 +7731,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[55].category == TimelineCategory.NoCategory
     assert games[7].timeline[55].elapsed_time == 82.1
     assert games[7].timeline[55].event == "ambassador's personal space violated."
-    assert games[7].timeline[55].mission == Missions.Zero
+    assert games[7].timeline[55].mission == Missions.NoMission
     assert games[7].timeline[55].role == (Roles.Ambassador, Roles.Spy)
     assert games[7].timeline[55].time == 37.9
 
@@ -7797,7 +7797,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[61].category == TimelineCategory.Conversation
     assert games[7].timeline[61].elapsed_time == 98.5
     assert games[7].timeline[61].event == "spy leaves conversation."
-    assert games[7].timeline[61].mission == Missions.Zero
+    assert games[7].timeline[61].mission == Missions.NoMission
     assert games[7].timeline[61].role == (None,)
     assert games[7].timeline[61].time == 21.5
 
@@ -7808,7 +7808,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[62].category == TimelineCategory.Conversation
     assert games[7].timeline[62].elapsed_time == 98.5
     assert games[7].timeline[62].event == "spy left conversation with double agent."
-    assert games[7].timeline[62].mission == Missions.Zero
+    assert games[7].timeline[62].mission == Missions.NoMission
     assert games[7].timeline[62].role == (Roles.DoubleAgent,)
     assert games[7].timeline[62].time == 21.5
 
@@ -7830,7 +7830,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[64].category == TimelineCategory.Drinks
     assert games[7].timeline[64].elapsed_time == 109.4
     assert games[7].timeline[64].event == "sipped drink."
-    assert games[7].timeline[64].mission == Missions.Zero
+    assert games[7].timeline[64].mission == Missions.NoMission
     assert games[7].timeline[64].role == (Roles.Spy,)
     assert games[7].timeline[64].time == 10.6
 
@@ -7841,7 +7841,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[65].category == TimelineCategory.Conversation
     assert games[7].timeline[65].elapsed_time == 113.5
     assert games[7].timeline[65].event == "spy enters conversation."
-    assert games[7].timeline[65].mission == Missions.Zero
+    assert games[7].timeline[65].mission == Missions.NoMission
     assert games[7].timeline[65].role == (None,)
     assert games[7].timeline[65].time == 6.5
 
@@ -7852,7 +7852,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[66].category == TimelineCategory.Conversation
     assert games[7].timeline[66].elapsed_time == 114.3
     assert games[7].timeline[66].event == "double agent joined conversation with spy."
-    assert games[7].timeline[66].mission == Missions.Zero
+    assert games[7].timeline[66].mission == Missions.NoMission
     assert games[7].timeline[66].role == (Roles.DoubleAgent,)
     assert games[7].timeline[66].time == 5.7
 
@@ -7918,7 +7918,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[72].category == TimelineCategory.MissionCountdown
     assert games[7].timeline[72].elapsed_time == 117.2
     assert games[7].timeline[72].event == "missions completed. 10 second countdown."
-    assert games[7].timeline[72].mission == Missions.Zero
+    assert games[7].timeline[72].mission == Missions.NoMission
     assert games[7].timeline[72].role == (None,)
     assert games[7].timeline[72].time == 2.8
 
@@ -7929,7 +7929,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[73].category == TimelineCategory.Overtime
     assert games[7].timeline[73].elapsed_time == 119.4
     assert games[7].timeline[73].event == "overtime!"
-    assert games[7].timeline[73].mission == Missions.Zero
+    assert games[7].timeline[73].mission == Missions.NoMission
     assert games[7].timeline[73].role == (None,)
     assert games[7].timeline[73].time == 0.6
 
@@ -7940,7 +7940,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[74].category == TimelineCategory.SniperShot
     assert games[7].timeline[74].elapsed_time == 120.3
     assert games[7].timeline[74].event == "took shot."
-    assert games[7].timeline[74].mission == Missions.Zero
+    assert games[7].timeline[74].mission == Missions.NoMission
     assert games[7].timeline[74].role == (Roles.Civilian,)
     assert games[7].timeline[74].time == -0.3
 
@@ -7951,7 +7951,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[75].category == TimelineCategory.GameEnd
     assert games[7].timeline[75].elapsed_time == 124.1
     assert games[7].timeline[75].event == "sniper shot civilian."
-    assert games[7].timeline[75].mission == Missions.Zero
+    assert games[7].timeline[75].mission == Missions.NoMission
     assert games[7].timeline[75].role == (Roles.Civilian,)
     assert games[7].timeline[75].time == -4.1
 
@@ -7965,7 +7965,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[0].category == TimelineCategory.Cast
     assert games[8].timeline[0].elapsed_time == 0.0
     assert games[8].timeline[0].event == "spy cast."
-    assert games[8].timeline[0].mission == Missions.Zero
+    assert games[8].timeline[0].mission == Missions.NoMission
     assert games[8].timeline[0].role == (Roles.Spy,)
     assert games[8].timeline[0].time == 210.0
 
@@ -7976,7 +7976,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[1].category == TimelineCategory.Cast
     assert games[8].timeline[1].elapsed_time == 0.0
     assert games[8].timeline[1].event == "ambassador cast."
-    assert games[8].timeline[1].mission == Missions.Zero
+    assert games[8].timeline[1].mission == Missions.NoMission
     assert games[8].timeline[1].role == (Roles.Ambassador,)
     assert games[8].timeline[1].time == 210.0
 
@@ -7987,7 +7987,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[2].category == TimelineCategory.Cast
     assert games[8].timeline[2].elapsed_time == 0.0
     assert games[8].timeline[2].event == "double agent cast."
-    assert games[8].timeline[2].mission == Missions.Zero
+    assert games[8].timeline[2].mission == Missions.NoMission
     assert games[8].timeline[2].role == (Roles.DoubleAgent,)
     assert games[8].timeline[2].time == 210.0
 
@@ -7998,7 +7998,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[3].category == TimelineCategory.Cast
     assert games[8].timeline[3].elapsed_time == 0.0
     assert games[8].timeline[3].event == "seduction target cast."
-    assert games[8].timeline[3].mission == Missions.Zero
+    assert games[8].timeline[3].mission == Missions.NoMission
     assert games[8].timeline[3].role == (Roles.SeductionTarget,)
     assert games[8].timeline[3].time == 210.0
 
@@ -8009,7 +8009,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[4].category == TimelineCategory.Cast
     assert games[8].timeline[4].elapsed_time == 0.0
     assert games[8].timeline[4].event == "civilian cast."
-    assert games[8].timeline[4].mission == Missions.Zero
+    assert games[8].timeline[4].mission == Missions.NoMission
     assert games[8].timeline[4].role == (Roles.Civilian,)
     assert games[8].timeline[4].time == 210.0
 
@@ -8020,7 +8020,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[5].category == TimelineCategory.Cast
     assert games[8].timeline[5].elapsed_time == 0.0
     assert games[8].timeline[5].event == "civilian cast."
-    assert games[8].timeline[5].mission == Missions.Zero
+    assert games[8].timeline[5].mission == Missions.NoMission
     assert games[8].timeline[5].role == (Roles.Civilian,)
     assert games[8].timeline[5].time == 210.0
 
@@ -8031,7 +8031,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[6].category == TimelineCategory.Cast
     assert games[8].timeline[6].elapsed_time == 0.0
     assert games[8].timeline[6].event == "civilian cast."
-    assert games[8].timeline[6].mission == Missions.Zero
+    assert games[8].timeline[6].mission == Missions.NoMission
     assert games[8].timeline[6].role == (Roles.Civilian,)
     assert games[8].timeline[6].time == 210.0
 
@@ -8042,7 +8042,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[7].category == TimelineCategory.Cast
     assert games[8].timeline[7].elapsed_time == 0.0
     assert games[8].timeline[7].event == "civilian cast."
-    assert games[8].timeline[7].mission == Missions.Zero
+    assert games[8].timeline[7].mission == Missions.NoMission
     assert games[8].timeline[7].role == (Roles.Civilian,)
     assert games[8].timeline[7].time == 210.0
 
@@ -8053,7 +8053,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[8].category == TimelineCategory.Cast
     assert games[8].timeline[8].elapsed_time == 0.0
     assert games[8].timeline[8].event == "civilian cast."
-    assert games[8].timeline[8].mission == Missions.Zero
+    assert games[8].timeline[8].mission == Missions.NoMission
     assert games[8].timeline[8].role == (Roles.Civilian,)
     assert games[8].timeline[8].time == 210.0
 
@@ -8064,7 +8064,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[9].category == TimelineCategory.Cast
     assert games[8].timeline[9].elapsed_time == 0.0
     assert games[8].timeline[9].event == "civilian cast."
-    assert games[8].timeline[9].mission == Missions.Zero
+    assert games[8].timeline[9].mission == Missions.NoMission
     assert games[8].timeline[9].role == (Roles.Civilian,)
     assert games[8].timeline[9].time == 210.0
 
@@ -8075,7 +8075,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[10].category == TimelineCategory.Cast
     assert games[8].timeline[10].elapsed_time == 0.0
     assert games[8].timeline[10].event == "civilian cast."
-    assert games[8].timeline[10].mission == Missions.Zero
+    assert games[8].timeline[10].mission == Missions.NoMission
     assert games[8].timeline[10].role == (Roles.Civilian,)
     assert games[8].timeline[10].time == 210.0
 
@@ -8086,7 +8086,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[11].category == TimelineCategory.Cast
     assert games[8].timeline[11].elapsed_time == 0.0
     assert games[8].timeline[11].event == "civilian cast."
-    assert games[8].timeline[11].mission == Missions.Zero
+    assert games[8].timeline[11].mission == Missions.NoMission
     assert games[8].timeline[11].role == (Roles.Civilian,)
     assert games[8].timeline[11].time == 210.0
 
@@ -8207,7 +8207,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[22].category == TimelineCategory.GameStart
     assert games[8].timeline[22].elapsed_time == 0.0
     assert games[8].timeline[22].event == "game started."
-    assert games[8].timeline[22].mission == Missions.Zero
+    assert games[8].timeline[22].mission == Missions.NoMission
     assert games[8].timeline[22].role == (None,)
     assert games[8].timeline[22].time == 210.0
 
@@ -8218,7 +8218,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[23].category == TimelineCategory.SniperLights
     assert games[8].timeline[23].elapsed_time == 1.1999999999999886
     assert games[8].timeline[23].event == "marked suspicious."
-    assert games[8].timeline[23].mission == Missions.Zero
+    assert games[8].timeline[23].mission == Missions.NoMission
     assert games[8].timeline[23].role == (Roles.Ambassador,)
     assert games[8].timeline[23].time == 208.8
 
@@ -8229,7 +8229,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[24].category == TimelineCategory.NoCategory
     assert games[8].timeline[24].elapsed_time == 1.5999999999999943
     assert games[8].timeline[24].event == "spy player takes control from ai."
-    assert games[8].timeline[24].mission == Missions.Zero
+    assert games[8].timeline[24].mission == Missions.NoMission
     assert games[8].timeline[24].role == (None,)
     assert games[8].timeline[24].time == 208.4
 
@@ -8240,7 +8240,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[25].category == TimelineCategory.SniperLights
     assert games[8].timeline[25].elapsed_time == 2.5999999999999943
     assert games[8].timeline[25].event == "marked less suspicious."
-    assert games[8].timeline[25].mission == Missions.Zero
+    assert games[8].timeline[25].mission == Missions.NoMission
     assert games[8].timeline[25].role == (Roles.Staff,)
     assert games[8].timeline[25].time == 207.4
 
@@ -8251,7 +8251,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[26].category == TimelineCategory.SniperLights
     assert games[8].timeline[26].elapsed_time == 4.699999999999989
     assert games[8].timeline[26].event == "marked less suspicious."
-    assert games[8].timeline[26].mission == Missions.Zero
+    assert games[8].timeline[26].mission == Missions.NoMission
     assert games[8].timeline[26].role == (Roles.DoubleAgent,)
     assert games[8].timeline[26].time == 205.3
 
@@ -8262,7 +8262,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[27].category == TimelineCategory.SniperLights
     assert games[8].timeline[27].elapsed_time == 5.699999999999989
     assert games[8].timeline[27].event == "marked suspicious."
-    assert games[8].timeline[27].mission == Missions.Zero
+    assert games[8].timeline[27].mission == Missions.NoMission
     assert games[8].timeline[27].role == (Roles.Civilian,)
     assert games[8].timeline[27].time == 204.3
 
@@ -8273,7 +8273,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[28].category == TimelineCategory.SniperLights
     assert games[8].timeline[28].elapsed_time == 7.0
     assert games[8].timeline[28].event == "marked suspicious."
-    assert games[8].timeline[28].mission == Missions.Zero
+    assert games[8].timeline[28].mission == Missions.NoMission
     assert games[8].timeline[28].role == (Roles.Staff,)
     assert games[8].timeline[28].time == 203.0
 
@@ -8284,7 +8284,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[29].category == TimelineCategory.Drinks
     assert games[8].timeline[29].elapsed_time == 9.099999999999994
     assert games[8].timeline[29].event == "took last sip of drink."
-    assert games[8].timeline[29].mission == Missions.Zero
+    assert games[8].timeline[29].mission == Missions.NoMission
     assert games[8].timeline[29].role == (Roles.Spy,)
     assert games[8].timeline[29].time == 200.9
 
@@ -8295,7 +8295,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[30].category == TimelineCategory.Conversation
     assert games[8].timeline[30].elapsed_time == 20.30000000000001
     assert games[8].timeline[30].event == "spy enters conversation."
-    assert games[8].timeline[30].mission == Missions.Zero
+    assert games[8].timeline[30].mission == Missions.NoMission
     assert games[8].timeline[30].role == (None,)
     assert games[8].timeline[30].time == 189.7
 
@@ -8306,7 +8306,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[31].category == TimelineCategory.Conversation
     assert games[8].timeline[31].elapsed_time == 20.30000000000001
     assert games[8].timeline[31].event == "spy joined conversation with double agent."
-    assert games[8].timeline[31].mission == Missions.Zero
+    assert games[8].timeline[31].mission == Missions.NoMission
     assert games[8].timeline[31].role == (Roles.DoubleAgent,)
     assert games[8].timeline[31].time == 189.7
 
@@ -8317,7 +8317,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[32].category == TimelineCategory.Conversation
     assert games[8].timeline[32].elapsed_time == 20.69999999999999
     assert games[8].timeline[32].event == "double agent left conversation with spy."
-    assert games[8].timeline[32].mission == Missions.Zero
+    assert games[8].timeline[32].mission == Missions.NoMission
     assert games[8].timeline[32].role == (Roles.DoubleAgent,)
     assert games[8].timeline[32].time == 189.3
 
@@ -8416,7 +8416,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[41].category == TimelineCategory.SniperLights
     assert games[8].timeline[41].elapsed_time == 48.400000000000006
     assert games[8].timeline[41].event == "marked less suspicious."
-    assert games[8].timeline[41].mission == Missions.Zero
+    assert games[8].timeline[41].mission == Missions.NoMission
     assert games[8].timeline[41].role == (Roles.SeductionTarget,)
     assert games[8].timeline[41].time == 161.6
 
@@ -8427,7 +8427,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[42].category == TimelineCategory.SniperLights
     assert games[8].timeline[42].elapsed_time == 49.19999999999999
     assert games[8].timeline[42].event == "marked less suspicious."
-    assert games[8].timeline[42].mission == Missions.Zero
+    assert games[8].timeline[42].mission == Missions.NoMission
     assert games[8].timeline[42].role == (Roles.Civilian,)
     assert games[8].timeline[42].time == 160.8
 
@@ -8438,7 +8438,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[43].category == TimelineCategory.SniperLights
     assert games[8].timeline[43].elapsed_time == 50.400000000000006
     assert games[8].timeline[43].event == "marked suspicious."
-    assert games[8].timeline[43].mission == Missions.Zero
+    assert games[8].timeline[43].mission == Missions.NoMission
     assert games[8].timeline[43].role == (Roles.Civilian,)
     assert games[8].timeline[43].time == 159.6
 
@@ -8460,7 +8460,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[45].category == TimelineCategory.Conversation
     assert games[8].timeline[45].elapsed_time == 64.19999999999999
     assert games[8].timeline[45].event == "spy leaves conversation."
-    assert games[8].timeline[45].mission == Missions.Zero
+    assert games[8].timeline[45].mission == Missions.NoMission
     assert games[8].timeline[45].role == (None,)
     assert games[8].timeline[45].time == 145.8
 
@@ -8515,7 +8515,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[50].category == TimelineCategory.Statues
     assert games[8].timeline[50].elapsed_time == 70.80000000000001
     assert games[8].timeline[50].event == "picked up statue."
-    assert games[8].timeline[50].mission == Missions.Zero
+    assert games[8].timeline[50].mission == Missions.NoMission
     assert games[8].timeline[50].role == (None,)
     assert games[8].timeline[50].time == 139.2
 
@@ -8526,7 +8526,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[51].category == TimelineCategory.SniperLights
     assert games[8].timeline[51].elapsed_time == 76.6
     assert games[8].timeline[51].event == "marked suspicious."
-    assert games[8].timeline[51].mission == Missions.Zero
+    assert games[8].timeline[51].mission == Missions.NoMission
     assert games[8].timeline[51].role == (Roles.Civilian,)
     assert games[8].timeline[51].time == 133.4
 
@@ -8537,7 +8537,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[52].category == TimelineCategory.SniperLights
     assert games[8].timeline[52].elapsed_time == 77.6
     assert games[8].timeline[52].event == "marked suspicious."
-    assert games[8].timeline[52].mission == Missions.Zero
+    assert games[8].timeline[52].mission == Missions.NoMission
     assert games[8].timeline[52].role == (Roles.Civilian,)
     assert games[8].timeline[52].time == 132.4
 
@@ -8548,7 +8548,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[53].category == TimelineCategory.Statues
     assert games[8].timeline[53].elapsed_time == 81.0
     assert games[8].timeline[53].event == "put back statue."
-    assert games[8].timeline[53].mission == Missions.Zero
+    assert games[8].timeline[53].mission == Missions.NoMission
     assert games[8].timeline[53].role == (None,)
     assert games[8].timeline[53].time == 129.0
 
@@ -8559,7 +8559,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[54].category == TimelineCategory.SniperLights
     assert games[8].timeline[54].elapsed_time == 85.1
     assert games[8].timeline[54].event == "marked suspicious."
-    assert games[8].timeline[54].mission == Missions.Zero
+    assert games[8].timeline[54].mission == Missions.NoMission
     assert games[8].timeline[54].role == (Roles.Civilian,)
     assert games[8].timeline[54].time == 124.9
 
@@ -8570,7 +8570,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[55].category == TimelineCategory.SniperLights
     assert games[8].timeline[55].elapsed_time == 85.4
     assert games[8].timeline[55].event == "marked suspicious."
-    assert games[8].timeline[55].mission == Missions.Zero
+    assert games[8].timeline[55].mission == Missions.NoMission
     assert games[8].timeline[55].role == (Roles.Civilian,)
     assert games[8].timeline[55].time == 124.6
 
@@ -8581,7 +8581,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[56].category == TimelineCategory.SniperLights
     assert games[8].timeline[56].elapsed_time == 86.1
     assert games[8].timeline[56].event == "marked neutral suspicion."
-    assert games[8].timeline[56].mission == Missions.Zero
+    assert games[8].timeline[56].mission == Missions.NoMission
     assert games[8].timeline[56].role == (Roles.Civilian,)
     assert games[8].timeline[56].time == 123.9
 
@@ -8592,7 +8592,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[57].category == TimelineCategory.SniperLights
     assert games[8].timeline[57].elapsed_time == 86.4
     assert games[8].timeline[57].event == "marked neutral suspicion."
-    assert games[8].timeline[57].mission == Missions.Zero
+    assert games[8].timeline[57].mission == Missions.NoMission
     assert games[8].timeline[57].role == (Roles.Civilian,)
     assert games[8].timeline[57].time == 123.6
 
@@ -8603,7 +8603,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[58].category == TimelineCategory.Conversation
     assert games[8].timeline[58].elapsed_time == 100.1
     assert games[8].timeline[58].event == "spy enters conversation."
-    assert games[8].timeline[58].mission == Missions.Zero
+    assert games[8].timeline[58].mission == Missions.NoMission
     assert games[8].timeline[58].role == (None,)
     assert games[8].timeline[58].time == 109.9
 
@@ -8614,7 +8614,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[59].category == TimelineCategory.Conversation
     assert games[8].timeline[59].elapsed_time == 100.1
     assert games[8].timeline[59].event == "spy joined conversation with double agent."
-    assert games[8].timeline[59].mission == Missions.Zero
+    assert games[8].timeline[59].mission == Missions.NoMission
     assert games[8].timeline[59].role == (Roles.DoubleAgent,)
     assert games[8].timeline[59].time == 109.9
 
@@ -8680,7 +8680,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[65].category == TimelineCategory.SniperLights
     assert games[8].timeline[65].elapsed_time == 115.6
     assert games[8].timeline[65].event == "marked less suspicious."
-    assert games[8].timeline[65].mission == Missions.Zero
+    assert games[8].timeline[65].mission == Missions.NoMission
     assert games[8].timeline[65].role == (Roles.Civilian,)
     assert games[8].timeline[65].time == 94.4
 
@@ -8691,7 +8691,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[66].category == TimelineCategory.SniperLights
     assert games[8].timeline[66].elapsed_time == 116.7
     assert games[8].timeline[66].event == "marked less suspicious."
-    assert games[8].timeline[66].mission == Missions.Zero
+    assert games[8].timeline[66].mission == Missions.NoMission
     assert games[8].timeline[66].role == (Roles.Civilian,)
     assert games[8].timeline[66].time == 93.3
 
@@ -8724,7 +8724,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[69].category == TimelineCategory.SniperLights
     assert games[8].timeline[69].elapsed_time == 117.4
     assert games[8].timeline[69].event == "marked less suspicious."
-    assert games[8].timeline[69].mission == Missions.Zero
+    assert games[8].timeline[69].mission == Missions.NoMission
     assert games[8].timeline[69].role == (Roles.Civilian,)
     assert games[8].timeline[69].time == 92.6
 
@@ -8757,7 +8757,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[72].category == TimelineCategory.Conversation
     assert games[8].timeline[72].elapsed_time == 119.9
     assert games[8].timeline[72].event == "spy leaves conversation."
-    assert games[8].timeline[72].mission == Missions.Zero
+    assert games[8].timeline[72].mission == Missions.NoMission
     assert games[8].timeline[72].role == (None,)
     assert games[8].timeline[72].time == 90.1
 
@@ -8768,7 +8768,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[73].category == TimelineCategory.Conversation
     assert games[8].timeline[73].elapsed_time == 119.9
     assert games[8].timeline[73].event == "spy left conversation with double agent."
-    assert games[8].timeline[73].mission == Missions.Zero
+    assert games[8].timeline[73].mission == Missions.NoMission
     assert games[8].timeline[73].role == (Roles.DoubleAgent,)
     assert games[8].timeline[73].time == 90.1
 
@@ -8779,7 +8779,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[74].category == TimelineCategory.Drinks
     assert games[8].timeline[74].elapsed_time == 124.4
     assert games[8].timeline[74].event == "request drink from bartender."
-    assert games[8].timeline[74].mission == Missions.Zero
+    assert games[8].timeline[74].mission == Missions.NoMission
     assert games[8].timeline[74].role == (Roles.Spy,)
     assert games[8].timeline[74].time == 85.6
 
@@ -8790,7 +8790,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[75].category == TimelineCategory.Drinks
     assert games[8].timeline[75].elapsed_time == 130.5
     assert games[8].timeline[75].event == "bartender picked next customer."
-    assert games[8].timeline[75].mission == Missions.Zero
+    assert games[8].timeline[75].mission == Missions.NoMission
     assert games[8].timeline[75].role == (Roles.Spy,)
     assert games[8].timeline[75].time == 79.5
 
@@ -8812,7 +8812,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[77].category == TimelineCategory.Drinks
     assert games[8].timeline[77].elapsed_time == 134.7
     assert games[8].timeline[77].event == "bartender offered drink."
-    assert games[8].timeline[77].mission == Missions.Zero
+    assert games[8].timeline[77].mission == Missions.NoMission
     assert games[8].timeline[77].role == (Roles.Spy,)
     assert games[8].timeline[77].time == 75.3
 
@@ -8845,7 +8845,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[80].category == TimelineCategory.Drinks
     assert games[8].timeline[80].elapsed_time == 138.6
     assert games[8].timeline[80].event == "got drink from bartender."
-    assert games[8].timeline[80].mission == Missions.Zero
+    assert games[8].timeline[80].mission == Missions.NoMission
     assert games[8].timeline[80].role == (Roles.Spy,)
     assert games[8].timeline[80].time == 71.4
 
@@ -8856,7 +8856,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[81].category == TimelineCategory.Drinks
     assert games[8].timeline[81].elapsed_time == 143.1
     assert games[8].timeline[81].event == "sipped drink."
-    assert games[8].timeline[81].mission == Missions.Zero
+    assert games[8].timeline[81].mission == Missions.NoMission
     assert games[8].timeline[81].role == (Roles.Spy,)
     assert games[8].timeline[81].time == 66.9
 
@@ -8867,7 +8867,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[82].category == TimelineCategory.SniperLights
     assert games[8].timeline[82].elapsed_time == 144.7
     assert games[8].timeline[82].event == "marked spy suspicious."
-    assert games[8].timeline[82].mission == Missions.Zero
+    assert games[8].timeline[82].mission == Missions.NoMission
     assert games[8].timeline[82].role == (Roles.Spy,)
     assert games[8].timeline[82].time == 65.3
 
@@ -8878,7 +8878,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[83].category == TimelineCategory.Drinks
     assert games[8].timeline[83].elapsed_time == 159.7
     assert games[8].timeline[83].event == "sipped drink."
-    assert games[8].timeline[83].mission == Missions.Zero
+    assert games[8].timeline[83].mission == Missions.NoMission
     assert games[8].timeline[83].role == (Roles.Spy,)
     assert games[8].timeline[83].time == 50.3
 
@@ -8889,7 +8889,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[84].category == TimelineCategory.Conversation
     assert games[8].timeline[84].elapsed_time == 173.7
     assert games[8].timeline[84].event == "spy enters conversation."
-    assert games[8].timeline[84].mission == Missions.Zero
+    assert games[8].timeline[84].mission == Missions.NoMission
     assert games[8].timeline[84].role == (None,)
     assert games[8].timeline[84].time == 36.3
 
@@ -8900,7 +8900,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[85].category == TimelineCategory.Conversation
     assert games[8].timeline[85].elapsed_time == 173.7
     assert games[8].timeline[85].event == "spy joined conversation with double agent."
-    assert games[8].timeline[85].mission == Missions.Zero
+    assert games[8].timeline[85].mission == Missions.NoMission
     assert games[8].timeline[85].role == (Roles.DoubleAgent,)
     assert games[8].timeline[85].time == 36.3
 
@@ -8911,7 +8911,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[86].category == TimelineCategory.SniperLights
     assert games[8].timeline[86].elapsed_time == 176.9
     assert games[8].timeline[86].event == "marked neutral suspicion."
-    assert games[8].timeline[86].mission == Missions.Zero
+    assert games[8].timeline[86].mission == Missions.NoMission
     assert games[8].timeline[86].role == (Roles.Civilian,)
     assert games[8].timeline[86].time == 33.1
 
@@ -8922,7 +8922,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[87].category == TimelineCategory.SniperLights
     assert games[8].timeline[87].elapsed_time == 179.3
     assert games[8].timeline[87].event == "marked less suspicious."
-    assert games[8].timeline[87].mission == Missions.Zero
+    assert games[8].timeline[87].mission == Missions.NoMission
     assert games[8].timeline[87].role == (Roles.Civilian,)
     assert games[8].timeline[87].time == 30.7
 
@@ -8933,7 +8933,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[88].category == TimelineCategory.SniperLights
     assert games[8].timeline[88].elapsed_time == 180.4
     assert games[8].timeline[88].event == "marked neutral suspicion."
-    assert games[8].timeline[88].mission == Missions.Zero
+    assert games[8].timeline[88].mission == Missions.NoMission
     assert games[8].timeline[88].role == (Roles.Civilian,)
     assert games[8].timeline[88].time == 29.6
 
@@ -8999,7 +8999,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[94].category == TimelineCategory.Conversation
     assert games[8].timeline[94].elapsed_time == 193.9
     assert games[8].timeline[94].event == "spy leaves conversation."
-    assert games[8].timeline[94].mission == Missions.Zero
+    assert games[8].timeline[94].mission == Missions.NoMission
     assert games[8].timeline[94].role == (None,)
     assert games[8].timeline[94].time == 16.1
 
@@ -9010,7 +9010,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[95].category == TimelineCategory.Conversation
     assert games[8].timeline[95].elapsed_time == 193.9
     assert games[8].timeline[95].event == "spy left conversation with double agent."
-    assert games[8].timeline[95].mission == Missions.Zero
+    assert games[8].timeline[95].mission == Missions.NoMission
     assert games[8].timeline[95].role == (Roles.DoubleAgent,)
     assert games[8].timeline[95].time == 16.1
 
@@ -9032,7 +9032,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[97].category == TimelineCategory.Drinks
     assert games[8].timeline[97].elapsed_time == 200.0
     assert games[8].timeline[97].event == "took last sip of drink."
-    assert games[8].timeline[97].mission == Missions.Zero
+    assert games[8].timeline[97].mission == Missions.NoMission
     assert games[8].timeline[97].role == (Roles.Spy,)
     assert games[8].timeline[97].time == 10.0
 
@@ -9043,7 +9043,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[98].category == TimelineCategory.Drinks
     assert games[8].timeline[98].elapsed_time == 202.0
     assert games[8].timeline[98].event == "request drink from bartender."
-    assert games[8].timeline[98].mission == Missions.Zero
+    assert games[8].timeline[98].mission == Missions.NoMission
     assert games[8].timeline[98].role == (Roles.Spy,)
     assert games[8].timeline[98].time == 8.0
 
@@ -9054,7 +9054,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[99].category == TimelineCategory.Drinks
     assert games[8].timeline[99].elapsed_time == 202.0
     assert games[8].timeline[99].event == "bartender picked next customer."
-    assert games[8].timeline[99].mission == Missions.Zero
+    assert games[8].timeline[99].mission == Missions.NoMission
     assert games[8].timeline[99].role == (Roles.Spy,)
     assert games[8].timeline[99].time == 8.0
 
@@ -9065,7 +9065,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[100].category == TimelineCategory.Drinks
     assert games[8].timeline[100].elapsed_time == 205.5
     assert games[8].timeline[100].event == "bartender offered drink."
-    assert games[8].timeline[100].mission == Missions.Zero
+    assert games[8].timeline[100].mission == Missions.NoMission
     assert games[8].timeline[100].role == (Roles.Spy,)
     assert games[8].timeline[100].time == 4.5
 
@@ -9087,7 +9087,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[102].category == TimelineCategory.Drinks
     assert games[8].timeline[102].elapsed_time == 207.8
     assert games[8].timeline[102].event == "got drink from bartender."
-    assert games[8].timeline[102].mission == Missions.Zero
+    assert games[8].timeline[102].mission == Missions.NoMission
     assert games[8].timeline[102].role == (Roles.Spy,)
     assert games[8].timeline[102].time == 2.2
 
@@ -9109,7 +9109,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[104].category == TimelineCategory.MissionCountdown
     assert games[8].timeline[104].elapsed_time == 207.8
     assert games[8].timeline[104].event == "missions completed. 10 second countdown."
-    assert games[8].timeline[104].mission == Missions.Zero
+    assert games[8].timeline[104].mission == Missions.NoMission
     assert games[8].timeline[104].role == (None,)
     assert games[8].timeline[104].time == 2.2
 
@@ -9120,7 +9120,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[105].category == TimelineCategory.Overtime
     assert games[8].timeline[105].elapsed_time == 209.5
     assert games[8].timeline[105].event == "overtime!"
-    assert games[8].timeline[105].mission == Missions.Zero
+    assert games[8].timeline[105].mission == Missions.NoMission
     assert games[8].timeline[105].role == (None,)
     assert games[8].timeline[105].time == 0.5
 
@@ -9131,7 +9131,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[106].category == TimelineCategory.SniperShot
     assert games[8].timeline[106].elapsed_time == 211.1
     assert games[8].timeline[106].event == "took shot."
-    assert games[8].timeline[106].mission == Missions.Zero
+    assert games[8].timeline[106].mission == Missions.NoMission
     assert games[8].timeline[106].role == (Roles.Spy,)
     assert games[8].timeline[106].time == -1.1
 
@@ -9142,7 +9142,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[107].category == TimelineCategory.GameEnd
     assert games[8].timeline[107].elapsed_time == 214.1
     assert games[8].timeline[107].event == "sniper shot spy."
-    assert games[8].timeline[107].mission == Missions.Zero
+    assert games[8].timeline[107].mission == Missions.NoMission
     assert games[8].timeline[107].role == (Roles.Spy,)
     assert games[8].timeline[107].time == -4.1
 
@@ -9156,7 +9156,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[0].category == TimelineCategory.Cast
     assert games[9].timeline[0].elapsed_time == 0.0
     assert games[9].timeline[0].event == "spy cast."
-    assert games[9].timeline[0].mission == Missions.Zero
+    assert games[9].timeline[0].mission == Missions.NoMission
     assert games[9].timeline[0].role == (Roles.Spy,)
     assert games[9].timeline[0].time == 210.0
 
@@ -9167,7 +9167,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[1].category == TimelineCategory.Cast
     assert games[9].timeline[1].elapsed_time == 0.0
     assert games[9].timeline[1].event == "ambassador cast."
-    assert games[9].timeline[1].mission == Missions.Zero
+    assert games[9].timeline[1].mission == Missions.NoMission
     assert games[9].timeline[1].role == (Roles.Ambassador,)
     assert games[9].timeline[1].time == 210.0
 
@@ -9178,7 +9178,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[2].category == TimelineCategory.Cast
     assert games[9].timeline[2].elapsed_time == 0.0
     assert games[9].timeline[2].event == "double agent cast."
-    assert games[9].timeline[2].mission == Missions.Zero
+    assert games[9].timeline[2].mission == Missions.NoMission
     assert games[9].timeline[2].role == (Roles.DoubleAgent,)
     assert games[9].timeline[2].time == 210.0
 
@@ -9189,7 +9189,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[3].category == TimelineCategory.Cast
     assert games[9].timeline[3].elapsed_time == 0.0
     assert games[9].timeline[3].event == "seduction target cast."
-    assert games[9].timeline[3].mission == Missions.Zero
+    assert games[9].timeline[3].mission == Missions.NoMission
     assert games[9].timeline[3].role == (Roles.SeductionTarget,)
     assert games[9].timeline[3].time == 210.0
 
@@ -9200,7 +9200,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[4].category == TimelineCategory.Cast
     assert games[9].timeline[4].elapsed_time == 0.0
     assert games[9].timeline[4].event == "civilian cast."
-    assert games[9].timeline[4].mission == Missions.Zero
+    assert games[9].timeline[4].mission == Missions.NoMission
     assert games[9].timeline[4].role == (Roles.Civilian,)
     assert games[9].timeline[4].time == 210.0
 
@@ -9211,7 +9211,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[5].category == TimelineCategory.Cast
     assert games[9].timeline[5].elapsed_time == 0.0
     assert games[9].timeline[5].event == "civilian cast."
-    assert games[9].timeline[5].mission == Missions.Zero
+    assert games[9].timeline[5].mission == Missions.NoMission
     assert games[9].timeline[5].role == (Roles.Civilian,)
     assert games[9].timeline[5].time == 210.0
 
@@ -9222,7 +9222,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[6].category == TimelineCategory.Cast
     assert games[9].timeline[6].elapsed_time == 0.0
     assert games[9].timeline[6].event == "civilian cast."
-    assert games[9].timeline[6].mission == Missions.Zero
+    assert games[9].timeline[6].mission == Missions.NoMission
     assert games[9].timeline[6].role == (Roles.Civilian,)
     assert games[9].timeline[6].time == 210.0
 
@@ -9233,7 +9233,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[7].category == TimelineCategory.Cast
     assert games[9].timeline[7].elapsed_time == 0.0
     assert games[9].timeline[7].event == "civilian cast."
-    assert games[9].timeline[7].mission == Missions.Zero
+    assert games[9].timeline[7].mission == Missions.NoMission
     assert games[9].timeline[7].role == (Roles.Civilian,)
     assert games[9].timeline[7].time == 210.0
 
@@ -9244,7 +9244,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[8].category == TimelineCategory.Cast
     assert games[9].timeline[8].elapsed_time == 0.0
     assert games[9].timeline[8].event == "civilian cast."
-    assert games[9].timeline[8].mission == Missions.Zero
+    assert games[9].timeline[8].mission == Missions.NoMission
     assert games[9].timeline[8].role == (Roles.Civilian,)
     assert games[9].timeline[8].time == 210.0
 
@@ -9255,7 +9255,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[9].category == TimelineCategory.Cast
     assert games[9].timeline[9].elapsed_time == 0.0
     assert games[9].timeline[9].event == "civilian cast."
-    assert games[9].timeline[9].mission == Missions.Zero
+    assert games[9].timeline[9].mission == Missions.NoMission
     assert games[9].timeline[9].role == (Roles.Civilian,)
     assert games[9].timeline[9].time == 210.0
 
@@ -9266,7 +9266,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[10].category == TimelineCategory.Cast
     assert games[9].timeline[10].elapsed_time == 0.0
     assert games[9].timeline[10].event == "civilian cast."
-    assert games[9].timeline[10].mission == Missions.Zero
+    assert games[9].timeline[10].mission == Missions.NoMission
     assert games[9].timeline[10].role == (Roles.Civilian,)
     assert games[9].timeline[10].time == 210.0
 
@@ -9277,7 +9277,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[11].category == TimelineCategory.Cast
     assert games[9].timeline[11].elapsed_time == 0.0
     assert games[9].timeline[11].event == "civilian cast."
-    assert games[9].timeline[11].mission == Missions.Zero
+    assert games[9].timeline[11].mission == Missions.NoMission
     assert games[9].timeline[11].role == (Roles.Civilian,)
     assert games[9].timeline[11].time == 210.0
 
@@ -9398,7 +9398,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[22].category == TimelineCategory.GameStart
     assert games[9].timeline[22].elapsed_time == 0.0
     assert games[9].timeline[22].event == "game started."
-    assert games[9].timeline[22].mission == Missions.Zero
+    assert games[9].timeline[22].mission == Missions.NoMission
     assert games[9].timeline[22].role == (None,)
     assert games[9].timeline[22].time == 210.0
 
@@ -9409,7 +9409,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[23].category == TimelineCategory.SniperLights
     assert games[9].timeline[23].elapsed_time == 0.6999999999999886
     assert games[9].timeline[23].event == "marked less suspicious."
-    assert games[9].timeline[23].mission == Missions.Zero
+    assert games[9].timeline[23].mission == Missions.NoMission
     assert games[9].timeline[23].role == (Roles.DoubleAgent,)
     assert games[9].timeline[23].time == 209.3
 
@@ -9420,7 +9420,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[24].category == TimelineCategory.SniperLights
     assert games[9].timeline[24].elapsed_time == 1.4000000000000057
     assert games[9].timeline[24].event == "marked less suspicious."
-    assert games[9].timeline[24].mission == Missions.Zero
+    assert games[9].timeline[24].mission == Missions.NoMission
     assert games[9].timeline[24].role == (Roles.Ambassador,)
     assert games[9].timeline[24].time == 208.6
 
@@ -9431,7 +9431,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[25].category == TimelineCategory.NoCategory
     assert games[9].timeline[25].elapsed_time == 1.6999999999999886
     assert games[9].timeline[25].event == "spy player takes control from ai."
-    assert games[9].timeline[25].mission == Missions.Zero
+    assert games[9].timeline[25].mission == Missions.NoMission
     assert games[9].timeline[25].role == (None,)
     assert games[9].timeline[25].time == 208.3
 
@@ -9442,7 +9442,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[26].category == TimelineCategory.Conversation
     assert games[9].timeline[26].elapsed_time == 2.5
     assert games[9].timeline[26].event == "spy enters conversation."
-    assert games[9].timeline[26].mission == Missions.Zero
+    assert games[9].timeline[26].mission == Missions.NoMission
     assert games[9].timeline[26].role == (None,)
     assert games[9].timeline[26].time == 207.5
 
@@ -9453,7 +9453,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[27].category == TimelineCategory.SniperLights
     assert games[9].timeline[27].elapsed_time == 3.0
     assert games[9].timeline[27].event == "marked less suspicious."
-    assert games[9].timeline[27].mission == Missions.Zero
+    assert games[9].timeline[27].mission == Missions.NoMission
     assert games[9].timeline[27].role == (Roles.Staff,)
     assert games[9].timeline[27].time == 207.0
 
@@ -9508,7 +9508,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[32].category == TimelineCategory.SniperLights
     assert games[9].timeline[32].elapsed_time == 6.0
     assert games[9].timeline[32].event == "marked less suspicious."
-    assert games[9].timeline[32].mission == Missions.Zero
+    assert games[9].timeline[32].mission == Missions.NoMission
     assert games[9].timeline[32].role == (Roles.Staff,)
     assert games[9].timeline[32].time == 204.0
 
@@ -9519,7 +9519,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[33].category == TimelineCategory.SniperLights
     assert games[9].timeline[33].elapsed_time == 6.400000000000006
     assert games[9].timeline[33].event == "marked suspicious."
-    assert games[9].timeline[33].mission == Missions.Zero
+    assert games[9].timeline[33].mission == Missions.NoMission
     assert games[9].timeline[33].role == (Roles.Civilian,)
     assert games[9].timeline[33].time == 203.6
 
@@ -9530,7 +9530,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[34].category == TimelineCategory.Drinks
     assert games[9].timeline[34].elapsed_time == 21.0
     assert games[9].timeline[34].event == "took last sip of drink."
-    assert games[9].timeline[34].mission == Missions.Zero
+    assert games[9].timeline[34].mission == Missions.NoMission
     assert games[9].timeline[34].role == (Roles.Spy,)
     assert games[9].timeline[34].time == 189.0
 
@@ -9541,7 +9541,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[35].category == TimelineCategory.SniperLights
     assert games[9].timeline[35].elapsed_time == 33.099999999999994
     assert games[9].timeline[35].event == "marked suspicious."
-    assert games[9].timeline[35].mission == Missions.Zero
+    assert games[9].timeline[35].mission == Missions.NoMission
     assert games[9].timeline[35].role == (Roles.Civilian,)
     assert games[9].timeline[35].time == 176.9
 
@@ -9552,7 +9552,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[36].category == TimelineCategory.Conversation
     assert games[9].timeline[36].elapsed_time == 36.69999999999999
     assert games[9].timeline[36].event == "spy leaves conversation."
-    assert games[9].timeline[36].mission == Missions.Zero
+    assert games[9].timeline[36].mission == Missions.NoMission
     assert games[9].timeline[36].role == (None,)
     assert games[9].timeline[36].time == 173.3
 
@@ -9574,7 +9574,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[38].category == TimelineCategory.Briefcase
     assert games[9].timeline[38].elapsed_time == 43.30000000000001
     assert games[9].timeline[38].event == "spy picks up briefcase."
-    assert games[9].timeline[38].mission == Missions.Zero
+    assert games[9].timeline[38].mission == Missions.NoMission
     assert games[9].timeline[38].role == (None,)
     assert games[9].timeline[38].time == 166.7
 
@@ -9632,7 +9632,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[43].category == TimelineCategory.Briefcase
     assert games[9].timeline[43].elapsed_time == 50.900000000000006
     assert games[9].timeline[43].event == "spy puts down briefcase."
-    assert games[9].timeline[43].mission == Missions.Zero
+    assert games[9].timeline[43].mission == Missions.NoMission
     assert games[9].timeline[43].role == (None,)
     assert games[9].timeline[43].time == 159.1
 
@@ -9646,7 +9646,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[9].timeline[44].elapsed_time == 58.599999999999994
     assert games[9].timeline[44].event == "action triggered: check watch"
-    assert games[9].timeline[44].mission == Missions.Zero
+    assert games[9].timeline[44].mission == Missions.NoMission
     assert games[9].timeline[44].role == (None,)
     assert games[9].timeline[44].time == 151.4
 
@@ -9657,7 +9657,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[45].category == TimelineCategory.Watch
     assert games[9].timeline[45].elapsed_time == 58.599999999999994
     assert games[9].timeline[45].event == "watch checked."
-    assert games[9].timeline[45].mission == Missions.Zero
+    assert games[9].timeline[45].mission == Missions.NoMission
     assert games[9].timeline[45].role == (Roles.Spy,)
     assert games[9].timeline[45].time == 151.4
 
@@ -9668,7 +9668,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[46].category == TimelineCategory.SniperLights
     assert games[9].timeline[46].elapsed_time == 58.80000000000001
     assert games[9].timeline[46].event == "marked suspicious."
-    assert games[9].timeline[46].mission == Missions.Zero
+    assert games[9].timeline[46].mission == Missions.NoMission
     assert games[9].timeline[46].role == (Roles.Civilian,)
     assert games[9].timeline[46].time == 151.2
 
@@ -9679,7 +9679,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[47].category == TimelineCategory.SniperLights
     assert games[9].timeline[47].elapsed_time == 60.900000000000006
     assert games[9].timeline[47].event == "marked neutral suspicion."
-    assert games[9].timeline[47].mission == Missions.Zero
+    assert games[9].timeline[47].mission == Missions.NoMission
     assert games[9].timeline[47].role == (Roles.Civilian,)
     assert games[9].timeline[47].time == 149.1
 
@@ -9690,7 +9690,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[48].category == TimelineCategory.Conversation
     assert games[9].timeline[48].elapsed_time == 65.5
     assert games[9].timeline[48].event == "spy enters conversation."
-    assert games[9].timeline[48].mission == Missions.Zero
+    assert games[9].timeline[48].mission == Missions.NoMission
     assert games[9].timeline[48].role == (None,)
     assert games[9].timeline[48].time == 144.5
 
@@ -9701,7 +9701,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[49].category == TimelineCategory.Conversation
     assert games[9].timeline[49].elapsed_time == 65.5
     assert games[9].timeline[49].event == "spy joined conversation with double agent."
-    assert games[9].timeline[49].mission == Missions.Zero
+    assert games[9].timeline[49].mission == Missions.NoMission
     assert games[9].timeline[49].role == (Roles.DoubleAgent,)
     assert games[9].timeline[49].time == 144.5
 
@@ -9767,7 +9767,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[55].category == TimelineCategory.SniperLights
     assert games[9].timeline[55].elapsed_time == 78.4
     assert games[9].timeline[55].event == "marked suspicious."
-    assert games[9].timeline[55].mission == Missions.Zero
+    assert games[9].timeline[55].mission == Missions.NoMission
     assert games[9].timeline[55].role == (Roles.Civilian,)
     assert games[9].timeline[55].time == 131.6
 
@@ -9778,7 +9778,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[56].category == TimelineCategory.SniperLights
     assert games[9].timeline[56].elapsed_time == 79.30000000000001
     assert games[9].timeline[56].event == "marked suspicious."
-    assert games[9].timeline[56].mission == Missions.Zero
+    assert games[9].timeline[56].mission == Missions.NoMission
     assert games[9].timeline[56].role == (Roles.Civilian,)
     assert games[9].timeline[56].time == 130.7
 
@@ -9789,7 +9789,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[57].category == TimelineCategory.SniperLights
     assert games[9].timeline[57].elapsed_time == 80.4
     assert games[9].timeline[57].event == "marked suspicious."
-    assert games[9].timeline[57].mission == Missions.Zero
+    assert games[9].timeline[57].mission == Missions.NoMission
     assert games[9].timeline[57].role == (Roles.Civilian,)
     assert games[9].timeline[57].time == 129.6
 
@@ -9800,7 +9800,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[58].category == TimelineCategory.SniperLights
     assert games[9].timeline[58].elapsed_time == 80.9
     assert games[9].timeline[58].event == "marked spy suspicious."
-    assert games[9].timeline[58].mission == Missions.Zero
+    assert games[9].timeline[58].mission == Missions.NoMission
     assert games[9].timeline[58].role == (Roles.Spy,)
     assert games[9].timeline[58].time == 129.1
 
@@ -9811,7 +9811,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[59].category == TimelineCategory.SniperLights
     assert games[9].timeline[59].elapsed_time == 81.30000000000001
     assert games[9].timeline[59].event == "marked suspicious."
-    assert games[9].timeline[59].mission == Missions.Zero
+    assert games[9].timeline[59].mission == Missions.NoMission
     assert games[9].timeline[59].role == (Roles.SeductionTarget,)
     assert games[9].timeline[59].time == 128.7
 
@@ -9866,7 +9866,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[64].category == TimelineCategory.Conversation
     assert games[9].timeline[64].elapsed_time == 99.8
     assert games[9].timeline[64].event == "spy leaves conversation."
-    assert games[9].timeline[64].mission == Missions.Zero
+    assert games[9].timeline[64].mission == Missions.NoMission
     assert games[9].timeline[64].role == (None,)
     assert games[9].timeline[64].time == 110.2
 
@@ -9877,7 +9877,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[65].category == TimelineCategory.Conversation
     assert games[9].timeline[65].elapsed_time == 99.8
     assert games[9].timeline[65].event == "spy left conversation with double agent."
-    assert games[9].timeline[65].mission == Missions.Zero
+    assert games[9].timeline[65].mission == Missions.NoMission
     assert games[9].timeline[65].role == (Roles.DoubleAgent,)
     assert games[9].timeline[65].time == 110.2
 
@@ -9888,7 +9888,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[66].category == TimelineCategory.Statues
     assert games[9].timeline[66].elapsed_time == 107.3
     assert games[9].timeline[66].event == "picked up statue."
-    assert games[9].timeline[66].mission == Missions.Zero
+    assert games[9].timeline[66].mission == Missions.NoMission
     assert games[9].timeline[66].role == (None,)
     assert games[9].timeline[66].time == 102.7
 
@@ -9968,7 +9968,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[73].category == TimelineCategory.NoCategory
     assert games[9].timeline[73].elapsed_time == 115.0
     assert games[9].timeline[73].event == "ambassador's personal space violated."
-    assert games[9].timeline[73].mission == Missions.Zero
+    assert games[9].timeline[73].mission == Missions.NoMission
     assert games[9].timeline[73].role == (Roles.Ambassador, Roles.Spy)
     assert games[9].timeline[73].time == 95.0
 
@@ -9979,7 +9979,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[74].category == TimelineCategory.Statues
     assert games[9].timeline[74].elapsed_time == 116.7
     assert games[9].timeline[74].event == "put back statue."
-    assert games[9].timeline[74].mission == Missions.Zero
+    assert games[9].timeline[74].mission == Missions.NoMission
     assert games[9].timeline[74].role == (None,)
     assert games[9].timeline[74].time == 93.3
 
@@ -9993,7 +9993,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[9].timeline[75].elapsed_time == 129.9
     assert games[9].timeline[75].event == "action triggered: check watch"
-    assert games[9].timeline[75].mission == Missions.Zero
+    assert games[9].timeline[75].mission == Missions.NoMission
     assert games[9].timeline[75].role == (None,)
     assert games[9].timeline[75].time == 80.1
 
@@ -10004,7 +10004,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[76].category == TimelineCategory.Watch
     assert games[9].timeline[76].elapsed_time == 129.9
     assert games[9].timeline[76].event == "watch checked."
-    assert games[9].timeline[76].mission == Missions.Zero
+    assert games[9].timeline[76].mission == Missions.NoMission
     assert games[9].timeline[76].role == (Roles.Spy,)
     assert games[9].timeline[76].time == 80.1
 
@@ -10015,7 +10015,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[77].category == TimelineCategory.Conversation
     assert games[9].timeline[77].elapsed_time == 139.5
     assert games[9].timeline[77].event == "spy enters conversation."
-    assert games[9].timeline[77].mission == Missions.Zero
+    assert games[9].timeline[77].mission == Missions.NoMission
     assert games[9].timeline[77].role == (None,)
     assert games[9].timeline[77].time == 70.5
 
@@ -10081,7 +10081,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[83].category == TimelineCategory.MissionCountdown
     assert games[9].timeline[83].elapsed_time == 146.6
     assert games[9].timeline[83].event == "missions completed. 10 second countdown."
-    assert games[9].timeline[83].mission == Missions.Zero
+    assert games[9].timeline[83].mission == Missions.NoMission
     assert games[9].timeline[83].role == (None,)
     assert games[9].timeline[83].time == 63.4
 
@@ -10092,7 +10092,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[84].category == TimelineCategory.GameEnd
     assert games[9].timeline[84].elapsed_time == 156.5
     assert games[9].timeline[84].event == "missions completed successfully."
-    assert games[9].timeline[84].mission == Missions.Zero
+    assert games[9].timeline[84].mission == Missions.NoMission
     assert games[9].timeline[84].role == (None,)
     assert games[9].timeline[84].time == 53.5
 
@@ -10106,7 +10106,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[0].category == TimelineCategory.Cast
     assert games[10].timeline[0].elapsed_time == 0.0
     assert games[10].timeline[0].event == "spy cast."
-    assert games[10].timeline[0].mission == Missions.Zero
+    assert games[10].timeline[0].mission == Missions.NoMission
     assert games[10].timeline[0].role == (Roles.Spy,)
     assert games[10].timeline[0].time == 210.0
 
@@ -10117,7 +10117,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[1].category == TimelineCategory.Cast
     assert games[10].timeline[1].elapsed_time == 0.0
     assert games[10].timeline[1].event == "ambassador cast."
-    assert games[10].timeline[1].mission == Missions.Zero
+    assert games[10].timeline[1].mission == Missions.NoMission
     assert games[10].timeline[1].role == (Roles.Ambassador,)
     assert games[10].timeline[1].time == 210.0
 
@@ -10128,7 +10128,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[2].category == TimelineCategory.Cast
     assert games[10].timeline[2].elapsed_time == 0.0
     assert games[10].timeline[2].event == "double agent cast."
-    assert games[10].timeline[2].mission == Missions.Zero
+    assert games[10].timeline[2].mission == Missions.NoMission
     assert games[10].timeline[2].role == (Roles.DoubleAgent,)
     assert games[10].timeline[2].time == 210.0
 
@@ -10139,7 +10139,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[3].category == TimelineCategory.Cast
     assert games[10].timeline[3].elapsed_time == 0.0
     assert games[10].timeline[3].event == "suspected double agent cast."
-    assert games[10].timeline[3].mission == Missions.Zero
+    assert games[10].timeline[3].mission == Missions.NoMission
     assert games[10].timeline[3].role == (Roles.SuspectedDoubleAgent,)
     assert games[10].timeline[3].time == 210.0
 
@@ -10150,7 +10150,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[4].category == TimelineCategory.Cast
     assert games[10].timeline[4].elapsed_time == 0.0
     assert games[10].timeline[4].event == "seduction target cast."
-    assert games[10].timeline[4].mission == Missions.Zero
+    assert games[10].timeline[4].mission == Missions.NoMission
     assert games[10].timeline[4].role == (Roles.SeductionTarget,)
     assert games[10].timeline[4].time == 210.0
 
@@ -10161,7 +10161,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[5].category == TimelineCategory.Cast
     assert games[10].timeline[5].elapsed_time == 0.0
     assert games[10].timeline[5].event == "civilian cast."
-    assert games[10].timeline[5].mission == Missions.Zero
+    assert games[10].timeline[5].mission == Missions.NoMission
     assert games[10].timeline[5].role == (Roles.Civilian,)
     assert games[10].timeline[5].time == 210.0
 
@@ -10172,7 +10172,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[6].category == TimelineCategory.Cast
     assert games[10].timeline[6].elapsed_time == 0.0
     assert games[10].timeline[6].event == "civilian cast."
-    assert games[10].timeline[6].mission == Missions.Zero
+    assert games[10].timeline[6].mission == Missions.NoMission
     assert games[10].timeline[6].role == (Roles.Civilian,)
     assert games[10].timeline[6].time == 210.0
 
@@ -10183,7 +10183,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[7].category == TimelineCategory.Cast
     assert games[10].timeline[7].elapsed_time == 0.0
     assert games[10].timeline[7].event == "civilian cast."
-    assert games[10].timeline[7].mission == Missions.Zero
+    assert games[10].timeline[7].mission == Missions.NoMission
     assert games[10].timeline[7].role == (Roles.Civilian,)
     assert games[10].timeline[7].time == 210.0
 
@@ -10194,7 +10194,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[8].category == TimelineCategory.Cast
     assert games[10].timeline[8].elapsed_time == 0.0
     assert games[10].timeline[8].event == "civilian cast."
-    assert games[10].timeline[8].mission == Missions.Zero
+    assert games[10].timeline[8].mission == Missions.NoMission
     assert games[10].timeline[8].role == (Roles.Civilian,)
     assert games[10].timeline[8].time == 210.0
 
@@ -10205,7 +10205,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[9].category == TimelineCategory.Cast
     assert games[10].timeline[9].elapsed_time == 0.0
     assert games[10].timeline[9].event == "civilian cast."
-    assert games[10].timeline[9].mission == Missions.Zero
+    assert games[10].timeline[9].mission == Missions.NoMission
     assert games[10].timeline[9].role == (Roles.Civilian,)
     assert games[10].timeline[9].time == 210.0
 
@@ -10216,7 +10216,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[10].category == TimelineCategory.Cast
     assert games[10].timeline[10].elapsed_time == 0.0
     assert games[10].timeline[10].event == "civilian cast."
-    assert games[10].timeline[10].mission == Missions.Zero
+    assert games[10].timeline[10].mission == Missions.NoMission
     assert games[10].timeline[10].role == (Roles.Civilian,)
     assert games[10].timeline[10].time == 210.0
 
@@ -10227,7 +10227,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[11].category == TimelineCategory.Cast
     assert games[10].timeline[11].elapsed_time == 0.0
     assert games[10].timeline[11].event == "civilian cast."
-    assert games[10].timeline[11].mission == Missions.Zero
+    assert games[10].timeline[11].mission == Missions.NoMission
     assert games[10].timeline[11].role == (Roles.Civilian,)
     assert games[10].timeline[11].time == 210.0
 
@@ -10238,7 +10238,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[12].category == TimelineCategory.Cast
     assert games[10].timeline[12].elapsed_time == 0.0
     assert games[10].timeline[12].event == "civilian cast."
-    assert games[10].timeline[12].mission == Missions.Zero
+    assert games[10].timeline[12].mission == Missions.NoMission
     assert games[10].timeline[12].role == (Roles.Civilian,)
     assert games[10].timeline[12].time == 210.0
 
@@ -10249,7 +10249,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[13].category == TimelineCategory.Cast
     assert games[10].timeline[13].elapsed_time == 0.0
     assert games[10].timeline[13].event == "civilian cast."
-    assert games[10].timeline[13].mission == Missions.Zero
+    assert games[10].timeline[13].mission == Missions.NoMission
     assert games[10].timeline[13].role == (Roles.Civilian,)
     assert games[10].timeline[13].time == 210.0
 
@@ -10260,7 +10260,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[14].category == TimelineCategory.Cast
     assert games[10].timeline[14].elapsed_time == 0.0
     assert games[10].timeline[14].event == "civilian cast."
-    assert games[10].timeline[14].mission == Missions.Zero
+    assert games[10].timeline[14].mission == Missions.NoMission
     assert games[10].timeline[14].role == (Roles.Civilian,)
     assert games[10].timeline[14].time == 210.0
 
@@ -10447,7 +10447,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[31].category == TimelineCategory.GameStart
     assert games[10].timeline[31].elapsed_time == 0.0
     assert games[10].timeline[31].event == "game started."
-    assert games[10].timeline[31].mission == Missions.Zero
+    assert games[10].timeline[31].mission == Missions.NoMission
     assert games[10].timeline[31].role == (None,)
     assert games[10].timeline[31].time == 210.0
 
@@ -10458,7 +10458,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[32].category == TimelineCategory.NoCategory
     assert games[10].timeline[32].elapsed_time == 1.0999999999999943
     assert games[10].timeline[32].event == "spy player takes control from ai."
-    assert games[10].timeline[32].mission == Missions.Zero
+    assert games[10].timeline[32].mission == Missions.NoMission
     assert games[10].timeline[32].role == (None,)
     assert games[10].timeline[32].time == 208.9
 
@@ -10469,7 +10469,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[33].category == TimelineCategory.SniperLights
     assert games[10].timeline[33].elapsed_time == 3.6999999999999886
     assert games[10].timeline[33].event == "marked suspicious."
-    assert games[10].timeline[33].mission == Missions.Zero
+    assert games[10].timeline[33].mission == Missions.NoMission
     assert games[10].timeline[33].role == (Roles.Ambassador,)
     assert games[10].timeline[33].time == 206.3
 
@@ -10480,7 +10480,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[34].category == TimelineCategory.SniperLights
     assert games[10].timeline[34].elapsed_time == 4.300000000000011
     assert games[10].timeline[34].event == "marked less suspicious."
-    assert games[10].timeline[34].mission == Missions.Zero
+    assert games[10].timeline[34].mission == Missions.NoMission
     assert games[10].timeline[34].role == (Roles.DoubleAgent,)
     assert games[10].timeline[34].time == 205.7
 
@@ -10513,7 +10513,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[37].category == TimelineCategory.SniperLights
     assert games[10].timeline[37].elapsed_time == 7.5
     assert games[10].timeline[37].event == "marked less suspicious."
-    assert games[10].timeline[37].mission == Missions.Zero
+    assert games[10].timeline[37].mission == Missions.NoMission
     assert games[10].timeline[37].role == (Roles.SuspectedDoubleAgent,)
     assert games[10].timeline[37].time == 202.5
 
@@ -10535,7 +10535,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[39].category == TimelineCategory.SniperLights
     assert games[10].timeline[39].elapsed_time == 8.900000000000006
     assert games[10].timeline[39].event == "marked less suspicious."
-    assert games[10].timeline[39].mission == Missions.Zero
+    assert games[10].timeline[39].mission == Missions.NoMission
     assert games[10].timeline[39].role == (Roles.Staff,)
     assert games[10].timeline[39].time == 201.1
 
@@ -10557,7 +10557,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[41].category == TimelineCategory.SniperLights
     assert games[10].timeline[41].elapsed_time == 10.099999999999994
     assert games[10].timeline[41].event == "marked suspicious."
-    assert games[10].timeline[41].mission == Missions.Zero
+    assert games[10].timeline[41].mission == Missions.NoMission
     assert games[10].timeline[41].role == (Roles.Staff,)
     assert games[10].timeline[41].time == 199.9
 
@@ -10568,7 +10568,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[42].category == TimelineCategory.SniperLights
     assert games[10].timeline[42].elapsed_time == 11.099999999999994
     assert games[10].timeline[42].event == "marked suspicious."
-    assert games[10].timeline[42].mission == Missions.Zero
+    assert games[10].timeline[42].mission == Missions.NoMission
     assert games[10].timeline[42].role == (Roles.Civilian,)
     assert games[10].timeline[42].time == 198.9
 
@@ -10579,7 +10579,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[43].category == TimelineCategory.SniperLights
     assert games[10].timeline[43].elapsed_time == 11.5
     assert games[10].timeline[43].event == "marked suspicious."
-    assert games[10].timeline[43].mission == Missions.Zero
+    assert games[10].timeline[43].mission == Missions.NoMission
     assert games[10].timeline[43].role == (Roles.Civilian,)
     assert games[10].timeline[43].time == 198.5
 
@@ -10590,7 +10590,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[44].category == TimelineCategory.Drinks
     assert games[10].timeline[44].elapsed_time == 11.900000000000006
     assert games[10].timeline[44].event == "took last sip of drink."
-    assert games[10].timeline[44].mission == Missions.Zero
+    assert games[10].timeline[44].mission == Missions.NoMission
     assert games[10].timeline[44].role == (Roles.Spy,)
     assert games[10].timeline[44].time == 198.1
 
@@ -10601,7 +10601,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[45].category == TimelineCategory.SniperLights
     assert games[10].timeline[45].elapsed_time == 14.099999999999994
     assert games[10].timeline[45].event == "marked suspicious."
-    assert games[10].timeline[45].mission == Missions.Zero
+    assert games[10].timeline[45].mission == Missions.NoMission
     assert games[10].timeline[45].role == (Roles.Civilian,)
     assert games[10].timeline[45].time == 195.9
 
@@ -10623,7 +10623,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[47].category == TimelineCategory.Drinks
     assert games[10].timeline[47].elapsed_time == 28.69999999999999
     assert games[10].timeline[47].event == "waiter offered drink."
-    assert games[10].timeline[47].mission == Missions.Zero
+    assert games[10].timeline[47].mission == Missions.NoMission
     assert games[10].timeline[47].role == (Roles.Spy,)
     assert games[10].timeline[47].time == 181.3
 
@@ -10637,7 +10637,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[10].timeline[48].elapsed_time == 31.099999999999994
     assert games[10].timeline[48].event == "marked book."
-    assert games[10].timeline[48].mission == Missions.Zero
+    assert games[10].timeline[48].mission == Missions.NoMission
     assert games[10].timeline[48].role == (Roles.Civilian,)
     assert games[10].timeline[48].time == 178.9
 
@@ -10648,7 +10648,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[49].category == TimelineCategory.Drinks
     assert games[10].timeline[49].elapsed_time == 31.69999999999999
     assert games[10].timeline[49].event == "rejected drink from waiter."
-    assert games[10].timeline[49].mission == Missions.Zero
+    assert games[10].timeline[49].mission == Missions.NoMission
     assert games[10].timeline[49].role == (Roles.Spy,)
     assert games[10].timeline[49].time == 178.3
 
@@ -10659,7 +10659,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[50].category == TimelineCategory.Drinks
     assert games[10].timeline[50].elapsed_time == 31.69999999999999
     assert games[10].timeline[50].event == "waiter stopped offering drink."
-    assert games[10].timeline[50].mission == Missions.Zero
+    assert games[10].timeline[50].mission == Missions.NoMission
     assert games[10].timeline[50].role == (Roles.Spy,)
     assert games[10].timeline[50].time == 178.3
 
@@ -10670,7 +10670,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[51].category == TimelineCategory.SniperLights
     assert games[10].timeline[51].elapsed_time == 35.400000000000006
     assert games[10].timeline[51].event == "marked suspicious."
-    assert games[10].timeline[51].mission == Missions.Zero
+    assert games[10].timeline[51].mission == Missions.NoMission
     assert games[10].timeline[51].role == (Roles.Civilian,)
     assert games[10].timeline[51].time == 174.6
 
@@ -10681,7 +10681,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[52].category == TimelineCategory.SniperLights
     assert games[10].timeline[52].elapsed_time == 36.19999999999999
     assert games[10].timeline[52].event == "marked neutral suspicion."
-    assert games[10].timeline[52].mission == Missions.Zero
+    assert games[10].timeline[52].mission == Missions.NoMission
     assert games[10].timeline[52].role == (Roles.Civilian,)
     assert games[10].timeline[52].time == 173.8
 
@@ -10695,7 +10695,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[10].timeline[53].elapsed_time == 37.19999999999999
     assert games[10].timeline[53].event == "marked book."
-    assert games[10].timeline[53].mission == Missions.Zero
+    assert games[10].timeline[53].mission == Missions.NoMission
     assert games[10].timeline[53].role == (Roles.Civilian,)
     assert games[10].timeline[53].time == 172.8
 
@@ -10706,7 +10706,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[54].category == TimelineCategory.Conversation
     assert games[10].timeline[54].elapsed_time == 39.80000000000001
     assert games[10].timeline[54].event == "spy enters conversation."
-    assert games[10].timeline[54].mission == Missions.Zero
+    assert games[10].timeline[54].mission == Missions.NoMission
     assert games[10].timeline[54].role == (None,)
     assert games[10].timeline[54].time == 170.2
 
@@ -10761,7 +10761,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[59].category == TimelineCategory.SniperLights
     assert games[10].timeline[59].elapsed_time == 48.0
     assert games[10].timeline[59].event == "marked suspicious."
-    assert games[10].timeline[59].mission == Missions.Zero
+    assert games[10].timeline[59].mission == Missions.NoMission
     assert games[10].timeline[59].role == (Roles.Civilian,)
     assert games[10].timeline[59].time == 162.0
 
@@ -10772,7 +10772,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[60].category == TimelineCategory.Conversation
     assert games[10].timeline[60].elapsed_time == 54.30000000000001
     assert games[10].timeline[60].event == "spy leaves conversation."
-    assert games[10].timeline[60].mission == Missions.Zero
+    assert games[10].timeline[60].mission == Missions.NoMission
     assert games[10].timeline[60].role == (None,)
     assert games[10].timeline[60].time == 155.7
 
@@ -10783,7 +10783,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[61].category == TimelineCategory.Drinks
     assert games[10].timeline[61].elapsed_time == 60.400000000000006
     assert games[10].timeline[61].event == "request drink from waiter."
-    assert games[10].timeline[61].mission == Missions.Zero
+    assert games[10].timeline[61].mission == Missions.NoMission
     assert games[10].timeline[61].role == (Roles.Spy,)
     assert games[10].timeline[61].time == 149.6
 
@@ -10797,7 +10797,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[10].timeline[62].elapsed_time == 61.19999999999999
     assert games[10].timeline[62].event == "marked book."
-    assert games[10].timeline[62].mission == Missions.Zero
+    assert games[10].timeline[62].mission == Missions.NoMission
     assert games[10].timeline[62].role == (Roles.Civilian,)
     assert games[10].timeline[62].time == 148.8
 
@@ -10819,7 +10819,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[64].category == TimelineCategory.Books
     assert games[10].timeline[64].elapsed_time == 65.4
     assert games[10].timeline[64].event == "get book from bookcase."
-    assert games[10].timeline[64].mission == Missions.Zero
+    assert games[10].timeline[64].mission == Missions.NoMission
     assert games[10].timeline[64].role == (None,)
     assert games[10].timeline[64].time == 144.6
 
@@ -10869,7 +10869,7 @@ def test_parse_timeline_parallel_normal(
     )
     assert games[10].timeline[68].elapsed_time == 75.1
     assert games[10].timeline[68].event == "marked book."
-    assert games[10].timeline[68].mission == Missions.Zero
+    assert games[10].timeline[68].mission == Missions.NoMission
     assert games[10].timeline[68].role == (Roles.Spy,)
     assert games[10].timeline[68].time == 134.9
 
@@ -10880,7 +10880,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[69].category == TimelineCategory.Books
     assert games[10].timeline[69].elapsed_time == 77.19999999999999
     assert games[10].timeline[69].event == "put book in bookcase."
-    assert games[10].timeline[69].mission == Missions.Zero
+    assert games[10].timeline[69].mission == Missions.NoMission
     assert games[10].timeline[69].role == (None,)
     assert games[10].timeline[69].time == 132.8
 
@@ -10924,7 +10924,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[73].category == TimelineCategory.Conversation
     assert games[10].timeline[73].elapsed_time == 89.0
     assert games[10].timeline[73].event == "spy enters conversation."
-    assert games[10].timeline[73].mission == Missions.Zero
+    assert games[10].timeline[73].mission == Missions.NoMission
     assert games[10].timeline[73].role == (None,)
     assert games[10].timeline[73].time == 121.0
 
@@ -10935,7 +10935,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[74].category == TimelineCategory.Conversation
     assert games[10].timeline[74].elapsed_time == 89.0
     assert games[10].timeline[74].event == "spy joined conversation with double agent."
-    assert games[10].timeline[74].mission == Missions.Zero
+    assert games[10].timeline[74].mission == Missions.NoMission
     assert games[10].timeline[74].role == (Roles.DoubleAgent,)
     assert games[10].timeline[74].time == 121.0
 
@@ -10946,7 +10946,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[75].category == TimelineCategory.SniperLights
     assert games[10].timeline[75].elapsed_time == 90.0
     assert games[10].timeline[75].event == "marked spy suspicious."
-    assert games[10].timeline[75].mission == Missions.Zero
+    assert games[10].timeline[75].mission == Missions.NoMission
     assert games[10].timeline[75].role == (Roles.Spy,)
     assert games[10].timeline[75].time == 120.0
 
@@ -10957,7 +10957,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[76].category == TimelineCategory.SniperLights
     assert games[10].timeline[76].elapsed_time == 92.9
     assert games[10].timeline[76].event == "marked suspicious."
-    assert games[10].timeline[76].mission == Missions.Zero
+    assert games[10].timeline[76].mission == Missions.NoMission
     assert games[10].timeline[76].role == (Roles.Civilian,)
     assert games[10].timeline[76].time == 117.1
 
@@ -10968,7 +10968,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[77].category == TimelineCategory.Conversation
     assert games[10].timeline[77].elapsed_time == 93.5
     assert games[10].timeline[77].event == "double agent left conversation with spy."
-    assert games[10].timeline[77].mission == Missions.Zero
+    assert games[10].timeline[77].mission == Missions.NoMission
     assert games[10].timeline[77].role == (Roles.DoubleAgent,)
     assert games[10].timeline[77].time == 116.5
 
@@ -10979,7 +10979,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[78].category == TimelineCategory.SniperLights
     assert games[10].timeline[78].elapsed_time == 94.2
     assert games[10].timeline[78].event == "marked suspicious."
-    assert games[10].timeline[78].mission == Missions.Zero
+    assert games[10].timeline[78].mission == Missions.NoMission
     assert games[10].timeline[78].role == (Roles.Civilian,)
     assert games[10].timeline[78].time == 115.8
 
@@ -10990,7 +10990,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[79].category == TimelineCategory.Drinks
     assert games[10].timeline[79].elapsed_time == 94.2
     assert games[10].timeline[79].event == "waiter offered drink."
-    assert games[10].timeline[79].mission == Missions.Zero
+    assert games[10].timeline[79].mission == Missions.NoMission
     assert games[10].timeline[79].role == (Roles.Spy,)
     assert games[10].timeline[79].time == 115.8
 
@@ -11001,7 +11001,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[80].category == TimelineCategory.NoCategory
     assert games[10].timeline[80].elapsed_time == 95.9
     assert games[10].timeline[80].event == "ambassador's personal space violated."
-    assert games[10].timeline[80].mission == Missions.Zero
+    assert games[10].timeline[80].mission == Missions.NoMission
     assert games[10].timeline[80].role == (Roles.Ambassador, Roles.Spy)
     assert games[10].timeline[80].time == 114.1
 
@@ -11012,7 +11012,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[81].category == TimelineCategory.Conversation
     assert games[10].timeline[81].elapsed_time == 96.4
     assert games[10].timeline[81].event == "started talking."
-    assert games[10].timeline[81].mission == Missions.Zero
+    assert games[10].timeline[81].mission == Missions.NoMission
     assert games[10].timeline[81].role == (None,)
     assert games[10].timeline[81].time == 113.6
 
@@ -11023,7 +11023,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[82].category == TimelineCategory.Drinks
     assert games[10].timeline[82].elapsed_time == 99.7
     assert games[10].timeline[82].event == "rejected drink from waiter."
-    assert games[10].timeline[82].mission == Missions.Zero
+    assert games[10].timeline[82].mission == Missions.NoMission
     assert games[10].timeline[82].role == (Roles.Spy,)
     assert games[10].timeline[82].time == 110.3
 
@@ -11034,7 +11034,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[83].category == TimelineCategory.Drinks
     assert games[10].timeline[83].elapsed_time == 99.7
     assert games[10].timeline[83].event == "waiter stopped offering drink."
-    assert games[10].timeline[83].mission == Missions.Zero
+    assert games[10].timeline[83].mission == Missions.NoMission
     assert games[10].timeline[83].role == (Roles.Spy,)
     assert games[10].timeline[83].time == 110.3
 
@@ -11045,7 +11045,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[84].category == TimelineCategory.SniperLights
     assert games[10].timeline[84].elapsed_time == 101.8
     assert games[10].timeline[84].event == "marked less suspicious."
-    assert games[10].timeline[84].mission == Missions.Zero
+    assert games[10].timeline[84].mission == Missions.NoMission
     assert games[10].timeline[84].role == (Roles.Civilian,)
     assert games[10].timeline[84].time == 108.2
 
@@ -11056,7 +11056,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[85].category == TimelineCategory.Conversation
     assert games[10].timeline[85].elapsed_time == 102.8
     assert games[10].timeline[85].event == "spy leaves conversation."
-    assert games[10].timeline[85].mission == Missions.Zero
+    assert games[10].timeline[85].mission == Missions.NoMission
     assert games[10].timeline[85].role == (None,)
     assert games[10].timeline[85].time == 107.2
 
@@ -11067,7 +11067,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[86].category == TimelineCategory.Conversation
     assert games[10].timeline[86].elapsed_time == 103.2
     assert games[10].timeline[86].event == "spy enters conversation."
-    assert games[10].timeline[86].mission == Missions.Zero
+    assert games[10].timeline[86].mission == Missions.NoMission
     assert games[10].timeline[86].role == (None,)
     assert games[10].timeline[86].time == 106.8
 
@@ -11078,7 +11078,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[87].category == TimelineCategory.SniperLights
     assert games[10].timeline[87].elapsed_time == 104.2
     assert games[10].timeline[87].event == "marked less suspicious."
-    assert games[10].timeline[87].mission == Missions.Zero
+    assert games[10].timeline[87].mission == Missions.NoMission
     assert games[10].timeline[87].role == (Roles.Civilian,)
     assert games[10].timeline[87].time == 105.8
 
@@ -11089,7 +11089,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[88].category == TimelineCategory.Conversation
     assert games[10].timeline[88].elapsed_time == 104.2
     assert games[10].timeline[88].event == "spy leaves conversation."
-    assert games[10].timeline[88].mission == Missions.Zero
+    assert games[10].timeline[88].mission == Missions.NoMission
     assert games[10].timeline[88].role == (None,)
     assert games[10].timeline[88].time == 105.8
 
@@ -11155,7 +11155,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[94].category == TimelineCategory.Books
     assert games[10].timeline[94].elapsed_time == 116.4
     assert games[10].timeline[94].event == "get book from bookcase."
-    assert games[10].timeline[94].mission == Missions.Zero
+    assert games[10].timeline[94].mission == Missions.NoMission
     assert games[10].timeline[94].role == (None,)
     assert games[10].timeline[94].time == 93.6
 
@@ -11166,7 +11166,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[95].category == TimelineCategory.SniperLights
     assert games[10].timeline[95].elapsed_time == 120.4
     assert games[10].timeline[95].event == "marked suspicious."
-    assert games[10].timeline[95].mission == Missions.Zero
+    assert games[10].timeline[95].mission == Missions.NoMission
     assert games[10].timeline[95].role == (Roles.SeductionTarget,)
     assert games[10].timeline[95].time == 89.6
 
@@ -11177,7 +11177,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[96].category == TimelineCategory.Books
     assert games[10].timeline[96].elapsed_time == 133.1
     assert games[10].timeline[96].event == "put book in bookcase."
-    assert games[10].timeline[96].mission == Missions.Zero
+    assert games[10].timeline[96].mission == Missions.NoMission
     assert games[10].timeline[96].role == (None,)
     assert games[10].timeline[96].time == 76.9
 
@@ -11188,7 +11188,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[97].category == TimelineCategory.Books
     assert games[10].timeline[97].elapsed_time == 183.1
     assert games[10].timeline[97].event == "get book from bookcase."
-    assert games[10].timeline[97].mission == Missions.Zero
+    assert games[10].timeline[97].mission == Missions.NoMission
     assert games[10].timeline[97].role == (None,)
     assert games[10].timeline[97].time == 26.9
 
@@ -11246,7 +11246,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[102].category == TimelineCategory.Books
     assert games[10].timeline[102].elapsed_time == 192.7
     assert games[10].timeline[102].event == "put book in bookcase."
-    assert games[10].timeline[102].mission == Missions.Zero
+    assert games[10].timeline[102].mission == Missions.NoMission
     assert games[10].timeline[102].role == (None,)
     assert games[10].timeline[102].time == 17.3
 
@@ -11257,7 +11257,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[103].category == TimelineCategory.Statues
     assert games[10].timeline[103].elapsed_time == 200.0
     assert games[10].timeline[103].event == "picked up statue."
-    assert games[10].timeline[103].mission == Missions.Zero
+    assert games[10].timeline[103].mission == Missions.NoMission
     assert games[10].timeline[103].role == (None,)
     assert games[10].timeline[103].time == 10.0
 
@@ -11310,7 +11310,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[107].category == TimelineCategory.MissionCountdown
     assert games[10].timeline[107].elapsed_time == 203.8
     assert games[10].timeline[107].event == "missions completed. 10 second countdown."
-    assert games[10].timeline[107].mission == Missions.Zero
+    assert games[10].timeline[107].mission == Missions.NoMission
     assert games[10].timeline[107].role == (None,)
     assert games[10].timeline[107].time == 6.2
 
@@ -11321,7 +11321,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[108].category == TimelineCategory.SniperShot
     assert games[10].timeline[108].elapsed_time == 206.5
     assert games[10].timeline[108].event == "took shot."
-    assert games[10].timeline[108].mission == Missions.Zero
+    assert games[10].timeline[108].mission == Missions.NoMission
     assert games[10].timeline[108].role == (Roles.Spy,)
     assert games[10].timeline[108].time == 3.5
 
@@ -11332,7 +11332,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[109].category == TimelineCategory.Statues
     assert games[10].timeline[109].elapsed_time == 206.9
     assert games[10].timeline[109].event == "put back statue."
-    assert games[10].timeline[109].mission == Missions.Zero
+    assert games[10].timeline[109].mission == Missions.NoMission
     assert games[10].timeline[109].role == (None,)
     assert games[10].timeline[109].time == 3.1
 
@@ -11343,7 +11343,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[110].category == TimelineCategory.Statues
     assert games[10].timeline[110].elapsed_time == 207.5
     assert games[10].timeline[110].event == "dropped statue."
-    assert games[10].timeline[110].mission == Missions.Zero
+    assert games[10].timeline[110].mission == Missions.NoMission
     assert games[10].timeline[110].role == (None,)
     assert games[10].timeline[110].time == 2.5
 
@@ -11354,7 +11354,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[111].category == TimelineCategory.GameEnd
     assert games[10].timeline[111].elapsed_time == 210.0
     assert games[10].timeline[111].event == "sniper shot spy."
-    assert games[10].timeline[111].mission == Missions.Zero
+    assert games[10].timeline[111].mission == Missions.NoMission
     assert games[10].timeline[111].role == (Roles.Spy,)
     assert games[10].timeline[111].time == 0.0
 

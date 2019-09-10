@@ -27,7 +27,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -39,7 +39,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -51,7 +51,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -63,7 +63,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -147,7 +147,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -159,7 +159,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -171,7 +171,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -183,7 +183,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -195,7 +195,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -207,7 +207,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -231,7 +231,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -243,7 +243,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -255,7 +255,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -267,7 +267,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -315,7 +315,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -327,7 +327,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -339,7 +339,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -351,7 +351,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -363,7 +363,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -375,7 +375,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -393,7 +393,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.GameStart,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -405,7 +405,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -417,7 +417,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -453,7 +453,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -477,7 +477,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -489,7 +489,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -501,7 +501,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -573,7 +573,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -585,7 +585,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -597,7 +597,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -609,7 +609,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -621,7 +621,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -633,7 +633,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -645,7 +645,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -657,7 +657,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -669,7 +669,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -681,7 +681,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -693,7 +693,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -759,7 +759,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -771,7 +771,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -783,7 +783,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -795,7 +795,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -807,7 +807,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -819,7 +819,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -831,7 +831,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -843,7 +843,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -855,7 +855,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -867,7 +867,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -879,7 +879,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -891,7 +891,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -903,7 +903,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -915,7 +915,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -927,7 +927,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1137,7 +1137,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.GameStart,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1149,7 +1149,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1161,7 +1161,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1173,7 +1173,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (Books.Blue,),
                 TimelineCategory.Books,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1257,7 +1257,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (Books.Blue, Books.Green),
                 TimelineCategory.Books,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1281,7 +1281,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1293,7 +1293,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1401,7 +1401,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1413,7 +1413,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1527,7 +1527,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1539,7 +1539,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1551,7 +1551,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1563,7 +1563,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1575,7 +1575,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1635,7 +1635,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1647,7 +1647,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1659,7 +1659,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1695,7 +1695,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1719,7 +1719,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1731,7 +1731,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1743,7 +1743,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1755,7 +1755,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1767,7 +1767,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1779,7 +1779,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1791,7 +1791,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1803,7 +1803,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1815,7 +1815,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1839,7 +1839,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -1857,7 +1857,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1869,7 +1869,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1881,7 +1881,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1893,7 +1893,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1905,7 +1905,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1917,7 +1917,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1929,7 +1929,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1941,7 +1941,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1953,7 +1953,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1965,7 +1965,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1977,7 +1977,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -1989,7 +1989,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2001,7 +2001,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2013,7 +2013,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2061,7 +2061,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2073,7 +2073,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2085,7 +2085,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2169,7 +2169,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2181,7 +2181,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2193,7 +2193,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2223,7 +2223,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2271,7 +2271,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.MissionCountdown,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2283,7 +2283,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador, Roles.Spy),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2295,7 +2295,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2307,7 +2307,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2319,7 +2319,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2331,7 +2331,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2343,7 +2343,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2355,7 +2355,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador, Roles.Spy),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2367,7 +2367,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2379,7 +2379,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2391,7 +2391,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2403,7 +2403,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2415,7 +2415,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2427,7 +2427,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2439,7 +2439,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2451,7 +2451,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2463,7 +2463,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2475,7 +2475,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2487,7 +2487,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2511,7 +2511,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2571,7 +2571,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -2613,7 +2613,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2625,7 +2625,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2637,7 +2637,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2649,7 +2649,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2685,7 +2685,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2709,7 +2709,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2721,7 +2721,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2733,7 +2733,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2745,7 +2745,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2757,7 +2757,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2805,7 +2805,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2829,7 +2829,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2841,7 +2841,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2853,7 +2853,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2865,7 +2865,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2877,7 +2877,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2937,7 +2937,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -2967,7 +2967,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2979,7 +2979,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -2991,7 +2991,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3027,7 +3027,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3051,7 +3051,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3063,7 +3063,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3075,7 +3075,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3087,7 +3087,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3099,7 +3099,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3111,7 +3111,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3123,7 +3123,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3135,7 +3135,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3147,7 +3147,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3171,7 +3171,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3183,7 +3183,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3195,7 +3195,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3207,7 +3207,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3243,7 +3243,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3291,7 +3291,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.MissionCountdown,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3303,7 +3303,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -3321,7 +3321,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3333,7 +3333,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3345,7 +3345,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3357,7 +3357,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3369,7 +3369,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3381,7 +3381,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3393,7 +3393,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3405,7 +3405,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3417,7 +3417,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3429,7 +3429,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3441,7 +3441,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3453,7 +3453,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3465,7 +3465,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3477,7 +3477,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3489,7 +3489,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3501,7 +3501,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3687,7 +3687,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.GameStart,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3699,7 +3699,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3711,7 +3711,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3723,7 +3723,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3735,7 +3735,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3747,7 +3747,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3807,7 +3807,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3819,7 +3819,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3831,7 +3831,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3843,7 +3843,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3855,7 +3855,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3867,7 +3867,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3891,7 +3891,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3963,7 +3963,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3975,7 +3975,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3987,7 +3987,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -3999,7 +3999,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4011,7 +4011,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4023,7 +4023,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4035,7 +4035,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -4053,7 +4053,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4065,7 +4065,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4077,7 +4077,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4089,7 +4089,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4101,7 +4101,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4113,7 +4113,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4125,7 +4125,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4137,7 +4137,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4149,7 +4149,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4161,7 +4161,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4173,7 +4173,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4233,7 +4233,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4245,7 +4245,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4329,7 +4329,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4365,7 +4365,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4377,7 +4377,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4389,7 +4389,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperShot,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4401,7 +4401,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -4467,7 +4467,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4479,7 +4479,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4491,7 +4491,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4503,7 +4503,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4515,7 +4515,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4527,7 +4527,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4551,7 +4551,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4563,7 +4563,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4575,7 +4575,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4587,7 +4587,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4635,7 +4635,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Briefcase,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4647,7 +4647,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4659,7 +4659,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4671,7 +4671,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4683,7 +4683,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4695,7 +4695,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4707,7 +4707,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4719,7 +4719,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4731,7 +4731,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4743,7 +4743,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador, Roles.Spy),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4755,7 +4755,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4767,7 +4767,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -4797,7 +4797,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4809,7 +4809,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4821,7 +4821,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4869,7 +4869,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4881,7 +4881,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4917,7 +4917,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4929,7 +4929,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4941,7 +4941,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (Books.Green,),
                 TimelineCategory.SniperLights | TimelineCategory.Books,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4953,7 +4953,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4965,7 +4965,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4977,7 +4977,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -4989,7 +4989,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5001,7 +5001,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5085,7 +5085,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5097,7 +5097,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5109,7 +5109,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5121,7 +5121,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperShot,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5133,7 +5133,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -5151,7 +5151,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5199,7 +5199,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5211,7 +5211,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5247,7 +5247,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5259,7 +5259,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5271,7 +5271,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5283,7 +5283,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5343,7 +5343,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (Books.Blue, Books.Blue),
                 TimelineCategory.Books,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5355,7 +5355,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5379,7 +5379,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5451,7 +5451,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.MissionCountdown,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5463,7 +5463,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperShot,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5475,7 +5475,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Overtime,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5487,7 +5487,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5499,7 +5499,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -5517,7 +5517,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5529,7 +5529,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5565,7 +5565,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Drinks,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5577,7 +5577,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5685,7 +5685,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Statues,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5697,7 +5697,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5709,7 +5709,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5721,7 +5721,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5733,7 +5733,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5745,7 +5745,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5757,7 +5757,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5769,7 +5769,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Watch | TimelineCategory.ActionTriggered,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5781,7 +5781,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Watch | TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5795,7 +5795,7 @@ SCREENSHOT_TEST_CASES = [
                 TimelineCategory.Watch
                 | TimelineCategory.TimeAdd
                 | TimelineCategory.ActionTest,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.Green,
             ),
             (
@@ -5807,7 +5807,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.TimeAdd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5819,7 +5819,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5831,7 +5831,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5843,7 +5843,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5855,7 +5855,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.SniperShot,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5867,7 +5867,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],
@@ -5885,7 +5885,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5897,7 +5897,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5909,7 +5909,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5921,7 +5921,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5933,7 +5933,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5945,7 +5945,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5957,7 +5957,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5969,7 +5969,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5981,7 +5981,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -5993,7 +5993,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6005,7 +6005,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6017,7 +6017,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6029,7 +6029,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6041,7 +6041,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6053,7 +6053,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6065,7 +6065,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6077,7 +6077,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6089,7 +6089,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6101,7 +6101,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6113,7 +6113,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6125,7 +6125,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6251,7 +6251,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6263,7 +6263,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6275,7 +6275,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6287,7 +6287,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.SeductionTarget,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6299,7 +6299,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6311,7 +6311,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6323,7 +6323,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Civilian,),
                 (None,),
                 TimelineCategory.Cast,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6407,7 +6407,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.GameStart,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6419,7 +6419,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.NoCategory,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6431,7 +6431,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Ambassador,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6443,7 +6443,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6455,7 +6455,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.SniperLights,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6467,7 +6467,7 @@ SCREENSHOT_TEST_CASES = [
                 (None,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6479,7 +6479,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.DoubleAgent,),
                 (None,),
                 TimelineCategory.Conversation,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6551,7 +6551,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.SniperShot,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
             (
@@ -6563,7 +6563,7 @@ SCREENSHOT_TEST_CASES = [
                 (Roles.Spy,),
                 (None,),
                 TimelineCategory.GameEnd,
-                Missions.Zero,
+                Missions.NoMission,
                 ActionTest.NoAT,
             ),
         ],

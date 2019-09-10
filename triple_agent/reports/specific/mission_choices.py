@@ -15,7 +15,7 @@ def _count_mission_choices(games: List[Game], data_dictionary: Counter):
     for game in games:
         for mission in Missions:
             # this will set each of them to 0 if they havent been set yet.
-            if mission != Missions.Zero:
+            if mission != Missions.NoMission:
                 data_dictionary[mission] += 1
                 data_dictionary[mission] -= 1
 

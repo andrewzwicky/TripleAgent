@@ -34,7 +34,7 @@ def _mission_completes_details(games: List[Game], data_dictionary: defaultdict):
     for game in games:
         # TODO: doesn't really for for pick modes
         for mission in Missions:
-            if mission & game.selected_missions and mission != Missions.Zero:
+            if mission & game.selected_missions and mission != Missions.NoMission:
                 if mission & game.completed_missions:
                     data_dictionary[mission][1] += 1
                 else:
