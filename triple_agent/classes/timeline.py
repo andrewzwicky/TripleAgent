@@ -82,7 +82,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
-    ("game", "overtime!"): (TimelineCategory.Overtime, Missions.NoMission, ActionTest.NoAT),
+    ("game", "overtime!"): (
+        TimelineCategory.Overtime,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("game", "sniper shot civilian."): (
         TimelineCategory.GameEnd,
         Missions.NoMission,
@@ -463,7 +467,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Swap,
         ActionTest.NoAT,
     ),
-    ("spy", "civilian cast."): (TimelineCategory.Cast, Missions.NoMission, ActionTest.NoAT),
+    ("spy", "civilian cast."): (
+        TimelineCategory.Cast,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "contact double agent enabled."): (
         TimelineCategory.MissionEnabled,
         Missions.Contact,
@@ -1169,7 +1177,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Purloin,
         ActionTest.NoAT,
     ),
-    ("spy", "gulped drink."): (TimelineCategory.Drinks, Missions.NoMission, ActionTest.NoAT),
+    ("spy", "gulped drink."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "held statue inspected."): (
         TimelineCategory.Statues | TimelineCategory.MissionPartial,
         Missions.Inspect,
@@ -1285,7 +1297,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
-    ("spy", "read book."): (TimelineCategory.Books, Missions.NoMission, ActionTest.NoAT),
+    ("spy", "read book."): (
+        TimelineCategory.Books,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "real banana bread started."): (
         TimelineCategory.BananaBread,
         Missions.Contact,
@@ -1341,7 +1357,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
-    ("spy", "sipped drink."): (TimelineCategory.Drinks, Missions.NoMission, ActionTest.NoAT),
+    ("spy", "sipped drink."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "spy cast."): (TimelineCategory.Cast, Missions.NoMission, ActionTest.NoAT),
     ("spy", "spy enters conversation."): (
         TimelineCategory.Conversation,
@@ -1488,7 +1508,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
-    ("spy", "watch checked."): (TimelineCategory.Watch, Missions.NoMission, ActionTest.NoAT),
+    ("spy", "watch checked."): (
+        TimelineCategory.Watch,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
 }
 
 
