@@ -52,6 +52,28 @@ def spf_character_selection_report(games):
         json.dump(output_dictionary, at_json_out, indent=4)
 
 
+def spf_action_test_report(games):
+    output_dictionary = {}
+
+    for game in games:
+        output_dictionary[game.uuid] = []
+        for event in game.timeline:
+            if event.category & TimelineCategory.ActionTest:
+                # assume there will only be one role in the cast portion
+                # assume there will be a role in the Cast timeline events.
+                output_dictionary[game.uuid].append(
+                    {
+                        "mission": event.mission.name,
+                        "elapsed_time": event.elapsed_time,
+                        "spy_time": event.time,
+                        "action_test": event.action_test.name,
+                    }
+                )
+
+    with open(os.path.join(SPF_DATA_FOLDER, "action_test.json"), "w") as at_json_out:
+        json.dump(output_dictionary, at_json_out, indent=4)
+
+
 if __name__ == "__main__":
     ALL_REPLAYS = get_parsed_replays(lambda x: True)
     SCL5_REPLAYS = get_parsed_replays(select_scl5_with_drops)
@@ -103,3 +125,4 @@ if __name__ == "__main__":
     )
 
     spf_character_selection_report(ALL_REPLAYS)
+    spf_action_test_report(ALL_REPLAYS)
