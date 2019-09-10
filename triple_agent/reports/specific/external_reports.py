@@ -4,6 +4,7 @@ import json
 from enum import Enum
 
 from triple_agent.classes.action_tests import AT_PREFERRED_PIE_CHART_ORDER
+from triple_agent.classes.missions import Missions
 from triple_agent.reports.specific.action_tests import _at_rates_excluding_difficults
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 from triple_agent.constants.events import select_scl5_with_drops
@@ -59,16 +60,20 @@ def spf_action_test_report(games):
         output_dictionary[game.uuid] = []
         for event in game.timeline:
             if event.category & TimelineCategory.ActionTest:
-                # assume there will only be one role in the cast portion
-                # assume there will be a role in the Cast timeline events.
-                output_dictionary[game.uuid].append(
-                    {
-                        "mission": event.mission.name,
-                        "elapsed_time": event.elapsed_time,
-                        "spy_time": event.time,
-                        "action_test": event.action_test.name,
-                    }
-                )
+                to_add = {
+                    "action": event.mission.name,
+                    "elapsed_time": event.elapsed_time,
+                    "spy_time": event.time,
+                    "action_test": event.action_test.name,
+                    "difficult": False,
+                }
+                if event.category & TimelineCategory.TimeAdd:
+                    to_add["action"] = "TimeAdd"
+
+                if event.mission == Missions.Fingerprint:
+                    to_add["difficult"] = True
+
+                output_dictionary[game.uuid].append(to_add)
 
     with open(os.path.join(SPF_DATA_FOLDER, "action_test.json"), "w") as at_json_out:
         json.dump(output_dictionary, at_json_out, indent=4)
