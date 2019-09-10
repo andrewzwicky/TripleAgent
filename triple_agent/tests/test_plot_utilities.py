@@ -167,7 +167,6 @@ SORT_FRAME_CASES = [
         ),
         None,
         False,
-        None,
         pandas.DataFrame(
             data=[
                 [6, 1, 5, 2],
@@ -206,7 +205,6 @@ SORT_FRAME_CASES = [
         ),
         lambda name_series: name_series[1][ActionTest.White],
         False,
-        None,
         pandas.DataFrame(
             data=[
                 [1, 6, 2, 5],
@@ -248,7 +246,6 @@ SORT_FRAME_CASES = [
             name_series[1][ActionTest.Green],
         ),
         False,
-        None,
         pandas.DataFrame(
             data=[
                 [1, 2, 6, 5],
@@ -287,7 +284,6 @@ SORT_FRAME_CASES = [
         ),
         sum,
         True,
-        None,
         pandas.DataFrame(
             data=[
                 [5, 6, 2, 1],
@@ -326,7 +322,6 @@ SORT_FRAME_CASES = [
         ),
         lambda name_series: name_series[0],
         False,
-        None,
         pandas.DataFrame(
             data=[
                 [6, 1, 5, 2],
@@ -365,7 +360,6 @@ SORT_FRAME_CASES = [
         ),
         lambda name_series: name_series[0],
         True,
-        None,
         pandas.DataFrame(
             data=[
                 [2, 5, 1, 6],
@@ -404,7 +398,6 @@ SORT_FRAME_CASES = [
         ),
         sorted(SCL5_VENUE_MODES.keys()),
         False,
-        None,
         pandas.DataFrame(
             data=[
                 [0, 6, 1, 0, 5, 0, 0, 0, 0, 0, 2, 0],
@@ -425,45 +418,6 @@ SORT_FRAME_CASES = [
     ),
     (
         pandas.DataFrame(
-            data=[
-                [6, 2, 5, 1],
-                [7, 7, 17, 3],
-                [1, 0, 1, 0],
-                [0, 1, 1, 0],
-                [0, 0, 1, 0],
-            ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
-            index=[
-                ActionTest.Green,
-                ActionTest.White,
-                ActionTest.Ignored,
-                ActionTest.Red,
-                ActionTest.Canceled,
-            ],
-        ),
-        sorted(SCL5_VENUE_MODES.keys()),
-        False,
-        5,
-        pandas.DataFrame(
-            data=[
-                [0, 6, 1, 0, 5],
-                [0, 7, 3, 0, 17],
-                [0, 1, 0, 0, 1],
-                [0, 0, 0, 0, 1],
-                [0, 0, 0, 0, 1],
-            ],
-            columns=sorted(SCL5_VENUE_MODES.keys())[:5],
-            index=[
-                ActionTest.Green,
-                ActionTest.White,
-                ActionTest.Ignored,
-                ActionTest.Red,
-                ActionTest.Canceled,
-            ],
-        ),
-    ),
-    (
-        pandas.DataFrame(
             data=[[128, 152, 15, 15, 4]],
             columns=[
                 ActionTest.Green,
@@ -476,7 +430,6 @@ SORT_FRAME_CASES = [
         ),
         None,
         False,
-        None,
         pandas.DataFrame(
             data=[[128, 152, 15, 15, 4]],
             columns=[
@@ -486,54 +439,6 @@ SORT_FRAME_CASES = [
                 ActionTest.Ignored,
                 ActionTest.Canceled,
             ],
-            index=[None],
-        ),
-    ),
-    (
-        pandas.DataFrame(
-            data=[[128, 152, 15, 15, 4]],
-            columns=[
-                ActionTest.Green,
-                ActionTest.White,
-                ActionTest.Red,
-                ActionTest.Ignored,
-                ActionTest.Canceled,
-            ],
-            index=[None],
-        ),
-        None,
-        False,
-        20,
-        pandas.DataFrame(
-            data=[[128, 152, 15, 15, 4]],
-            columns=[
-                ActionTest.Green,
-                ActionTest.White,
-                ActionTest.Red,
-                ActionTest.Ignored,
-                ActionTest.Canceled,
-            ],
-            index=[None],
-        ),
-    ),
-    (
-        pandas.DataFrame(
-            data=[[128, 152, 15, 15, 4]],
-            columns=[
-                ActionTest.Green,
-                ActionTest.White,
-                ActionTest.Red,
-                ActionTest.Ignored,
-                ActionTest.Canceled,
-            ],
-            index=[None],
-        ),
-        None,
-        True,
-        3,
-        pandas.DataFrame(
-            data=[[4, 15, 15]],
-            columns=[ActionTest.Canceled, ActionTest.Ignored, ActionTest.Red],
             index=[None],
         ),
     ),
@@ -543,14 +448,13 @@ SORT_FRAME_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "input_frame, secondary_order, reverse_secondary_order, limit, exp_frame",
-    SORT_FRAME_CASES,
+    "input_frame, secondary_order, reverse_secondary_order, exp_frame", SORT_FRAME_CASES
 )
 def test_sort_frame_categories(
-    input_frame, secondary_order, reverse_secondary_order, limit, exp_frame
+    input_frame, secondary_order, reverse_secondary_order, exp_frame
 ):
     frame = sort_and_limit_frame_categories(
-        input_frame, secondary_order, reverse_secondary_order, limit
+        input_frame, secondary_order, reverse_secondary_order
     )
 
     pandas.testing.assert_frame_equal(frame, exp_frame)

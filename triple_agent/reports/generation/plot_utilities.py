@@ -43,7 +43,6 @@ def sort_and_limit_frame_categories(
     frame: pandas.DataFrame,
     secondary_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None,
     reverse_secondary_order: bool = False,
-    limit: Optional[int] = None,
 ) -> pandas.DataFrame:
     # sort the categories
     # data_order takes priority if both are provided
@@ -69,9 +68,6 @@ def sort_and_limit_frame_categories(
 
     if reverse_secondary_order:
         frame = frame.iloc[:, ::-1]
-
-    # limit categories, None is OK here, and larger than the number of columns
-    frame = frame.iloc[:, :limit]
 
     return frame
 

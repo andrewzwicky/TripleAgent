@@ -67,10 +67,7 @@ def populate_data_properties(
     data_props.frame = create_initial_data_frame(data_dictionary)
 
     data_props.frame = sort_and_limit_frame_categories(
-        data_props.frame,
-        data_query.secondary_order,
-        data_query.reverse_secondary_order,
-        data_query.limit,
+        data_props.frame, data_query.secondary_order, data_query.reverse_secondary_order
     )
 
     data_props.frame = sort_frame_stacks(
@@ -82,5 +79,8 @@ def populate_data_properties(
     if num_columns == 1:
         data_props.stacks_are_categories = True
         data_props.frame = data_props.frame.transpose()
+
+    # limit categories, None is OK here, and larger than the number of columns
+    data_props.frame = data_props.frame.iloc[:, : data_query.limit]
 
     return axis_properties, data_props
