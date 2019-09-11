@@ -49,12 +49,13 @@ def spf_character_selection_report(games):
                     event.cast_name[0].name
                 )
 
-            if event.category & TimelineCategory.GameEnd and game.win_type in (WinType.SpyShot, WinType.CivilianShot):
+            if event.category & TimelineCategory.GameEnd and game.win_type in (
+                WinType.SpyShot,
+                WinType.CivilianShot,
+            ):
                 output_dictionary[game.uuid]["Shot"] = [event.cast_name[0].name]
 
-    with open(
-        os.path.join(SPF_DATA_FOLDER, "character_data.json"), "w"
-    ) as at_json_out:
+    with open(os.path.join(SPF_DATA_FOLDER, "character_data.json"), "w") as at_json_out:
         json.dump(output_dictionary, at_json_out, indent=4)
 
 
