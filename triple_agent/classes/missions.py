@@ -15,6 +15,12 @@ class Missions(Flag):
     Transfer = auto()
 
 
+class MissionStatus(Flag):
+    Disabled = 0
+    Incomplete = auto()
+    Complete = auto()
+
+
 MISSION_LETTERS_TO_ENUM = {
     "S": Missions.Seduce,
     "I": Missions.Inspect,
@@ -49,6 +55,12 @@ MISSIONS_ENUM_TO_COLOR = {
 }
 
 MISSION_PLOT_ORDER = list(MISSIONS_ENUM_TO_LETTER.keys())
+
+MISSION_STATUS_PLOT_ORDER = [
+    MissionStatus.Disabled,
+    MissionStatus.Incomplete,
+    MissionStatus.Complete,
+]
 
 MISSION_COMPLETE_TIMELINE_TO_ENUM = {
     "target seduced.": Missions.Seduce,

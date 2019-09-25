@@ -112,7 +112,9 @@ def create_bar_plot(
     )
 
     data_labels = create_data_labels(
-        data_properties.frame, axis_properties.data_label_style
+        data_properties.frame,
+        axis_properties.data_label_style,
+        axis_properties.y_axis_percentage,
     )
 
     ticks = list(range(len(data_properties.frame.columns)))

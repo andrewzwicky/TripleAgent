@@ -82,3 +82,7 @@ def select_scl5(game: Game) -> bool:  # pragma: no cover
 
 def select_scl5_with_drops(game: Game) -> bool:  # pragma: no cover
     return game.event == "SCL5"
+
+
+def select_sc19(game: Game) -> bool:  # pragma: no cover
+    return game.event == "Summer Cup 2019"

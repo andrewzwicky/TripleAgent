@@ -10,12 +10,14 @@ from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
 
 
-def labelify(unknown_item: Any):
+def labelify(unknown_item: Any, percentage: bool = False):
     if isinstance(unknown_item, Enum):
         return unknown_item.name
 
     if isinstance(unknown_item, float):
         # TODO: check this for other use cases
+        if percentage:
+            return f"{unknown_item*100:2.1f}"
         return f"{unknown_item:04.2f}"
 
     return str(unknown_item)
@@ -96,11 +98,13 @@ def create_plot_colors(
 
 
 def create_data_labels(
-    frame: pandas.DataFrame, data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
+    frame: pandas.DataFrame,
+    data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels,
+    percentage: bool = False,
 ) -> List[List[str]]:
     if data_label_style == PlotLabelStyle.Plain:
         return [
-            [labelify(item) for item in stack]
+            [labelify(item, percentage) for item in stack]
             for stack in frame.itertuples(index=False)
         ]
 
