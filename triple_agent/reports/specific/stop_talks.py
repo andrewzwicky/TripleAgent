@@ -37,4 +37,4 @@ def stop_talk_in_game_percentage(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

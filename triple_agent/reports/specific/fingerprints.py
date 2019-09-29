@@ -71,4 +71,4 @@ def attempted_fingerprint_sources(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

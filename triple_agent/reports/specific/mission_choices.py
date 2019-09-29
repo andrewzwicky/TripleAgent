@@ -35,4 +35,4 @@ def mission_choices(
         DataQueryProperties(query_function=_count_mission_choices),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

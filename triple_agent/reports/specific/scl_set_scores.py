@@ -32,7 +32,7 @@ def scl_set_scores_categorize(
         DataQueryProperties(query_function=_count_scores),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def game_differential(
@@ -47,4 +47,4 @@ def game_differential(
         DataQueryProperties(query_function=_game_differential),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

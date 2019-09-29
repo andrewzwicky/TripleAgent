@@ -42,6 +42,8 @@ def query(
     else:
         create_pie_chart(axis_properties, data_props)
 
+    return data_props
+
 
 def populate_data_properties(
     games: Union[List[Game], List[SCLSet]],

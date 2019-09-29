@@ -61,7 +61,7 @@ def spy_selection(
         DataQueryProperties(query_function=_determine_spy),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def st_selection(
@@ -80,7 +80,7 @@ def st_selection(
         DataQueryProperties(query_function=_determine_st),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def amba_selection(
@@ -99,7 +99,7 @@ def amba_selection(
         DataQueryProperties(query_function=_determine_amba),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def double_agent_selection(
@@ -118,4 +118,4 @@ def double_agent_selection(
         DataQueryProperties(query_function=_determine_da),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

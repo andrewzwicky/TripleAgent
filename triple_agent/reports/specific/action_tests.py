@@ -46,7 +46,7 @@ def action_test_percentages(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def diff_action_test_percentages(
@@ -64,4 +64,4 @@ def diff_action_test_percentages(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

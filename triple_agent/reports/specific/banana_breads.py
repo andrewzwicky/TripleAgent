@@ -62,7 +62,7 @@ def all_banana_bread_percentages(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def first_banana_bread_percentages(
@@ -79,7 +79,7 @@ def first_banana_bread_percentages(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def banana_split(games: List[Game], title: str):

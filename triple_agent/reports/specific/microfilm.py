@@ -79,7 +79,7 @@ def at_or_direct_mf(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def microfilm_direction(
@@ -96,4 +96,4 @@ def microfilm_direction(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

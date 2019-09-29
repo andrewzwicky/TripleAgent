@@ -115,4 +115,4 @@ def bug_success_rate(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)

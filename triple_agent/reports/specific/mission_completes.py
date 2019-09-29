@@ -59,7 +59,7 @@ def mission_completion_query(
         ),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def mission_completion(games: List[Game], title: str):

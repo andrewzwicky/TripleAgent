@@ -35,7 +35,7 @@ def time_add_times_per_game(
         DataQueryProperties(query_function=_count_time_adds),
     )
 
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
 
 
 def time_add_times(games: List[Game], title: str):

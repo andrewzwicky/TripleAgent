@@ -32,4 +32,4 @@ def game_outcomes(
             primary_order=WINTYPE_PREFERRED_PIE_CHART_ORDER,
         ),
     )
-    query(games, data_query, axis_properties)
+    return query(games, data_query, axis_properties)
