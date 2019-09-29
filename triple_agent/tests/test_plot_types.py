@@ -571,7 +571,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         0,
         1 - 0.01,
-        "0.20",
+        "20.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -580,7 +580,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         1,
         1 - 0.01,
-        "0.29",
+        "28.6",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -589,7 +589,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         2,
         1 - 0.01,
-        "0.30",
+        "30.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -598,7 +598,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         3,
         1 - 0.01,
-        "0.10",
+        "10.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -607,7 +607,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         4,
         1 - 0.01,
-        "0.75",
+        "75.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -616,7 +616,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         0,
         (4 / 5) - 0.01,
-        "0.80",
+        "80.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -625,7 +625,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         1,
         (5 / 7) - 0.01,
-        "0.71",
+        "71.4",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -634,7 +634,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         2,
         (7 / 10) - 0.01,
-        "0.70",
+        "70.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -643,7 +643,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         3,
         (9 / 10) - 0.01,
-        "0.90",
+        "90.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
@@ -652,7 +652,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
     ref_ax.text(
         4,
         (2 / 8) - 0.01,
-        "0.25",
+        "25.0",
         color="black",
         horizontalalignment="center",
         verticalalignment="top",
