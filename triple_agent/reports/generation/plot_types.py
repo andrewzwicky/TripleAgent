@@ -31,7 +31,7 @@ def create_line_plot(
 ):
     if fig is None:  # pragma: no cover
         show = True
-        fig, axis = plt.subplots(figsize=(12, 8))
+        fig, axis = plt.subplots(figsize=(12, 8), facecolor='white')
     else:
         show = False
         fig.set_size_inches(12, 8)
@@ -91,7 +91,7 @@ def create_bar_plot(
 ):
     if fig is None:  # pragma: no cover
         show = True
-        fig, axis = plt.subplots(figsize=(12, 8))
+        fig, axis = plt.subplots(figsize=(12, 8), facecolor='white')
     else:
         show = False
         fig.set_size_inches(12, 8)
@@ -192,7 +192,7 @@ def create_pie_chart(
 
     if fig is None:  # pragma: no cover
         show = True
-        fig, axis = plt.subplots(figsize=(8, 8))
+        fig, axis = plt.subplots(figsize=(8, 8), facecolor='white')
     else:
         show = False
         fig.set_size_inches(8, 8)
@@ -249,7 +249,7 @@ def create_progress_plot(
 ):
     if fig is None:  # pragma: no cover
         show = True
-        fig, axis = plt.subplots(figsize=(12, 8))
+        fig, axis = plt.subplots(figsize=(12, 8), facecolor='white')
     else:
         show = False
         fig.set_size_inches(12, 8)
@@ -281,7 +281,7 @@ def create_histogram(
 ):
     if fig is None:  # pragma: no cover
         show = True
-        fig, axis = plt.subplots(figsize=(12, 8))
+        fig, axis = plt.subplots(figsize=(12, 8), facecolor='white')
     else:
         show = False
         fig.set_size_inches(12, 8)
