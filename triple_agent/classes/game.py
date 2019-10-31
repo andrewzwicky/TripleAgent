@@ -126,9 +126,14 @@ class Game:
         if self.timeline is None:
             return TimelineCoherency.NoTimeline
 
-        timeline_picked_missions, timeline_selected_missions, timeline_completed_missions, timeline_guest_count, ending_included, start_included = (
-            self.collect_general_timeline_info()
-        )
+        (
+            timeline_picked_missions,
+            timeline_selected_missions,
+            timeline_completed_missions,
+            timeline_guest_count,
+            ending_included,
+            start_included,
+        ) = self.collect_general_timeline_info()
 
         if not ending_included:
             coherency |= TimelineCoherency.NoGameEnding

@@ -6598,9 +6598,18 @@ def test_parse_timeline(
     timeline_events = parse_screenshot(screenshot_img, test_output_disable=True)
 
     for event, exp in zip(timeline_events, expecteds):
-        e_actor, e_raw_time_str, e_event, e_cast_name, e_time_in_sec, e_role, e_books, e_category, e_mission, e_action_test = (
-            exp
-        )
+        (
+            e_actor,
+            e_raw_time_str,
+            e_event,
+            e_cast_name,
+            e_time_in_sec,
+            e_role,
+            e_books,
+            e_category,
+            e_mission,
+            e_action_test,
+        ) = exp
 
         assert event.actor == e_actor
         assert event._raw_time_str == e_raw_time_str

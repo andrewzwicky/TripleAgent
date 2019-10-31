@@ -109,7 +109,7 @@ def refresh_window(spy_party_handle, pycharm_handle):
 
 
 def get_mss_screenshots(
-    games: List[Game]
+    games: List[Game],
 ) -> Iterator[Tuple[int, int, np.ndarray, bool]]:
     # this is the pyautogui version
     spyparty_handle, pycharm_handle = get_app_handles()

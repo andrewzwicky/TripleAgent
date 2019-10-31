@@ -21,7 +21,7 @@ TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 
 def mock_screenshot_iterator(
-    games: List[Game]
+    games: List[Game],
 ) -> Iterator[Tuple[int, int, np.ndarray, bool]]:
 
     outputs = []

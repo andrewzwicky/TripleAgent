@@ -142,7 +142,7 @@ def remove_books(line_image: np.ndarray) -> Tuple[Tuple[Optional[Books]], np.nda
 
 
 def separate_portraits(
-    line_image: np.ndarray
+    line_image: np.ndarray,
 ) -> Tuple[
     np.ndarray,
     Tuple[Optional[np.ndarray]],
@@ -272,7 +272,7 @@ def remove_highlighted_background(line_image: np.ndarray) -> np.ndarray:
 
 
 def split_into_parts(
-    line_image: np.ndarray
+    line_image: np.ndarray,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     actor = np.copy(line_image[:, :TIMER_OFFSET])
     time = np.copy(line_image[:, TIMER_OFFSET:TEXT_OFFSET])
@@ -282,7 +282,7 @@ def split_into_parts(
 
 
 def name_portrait(
-    portraits: Tuple[Optional[np.ndarray]]
+    portraits: Tuple[Optional[np.ndarray]],
 ) -> Tuple[Optional[Characters]]:
     characters = []
     for portrait in portraits:
