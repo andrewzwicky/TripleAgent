@@ -412,6 +412,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "bartender offered cupcake."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "bartender picked next customer."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
@@ -617,6 +622,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "demand cupcake from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "double agent cast."): (
         TimelineCategory.Cast,
         Missions.NoMission,
@@ -688,6 +698,11 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
     ("spy", "fingerprinted drink."): (
+        TimelineCategory.Drinks | TimelineCategory.MissionPartial,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "fingerprinted cupcake."): (
         TimelineCategory.Drinks | TimelineCategory.MissionPartial,
         Missions.Fingerprint,
         ActionTest.NoAT,
@@ -1152,7 +1167,17 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "got cupcake from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "got drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "got cupcake from waiter."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,
@@ -1178,6 +1203,11 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
     ("spy", "gulped drink."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "chomped cupcake."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,
@@ -1312,7 +1342,17 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "rejected cupcake from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "rejected drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "rejected cupcake from waiter."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,
@@ -1327,7 +1367,17 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "request cupcake from bartender."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "request drink from waiter."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "request cupcake from waiter."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,
@@ -1358,6 +1408,11 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
     ("spy", "sipped drink."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "bit cupcake."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,
@@ -1418,6 +1473,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Fingerprint,
         ActionTest.NoAT,
     ),
+    ("spy", "started fingerprinting cupcake."): (
+        TimelineCategory.Drinks,
+        Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
     ("spy", "started fingerprinting statue."): (
         TimelineCategory.Statues,
         Missions.Fingerprint,
@@ -1468,6 +1528,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "took last bite of cupcake."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "transfer microfilm enabled."): (
         TimelineCategory.MissionEnabled,
         Missions.Transfer,
@@ -1493,7 +1558,17 @@ CATEGORIZATION_DICTIONARY = {
         Missions.NoMission,
         ActionTest.NoAT,
     ),
+    ("spy", "waiter offered cupcake."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
     ("spy", "waiter stopped offering drink."): (
+        TimelineCategory.Drinks,
+        Missions.NoMission,
+        ActionTest.NoAT,
+    ),
+    ("spy", "waiter stopped offering cupcake."): (
         TimelineCategory.Drinks,
         Missions.NoMission,
         ActionTest.NoAT,

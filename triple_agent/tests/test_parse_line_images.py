@@ -18,6 +18,21 @@ TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 LINE_IMAGE_TEST_CASES = [
     (
+        "got_cupcake_waiter",
+        (
+            "spy",
+            "02:21.7",
+            "got cupcake from waiter.",
+            (Characters.Carlos,),
+            141.7,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
         "67a71952070b3e82e05a08c348efc2a0",
         (
             "spy",
@@ -25,6 +40,21 @@ LINE_IMAGE_TEST_CASES = [
             "waiter stopped offering drink.",
             (Characters.Taft,),
             37.5,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
+        "waiter_stopped_offering_cupcake",
+        (
+            "spy",
+            "02:21.7",
+            "waiter stopped offering cupcake.",
+            (Characters.Carlos,),
+            141.7,
             (Roles.Spy,),
             (None,),
             TimelineCategory.Drinks,
@@ -2178,6 +2208,21 @@ LINE_IMAGE_TEST_CASES = [
         ),
     ),
     (
+        "bit_cupcake",
+        (
+            "spy",
+            "02:09.6",
+            "bit cupcake.",
+            (Characters.Carlos,),
+            129.6,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
         "ad51332f9cd74844fe9370026da8abbb",
         (
             "sniper",
@@ -2328,6 +2373,21 @@ LINE_IMAGE_TEST_CASES = [
         ),
     ),
     (
+        "chomped_cupcake",
+        (
+            "spy",
+            "01:23.7",
+            "chomped cupcake.",
+            (Characters.Carlos,),
+            83.7,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
         "9c1e873c26fac1ad58e3ee13c93f1a35",
         (
             "spy",
@@ -2343,6 +2403,21 @@ LINE_IMAGE_TEST_CASES = [
         ),
     ),
     (
+        "bartender_offered_cupcake",
+        (
+            "spy",
+            "02:57.4",
+            "bartender offered cupcake.",
+            (Characters.Plain,),
+            177.4,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
         "d002e5bd080b6a818f26d84be9ba862d",
         (
             "spy",
@@ -2350,6 +2425,21 @@ LINE_IMAGE_TEST_CASES = [
             "waiter offered drink.",
             (Characters.Taft,),
             116.6,
+            (Roles.Spy,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
+        "waiter_offered_cupcake",
+        (
+            "spy",
+            "00:45.3",
+            "waiter offered cupcake.",
+            (Characters.Carlos,),
+            45.3,
             (Roles.Spy,),
             (None,),
             TimelineCategory.Drinks,
