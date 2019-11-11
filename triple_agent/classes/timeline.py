@@ -1257,6 +1257,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Inspect,
         ActionTest.NoAT,
     ),
+    ("spy", "statue inspection interrupted."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
     ("spy", "interrupted speaker."): (
         TimelineCategory.Conversation,
         Missions.NoMission,
@@ -1269,6 +1274,26 @@ CATEGORIZATION_DICTIONARY = {
     ),
     ("spy", "left statue inspected."): (
         TimelineCategory.Statues | TimelineCategory.MissionPartial,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "left statue inspection interrupted."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "right statue inspection interrupted."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "left statue inspection cancelled."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    ("spy", "right statue inspection cancelled."): (
+        TimelineCategory.NoCategory,
         Missions.Inspect,
         ActionTest.NoAT,
     ),
@@ -1589,7 +1614,7 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
 }
-
+int
 
 @dataclass
 class TimelineEvent:
