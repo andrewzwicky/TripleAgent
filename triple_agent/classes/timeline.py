@@ -1614,7 +1614,6 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
 }
-int
 
 
 @dataclass

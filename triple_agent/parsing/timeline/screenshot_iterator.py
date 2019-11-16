@@ -154,9 +154,8 @@ def get_mss_screenshots(
                 print()
                 break
 
-            else:
-                yield (game_index, screenshot_index, screenshot, False)
-                scroll_lines()
+            yield (game_index, screenshot_index, screenshot, False)
+            scroll_lines()
 
             screenshot_index += 1
 
