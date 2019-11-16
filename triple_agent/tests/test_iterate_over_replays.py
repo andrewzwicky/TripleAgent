@@ -22,7 +22,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     )
     games.sort(key=lambda g: g.start_time)
 
-    assert len(games) == 10
+    assert len(games) == 11
 
     assert games[0].uuid == "yeo4Y2vhTSS1ymTHlp2t_Q"
     assert games[1].uuid == "rIm6tv8NR-G1jXeto2yzng"
@@ -34,6 +34,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[7].uuid == "jhIlv7roRR-gOObcd1BcFQ"
     assert games[8].uuid == "oua8JMz-R5yNpHs9kUU0dA"
     assert games[9].uuid == "r_XWMspjT9aSGx9ckxuXrw"
+    assert games[10].uuid == "kWo9Gri2R5CoBvbc8HJp0A"
 
     assert games[0].event is None
     assert games[1].event is None
@@ -45,6 +46,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[7].event == "DetailedEvent"
     assert games[8].event == "DetailedEvent"
     assert games[9].event == "DetailedEvent"
+    assert games[10].event == "OnlyGroups"
 
     assert games[0].division is None
     assert games[1].division is None
@@ -56,6 +58,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[7].division == "BestGroup"
     assert games[8].division == "BestGroup"
     assert games[9].division == "BestGroup"
+    assert games[10].division == "Group1"
 
     assert games[0].week is None
     assert games[1].week is None
@@ -67,6 +70,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[7].week == 6
     assert games[8].week == 6
     assert games[9].week == 6
+    assert games[10].week is None
 
     # ensure we're using the unprocessed replays
     # (haven't loaded a pickled by accident)
@@ -80,6 +84,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     assert games[7].timeline is None
     assert games[8].timeline is None
     assert games[9].timeline is None
+    assert games[10].timeline is None
 
     # the following are regression items that should catch unintentional changes in game creation.
     assert games[0].game_type == "k4"

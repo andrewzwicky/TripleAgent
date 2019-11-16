@@ -25,8 +25,11 @@ def iterate_over_replays(
                 if len(components) == 3:
                     event, division, week = components
                     week = int(week)
-                # account for root level replays as different than replays in an event folder
+                elif len(components) == 2:
+                    event, division = components
+                    week = None
                 elif len(components) == 1 and components[0] != ".":
+                    # account for root level replays as different than replays in an event folder
                     event = components[0]
                     division = week = None
                 else:
