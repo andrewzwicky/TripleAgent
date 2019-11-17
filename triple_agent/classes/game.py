@@ -174,10 +174,7 @@ class Game:
             if isinstance(event.role, tuple) and event.role[0] == Roles.Spy:
                 break
 
-            elif event.category == TimelineCategory.SniperLights:
-                pass
-
-            else:
+            if event.category != TimelineCategory.SniperLights:
                 coherency |= TimelineCoherency.SpyNotCastInBeginning
                 break
 
