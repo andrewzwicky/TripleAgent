@@ -1617,6 +1617,7 @@ CATEGORIZATION_DICTIONARY = {
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class TimelineEvent:
     actor: str
     _raw_time_str: str

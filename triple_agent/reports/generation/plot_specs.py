@@ -11,6 +11,7 @@ class PlotLabelStyle(Enum):
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class AxisProperties:
     title: Optional[str] = None
     x_axis_label: Optional[str] = None
@@ -49,6 +50,7 @@ class DataPlotProperties:
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class DataQueryProperties:
     # DataQueryProperties are things that are used to group, sort, collect
     # filter, etc. the data PRIOR to plotting.  These items are used to create the

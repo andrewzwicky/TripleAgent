@@ -12,6 +12,7 @@ from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 
 
 @dataclass
+# pylint: disable=too-many-instance-attributes
 class Game:
     spy: str
     sniper: str
