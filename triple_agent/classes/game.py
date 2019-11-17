@@ -168,15 +168,17 @@ class Game:
         return coherency
 
     def check_spy_in_beginning(self, coherency: TimelineCoherency) -> TimelineCoherency:
-        # It's possible for sniper lights to appear as the first thing in the timeline,
-        # so check the first two items in the timeline
-        if self.timeline[0].role == tuple or self.timeline[0].role[0] != Roles.Spy:
-            if self.timeline[1].role == tuple or self.timeline[1].role[0] != Roles.Spy:
-                if (
-                    self.timeline[2].role == tuple
-                    or self.timeline[2].role[0] != Roles.Spy
-                ):
-                    coherency |= TimelineCoherency.SpyNotCastInBeginning
+        # It's possible for sniper lights to appear as up to the first 4! things in the timeline
+        for event in self.timeline:
+            if isinstance(event.role, tuple) and event.role[0] == Roles.Spy:
+                break
+
+            elif event.category == TimelineCategory.SniperLights:
+                pass
+
+            else:
+                coherency |= TimelineCoherency.SpyNotCastInBeginning
+                break
 
         return coherency
 
