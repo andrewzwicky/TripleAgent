@@ -172,6 +172,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Purloin,
         ActionTest.Canceled,
     ),
+    ("spy", "action test canceled: inspect statues"): (
+        TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.Canceled,
+    ),
     ("spy", "action test canceled: seduce target"): (
         TimelineCategory.ActionTest,
         Missions.Seduce,
