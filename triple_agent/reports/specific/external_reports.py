@@ -85,6 +85,27 @@ def spf_action_test_report(games):
         json.dump(output_dictionary, at_json_out, indent=4)
 
 
+def spf_lights_report(games):
+    output_dictionary = {}
+
+    for game in games:
+        output_dictionary[game.uuid] = []
+        for event in game.timeline:
+            if event.category & TimelineCategory.SniperLights:
+                to_add = {
+                    "action": event.event,
+                    "elapsed_time": event.elapsed_time,
+                    "spy_time": event.time,
+                    "character": event.cast_name[0].name,
+                    "role": event.role[0].name
+                }
+
+                output_dictionary[game.uuid].append(to_add)
+
+    with open(os.path.join(SPF_DATA_FOLDER, "sniper_lights.json"), "w") as at_json_out:
+        json.dump(output_dictionary, at_json_out, indent=4)
+
+
 if __name__ == "__main__":
     ALL_REPLAYS = get_parsed_replays(lambda x: True)
     SCL5_REPLAYS = get_parsed_replays(select_scl5_with_drops)
@@ -137,3 +158,4 @@ if __name__ == "__main__":
 
     spf_character_selection_report(ALL_REPLAYS)
     spf_action_test_report(ALL_REPLAYS)
+    spf_lights_report(ALL_REPLAYS)
