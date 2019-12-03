@@ -97,7 +97,7 @@ def spf_lights_report(games):
                     "elapsed_time": event.elapsed_time,
                     "spy_time": event.time,
                     "character": event.cast_name[0].name,
-                    "role": event.role[0].name
+                    "role": event.role[0].name,
                 }
 
                 output_dictionary[game.uuid].append(to_add)
