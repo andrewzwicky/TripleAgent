@@ -1200,6 +1200,18 @@ CATEGORY_TEST_CASES = [
     ),
     (
         "spy",
+        "02:26.7",
+        "action test canceled: inspect statues",
+        (None,),
+        (2 * 60 + 26.7),
+        (None,),
+        (None,),
+        TimelineCategory.ActionTest,
+        Missions.Inspect,
+        ActionTest.Canceled,
+    ),
+    (
+        "spy",
         "00:13.7",
         "action test red: swap statue",
         (None,),
