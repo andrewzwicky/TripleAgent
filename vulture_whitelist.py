@@ -1,6 +1,7 @@
 # library internals
 _.tesseract_cmd  # unused attribute (triple_agent\parsing\timeline\parse_timeline.py)
 auto_close_all_figures  # unused function (triple_agent\tests\conftest.py)
+extract_spectate_replays  # unused function (triple_agent\organization\extract_spectation_replays.py)
 
 # notebook usage
 SniperWin  # unused variable (triple_agent\classes\outcomes.py)
