@@ -1,5 +1,4 @@
 # pylint: disable=too-many-lines
-import re
 from collections.abc import Sequence
 from datetime import datetime
 from enum import auto, Flag
