@@ -12,13 +12,6 @@ OBJECT_TO_COLORS_RGB = {
     (TimelineCategory.Drinks, False): "xkcd:light grey",
 }
 
-OBJECT_PLOT_ORDER = [
-    TimelineCategory.Briefcase,
-    TimelineCategory.Statues,
-    TimelineCategory.Books,
-    TimelineCategory.Drinks,
-]
-
 OBJECT_PLOT_LABEL_DICT_DIFFICULT = {
     (TimelineCategory.Briefcase, True): "Briefcase (Difficult)",
     (TimelineCategory.Briefcase, False): "Briefcase",

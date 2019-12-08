@@ -51,8 +51,6 @@ CHARACTERS_TO_STRING = {
     Characters.Duke: "Mr. U",
 }
 
-CHARACTER_PLOT_ORDER = list(CHARACTERS_TO_STRING.keys())
-
 PORTRAIT_MD5_DICT = {
     "dc1eaaaecfc24b1cbae0e3dd22cb47e4": Characters.Smallman,
     "775985d662ee9c57c376f7ee00d9acbf": Characters.Duke,

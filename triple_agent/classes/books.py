@@ -2,7 +2,6 @@ from enum import Enum, auto
 
 
 class Books(Enum):
-    NoColor = 0
     Red = auto()
     Yellow = auto()
     Green = auto()
@@ -23,11 +22,4 @@ COLORS_TO_BOOKS_ENUM = {
     (190, 92, 66): Books.Blue,
     (165, 48, 22): Books.Blue,
     (35, 115, 151): Books.Yellow,
-}
-
-BOOKS_ENUM_TO_COLORS = {
-    Books.Red: "xkcd:red",
-    Books.Blue: "xkcd:blue",
-    Books.Green: "xkcd:green",
-    Books.Yellow: "xkcd:yellow",
 }

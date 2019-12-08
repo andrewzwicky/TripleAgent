@@ -17,14 +17,9 @@ WINTYPES_TO_COLORS = {
     WinType.CivilianShot: "xkcd:pumpkin",
 }
 
-
 WINTYPE_PREFERRED_PIE_CHART_ORDER = [
     WinType.TimeOut,
     WinType.SpyShot,
     WinType.MissionsWin,
     WinType.CivilianShot,
-]
-
-WINTYPE_PREFERRED_PIE_CHART_COLOR = [
-    WINTYPES_TO_COLORS[w_type] for w_type in WINTYPE_PREFERRED_PIE_CHART_ORDER
 ]

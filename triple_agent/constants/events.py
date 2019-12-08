@@ -16,7 +16,6 @@ SCL5_VENUE_MODES = {
 }
 
 SCL5_MISSION_PICK_MAPS = {"Pub", "High-Rise", "Terrace", "Balcony"}
-SCL5_MISSION_NO_PICK_MAPS = set(SCL5_VENUE_MODES.keys()) - SCL5_MISSION_PICK_MAPS
 
 SCL5_PICK_MODES = {
     venue: mode

@@ -1636,9 +1636,6 @@ class TimelineEvent:
     mission: Missions = field(default=Missions.NoMission, init=False)
     action_test: ActionTest = field(default=ActionTest.NoAT, init=False)
 
-    # this is needed for getting rid of commands and extra stuff from the OCR
-    time_re = re.compile(r"(\d{2}:\d{2}.\d)")
-
     def __post_init__(self):
         try:
             self.time = (

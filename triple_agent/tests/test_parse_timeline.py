@@ -6597,6 +6597,8 @@ def test_parse_timeline(
     )
     timeline_events = parse_screenshot(screenshot_img, test_output_disable=True)
 
+    assert len(timeline_events) == expected_len
+
     for event, exp in zip(timeline_events, expecteds):
         (
             e_actor,
