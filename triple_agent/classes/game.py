@@ -219,6 +219,9 @@ class Game:
 
         return coherency
 
+    def serialize(self):
+        print(jsonpickle.encode(self, unpicklable=False))
+
 
 @jsonpickle.handlers.register(Game, base=True)
 class GameHandler(jsonpickle.handlers.BaseHandler):

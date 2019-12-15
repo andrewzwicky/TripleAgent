@@ -62,4 +62,3 @@ def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:
         missions_enum |= Missions[mission_string]
 
     return missions_enum
-
