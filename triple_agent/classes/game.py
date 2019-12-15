@@ -43,10 +43,6 @@ class Game:
     winner: str = field(init=False)
 
     def __post_init__(self):
-        self.spy = self.spy if not self.spy.endswith("/steam") else self.spy[:-6]
-        self.sniper = (
-            self.sniper if not self.sniper.endswith("/steam") else self.sniper[:-6]
-        )
         self.winner = self.spy if self.win_type & WinType.SpyWin else self.sniper
         if self.initial_pickle:
             self.repickle(pickle_folder=self.pickle_folder)
