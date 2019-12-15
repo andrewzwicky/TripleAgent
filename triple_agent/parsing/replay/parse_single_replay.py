@@ -33,6 +33,8 @@ def parse_replay_dict_into_game(
     return game_load_or_new(
         replay_dict["spy_displayname"],
         replay_dict["sniper_displayname"],
+        replay_dict["spy_username"],
+        replay_dict["sniper_username"],
         replay_dict["level"],
         WinType[replay_dict["result"].replace(" ", "")],
         replay_dict["game_type"],

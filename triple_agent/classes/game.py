@@ -17,6 +17,8 @@ from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 class Game:
     spy: str
     sniper: str
+    spy_username: str
+    sniper_username: str
     venue: str
     win_type: WinType
     game_type: str
