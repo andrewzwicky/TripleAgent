@@ -231,6 +231,8 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         assert isinstance(obj, Game)
         data["spy"] = obj.spy
         data["sniper"] = obj.sniper
+        data["spy_username"] = obj.spy_username
+        data["sniper_username"] = obj.sniper_username
         data["venue"] = obj.venue
         data["win_type"] = obj.win_type.serialize()
         data["game_type"] = obj.game_type
