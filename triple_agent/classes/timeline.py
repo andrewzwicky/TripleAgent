@@ -59,6 +59,9 @@ class TimelineCategory(Flag):
 
     Overtime = auto()
 
+    def serialize(self):
+        return [cat.name for cat in TimelineCategory if cat & self]
+
 
 CATEGORIZATION_DICTIONARY = {
     ("game", "game started."): (
@@ -1696,6 +1699,27 @@ class TimelineEvent:
             other.action_test,
         )
 
+    def serialize(self):
+        data = dict()
+        data["actor"] = self.actor
+        data["event"] = self.event
+        data["cast_name"] = list(
+            character.name for character in self.cast_name if character is not None
+        )
+        data['role'] = list(
+            role.name for role in self.role if role is not None
+        )
+        data['books'] = list(
+            book.name for book in self.books if book is not None
+        )
+        data['elapsed_time'] = round(self.elapsed_time,1)
+        data['time'] = self.time
+        data['category'] = self.category.serialize()
+        data['mission'] = self.mission.name
+        data['action_test'] = self.action_test.name
+
+        return data
+
 
 class Timeline(Sequence):
     def __init__(self, lines: List[TimelineEvent]):
@@ -1765,3 +1789,6 @@ class Timeline(Sequence):
                         for cast, role in zip(event.cast_name, event.role)
                     ]
                 )
+
+    def serialize(self):
+        return [line.serialize() for line in self.lines]

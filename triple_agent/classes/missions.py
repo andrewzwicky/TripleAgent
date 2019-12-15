@@ -1,6 +1,6 @@
 from enum import Flag, auto
-
-from typing import Set
+from typing import Set, List
+import jsonpickle.handlers
 
 
 class Missions(Flag):
@@ -13,6 +13,9 @@ class Missions(Flag):
     Swap = auto()
     Purloin = auto()
     Transfer = auto()
+
+    def serialize(self):
+        return [mission.name for mission in Missions if mission & self]
 
 
 class MissionStatus(Flag):
@@ -59,3 +62,4 @@ def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:
         missions_enum |= Missions[mission_string]
 
     return missions_enum
+

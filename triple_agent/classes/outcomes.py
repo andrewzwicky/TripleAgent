@@ -9,6 +9,9 @@ class WinType(Flag):
     CivilianShot = auto()
     SpyWin = MissionsWin | CivilianShot
 
+    def serialize(self):
+        return [win_type.name for win_type in WinType if win_type & self]
+
 
 WINTYPES_TO_COLORS = {
     WinType.TimeOut: "xkcd:sea blue",

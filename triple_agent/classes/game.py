@@ -3,6 +3,7 @@ import pickle
 from datetime import datetime
 from typing import Optional
 from dataclasses import dataclass, field
+import jsonpickle.handlers
 
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
@@ -22,6 +23,7 @@ class Game:
     picked_missions: Missions
     selected_missions: Missions
     completed_missions: Missions
+    # UTC timestamp
     start_time: datetime = None
     guest_count: Optional[int] = None
     start_clock_seconds: Optional[int] = None
@@ -216,6 +218,38 @@ class Game:
             coherency |= TimelineCoherency.StartClockMismatch
 
         return coherency
+
+
+@jsonpickle.handlers.register(Game, base=True)
+class GameHandler(jsonpickle.handlers.BaseHandler):
+    def flatten(self, obj: Game, data: dict):
+        assert isinstance(obj, Game)
+        data["spy"] = obj.spy
+        data["sniper"] = obj.sniper
+        data["venue"] = obj.venue
+        data["win_type"] = obj.win_type.serialize()
+        data["game_type"] = obj.game_type
+        data["picked_missions"] = obj.picked_missions.serialize()
+        data["selected_missions"] = obj.selected_missions.serialize()
+        data["completed_missions"] = obj.completed_missions.serialize()
+        data["start_time"] = obj.start_time.isoformat()
+        data["guest_count"] = obj.guest_count
+        data["start_clock_seconds"] = obj.start_clock_seconds
+        data["duration"] = obj.duration
+        data["uuid"] = obj.uuid
+        # data['file']= str = None
+        data["event"] = obj.event
+        data["division"] = obj.division
+        data["week"] = obj.week
+        # data['initial_pickle']= bool = True
+        # data['pickle_folder']= str = REPLAY_PICKLE_FOLDER
+        data["timeline"] = obj.timeline.serialize()
+        data["winner"] = obj.winner
+
+        return data
+
+    def restore(self, obj):
+        pass
 
 
 def game_unpickle(expected_file: str) -> Optional[Game]:

@@ -54,6 +54,7 @@ setup(
             "mss>=4.0.3",
             "pytesseract>=0.2.6",
             "numpy>=1.16.3",
+            "jsonpickle>=1.2",
         ],
         "test": ["pytest", "opencv-python>=4.1.0.25", "pytest-cov", "pylint", "black", "vulture"],
     },
