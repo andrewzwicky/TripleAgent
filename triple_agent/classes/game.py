@@ -9,7 +9,9 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
+
+jsonpickle.set_encoder_options("json", sort_keys=True, indent=4)
 
 
 @dataclass
@@ -221,8 +223,9 @@ class Game:
 
         return coherency
 
-    def serialize(self):
-        print(jsonpickle.encode(self, unpicklable=False))
+    def serialize_to_json(self, json_folder: str = JSON_GAMES_FOLDER):
+        with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
+            json_out.write(jsonpickle.encode(self, unpicklable=True))
 
 
 @jsonpickle.handlers.register(Game, base=True)
@@ -281,3 +284,7 @@ def game_load_or_new(
 
 def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) -> str:
     return os.path.join(pickle_folder, f"{uuid}.pkl")
+
+
+def get_game_expected_json(uuid: str, json_folder: str = JSON_GAMES_FOLDER) -> str:
+    return os.path.join(json_folder, f"{uuid}.json")

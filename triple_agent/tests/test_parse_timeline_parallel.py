@@ -14,48 +14,10 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.books import Books
-
+from triple_agent.tests.test_mock_screenshot_iterator import mock_screenshot_iterator
 import random
 
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
-
-
-def mock_screenshot_iterator(
-    games: List[Game],
-) -> Iterator[Tuple[int, int, np.ndarray, bool]]:
-
-    outputs = []
-
-    for game_index, game in enumerate(games):
-        ss_files = sorted(
-            os.listdir(
-                os.path.join(TEST_FOLDER, "test_parallel_replay_screenshots", game.uuid)
-            )
-        )
-
-        for screenshot_index, f in enumerate(ss_files, start=1):
-            outputs.append(
-                (
-                    game_index,
-                    screenshot_index,
-                    cv2.imread(
-                        os.path.join(
-                            TEST_FOLDER,
-                            "test_parallel_replay_screenshots",
-                            game.uuid,
-                            f,
-                        )
-                    ),
-                    screenshot_index == len(ss_files),
-                )
-            )
-
-    # give a seed so it's deterministic
-    r = random.Random(123)
-    r.shuffle(outputs)
-
-    for output in outputs:
-        yield output
 
 
 @pytest.mark.parsing
