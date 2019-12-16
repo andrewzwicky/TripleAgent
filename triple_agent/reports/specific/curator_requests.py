@@ -6,7 +6,10 @@ from triple_agent.classes.outcomes import WinType
 
 
 def curated_many_green_ats(game):
-    if game.venue != "Balcony" and game.win_type in [WinType.TimeOut, WinType.MissionsWin]:
+    if game.venue != "Balcony" and game.win_type in [
+        WinType.TimeOut,
+        WinType.MissionsWin,
+    ]:
         if game.timeline is not None:
             this_game_green_tests = 0
             for event in game.timeline:
@@ -20,7 +23,10 @@ def curated_many_green_ats(game):
 
 
 def cough_clank_crash(game):
-    if game.venue != "Balcony" and game.win_type in [WinType.TimeOut, WinType.MissionsWin]:
+    if game.venue != "Balcony" and game.win_type in [
+        WinType.TimeOut,
+        WinType.MissionsWin,
+    ]:
         if game.game_type.startswith("a4") or game.game_type.startswith("a5"):
             if game.timeline is not None:
                 for event in game.timeline:
