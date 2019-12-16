@@ -138,7 +138,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[0].action_test == ActionTest.NoAT
     assert games[0].timeline[0].actor == "spy"
     assert games[0].timeline[0].books == (None,)
-    assert games[0].timeline[0].cast_name == (Characters.O,)
+    assert games[0].timeline[0].cast_name == (Characters.Irish,)
     assert games[0].timeline[0].category == TimelineCategory.Cast
     assert games[0].timeline[0].elapsed_time == 0.0
     assert games[0].timeline[0].event == "spy cast."
@@ -149,7 +149,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[1].action_test == ActionTest.NoAT
     assert games[0].timeline[1].actor == "spy"
     assert games[0].timeline[1].books == (None,)
-    assert games[0].timeline[1].cast_name == (Characters.P,)
+    assert games[0].timeline[1].cast_name == (Characters.Carlos,)
     assert games[0].timeline[1].category == TimelineCategory.Cast
     assert games[0].timeline[1].elapsed_time == 0.0
     assert games[0].timeline[1].event == "ambassador cast."
@@ -160,7 +160,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[2].action_test == ActionTest.NoAT
     assert games[0].timeline[2].actor == "spy"
     assert games[0].timeline[2].books == (None,)
-    assert games[0].timeline[2].cast_name == (Characters.B,)
+    assert games[0].timeline[2].cast_name == (Characters.Boots,)
     assert games[0].timeline[2].category == TimelineCategory.Cast
     assert games[0].timeline[2].elapsed_time == 0.0
     assert games[0].timeline[2].event == "double agent cast."
@@ -171,7 +171,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[3].action_test == ActionTest.NoAT
     assert games[0].timeline[3].actor == "spy"
     assert games[0].timeline[3].books == (None,)
-    assert games[0].timeline[3].cast_name == (Characters.I,)
+    assert games[0].timeline[3].cast_name == (Characters.Wheels,)
     assert games[0].timeline[3].category == TimelineCategory.Cast
     assert games[0].timeline[3].elapsed_time == 0.0
     assert games[0].timeline[3].event == "suspected double agent cast."
@@ -182,7 +182,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[4].action_test == ActionTest.NoAT
     assert games[0].timeline[4].actor == "spy"
     assert games[0].timeline[4].books == (None,)
-    assert games[0].timeline[4].cast_name == (Characters.D,)
+    assert games[0].timeline[4].cast_name == (Characters.Morgan,)
     assert games[0].timeline[4].category == TimelineCategory.Cast
     assert games[0].timeline[4].elapsed_time == 0.0
     assert games[0].timeline[4].event == "seduction target cast."
@@ -193,7 +193,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[5].action_test == ActionTest.NoAT
     assert games[0].timeline[5].actor == "spy"
     assert games[0].timeline[5].books == (None,)
-    assert games[0].timeline[5].cast_name == (Characters.J,)
+    assert games[0].timeline[5].cast_name == (Characters.Queen,)
     assert games[0].timeline[5].category == TimelineCategory.Cast
     assert games[0].timeline[5].elapsed_time == 0.0
     assert games[0].timeline[5].event == "civilian cast."
@@ -204,7 +204,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[6].action_test == ActionTest.NoAT
     assert games[0].timeline[6].actor == "spy"
     assert games[0].timeline[6].books == (None,)
-    assert games[0].timeline[6].cast_name == (Characters.U,)
+    assert games[0].timeline[6].cast_name == (Characters.Duke,)
     assert games[0].timeline[6].category == TimelineCategory.Cast
     assert games[0].timeline[6].elapsed_time == 0.0
     assert games[0].timeline[6].event == "civilian cast."
@@ -215,7 +215,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[7].action_test == ActionTest.NoAT
     assert games[0].timeline[7].actor == "spy"
     assert games[0].timeline[7].books == (None,)
-    assert games[0].timeline[7].cast_name == (Characters.H,)
+    assert games[0].timeline[7].cast_name == (Characters.Oprah,)
     assert games[0].timeline[7].category == TimelineCategory.Cast
     assert games[0].timeline[7].elapsed_time == 0.0
     assert games[0].timeline[7].event == "civilian cast."
@@ -226,7 +226,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[8].action_test == ActionTest.NoAT
     assert games[0].timeline[8].actor == "spy"
     assert games[0].timeline[8].books == (None,)
-    assert games[0].timeline[8].cast_name == (Characters.T,)
+    assert games[0].timeline[8].cast_name == (Characters.Sari,)
     assert games[0].timeline[8].category == TimelineCategory.Cast
     assert games[0].timeline[8].elapsed_time == 0.0
     assert games[0].timeline[8].event == "civilian cast."
@@ -237,7 +237,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[9].action_test == ActionTest.NoAT
     assert games[0].timeline[9].actor == "spy"
     assert games[0].timeline[9].books == (None,)
-    assert games[0].timeline[9].cast_name == (Characters.N,)
+    assert games[0].timeline[9].cast_name == (Characters.Bling,)
     assert games[0].timeline[9].category == TimelineCategory.Cast
     assert games[0].timeline[9].elapsed_time == 0.0
     assert games[0].timeline[9].event == "civilian cast."
@@ -248,7 +248,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[10].action_test == ActionTest.NoAT
     assert games[0].timeline[10].actor == "spy"
     assert games[0].timeline[10].books == (None,)
-    assert games[0].timeline[10].cast_name == (Characters.A,)
+    assert games[0].timeline[10].cast_name == (Characters.Disney,)
     assert games[0].timeline[10].category == TimelineCategory.Cast
     assert games[0].timeline[10].elapsed_time == 0.0
     assert games[0].timeline[10].event == "civilian cast."
@@ -259,7 +259,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[11].action_test == ActionTest.NoAT
     assert games[0].timeline[11].actor == "spy"
     assert games[0].timeline[11].books == (None,)
-    assert games[0].timeline[11].cast_name == (Characters.Q,)
+    assert games[0].timeline[11].cast_name == (Characters.Salmon,)
     assert games[0].timeline[11].category == TimelineCategory.Cast
     assert games[0].timeline[11].elapsed_time == 0.0
     assert games[0].timeline[11].event == "civilian cast."
@@ -270,7 +270,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[12].action_test == ActionTest.NoAT
     assert games[0].timeline[12].actor == "spy"
     assert games[0].timeline[12].books == (None,)
-    assert games[0].timeline[12].cast_name == (Characters.G,)
+    assert games[0].timeline[12].cast_name == (Characters.General,)
     assert games[0].timeline[12].category == TimelineCategory.Cast
     assert games[0].timeline[12].elapsed_time == 0.0
     assert games[0].timeline[12].event == "civilian cast."
@@ -281,7 +281,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[13].action_test == ActionTest.NoAT
     assert games[0].timeline[13].actor == "spy"
     assert games[0].timeline[13].books == (None,)
-    assert games[0].timeline[13].cast_name == (Characters.L,)
+    assert games[0].timeline[13].cast_name == (Characters.Rocker,)
     assert games[0].timeline[13].category == TimelineCategory.Cast
     assert games[0].timeline[13].elapsed_time == 0.0
     assert games[0].timeline[13].event == "civilian cast."
@@ -292,7 +292,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[14].action_test == ActionTest.NoAT
     assert games[0].timeline[14].actor == "spy"
     assert games[0].timeline[14].books == (None,)
-    assert games[0].timeline[14].cast_name == (Characters.R,)
+    assert games[0].timeline[14].cast_name == (Characters.Teal,)
     assert games[0].timeline[14].category == TimelineCategory.Cast
     assert games[0].timeline[14].elapsed_time == 0.0
     assert games[0].timeline[14].event == "civilian cast."
@@ -303,7 +303,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[15].action_test == ActionTest.NoAT
     assert games[0].timeline[15].actor == "spy"
     assert games[0].timeline[15].books == (None,)
-    assert games[0].timeline[15].cast_name == (Characters.F,)
+    assert games[0].timeline[15].cast_name == (Characters.Alice,)
     assert games[0].timeline[15].category == TimelineCategory.Cast
     assert games[0].timeline[15].elapsed_time == 0.0
     assert games[0].timeline[15].event == "civilian cast."
@@ -314,7 +314,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[16].action_test == ActionTest.NoAT
     assert games[0].timeline[16].actor == "spy"
     assert games[0].timeline[16].books == (None,)
-    assert games[0].timeline[16].cast_name == (Characters.S,)
+    assert games[0].timeline[16].cast_name == (Characters.Smallman,)
     assert games[0].timeline[16].category == TimelineCategory.Cast
     assert games[0].timeline[16].elapsed_time == 0.0
     assert games[0].timeline[16].event == "civilian cast."
@@ -325,7 +325,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[17].action_test == ActionTest.NoAT
     assert games[0].timeline[17].actor == "spy"
     assert games[0].timeline[17].books == (None,)
-    assert games[0].timeline[17].cast_name == (Characters.K,)
+    assert games[0].timeline[17].cast_name == (Characters.Sikh,)
     assert games[0].timeline[17].category == TimelineCategory.Cast
     assert games[0].timeline[17].elapsed_time == 0.0
     assert games[0].timeline[17].event == "civilian cast."
@@ -336,7 +336,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[18].action_test == ActionTest.NoAT
     assert games[0].timeline[18].actor == "spy"
     assert games[0].timeline[18].books == (None,)
-    assert games[0].timeline[18].cast_name == (Characters.M,)
+    assert games[0].timeline[18].cast_name == (Characters.Plain,)
     assert games[0].timeline[18].category == TimelineCategory.Cast
     assert games[0].timeline[18].elapsed_time == 0.0
     assert games[0].timeline[18].event == "civilian cast."
@@ -347,7 +347,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[19].action_test == ActionTest.NoAT
     assert games[0].timeline[19].actor == "spy"
     assert games[0].timeline[19].books == (None,)
-    assert games[0].timeline[19].cast_name == (Characters.E,)
+    assert games[0].timeline[19].cast_name == (Characters.Helen,)
     assert games[0].timeline[19].category == TimelineCategory.Cast
     assert games[0].timeline[19].elapsed_time == 0.0
     assert games[0].timeline[19].event == "civilian cast."
@@ -358,7 +358,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[20].action_test == ActionTest.NoAT
     assert games[0].timeline[20].actor == "spy"
     assert games[0].timeline[20].books == (None,)
-    assert games[0].timeline[20].cast_name == (Characters.C,)
+    assert games[0].timeline[20].cast_name == (Characters.Taft,)
     assert games[0].timeline[20].category == TimelineCategory.Cast
     assert games[0].timeline[20].elapsed_time == 0.0
     assert games[0].timeline[20].event == "civilian cast."
@@ -567,7 +567,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[39].action_test == ActionTest.NoAT
     assert games[0].timeline[39].actor == "sniper"
     assert games[0].timeline[39].books == (None,)
-    assert games[0].timeline[39].cast_name == (Characters.P,)
+    assert games[0].timeline[39].cast_name == (Characters.Carlos,)
     assert games[0].timeline[39].category == TimelineCategory.SniperLights
     assert games[0].timeline[39].elapsed_time == 3.9000000000000057
     assert games[0].timeline[39].event == "marked suspicious."
@@ -600,7 +600,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[42].action_test == ActionTest.NoAT
     assert games[0].timeline[42].actor == "sniper"
     assert games[0].timeline[42].books == (None,)
-    assert games[0].timeline[42].cast_name == (Characters.B,)
+    assert games[0].timeline[42].cast_name == (Characters.Boots,)
     assert games[0].timeline[42].category == TimelineCategory.SniperLights
     assert games[0].timeline[42].elapsed_time == 8.900000000000006
     assert games[0].timeline[42].event == "marked less suspicious."
@@ -611,7 +611,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[43].action_test == ActionTest.NoAT
     assert games[0].timeline[43].actor == "sniper"
     assert games[0].timeline[43].books == (None,)
-    assert games[0].timeline[43].cast_name == (Characters.I,)
+    assert games[0].timeline[43].cast_name == (Characters.Wheels,)
     assert games[0].timeline[43].category == TimelineCategory.SniperLights
     assert games[0].timeline[43].elapsed_time == 9.900000000000006
     assert games[0].timeline[43].event == "marked less suspicious."
@@ -633,7 +633,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[45].action_test == ActionTest.NoAT
     assert games[0].timeline[45].actor == "spy"
     assert games[0].timeline[45].books == (None,)
-    assert games[0].timeline[45].cast_name == (Characters.D,)
+    assert games[0].timeline[45].cast_name == (Characters.Morgan,)
     assert games[0].timeline[45].category == TimelineCategory.NoCategory
     assert games[0].timeline[45].elapsed_time == 10.099999999999994
     assert games[0].timeline[45].event == "begin flirtation with seduction target."
@@ -655,7 +655,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[47].action_test == ActionTest.NoAT
     assert games[0].timeline[47].actor == "sniper"
     assert games[0].timeline[47].books == (Books.Blue,)
-    assert games[0].timeline[47].cast_name == (Characters.A,)
+    assert games[0].timeline[47].cast_name == (Characters.Disney,)
     assert (
         games[0].timeline[47].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -669,7 +669,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[48].action_test == ActionTest.NoAT
     assert games[0].timeline[48].actor == "spy"
     assert games[0].timeline[48].books == (None,)
-    assert games[0].timeline[48].cast_name == (Characters.D,)
+    assert games[0].timeline[48].cast_name == (Characters.Morgan,)
     assert games[0].timeline[48].category == TimelineCategory.MissionPartial
     assert games[0].timeline[48].elapsed_time == 12.5
     assert games[0].timeline[48].event == "flirt with seduction target: 34%"
@@ -680,7 +680,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[49].action_test == ActionTest.NoAT
     assert games[0].timeline[49].actor == "sniper"
     assert games[0].timeline[49].books == (Books.Green,)
-    assert games[0].timeline[49].cast_name == (Characters.D,)
+    assert games[0].timeline[49].cast_name == (Characters.Morgan,)
     assert (
         games[0].timeline[49].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -705,7 +705,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[51].action_test == ActionTest.NoAT
     assert games[0].timeline[51].actor == "sniper"
     assert games[0].timeline[51].books == (None,)
-    assert games[0].timeline[51].cast_name == (Characters.L,)
+    assert games[0].timeline[51].cast_name == (Characters.Rocker,)
     assert games[0].timeline[51].category == TimelineCategory.SniperLights
     assert games[0].timeline[51].elapsed_time == 20.900000000000006
     assert games[0].timeline[51].event == "marked suspicious."
@@ -716,7 +716,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[52].action_test == ActionTest.NoAT
     assert games[0].timeline[52].actor == "sniper"
     assert games[0].timeline[52].books == (None,)
-    assert games[0].timeline[52].cast_name == (Characters.S,)
+    assert games[0].timeline[52].cast_name == (Characters.Smallman,)
     assert games[0].timeline[52].category == TimelineCategory.SniperLights
     assert games[0].timeline[52].elapsed_time == 21.30000000000001
     assert games[0].timeline[52].event == "marked suspicious."
@@ -727,7 +727,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[53].action_test == ActionTest.NoAT
     assert games[0].timeline[53].actor == "sniper"
     assert games[0].timeline[53].books == (None,)
-    assert games[0].timeline[53].cast_name == (Characters.T,)
+    assert games[0].timeline[53].cast_name == (Characters.Sari,)
     assert games[0].timeline[53].category == TimelineCategory.SniperLights
     assert games[0].timeline[53].elapsed_time == 21.69999999999999
     assert games[0].timeline[53].event == "marked suspicious."
@@ -760,7 +760,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[56].action_test == ActionTest.NoAT
     assert games[0].timeline[56].actor == "sniper"
     assert games[0].timeline[56].books == (Books.Blue,)
-    assert games[0].timeline[56].cast_name == (Characters.Q,)
+    assert games[0].timeline[56].cast_name == (Characters.Salmon,)
     assert (
         games[0].timeline[56].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -774,7 +774,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[57].action_test == ActionTest.NoAT
     assert games[0].timeline[57].actor == "sniper"
     assert games[0].timeline[57].books == (None,)
-    assert games[0].timeline[57].cast_name == (Characters.E,)
+    assert games[0].timeline[57].cast_name == (Characters.Helen,)
     assert games[0].timeline[57].category == TimelineCategory.SniperLights
     assert games[0].timeline[57].elapsed_time == 40.099999999999994
     assert games[0].timeline[57].event == "marked suspicious."
@@ -796,7 +796,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[59].action_test == ActionTest.NoAT
     assert games[0].timeline[59].actor == "spy"
     assert games[0].timeline[59].books == (None,)
-    assert games[0].timeline[59].cast_name == (Characters.P,)
+    assert games[0].timeline[59].cast_name == (Characters.Carlos,)
     assert games[0].timeline[59].category == TimelineCategory.NoCategory
     assert games[0].timeline[59].elapsed_time == 41.099999999999994
     assert games[0].timeline[59].event == "begin planting bug while walking."
@@ -807,7 +807,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[60].action_test == ActionTest.NoAT
     assert games[0].timeline[60].actor == "spy"
     assert games[0].timeline[60].books == (None,)
-    assert games[0].timeline[60].cast_name == (Characters.P,)
+    assert games[0].timeline[60].cast_name == (Characters.Carlos,)
     assert games[0].timeline[60].category == TimelineCategory.MissionComplete
     assert games[0].timeline[60].elapsed_time == 42.0
     assert games[0].timeline[60].event == "bugged ambassador while walking."
@@ -818,7 +818,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[61].action_test == ActionTest.NoAT
     assert games[0].timeline[61].actor == "sniper"
     assert games[0].timeline[61].books == (None,)
-    assert games[0].timeline[61].cast_name == (Characters.O,)
+    assert games[0].timeline[61].cast_name == (Characters.Irish,)
     assert games[0].timeline[61].category == TimelineCategory.SniperLights
     assert games[0].timeline[61].elapsed_time == 46.80000000000001
     assert games[0].timeline[61].event == "marked spy suspicious."
@@ -851,7 +851,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[64].action_test == ActionTest.NoAT
     assert games[0].timeline[64].actor == "spy"
     assert games[0].timeline[64].books == (None,)
-    assert games[0].timeline[64].cast_name == (Characters.D,)
+    assert games[0].timeline[64].cast_name == (Characters.Morgan,)
     assert games[0].timeline[64].category == TimelineCategory.NoCategory
     assert games[0].timeline[64].elapsed_time == 59.80000000000001
     assert games[0].timeline[64].event == "begin flirtation with seduction target."
@@ -873,7 +873,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[66].action_test == ActionTest.NoAT
     assert games[0].timeline[66].actor == "spy"
     assert games[0].timeline[66].books == (None,)
-    assert games[0].timeline[66].cast_name == (Characters.D,)
+    assert games[0].timeline[66].cast_name == (Characters.Morgan,)
     assert games[0].timeline[66].category == TimelineCategory.MissionPartial
     assert games[0].timeline[66].elapsed_time == 60.599999999999994
     assert games[0].timeline[66].event == "flirt with seduction target: 68%"
@@ -884,7 +884,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[67].action_test == ActionTest.NoAT
     assert games[0].timeline[67].actor == "sniper"
     assert games[0].timeline[67].books == (None,)
-    assert games[0].timeline[67].cast_name == (Characters.H,)
+    assert games[0].timeline[67].cast_name == (Characters.Oprah,)
     assert games[0].timeline[67].category == TimelineCategory.SniperLights
     assert games[0].timeline[67].elapsed_time == 89.9
     assert games[0].timeline[67].event == "marked suspicious."
@@ -917,7 +917,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[70].action_test == ActionTest.NoAT
     assert games[0].timeline[70].actor == "spy"
     assert games[0].timeline[70].books == (None,)
-    assert games[0].timeline[70].cast_name == (Characters.D,)
+    assert games[0].timeline[70].cast_name == (Characters.Morgan,)
     assert games[0].timeline[70].category == TimelineCategory.NoCategory
     assert games[0].timeline[70].elapsed_time == 106.2
     assert games[0].timeline[70].event == "begin flirtation with seduction target."
@@ -939,7 +939,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[72].action_test == ActionTest.NoAT
     assert games[0].timeline[72].actor == "spy"
     assert games[0].timeline[72].books == (None,)
-    assert games[0].timeline[72].cast_name == (Characters.D,)
+    assert games[0].timeline[72].cast_name == (Characters.Morgan,)
     assert games[0].timeline[72].category == TimelineCategory.MissionPartial
     assert games[0].timeline[72].elapsed_time == 107.2
     assert games[0].timeline[72].event == "flirt with seduction target: 100%"
@@ -950,7 +950,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[73].action_test == ActionTest.NoAT
     assert games[0].timeline[73].actor == "spy"
     assert games[0].timeline[73].books == (None,)
-    assert games[0].timeline[73].cast_name == (Characters.D,)
+    assert games[0].timeline[73].cast_name == (Characters.Morgan,)
     assert games[0].timeline[73].category == TimelineCategory.MissionComplete
     assert games[0].timeline[73].elapsed_time == 107.2
     assert games[0].timeline[73].event == "target seduced."
@@ -972,7 +972,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[75].action_test == ActionTest.NoAT
     assert games[0].timeline[75].actor == "sniper"
     assert games[0].timeline[75].books == (Books.Blue,)
-    assert games[0].timeline[75].cast_name == (Characters.G,)
+    assert games[0].timeline[75].cast_name == (Characters.General,)
     assert (
         games[0].timeline[75].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -986,7 +986,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[76].action_test == ActionTest.NoAT
     assert games[0].timeline[76].actor == "sniper"
     assert games[0].timeline[76].books == (None,)
-    assert games[0].timeline[76].cast_name == (Characters.M,)
+    assert games[0].timeline[76].cast_name == (Characters.Plain,)
     assert games[0].timeline[76].category == TimelineCategory.SniperLights
     assert games[0].timeline[76].elapsed_time == 128.8
     assert games[0].timeline[76].event == "marked suspicious."
@@ -997,7 +997,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[77].action_test == ActionTest.NoAT
     assert games[0].timeline[77].actor == "spy"
     assert games[0].timeline[77].books == (None,)
-    assert games[0].timeline[77].cast_name == (Characters.O,)
+    assert games[0].timeline[77].cast_name == (Characters.Irish,)
     assert games[0].timeline[77].category == TimelineCategory.Drinks
     assert games[0].timeline[77].elapsed_time == 139.5
     assert games[0].timeline[77].event == "waiter offered drink."
@@ -1008,7 +1008,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[78].action_test == ActionTest.NoAT
     assert games[0].timeline[78].actor == "spy"
     assert games[0].timeline[78].books == (None,)
-    assert games[0].timeline[78].cast_name == (Characters.O,)
+    assert games[0].timeline[78].cast_name == (Characters.Irish,)
     assert games[0].timeline[78].category == TimelineCategory.Drinks
     assert games[0].timeline[78].elapsed_time == 143.0
     assert games[0].timeline[78].event == "rejected drink from waiter."
@@ -1019,7 +1019,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[79].action_test == ActionTest.NoAT
     assert games[0].timeline[79].actor == "spy"
     assert games[0].timeline[79].books == (None,)
-    assert games[0].timeline[79].cast_name == (Characters.O,)
+    assert games[0].timeline[79].cast_name == (Characters.Irish,)
     assert games[0].timeline[79].category == TimelineCategory.Drinks
     assert games[0].timeline[79].elapsed_time == 143.0
     assert games[0].timeline[79].event == "waiter stopped offering drink."
@@ -1183,7 +1183,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[92].action_test == ActionTest.NoAT
     assert games[0].timeline[92].actor == "spy"
     assert games[0].timeline[92].books == (None,)
-    assert games[0].timeline[92].cast_name == (Characters.O,)
+    assert games[0].timeline[92].cast_name == (Characters.Irish,)
     assert games[0].timeline[92].category == TimelineCategory.Drinks
     assert games[0].timeline[92].elapsed_time == 172.2
     assert games[0].timeline[92].event == "waiter offered drink."
@@ -1194,7 +1194,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[93].action_test == ActionTest.NoAT
     assert games[0].timeline[93].actor == "spy"
     assert games[0].timeline[93].books == (None,)
-    assert games[0].timeline[93].cast_name == (Characters.O,)
+    assert games[0].timeline[93].cast_name == (Characters.Irish,)
     assert games[0].timeline[93].category == TimelineCategory.Drinks
     assert games[0].timeline[93].elapsed_time == 176.7
     assert games[0].timeline[93].event == "rejected drink from waiter."
@@ -1205,7 +1205,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[94].action_test == ActionTest.NoAT
     assert games[0].timeline[94].actor == "spy"
     assert games[0].timeline[94].books == (None,)
-    assert games[0].timeline[94].cast_name == (Characters.O,)
+    assert games[0].timeline[94].cast_name == (Characters.Irish,)
     assert games[0].timeline[94].category == TimelineCategory.Drinks
     assert games[0].timeline[94].elapsed_time == 176.7
     assert games[0].timeline[94].event == "waiter stopped offering drink."
@@ -1216,7 +1216,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[95].action_test == ActionTest.NoAT
     assert games[0].timeline[95].actor == "sniper"
     assert games[0].timeline[95].books == (None,)
-    assert games[0].timeline[95].cast_name == (Characters.U,)
+    assert games[0].timeline[95].cast_name == (Characters.Duke,)
     assert games[0].timeline[95].category == TimelineCategory.SniperLights
     assert games[0].timeline[95].elapsed_time == 181.0
     assert games[0].timeline[95].event == "marked less suspicious."
@@ -1227,7 +1227,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[96].action_test == ActionTest.NoAT
     assert games[0].timeline[96].actor == "sniper"
     assert games[0].timeline[96].books == (None,)
-    assert games[0].timeline[96].cast_name == (Characters.R,)
+    assert games[0].timeline[96].cast_name == (Characters.Teal,)
     assert games[0].timeline[96].category == TimelineCategory.SniperLights
     assert games[0].timeline[96].elapsed_time == 198.6
     assert games[0].timeline[96].event == "marked suspicious."
@@ -1304,7 +1304,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[103].action_test == ActionTest.NoAT
     assert games[0].timeline[103].actor == "spy"
     assert games[0].timeline[103].books == (None,)
-    assert games[0].timeline[103].cast_name == (Characters.B,)
+    assert games[0].timeline[103].cast_name == (Characters.Boots,)
     assert games[0].timeline[103].category == TimelineCategory.Conversation
     assert games[0].timeline[103].elapsed_time == 207.4
     assert games[0].timeline[103].event == "spy joined conversation with double agent."
@@ -1359,7 +1359,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[108].action_test == ActionTest.NoAT
     assert games[0].timeline[108].actor == "spy"
     assert games[0].timeline[108].books == (None,)
-    assert games[0].timeline[108].cast_name == (Characters.B,)
+    assert games[0].timeline[108].cast_name == (Characters.Boots,)
     assert games[0].timeline[108].category == TimelineCategory.MissionComplete
     assert games[0].timeline[108].elapsed_time == 210.9
     assert games[0].timeline[108].event == "double agent contacted."
@@ -1370,7 +1370,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[109].action_test == ActionTest.NoAT
     assert games[0].timeline[109].actor == "sniper"
     assert games[0].timeline[109].books == (None,)
-    assert games[0].timeline[109].cast_name == (Characters.T,)
+    assert games[0].timeline[109].cast_name == (Characters.Sari,)
     assert games[0].timeline[109].category == TimelineCategory.SniperLights
     assert games[0].timeline[109].elapsed_time == 213.5
     assert games[0].timeline[109].event == "marked less suspicious."
@@ -1381,7 +1381,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[110].action_test == ActionTest.NoAT
     assert games[0].timeline[110].actor == "sniper"
     assert games[0].timeline[110].books == (None,)
-    assert games[0].timeline[110].cast_name == (Characters.S,)
+    assert games[0].timeline[110].cast_name == (Characters.Smallman,)
     assert games[0].timeline[110].category == TimelineCategory.SniperLights
     assert games[0].timeline[110].elapsed_time == 213.9
     assert games[0].timeline[110].event == "marked less suspicious."
@@ -1392,7 +1392,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[111].action_test == ActionTest.NoAT
     assert games[0].timeline[111].actor == "sniper"
     assert games[0].timeline[111].books == (None,)
-    assert games[0].timeline[111].cast_name == (Characters.N,)
+    assert games[0].timeline[111].cast_name == (Characters.Bling,)
     assert games[0].timeline[111].category == TimelineCategory.SniperLights
     assert games[0].timeline[111].elapsed_time == 214.3
     assert games[0].timeline[111].event == "marked less suspicious."
@@ -1403,7 +1403,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[112].action_test == ActionTest.NoAT
     assert games[0].timeline[112].actor == "sniper"
     assert games[0].timeline[112].books == (None,)
-    assert games[0].timeline[112].cast_name == (Characters.A,)
+    assert games[0].timeline[112].cast_name == (Characters.Disney,)
     assert games[0].timeline[112].category == TimelineCategory.SniperLights
     assert games[0].timeline[112].elapsed_time == 216.0
     assert games[0].timeline[112].event == "marked less suspicious."
@@ -1414,7 +1414,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[113].action_test == ActionTest.NoAT
     assert games[0].timeline[113].actor == "sniper"
     assert games[0].timeline[113].books == (None,)
-    assert games[0].timeline[113].cast_name == (Characters.Q,)
+    assert games[0].timeline[113].cast_name == (Characters.Salmon,)
     assert games[0].timeline[113].category == TimelineCategory.SniperLights
     assert games[0].timeline[113].elapsed_time == 216.4
     assert games[0].timeline[113].event == "marked less suspicious."
@@ -1425,7 +1425,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[114].action_test == ActionTest.NoAT
     assert games[0].timeline[114].actor == "sniper"
     assert games[0].timeline[114].books == (None,)
-    assert games[0].timeline[114].cast_name == (Characters.L,)
+    assert games[0].timeline[114].cast_name == (Characters.Rocker,)
     assert games[0].timeline[114].category == TimelineCategory.SniperLights
     assert games[0].timeline[114].elapsed_time == 216.7
     assert games[0].timeline[114].event == "marked less suspicious."
@@ -1447,7 +1447,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[116].action_test == ActionTest.NoAT
     assert games[0].timeline[116].actor == "spy"
     assert games[0].timeline[116].books == (None,)
-    assert games[0].timeline[116].cast_name == (Characters.B,)
+    assert games[0].timeline[116].cast_name == (Characters.Boots,)
     assert games[0].timeline[116].category == TimelineCategory.Conversation
     assert games[0].timeline[116].elapsed_time == 217.5
     assert games[0].timeline[116].event == "spy left conversation with double agent."
@@ -1458,7 +1458,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[117].action_test == ActionTest.NoAT
     assert games[0].timeline[117].actor == "sniper"
     assert games[0].timeline[117].books == (None,)
-    assert games[0].timeline[117].cast_name == (Characters.O,)
+    assert games[0].timeline[117].cast_name == (Characters.Irish,)
     assert games[0].timeline[117].category == TimelineCategory.SniperShot
     assert games[0].timeline[117].elapsed_time == 220.3
     assert games[0].timeline[117].event == "took shot."
@@ -1469,7 +1469,7 @@ def test_parse_timeline_parallel_normal(
     assert games[0].timeline[118].action_test == ActionTest.NoAT
     assert games[0].timeline[118].actor == "game"
     assert games[0].timeline[118].books == (None,)
-    assert games[0].timeline[118].cast_name == (Characters.O,)
+    assert games[0].timeline[118].cast_name == (Characters.Irish,)
     assert games[0].timeline[118].category == TimelineCategory.GameEnd
     assert games[0].timeline[118].elapsed_time == 223.9
     assert games[0].timeline[118].event == "sniper shot spy."
@@ -1483,7 +1483,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[0].action_test == ActionTest.NoAT
     assert games[1].timeline[0].actor == "spy"
     assert games[1].timeline[0].books == (None,)
-    assert games[1].timeline[0].cast_name == (Characters.J,)
+    assert games[1].timeline[0].cast_name == (Characters.Queen,)
     assert games[1].timeline[0].category == TimelineCategory.Cast
     assert games[1].timeline[0].elapsed_time == 0.0
     assert games[1].timeline[0].event == "spy cast."
@@ -1494,7 +1494,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[1].action_test == ActionTest.NoAT
     assert games[1].timeline[1].actor == "spy"
     assert games[1].timeline[1].books == (None,)
-    assert games[1].timeline[1].cast_name == (Characters.A,)
+    assert games[1].timeline[1].cast_name == (Characters.Disney,)
     assert games[1].timeline[1].category == TimelineCategory.Cast
     assert games[1].timeline[1].elapsed_time == 0.0
     assert games[1].timeline[1].event == "ambassador cast."
@@ -1505,7 +1505,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[2].action_test == ActionTest.NoAT
     assert games[1].timeline[2].actor == "spy"
     assert games[1].timeline[2].books == (None,)
-    assert games[1].timeline[2].cast_name == (Characters.I,)
+    assert games[1].timeline[2].cast_name == (Characters.Wheels,)
     assert games[1].timeline[2].category == TimelineCategory.Cast
     assert games[1].timeline[2].elapsed_time == 0.0
     assert games[1].timeline[2].event == "double agent cast."
@@ -1516,7 +1516,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[3].action_test == ActionTest.NoAT
     assert games[1].timeline[3].actor == "spy"
     assert games[1].timeline[3].books == (None,)
-    assert games[1].timeline[3].cast_name == (Characters.N,)
+    assert games[1].timeline[3].cast_name == (Characters.Bling,)
     assert games[1].timeline[3].category == TimelineCategory.Cast
     assert games[1].timeline[3].elapsed_time == 0.0
     assert games[1].timeline[3].event == "suspected double agent cast."
@@ -1527,7 +1527,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[4].action_test == ActionTest.NoAT
     assert games[1].timeline[4].actor == "spy"
     assert games[1].timeline[4].books == (None,)
-    assert games[1].timeline[4].cast_name == (Characters.O,)
+    assert games[1].timeline[4].cast_name == (Characters.Irish,)
     assert games[1].timeline[4].category == TimelineCategory.Cast
     assert games[1].timeline[4].elapsed_time == 0.0
     assert games[1].timeline[4].event == "seduction target cast."
@@ -1538,7 +1538,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[5].action_test == ActionTest.NoAT
     assert games[1].timeline[5].actor == "spy"
     assert games[1].timeline[5].books == (None,)
-    assert games[1].timeline[5].cast_name == (Characters.B,)
+    assert games[1].timeline[5].cast_name == (Characters.Boots,)
     assert games[1].timeline[5].category == TimelineCategory.Cast
     assert games[1].timeline[5].elapsed_time == 0.0
     assert games[1].timeline[5].event == "civilian cast."
@@ -1549,7 +1549,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[6].action_test == ActionTest.NoAT
     assert games[1].timeline[6].actor == "spy"
     assert games[1].timeline[6].books == (None,)
-    assert games[1].timeline[6].cast_name == (Characters.K,)
+    assert games[1].timeline[6].cast_name == (Characters.Sikh,)
     assert games[1].timeline[6].category == TimelineCategory.Cast
     assert games[1].timeline[6].elapsed_time == 0.0
     assert games[1].timeline[6].event == "civilian cast."
@@ -1560,7 +1560,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[7].action_test == ActionTest.NoAT
     assert games[1].timeline[7].actor == "spy"
     assert games[1].timeline[7].books == (None,)
-    assert games[1].timeline[7].cast_name == (Characters.L,)
+    assert games[1].timeline[7].cast_name == (Characters.Rocker,)
     assert games[1].timeline[7].category == TimelineCategory.Cast
     assert games[1].timeline[7].elapsed_time == 0.0
     assert games[1].timeline[7].event == "civilian cast."
@@ -1571,7 +1571,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[8].action_test == ActionTest.NoAT
     assert games[1].timeline[8].actor == "spy"
     assert games[1].timeline[8].books == (None,)
-    assert games[1].timeline[8].cast_name == (Characters.E,)
+    assert games[1].timeline[8].cast_name == (Characters.Helen,)
     assert games[1].timeline[8].category == TimelineCategory.Cast
     assert games[1].timeline[8].elapsed_time == 0.0
     assert games[1].timeline[8].event == "civilian cast."
@@ -1582,7 +1582,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[9].action_test == ActionTest.NoAT
     assert games[1].timeline[9].actor == "spy"
     assert games[1].timeline[9].books == (None,)
-    assert games[1].timeline[9].cast_name == (Characters.F,)
+    assert games[1].timeline[9].cast_name == (Characters.Alice,)
     assert games[1].timeline[9].category == TimelineCategory.Cast
     assert games[1].timeline[9].elapsed_time == 0.0
     assert games[1].timeline[9].event == "civilian cast."
@@ -1593,7 +1593,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[10].action_test == ActionTest.NoAT
     assert games[1].timeline[10].actor == "spy"
     assert games[1].timeline[10].books == (None,)
-    assert games[1].timeline[10].cast_name == (Characters.H,)
+    assert games[1].timeline[10].cast_name == (Characters.Oprah,)
     assert games[1].timeline[10].category == TimelineCategory.Cast
     assert games[1].timeline[10].elapsed_time == 0.0
     assert games[1].timeline[10].event == "civilian cast."
@@ -1604,7 +1604,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[11].action_test == ActionTest.NoAT
     assert games[1].timeline[11].actor == "spy"
     assert games[1].timeline[11].books == (None,)
-    assert games[1].timeline[11].cast_name == (Characters.D,)
+    assert games[1].timeline[11].cast_name == (Characters.Morgan,)
     assert games[1].timeline[11].category == TimelineCategory.Cast
     assert games[1].timeline[11].elapsed_time == 0.0
     assert games[1].timeline[11].event == "civilian cast."
@@ -1615,7 +1615,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[12].action_test == ActionTest.NoAT
     assert games[1].timeline[12].actor == "spy"
     assert games[1].timeline[12].books == (None,)
-    assert games[1].timeline[12].cast_name == (Characters.M,)
+    assert games[1].timeline[12].cast_name == (Characters.Plain,)
     assert games[1].timeline[12].category == TimelineCategory.Cast
     assert games[1].timeline[12].elapsed_time == 0.0
     assert games[1].timeline[12].event == "civilian cast."
@@ -1626,7 +1626,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[13].action_test == ActionTest.NoAT
     assert games[1].timeline[13].actor == "spy"
     assert games[1].timeline[13].books == (None,)
-    assert games[1].timeline[13].cast_name == (Characters.T,)
+    assert games[1].timeline[13].cast_name == (Characters.Sari,)
     assert games[1].timeline[13].category == TimelineCategory.Cast
     assert games[1].timeline[13].elapsed_time == 0.0
     assert games[1].timeline[13].event == "civilian cast."
@@ -1637,7 +1637,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[14].action_test == ActionTest.NoAT
     assert games[1].timeline[14].actor == "spy"
     assert games[1].timeline[14].books == (None,)
-    assert games[1].timeline[14].cast_name == (Characters.C,)
+    assert games[1].timeline[14].cast_name == (Characters.Taft,)
     assert games[1].timeline[14].category == TimelineCategory.Cast
     assert games[1].timeline[14].elapsed_time == 0.0
     assert games[1].timeline[14].event == "civilian cast."
@@ -1648,7 +1648,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[15].action_test == ActionTest.NoAT
     assert games[1].timeline[15].actor == "spy"
     assert games[1].timeline[15].books == (None,)
-    assert games[1].timeline[15].cast_name == (Characters.P,)
+    assert games[1].timeline[15].cast_name == (Characters.Carlos,)
     assert games[1].timeline[15].category == TimelineCategory.Cast
     assert games[1].timeline[15].elapsed_time == 0.0
     assert games[1].timeline[15].event == "civilian cast."
@@ -1659,7 +1659,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[16].action_test == ActionTest.NoAT
     assert games[1].timeline[16].actor == "spy"
     assert games[1].timeline[16].books == (None,)
-    assert games[1].timeline[16].cast_name == (Characters.S,)
+    assert games[1].timeline[16].cast_name == (Characters.Smallman,)
     assert games[1].timeline[16].category == TimelineCategory.Cast
     assert games[1].timeline[16].elapsed_time == 0.0
     assert games[1].timeline[16].event == "civilian cast."
@@ -1670,7 +1670,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[17].action_test == ActionTest.NoAT
     assert games[1].timeline[17].actor == "spy"
     assert games[1].timeline[17].books == (None,)
-    assert games[1].timeline[17].cast_name == (Characters.R,)
+    assert games[1].timeline[17].cast_name == (Characters.Teal,)
     assert games[1].timeline[17].category == TimelineCategory.Cast
     assert games[1].timeline[17].elapsed_time == 0.0
     assert games[1].timeline[17].event == "civilian cast."
@@ -1681,7 +1681,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[18].action_test == ActionTest.NoAT
     assert games[1].timeline[18].actor == "spy"
     assert games[1].timeline[18].books == (None,)
-    assert games[1].timeline[18].cast_name == (Characters.G,)
+    assert games[1].timeline[18].cast_name == (Characters.General,)
     assert games[1].timeline[18].category == TimelineCategory.Cast
     assert games[1].timeline[18].elapsed_time == 0.0
     assert games[1].timeline[18].event == "civilian cast."
@@ -1692,7 +1692,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[19].action_test == ActionTest.NoAT
     assert games[1].timeline[19].actor == "spy"
     assert games[1].timeline[19].books == (None,)
-    assert games[1].timeline[19].cast_name == (Characters.U,)
+    assert games[1].timeline[19].cast_name == (Characters.Duke,)
     assert games[1].timeline[19].category == TimelineCategory.Cast
     assert games[1].timeline[19].elapsed_time == 0.0
     assert games[1].timeline[19].event == "civilian cast."
@@ -1703,7 +1703,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[20].action_test == ActionTest.NoAT
     assert games[1].timeline[20].actor == "spy"
     assert games[1].timeline[20].books == (None,)
-    assert games[1].timeline[20].cast_name == (Characters.Q,)
+    assert games[1].timeline[20].cast_name == (Characters.Salmon,)
     assert games[1].timeline[20].category == TimelineCategory.Cast
     assert games[1].timeline[20].elapsed_time == 0.0
     assert games[1].timeline[20].event == "civilian cast."
@@ -1912,7 +1912,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[39].action_test == ActionTest.NoAT
     assert games[1].timeline[39].actor == "sniper"
     assert games[1].timeline[39].books == (None,)
-    assert games[1].timeline[39].cast_name == (Characters.A,)
+    assert games[1].timeline[39].cast_name == (Characters.Disney,)
     assert games[1].timeline[39].category == TimelineCategory.SniperLights
     assert games[1].timeline[39].elapsed_time == 9.699999999999989
     assert games[1].timeline[39].event == "marked suspicious."
@@ -1934,7 +1934,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[41].action_test == ActionTest.NoAT
     assert games[1].timeline[41].actor == "sniper"
     assert games[1].timeline[41].books == (None,)
-    assert games[1].timeline[41].cast_name == (Characters.K,)
+    assert games[1].timeline[41].cast_name == (Characters.Sikh,)
     assert games[1].timeline[41].category == TimelineCategory.SniperLights
     assert games[1].timeline[41].elapsed_time == 11.5
     assert games[1].timeline[41].event == "marked suspicious."
@@ -1945,7 +1945,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[42].action_test == ActionTest.NoAT
     assert games[1].timeline[42].actor == "sniper"
     assert games[1].timeline[42].books == (None,)
-    assert games[1].timeline[42].cast_name == (Characters.U,)
+    assert games[1].timeline[42].cast_name == (Characters.Duke,)
     assert games[1].timeline[42].category == TimelineCategory.SniperLights
     assert games[1].timeline[42].elapsed_time == 12.300000000000011
     assert games[1].timeline[42].event == "marked suspicious."
@@ -1956,7 +1956,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[43].action_test == ActionTest.NoAT
     assert games[1].timeline[43].actor == "spy"
     assert games[1].timeline[43].books == (None,)
-    assert games[1].timeline[43].cast_name == (Characters.J,)
+    assert games[1].timeline[43].cast_name == (Characters.Queen,)
     assert games[1].timeline[43].category == TimelineCategory.Drinks
     assert games[1].timeline[43].elapsed_time == 12.699999999999989
     assert games[1].timeline[43].event == "took last sip of drink."
@@ -1967,7 +1967,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[44].action_test == ActionTest.NoAT
     assert games[1].timeline[44].actor == "sniper"
     assert games[1].timeline[44].books == (None,)
-    assert games[1].timeline[44].cast_name == (Characters.N,)
+    assert games[1].timeline[44].cast_name == (Characters.Bling,)
     assert games[1].timeline[44].category == TimelineCategory.SniperLights
     assert games[1].timeline[44].elapsed_time == 16.0
     assert games[1].timeline[44].event == "marked less suspicious."
@@ -1989,7 +1989,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[46].action_test == ActionTest.NoAT
     assert games[1].timeline[46].actor == "sniper"
     assert games[1].timeline[46].books == (None,)
-    assert games[1].timeline[46].cast_name == (Characters.T,)
+    assert games[1].timeline[46].cast_name == (Characters.Sari,)
     assert games[1].timeline[46].category == TimelineCategory.SniperLights
     assert games[1].timeline[46].elapsed_time == 27.69999999999999
     assert games[1].timeline[46].event == "marked suspicious."
@@ -2011,7 +2011,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[48].action_test == ActionTest.NoAT
     assert games[1].timeline[48].actor == "spy"
     assert games[1].timeline[48].books == (None,)
-    assert games[1].timeline[48].cast_name == (Characters.O,)
+    assert games[1].timeline[48].cast_name == (Characters.Irish,)
     assert games[1].timeline[48].category == TimelineCategory.NoCategory
     assert games[1].timeline[48].elapsed_time == 28.400000000000006
     assert games[1].timeline[48].event == "begin flirtation with seduction target."
@@ -2033,7 +2033,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[50].action_test == ActionTest.NoAT
     assert games[1].timeline[50].actor == "spy"
     assert games[1].timeline[50].books == (None,)
-    assert games[1].timeline[50].cast_name == (Characters.O,)
+    assert games[1].timeline[50].cast_name == (Characters.Irish,)
     assert games[1].timeline[50].category == TimelineCategory.MissionPartial
     assert games[1].timeline[50].elapsed_time == 29.30000000000001
     assert games[1].timeline[50].event == "flirt with seduction target: 51%"
@@ -2044,7 +2044,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[51].action_test == ActionTest.NoAT
     assert games[1].timeline[51].actor == "sniper"
     assert games[1].timeline[51].books == (None,)
-    assert games[1].timeline[51].cast_name == (Characters.I,)
+    assert games[1].timeline[51].cast_name == (Characters.Wheels,)
     assert games[1].timeline[51].category == TimelineCategory.SniperLights
     assert games[1].timeline[51].elapsed_time == 37.900000000000006
     assert games[1].timeline[51].event == "marked less suspicious."
@@ -2132,7 +2132,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[58].action_test == ActionTest.NoAT
     assert games[1].timeline[58].actor == "sniper"
     assert games[1].timeline[58].books == (None,)
-    assert games[1].timeline[58].cast_name == (Characters.F,)
+    assert games[1].timeline[58].cast_name == (Characters.Alice,)
     assert games[1].timeline[58].category == TimelineCategory.SniperLights
     assert games[1].timeline[58].elapsed_time == 61.900000000000006
     assert games[1].timeline[58].event == "marked less suspicious."
@@ -2176,7 +2176,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[62].action_test == ActionTest.NoAT
     assert games[1].timeline[62].actor == "spy"
     assert games[1].timeline[62].books == (None,)
-    assert games[1].timeline[62].cast_name == (Characters.O,)
+    assert games[1].timeline[62].cast_name == (Characters.Irish,)
     assert games[1].timeline[62].category == TimelineCategory.NoCategory
     assert games[1].timeline[62].elapsed_time == 71.80000000000001
     assert games[1].timeline[62].event == "begin flirtation with seduction target."
@@ -2198,7 +2198,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[64].action_test == ActionTest.NoAT
     assert games[1].timeline[64].actor == "spy"
     assert games[1].timeline[64].books == (None,)
-    assert games[1].timeline[64].cast_name == (Characters.O,)
+    assert games[1].timeline[64].cast_name == (Characters.Irish,)
     assert games[1].timeline[64].category == TimelineCategory.MissionPartial
     assert games[1].timeline[64].elapsed_time == 72.9
     assert games[1].timeline[64].event == "flirt with seduction target: 79%"
@@ -2220,7 +2220,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[66].action_test == ActionTest.NoAT
     assert games[1].timeline[66].actor == "spy"
     assert games[1].timeline[66].books == (None,)
-    assert games[1].timeline[66].cast_name == (Characters.A,)
+    assert games[1].timeline[66].cast_name == (Characters.Disney,)
     assert games[1].timeline[66].category == TimelineCategory.NoCategory
     assert games[1].timeline[66].elapsed_time == 89.6
     assert games[1].timeline[66].event == "begin planting bug while walking."
@@ -2231,7 +2231,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[67].action_test == ActionTest.NoAT
     assert games[1].timeline[67].actor == "spy"
     assert games[1].timeline[67].books == (None,)
-    assert games[1].timeline[67].cast_name == (Characters.A,)
+    assert games[1].timeline[67].cast_name == (Characters.Disney,)
     assert games[1].timeline[67].category == TimelineCategory.NoCategory
     assert games[1].timeline[67].elapsed_time == 90.69999999999999
     assert games[1].timeline[67].event == "failed planting bug while walking."
@@ -2242,7 +2242,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[68].action_test == ActionTest.NoAT
     assert games[1].timeline[68].actor == "sniper"
     assert games[1].timeline[68].books == (None,)
-    assert games[1].timeline[68].cast_name == (Characters.P,)
+    assert games[1].timeline[68].cast_name == (Characters.Carlos,)
     assert games[1].timeline[68].category == TimelineCategory.SniperLights
     assert games[1].timeline[68].elapsed_time == 91.6
     assert games[1].timeline[68].event == "marked less suspicious."
@@ -2264,7 +2264,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[70].action_test == ActionTest.NoAT
     assert games[1].timeline[70].actor == "spy"
     assert games[1].timeline[70].books == (None,)
-    assert games[1].timeline[70].cast_name == (Characters.A,)
+    assert games[1].timeline[70].cast_name == (Characters.Disney,)
     assert games[1].timeline[70].category == TimelineCategory.NoCategory
     assert games[1].timeline[70].elapsed_time == 100.1
     assert games[1].timeline[70].event == "begin planting bug while standing."
@@ -2275,7 +2275,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[71].action_test == ActionTest.NoAT
     assert games[1].timeline[71].actor == "spy"
     assert games[1].timeline[71].books == (None,)
-    assert games[1].timeline[71].cast_name == (Characters.A,)
+    assert games[1].timeline[71].cast_name == (Characters.Disney,)
     assert games[1].timeline[71].category == TimelineCategory.MissionComplete
     assert games[1].timeline[71].elapsed_time == 101.69999999999999
     assert games[1].timeline[71].event == "bugged ambassador while standing."
@@ -2286,7 +2286,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[72].action_test == ActionTest.NoAT
     assert games[1].timeline[72].actor == "sniper"
     assert games[1].timeline[72].books == (None,)
-    assert games[1].timeline[72].cast_name == (Characters.J,)
+    assert games[1].timeline[72].cast_name == (Characters.Queen,)
     assert games[1].timeline[72].category == TimelineCategory.SniperShot
     assert games[1].timeline[72].elapsed_time == 103.9
     assert games[1].timeline[72].event == "took shot."
@@ -2297,7 +2297,7 @@ def test_parse_timeline_parallel_normal(
     assert games[1].timeline[73].action_test == ActionTest.NoAT
     assert games[1].timeline[73].actor == "game"
     assert games[1].timeline[73].books == (None,)
-    assert games[1].timeline[73].cast_name == (Characters.J,)
+    assert games[1].timeline[73].cast_name == (Characters.Queen,)
     assert games[1].timeline[73].category == TimelineCategory.GameEnd
     assert games[1].timeline[73].elapsed_time == 109.9
     assert games[1].timeline[73].event == "sniper shot spy."
@@ -2311,7 +2311,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[0].action_test == ActionTest.NoAT
     assert games[2].timeline[0].actor == "spy"
     assert games[2].timeline[0].books == (None,)
-    assert games[2].timeline[0].cast_name == (Characters.G,)
+    assert games[2].timeline[0].cast_name == (Characters.General,)
     assert games[2].timeline[0].category == TimelineCategory.Cast
     assert games[2].timeline[0].elapsed_time == 0.0
     assert games[2].timeline[0].event == "spy cast."
@@ -2322,7 +2322,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[1].action_test == ActionTest.NoAT
     assert games[2].timeline[1].actor == "spy"
     assert games[2].timeline[1].books == (None,)
-    assert games[2].timeline[1].cast_name == (Characters.I,)
+    assert games[2].timeline[1].cast_name == (Characters.Wheels,)
     assert games[2].timeline[1].category == TimelineCategory.Cast
     assert games[2].timeline[1].elapsed_time == 0.0
     assert games[2].timeline[1].event == "ambassador cast."
@@ -2333,7 +2333,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[2].action_test == ActionTest.NoAT
     assert games[2].timeline[2].actor == "spy"
     assert games[2].timeline[2].books == (None,)
-    assert games[2].timeline[2].cast_name == (Characters.J,)
+    assert games[2].timeline[2].cast_name == (Characters.Queen,)
     assert games[2].timeline[2].category == TimelineCategory.Cast
     assert games[2].timeline[2].elapsed_time == 0.0
     assert games[2].timeline[2].event == "double agent cast."
@@ -2344,7 +2344,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[3].action_test == ActionTest.NoAT
     assert games[2].timeline[3].actor == "spy"
     assert games[2].timeline[3].books == (None,)
-    assert games[2].timeline[3].cast_name == (Characters.D,)
+    assert games[2].timeline[3].cast_name == (Characters.Morgan,)
     assert games[2].timeline[3].category == TimelineCategory.Cast
     assert games[2].timeline[3].elapsed_time == 0.0
     assert games[2].timeline[3].event == "suspected double agent cast."
@@ -2355,7 +2355,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[4].action_test == ActionTest.NoAT
     assert games[2].timeline[4].actor == "spy"
     assert games[2].timeline[4].books == (None,)
-    assert games[2].timeline[4].cast_name == (Characters.L,)
+    assert games[2].timeline[4].cast_name == (Characters.Rocker,)
     assert games[2].timeline[4].category == TimelineCategory.Cast
     assert games[2].timeline[4].elapsed_time == 0.0
     assert games[2].timeline[4].event == "seduction target cast."
@@ -2366,7 +2366,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[5].action_test == ActionTest.NoAT
     assert games[2].timeline[5].actor == "spy"
     assert games[2].timeline[5].books == (None,)
-    assert games[2].timeline[5].cast_name == (Characters.C,)
+    assert games[2].timeline[5].cast_name == (Characters.Taft,)
     assert games[2].timeline[5].category == TimelineCategory.Cast
     assert games[2].timeline[5].elapsed_time == 0.0
     assert games[2].timeline[5].event == "civilian cast."
@@ -2377,7 +2377,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[6].action_test == ActionTest.NoAT
     assert games[2].timeline[6].actor == "spy"
     assert games[2].timeline[6].books == (None,)
-    assert games[2].timeline[6].cast_name == (Characters.H,)
+    assert games[2].timeline[6].cast_name == (Characters.Oprah,)
     assert games[2].timeline[6].category == TimelineCategory.Cast
     assert games[2].timeline[6].elapsed_time == 0.0
     assert games[2].timeline[6].event == "civilian cast."
@@ -2388,7 +2388,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[7].action_test == ActionTest.NoAT
     assert games[2].timeline[7].actor == "spy"
     assert games[2].timeline[7].books == (None,)
-    assert games[2].timeline[7].cast_name == (Characters.N,)
+    assert games[2].timeline[7].cast_name == (Characters.Bling,)
     assert games[2].timeline[7].category == TimelineCategory.Cast
     assert games[2].timeline[7].elapsed_time == 0.0
     assert games[2].timeline[7].event == "civilian cast."
@@ -2399,7 +2399,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[8].action_test == ActionTest.NoAT
     assert games[2].timeline[8].actor == "spy"
     assert games[2].timeline[8].books == (None,)
-    assert games[2].timeline[8].cast_name == (Characters.F,)
+    assert games[2].timeline[8].cast_name == (Characters.Alice,)
     assert games[2].timeline[8].category == TimelineCategory.Cast
     assert games[2].timeline[8].elapsed_time == 0.0
     assert games[2].timeline[8].event == "civilian cast."
@@ -2410,7 +2410,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[9].action_test == ActionTest.NoAT
     assert games[2].timeline[9].actor == "spy"
     assert games[2].timeline[9].books == (None,)
-    assert games[2].timeline[9].cast_name == (Characters.U,)
+    assert games[2].timeline[9].cast_name == (Characters.Duke,)
     assert games[2].timeline[9].category == TimelineCategory.Cast
     assert games[2].timeline[9].elapsed_time == 0.0
     assert games[2].timeline[9].event == "civilian cast."
@@ -2421,7 +2421,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[10].action_test == ActionTest.NoAT
     assert games[2].timeline[10].actor == "spy"
     assert games[2].timeline[10].books == (None,)
-    assert games[2].timeline[10].cast_name == (Characters.B,)
+    assert games[2].timeline[10].cast_name == (Characters.Boots,)
     assert games[2].timeline[10].category == TimelineCategory.Cast
     assert games[2].timeline[10].elapsed_time == 0.0
     assert games[2].timeline[10].event == "civilian cast."
@@ -2432,7 +2432,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[11].action_test == ActionTest.NoAT
     assert games[2].timeline[11].actor == "spy"
     assert games[2].timeline[11].books == (None,)
-    assert games[2].timeline[11].cast_name == (Characters.R,)
+    assert games[2].timeline[11].cast_name == (Characters.Teal,)
     assert games[2].timeline[11].category == TimelineCategory.Cast
     assert games[2].timeline[11].elapsed_time == 0.0
     assert games[2].timeline[11].event == "civilian cast."
@@ -2443,7 +2443,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[12].action_test == ActionTest.NoAT
     assert games[2].timeline[12].actor == "spy"
     assert games[2].timeline[12].books == (None,)
-    assert games[2].timeline[12].cast_name == (Characters.S,)
+    assert games[2].timeline[12].cast_name == (Characters.Smallman,)
     assert games[2].timeline[12].category == TimelineCategory.Cast
     assert games[2].timeline[12].elapsed_time == 0.0
     assert games[2].timeline[12].event == "civilian cast."
@@ -2454,7 +2454,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[13].action_test == ActionTest.NoAT
     assert games[2].timeline[13].actor == "spy"
     assert games[2].timeline[13].books == (None,)
-    assert games[2].timeline[13].cast_name == (Characters.E,)
+    assert games[2].timeline[13].cast_name == (Characters.Helen,)
     assert games[2].timeline[13].category == TimelineCategory.Cast
     assert games[2].timeline[13].elapsed_time == 0.0
     assert games[2].timeline[13].event == "civilian cast."
@@ -2465,7 +2465,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[14].action_test == ActionTest.NoAT
     assert games[2].timeline[14].actor == "spy"
     assert games[2].timeline[14].books == (None,)
-    assert games[2].timeline[14].cast_name == (Characters.P,)
+    assert games[2].timeline[14].cast_name == (Characters.Carlos,)
     assert games[2].timeline[14].category == TimelineCategory.Cast
     assert games[2].timeline[14].elapsed_time == 0.0
     assert games[2].timeline[14].event == "civilian cast."
@@ -2476,7 +2476,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[15].action_test == ActionTest.NoAT
     assert games[2].timeline[15].actor == "spy"
     assert games[2].timeline[15].books == (None,)
-    assert games[2].timeline[15].cast_name == (Characters.A,)
+    assert games[2].timeline[15].cast_name == (Characters.Disney,)
     assert games[2].timeline[15].category == TimelineCategory.Cast
     assert games[2].timeline[15].elapsed_time == 0.0
     assert games[2].timeline[15].event == "civilian cast."
@@ -2487,7 +2487,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[16].action_test == ActionTest.NoAT
     assert games[2].timeline[16].actor == "spy"
     assert games[2].timeline[16].books == (None,)
-    assert games[2].timeline[16].cast_name == (Characters.M,)
+    assert games[2].timeline[16].cast_name == (Characters.Plain,)
     assert games[2].timeline[16].category == TimelineCategory.Cast
     assert games[2].timeline[16].elapsed_time == 0.0
     assert games[2].timeline[16].event == "civilian cast."
@@ -2498,7 +2498,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[17].action_test == ActionTest.NoAT
     assert games[2].timeline[17].actor == "spy"
     assert games[2].timeline[17].books == (None,)
-    assert games[2].timeline[17].cast_name == (Characters.O,)
+    assert games[2].timeline[17].cast_name == (Characters.Irish,)
     assert games[2].timeline[17].category == TimelineCategory.Cast
     assert games[2].timeline[17].elapsed_time == 0.0
     assert games[2].timeline[17].event == "civilian cast."
@@ -2509,7 +2509,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[18].action_test == ActionTest.NoAT
     assert games[2].timeline[18].actor == "spy"
     assert games[2].timeline[18].books == (None,)
-    assert games[2].timeline[18].cast_name == (Characters.Q,)
+    assert games[2].timeline[18].cast_name == (Characters.Salmon,)
     assert games[2].timeline[18].category == TimelineCategory.Cast
     assert games[2].timeline[18].elapsed_time == 0.0
     assert games[2].timeline[18].event == "civilian cast."
@@ -2520,7 +2520,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[19].action_test == ActionTest.NoAT
     assert games[2].timeline[19].actor == "spy"
     assert games[2].timeline[19].books == (None,)
-    assert games[2].timeline[19].cast_name == (Characters.T,)
+    assert games[2].timeline[19].cast_name == (Characters.Sari,)
     assert games[2].timeline[19].category == TimelineCategory.Cast
     assert games[2].timeline[19].elapsed_time == 0.0
     assert games[2].timeline[19].event == "civilian cast."
@@ -2531,7 +2531,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[20].action_test == ActionTest.NoAT
     assert games[2].timeline[20].actor == "spy"
     assert games[2].timeline[20].books == (None,)
-    assert games[2].timeline[20].cast_name == (Characters.K,)
+    assert games[2].timeline[20].cast_name == (Characters.Sikh,)
     assert games[2].timeline[20].category == TimelineCategory.Cast
     assert games[2].timeline[20].elapsed_time == 0.0
     assert games[2].timeline[20].event == "civilian cast."
@@ -2729,7 +2729,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[38].action_test == ActionTest.NoAT
     assert games[2].timeline[38].actor == "sniper"
     assert games[2].timeline[38].books == (None,)
-    assert games[2].timeline[38].cast_name == (Characters.I,)
+    assert games[2].timeline[38].cast_name == (Characters.Wheels,)
     assert games[2].timeline[38].category == TimelineCategory.SniperLights
     assert games[2].timeline[38].elapsed_time == 0.6999999999999886
     assert games[2].timeline[38].event == "marked suspicious."
@@ -2762,7 +2762,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[41].action_test == ActionTest.NoAT
     assert games[2].timeline[41].actor == "sniper"
     assert games[2].timeline[41].books == (None,)
-    assert games[2].timeline[41].cast_name == (Characters.K,)
+    assert games[2].timeline[41].cast_name == (Characters.Sikh,)
     assert games[2].timeline[41].category == TimelineCategory.SniperLights
     assert games[2].timeline[41].elapsed_time == 4.400000000000006
     assert games[2].timeline[41].event == "marked suspicious."
@@ -2784,7 +2784,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[43].action_test == ActionTest.NoAT
     assert games[2].timeline[43].actor == "spy"
     assert games[2].timeline[43].books == (None,)
-    assert games[2].timeline[43].cast_name == (Characters.L,)
+    assert games[2].timeline[43].cast_name == (Characters.Rocker,)
     assert games[2].timeline[43].category == TimelineCategory.NoCategory
     assert games[2].timeline[43].elapsed_time == 4.5
     assert games[2].timeline[43].event == "begin flirtation with seduction target."
@@ -2806,7 +2806,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[45].action_test == ActionTest.NoAT
     assert games[2].timeline[45].actor == "spy"
     assert games[2].timeline[45].books == (None,)
-    assert games[2].timeline[45].cast_name == (Characters.L,)
+    assert games[2].timeline[45].cast_name == (Characters.Rocker,)
     assert games[2].timeline[45].category == TimelineCategory.MissionPartial
     assert games[2].timeline[45].elapsed_time == 5.199999999999989
     assert games[2].timeline[45].event == "flirt with seduction target: 34%"
@@ -2828,7 +2828,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[47].action_test == ActionTest.NoAT
     assert games[2].timeline[47].actor == "sniper"
     assert games[2].timeline[47].books == (None,)
-    assert games[2].timeline[47].cast_name == (Characters.J,)
+    assert games[2].timeline[47].cast_name == (Characters.Queen,)
     assert games[2].timeline[47].category == TimelineCategory.SniperLights
     assert games[2].timeline[47].elapsed_time == 8.699999999999989
     assert games[2].timeline[47].event == "marked less suspicious."
@@ -2839,7 +2839,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[48].action_test == ActionTest.NoAT
     assert games[2].timeline[48].actor == "sniper"
     assert games[2].timeline[48].books == (Books.Green,)
-    assert games[2].timeline[48].cast_name == (Characters.M,)
+    assert games[2].timeline[48].cast_name == (Characters.Plain,)
     assert (
         games[2].timeline[48].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -2853,7 +2853,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[49].action_test == ActionTest.NoAT
     assert games[2].timeline[49].actor == "sniper"
     assert games[2].timeline[49].books == (Books.Green,)
-    assert games[2].timeline[49].cast_name == (Characters.O,)
+    assert games[2].timeline[49].cast_name == (Characters.Irish,)
     assert (
         games[2].timeline[49].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -2867,7 +2867,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[50].action_test == ActionTest.NoAT
     assert games[2].timeline[50].actor == "sniper"
     assert games[2].timeline[50].books == (Books.Blue,)
-    assert games[2].timeline[50].cast_name == (Characters.A,)
+    assert games[2].timeline[50].cast_name == (Characters.Disney,)
     assert (
         games[2].timeline[50].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -2903,7 +2903,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[53].action_test == ActionTest.NoAT
     assert games[2].timeline[53].actor == "sniper"
     assert games[2].timeline[53].books == (None,)
-    assert games[2].timeline[53].cast_name == (Characters.B,)
+    assert games[2].timeline[53].cast_name == (Characters.Boots,)
     assert games[2].timeline[53].category == TimelineCategory.SniperLights
     assert games[2].timeline[53].elapsed_time == 26.69999999999999
     assert games[2].timeline[53].event == "marked suspicious."
@@ -2925,7 +2925,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[55].action_test == ActionTest.NoAT
     assert games[2].timeline[55].actor == "sniper"
     assert games[2].timeline[55].books == (None,)
-    assert games[2].timeline[55].cast_name == (Characters.A,)
+    assert games[2].timeline[55].cast_name == (Characters.Disney,)
     assert games[2].timeline[55].category == TimelineCategory.SniperLights
     assert games[2].timeline[55].elapsed_time == 41.5
     assert games[2].timeline[55].event == "marked suspicious."
@@ -2936,7 +2936,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[56].action_test == ActionTest.NoAT
     assert games[2].timeline[56].actor == "sniper"
     assert games[2].timeline[56].books == (None,)
-    assert games[2].timeline[56].cast_name == (Characters.D,)
+    assert games[2].timeline[56].cast_name == (Characters.Morgan,)
     assert games[2].timeline[56].category == TimelineCategory.SniperLights
     assert games[2].timeline[56].elapsed_time == 42.69999999999999
     assert games[2].timeline[56].event == "marked less suspicious."
@@ -2947,7 +2947,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[57].action_test == ActionTest.NoAT
     assert games[2].timeline[57].actor == "spy"
     assert games[2].timeline[57].books == (None,)
-    assert games[2].timeline[57].cast_name == (Characters.G,)
+    assert games[2].timeline[57].cast_name == (Characters.General,)
     assert games[2].timeline[57].category == TimelineCategory.Drinks
     assert games[2].timeline[57].elapsed_time == 44.099999999999994
     assert games[2].timeline[57].event == "took last sip of drink."
@@ -2958,7 +2958,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[58].action_test == ActionTest.NoAT
     assert games[2].timeline[58].actor == "sniper"
     assert games[2].timeline[58].books == (Books.Blue,)
-    assert games[2].timeline[58].cast_name == (Characters.U,)
+    assert games[2].timeline[58].cast_name == (Characters.Duke,)
     assert (
         games[2].timeline[58].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -2983,7 +2983,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[60].action_test == ActionTest.NoAT
     assert games[2].timeline[60].actor == "spy"
     assert games[2].timeline[60].books == (None,)
-    assert games[2].timeline[60].cast_name == (Characters.J,)
+    assert games[2].timeline[60].cast_name == (Characters.Queen,)
     assert games[2].timeline[60].category == TimelineCategory.Conversation
     assert games[2].timeline[60].elapsed_time == 64.9
     assert games[2].timeline[60].event == "spy joined conversation with double agent."
@@ -2994,7 +2994,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[61].action_test == ActionTest.NoAT
     assert games[2].timeline[61].actor == "spy"
     assert games[2].timeline[61].books == (None,)
-    assert games[2].timeline[61].cast_name == (Characters.J,)
+    assert games[2].timeline[61].cast_name == (Characters.Queen,)
     assert games[2].timeline[61].category == TimelineCategory.Conversation
     assert games[2].timeline[61].elapsed_time == 70.9
     assert games[2].timeline[61].event == "double agent left conversation with spy."
@@ -3005,7 +3005,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[62].action_test == ActionTest.NoAT
     assert games[2].timeline[62].actor == "spy"
     assert games[2].timeline[62].books == (None,)
-    assert games[2].timeline[62].cast_name == (Characters.G,)
+    assert games[2].timeline[62].cast_name == (Characters.General,)
     assert games[2].timeline[62].category == TimelineCategory.Drinks
     assert games[2].timeline[62].elapsed_time == 72.6
     assert games[2].timeline[62].event == "waiter offered drink."
@@ -3016,7 +3016,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[63].action_test == ActionTest.NoAT
     assert games[2].timeline[63].actor == "sniper"
     assert games[2].timeline[63].books == (Books.Blue,)
-    assert games[2].timeline[63].cast_name == (Characters.C,)
+    assert games[2].timeline[63].cast_name == (Characters.Taft,)
     assert (
         games[2].timeline[63].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -3030,7 +3030,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[64].action_test == ActionTest.NoAT
     assert games[2].timeline[64].actor == "spy"
     assert games[2].timeline[64].books == (None,)
-    assert games[2].timeline[64].cast_name == (Characters.G,)
+    assert games[2].timeline[64].cast_name == (Characters.General,)
     assert games[2].timeline[64].category == TimelineCategory.Drinks
     assert games[2].timeline[64].elapsed_time == 76.1
     assert games[2].timeline[64].event == "rejected drink from waiter."
@@ -3041,7 +3041,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[65].action_test == ActionTest.NoAT
     assert games[2].timeline[65].actor == "spy"
     assert games[2].timeline[65].books == (None,)
-    assert games[2].timeline[65].cast_name == (Characters.G,)
+    assert games[2].timeline[65].cast_name == (Characters.General,)
     assert games[2].timeline[65].category == TimelineCategory.Drinks
     assert games[2].timeline[65].elapsed_time == 76.1
     assert games[2].timeline[65].event == "waiter stopped offering drink."
@@ -3052,7 +3052,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[66].action_test == ActionTest.NoAT
     assert games[2].timeline[66].actor == "sniper"
     assert games[2].timeline[66].books == (None,)
-    assert games[2].timeline[66].cast_name == (Characters.E,)
+    assert games[2].timeline[66].cast_name == (Characters.Helen,)
     assert games[2].timeline[66].category == TimelineCategory.SniperLights
     assert games[2].timeline[66].elapsed_time == 93.5
     assert games[2].timeline[66].event == "marked suspicious."
@@ -3063,7 +3063,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[67].action_test == ActionTest.NoAT
     assert games[2].timeline[67].actor == "sniper"
     assert games[2].timeline[67].books == (None,)
-    assert games[2].timeline[67].cast_name == (Characters.C,)
+    assert games[2].timeline[67].cast_name == (Characters.Taft,)
     assert games[2].timeline[67].category == TimelineCategory.SniperLights
     assert games[2].timeline[67].elapsed_time == 94.30000000000001
     assert games[2].timeline[67].event == "marked suspicious."
@@ -3074,7 +3074,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[68].action_test == ActionTest.NoAT
     assert games[2].timeline[68].actor == "sniper"
     assert games[2].timeline[68].books == (None,)
-    assert games[2].timeline[68].cast_name == (Characters.E,)
+    assert games[2].timeline[68].cast_name == (Characters.Helen,)
     assert games[2].timeline[68].category == TimelineCategory.SniperLights
     assert games[2].timeline[68].elapsed_time == 94.6
     assert games[2].timeline[68].event == "marked neutral suspicion."
@@ -3085,7 +3085,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[69].action_test == ActionTest.NoAT
     assert games[2].timeline[69].actor == "sniper"
     assert games[2].timeline[69].books == (None,)
-    assert games[2].timeline[69].cast_name == (Characters.D,)
+    assert games[2].timeline[69].cast_name == (Characters.Morgan,)
     assert games[2].timeline[69].category == TimelineCategory.SniperLights
     assert games[2].timeline[69].elapsed_time == 97.4
     assert games[2].timeline[69].event == "marked neutral suspicion."
@@ -3096,7 +3096,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[70].action_test == ActionTest.NoAT
     assert games[2].timeline[70].actor == "sniper"
     assert games[2].timeline[70].books == (None,)
-    assert games[2].timeline[70].cast_name == (Characters.D,)
+    assert games[2].timeline[70].cast_name == (Characters.Morgan,)
     assert games[2].timeline[70].category == TimelineCategory.SniperLights
     assert games[2].timeline[70].elapsed_time == 98.0
     assert games[2].timeline[70].event == "marked less suspicious."
@@ -3118,7 +3118,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[72].action_test == ActionTest.NoAT
     assert games[2].timeline[72].actor == "spy"
     assert games[2].timeline[72].books == (None,)
-    assert games[2].timeline[72].cast_name == (Characters.L,)
+    assert games[2].timeline[72].cast_name == (Characters.Rocker,)
     assert games[2].timeline[72].category == TimelineCategory.NoCategory
     assert games[2].timeline[72].elapsed_time == 111.4
     assert games[2].timeline[72].event == "begin flirtation with seduction target."
@@ -3140,7 +3140,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[74].action_test == ActionTest.NoAT
     assert games[2].timeline[74].actor == "spy"
     assert games[2].timeline[74].books == (None,)
-    assert games[2].timeline[74].cast_name == (Characters.L,)
+    assert games[2].timeline[74].cast_name == (Characters.Rocker,)
     assert games[2].timeline[74].category == TimelineCategory.MissionPartial
     assert games[2].timeline[74].elapsed_time == 112.6
     assert games[2].timeline[74].event == "flirt with seduction target: 61%"
@@ -3151,7 +3151,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[75].action_test == ActionTest.NoAT
     assert games[2].timeline[75].actor == "spy"
     assert games[2].timeline[75].books == (None,)
-    assert games[2].timeline[75].cast_name == (Characters.J,)
+    assert games[2].timeline[75].cast_name == (Characters.Queen,)
     assert games[2].timeline[75].category == TimelineCategory.Conversation
     assert games[2].timeline[75].elapsed_time == 113.2
     assert games[2].timeline[75].event == "double agent joined conversation with spy."
@@ -3162,7 +3162,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[76].action_test == ActionTest.NoAT
     assert games[2].timeline[76].actor == "sniper"
     assert games[2].timeline[76].books == (Books.Blue,)
-    assert games[2].timeline[76].cast_name == (Characters.T,)
+    assert games[2].timeline[76].cast_name == (Characters.Sari,)
     assert (
         games[2].timeline[76].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -3176,7 +3176,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[77].action_test == ActionTest.NoAT
     assert games[2].timeline[77].actor == "spy"
     assert games[2].timeline[77].books == (None,)
-    assert games[2].timeline[77].cast_name == (Characters.G,)
+    assert games[2].timeline[77].cast_name == (Characters.General,)
     assert games[2].timeline[77].category == TimelineCategory.Drinks
     assert games[2].timeline[77].elapsed_time == 119.5
     assert games[2].timeline[77].event == "waiter offered drink."
@@ -3198,7 +3198,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[79].action_test == ActionTest.NoAT
     assert games[2].timeline[79].actor == "spy"
     assert games[2].timeline[79].books == (None,)
-    assert games[2].timeline[79].cast_name == (Characters.J,)
+    assert games[2].timeline[79].cast_name == (Characters.Queen,)
     assert games[2].timeline[79].category == TimelineCategory.Conversation
     assert games[2].timeline[79].elapsed_time == 122.7
     assert games[2].timeline[79].event == "spy left conversation with double agent."
@@ -3209,7 +3209,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[80].action_test == ActionTest.NoAT
     assert games[2].timeline[80].actor == "spy"
     assert games[2].timeline[80].books == (None,)
-    assert games[2].timeline[80].cast_name == (Characters.G,)
+    assert games[2].timeline[80].cast_name == (Characters.General,)
     assert games[2].timeline[80].category == TimelineCategory.Drinks
     assert games[2].timeline[80].elapsed_time == 122.7
     assert games[2].timeline[80].event == "rejected drink from waiter."
@@ -3220,7 +3220,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[81].action_test == ActionTest.NoAT
     assert games[2].timeline[81].actor == "spy"
     assert games[2].timeline[81].books == (None,)
-    assert games[2].timeline[81].cast_name == (Characters.G,)
+    assert games[2].timeline[81].cast_name == (Characters.General,)
     assert games[2].timeline[81].category == TimelineCategory.Drinks
     assert games[2].timeline[81].elapsed_time == 122.7
     assert games[2].timeline[81].event == "waiter stopped offering drink."
@@ -3242,7 +3242,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[83].action_test == ActionTest.NoAT
     assert games[2].timeline[83].actor == "sniper"
     assert games[2].timeline[83].books == (None,)
-    assert games[2].timeline[83].cast_name == (Characters.G,)
+    assert games[2].timeline[83].cast_name == (Characters.General,)
     assert games[2].timeline[83].category == TimelineCategory.SniperLights
     assert games[2].timeline[83].elapsed_time == 134.7
     assert games[2].timeline[83].event == "marked spy suspicious."
@@ -3253,7 +3253,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[84].action_test == ActionTest.NoAT
     assert games[2].timeline[84].actor == "sniper"
     assert games[2].timeline[84].books == (Books.Blue,)
-    assert games[2].timeline[84].cast_name == (Characters.G,)
+    assert games[2].timeline[84].cast_name == (Characters.General,)
     assert (
         games[2].timeline[84].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -3278,7 +3278,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[86].action_test == ActionTest.NoAT
     assert games[2].timeline[86].actor == "sniper"
     assert games[2].timeline[86].books == (None,)
-    assert games[2].timeline[86].cast_name == (Characters.G,)
+    assert games[2].timeline[86].cast_name == (Characters.General,)
     assert games[2].timeline[86].category == TimelineCategory.SniperLights
     assert games[2].timeline[86].elapsed_time == 137.0
     assert games[2].timeline[86].event == "marked spy neutral suspicion."
@@ -3311,7 +3311,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[89].action_test == ActionTest.NoAT
     assert games[2].timeline[89].actor == "sniper"
     assert games[2].timeline[89].books == (Books.Green,)
-    assert games[2].timeline[89].cast_name == (Characters.U,)
+    assert games[2].timeline[89].cast_name == (Characters.Duke,)
     assert (
         games[2].timeline[89].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -3395,7 +3395,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[95].action_test == ActionTest.NoAT
     assert games[2].timeline[95].actor == "sniper"
     assert games[2].timeline[95].books == (None,)
-    assert games[2].timeline[95].cast_name == (Characters.G,)
+    assert games[2].timeline[95].cast_name == (Characters.General,)
     assert games[2].timeline[95].category == TimelineCategory.SniperLights
     assert games[2].timeline[95].elapsed_time == 161.8
     assert games[2].timeline[95].event == "marked spy suspicious."
@@ -3420,7 +3420,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[97].action_test == ActionTest.NoAT
     assert games[2].timeline[97].actor == "sniper"
     assert games[2].timeline[97].books == (Books.Green,)
-    assert games[2].timeline[97].cast_name == (Characters.T,)
+    assert games[2].timeline[97].cast_name == (Characters.Sari,)
     assert (
         games[2].timeline[97].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -3456,7 +3456,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[100].action_test == ActionTest.NoAT
     assert games[2].timeline[100].actor == "spy"
     assert games[2].timeline[100].books == (None,)
-    assert games[2].timeline[100].cast_name == (Characters.J,)
+    assert games[2].timeline[100].cast_name == (Characters.Queen,)
     assert games[2].timeline[100].category == TimelineCategory.Conversation
     assert games[2].timeline[100].elapsed_time == 174.1
     assert games[2].timeline[100].event == "spy joined conversation with double agent."
@@ -3500,7 +3500,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[104].action_test == ActionTest.NoAT
     assert games[2].timeline[104].actor == "sniper"
     assert games[2].timeline[104].books == (None,)
-    assert games[2].timeline[104].cast_name == (Characters.Q,)
+    assert games[2].timeline[104].cast_name == (Characters.Salmon,)
     assert games[2].timeline[104].category == TimelineCategory.SniperLights
     assert games[2].timeline[104].elapsed_time == 175.6
     assert games[2].timeline[104].event == "marked suspicious."
@@ -3522,7 +3522,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[106].action_test == ActionTest.NoAT
     assert games[2].timeline[106].actor == "spy"
     assert games[2].timeline[106].books == (None,)
-    assert games[2].timeline[106].cast_name == (Characters.J,)
+    assert games[2].timeline[106].cast_name == (Characters.Queen,)
     assert games[2].timeline[106].category == TimelineCategory.MissionComplete
     assert games[2].timeline[106].elapsed_time == 176.7
     assert games[2].timeline[106].event == "double agent contacted."
@@ -3533,7 +3533,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[107].action_test == ActionTest.NoAT
     assert games[2].timeline[107].actor == "sniper"
     assert games[2].timeline[107].books == (None,)
-    assert games[2].timeline[107].cast_name == (Characters.Q,)
+    assert games[2].timeline[107].cast_name == (Characters.Salmon,)
     assert games[2].timeline[107].category == TimelineCategory.SniperLights
     assert games[2].timeline[107].elapsed_time == 177.0
     assert games[2].timeline[107].event == "marked less suspicious."
@@ -3544,7 +3544,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[108].action_test == ActionTest.NoAT
     assert games[2].timeline[108].actor == "sniper"
     assert games[2].timeline[108].books == (None,)
-    assert games[2].timeline[108].cast_name == (Characters.H,)
+    assert games[2].timeline[108].cast_name == (Characters.Oprah,)
     assert games[2].timeline[108].category == TimelineCategory.SniperLights
     assert games[2].timeline[108].elapsed_time == 177.3
     assert games[2].timeline[108].event == "marked less suspicious."
@@ -3555,7 +3555,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[109].action_test == ActionTest.NoAT
     assert games[2].timeline[109].actor == "sniper"
     assert games[2].timeline[109].books == (None,)
-    assert games[2].timeline[109].cast_name == (Characters.E,)
+    assert games[2].timeline[109].cast_name == (Characters.Helen,)
     assert games[2].timeline[109].category == TimelineCategory.SniperLights
     assert games[2].timeline[109].elapsed_time == 178.4
     assert games[2].timeline[109].event == "marked less suspicious."
@@ -3566,7 +3566,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[110].action_test == ActionTest.NoAT
     assert games[2].timeline[110].actor == "sniper"
     assert games[2].timeline[110].books == (None,)
-    assert games[2].timeline[110].cast_name == (Characters.R,)
+    assert games[2].timeline[110].cast_name == (Characters.Teal,)
     assert games[2].timeline[110].category == TimelineCategory.SniperLights
     assert games[2].timeline[110].elapsed_time == 178.8
     assert games[2].timeline[110].event == "marked less suspicious."
@@ -3577,7 +3577,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[111].action_test == ActionTest.NoAT
     assert games[2].timeline[111].actor == "sniper"
     assert games[2].timeline[111].books == (None,)
-    assert games[2].timeline[111].cast_name == (Characters.M,)
+    assert games[2].timeline[111].cast_name == (Characters.Plain,)
     assert games[2].timeline[111].category == TimelineCategory.SniperLights
     assert games[2].timeline[111].elapsed_time == 179.7
     assert games[2].timeline[111].event == "marked less suspicious."
@@ -3588,7 +3588,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[112].action_test == ActionTest.NoAT
     assert games[2].timeline[112].actor == "sniper"
     assert games[2].timeline[112].books == (None,)
-    assert games[2].timeline[112].cast_name == (Characters.T,)
+    assert games[2].timeline[112].cast_name == (Characters.Sari,)
     assert games[2].timeline[112].category == TimelineCategory.SniperLights
     assert games[2].timeline[112].elapsed_time == 181.0
     assert games[2].timeline[112].event == "marked less suspicious."
@@ -3599,7 +3599,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[113].action_test == ActionTest.NoAT
     assert games[2].timeline[113].actor == "sniper"
     assert games[2].timeline[113].books == (None,)
-    assert games[2].timeline[113].cast_name == (Characters.C,)
+    assert games[2].timeline[113].cast_name == (Characters.Taft,)
     assert games[2].timeline[113].category == TimelineCategory.SniperLights
     assert games[2].timeline[113].elapsed_time == 181.8
     assert games[2].timeline[113].event == "marked less suspicious."
@@ -3610,7 +3610,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[114].action_test == ActionTest.NoAT
     assert games[2].timeline[114].actor == "sniper"
     assert games[2].timeline[114].books == (None,)
-    assert games[2].timeline[114].cast_name == (Characters.B,)
+    assert games[2].timeline[114].cast_name == (Characters.Boots,)
     assert games[2].timeline[114].category == TimelineCategory.SniperLights
     assert games[2].timeline[114].elapsed_time == 182.4
     assert games[2].timeline[114].event == "marked less suspicious."
@@ -3621,7 +3621,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[115].action_test == ActionTest.NoAT
     assert games[2].timeline[115].actor == "sniper"
     assert games[2].timeline[115].books == (None,)
-    assert games[2].timeline[115].cast_name == (Characters.P,)
+    assert games[2].timeline[115].cast_name == (Characters.Carlos,)
     assert games[2].timeline[115].category == TimelineCategory.SniperLights
     assert games[2].timeline[115].elapsed_time == 183.7
     assert games[2].timeline[115].event == "marked less suspicious."
@@ -3632,7 +3632,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[116].action_test == ActionTest.NoAT
     assert games[2].timeline[116].actor == "sniper"
     assert games[2].timeline[116].books == (None,)
-    assert games[2].timeline[116].cast_name == (Characters.K,)
+    assert games[2].timeline[116].cast_name == (Characters.Sikh,)
     assert games[2].timeline[116].category == TimelineCategory.SniperLights
     assert games[2].timeline[116].elapsed_time == 184.7
     assert games[2].timeline[116].event == "marked less suspicious."
@@ -3643,7 +3643,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[117].action_test == ActionTest.NoAT
     assert games[2].timeline[117].actor == "sniper"
     assert games[2].timeline[117].books == (None,)
-    assert games[2].timeline[117].cast_name == (Characters.U,)
+    assert games[2].timeline[117].cast_name == (Characters.Duke,)
     assert games[2].timeline[117].category == TimelineCategory.SniperLights
     assert games[2].timeline[117].elapsed_time == 185.2
     assert games[2].timeline[117].event == "marked less suspicious."
@@ -3654,7 +3654,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[118].action_test == ActionTest.NoAT
     assert games[2].timeline[118].actor == "sniper"
     assert games[2].timeline[118].books == (None,)
-    assert games[2].timeline[118].cast_name == (Characters.U,)
+    assert games[2].timeline[118].cast_name == (Characters.Duke,)
     assert games[2].timeline[118].category == TimelineCategory.SniperLights
     assert games[2].timeline[118].elapsed_time == 186.0
     assert games[2].timeline[118].event == "marked suspicious."
@@ -3665,7 +3665,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[119].action_test == ActionTest.NoAT
     assert games[2].timeline[119].actor == "sniper"
     assert games[2].timeline[119].books == (None,)
-    assert games[2].timeline[119].cast_name == (Characters.S,)
+    assert games[2].timeline[119].cast_name == (Characters.Smallman,)
     assert games[2].timeline[119].category == TimelineCategory.SniperLights
     assert games[2].timeline[119].elapsed_time == 188.7
     assert games[2].timeline[119].event == "marked suspicious."
@@ -3687,7 +3687,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[121].action_test == ActionTest.NoAT
     assert games[2].timeline[121].actor == "spy"
     assert games[2].timeline[121].books == (None,)
-    assert games[2].timeline[121].cast_name == (Characters.L,)
+    assert games[2].timeline[121].cast_name == (Characters.Rocker,)
     assert games[2].timeline[121].category == TimelineCategory.NoCategory
     assert games[2].timeline[121].elapsed_time == 192.5
     assert games[2].timeline[121].event == "begin flirtation with seduction target."
@@ -3709,7 +3709,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[123].action_test == ActionTest.NoAT
     assert games[2].timeline[123].actor == "spy"
     assert games[2].timeline[123].books == (None,)
-    assert games[2].timeline[123].cast_name == (Characters.J,)
+    assert games[2].timeline[123].cast_name == (Characters.Queen,)
     assert games[2].timeline[123].category == TimelineCategory.Conversation
     assert games[2].timeline[123].elapsed_time == 192.5
     assert games[2].timeline[123].event == "spy left conversation with double agent."
@@ -3731,7 +3731,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[125].action_test == ActionTest.NoAT
     assert games[2].timeline[125].actor == "spy"
     assert games[2].timeline[125].books == (None,)
-    assert games[2].timeline[125].cast_name == (Characters.L,)
+    assert games[2].timeline[125].cast_name == (Characters.Rocker,)
     assert games[2].timeline[125].category == TimelineCategory.NoCategory
     assert games[2].timeline[125].elapsed_time == 192.5
     assert games[2].timeline[125].event == "seduction canceled."
@@ -3764,7 +3764,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[128].action_test == ActionTest.NoAT
     assert games[2].timeline[128].actor == "spy"
     assert games[2].timeline[128].books == (None,)
-    assert games[2].timeline[128].cast_name == (Characters.L,)
+    assert games[2].timeline[128].cast_name == (Characters.Rocker,)
     assert games[2].timeline[128].category == TimelineCategory.NoCategory
     assert games[2].timeline[128].elapsed_time == 205.2
     assert games[2].timeline[128].event == "begin flirtation with seduction target."
@@ -3786,7 +3786,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[130].action_test == ActionTest.NoAT
     assert games[2].timeline[130].actor == "spy"
     assert games[2].timeline[130].books == (None,)
-    assert games[2].timeline[130].cast_name == (Characters.L,)
+    assert games[2].timeline[130].cast_name == (Characters.Rocker,)
     assert games[2].timeline[130].category == TimelineCategory.MissionPartial
     assert games[2].timeline[130].elapsed_time == 206.0
     assert games[2].timeline[130].event == "flirt with seduction target: 95%"
@@ -3797,7 +3797,7 @@ def test_parse_timeline_parallel_normal(
     assert games[2].timeline[131].action_test == ActionTest.NoAT
     assert games[2].timeline[131].actor == "spy"
     assert games[2].timeline[131].books == (None,)
-    assert games[2].timeline[131].cast_name == (Characters.G,)
+    assert games[2].timeline[131].cast_name == (Characters.General,)
     assert games[2].timeline[131].category == TimelineCategory.Drinks
     assert games[2].timeline[131].elapsed_time == 210.1
     assert games[2].timeline[131].event == "request drink from waiter."
@@ -3855,7 +3855,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[0].action_test == ActionTest.NoAT
     assert games[3].timeline[0].actor == "spy"
     assert games[3].timeline[0].books == (None,)
-    assert games[3].timeline[0].cast_name == (Characters.M,)
+    assert games[3].timeline[0].cast_name == (Characters.Plain,)
     assert games[3].timeline[0].category == TimelineCategory.Cast
     assert games[3].timeline[0].elapsed_time == 0.0
     assert games[3].timeline[0].event == "spy cast."
@@ -3866,7 +3866,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[1].action_test == ActionTest.NoAT
     assert games[3].timeline[1].actor == "spy"
     assert games[3].timeline[1].books == (None,)
-    assert games[3].timeline[1].cast_name == (Characters.C,)
+    assert games[3].timeline[1].cast_name == (Characters.Taft,)
     assert games[3].timeline[1].category == TimelineCategory.Cast
     assert games[3].timeline[1].elapsed_time == 0.0
     assert games[3].timeline[1].event == "ambassador cast."
@@ -3877,7 +3877,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[2].action_test == ActionTest.NoAT
     assert games[3].timeline[2].actor == "spy"
     assert games[3].timeline[2].books == (None,)
-    assert games[3].timeline[2].cast_name == (Characters.A,)
+    assert games[3].timeline[2].cast_name == (Characters.Disney,)
     assert games[3].timeline[2].category == TimelineCategory.Cast
     assert games[3].timeline[2].elapsed_time == 0.0
     assert games[3].timeline[2].event == "double agent cast."
@@ -3888,7 +3888,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[3].action_test == ActionTest.NoAT
     assert games[3].timeline[3].actor == "spy"
     assert games[3].timeline[3].books == (None,)
-    assert games[3].timeline[3].cast_name == (Characters.U,)
+    assert games[3].timeline[3].cast_name == (Characters.Duke,)
     assert games[3].timeline[3].category == TimelineCategory.Cast
     assert games[3].timeline[3].elapsed_time == 0.0
     assert games[3].timeline[3].event == "suspected double agent cast."
@@ -3899,7 +3899,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[4].action_test == ActionTest.NoAT
     assert games[3].timeline[4].actor == "spy"
     assert games[3].timeline[4].books == (None,)
-    assert games[3].timeline[4].cast_name == (Characters.S,)
+    assert games[3].timeline[4].cast_name == (Characters.Smallman,)
     assert games[3].timeline[4].category == TimelineCategory.Cast
     assert games[3].timeline[4].elapsed_time == 0.0
     assert games[3].timeline[4].event == "seduction target cast."
@@ -3910,7 +3910,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[5].action_test == ActionTest.NoAT
     assert games[3].timeline[5].actor == "spy"
     assert games[3].timeline[5].books == (None,)
-    assert games[3].timeline[5].cast_name == (Characters.B,)
+    assert games[3].timeline[5].cast_name == (Characters.Boots,)
     assert games[3].timeline[5].category == TimelineCategory.Cast
     assert games[3].timeline[5].elapsed_time == 0.0
     assert games[3].timeline[5].event == "civilian cast."
@@ -3921,7 +3921,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[6].action_test == ActionTest.NoAT
     assert games[3].timeline[6].actor == "spy"
     assert games[3].timeline[6].books == (None,)
-    assert games[3].timeline[6].cast_name == (Characters.I,)
+    assert games[3].timeline[6].cast_name == (Characters.Wheels,)
     assert games[3].timeline[6].category == TimelineCategory.Cast
     assert games[3].timeline[6].elapsed_time == 0.0
     assert games[3].timeline[6].event == "civilian cast."
@@ -3932,7 +3932,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[7].action_test == ActionTest.NoAT
     assert games[3].timeline[7].actor == "spy"
     assert games[3].timeline[7].books == (None,)
-    assert games[3].timeline[7].cast_name == (Characters.K,)
+    assert games[3].timeline[7].cast_name == (Characters.Sikh,)
     assert games[3].timeline[7].category == TimelineCategory.Cast
     assert games[3].timeline[7].elapsed_time == 0.0
     assert games[3].timeline[7].event == "civilian cast."
@@ -3943,7 +3943,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[8].action_test == ActionTest.NoAT
     assert games[3].timeline[8].actor == "spy"
     assert games[3].timeline[8].books == (None,)
-    assert games[3].timeline[8].cast_name == (Characters.N,)
+    assert games[3].timeline[8].cast_name == (Characters.Bling,)
     assert games[3].timeline[8].category == TimelineCategory.Cast
     assert games[3].timeline[8].elapsed_time == 0.0
     assert games[3].timeline[8].event == "civilian cast."
@@ -3954,7 +3954,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[9].action_test == ActionTest.NoAT
     assert games[3].timeline[9].actor == "spy"
     assert games[3].timeline[9].books == (None,)
-    assert games[3].timeline[9].cast_name == (Characters.E,)
+    assert games[3].timeline[9].cast_name == (Characters.Helen,)
     assert games[3].timeline[9].category == TimelineCategory.Cast
     assert games[3].timeline[9].elapsed_time == 0.0
     assert games[3].timeline[9].event == "civilian cast."
@@ -3965,7 +3965,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[10].action_test == ActionTest.NoAT
     assert games[3].timeline[10].actor == "spy"
     assert games[3].timeline[10].books == (None,)
-    assert games[3].timeline[10].cast_name == (Characters.Q,)
+    assert games[3].timeline[10].cast_name == (Characters.Salmon,)
     assert games[3].timeline[10].category == TimelineCategory.Cast
     assert games[3].timeline[10].elapsed_time == 0.0
     assert games[3].timeline[10].event == "civilian cast."
@@ -3976,7 +3976,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[11].action_test == ActionTest.NoAT
     assert games[3].timeline[11].actor == "spy"
     assert games[3].timeline[11].books == (None,)
-    assert games[3].timeline[11].cast_name == (Characters.J,)
+    assert games[3].timeline[11].cast_name == (Characters.Queen,)
     assert games[3].timeline[11].category == TimelineCategory.Cast
     assert games[3].timeline[11].elapsed_time == 0.0
     assert games[3].timeline[11].event == "civilian cast."
@@ -3987,7 +3987,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[12].action_test == ActionTest.NoAT
     assert games[3].timeline[12].actor == "spy"
     assert games[3].timeline[12].books == (None,)
-    assert games[3].timeline[12].cast_name == (Characters.L,)
+    assert games[3].timeline[12].cast_name == (Characters.Rocker,)
     assert games[3].timeline[12].category == TimelineCategory.Cast
     assert games[3].timeline[12].elapsed_time == 0.0
     assert games[3].timeline[12].event == "civilian cast."
@@ -3998,7 +3998,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[13].action_test == ActionTest.NoAT
     assert games[3].timeline[13].actor == "spy"
     assert games[3].timeline[13].books == (None,)
-    assert games[3].timeline[13].cast_name == (Characters.G,)
+    assert games[3].timeline[13].cast_name == (Characters.General,)
     assert games[3].timeline[13].category == TimelineCategory.Cast
     assert games[3].timeline[13].elapsed_time == 0.0
     assert games[3].timeline[13].event == "civilian cast."
@@ -4009,7 +4009,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[14].action_test == ActionTest.NoAT
     assert games[3].timeline[14].actor == "spy"
     assert games[3].timeline[14].books == (None,)
-    assert games[3].timeline[14].cast_name == (Characters.O,)
+    assert games[3].timeline[14].cast_name == (Characters.Irish,)
     assert games[3].timeline[14].category == TimelineCategory.Cast
     assert games[3].timeline[14].elapsed_time == 0.0
     assert games[3].timeline[14].event == "civilian cast."
@@ -4020,7 +4020,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[15].action_test == ActionTest.NoAT
     assert games[3].timeline[15].actor == "spy"
     assert games[3].timeline[15].books == (None,)
-    assert games[3].timeline[15].cast_name == (Characters.D,)
+    assert games[3].timeline[15].cast_name == (Characters.Morgan,)
     assert games[3].timeline[15].category == TimelineCategory.Cast
     assert games[3].timeline[15].elapsed_time == 0.0
     assert games[3].timeline[15].event == "civilian cast."
@@ -4031,7 +4031,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[16].action_test == ActionTest.NoAT
     assert games[3].timeline[16].actor == "spy"
     assert games[3].timeline[16].books == (None,)
-    assert games[3].timeline[16].cast_name == (Characters.P,)
+    assert games[3].timeline[16].cast_name == (Characters.Carlos,)
     assert games[3].timeline[16].category == TimelineCategory.Cast
     assert games[3].timeline[16].elapsed_time == 0.0
     assert games[3].timeline[16].event == "civilian cast."
@@ -4042,7 +4042,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[17].action_test == ActionTest.NoAT
     assert games[3].timeline[17].actor == "spy"
     assert games[3].timeline[17].books == (None,)
-    assert games[3].timeline[17].cast_name == (Characters.T,)
+    assert games[3].timeline[17].cast_name == (Characters.Sari,)
     assert games[3].timeline[17].category == TimelineCategory.Cast
     assert games[3].timeline[17].elapsed_time == 0.0
     assert games[3].timeline[17].event == "civilian cast."
@@ -4053,7 +4053,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[18].action_test == ActionTest.NoAT
     assert games[3].timeline[18].actor == "spy"
     assert games[3].timeline[18].books == (None,)
-    assert games[3].timeline[18].cast_name == (Characters.R,)
+    assert games[3].timeline[18].cast_name == (Characters.Teal,)
     assert games[3].timeline[18].category == TimelineCategory.Cast
     assert games[3].timeline[18].elapsed_time == 0.0
     assert games[3].timeline[18].event == "civilian cast."
@@ -4064,7 +4064,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[19].action_test == ActionTest.NoAT
     assert games[3].timeline[19].actor == "spy"
     assert games[3].timeline[19].books == (None,)
-    assert games[3].timeline[19].cast_name == (Characters.F,)
+    assert games[3].timeline[19].cast_name == (Characters.Alice,)
     assert games[3].timeline[19].category == TimelineCategory.Cast
     assert games[3].timeline[19].elapsed_time == 0.0
     assert games[3].timeline[19].event == "civilian cast."
@@ -4075,7 +4075,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[20].action_test == ActionTest.NoAT
     assert games[3].timeline[20].actor == "spy"
     assert games[3].timeline[20].books == (None,)
-    assert games[3].timeline[20].cast_name == (Characters.H,)
+    assert games[3].timeline[20].cast_name == (Characters.Oprah,)
     assert games[3].timeline[20].category == TimelineCategory.Cast
     assert games[3].timeline[20].elapsed_time == 0.0
     assert games[3].timeline[20].event == "civilian cast."
@@ -4273,7 +4273,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[38].action_test == ActionTest.NoAT
     assert games[3].timeline[38].actor == "sniper"
     assert games[3].timeline[38].books == (None,)
-    assert games[3].timeline[38].cast_name == (Characters.Q,)
+    assert games[3].timeline[38].cast_name == (Characters.Salmon,)
     assert games[3].timeline[38].category == TimelineCategory.SniperLights
     assert games[3].timeline[38].elapsed_time == 3.4000000000000057
     assert games[3].timeline[38].event == "marked suspicious."
@@ -4284,7 +4284,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[39].action_test == ActionTest.NoAT
     assert games[3].timeline[39].actor == "sniper"
     assert games[3].timeline[39].books == (None,)
-    assert games[3].timeline[39].cast_name == (Characters.C,)
+    assert games[3].timeline[39].cast_name == (Characters.Taft,)
     assert games[3].timeline[39].category == TimelineCategory.SniperLights
     assert games[3].timeline[39].elapsed_time == 4.099999999999994
     assert games[3].timeline[39].event == "marked suspicious."
@@ -4306,7 +4306,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[41].action_test == ActionTest.NoAT
     assert games[3].timeline[41].actor == "sniper"
     assert games[3].timeline[41].books == (None,)
-    assert games[3].timeline[41].cast_name == (Characters.Q,)
+    assert games[3].timeline[41].cast_name == (Characters.Salmon,)
     assert games[3].timeline[41].category == TimelineCategory.SniperLights
     assert games[3].timeline[41].elapsed_time == 5.0
     assert games[3].timeline[41].event == "marked neutral suspicion."
@@ -4328,7 +4328,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[43].action_test == ActionTest.NoAT
     assert games[3].timeline[43].actor == "sniper"
     assert games[3].timeline[43].books == (None,)
-    assert games[3].timeline[43].cast_name == (Characters.U,)
+    assert games[3].timeline[43].cast_name == (Characters.Duke,)
     assert games[3].timeline[43].category == TimelineCategory.SniperLights
     assert games[3].timeline[43].elapsed_time == 10.300000000000011
     assert games[3].timeline[43].event == "marked less suspicious."
@@ -4372,7 +4372,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[47].action_test == ActionTest.NoAT
     assert games[3].timeline[47].actor == "spy"
     assert games[3].timeline[47].books == (None,)
-    assert games[3].timeline[47].cast_name == (Characters.M,)
+    assert games[3].timeline[47].cast_name == (Characters.Plain,)
     assert games[3].timeline[47].category == TimelineCategory.Drinks
     assert games[3].timeline[47].elapsed_time == 20.400000000000006
     assert games[3].timeline[47].event == "took last sip of drink."
@@ -4383,7 +4383,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[48].action_test == ActionTest.NoAT
     assert games[3].timeline[48].actor == "sniper"
     assert games[3].timeline[48].books == (None,)
-    assert games[3].timeline[48].cast_name == (Characters.E,)
+    assert games[3].timeline[48].cast_name == (Characters.Helen,)
     assert games[3].timeline[48].category == TimelineCategory.SniperLights
     assert games[3].timeline[48].elapsed_time == 23.400000000000006
     assert games[3].timeline[48].event == "marked less suspicious."
@@ -4405,7 +4405,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[50].action_test == ActionTest.NoAT
     assert games[3].timeline[50].actor == "spy"
     assert games[3].timeline[50].books == (None,)
-    assert games[3].timeline[50].cast_name == (Characters.S,)
+    assert games[3].timeline[50].cast_name == (Characters.Smallman,)
     assert games[3].timeline[50].category == TimelineCategory.NoCategory
     assert games[3].timeline[50].elapsed_time == 26.69999999999999
     assert games[3].timeline[50].event == "begin flirtation with seduction target."
@@ -4427,7 +4427,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[52].action_test == ActionTest.NoAT
     assert games[3].timeline[52].actor == "spy"
     assert games[3].timeline[52].books == (None,)
-    assert games[3].timeline[52].cast_name == (Characters.S,)
+    assert games[3].timeline[52].cast_name == (Characters.Smallman,)
     assert games[3].timeline[52].category == TimelineCategory.MissionPartial
     assert games[3].timeline[52].elapsed_time == 27.5
     assert games[3].timeline[52].event == "flirt with seduction target: 22%"
@@ -4438,7 +4438,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[53].action_test == ActionTest.NoAT
     assert games[3].timeline[53].actor == "sniper"
     assert games[3].timeline[53].books == (None,)
-    assert games[3].timeline[53].cast_name == (Characters.A,)
+    assert games[3].timeline[53].cast_name == (Characters.Disney,)
     assert games[3].timeline[53].category == TimelineCategory.SniperLights
     assert games[3].timeline[53].elapsed_time == 32.5
     assert games[3].timeline[53].event == "marked less suspicious."
@@ -4471,7 +4471,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[56].action_test == ActionTest.NoAT
     assert games[3].timeline[56].actor == "spy"
     assert games[3].timeline[56].books == (None,)
-    assert games[3].timeline[56].cast_name == (Characters.S,)
+    assert games[3].timeline[56].cast_name == (Characters.Smallman,)
     assert games[3].timeline[56].category == TimelineCategory.NoCategory
     assert games[3].timeline[56].elapsed_time == 50.19999999999999
     assert games[3].timeline[56].event == "begin flirtation with seduction target."
@@ -4493,7 +4493,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[58].action_test == ActionTest.NoAT
     assert games[3].timeline[58].actor == "spy"
     assert games[3].timeline[58].books == (None,)
-    assert games[3].timeline[58].cast_name == (Characters.S,)
+    assert games[3].timeline[58].cast_name == (Characters.Smallman,)
     assert games[3].timeline[58].category == TimelineCategory.MissionPartial
     assert games[3].timeline[58].elapsed_time == 50.900000000000006
     assert games[3].timeline[58].event == "flirt with seduction target: 58%"
@@ -4606,7 +4606,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[68].action_test == ActionTest.NoAT
     assert games[3].timeline[68].actor == "sniper"
     assert games[3].timeline[68].books == (None,)
-    assert games[3].timeline[68].cast_name == (Characters.B,)
+    assert games[3].timeline[68].cast_name == (Characters.Boots,)
     assert games[3].timeline[68].category == TimelineCategory.SniperLights
     assert games[3].timeline[68].elapsed_time == 95.19999999999999
     assert games[3].timeline[68].event == "marked suspicious."
@@ -4698,7 +4698,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[75].action_test == ActionTest.NoAT
     assert games[3].timeline[75].actor == "sniper"
     assert games[3].timeline[75].books == (None,)
-    assert games[3].timeline[75].cast_name == (Characters.S,)
+    assert games[3].timeline[75].cast_name == (Characters.Smallman,)
     assert games[3].timeline[75].category == TimelineCategory.SniperLights
     assert games[3].timeline[75].elapsed_time == 113.3
     assert games[3].timeline[75].event == "marked suspicious."
@@ -4709,7 +4709,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[76].action_test == ActionTest.NoAT
     assert games[3].timeline[76].actor == "sniper"
     assert games[3].timeline[76].books == (None,)
-    assert games[3].timeline[76].cast_name == (Characters.M,)
+    assert games[3].timeline[76].cast_name == (Characters.Plain,)
     assert games[3].timeline[76].category == TimelineCategory.SniperLights
     assert games[3].timeline[76].elapsed_time == 113.8
     assert games[3].timeline[76].event == "marked spy suspicious."
@@ -4720,7 +4720,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[77].action_test == ActionTest.NoAT
     assert games[3].timeline[77].actor == "sniper"
     assert games[3].timeline[77].books == (None,)
-    assert games[3].timeline[77].cast_name == (Characters.F,)
+    assert games[3].timeline[77].cast_name == (Characters.Alice,)
     assert games[3].timeline[77].category == TimelineCategory.SniperLights
     assert games[3].timeline[77].elapsed_time == 114.1
     assert games[3].timeline[77].event == "marked suspicious."
@@ -4756,7 +4756,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[80].action_test == ActionTest.NoAT
     assert games[3].timeline[80].actor == "spy"
     assert games[3].timeline[80].books == (None,)
-    assert games[3].timeline[80].cast_name == (Characters.M,)
+    assert games[3].timeline[80].cast_name == (Characters.Plain,)
     assert games[3].timeline[80].category == TimelineCategory.Drinks
     assert games[3].timeline[80].elapsed_time == 133.7
     assert games[3].timeline[80].event == "waiter offered drink."
@@ -4767,7 +4767,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[81].action_test == ActionTest.NoAT
     assert games[3].timeline[81].actor == "spy"
     assert games[3].timeline[81].books == (None,)
-    assert games[3].timeline[81].cast_name == (Characters.M,)
+    assert games[3].timeline[81].cast_name == (Characters.Plain,)
     assert games[3].timeline[81].category == TimelineCategory.Drinks
     assert games[3].timeline[81].elapsed_time == 135.6
     assert games[3].timeline[81].event == "rejected drink from waiter."
@@ -4778,7 +4778,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[82].action_test == ActionTest.NoAT
     assert games[3].timeline[82].actor == "spy"
     assert games[3].timeline[82].books == (None,)
-    assert games[3].timeline[82].cast_name == (Characters.M,)
+    assert games[3].timeline[82].cast_name == (Characters.Plain,)
     assert games[3].timeline[82].category == TimelineCategory.Drinks
     assert games[3].timeline[82].elapsed_time == 135.6
     assert games[3].timeline[82].event == "waiter stopped offering drink."
@@ -4811,7 +4811,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[85].action_test == ActionTest.NoAT
     assert games[3].timeline[85].actor == "spy"
     assert games[3].timeline[85].books == (None,)
-    assert games[3].timeline[85].cast_name == (Characters.S,)
+    assert games[3].timeline[85].cast_name == (Characters.Smallman,)
     assert games[3].timeline[85].category == TimelineCategory.NoCategory
     assert games[3].timeline[85].elapsed_time == 141.8
     assert games[3].timeline[85].event == "begin flirtation with seduction target."
@@ -4833,7 +4833,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[87].action_test == ActionTest.NoAT
     assert games[3].timeline[87].actor == "spy"
     assert games[3].timeline[87].books == (None,)
-    assert games[3].timeline[87].cast_name == (Characters.S,)
+    assert games[3].timeline[87].cast_name == (Characters.Smallman,)
     assert games[3].timeline[87].category == TimelineCategory.MissionPartial
     assert games[3].timeline[87].elapsed_time == 142.7
     assert games[3].timeline[87].event == "flirt with seduction target: 92%"
@@ -4844,7 +4844,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[88].action_test == ActionTest.NoAT
     assert games[3].timeline[88].actor == "spy"
     assert games[3].timeline[88].books == (None,)
-    assert games[3].timeline[88].cast_name == (Characters.A,)
+    assert games[3].timeline[88].cast_name == (Characters.Disney,)
     assert games[3].timeline[88].category == TimelineCategory.Conversation
     assert games[3].timeline[88].elapsed_time == 152.7
     assert games[3].timeline[88].event == "double agent joined conversation with spy."
@@ -4899,7 +4899,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[93].action_test == ActionTest.NoAT
     assert games[3].timeline[93].actor == "spy"
     assert games[3].timeline[93].books == (None,)
-    assert games[3].timeline[93].cast_name == (Characters.A,)
+    assert games[3].timeline[93].cast_name == (Characters.Disney,)
     assert games[3].timeline[93].category == TimelineCategory.MissionComplete
     assert games[3].timeline[93].elapsed_time == 156.6
     assert games[3].timeline[93].event == "double agent contacted."
@@ -4910,7 +4910,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[94].action_test == ActionTest.NoAT
     assert games[3].timeline[94].actor == "sniper"
     assert games[3].timeline[94].books == (None,)
-    assert games[3].timeline[94].cast_name == (Characters.D,)
+    assert games[3].timeline[94].cast_name == (Characters.Morgan,)
     assert games[3].timeline[94].category == TimelineCategory.SniperLights
     assert games[3].timeline[94].elapsed_time == 157.5
     assert games[3].timeline[94].event == "marked less suspicious."
@@ -4921,7 +4921,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[95].action_test == ActionTest.NoAT
     assert games[3].timeline[95].actor == "sniper"
     assert games[3].timeline[95].books == (None,)
-    assert games[3].timeline[95].cast_name == (Characters.Q,)
+    assert games[3].timeline[95].cast_name == (Characters.Salmon,)
     assert games[3].timeline[95].category == TimelineCategory.SniperLights
     assert games[3].timeline[95].elapsed_time == 158.5
     assert games[3].timeline[95].event == "marked less suspicious."
@@ -4932,7 +4932,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[96].action_test == ActionTest.NoAT
     assert games[3].timeline[96].actor == "sniper"
     assert games[3].timeline[96].books == (None,)
-    assert games[3].timeline[96].cast_name == (Characters.H,)
+    assert games[3].timeline[96].cast_name == (Characters.Oprah,)
     assert games[3].timeline[96].category == TimelineCategory.SniperLights
     assert games[3].timeline[96].elapsed_time == 158.9
     assert games[3].timeline[96].event == "marked less suspicious."
@@ -4943,7 +4943,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[97].action_test == ActionTest.NoAT
     assert games[3].timeline[97].actor == "sniper"
     assert games[3].timeline[97].books == (None,)
-    assert games[3].timeline[97].cast_name == (Characters.N,)
+    assert games[3].timeline[97].cast_name == (Characters.Bling,)
     assert games[3].timeline[97].category == TimelineCategory.SniperLights
     assert games[3].timeline[97].elapsed_time == 161.5
     assert games[3].timeline[97].event == "marked less suspicious."
@@ -4954,7 +4954,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[98].action_test == ActionTest.NoAT
     assert games[3].timeline[98].actor == "spy"
     assert games[3].timeline[98].books == (None,)
-    assert games[3].timeline[98].cast_name == (Characters.M,)
+    assert games[3].timeline[98].cast_name == (Characters.Plain,)
     assert games[3].timeline[98].category == TimelineCategory.Drinks
     assert games[3].timeline[98].elapsed_time == 161.9
     assert games[3].timeline[98].event == "request drink from waiter."
@@ -4965,7 +4965,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[99].action_test == ActionTest.NoAT
     assert games[3].timeline[99].actor == "sniper"
     assert games[3].timeline[99].books == (None,)
-    assert games[3].timeline[99].cast_name == (Characters.E,)
+    assert games[3].timeline[99].cast_name == (Characters.Helen,)
     assert games[3].timeline[99].category == TimelineCategory.SniperLights
     assert games[3].timeline[99].elapsed_time == 163.9
     assert games[3].timeline[99].event == "marked neutral suspicion."
@@ -4976,7 +4976,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[100].action_test == ActionTest.NoAT
     assert games[3].timeline[100].actor == "sniper"
     assert games[3].timeline[100].books == (None,)
-    assert games[3].timeline[100].cast_name == (Characters.J,)
+    assert games[3].timeline[100].cast_name == (Characters.Queen,)
     assert games[3].timeline[100].category == TimelineCategory.SniperLights
     assert games[3].timeline[100].elapsed_time == 165.1
     assert games[3].timeline[100].event == "marked less suspicious."
@@ -4987,7 +4987,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[101].action_test == ActionTest.NoAT
     assert games[3].timeline[101].actor == "sniper"
     assert games[3].timeline[101].books == (None,)
-    assert games[3].timeline[101].cast_name == (Characters.K,)
+    assert games[3].timeline[101].cast_name == (Characters.Sikh,)
     assert games[3].timeline[101].category == TimelineCategory.SniperLights
     assert games[3].timeline[101].elapsed_time == 165.4
     assert games[3].timeline[101].event == "marked less suspicious."
@@ -4998,7 +4998,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[102].action_test == ActionTest.NoAT
     assert games[3].timeline[102].actor == "spy"
     assert games[3].timeline[102].books == (None,)
-    assert games[3].timeline[102].cast_name == (Characters.M,)
+    assert games[3].timeline[102].cast_name == (Characters.Plain,)
     assert games[3].timeline[102].category == TimelineCategory.Drinks
     assert games[3].timeline[102].elapsed_time == 167.7
     assert games[3].timeline[102].event == "waiter offered drink."
@@ -5009,7 +5009,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[103].action_test == ActionTest.NoAT
     assert games[3].timeline[103].actor == "spy"
     assert games[3].timeline[103].books == (None,)
-    assert games[3].timeline[103].cast_name == (Characters.M,)
+    assert games[3].timeline[103].cast_name == (Characters.Plain,)
     assert games[3].timeline[103].category == TimelineCategory.Drinks
     assert games[3].timeline[103].elapsed_time == 172.7
     assert games[3].timeline[103].event == "got drink from waiter."
@@ -5020,7 +5020,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[104].action_test == ActionTest.NoAT
     assert games[3].timeline[104].actor == "spy"
     assert games[3].timeline[104].books == (None,)
-    assert games[3].timeline[104].cast_name == (Characters.M,)
+    assert games[3].timeline[104].cast_name == (Characters.Plain,)
     assert games[3].timeline[104].category == TimelineCategory.Drinks
     assert games[3].timeline[104].elapsed_time == 172.7
     assert games[3].timeline[104].event == "waiter stopped offering drink."
@@ -5078,7 +5078,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[109].action_test == ActionTest.NoAT
     assert games[3].timeline[109].actor == "spy"
     assert games[3].timeline[109].books == (None,)
-    assert games[3].timeline[109].cast_name == (Characters.M,)
+    assert games[3].timeline[109].cast_name == (Characters.Plain,)
     assert games[3].timeline[109].category == TimelineCategory.Drinks
     assert games[3].timeline[109].elapsed_time == 185.0
     assert games[3].timeline[109].event == "sipped drink."
@@ -5111,7 +5111,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[112].action_test == ActionTest.NoAT
     assert games[3].timeline[112].actor == "spy"
     assert games[3].timeline[112].books == (None,)
-    assert games[3].timeline[112].cast_name == (Characters.S,)
+    assert games[3].timeline[112].cast_name == (Characters.Smallman,)
     assert games[3].timeline[112].category == TimelineCategory.NoCategory
     assert games[3].timeline[112].elapsed_time == 189.3
     assert games[3].timeline[112].event == "begin flirtation with seduction target."
@@ -5133,7 +5133,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[114].action_test == ActionTest.NoAT
     assert games[3].timeline[114].actor == "spy"
     assert games[3].timeline[114].books == (None,)
-    assert games[3].timeline[114].cast_name == (Characters.S,)
+    assert games[3].timeline[114].cast_name == (Characters.Smallman,)
     assert games[3].timeline[114].category == TimelineCategory.MissionPartial
     assert games[3].timeline[114].elapsed_time == 190.7
     assert games[3].timeline[114].event == "flirt with seduction target: 100%"
@@ -5144,7 +5144,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[115].action_test == ActionTest.NoAT
     assert games[3].timeline[115].actor == "spy"
     assert games[3].timeline[115].books == (None,)
-    assert games[3].timeline[115].cast_name == (Characters.S,)
+    assert games[3].timeline[115].cast_name == (Characters.Smallman,)
     assert games[3].timeline[115].category == TimelineCategory.MissionComplete
     assert games[3].timeline[115].elapsed_time == 190.7
     assert games[3].timeline[115].event == "target seduced."
@@ -5166,7 +5166,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[117].action_test == ActionTest.NoAT
     assert games[3].timeline[117].actor == "spy"
     assert games[3].timeline[117].books == (None,)
-    assert games[3].timeline[117].cast_name == (Characters.A,)
+    assert games[3].timeline[117].cast_name == (Characters.Disney,)
     assert games[3].timeline[117].category == TimelineCategory.Conversation
     assert games[3].timeline[117].elapsed_time == 203.1
     assert games[3].timeline[117].event == "spy left conversation with double agent."
@@ -5177,7 +5177,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[118].action_test == ActionTest.NoAT
     assert games[3].timeline[118].actor == "spy"
     assert games[3].timeline[118].books == (None,)
-    assert games[3].timeline[118].cast_name == (Characters.M,)
+    assert games[3].timeline[118].cast_name == (Characters.Plain,)
     assert games[3].timeline[118].category == TimelineCategory.Drinks
     assert games[3].timeline[118].elapsed_time == 209.2
     assert games[3].timeline[118].event == "gulped drink."
@@ -5288,7 +5288,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[127].action_test == ActionTest.NoAT
     assert games[3].timeline[127].actor == "sniper"
     assert games[3].timeline[127].books == (None,)
-    assert games[3].timeline[127].cast_name == (Characters.L,)
+    assert games[3].timeline[127].cast_name == (Characters.Rocker,)
     assert games[3].timeline[127].category == TimelineCategory.SniperShot
     assert games[3].timeline[127].elapsed_time == 225.0
     assert games[3].timeline[127].event == "took shot."
@@ -5299,7 +5299,7 @@ def test_parse_timeline_parallel_normal(
     assert games[3].timeline[128].action_test == ActionTest.NoAT
     assert games[3].timeline[128].actor == "game"
     assert games[3].timeline[128].books == (None,)
-    assert games[3].timeline[128].cast_name == (Characters.L,)
+    assert games[3].timeline[128].cast_name == (Characters.Rocker,)
     assert games[3].timeline[128].category == TimelineCategory.GameEnd
     assert games[3].timeline[128].elapsed_time == 228.3
     assert games[3].timeline[128].event == "sniper shot civilian."
@@ -5313,7 +5313,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[0].action_test == ActionTest.NoAT
     assert games[4].timeline[0].actor == "spy"
     assert games[4].timeline[0].books == (None,)
-    assert games[4].timeline[0].cast_name == (Characters.D,)
+    assert games[4].timeline[0].cast_name == (Characters.Morgan,)
     assert games[4].timeline[0].category == TimelineCategory.Cast
     assert games[4].timeline[0].elapsed_time == 0.0
     assert games[4].timeline[0].event == "spy cast."
@@ -5324,7 +5324,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[1].action_test == ActionTest.NoAT
     assert games[4].timeline[1].actor == "spy"
     assert games[4].timeline[1].books == (None,)
-    assert games[4].timeline[1].cast_name == (Characters.I,)
+    assert games[4].timeline[1].cast_name == (Characters.Wheels,)
     assert games[4].timeline[1].category == TimelineCategory.Cast
     assert games[4].timeline[1].elapsed_time == 0.0
     assert games[4].timeline[1].event == "ambassador cast."
@@ -5335,7 +5335,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[2].action_test == ActionTest.NoAT
     assert games[4].timeline[2].actor == "spy"
     assert games[4].timeline[2].books == (None,)
-    assert games[4].timeline[2].cast_name == (Characters.C,)
+    assert games[4].timeline[2].cast_name == (Characters.Taft,)
     assert games[4].timeline[2].category == TimelineCategory.Cast
     assert games[4].timeline[2].elapsed_time == 0.0
     assert games[4].timeline[2].event == "double agent cast."
@@ -5346,7 +5346,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[3].action_test == ActionTest.NoAT
     assert games[4].timeline[3].actor == "spy"
     assert games[4].timeline[3].books == (None,)
-    assert games[4].timeline[3].cast_name == (Characters.T,)
+    assert games[4].timeline[3].cast_name == (Characters.Sari,)
     assert games[4].timeline[3].category == TimelineCategory.Cast
     assert games[4].timeline[3].elapsed_time == 0.0
     assert games[4].timeline[3].event == "seduction target cast."
@@ -5357,7 +5357,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[4].action_test == ActionTest.NoAT
     assert games[4].timeline[4].actor == "spy"
     assert games[4].timeline[4].books == (None,)
-    assert games[4].timeline[4].cast_name == (Characters.S,)
+    assert games[4].timeline[4].cast_name == (Characters.Smallman,)
     assert games[4].timeline[4].category == TimelineCategory.Cast
     assert games[4].timeline[4].elapsed_time == 0.0
     assert games[4].timeline[4].event == "civilian cast."
@@ -5368,7 +5368,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[5].action_test == ActionTest.NoAT
     assert games[4].timeline[5].actor == "spy"
     assert games[4].timeline[5].books == (None,)
-    assert games[4].timeline[5].cast_name == (Characters.O,)
+    assert games[4].timeline[5].cast_name == (Characters.Irish,)
     assert games[4].timeline[5].category == TimelineCategory.Cast
     assert games[4].timeline[5].elapsed_time == 0.0
     assert games[4].timeline[5].event == "civilian cast."
@@ -5379,7 +5379,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[6].action_test == ActionTest.NoAT
     assert games[4].timeline[6].actor == "spy"
     assert games[4].timeline[6].books == (None,)
-    assert games[4].timeline[6].cast_name == (Characters.G,)
+    assert games[4].timeline[6].cast_name == (Characters.General,)
     assert games[4].timeline[6].category == TimelineCategory.Cast
     assert games[4].timeline[6].elapsed_time == 0.0
     assert games[4].timeline[6].event == "civilian cast."
@@ -5500,7 +5500,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[17].action_test == ActionTest.NoAT
     assert games[4].timeline[17].actor == "spy"
     assert games[4].timeline[17].books == (None,)
-    assert games[4].timeline[17].cast_name == (Characters.T,)
+    assert games[4].timeline[17].cast_name == (Characters.Sari,)
     assert games[4].timeline[17].category == TimelineCategory.NoCategory
     assert games[4].timeline[17].elapsed_time == 2.9000000000000057
     assert games[4].timeline[17].event == "begin flirtation with seduction target."
@@ -5511,7 +5511,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[18].action_test == ActionTest.NoAT
     assert games[4].timeline[18].actor == "spy"
     assert games[4].timeline[18].books == (None,)
-    assert games[4].timeline[18].cast_name == (Characters.C,)
+    assert games[4].timeline[18].cast_name == (Characters.Taft,)
     assert games[4].timeline[18].category == TimelineCategory.Conversation
     assert games[4].timeline[18].elapsed_time == 3.200000000000003
     assert games[4].timeline[18].event == "double agent joined conversation with spy."
@@ -5533,7 +5533,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[20].action_test == ActionTest.NoAT
     assert games[4].timeline[20].actor == "spy"
     assert games[4].timeline[20].books == (None,)
-    assert games[4].timeline[20].cast_name == (Characters.T,)
+    assert games[4].timeline[20].cast_name == (Characters.Sari,)
     assert games[4].timeline[20].category == TimelineCategory.MissionPartial
     assert games[4].timeline[20].elapsed_time == 3.9000000000000057
     assert games[4].timeline[20].event == "flirt with seduction target: 34%"
@@ -5544,7 +5544,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[21].action_test == ActionTest.NoAT
     assert games[4].timeline[21].actor == "sniper"
     assert games[4].timeline[21].books == (None,)
-    assert games[4].timeline[21].cast_name == (Characters.I,)
+    assert games[4].timeline[21].cast_name == (Characters.Wheels,)
     assert games[4].timeline[21].category == TimelineCategory.SniperLights
     assert games[4].timeline[21].elapsed_time == 6.400000000000006
     assert games[4].timeline[21].event == "marked suspicious."
@@ -5577,7 +5577,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[24].action_test == ActionTest.NoAT
     assert games[4].timeline[24].actor == "spy"
     assert games[4].timeline[24].books == (None,)
-    assert games[4].timeline[24].cast_name == (Characters.C,)
+    assert games[4].timeline[24].cast_name == (Characters.Taft,)
     assert games[4].timeline[24].category == TimelineCategory.Conversation
     assert games[4].timeline[24].elapsed_time == 11.799999999999997
     assert games[4].timeline[24].event == "double agent left conversation with spy."
@@ -5588,7 +5588,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[25].action_test == ActionTest.NoAT
     assert games[4].timeline[25].actor == "sniper"
     assert games[4].timeline[25].books == (None,)
-    assert games[4].timeline[25].cast_name == (Characters.D,)
+    assert games[4].timeline[25].cast_name == (Characters.Morgan,)
     assert games[4].timeline[25].category == TimelineCategory.SniperLights
     assert games[4].timeline[25].elapsed_time == 12.099999999999994
     assert games[4].timeline[25].event == "marked spy suspicious."
@@ -5599,7 +5599,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[26].action_test == ActionTest.NoAT
     assert games[4].timeline[26].actor == "sniper"
     assert games[4].timeline[26].books == (None,)
-    assert games[4].timeline[26].cast_name == (Characters.S,)
+    assert games[4].timeline[26].cast_name == (Characters.Smallman,)
     assert games[4].timeline[26].category == TimelineCategory.SniperLights
     assert games[4].timeline[26].elapsed_time == 22.799999999999997
     assert games[4].timeline[26].event == "marked suspicious."
@@ -5610,7 +5610,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[27].action_test == ActionTest.NoAT
     assert games[4].timeline[27].actor == "spy"
     assert games[4].timeline[27].books == (None,)
-    assert games[4].timeline[27].cast_name == (Characters.C,)
+    assert games[4].timeline[27].cast_name == (Characters.Taft,)
     assert games[4].timeline[27].category == TimelineCategory.Conversation
     assert games[4].timeline[27].elapsed_time == 24.200000000000003
     assert games[4].timeline[27].event == "double agent joined conversation with spy."
@@ -5621,7 +5621,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[28].action_test == ActionTest.NoAT
     assert games[4].timeline[28].actor == "spy"
     assert games[4].timeline[28].books == (None,)
-    assert games[4].timeline[28].cast_name == (Characters.D,)
+    assert games[4].timeline[28].cast_name == (Characters.Morgan,)
     assert games[4].timeline[28].category == TimelineCategory.Drinks
     assert games[4].timeline[28].elapsed_time == 29.200000000000003
     assert games[4].timeline[28].event == "waiter offered drink."
@@ -5632,7 +5632,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[29].action_test == ActionTest.NoAT
     assert games[4].timeline[29].actor == "spy"
     assert games[4].timeline[29].books == (None,)
-    assert games[4].timeline[29].cast_name == (Characters.D,)
+    assert games[4].timeline[29].cast_name == (Characters.Morgan,)
     assert games[4].timeline[29].category == TimelineCategory.Drinks
     assert games[4].timeline[29].elapsed_time == 34.7
     assert games[4].timeline[29].event == "got drink from waiter."
@@ -5643,7 +5643,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[30].action_test == ActionTest.NoAT
     assert games[4].timeline[30].actor == "spy"
     assert games[4].timeline[30].books == (None,)
-    assert games[4].timeline[30].cast_name == (Characters.D,)
+    assert games[4].timeline[30].cast_name == (Characters.Morgan,)
     assert games[4].timeline[30].category == TimelineCategory.Drinks
     assert games[4].timeline[30].elapsed_time == 34.7
     assert games[4].timeline[30].event == "waiter stopped offering drink."
@@ -5698,7 +5698,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[35].action_test == ActionTest.NoAT
     assert games[4].timeline[35].actor == "spy"
     assert games[4].timeline[35].books == (None,)
-    assert games[4].timeline[35].cast_name == (Characters.C,)
+    assert games[4].timeline[35].cast_name == (Characters.Taft,)
     assert games[4].timeline[35].category == TimelineCategory.MissionComplete
     assert games[4].timeline[35].elapsed_time == 42.099999999999994
     assert games[4].timeline[35].event == "double agent contacted."
@@ -5709,7 +5709,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[36].action_test == ActionTest.NoAT
     assert games[4].timeline[36].actor == "spy"
     assert games[4].timeline[36].books == (None,)
-    assert games[4].timeline[36].cast_name == (Characters.C,)
+    assert games[4].timeline[36].cast_name == (Characters.Taft,)
     assert games[4].timeline[36].category == TimelineCategory.Conversation
     assert games[4].timeline[36].elapsed_time == 48.5
     assert games[4].timeline[36].event == "double agent left conversation with spy."
@@ -5742,7 +5742,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[39].action_test == ActionTest.NoAT
     assert games[4].timeline[39].actor == "spy"
     assert games[4].timeline[39].books == (None,)
-    assert games[4].timeline[39].cast_name == (Characters.T,)
+    assert games[4].timeline[39].cast_name == (Characters.Sari,)
     assert games[4].timeline[39].category == TimelineCategory.NoCategory
     assert games[4].timeline[39].elapsed_time == 50.2
     assert games[4].timeline[39].event == "begin flirtation with seduction target."
@@ -5764,7 +5764,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[41].action_test == ActionTest.NoAT
     assert games[4].timeline[41].actor == "spy"
     assert games[4].timeline[41].books == (None,)
-    assert games[4].timeline[41].cast_name == (Characters.T,)
+    assert games[4].timeline[41].cast_name == (Characters.Sari,)
     assert games[4].timeline[41].category == TimelineCategory.MissionPartial
     assert games[4].timeline[41].elapsed_time == 50.900000000000006
     assert games[4].timeline[41].event == "flirt with seduction target: 85%"
@@ -5786,7 +5786,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[43].action_test == ActionTest.NoAT
     assert games[4].timeline[43].actor == "spy"
     assert games[4].timeline[43].books == (None,)
-    assert games[4].timeline[43].cast_name == (Characters.D,)
+    assert games[4].timeline[43].cast_name == (Characters.Morgan,)
     assert games[4].timeline[43].category == TimelineCategory.Drinks
     assert games[4].timeline[43].elapsed_time == 70.0
     assert games[4].timeline[43].event == "sipped drink."
@@ -5808,7 +5808,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[45].action_test == ActionTest.NoAT
     assert games[4].timeline[45].actor == "sniper"
     assert games[4].timeline[45].books == (None,)
-    assert games[4].timeline[45].cast_name == (Characters.T,)
+    assert games[4].timeline[45].cast_name == (Characters.Sari,)
     assert games[4].timeline[45].category == TimelineCategory.SniperLights
     assert games[4].timeline[45].elapsed_time == 74.1
     assert games[4].timeline[45].event == "marked less suspicious."
@@ -5841,7 +5841,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[48].action_test == ActionTest.NoAT
     assert games[4].timeline[48].actor == "sniper"
     assert games[4].timeline[48].books == (None,)
-    assert games[4].timeline[48].cast_name == (Characters.S,)
+    assert games[4].timeline[48].cast_name == (Characters.Smallman,)
     assert games[4].timeline[48].category == TimelineCategory.SniperShot
     assert games[4].timeline[48].elapsed_time == 93.9
     assert games[4].timeline[48].event == "took shot."
@@ -5863,7 +5863,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[50].action_test == ActionTest.NoAT
     assert games[4].timeline[50].actor == "spy"
     assert games[4].timeline[50].books == (None,)
-    assert games[4].timeline[50].cast_name == (Characters.C,)
+    assert games[4].timeline[50].cast_name == (Characters.Taft,)
     assert games[4].timeline[50].category == TimelineCategory.Conversation
     assert games[4].timeline[50].elapsed_time == 94.8
     assert games[4].timeline[50].event == "spy joined conversation with double agent."
@@ -5874,7 +5874,7 @@ def test_parse_timeline_parallel_normal(
     assert games[4].timeline[51].action_test == ActionTest.NoAT
     assert games[4].timeline[51].actor == "game"
     assert games[4].timeline[51].books == (None,)
-    assert games[4].timeline[51].cast_name == (Characters.S,)
+    assert games[4].timeline[51].cast_name == (Characters.Smallman,)
     assert games[4].timeline[51].category == TimelineCategory.GameEnd
     assert games[4].timeline[51].elapsed_time == 97.0
     assert games[4].timeline[51].event == "sniper shot civilian."
@@ -5888,7 +5888,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[0].action_test == ActionTest.NoAT
     assert games[5].timeline[0].actor == "spy"
     assert games[5].timeline[0].books == (None,)
-    assert games[5].timeline[0].cast_name == (Characters.G,)
+    assert games[5].timeline[0].cast_name == (Characters.General,)
     assert games[5].timeline[0].category == TimelineCategory.Cast
     assert games[5].timeline[0].elapsed_time == 0.0
     assert games[5].timeline[0].event == "spy cast."
@@ -5899,7 +5899,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[1].action_test == ActionTest.NoAT
     assert games[5].timeline[1].actor == "spy"
     assert games[5].timeline[1].books == (None,)
-    assert games[5].timeline[1].cast_name == (Characters.C,)
+    assert games[5].timeline[1].cast_name == (Characters.Taft,)
     assert games[5].timeline[1].category == TimelineCategory.Cast
     assert games[5].timeline[1].elapsed_time == 0.0
     assert games[5].timeline[1].event == "ambassador cast."
@@ -5910,7 +5910,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[2].action_test == ActionTest.NoAT
     assert games[5].timeline[2].actor == "spy"
     assert games[5].timeline[2].books == (None,)
-    assert games[5].timeline[2].cast_name == (Characters.T,)
+    assert games[5].timeline[2].cast_name == (Characters.Sari,)
     assert games[5].timeline[2].category == TimelineCategory.Cast
     assert games[5].timeline[2].elapsed_time == 0.0
     assert games[5].timeline[2].event == "double agent cast."
@@ -5921,7 +5921,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[3].action_test == ActionTest.NoAT
     assert games[5].timeline[3].actor == "spy"
     assert games[5].timeline[3].books == (None,)
-    assert games[5].timeline[3].cast_name == (Characters.S,)
+    assert games[5].timeline[3].cast_name == (Characters.Smallman,)
     assert games[5].timeline[3].category == TimelineCategory.Cast
     assert games[5].timeline[3].elapsed_time == 0.0
     assert games[5].timeline[3].event == "seduction target cast."
@@ -5932,7 +5932,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[4].action_test == ActionTest.NoAT
     assert games[5].timeline[4].actor == "spy"
     assert games[5].timeline[4].books == (None,)
-    assert games[5].timeline[4].cast_name == (Characters.J,)
+    assert games[5].timeline[4].cast_name == (Characters.Queen,)
     assert games[5].timeline[4].category == TimelineCategory.Cast
     assert games[5].timeline[4].elapsed_time == 0.0
     assert games[5].timeline[4].event == "civilian cast."
@@ -5943,7 +5943,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[5].action_test == ActionTest.NoAT
     assert games[5].timeline[5].actor == "spy"
     assert games[5].timeline[5].books == (None,)
-    assert games[5].timeline[5].cast_name == (Characters.D,)
+    assert games[5].timeline[5].cast_name == (Characters.Morgan,)
     assert games[5].timeline[5].category == TimelineCategory.Cast
     assert games[5].timeline[5].elapsed_time == 0.0
     assert games[5].timeline[5].event == "civilian cast."
@@ -5954,7 +5954,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[6].action_test == ActionTest.NoAT
     assert games[5].timeline[6].actor == "spy"
     assert games[5].timeline[6].books == (None,)
-    assert games[5].timeline[6].cast_name == (Characters.O,)
+    assert games[5].timeline[6].cast_name == (Characters.Irish,)
     assert games[5].timeline[6].category == TimelineCategory.Cast
     assert games[5].timeline[6].elapsed_time == 0.0
     assert games[5].timeline[6].event == "civilian cast."
@@ -6042,7 +6042,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[14].action_test == ActionTest.NoAT
     assert games[5].timeline[14].actor == "sniper"
     assert games[5].timeline[14].books == (None,)
-    assert games[5].timeline[14].cast_name == (Characters.C,)
+    assert games[5].timeline[14].cast_name == (Characters.Taft,)
     assert games[5].timeline[14].category == TimelineCategory.SniperLights
     assert games[5].timeline[14].elapsed_time == 0.29999999999999716
     assert games[5].timeline[14].event == "marked less suspicious."
@@ -6053,7 +6053,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[15].action_test == ActionTest.NoAT
     assert games[5].timeline[15].actor == "sniper"
     assert games[5].timeline[15].books == (None,)
-    assert games[5].timeline[15].cast_name == (Characters.G,)
+    assert games[5].timeline[15].cast_name == (Characters.General,)
     assert games[5].timeline[15].category == TimelineCategory.SniperLights
     assert games[5].timeline[15].elapsed_time == 6.200000000000003
     assert games[5].timeline[15].event == "marked spy suspicious."
@@ -6064,7 +6064,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[16].action_test == ActionTest.NoAT
     assert games[5].timeline[16].actor == "spy"
     assert games[5].timeline[16].books == (None,)
-    assert games[5].timeline[16].cast_name == (Characters.G,)
+    assert games[5].timeline[16].cast_name == (Characters.General,)
     assert games[5].timeline[16].category == TimelineCategory.Drinks
     assert games[5].timeline[16].elapsed_time == 13.700000000000003
     assert games[5].timeline[16].event == "waiter offered drink."
@@ -6086,7 +6086,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[18].action_test == ActionTest.NoAT
     assert games[5].timeline[18].actor == "spy"
     assert games[5].timeline[18].books == (None,)
-    assert games[5].timeline[18].cast_name == (Characters.G,)
+    assert games[5].timeline[18].cast_name == (Characters.General,)
     assert games[5].timeline[18].category == TimelineCategory.Drinks
     assert games[5].timeline[18].elapsed_time == 17.900000000000006
     assert games[5].timeline[18].event == "rejected drink from waiter."
@@ -6097,7 +6097,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[19].action_test == ActionTest.NoAT
     assert games[5].timeline[19].actor == "spy"
     assert games[5].timeline[19].books == (None,)
-    assert games[5].timeline[19].cast_name == (Characters.G,)
+    assert games[5].timeline[19].cast_name == (Characters.General,)
     assert games[5].timeline[19].category == TimelineCategory.Drinks
     assert games[5].timeline[19].elapsed_time == 17.900000000000006
     assert games[5].timeline[19].event == "waiter stopped offering drink."
@@ -6108,7 +6108,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[20].action_test == ActionTest.NoAT
     assert games[5].timeline[20].actor == "sniper"
     assert games[5].timeline[20].books == (None,)
-    assert games[5].timeline[20].cast_name == (Characters.S,)
+    assert games[5].timeline[20].cast_name == (Characters.Smallman,)
     assert games[5].timeline[20].category == TimelineCategory.SniperLights
     assert games[5].timeline[20].elapsed_time == 20.5
     assert games[5].timeline[20].event == "marked suspicious."
@@ -6119,7 +6119,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[21].action_test == ActionTest.NoAT
     assert games[5].timeline[21].actor == "sniper"
     assert games[5].timeline[21].books == (None,)
-    assert games[5].timeline[21].cast_name == (Characters.D,)
+    assert games[5].timeline[21].cast_name == (Characters.Morgan,)
     assert games[5].timeline[21].category == TimelineCategory.SniperLights
     assert games[5].timeline[21].elapsed_time == 23.099999999999994
     assert games[5].timeline[21].event == "marked suspicious."
@@ -6141,7 +6141,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[23].action_test == ActionTest.NoAT
     assert games[5].timeline[23].actor == "spy"
     assert games[5].timeline[23].books == (None,)
-    assert games[5].timeline[23].cast_name == (Characters.S,)
+    assert games[5].timeline[23].cast_name == (Characters.Smallman,)
     assert games[5].timeline[23].category == TimelineCategory.NoCategory
     assert games[5].timeline[23].elapsed_time == 27.099999999999994
     assert games[5].timeline[23].event == "begin flirtation with seduction target."
@@ -6163,7 +6163,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[25].action_test == ActionTest.NoAT
     assert games[5].timeline[25].actor == "spy"
     assert games[5].timeline[25].books == (None,)
-    assert games[5].timeline[25].cast_name == (Characters.S,)
+    assert games[5].timeline[25].cast_name == (Characters.Smallman,)
     assert games[5].timeline[25].category == TimelineCategory.MissionPartial
     assert games[5].timeline[25].elapsed_time == 27.900000000000006
     assert games[5].timeline[25].event == "flirt with seduction target: 32%"
@@ -6174,7 +6174,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[26].action_test == ActionTest.NoAT
     assert games[5].timeline[26].actor == "spy"
     assert games[5].timeline[26].books == (None,)
-    assert games[5].timeline[26].cast_name == (Characters.T,)
+    assert games[5].timeline[26].cast_name == (Characters.Sari,)
     assert games[5].timeline[26].category == TimelineCategory.Conversation
     assert games[5].timeline[26].elapsed_time == 35.2
     assert games[5].timeline[26].event == "double agent joined conversation with spy."
@@ -6196,7 +6196,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[28].action_test == ActionTest.NoAT
     assert games[5].timeline[28].actor == "spy"
     assert games[5].timeline[28].books == (None,)
-    assert games[5].timeline[28].cast_name == (Characters.T,)
+    assert games[5].timeline[28].cast_name == (Characters.Sari,)
     assert games[5].timeline[28].category == TimelineCategory.Conversation
     assert games[5].timeline[28].elapsed_time == 45.8
     assert games[5].timeline[28].event == "spy left conversation with double agent."
@@ -6254,7 +6254,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[33].action_test == ActionTest.NoAT
     assert games[5].timeline[33].actor == "spy"
     assert games[5].timeline[33].books == (None,)
-    assert games[5].timeline[33].cast_name == (Characters.G,)
+    assert games[5].timeline[33].cast_name == (Characters.General,)
     assert games[5].timeline[33].category == TimelineCategory.Watch
     assert games[5].timeline[33].elapsed_time == 56.4
     assert games[5].timeline[33].event == "watch checked."
@@ -6287,7 +6287,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[36].action_test == ActionTest.NoAT
     assert games[5].timeline[36].actor == "spy"
     assert games[5].timeline[36].books == (None,)
-    assert games[5].timeline[36].cast_name == (Characters.S,)
+    assert games[5].timeline[36].cast_name == (Characters.Smallman,)
     assert games[5].timeline[36].category == TimelineCategory.NoCategory
     assert games[5].timeline[36].elapsed_time == 64.3
     assert games[5].timeline[36].event == "begin flirtation with seduction target."
@@ -6309,7 +6309,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[38].action_test == ActionTest.NoAT
     assert games[5].timeline[38].actor == "spy"
     assert games[5].timeline[38].books == (None,)
-    assert games[5].timeline[38].cast_name == (Characters.S,)
+    assert games[5].timeline[38].cast_name == (Characters.Smallman,)
     assert games[5].timeline[38].category == TimelineCategory.NoCategory
     assert games[5].timeline[38].elapsed_time == 66.3
     assert games[5].timeline[38].event == "seduction canceled."
@@ -6331,7 +6331,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[40].action_test == ActionTest.NoAT
     assert games[5].timeline[40].actor == "spy"
     assert games[5].timeline[40].books == (None,)
-    assert games[5].timeline[40].cast_name == (Characters.T,)
+    assert games[5].timeline[40].cast_name == (Characters.Sari,)
     assert games[5].timeline[40].category == TimelineCategory.Conversation
     assert games[5].timeline[40].elapsed_time == 73.2
     assert games[5].timeline[40].event == "spy joined conversation with double agent."
@@ -6386,7 +6386,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[45].action_test == ActionTest.NoAT
     assert games[5].timeline[45].actor == "spy"
     assert games[5].timeline[45].books == (None,)
-    assert games[5].timeline[45].cast_name == (Characters.T,)
+    assert games[5].timeline[45].cast_name == (Characters.Sari,)
     assert games[5].timeline[45].category == TimelineCategory.MissionComplete
     assert games[5].timeline[45].elapsed_time == 97.4
     assert games[5].timeline[45].event == "double agent contacted."
@@ -6397,7 +6397,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[46].action_test == ActionTest.NoAT
     assert games[5].timeline[46].actor == "sniper"
     assert games[5].timeline[46].books == (None,)
-    assert games[5].timeline[46].cast_name == (Characters.J,)
+    assert games[5].timeline[46].cast_name == (Characters.Queen,)
     assert games[5].timeline[46].category == TimelineCategory.SniperLights
     assert games[5].timeline[46].elapsed_time == 98.4
     assert games[5].timeline[46].event == "marked less suspicious."
@@ -6408,7 +6408,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[47].action_test == ActionTest.NoAT
     assert games[5].timeline[47].actor == "sniper"
     assert games[5].timeline[47].books == (None,)
-    assert games[5].timeline[47].cast_name == (Characters.G,)
+    assert games[5].timeline[47].cast_name == (Characters.General,)
     assert games[5].timeline[47].category == TimelineCategory.SniperShot
     assert games[5].timeline[47].elapsed_time == 105.4
     assert games[5].timeline[47].event == "took shot."
@@ -6419,7 +6419,7 @@ def test_parse_timeline_parallel_normal(
     assert games[5].timeline[48].action_test == ActionTest.NoAT
     assert games[5].timeline[48].actor == "game"
     assert games[5].timeline[48].books == (None,)
-    assert games[5].timeline[48].cast_name == (Characters.G,)
+    assert games[5].timeline[48].cast_name == (Characters.General,)
     assert games[5].timeline[48].category == TimelineCategory.GameEnd
     assert games[5].timeline[48].elapsed_time == 110.0
     assert games[5].timeline[48].event == "sniper shot spy."
@@ -6433,7 +6433,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[0].action_test == ActionTest.NoAT
     assert games[6].timeline[0].actor == "spy"
     assert games[6].timeline[0].books == (None,)
-    assert games[6].timeline[0].cast_name == (Characters.O,)
+    assert games[6].timeline[0].cast_name == (Characters.Irish,)
     assert games[6].timeline[0].category == TimelineCategory.Cast
     assert games[6].timeline[0].elapsed_time == 0.0
     assert games[6].timeline[0].event == "spy cast."
@@ -6444,7 +6444,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[1].action_test == ActionTest.NoAT
     assert games[6].timeline[1].actor == "spy"
     assert games[6].timeline[1].books == (None,)
-    assert games[6].timeline[1].cast_name == (Characters.I,)
+    assert games[6].timeline[1].cast_name == (Characters.Wheels,)
     assert games[6].timeline[1].category == TimelineCategory.Cast
     assert games[6].timeline[1].elapsed_time == 0.0
     assert games[6].timeline[1].event == "ambassador cast."
@@ -6455,7 +6455,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[2].action_test == ActionTest.NoAT
     assert games[6].timeline[2].actor == "spy"
     assert games[6].timeline[2].books == (None,)
-    assert games[6].timeline[2].cast_name == (Characters.C,)
+    assert games[6].timeline[2].cast_name == (Characters.Taft,)
     assert games[6].timeline[2].category == TimelineCategory.Cast
     assert games[6].timeline[2].elapsed_time == 0.0
     assert games[6].timeline[2].event == "double agent cast."
@@ -6466,7 +6466,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[3].action_test == ActionTest.NoAT
     assert games[6].timeline[3].actor == "spy"
     assert games[6].timeline[3].books == (None,)
-    assert games[6].timeline[3].cast_name == (Characters.D,)
+    assert games[6].timeline[3].cast_name == (Characters.Morgan,)
     assert games[6].timeline[3].category == TimelineCategory.Cast
     assert games[6].timeline[3].elapsed_time == 0.0
     assert games[6].timeline[3].event == "seduction target cast."
@@ -6477,7 +6477,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[4].action_test == ActionTest.NoAT
     assert games[6].timeline[4].actor == "spy"
     assert games[6].timeline[4].books == (None,)
-    assert games[6].timeline[4].cast_name == (Characters.S,)
+    assert games[6].timeline[4].cast_name == (Characters.Smallman,)
     assert games[6].timeline[4].category == TimelineCategory.Cast
     assert games[6].timeline[4].elapsed_time == 0.0
     assert games[6].timeline[4].event == "civilian cast."
@@ -6488,7 +6488,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[5].action_test == ActionTest.NoAT
     assert games[6].timeline[5].actor == "spy"
     assert games[6].timeline[5].books == (None,)
-    assert games[6].timeline[5].cast_name == (Characters.T,)
+    assert games[6].timeline[5].cast_name == (Characters.Sari,)
     assert games[6].timeline[5].category == TimelineCategory.Cast
     assert games[6].timeline[5].elapsed_time == 0.0
     assert games[6].timeline[5].event == "civilian cast."
@@ -6499,7 +6499,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[6].action_test == ActionTest.NoAT
     assert games[6].timeline[6].actor == "spy"
     assert games[6].timeline[6].books == (None,)
-    assert games[6].timeline[6].cast_name == (Characters.G,)
+    assert games[6].timeline[6].cast_name == (Characters.General,)
     assert games[6].timeline[6].category == TimelineCategory.Cast
     assert games[6].timeline[6].elapsed_time == 0.0
     assert games[6].timeline[6].event == "civilian cast."
@@ -6620,7 +6620,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[17].action_test == ActionTest.NoAT
     assert games[6].timeline[17].actor == "sniper"
     assert games[6].timeline[17].books == (None,)
-    assert games[6].timeline[17].cast_name == (Characters.S,)
+    assert games[6].timeline[17].cast_name == (Characters.Smallman,)
     assert games[6].timeline[17].category == TimelineCategory.SniperLights
     assert games[6].timeline[17].elapsed_time == 5.900000000000006
     assert games[6].timeline[17].event == "marked suspicious."
@@ -6642,7 +6642,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[19].action_test == ActionTest.NoAT
     assert games[6].timeline[19].actor == "spy"
     assert games[6].timeline[19].books == (None,)
-    assert games[6].timeline[19].cast_name == (Characters.C,)
+    assert games[6].timeline[19].cast_name == (Characters.Taft,)
     assert games[6].timeline[19].category == TimelineCategory.Conversation
     assert games[6].timeline[19].elapsed_time == 15.200000000000003
     assert games[6].timeline[19].event == "spy joined conversation with double agent."
@@ -6653,7 +6653,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[20].action_test == ActionTest.NoAT
     assert games[6].timeline[20].actor == "sniper"
     assert games[6].timeline[20].books == (None,)
-    assert games[6].timeline[20].cast_name == (Characters.D,)
+    assert games[6].timeline[20].cast_name == (Characters.Morgan,)
     assert games[6].timeline[20].category == TimelineCategory.SniperLights
     assert games[6].timeline[20].elapsed_time == 21.900000000000006
     assert games[6].timeline[20].event == "marked suspicious."
@@ -6686,7 +6686,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[23].action_test == ActionTest.NoAT
     assert games[6].timeline[23].actor == "sniper"
     assert games[6].timeline[23].books == (None,)
-    assert games[6].timeline[23].cast_name == (Characters.C,)
+    assert games[6].timeline[23].cast_name == (Characters.Taft,)
     assert games[6].timeline[23].category == TimelineCategory.SniperLights
     assert games[6].timeline[23].elapsed_time == 23.0
     assert games[6].timeline[23].event == "marked suspicious."
@@ -6719,7 +6719,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[26].action_test == ActionTest.NoAT
     assert games[6].timeline[26].actor == "spy"
     assert games[6].timeline[26].books == (None,)
-    assert games[6].timeline[26].cast_name == (Characters.C,)
+    assert games[6].timeline[26].cast_name == (Characters.Taft,)
     assert games[6].timeline[26].category == TimelineCategory.MissionComplete
     assert games[6].timeline[26].elapsed_time == 24.400000000000006
     assert games[6].timeline[26].event == "double agent contacted."
@@ -6741,7 +6741,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[28].action_test == ActionTest.NoAT
     assert games[6].timeline[28].actor == "spy"
     assert games[6].timeline[28].books == (None,)
-    assert games[6].timeline[28].cast_name == (Characters.D,)
+    assert games[6].timeline[28].cast_name == (Characters.Morgan,)
     assert games[6].timeline[28].category == TimelineCategory.NoCategory
     assert games[6].timeline[28].elapsed_time == 28.599999999999994
     assert games[6].timeline[28].event == "begin flirtation with seduction target."
@@ -6763,7 +6763,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[30].action_test == ActionTest.NoAT
     assert games[6].timeline[30].actor == "spy"
     assert games[6].timeline[30].books == (None,)
-    assert games[6].timeline[30].cast_name == (Characters.D,)
+    assert games[6].timeline[30].cast_name == (Characters.Morgan,)
     assert games[6].timeline[30].category == TimelineCategory.MissionPartial
     assert games[6].timeline[30].elapsed_time == 29.700000000000003
     assert games[6].timeline[30].event == "flirt with seduction target: 51%"
@@ -6774,7 +6774,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[31].action_test == ActionTest.NoAT
     assert games[6].timeline[31].actor == "sniper"
     assert games[6].timeline[31].books == (None,)
-    assert games[6].timeline[31].cast_name == (Characters.T,)
+    assert games[6].timeline[31].cast_name == (Characters.Sari,)
     assert games[6].timeline[31].category == TimelineCategory.SniperLights
     assert games[6].timeline[31].elapsed_time == 38.0
     assert games[6].timeline[31].event == "marked less suspicious."
@@ -6785,7 +6785,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[32].action_test == ActionTest.NoAT
     assert games[6].timeline[32].actor == "spy"
     assert games[6].timeline[32].books == (None,)
-    assert games[6].timeline[32].cast_name == (Characters.O,)
+    assert games[6].timeline[32].cast_name == (Characters.Irish,)
     assert games[6].timeline[32].category == TimelineCategory.Drinks
     assert games[6].timeline[32].elapsed_time == 43.099999999999994
     assert games[6].timeline[32].event == "waiter offered drink."
@@ -6796,7 +6796,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[33].action_test == ActionTest.NoAT
     assert games[6].timeline[33].actor == "spy"
     assert games[6].timeline[33].books == (None,)
-    assert games[6].timeline[33].cast_name == (Characters.O,)
+    assert games[6].timeline[33].cast_name == (Characters.Irish,)
     assert games[6].timeline[33].category == TimelineCategory.Drinks
     assert games[6].timeline[33].elapsed_time == 48.7
     assert games[6].timeline[33].event == "got drink from waiter."
@@ -6807,7 +6807,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[34].action_test == ActionTest.NoAT
     assert games[6].timeline[34].actor == "spy"
     assert games[6].timeline[34].books == (None,)
-    assert games[6].timeline[34].cast_name == (Characters.O,)
+    assert games[6].timeline[34].cast_name == (Characters.Irish,)
     assert games[6].timeline[34].category == TimelineCategory.Drinks
     assert games[6].timeline[34].elapsed_time == 48.7
     assert games[6].timeline[34].event == "waiter stopped offering drink."
@@ -6840,7 +6840,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[37].action_test == ActionTest.NoAT
     assert games[6].timeline[37].actor == "spy"
     assert games[6].timeline[37].books == (None,)
-    assert games[6].timeline[37].cast_name == (Characters.D,)
+    assert games[6].timeline[37].cast_name == (Characters.Morgan,)
     assert games[6].timeline[37].category == TimelineCategory.NoCategory
     assert games[6].timeline[37].elapsed_time == 74.1
     assert games[6].timeline[37].event == "begin flirtation with seduction target."
@@ -6851,7 +6851,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[38].action_test == ActionTest.NoAT
     assert games[6].timeline[38].actor == "sniper"
     assert games[6].timeline[38].books == (None,)
-    assert games[6].timeline[38].cast_name == (Characters.O,)
+    assert games[6].timeline[38].cast_name == (Characters.Irish,)
     assert games[6].timeline[38].category == TimelineCategory.SniperLights
     assert games[6].timeline[38].elapsed_time == 74.4
     assert games[6].timeline[38].event == "marked spy less suspicious."
@@ -6873,7 +6873,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[40].action_test == ActionTest.NoAT
     assert games[6].timeline[40].actor == "spy"
     assert games[6].timeline[40].books == (None,)
-    assert games[6].timeline[40].cast_name == (Characters.D,)
+    assert games[6].timeline[40].cast_name == (Characters.Morgan,)
     assert games[6].timeline[40].category == TimelineCategory.MissionPartial
     assert games[6].timeline[40].elapsed_time == 75.0
     assert games[6].timeline[40].event == "flirt with seduction target: 72%"
@@ -6884,7 +6884,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[41].action_test == ActionTest.NoAT
     assert games[6].timeline[41].actor == "spy"
     assert games[6].timeline[41].books == (None,)
-    assert games[6].timeline[41].cast_name == (Characters.C,)
+    assert games[6].timeline[41].cast_name == (Characters.Taft,)
     assert games[6].timeline[41].category == TimelineCategory.Conversation
     assert games[6].timeline[41].elapsed_time == 75.1
     assert games[6].timeline[41].event == "double agent left conversation with spy."
@@ -6906,7 +6906,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[43].action_test == ActionTest.NoAT
     assert games[6].timeline[43].actor == "spy"
     assert games[6].timeline[43].books == (None,)
-    assert games[6].timeline[43].cast_name == (Characters.O,)
+    assert games[6].timeline[43].cast_name == (Characters.Irish,)
     assert games[6].timeline[43].category == TimelineCategory.Drinks
     assert games[6].timeline[43].elapsed_time == 91.4
     assert games[6].timeline[43].event == "sipped drink."
@@ -6939,7 +6939,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[46].action_test == ActionTest.NoAT
     assert games[6].timeline[46].actor == "spy"
     assert games[6].timeline[46].books == (None,)
-    assert games[6].timeline[46].cast_name == (Characters.C,)
+    assert games[6].timeline[46].cast_name == (Characters.Taft,)
     assert games[6].timeline[46].category == TimelineCategory.Conversation
     assert games[6].timeline[46].elapsed_time == 101.2
     assert games[6].timeline[46].event == "spy joined conversation with double agent."
@@ -6961,7 +6961,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[48].action_test == ActionTest.NoAT
     assert games[6].timeline[48].actor == "spy"
     assert games[6].timeline[48].books == (None,)
-    assert games[6].timeline[48].cast_name == (Characters.D,)
+    assert games[6].timeline[48].cast_name == (Characters.Morgan,)
     assert games[6].timeline[48].category == TimelineCategory.NoCategory
     assert games[6].timeline[48].elapsed_time == 107.7
     assert games[6].timeline[48].event == "begin flirtation with seduction target."
@@ -6983,7 +6983,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[50].action_test == ActionTest.NoAT
     assert games[6].timeline[50].actor == "spy"
     assert games[6].timeline[50].books == (None,)
-    assert games[6].timeline[50].cast_name == (Characters.D,)
+    assert games[6].timeline[50].cast_name == (Characters.Morgan,)
     assert games[6].timeline[50].category == TimelineCategory.MissionPartial
     assert games[6].timeline[50].elapsed_time == 108.9
     assert games[6].timeline[50].event == "flirt with seduction target: 100%"
@@ -6994,7 +6994,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[51].action_test == ActionTest.NoAT
     assert games[6].timeline[51].actor == "spy"
     assert games[6].timeline[51].books == (None,)
-    assert games[6].timeline[51].cast_name == (Characters.D,)
+    assert games[6].timeline[51].cast_name == (Characters.Morgan,)
     assert games[6].timeline[51].category == TimelineCategory.MissionComplete
     assert games[6].timeline[51].elapsed_time == 108.9
     assert games[6].timeline[51].event == "target seduced."
@@ -7027,7 +7027,7 @@ def test_parse_timeline_parallel_normal(
     assert games[6].timeline[54].action_test == ActionTest.NoAT
     assert games[6].timeline[54].actor == "spy"
     assert games[6].timeline[54].books == (None,)
-    assert games[6].timeline[54].cast_name == (Characters.C,)
+    assert games[6].timeline[54].cast_name == (Characters.Taft,)
     assert games[6].timeline[54].category == TimelineCategory.Conversation
     assert games[6].timeline[54].elapsed_time == 117.2
     assert games[6].timeline[54].event == "spy left conversation with double agent."
@@ -7052,7 +7052,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[0].action_test == ActionTest.NoAT
     assert games[7].timeline[0].actor == "spy"
     assert games[7].timeline[0].books == (None,)
-    assert games[7].timeline[0].cast_name == (Characters.F,)
+    assert games[7].timeline[0].cast_name == (Characters.Alice,)
     assert games[7].timeline[0].category == TimelineCategory.Cast
     assert games[7].timeline[0].elapsed_time == 0.0
     assert games[7].timeline[0].event == "spy cast."
@@ -7063,7 +7063,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[1].action_test == ActionTest.NoAT
     assert games[7].timeline[1].actor == "spy"
     assert games[7].timeline[1].books == (None,)
-    assert games[7].timeline[1].cast_name == (Characters.G,)
+    assert games[7].timeline[1].cast_name == (Characters.General,)
     assert games[7].timeline[1].category == TimelineCategory.Cast
     assert games[7].timeline[1].elapsed_time == 0.0
     assert games[7].timeline[1].event == "ambassador cast."
@@ -7074,7 +7074,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[2].action_test == ActionTest.NoAT
     assert games[7].timeline[2].actor == "spy"
     assert games[7].timeline[2].books == (None,)
-    assert games[7].timeline[2].cast_name == (Characters.K,)
+    assert games[7].timeline[2].cast_name == (Characters.Sikh,)
     assert games[7].timeline[2].category == TimelineCategory.Cast
     assert games[7].timeline[2].elapsed_time == 0.0
     assert games[7].timeline[2].event == "double agent cast."
@@ -7085,7 +7085,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[3].action_test == ActionTest.NoAT
     assert games[7].timeline[3].actor == "spy"
     assert games[7].timeline[3].books == (None,)
-    assert games[7].timeline[3].cast_name == (Characters.A,)
+    assert games[7].timeline[3].cast_name == (Characters.Disney,)
     assert games[7].timeline[3].category == TimelineCategory.Cast
     assert games[7].timeline[3].elapsed_time == 0.0
     assert games[7].timeline[3].event == "seduction target cast."
@@ -7096,7 +7096,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[4].action_test == ActionTest.NoAT
     assert games[7].timeline[4].actor == "spy"
     assert games[7].timeline[4].books == (None,)
-    assert games[7].timeline[4].cast_name == (Characters.I,)
+    assert games[7].timeline[4].cast_name == (Characters.Wheels,)
     assert games[7].timeline[4].category == TimelineCategory.Cast
     assert games[7].timeline[4].elapsed_time == 0.0
     assert games[7].timeline[4].event == "civilian cast."
@@ -7107,7 +7107,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[5].action_test == ActionTest.NoAT
     assert games[7].timeline[5].actor == "spy"
     assert games[7].timeline[5].books == (None,)
-    assert games[7].timeline[5].cast_name == (Characters.D,)
+    assert games[7].timeline[5].cast_name == (Characters.Morgan,)
     assert games[7].timeline[5].category == TimelineCategory.Cast
     assert games[7].timeline[5].elapsed_time == 0.0
     assert games[7].timeline[5].event == "civilian cast."
@@ -7118,7 +7118,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[6].action_test == ActionTest.NoAT
     assert games[7].timeline[6].actor == "spy"
     assert games[7].timeline[6].books == (None,)
-    assert games[7].timeline[6].cast_name == (Characters.B,)
+    assert games[7].timeline[6].cast_name == (Characters.Boots,)
     assert games[7].timeline[6].category == TimelineCategory.Cast
     assert games[7].timeline[6].elapsed_time == 0.0
     assert games[7].timeline[6].event == "civilian cast."
@@ -7206,7 +7206,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[14].action_test == ActionTest.NoAT
     assert games[7].timeline[14].actor == "sniper"
     assert games[7].timeline[14].books == (None,)
-    assert games[7].timeline[14].cast_name == (Characters.G,)
+    assert games[7].timeline[14].cast_name == (Characters.General,)
     assert games[7].timeline[14].category == TimelineCategory.SniperLights
     assert games[7].timeline[14].elapsed_time == 0.5
     assert games[7].timeline[14].event == "marked less suspicious."
@@ -7250,7 +7250,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[18].action_test == ActionTest.NoAT
     assert games[7].timeline[18].actor == "sniper"
     assert games[7].timeline[18].books == (None,)
-    assert games[7].timeline[18].cast_name == (Characters.D,)
+    assert games[7].timeline[18].cast_name == (Characters.Morgan,)
     assert games[7].timeline[18].category == TimelineCategory.SniperLights
     assert games[7].timeline[18].elapsed_time == 10.200000000000003
     assert games[7].timeline[18].event == "marked suspicious."
@@ -7261,7 +7261,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[19].action_test == ActionTest.NoAT
     assert games[7].timeline[19].actor == "spy"
     assert games[7].timeline[19].books == (None,)
-    assert games[7].timeline[19].cast_name == (Characters.K,)
+    assert games[7].timeline[19].cast_name == (Characters.Sikh,)
     assert games[7].timeline[19].category == TimelineCategory.Conversation
     assert games[7].timeline[19].elapsed_time == 11.0
     assert games[7].timeline[19].event == "double agent joined conversation with spy."
@@ -7283,7 +7283,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[21].action_test == ActionTest.NoAT
     assert games[7].timeline[21].actor == "spy"
     assert games[7].timeline[21].books == (None,)
-    assert games[7].timeline[21].cast_name == (Characters.K,)
+    assert games[7].timeline[21].cast_name == (Characters.Sikh,)
     assert games[7].timeline[21].category == TimelineCategory.Conversation
     assert games[7].timeline[21].elapsed_time == 11.200000000000003
     assert games[7].timeline[21].event == "spy left conversation with double agent."
@@ -7308,7 +7308,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[23].action_test == ActionTest.NoAT
     assert games[7].timeline[23].actor == "spy"
     assert games[7].timeline[23].books == (None,)
-    assert games[7].timeline[23].cast_name == (Characters.F,)
+    assert games[7].timeline[23].cast_name == (Characters.Alice,)
     assert games[7].timeline[23].category == TimelineCategory.Watch
     assert games[7].timeline[23].elapsed_time == 20.099999999999994
     assert games[7].timeline[23].event == "watch checked."
@@ -7319,7 +7319,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[24].action_test == ActionTest.NoAT
     assert games[7].timeline[24].actor == "spy"
     assert games[7].timeline[24].books == (None,)
-    assert games[7].timeline[24].cast_name == (Characters.F,)
+    assert games[7].timeline[24].cast_name == (Characters.Alice,)
     assert games[7].timeline[24].category == TimelineCategory.Drinks
     assert games[7].timeline[24].elapsed_time == 28.700000000000003
     assert games[7].timeline[24].event == "took last sip of drink."
@@ -7330,7 +7330,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[25].action_test == ActionTest.NoAT
     assert games[7].timeline[25].actor == "spy"
     assert games[7].timeline[25].books == (None,)
-    assert games[7].timeline[25].cast_name == (Characters.F,)
+    assert games[7].timeline[25].cast_name == (Characters.Alice,)
     assert games[7].timeline[25].category == TimelineCategory.Drinks
     assert games[7].timeline[25].elapsed_time == 31.5
     assert games[7].timeline[25].event == "waiter offered drink."
@@ -7341,7 +7341,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[26].action_test == ActionTest.NoAT
     assert games[7].timeline[26].actor == "spy"
     assert games[7].timeline[26].books == (None,)
-    assert games[7].timeline[26].cast_name == (Characters.F,)
+    assert games[7].timeline[26].cast_name == (Characters.Alice,)
     assert games[7].timeline[26].category == TimelineCategory.Drinks
     assert games[7].timeline[26].elapsed_time == 31.900000000000006
     assert games[7].timeline[26].event == "rejected drink from waiter."
@@ -7352,7 +7352,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[27].action_test == ActionTest.NoAT
     assert games[7].timeline[27].actor == "spy"
     assert games[7].timeline[27].books == (None,)
-    assert games[7].timeline[27].cast_name == (Characters.F,)
+    assert games[7].timeline[27].cast_name == (Characters.Alice,)
     assert games[7].timeline[27].category == TimelineCategory.Drinks
     assert games[7].timeline[27].elapsed_time == 31.900000000000006
     assert games[7].timeline[27].event == "waiter stopped offering drink."
@@ -7363,7 +7363,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[28].action_test == ActionTest.NoAT
     assert games[7].timeline[28].actor == "sniper"
     assert games[7].timeline[28].books == (None,)
-    assert games[7].timeline[28].cast_name == (Characters.I,)
+    assert games[7].timeline[28].cast_name == (Characters.Wheels,)
     assert games[7].timeline[28].category == TimelineCategory.SniperLights
     assert games[7].timeline[28].elapsed_time == 33.099999999999994
     assert games[7].timeline[28].event == "marked suspicious."
@@ -7385,7 +7385,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[30].action_test == ActionTest.NoAT
     assert games[7].timeline[30].actor == "sniper"
     assert games[7].timeline[30].books == (None,)
-    assert games[7].timeline[30].cast_name == (Characters.K,)
+    assert games[7].timeline[30].cast_name == (Characters.Sikh,)
     assert games[7].timeline[30].category == TimelineCategory.SniperLights
     assert games[7].timeline[30].elapsed_time == 35.2
     assert games[7].timeline[30].event == "marked suspicious."
@@ -7407,7 +7407,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[32].action_test == ActionTest.NoAT
     assert games[7].timeline[32].actor == "spy"
     assert games[7].timeline[32].books == (None,)
-    assert games[7].timeline[32].cast_name == (Characters.A,)
+    assert games[7].timeline[32].cast_name == (Characters.Disney,)
     assert games[7].timeline[32].category == TimelineCategory.NoCategory
     assert games[7].timeline[32].elapsed_time == 36.7
     assert games[7].timeline[32].event == "begin flirtation with seduction target."
@@ -7418,7 +7418,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[33].action_test == ActionTest.NoAT
     assert games[7].timeline[33].actor == "sniper"
     assert games[7].timeline[33].books == (None,)
-    assert games[7].timeline[33].cast_name == (Characters.I,)
+    assert games[7].timeline[33].cast_name == (Characters.Wheels,)
     assert games[7].timeline[33].category == TimelineCategory.SniperLights
     assert games[7].timeline[33].elapsed_time == 37.0
     assert games[7].timeline[33].event == "marked neutral suspicion."
@@ -7440,7 +7440,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[35].action_test == ActionTest.NoAT
     assert games[7].timeline[35].actor == "spy"
     assert games[7].timeline[35].books == (None,)
-    assert games[7].timeline[35].cast_name == (Characters.A,)
+    assert games[7].timeline[35].cast_name == (Characters.Disney,)
     assert games[7].timeline[35].category == TimelineCategory.MissionPartial
     assert games[7].timeline[35].elapsed_time == 37.400000000000006
     assert games[7].timeline[35].event == "flirt with seduction target: 51%"
@@ -7451,7 +7451,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[36].action_test == ActionTest.NoAT
     assert games[7].timeline[36].actor == "sniper"
     assert games[7].timeline[36].books == (None,)
-    assert games[7].timeline[36].cast_name == (Characters.F,)
+    assert games[7].timeline[36].cast_name == (Characters.Alice,)
     assert games[7].timeline[36].category == TimelineCategory.SniperLights
     assert games[7].timeline[36].elapsed_time == 37.900000000000006
     assert games[7].timeline[36].event == "marked spy less suspicious."
@@ -7462,7 +7462,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[37].action_test == ActionTest.NoAT
     assert games[7].timeline[37].actor == "sniper"
     assert games[7].timeline[37].books == (None,)
-    assert games[7].timeline[37].cast_name == (Characters.I,)
+    assert games[7].timeline[37].cast_name == (Characters.Wheels,)
     assert games[7].timeline[37].category == TimelineCategory.SniperLights
     assert games[7].timeline[37].elapsed_time == 38.3
     assert games[7].timeline[37].event == "marked suspicious."
@@ -7473,7 +7473,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[38].action_test == ActionTest.NoAT
     assert games[7].timeline[38].actor == "sniper"
     assert games[7].timeline[38].books == (None,)
-    assert games[7].timeline[38].cast_name == (Characters.K,)
+    assert games[7].timeline[38].cast_name == (Characters.Sikh,)
     assert games[7].timeline[38].category == TimelineCategory.SniperLights
     assert games[7].timeline[38].elapsed_time == 39.400000000000006
     assert games[7].timeline[38].event == "marked neutral suspicion."
@@ -7484,7 +7484,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[39].action_test == ActionTest.NoAT
     assert games[7].timeline[39].actor == "sniper"
     assert games[7].timeline[39].books == (None,)
-    assert games[7].timeline[39].cast_name == (Characters.F,)
+    assert games[7].timeline[39].cast_name == (Characters.Alice,)
     assert games[7].timeline[39].category == TimelineCategory.SniperLights
     assert games[7].timeline[39].elapsed_time == 44.900000000000006
     assert games[7].timeline[39].event == "marked spy neutral suspicion."
@@ -7495,7 +7495,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[40].action_test == ActionTest.NoAT
     assert games[7].timeline[40].actor == "spy"
     assert games[7].timeline[40].books == (None,)
-    assert games[7].timeline[40].cast_name == (Characters.F,)
+    assert games[7].timeline[40].cast_name == (Characters.Alice,)
     assert games[7].timeline[40].category == TimelineCategory.Drinks
     assert games[7].timeline[40].elapsed_time == 45.7
     assert games[7].timeline[40].event == "request drink from waiter."
@@ -7506,7 +7506,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[41].action_test == ActionTest.NoAT
     assert games[7].timeline[41].actor == "spy"
     assert games[7].timeline[41].books == (None,)
-    assert games[7].timeline[41].cast_name == (Characters.F,)
+    assert games[7].timeline[41].cast_name == (Characters.Alice,)
     assert games[7].timeline[41].category == TimelineCategory.Drinks
     assert games[7].timeline[41].elapsed_time == 45.900000000000006
     assert games[7].timeline[41].event == "waiter offered drink."
@@ -7517,7 +7517,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[42].action_test == ActionTest.NoAT
     assert games[7].timeline[42].actor == "sniper"
     assert games[7].timeline[42].books == (None,)
-    assert games[7].timeline[42].cast_name == (Characters.F,)
+    assert games[7].timeline[42].cast_name == (Characters.Alice,)
     assert games[7].timeline[42].category == TimelineCategory.SniperLights
     assert games[7].timeline[42].elapsed_time == 46.099999999999994
     assert games[7].timeline[42].event == "marked spy suspicious."
@@ -7528,7 +7528,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[43].action_test == ActionTest.NoAT
     assert games[7].timeline[43].actor == "spy"
     assert games[7].timeline[43].books == (None,)
-    assert games[7].timeline[43].cast_name == (Characters.F,)
+    assert games[7].timeline[43].cast_name == (Characters.Alice,)
     assert games[7].timeline[43].category == TimelineCategory.Drinks
     assert games[7].timeline[43].elapsed_time == 50.599999999999994
     assert games[7].timeline[43].event == "got drink from waiter."
@@ -7539,7 +7539,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[44].action_test == ActionTest.NoAT
     assert games[7].timeline[44].actor == "spy"
     assert games[7].timeline[44].books == (None,)
-    assert games[7].timeline[44].cast_name == (Characters.F,)
+    assert games[7].timeline[44].cast_name == (Characters.Alice,)
     assert games[7].timeline[44].category == TimelineCategory.Drinks
     assert games[7].timeline[44].elapsed_time == 50.599999999999994
     assert games[7].timeline[44].event == "waiter stopped offering drink."
@@ -7550,7 +7550,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[45].action_test == ActionTest.NoAT
     assert games[7].timeline[45].actor == "spy"
     assert games[7].timeline[45].books == (None,)
-    assert games[7].timeline[45].cast_name == (Characters.K,)
+    assert games[7].timeline[45].cast_name == (Characters.Sikh,)
     assert games[7].timeline[45].category == TimelineCategory.Conversation
     assert games[7].timeline[45].elapsed_time == 50.900000000000006
     assert games[7].timeline[45].event == "double agent joined conversation with spy."
@@ -7561,7 +7561,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[46].action_test == ActionTest.NoAT
     assert games[7].timeline[46].actor == "spy"
     assert games[7].timeline[46].books == (None,)
-    assert games[7].timeline[46].cast_name == (Characters.F,)
+    assert games[7].timeline[46].cast_name == (Characters.Alice,)
     assert games[7].timeline[46].category == TimelineCategory.Drinks
     assert games[7].timeline[46].elapsed_time == 63.9
     assert games[7].timeline[46].event == "sipped drink."
@@ -7572,7 +7572,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[47].action_test == ActionTest.NoAT
     assert games[7].timeline[47].actor == "sniper"
     assert games[7].timeline[47].books == (None,)
-    assert games[7].timeline[47].cast_name == (Characters.B,)
+    assert games[7].timeline[47].cast_name == (Characters.Boots,)
     assert games[7].timeline[47].category == TimelineCategory.SniperLights
     assert games[7].timeline[47].elapsed_time == 66.7
     assert games[7].timeline[47].event == "marked suspicious."
@@ -7583,7 +7583,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[48].action_test == ActionTest.NoAT
     assert games[7].timeline[48].actor == "sniper"
     assert games[7].timeline[48].books == (None,)
-    assert games[7].timeline[48].cast_name == (Characters.B,)
+    assert games[7].timeline[48].cast_name == (Characters.Boots,)
     assert games[7].timeline[48].category == TimelineCategory.SniperLights
     assert games[7].timeline[48].elapsed_time == 67.6
     assert games[7].timeline[48].event == "marked neutral suspicion."
@@ -7638,7 +7638,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[53].action_test == ActionTest.NoAT
     assert games[7].timeline[53].actor == "spy"
     assert games[7].timeline[53].books == (None,)
-    assert games[7].timeline[53].cast_name == (Characters.K,)
+    assert games[7].timeline[53].cast_name == (Characters.Sikh,)
     assert games[7].timeline[53].category == TimelineCategory.MissionComplete
     assert games[7].timeline[53].elapsed_time == 71.0
     assert games[7].timeline[53].event == "double agent contacted."
@@ -7649,7 +7649,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[54].action_test == ActionTest.NoAT
     assert games[7].timeline[54].actor == "sniper"
     assert games[7].timeline[54].books == (None,)
-    assert games[7].timeline[54].cast_name == (Characters.B,)
+    assert games[7].timeline[54].cast_name == (Characters.Boots,)
     assert games[7].timeline[54].category == TimelineCategory.SniperLights
     assert games[7].timeline[54].elapsed_time == 71.5
     assert games[7].timeline[54].event == "marked suspicious."
@@ -7660,7 +7660,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[55].action_test == ActionTest.NoAT
     assert games[7].timeline[55].actor == "spy"
     assert games[7].timeline[55].books == (None,)
-    assert games[7].timeline[55].cast_name == (Characters.G, Characters.F)
+    assert games[7].timeline[55].cast_name == (Characters.General, Characters.Alice)
     assert games[7].timeline[55].category == TimelineCategory.NoCategory
     assert games[7].timeline[55].elapsed_time == 82.1
     assert games[7].timeline[55].event == "ambassador's personal space violated."
@@ -7693,7 +7693,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[58].action_test == ActionTest.NoAT
     assert games[7].timeline[58].actor == "spy"
     assert games[7].timeline[58].books == (None,)
-    assert games[7].timeline[58].cast_name == (Characters.A,)
+    assert games[7].timeline[58].cast_name == (Characters.Disney,)
     assert games[7].timeline[58].category == TimelineCategory.NoCategory
     assert games[7].timeline[58].elapsed_time == 84.5
     assert games[7].timeline[58].event == "begin flirtation with seduction target."
@@ -7715,7 +7715,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[60].action_test == ActionTest.NoAT
     assert games[7].timeline[60].actor == "spy"
     assert games[7].timeline[60].books == (None,)
-    assert games[7].timeline[60].cast_name == (Characters.A,)
+    assert games[7].timeline[60].cast_name == (Characters.Disney,)
     assert games[7].timeline[60].category == TimelineCategory.MissionPartial
     assert games[7].timeline[60].elapsed_time == 85.6
     assert games[7].timeline[60].event == "flirt with seduction target: 85%"
@@ -7737,7 +7737,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[62].action_test == ActionTest.NoAT
     assert games[7].timeline[62].actor == "spy"
     assert games[7].timeline[62].books == (None,)
-    assert games[7].timeline[62].cast_name == (Characters.K,)
+    assert games[7].timeline[62].cast_name == (Characters.Sikh,)
     assert games[7].timeline[62].category == TimelineCategory.Conversation
     assert games[7].timeline[62].elapsed_time == 98.5
     assert games[7].timeline[62].event == "spy left conversation with double agent."
@@ -7759,7 +7759,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[64].action_test == ActionTest.NoAT
     assert games[7].timeline[64].actor == "spy"
     assert games[7].timeline[64].books == (None,)
-    assert games[7].timeline[64].cast_name == (Characters.F,)
+    assert games[7].timeline[64].cast_name == (Characters.Alice,)
     assert games[7].timeline[64].category == TimelineCategory.Drinks
     assert games[7].timeline[64].elapsed_time == 109.4
     assert games[7].timeline[64].event == "sipped drink."
@@ -7781,7 +7781,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[66].action_test == ActionTest.NoAT
     assert games[7].timeline[66].actor == "spy"
     assert games[7].timeline[66].books == (None,)
-    assert games[7].timeline[66].cast_name == (Characters.K,)
+    assert games[7].timeline[66].cast_name == (Characters.Sikh,)
     assert games[7].timeline[66].category == TimelineCategory.Conversation
     assert games[7].timeline[66].elapsed_time == 114.3
     assert games[7].timeline[66].event == "double agent joined conversation with spy."
@@ -7803,7 +7803,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[68].action_test == ActionTest.NoAT
     assert games[7].timeline[68].actor == "spy"
     assert games[7].timeline[68].books == (None,)
-    assert games[7].timeline[68].cast_name == (Characters.A,)
+    assert games[7].timeline[68].cast_name == (Characters.Disney,)
     assert games[7].timeline[68].category == TimelineCategory.NoCategory
     assert games[7].timeline[68].elapsed_time == 115.7
     assert games[7].timeline[68].event == "begin flirtation with seduction target."
@@ -7825,7 +7825,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[70].action_test == ActionTest.NoAT
     assert games[7].timeline[70].actor == "spy"
     assert games[7].timeline[70].books == (None,)
-    assert games[7].timeline[70].cast_name == (Characters.A,)
+    assert games[7].timeline[70].cast_name == (Characters.Disney,)
     assert games[7].timeline[70].category == TimelineCategory.MissionPartial
     assert games[7].timeline[70].elapsed_time == 117.2
     assert games[7].timeline[70].event == "flirt with seduction target: 100%"
@@ -7836,7 +7836,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[71].action_test == ActionTest.NoAT
     assert games[7].timeline[71].actor == "spy"
     assert games[7].timeline[71].books == (None,)
-    assert games[7].timeline[71].cast_name == (Characters.A,)
+    assert games[7].timeline[71].cast_name == (Characters.Disney,)
     assert games[7].timeline[71].category == TimelineCategory.MissionComplete
     assert games[7].timeline[71].elapsed_time == 117.2
     assert games[7].timeline[71].event == "target seduced."
@@ -7869,7 +7869,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[74].action_test == ActionTest.NoAT
     assert games[7].timeline[74].actor == "sniper"
     assert games[7].timeline[74].books == (None,)
-    assert games[7].timeline[74].cast_name == (Characters.B,)
+    assert games[7].timeline[74].cast_name == (Characters.Boots,)
     assert games[7].timeline[74].category == TimelineCategory.SniperShot
     assert games[7].timeline[74].elapsed_time == 120.3
     assert games[7].timeline[74].event == "took shot."
@@ -7880,7 +7880,7 @@ def test_parse_timeline_parallel_normal(
     assert games[7].timeline[75].action_test == ActionTest.NoAT
     assert games[7].timeline[75].actor == "game"
     assert games[7].timeline[75].books == (None,)
-    assert games[7].timeline[75].cast_name == (Characters.B,)
+    assert games[7].timeline[75].cast_name == (Characters.Boots,)
     assert games[7].timeline[75].category == TimelineCategory.GameEnd
     assert games[7].timeline[75].elapsed_time == 124.1
     assert games[7].timeline[75].event == "sniper shot civilian."
@@ -7894,7 +7894,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[0].action_test == ActionTest.NoAT
     assert games[8].timeline[0].actor == "spy"
     assert games[8].timeline[0].books == (None,)
-    assert games[8].timeline[0].cast_name == (Characters.M,)
+    assert games[8].timeline[0].cast_name == (Characters.Plain,)
     assert games[8].timeline[0].category == TimelineCategory.Cast
     assert games[8].timeline[0].elapsed_time == 0.0
     assert games[8].timeline[0].event == "spy cast."
@@ -7905,7 +7905,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[1].action_test == ActionTest.NoAT
     assert games[8].timeline[1].actor == "spy"
     assert games[8].timeline[1].books == (None,)
-    assert games[8].timeline[1].cast_name == (Characters.I,)
+    assert games[8].timeline[1].cast_name == (Characters.Wheels,)
     assert games[8].timeline[1].category == TimelineCategory.Cast
     assert games[8].timeline[1].elapsed_time == 0.0
     assert games[8].timeline[1].event == "ambassador cast."
@@ -7916,7 +7916,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[2].action_test == ActionTest.NoAT
     assert games[8].timeline[2].actor == "spy"
     assert games[8].timeline[2].books == (None,)
-    assert games[8].timeline[2].cast_name == (Characters.L,)
+    assert games[8].timeline[2].cast_name == (Characters.Rocker,)
     assert games[8].timeline[2].category == TimelineCategory.Cast
     assert games[8].timeline[2].elapsed_time == 0.0
     assert games[8].timeline[2].event == "double agent cast."
@@ -7927,7 +7927,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[3].action_test == ActionTest.NoAT
     assert games[8].timeline[3].actor == "spy"
     assert games[8].timeline[3].books == (None,)
-    assert games[8].timeline[3].cast_name == (Characters.T,)
+    assert games[8].timeline[3].cast_name == (Characters.Sari,)
     assert games[8].timeline[3].category == TimelineCategory.Cast
     assert games[8].timeline[3].elapsed_time == 0.0
     assert games[8].timeline[3].event == "seduction target cast."
@@ -7938,7 +7938,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[4].action_test == ActionTest.NoAT
     assert games[8].timeline[4].actor == "spy"
     assert games[8].timeline[4].books == (None,)
-    assert games[8].timeline[4].cast_name == (Characters.S,)
+    assert games[8].timeline[4].cast_name == (Characters.Smallman,)
     assert games[8].timeline[4].category == TimelineCategory.Cast
     assert games[8].timeline[4].elapsed_time == 0.0
     assert games[8].timeline[4].event == "civilian cast."
@@ -7949,7 +7949,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[5].action_test == ActionTest.NoAT
     assert games[8].timeline[5].actor == "spy"
     assert games[8].timeline[5].books == (None,)
-    assert games[8].timeline[5].cast_name == (Characters.D,)
+    assert games[8].timeline[5].cast_name == (Characters.Morgan,)
     assert games[8].timeline[5].category == TimelineCategory.Cast
     assert games[8].timeline[5].elapsed_time == 0.0
     assert games[8].timeline[5].event == "civilian cast."
@@ -7960,7 +7960,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[6].action_test == ActionTest.NoAT
     assert games[8].timeline[6].actor == "spy"
     assert games[8].timeline[6].books == (None,)
-    assert games[8].timeline[6].cast_name == (Characters.Q,)
+    assert games[8].timeline[6].cast_name == (Characters.Salmon,)
     assert games[8].timeline[6].category == TimelineCategory.Cast
     assert games[8].timeline[6].elapsed_time == 0.0
     assert games[8].timeline[6].event == "civilian cast."
@@ -7971,7 +7971,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[7].action_test == ActionTest.NoAT
     assert games[8].timeline[7].actor == "spy"
     assert games[8].timeline[7].books == (None,)
-    assert games[8].timeline[7].cast_name == (Characters.F,)
+    assert games[8].timeline[7].cast_name == (Characters.Alice,)
     assert games[8].timeline[7].category == TimelineCategory.Cast
     assert games[8].timeline[7].elapsed_time == 0.0
     assert games[8].timeline[7].event == "civilian cast."
@@ -7982,7 +7982,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[8].action_test == ActionTest.NoAT
     assert games[8].timeline[8].actor == "spy"
     assert games[8].timeline[8].books == (None,)
-    assert games[8].timeline[8].cast_name == (Characters.P,)
+    assert games[8].timeline[8].cast_name == (Characters.Carlos,)
     assert games[8].timeline[8].category == TimelineCategory.Cast
     assert games[8].timeline[8].elapsed_time == 0.0
     assert games[8].timeline[8].event == "civilian cast."
@@ -7993,7 +7993,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[9].action_test == ActionTest.NoAT
     assert games[8].timeline[9].actor == "spy"
     assert games[8].timeline[9].books == (None,)
-    assert games[8].timeline[9].cast_name == (Characters.G,)
+    assert games[8].timeline[9].cast_name == (Characters.General,)
     assert games[8].timeline[9].category == TimelineCategory.Cast
     assert games[8].timeline[9].elapsed_time == 0.0
     assert games[8].timeline[9].event == "civilian cast."
@@ -8004,7 +8004,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[10].action_test == ActionTest.NoAT
     assert games[8].timeline[10].actor == "spy"
     assert games[8].timeline[10].books == (None,)
-    assert games[8].timeline[10].cast_name == (Characters.O,)
+    assert games[8].timeline[10].cast_name == (Characters.Irish,)
     assert games[8].timeline[10].category == TimelineCategory.Cast
     assert games[8].timeline[10].elapsed_time == 0.0
     assert games[8].timeline[10].event == "civilian cast."
@@ -8015,7 +8015,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[11].action_test == ActionTest.NoAT
     assert games[8].timeline[11].actor == "spy"
     assert games[8].timeline[11].books == (None,)
-    assert games[8].timeline[11].cast_name == (Characters.N,)
+    assert games[8].timeline[11].cast_name == (Characters.Bling,)
     assert games[8].timeline[11].category == TimelineCategory.Cast
     assert games[8].timeline[11].elapsed_time == 0.0
     assert games[8].timeline[11].event == "civilian cast."
@@ -8147,7 +8147,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[23].action_test == ActionTest.NoAT
     assert games[8].timeline[23].actor == "sniper"
     assert games[8].timeline[23].books == (None,)
-    assert games[8].timeline[23].cast_name == (Characters.I,)
+    assert games[8].timeline[23].cast_name == (Characters.Wheels,)
     assert games[8].timeline[23].category == TimelineCategory.SniperLights
     assert games[8].timeline[23].elapsed_time == 1.1999999999999886
     assert games[8].timeline[23].event == "marked suspicious."
@@ -8180,7 +8180,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[26].action_test == ActionTest.NoAT
     assert games[8].timeline[26].actor == "sniper"
     assert games[8].timeline[26].books == (None,)
-    assert games[8].timeline[26].cast_name == (Characters.L,)
+    assert games[8].timeline[26].cast_name == (Characters.Rocker,)
     assert games[8].timeline[26].category == TimelineCategory.SniperLights
     assert games[8].timeline[26].elapsed_time == 4.699999999999989
     assert games[8].timeline[26].event == "marked less suspicious."
@@ -8191,7 +8191,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[27].action_test == ActionTest.NoAT
     assert games[8].timeline[27].actor == "sniper"
     assert games[8].timeline[27].books == (None,)
-    assert games[8].timeline[27].cast_name == (Characters.S,)
+    assert games[8].timeline[27].cast_name == (Characters.Smallman,)
     assert games[8].timeline[27].category == TimelineCategory.SniperLights
     assert games[8].timeline[27].elapsed_time == 5.699999999999989
     assert games[8].timeline[27].event == "marked suspicious."
@@ -8213,7 +8213,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[29].action_test == ActionTest.NoAT
     assert games[8].timeline[29].actor == "spy"
     assert games[8].timeline[29].books == (None,)
-    assert games[8].timeline[29].cast_name == (Characters.M,)
+    assert games[8].timeline[29].cast_name == (Characters.Plain,)
     assert games[8].timeline[29].category == TimelineCategory.Drinks
     assert games[8].timeline[29].elapsed_time == 9.099999999999994
     assert games[8].timeline[29].event == "took last sip of drink."
@@ -8235,7 +8235,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[31].action_test == ActionTest.NoAT
     assert games[8].timeline[31].actor == "spy"
     assert games[8].timeline[31].books == (None,)
-    assert games[8].timeline[31].cast_name == (Characters.L,)
+    assert games[8].timeline[31].cast_name == (Characters.Rocker,)
     assert games[8].timeline[31].category == TimelineCategory.Conversation
     assert games[8].timeline[31].elapsed_time == 20.30000000000001
     assert games[8].timeline[31].event == "spy joined conversation with double agent."
@@ -8246,7 +8246,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[32].action_test == ActionTest.NoAT
     assert games[8].timeline[32].actor == "spy"
     assert games[8].timeline[32].books == (None,)
-    assert games[8].timeline[32].cast_name == (Characters.L,)
+    assert games[8].timeline[32].cast_name == (Characters.Rocker,)
     assert games[8].timeline[32].category == TimelineCategory.Conversation
     assert games[8].timeline[32].elapsed_time == 20.69999999999999
     assert games[8].timeline[32].event == "double agent left conversation with spy."
@@ -8268,7 +8268,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[34].action_test == ActionTest.NoAT
     assert games[8].timeline[34].actor == "spy"
     assert games[8].timeline[34].books == (None,)
-    assert games[8].timeline[34].cast_name == (Characters.T,)
+    assert games[8].timeline[34].cast_name == (Characters.Sari,)
     assert games[8].timeline[34].category == TimelineCategory.NoCategory
     assert games[8].timeline[34].elapsed_time == 26.400000000000006
     assert games[8].timeline[34].event == "begin flirtation with seduction target."
@@ -8290,7 +8290,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[36].action_test == ActionTest.NoAT
     assert games[8].timeline[36].actor == "spy"
     assert games[8].timeline[36].books == (None,)
-    assert games[8].timeline[36].cast_name == (Characters.T,)
+    assert games[8].timeline[36].cast_name == (Characters.Sari,)
     assert games[8].timeline[36].category == TimelineCategory.MissionPartial
     assert games[8].timeline[36].elapsed_time == 27.5
     assert games[8].timeline[36].event == "flirt with seduction target: 50%"
@@ -8345,7 +8345,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[41].action_test == ActionTest.NoAT
     assert games[8].timeline[41].actor == "sniper"
     assert games[8].timeline[41].books == (None,)
-    assert games[8].timeline[41].cast_name == (Characters.T,)
+    assert games[8].timeline[41].cast_name == (Characters.Sari,)
     assert games[8].timeline[41].category == TimelineCategory.SniperLights
     assert games[8].timeline[41].elapsed_time == 48.400000000000006
     assert games[8].timeline[41].event == "marked less suspicious."
@@ -8356,7 +8356,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[42].action_test == ActionTest.NoAT
     assert games[8].timeline[42].actor == "sniper"
     assert games[8].timeline[42].books == (None,)
-    assert games[8].timeline[42].cast_name == (Characters.S,)
+    assert games[8].timeline[42].cast_name == (Characters.Smallman,)
     assert games[8].timeline[42].category == TimelineCategory.SniperLights
     assert games[8].timeline[42].elapsed_time == 49.19999999999999
     assert games[8].timeline[42].event == "marked less suspicious."
@@ -8367,7 +8367,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[43].action_test == ActionTest.NoAT
     assert games[8].timeline[43].actor == "sniper"
     assert games[8].timeline[43].books == (None,)
-    assert games[8].timeline[43].cast_name == (Characters.D,)
+    assert games[8].timeline[43].cast_name == (Characters.Morgan,)
     assert games[8].timeline[43].category == TimelineCategory.SniperLights
     assert games[8].timeline[43].elapsed_time == 50.400000000000006
     assert games[8].timeline[43].event == "marked suspicious."
@@ -8411,7 +8411,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[47].action_test == ActionTest.NoAT
     assert games[8].timeline[47].actor == "spy"
     assert games[8].timeline[47].books == (None,)
-    assert games[8].timeline[47].cast_name == (Characters.T,)
+    assert games[8].timeline[47].cast_name == (Characters.Sari,)
     assert games[8].timeline[47].category == TimelineCategory.NoCategory
     assert games[8].timeline[47].elapsed_time == 68.69999999999999
     assert games[8].timeline[47].event == "begin flirtation with seduction target."
@@ -8433,7 +8433,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[49].action_test == ActionTest.NoAT
     assert games[8].timeline[49].actor == "spy"
     assert games[8].timeline[49].books == (None,)
-    assert games[8].timeline[49].cast_name == (Characters.T,)
+    assert games[8].timeline[49].cast_name == (Characters.Sari,)
     assert games[8].timeline[49].category == TimelineCategory.NoCategory
     assert games[8].timeline[49].elapsed_time == 70.0
     assert games[8].timeline[49].event == "failed flirt with seduction target."
@@ -8455,7 +8455,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[51].action_test == ActionTest.NoAT
     assert games[8].timeline[51].actor == "sniper"
     assert games[8].timeline[51].books == (None,)
-    assert games[8].timeline[51].cast_name == (Characters.F,)
+    assert games[8].timeline[51].cast_name == (Characters.Alice,)
     assert games[8].timeline[51].category == TimelineCategory.SniperLights
     assert games[8].timeline[51].elapsed_time == 76.6
     assert games[8].timeline[51].event == "marked suspicious."
@@ -8466,7 +8466,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[52].action_test == ActionTest.NoAT
     assert games[8].timeline[52].actor == "sniper"
     assert games[8].timeline[52].books == (None,)
-    assert games[8].timeline[52].cast_name == (Characters.Q,)
+    assert games[8].timeline[52].cast_name == (Characters.Salmon,)
     assert games[8].timeline[52].category == TimelineCategory.SniperLights
     assert games[8].timeline[52].elapsed_time == 77.6
     assert games[8].timeline[52].event == "marked suspicious."
@@ -8488,7 +8488,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[54].action_test == ActionTest.NoAT
     assert games[8].timeline[54].actor == "sniper"
     assert games[8].timeline[54].books == (None,)
-    assert games[8].timeline[54].cast_name == (Characters.G,)
+    assert games[8].timeline[54].cast_name == (Characters.General,)
     assert games[8].timeline[54].category == TimelineCategory.SniperLights
     assert games[8].timeline[54].elapsed_time == 85.1
     assert games[8].timeline[54].event == "marked suspicious."
@@ -8499,7 +8499,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[55].action_test == ActionTest.NoAT
     assert games[8].timeline[55].actor == "sniper"
     assert games[8].timeline[55].books == (None,)
-    assert games[8].timeline[55].cast_name == (Characters.N,)
+    assert games[8].timeline[55].cast_name == (Characters.Bling,)
     assert games[8].timeline[55].category == TimelineCategory.SniperLights
     assert games[8].timeline[55].elapsed_time == 85.4
     assert games[8].timeline[55].event == "marked suspicious."
@@ -8510,7 +8510,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[56].action_test == ActionTest.NoAT
     assert games[8].timeline[56].actor == "sniper"
     assert games[8].timeline[56].books == (None,)
-    assert games[8].timeline[56].cast_name == (Characters.G,)
+    assert games[8].timeline[56].cast_name == (Characters.General,)
     assert games[8].timeline[56].category == TimelineCategory.SniperLights
     assert games[8].timeline[56].elapsed_time == 86.1
     assert games[8].timeline[56].event == "marked neutral suspicion."
@@ -8521,7 +8521,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[57].action_test == ActionTest.NoAT
     assert games[8].timeline[57].actor == "sniper"
     assert games[8].timeline[57].books == (None,)
-    assert games[8].timeline[57].cast_name == (Characters.N,)
+    assert games[8].timeline[57].cast_name == (Characters.Bling,)
     assert games[8].timeline[57].category == TimelineCategory.SniperLights
     assert games[8].timeline[57].elapsed_time == 86.4
     assert games[8].timeline[57].event == "marked neutral suspicion."
@@ -8543,7 +8543,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[59].action_test == ActionTest.NoAT
     assert games[8].timeline[59].actor == "spy"
     assert games[8].timeline[59].books == (None,)
-    assert games[8].timeline[59].cast_name == (Characters.L,)
+    assert games[8].timeline[59].cast_name == (Characters.Rocker,)
     assert games[8].timeline[59].category == TimelineCategory.Conversation
     assert games[8].timeline[59].elapsed_time == 100.1
     assert games[8].timeline[59].event == "spy joined conversation with double agent."
@@ -8598,7 +8598,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[64].action_test == ActionTest.NoAT
     assert games[8].timeline[64].actor == "spy"
     assert games[8].timeline[64].books == (None,)
-    assert games[8].timeline[64].cast_name == (Characters.L,)
+    assert games[8].timeline[64].cast_name == (Characters.Rocker,)
     assert games[8].timeline[64].category == TimelineCategory.MissionComplete
     assert games[8].timeline[64].elapsed_time == 113.5
     assert games[8].timeline[64].event == "double agent contacted."
@@ -8609,7 +8609,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[65].action_test == ActionTest.NoAT
     assert games[8].timeline[65].actor == "sniper"
     assert games[8].timeline[65].books == (None,)
-    assert games[8].timeline[65].cast_name == (Characters.Q,)
+    assert games[8].timeline[65].cast_name == (Characters.Salmon,)
     assert games[8].timeline[65].category == TimelineCategory.SniperLights
     assert games[8].timeline[65].elapsed_time == 115.6
     assert games[8].timeline[65].event == "marked less suspicious."
@@ -8620,7 +8620,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[66].action_test == ActionTest.NoAT
     assert games[8].timeline[66].actor == "sniper"
     assert games[8].timeline[66].books == (None,)
-    assert games[8].timeline[66].cast_name == (Characters.P,)
+    assert games[8].timeline[66].cast_name == (Characters.Carlos,)
     assert games[8].timeline[66].category == TimelineCategory.SniperLights
     assert games[8].timeline[66].elapsed_time == 116.7
     assert games[8].timeline[66].event == "marked less suspicious."
@@ -8642,7 +8642,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[68].action_test == ActionTest.NoAT
     assert games[8].timeline[68].actor == "spy"
     assert games[8].timeline[68].books == (None,)
-    assert games[8].timeline[68].cast_name == (Characters.T,)
+    assert games[8].timeline[68].cast_name == (Characters.Sari,)
     assert games[8].timeline[68].category == TimelineCategory.NoCategory
     assert games[8].timeline[68].elapsed_time == 117.1
     assert games[8].timeline[68].event == "begin flirtation with seduction target."
@@ -8653,7 +8653,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[69].action_test == ActionTest.NoAT
     assert games[8].timeline[69].actor == "sniper"
     assert games[8].timeline[69].books == (None,)
-    assert games[8].timeline[69].cast_name == (Characters.O,)
+    assert games[8].timeline[69].cast_name == (Characters.Irish,)
     assert games[8].timeline[69].category == TimelineCategory.SniperLights
     assert games[8].timeline[69].elapsed_time == 117.4
     assert games[8].timeline[69].event == "marked less suspicious."
@@ -8675,7 +8675,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[71].action_test == ActionTest.NoAT
     assert games[8].timeline[71].actor == "spy"
     assert games[8].timeline[71].books == (None,)
-    assert games[8].timeline[71].cast_name == (Characters.T,)
+    assert games[8].timeline[71].cast_name == (Characters.Sari,)
     assert games[8].timeline[71].category == TimelineCategory.MissionPartial
     assert games[8].timeline[71].elapsed_time == 118.1
     assert games[8].timeline[71].event == "flirt with seduction target: 84%"
@@ -8697,7 +8697,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[73].action_test == ActionTest.NoAT
     assert games[8].timeline[73].actor == "spy"
     assert games[8].timeline[73].books == (None,)
-    assert games[8].timeline[73].cast_name == (Characters.L,)
+    assert games[8].timeline[73].cast_name == (Characters.Rocker,)
     assert games[8].timeline[73].category == TimelineCategory.Conversation
     assert games[8].timeline[73].elapsed_time == 119.9
     assert games[8].timeline[73].event == "spy left conversation with double agent."
@@ -8708,7 +8708,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[74].action_test == ActionTest.NoAT
     assert games[8].timeline[74].actor == "spy"
     assert games[8].timeline[74].books == (None,)
-    assert games[8].timeline[74].cast_name == (Characters.M,)
+    assert games[8].timeline[74].cast_name == (Characters.Plain,)
     assert games[8].timeline[74].category == TimelineCategory.Drinks
     assert games[8].timeline[74].elapsed_time == 124.4
     assert games[8].timeline[74].event == "request drink from bartender."
@@ -8719,7 +8719,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[75].action_test == ActionTest.NoAT
     assert games[8].timeline[75].actor == "spy"
     assert games[8].timeline[75].books == (None,)
-    assert games[8].timeline[75].cast_name == (Characters.M,)
+    assert games[8].timeline[75].cast_name == (Characters.Plain,)
     assert games[8].timeline[75].category == TimelineCategory.Drinks
     assert games[8].timeline[75].elapsed_time == 130.5
     assert games[8].timeline[75].event == "bartender picked next customer."
@@ -8741,7 +8741,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[77].action_test == ActionTest.NoAT
     assert games[8].timeline[77].actor == "spy"
     assert games[8].timeline[77].books == (None,)
-    assert games[8].timeline[77].cast_name == (Characters.M,)
+    assert games[8].timeline[77].cast_name == (Characters.Plain,)
     assert games[8].timeline[77].category == TimelineCategory.Drinks
     assert games[8].timeline[77].elapsed_time == 134.7
     assert games[8].timeline[77].event == "bartender offered drink."
@@ -8774,7 +8774,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[80].action_test == ActionTest.NoAT
     assert games[8].timeline[80].actor == "spy"
     assert games[8].timeline[80].books == (None,)
-    assert games[8].timeline[80].cast_name == (Characters.M,)
+    assert games[8].timeline[80].cast_name == (Characters.Plain,)
     assert games[8].timeline[80].category == TimelineCategory.Drinks
     assert games[8].timeline[80].elapsed_time == 138.6
     assert games[8].timeline[80].event == "got drink from bartender."
@@ -8785,7 +8785,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[81].action_test == ActionTest.NoAT
     assert games[8].timeline[81].actor == "spy"
     assert games[8].timeline[81].books == (None,)
-    assert games[8].timeline[81].cast_name == (Characters.M,)
+    assert games[8].timeline[81].cast_name == (Characters.Plain,)
     assert games[8].timeline[81].category == TimelineCategory.Drinks
     assert games[8].timeline[81].elapsed_time == 143.1
     assert games[8].timeline[81].event == "sipped drink."
@@ -8796,7 +8796,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[82].action_test == ActionTest.NoAT
     assert games[8].timeline[82].actor == "sniper"
     assert games[8].timeline[82].books == (None,)
-    assert games[8].timeline[82].cast_name == (Characters.M,)
+    assert games[8].timeline[82].cast_name == (Characters.Plain,)
     assert games[8].timeline[82].category == TimelineCategory.SniperLights
     assert games[8].timeline[82].elapsed_time == 144.7
     assert games[8].timeline[82].event == "marked spy suspicious."
@@ -8807,7 +8807,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[83].action_test == ActionTest.NoAT
     assert games[8].timeline[83].actor == "spy"
     assert games[8].timeline[83].books == (None,)
-    assert games[8].timeline[83].cast_name == (Characters.M,)
+    assert games[8].timeline[83].cast_name == (Characters.Plain,)
     assert games[8].timeline[83].category == TimelineCategory.Drinks
     assert games[8].timeline[83].elapsed_time == 159.7
     assert games[8].timeline[83].event == "sipped drink."
@@ -8829,7 +8829,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[85].action_test == ActionTest.NoAT
     assert games[8].timeline[85].actor == "spy"
     assert games[8].timeline[85].books == (None,)
-    assert games[8].timeline[85].cast_name == (Characters.L,)
+    assert games[8].timeline[85].cast_name == (Characters.Rocker,)
     assert games[8].timeline[85].category == TimelineCategory.Conversation
     assert games[8].timeline[85].elapsed_time == 173.7
     assert games[8].timeline[85].event == "spy joined conversation with double agent."
@@ -8840,7 +8840,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[86].action_test == ActionTest.NoAT
     assert games[8].timeline[86].actor == "sniper"
     assert games[8].timeline[86].books == (None,)
-    assert games[8].timeline[86].cast_name == (Characters.D,)
+    assert games[8].timeline[86].cast_name == (Characters.Morgan,)
     assert games[8].timeline[86].category == TimelineCategory.SniperLights
     assert games[8].timeline[86].elapsed_time == 176.9
     assert games[8].timeline[86].event == "marked neutral suspicion."
@@ -8851,7 +8851,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[87].action_test == ActionTest.NoAT
     assert games[8].timeline[87].actor == "sniper"
     assert games[8].timeline[87].books == (None,)
-    assert games[8].timeline[87].cast_name == (Characters.D,)
+    assert games[8].timeline[87].cast_name == (Characters.Morgan,)
     assert games[8].timeline[87].category == TimelineCategory.SniperLights
     assert games[8].timeline[87].elapsed_time == 179.3
     assert games[8].timeline[87].event == "marked less suspicious."
@@ -8862,7 +8862,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[88].action_test == ActionTest.NoAT
     assert games[8].timeline[88].actor == "sniper"
     assert games[8].timeline[88].books == (None,)
-    assert games[8].timeline[88].cast_name == (Characters.D,)
+    assert games[8].timeline[88].cast_name == (Characters.Morgan,)
     assert games[8].timeline[88].category == TimelineCategory.SniperLights
     assert games[8].timeline[88].elapsed_time == 180.4
     assert games[8].timeline[88].event == "marked neutral suspicion."
@@ -8884,7 +8884,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[90].action_test == ActionTest.NoAT
     assert games[8].timeline[90].actor == "spy"
     assert games[8].timeline[90].books == (None,)
-    assert games[8].timeline[90].cast_name == (Characters.T,)
+    assert games[8].timeline[90].cast_name == (Characters.Sari,)
     assert games[8].timeline[90].category == TimelineCategory.NoCategory
     assert games[8].timeline[90].elapsed_time == 181.9
     assert games[8].timeline[90].event == "begin flirtation with seduction target."
@@ -8906,7 +8906,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[92].action_test == ActionTest.NoAT
     assert games[8].timeline[92].actor == "spy"
     assert games[8].timeline[92].books == (None,)
-    assert games[8].timeline[92].cast_name == (Characters.T,)
+    assert games[8].timeline[92].cast_name == (Characters.Sari,)
     assert games[8].timeline[92].category == TimelineCategory.MissionPartial
     assert games[8].timeline[92].elapsed_time == 182.6
     assert games[8].timeline[92].event == "flirt with seduction target: 100%"
@@ -8917,7 +8917,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[93].action_test == ActionTest.NoAT
     assert games[8].timeline[93].actor == "spy"
     assert games[8].timeline[93].books == (None,)
-    assert games[8].timeline[93].cast_name == (Characters.T,)
+    assert games[8].timeline[93].cast_name == (Characters.Sari,)
     assert games[8].timeline[93].category == TimelineCategory.MissionComplete
     assert games[8].timeline[93].elapsed_time == 182.6
     assert games[8].timeline[93].event == "target seduced."
@@ -8939,7 +8939,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[95].action_test == ActionTest.NoAT
     assert games[8].timeline[95].actor == "spy"
     assert games[8].timeline[95].books == (None,)
-    assert games[8].timeline[95].cast_name == (Characters.L,)
+    assert games[8].timeline[95].cast_name == (Characters.Rocker,)
     assert games[8].timeline[95].category == TimelineCategory.Conversation
     assert games[8].timeline[95].elapsed_time == 193.9
     assert games[8].timeline[95].event == "spy left conversation with double agent."
@@ -8961,7 +8961,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[97].action_test == ActionTest.NoAT
     assert games[8].timeline[97].actor == "spy"
     assert games[8].timeline[97].books == (None,)
-    assert games[8].timeline[97].cast_name == (Characters.M,)
+    assert games[8].timeline[97].cast_name == (Characters.Plain,)
     assert games[8].timeline[97].category == TimelineCategory.Drinks
     assert games[8].timeline[97].elapsed_time == 200.0
     assert games[8].timeline[97].event == "took last sip of drink."
@@ -8972,7 +8972,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[98].action_test == ActionTest.NoAT
     assert games[8].timeline[98].actor == "spy"
     assert games[8].timeline[98].books == (None,)
-    assert games[8].timeline[98].cast_name == (Characters.M,)
+    assert games[8].timeline[98].cast_name == (Characters.Plain,)
     assert games[8].timeline[98].category == TimelineCategory.Drinks
     assert games[8].timeline[98].elapsed_time == 202.0
     assert games[8].timeline[98].event == "request drink from bartender."
@@ -8983,7 +8983,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[99].action_test == ActionTest.NoAT
     assert games[8].timeline[99].actor == "spy"
     assert games[8].timeline[99].books == (None,)
-    assert games[8].timeline[99].cast_name == (Characters.M,)
+    assert games[8].timeline[99].cast_name == (Characters.Plain,)
     assert games[8].timeline[99].category == TimelineCategory.Drinks
     assert games[8].timeline[99].elapsed_time == 202.0
     assert games[8].timeline[99].event == "bartender picked next customer."
@@ -8994,7 +8994,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[100].action_test == ActionTest.NoAT
     assert games[8].timeline[100].actor == "spy"
     assert games[8].timeline[100].books == (None,)
-    assert games[8].timeline[100].cast_name == (Characters.M,)
+    assert games[8].timeline[100].cast_name == (Characters.Plain,)
     assert games[8].timeline[100].category == TimelineCategory.Drinks
     assert games[8].timeline[100].elapsed_time == 205.5
     assert games[8].timeline[100].event == "bartender offered drink."
@@ -9016,7 +9016,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[102].action_test == ActionTest.NoAT
     assert games[8].timeline[102].actor == "spy"
     assert games[8].timeline[102].books == (None,)
-    assert games[8].timeline[102].cast_name == (Characters.M,)
+    assert games[8].timeline[102].cast_name == (Characters.Plain,)
     assert games[8].timeline[102].category == TimelineCategory.Drinks
     assert games[8].timeline[102].elapsed_time == 207.8
     assert games[8].timeline[102].event == "got drink from bartender."
@@ -9027,7 +9027,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[103].action_test == ActionTest.NoAT
     assert games[8].timeline[103].actor == "spy"
     assert games[8].timeline[103].books == (None,)
-    assert games[8].timeline[103].cast_name == (Characters.M,)
+    assert games[8].timeline[103].cast_name == (Characters.Plain,)
     assert games[8].timeline[103].category == TimelineCategory.MissionComplete
     assert games[8].timeline[103].elapsed_time == 207.8
     assert games[8].timeline[103].event == "guest list purloined."
@@ -9060,7 +9060,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[106].action_test == ActionTest.NoAT
     assert games[8].timeline[106].actor == "sniper"
     assert games[8].timeline[106].books == (None,)
-    assert games[8].timeline[106].cast_name == (Characters.M,)
+    assert games[8].timeline[106].cast_name == (Characters.Plain,)
     assert games[8].timeline[106].category == TimelineCategory.SniperShot
     assert games[8].timeline[106].elapsed_time == 211.1
     assert games[8].timeline[106].event == "took shot."
@@ -9071,7 +9071,7 @@ def test_parse_timeline_parallel_normal(
     assert games[8].timeline[107].action_test == ActionTest.NoAT
     assert games[8].timeline[107].actor == "game"
     assert games[8].timeline[107].books == (None,)
-    assert games[8].timeline[107].cast_name == (Characters.M,)
+    assert games[8].timeline[107].cast_name == (Characters.Plain,)
     assert games[8].timeline[107].category == TimelineCategory.GameEnd
     assert games[8].timeline[107].elapsed_time == 214.1
     assert games[8].timeline[107].event == "sniper shot spy."
@@ -9085,7 +9085,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[0].action_test == ActionTest.NoAT
     assert games[9].timeline[0].actor == "spy"
     assert games[9].timeline[0].books == (None,)
-    assert games[9].timeline[0].cast_name == (Characters.N,)
+    assert games[9].timeline[0].cast_name == (Characters.Bling,)
     assert games[9].timeline[0].category == TimelineCategory.Cast
     assert games[9].timeline[0].elapsed_time == 0.0
     assert games[9].timeline[0].event == "spy cast."
@@ -9096,7 +9096,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[1].action_test == ActionTest.NoAT
     assert games[9].timeline[1].actor == "spy"
     assert games[9].timeline[1].books == (None,)
-    assert games[9].timeline[1].cast_name == (Characters.Q,)
+    assert games[9].timeline[1].cast_name == (Characters.Salmon,)
     assert games[9].timeline[1].category == TimelineCategory.Cast
     assert games[9].timeline[1].elapsed_time == 0.0
     assert games[9].timeline[1].event == "ambassador cast."
@@ -9107,7 +9107,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[2].action_test == ActionTest.NoAT
     assert games[9].timeline[2].actor == "spy"
     assert games[9].timeline[2].books == (None,)
-    assert games[9].timeline[2].cast_name == (Characters.F,)
+    assert games[9].timeline[2].cast_name == (Characters.Alice,)
     assert games[9].timeline[2].category == TimelineCategory.Cast
     assert games[9].timeline[2].elapsed_time == 0.0
     assert games[9].timeline[2].event == "double agent cast."
@@ -9118,7 +9118,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[3].action_test == ActionTest.NoAT
     assert games[9].timeline[3].actor == "spy"
     assert games[9].timeline[3].books == (None,)
-    assert games[9].timeline[3].cast_name == (Characters.T,)
+    assert games[9].timeline[3].cast_name == (Characters.Sari,)
     assert games[9].timeline[3].category == TimelineCategory.Cast
     assert games[9].timeline[3].elapsed_time == 0.0
     assert games[9].timeline[3].event == "seduction target cast."
@@ -9129,7 +9129,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[4].action_test == ActionTest.NoAT
     assert games[9].timeline[4].actor == "spy"
     assert games[9].timeline[4].books == (None,)
-    assert games[9].timeline[4].cast_name == (Characters.P,)
+    assert games[9].timeline[4].cast_name == (Characters.Carlos,)
     assert games[9].timeline[4].category == TimelineCategory.Cast
     assert games[9].timeline[4].elapsed_time == 0.0
     assert games[9].timeline[4].event == "civilian cast."
@@ -9140,7 +9140,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[5].action_test == ActionTest.NoAT
     assert games[9].timeline[5].actor == "spy"
     assert games[9].timeline[5].books == (None,)
-    assert games[9].timeline[5].cast_name == (Characters.S,)
+    assert games[9].timeline[5].cast_name == (Characters.Smallman,)
     assert games[9].timeline[5].category == TimelineCategory.Cast
     assert games[9].timeline[5].elapsed_time == 0.0
     assert games[9].timeline[5].event == "civilian cast."
@@ -9151,7 +9151,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[6].action_test == ActionTest.NoAT
     assert games[9].timeline[6].actor == "spy"
     assert games[9].timeline[6].books == (None,)
-    assert games[9].timeline[6].cast_name == (Characters.G,)
+    assert games[9].timeline[6].cast_name == (Characters.General,)
     assert games[9].timeline[6].category == TimelineCategory.Cast
     assert games[9].timeline[6].elapsed_time == 0.0
     assert games[9].timeline[6].event == "civilian cast."
@@ -9162,7 +9162,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[7].action_test == ActionTest.NoAT
     assert games[9].timeline[7].actor == "spy"
     assert games[9].timeline[7].books == (None,)
-    assert games[9].timeline[7].cast_name == (Characters.K,)
+    assert games[9].timeline[7].cast_name == (Characters.Sikh,)
     assert games[9].timeline[7].category == TimelineCategory.Cast
     assert games[9].timeline[7].elapsed_time == 0.0
     assert games[9].timeline[7].event == "civilian cast."
@@ -9173,7 +9173,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[8].action_test == ActionTest.NoAT
     assert games[9].timeline[8].actor == "spy"
     assert games[9].timeline[8].books == (None,)
-    assert games[9].timeline[8].cast_name == (Characters.J,)
+    assert games[9].timeline[8].cast_name == (Characters.Queen,)
     assert games[9].timeline[8].category == TimelineCategory.Cast
     assert games[9].timeline[8].elapsed_time == 0.0
     assert games[9].timeline[8].event == "civilian cast."
@@ -9184,7 +9184,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[9].action_test == ActionTest.NoAT
     assert games[9].timeline[9].actor == "spy"
     assert games[9].timeline[9].books == (None,)
-    assert games[9].timeline[9].cast_name == (Characters.C,)
+    assert games[9].timeline[9].cast_name == (Characters.Taft,)
     assert games[9].timeline[9].category == TimelineCategory.Cast
     assert games[9].timeline[9].elapsed_time == 0.0
     assert games[9].timeline[9].event == "civilian cast."
@@ -9195,7 +9195,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[10].action_test == ActionTest.NoAT
     assert games[9].timeline[10].actor == "spy"
     assert games[9].timeline[10].books == (None,)
-    assert games[9].timeline[10].cast_name == (Characters.H,)
+    assert games[9].timeline[10].cast_name == (Characters.Oprah,)
     assert games[9].timeline[10].category == TimelineCategory.Cast
     assert games[9].timeline[10].elapsed_time == 0.0
     assert games[9].timeline[10].event == "civilian cast."
@@ -9206,7 +9206,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[11].action_test == ActionTest.NoAT
     assert games[9].timeline[11].actor == "spy"
     assert games[9].timeline[11].books == (None,)
-    assert games[9].timeline[11].cast_name == (Characters.M,)
+    assert games[9].timeline[11].cast_name == (Characters.Plain,)
     assert games[9].timeline[11].category == TimelineCategory.Cast
     assert games[9].timeline[11].elapsed_time == 0.0
     assert games[9].timeline[11].event == "civilian cast."
@@ -9338,7 +9338,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[23].action_test == ActionTest.NoAT
     assert games[9].timeline[23].actor == "sniper"
     assert games[9].timeline[23].books == (None,)
-    assert games[9].timeline[23].cast_name == (Characters.F,)
+    assert games[9].timeline[23].cast_name == (Characters.Alice,)
     assert games[9].timeline[23].category == TimelineCategory.SniperLights
     assert games[9].timeline[23].elapsed_time == 0.6999999999999886
     assert games[9].timeline[23].event == "marked less suspicious."
@@ -9349,7 +9349,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[24].action_test == ActionTest.NoAT
     assert games[9].timeline[24].actor == "sniper"
     assert games[9].timeline[24].books == (None,)
-    assert games[9].timeline[24].cast_name == (Characters.Q,)
+    assert games[9].timeline[24].cast_name == (Characters.Salmon,)
     assert games[9].timeline[24].category == TimelineCategory.SniperLights
     assert games[9].timeline[24].elapsed_time == 1.4000000000000057
     assert games[9].timeline[24].event == "marked less suspicious."
@@ -9404,7 +9404,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[29].action_test == ActionTest.NoAT
     assert games[9].timeline[29].actor == "spy"
     assert games[9].timeline[29].books == (None,)
-    assert games[9].timeline[29].cast_name == (Characters.T,)
+    assert games[9].timeline[29].cast_name == (Characters.Sari,)
     assert games[9].timeline[29].category == TimelineCategory.NoCategory
     assert games[9].timeline[29].elapsed_time == 4.199999999999989
     assert games[9].timeline[29].event == "begin flirtation with seduction target."
@@ -9426,7 +9426,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[31].action_test == ActionTest.NoAT
     assert games[9].timeline[31].actor == "spy"
     assert games[9].timeline[31].books == (None,)
-    assert games[9].timeline[31].cast_name == (Characters.T,)
+    assert games[9].timeline[31].cast_name == (Characters.Sari,)
     assert games[9].timeline[31].category == TimelineCategory.MissionPartial
     assert games[9].timeline[31].elapsed_time == 5.400000000000006
     assert games[9].timeline[31].event == "flirt with seduction target: 34%"
@@ -9448,7 +9448,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[33].action_test == ActionTest.NoAT
     assert games[9].timeline[33].actor == "sniper"
     assert games[9].timeline[33].books == (None,)
-    assert games[9].timeline[33].cast_name == (Characters.K,)
+    assert games[9].timeline[33].cast_name == (Characters.Sikh,)
     assert games[9].timeline[33].category == TimelineCategory.SniperLights
     assert games[9].timeline[33].elapsed_time == 6.400000000000006
     assert games[9].timeline[33].event == "marked suspicious."
@@ -9459,7 +9459,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[34].action_test == ActionTest.NoAT
     assert games[9].timeline[34].actor == "spy"
     assert games[9].timeline[34].books == (None,)
-    assert games[9].timeline[34].cast_name == (Characters.N,)
+    assert games[9].timeline[34].cast_name == (Characters.Bling,)
     assert games[9].timeline[34].category == TimelineCategory.Drinks
     assert games[9].timeline[34].elapsed_time == 21.0
     assert games[9].timeline[34].event == "took last sip of drink."
@@ -9470,7 +9470,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[35].action_test == ActionTest.NoAT
     assert games[9].timeline[35].actor == "sniper"
     assert games[9].timeline[35].books == (None,)
-    assert games[9].timeline[35].cast_name == (Characters.H,)
+    assert games[9].timeline[35].cast_name == (Characters.Oprah,)
     assert games[9].timeline[35].category == TimelineCategory.SniperLights
     assert games[9].timeline[35].elapsed_time == 33.099999999999994
     assert games[9].timeline[35].event == "marked suspicious."
@@ -9586,7 +9586,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[45].action_test == ActionTest.NoAT
     assert games[9].timeline[45].actor == "spy"
     assert games[9].timeline[45].books == (None,)
-    assert games[9].timeline[45].cast_name == (Characters.N,)
+    assert games[9].timeline[45].cast_name == (Characters.Bling,)
     assert games[9].timeline[45].category == TimelineCategory.Watch
     assert games[9].timeline[45].elapsed_time == 58.599999999999994
     assert games[9].timeline[45].event == "watch checked."
@@ -9597,7 +9597,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[46].action_test == ActionTest.NoAT
     assert games[9].timeline[46].actor == "sniper"
     assert games[9].timeline[46].books == (None,)
-    assert games[9].timeline[46].cast_name == (Characters.J,)
+    assert games[9].timeline[46].cast_name == (Characters.Queen,)
     assert games[9].timeline[46].category == TimelineCategory.SniperLights
     assert games[9].timeline[46].elapsed_time == 58.80000000000001
     assert games[9].timeline[46].event == "marked suspicious."
@@ -9608,7 +9608,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[47].action_test == ActionTest.NoAT
     assert games[9].timeline[47].actor == "sniper"
     assert games[9].timeline[47].books == (None,)
-    assert games[9].timeline[47].cast_name == (Characters.H,)
+    assert games[9].timeline[47].cast_name == (Characters.Oprah,)
     assert games[9].timeline[47].category == TimelineCategory.SniperLights
     assert games[9].timeline[47].elapsed_time == 60.900000000000006
     assert games[9].timeline[47].event == "marked neutral suspicion."
@@ -9630,7 +9630,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[49].action_test == ActionTest.NoAT
     assert games[9].timeline[49].actor == "spy"
     assert games[9].timeline[49].books == (None,)
-    assert games[9].timeline[49].cast_name == (Characters.F,)
+    assert games[9].timeline[49].cast_name == (Characters.Alice,)
     assert games[9].timeline[49].category == TimelineCategory.Conversation
     assert games[9].timeline[49].elapsed_time == 65.5
     assert games[9].timeline[49].event == "spy joined conversation with double agent."
@@ -9685,7 +9685,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[54].action_test == ActionTest.NoAT
     assert games[9].timeline[54].actor == "spy"
     assert games[9].timeline[54].books == (None,)
-    assert games[9].timeline[54].cast_name == (Characters.F,)
+    assert games[9].timeline[54].cast_name == (Characters.Alice,)
     assert games[9].timeline[54].category == TimelineCategory.MissionComplete
     assert games[9].timeline[54].elapsed_time == 74.69999999999999
     assert games[9].timeline[54].event == "double agent contacted."
@@ -9696,7 +9696,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[55].action_test == ActionTest.NoAT
     assert games[9].timeline[55].actor == "sniper"
     assert games[9].timeline[55].books == (None,)
-    assert games[9].timeline[55].cast_name == (Characters.S,)
+    assert games[9].timeline[55].cast_name == (Characters.Smallman,)
     assert games[9].timeline[55].category == TimelineCategory.SniperLights
     assert games[9].timeline[55].elapsed_time == 78.4
     assert games[9].timeline[55].event == "marked suspicious."
@@ -9707,7 +9707,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[56].action_test == ActionTest.NoAT
     assert games[9].timeline[56].actor == "sniper"
     assert games[9].timeline[56].books == (None,)
-    assert games[9].timeline[56].cast_name == (Characters.H,)
+    assert games[9].timeline[56].cast_name == (Characters.Oprah,)
     assert games[9].timeline[56].category == TimelineCategory.SniperLights
     assert games[9].timeline[56].elapsed_time == 79.30000000000001
     assert games[9].timeline[56].event == "marked suspicious."
@@ -9718,7 +9718,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[57].action_test == ActionTest.NoAT
     assert games[9].timeline[57].actor == "sniper"
     assert games[9].timeline[57].books == (None,)
-    assert games[9].timeline[57].cast_name == (Characters.M,)
+    assert games[9].timeline[57].cast_name == (Characters.Plain,)
     assert games[9].timeline[57].category == TimelineCategory.SniperLights
     assert games[9].timeline[57].elapsed_time == 80.4
     assert games[9].timeline[57].event == "marked suspicious."
@@ -9729,7 +9729,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[58].action_test == ActionTest.NoAT
     assert games[9].timeline[58].actor == "sniper"
     assert games[9].timeline[58].books == (None,)
-    assert games[9].timeline[58].cast_name == (Characters.N,)
+    assert games[9].timeline[58].cast_name == (Characters.Bling,)
     assert games[9].timeline[58].category == TimelineCategory.SniperLights
     assert games[9].timeline[58].elapsed_time == 80.9
     assert games[9].timeline[58].event == "marked spy suspicious."
@@ -9740,7 +9740,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[59].action_test == ActionTest.NoAT
     assert games[9].timeline[59].actor == "sniper"
     assert games[9].timeline[59].books == (None,)
-    assert games[9].timeline[59].cast_name == (Characters.T,)
+    assert games[9].timeline[59].cast_name == (Characters.Sari,)
     assert games[9].timeline[59].category == TimelineCategory.SniperLights
     assert games[9].timeline[59].elapsed_time == 81.30000000000001
     assert games[9].timeline[59].event == "marked suspicious."
@@ -9762,7 +9762,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[61].action_test == ActionTest.NoAT
     assert games[9].timeline[61].actor == "spy"
     assert games[9].timeline[61].books == (None,)
-    assert games[9].timeline[61].cast_name == (Characters.T,)
+    assert games[9].timeline[61].cast_name == (Characters.Sari,)
     assert games[9].timeline[61].category == TimelineCategory.NoCategory
     assert games[9].timeline[61].elapsed_time == 85.0
     assert games[9].timeline[61].event == "begin flirtation with seduction target."
@@ -9784,7 +9784,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[63].action_test == ActionTest.NoAT
     assert games[9].timeline[63].actor == "spy"
     assert games[9].timeline[63].books == (None,)
-    assert games[9].timeline[63].cast_name == (Characters.T,)
+    assert games[9].timeline[63].cast_name == (Characters.Sari,)
     assert games[9].timeline[63].category == TimelineCategory.MissionPartial
     assert games[9].timeline[63].elapsed_time == 86.0
     assert games[9].timeline[63].event == "flirt with seduction target: 68%"
@@ -9806,7 +9806,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[65].action_test == ActionTest.NoAT
     assert games[9].timeline[65].actor == "spy"
     assert games[9].timeline[65].books == (None,)
-    assert games[9].timeline[65].cast_name == (Characters.F,)
+    assert games[9].timeline[65].cast_name == (Characters.Alice,)
     assert games[9].timeline[65].category == TimelineCategory.Conversation
     assert games[9].timeline[65].elapsed_time == 99.8
     assert games[9].timeline[65].event == "spy left conversation with double agent."
@@ -9897,7 +9897,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[73].action_test == ActionTest.NoAT
     assert games[9].timeline[73].actor == "spy"
     assert games[9].timeline[73].books == (None,)
-    assert games[9].timeline[73].cast_name == (Characters.Q, Characters.N)
+    assert games[9].timeline[73].cast_name == (Characters.Salmon, Characters.Bling)
     assert games[9].timeline[73].category == TimelineCategory.NoCategory
     assert games[9].timeline[73].elapsed_time == 115.0
     assert games[9].timeline[73].event == "ambassador's personal space violated."
@@ -9933,7 +9933,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[76].action_test == ActionTest.NoAT
     assert games[9].timeline[76].actor == "spy"
     assert games[9].timeline[76].books == (None,)
-    assert games[9].timeline[76].cast_name == (Characters.N,)
+    assert games[9].timeline[76].cast_name == (Characters.Bling,)
     assert games[9].timeline[76].category == TimelineCategory.Watch
     assert games[9].timeline[76].elapsed_time == 129.9
     assert games[9].timeline[76].event == "watch checked."
@@ -9966,7 +9966,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[79].action_test == ActionTest.NoAT
     assert games[9].timeline[79].actor == "spy"
     assert games[9].timeline[79].books == (None,)
-    assert games[9].timeline[79].cast_name == (Characters.T,)
+    assert games[9].timeline[79].cast_name == (Characters.Sari,)
     assert games[9].timeline[79].category == TimelineCategory.NoCategory
     assert games[9].timeline[79].elapsed_time == 145.4
     assert games[9].timeline[79].event == "begin flirtation with seduction target."
@@ -9988,7 +9988,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[81].action_test == ActionTest.NoAT
     assert games[9].timeline[81].actor == "spy"
     assert games[9].timeline[81].books == (None,)
-    assert games[9].timeline[81].cast_name == (Characters.T,)
+    assert games[9].timeline[81].cast_name == (Characters.Sari,)
     assert games[9].timeline[81].category == TimelineCategory.MissionPartial
     assert games[9].timeline[81].elapsed_time == 146.6
     assert games[9].timeline[81].event == "flirt with seduction target: 100%"
@@ -9999,7 +9999,7 @@ def test_parse_timeline_parallel_normal(
     assert games[9].timeline[82].action_test == ActionTest.NoAT
     assert games[9].timeline[82].actor == "spy"
     assert games[9].timeline[82].books == (None,)
-    assert games[9].timeline[82].cast_name == (Characters.T,)
+    assert games[9].timeline[82].cast_name == (Characters.Sari,)
     assert games[9].timeline[82].category == TimelineCategory.MissionComplete
     assert games[9].timeline[82].elapsed_time == 146.6
     assert games[9].timeline[82].event == "target seduced."
@@ -10035,7 +10035,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[0].action_test == ActionTest.NoAT
     assert games[10].timeline[0].actor == "spy"
     assert games[10].timeline[0].books == (None,)
-    assert games[10].timeline[0].cast_name == (Characters.O,)
+    assert games[10].timeline[0].cast_name == (Characters.Irish,)
     assert games[10].timeline[0].category == TimelineCategory.Cast
     assert games[10].timeline[0].elapsed_time == 0.0
     assert games[10].timeline[0].event == "spy cast."
@@ -10046,7 +10046,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[1].action_test == ActionTest.NoAT
     assert games[10].timeline[1].actor == "spy"
     assert games[10].timeline[1].books == (None,)
-    assert games[10].timeline[1].cast_name == (Characters.P,)
+    assert games[10].timeline[1].cast_name == (Characters.Carlos,)
     assert games[10].timeline[1].category == TimelineCategory.Cast
     assert games[10].timeline[1].elapsed_time == 0.0
     assert games[10].timeline[1].event == "ambassador cast."
@@ -10057,7 +10057,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[2].action_test == ActionTest.NoAT
     assert games[10].timeline[2].actor == "spy"
     assert games[10].timeline[2].books == (None,)
-    assert games[10].timeline[2].cast_name == (Characters.Q,)
+    assert games[10].timeline[2].cast_name == (Characters.Salmon,)
     assert games[10].timeline[2].category == TimelineCategory.Cast
     assert games[10].timeline[2].elapsed_time == 0.0
     assert games[10].timeline[2].event == "double agent cast."
@@ -10068,7 +10068,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[3].action_test == ActionTest.NoAT
     assert games[10].timeline[3].actor == "spy"
     assert games[10].timeline[3].books == (None,)
-    assert games[10].timeline[3].cast_name == (Characters.E,)
+    assert games[10].timeline[3].cast_name == (Characters.Helen,)
     assert games[10].timeline[3].category == TimelineCategory.Cast
     assert games[10].timeline[3].elapsed_time == 0.0
     assert games[10].timeline[3].event == "suspected double agent cast."
@@ -10079,7 +10079,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[4].action_test == ActionTest.NoAT
     assert games[10].timeline[4].actor == "spy"
     assert games[10].timeline[4].books == (None,)
-    assert games[10].timeline[4].cast_name == (Characters.G,)
+    assert games[10].timeline[4].cast_name == (Characters.General,)
     assert games[10].timeline[4].category == TimelineCategory.Cast
     assert games[10].timeline[4].elapsed_time == 0.0
     assert games[10].timeline[4].event == "seduction target cast."
@@ -10090,7 +10090,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[5].action_test == ActionTest.NoAT
     assert games[10].timeline[5].actor == "spy"
     assert games[10].timeline[5].books == (None,)
-    assert games[10].timeline[5].cast_name == (Characters.M,)
+    assert games[10].timeline[5].cast_name == (Characters.Plain,)
     assert games[10].timeline[5].category == TimelineCategory.Cast
     assert games[10].timeline[5].elapsed_time == 0.0
     assert games[10].timeline[5].event == "civilian cast."
@@ -10101,7 +10101,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[6].action_test == ActionTest.NoAT
     assert games[10].timeline[6].actor == "spy"
     assert games[10].timeline[6].books == (None,)
-    assert games[10].timeline[6].cast_name == (Characters.K,)
+    assert games[10].timeline[6].cast_name == (Characters.Sikh,)
     assert games[10].timeline[6].category == TimelineCategory.Cast
     assert games[10].timeline[6].elapsed_time == 0.0
     assert games[10].timeline[6].event == "civilian cast."
@@ -10112,7 +10112,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[7].action_test == ActionTest.NoAT
     assert games[10].timeline[7].actor == "spy"
     assert games[10].timeline[7].books == (None,)
-    assert games[10].timeline[7].cast_name == (Characters.F,)
+    assert games[10].timeline[7].cast_name == (Characters.Alice,)
     assert games[10].timeline[7].category == TimelineCategory.Cast
     assert games[10].timeline[7].elapsed_time == 0.0
     assert games[10].timeline[7].event == "civilian cast."
@@ -10123,7 +10123,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[8].action_test == ActionTest.NoAT
     assert games[10].timeline[8].actor == "spy"
     assert games[10].timeline[8].books == (None,)
-    assert games[10].timeline[8].cast_name == (Characters.D,)
+    assert games[10].timeline[8].cast_name == (Characters.Morgan,)
     assert games[10].timeline[8].category == TimelineCategory.Cast
     assert games[10].timeline[8].elapsed_time == 0.0
     assert games[10].timeline[8].event == "civilian cast."
@@ -10134,7 +10134,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[9].action_test == ActionTest.NoAT
     assert games[10].timeline[9].actor == "spy"
     assert games[10].timeline[9].books == (None,)
-    assert games[10].timeline[9].cast_name == (Characters.R,)
+    assert games[10].timeline[9].cast_name == (Characters.Teal,)
     assert games[10].timeline[9].category == TimelineCategory.Cast
     assert games[10].timeline[9].elapsed_time == 0.0
     assert games[10].timeline[9].event == "civilian cast."
@@ -10145,7 +10145,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[10].action_test == ActionTest.NoAT
     assert games[10].timeline[10].actor == "spy"
     assert games[10].timeline[10].books == (None,)
-    assert games[10].timeline[10].cast_name == (Characters.S,)
+    assert games[10].timeline[10].cast_name == (Characters.Smallman,)
     assert games[10].timeline[10].category == TimelineCategory.Cast
     assert games[10].timeline[10].elapsed_time == 0.0
     assert games[10].timeline[10].event == "civilian cast."
@@ -10156,7 +10156,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[11].action_test == ActionTest.NoAT
     assert games[10].timeline[11].actor == "spy"
     assert games[10].timeline[11].books == (None,)
-    assert games[10].timeline[11].cast_name == (Characters.N,)
+    assert games[10].timeline[11].cast_name == (Characters.Bling,)
     assert games[10].timeline[11].category == TimelineCategory.Cast
     assert games[10].timeline[11].elapsed_time == 0.0
     assert games[10].timeline[11].event == "civilian cast."
@@ -10167,7 +10167,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[12].action_test == ActionTest.NoAT
     assert games[10].timeline[12].actor == "spy"
     assert games[10].timeline[12].books == (None,)
-    assert games[10].timeline[12].cast_name == (Characters.I,)
+    assert games[10].timeline[12].cast_name == (Characters.Wheels,)
     assert games[10].timeline[12].category == TimelineCategory.Cast
     assert games[10].timeline[12].elapsed_time == 0.0
     assert games[10].timeline[12].event == "civilian cast."
@@ -10178,7 +10178,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[13].action_test == ActionTest.NoAT
     assert games[10].timeline[13].actor == "spy"
     assert games[10].timeline[13].books == (None,)
-    assert games[10].timeline[13].cast_name == (Characters.T,)
+    assert games[10].timeline[13].cast_name == (Characters.Sari,)
     assert games[10].timeline[13].category == TimelineCategory.Cast
     assert games[10].timeline[13].elapsed_time == 0.0
     assert games[10].timeline[13].event == "civilian cast."
@@ -10189,7 +10189,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[14].action_test == ActionTest.NoAT
     assert games[10].timeline[14].actor == "spy"
     assert games[10].timeline[14].books == (None,)
-    assert games[10].timeline[14].cast_name == (Characters.C,)
+    assert games[10].timeline[14].cast_name == (Characters.Taft,)
     assert games[10].timeline[14].category == TimelineCategory.Cast
     assert games[10].timeline[14].elapsed_time == 0.0
     assert games[10].timeline[14].event == "civilian cast."
@@ -10398,7 +10398,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[33].action_test == ActionTest.NoAT
     assert games[10].timeline[33].actor == "sniper"
     assert games[10].timeline[33].books == (None,)
-    assert games[10].timeline[33].cast_name == (Characters.P,)
+    assert games[10].timeline[33].cast_name == (Characters.Carlos,)
     assert games[10].timeline[33].category == TimelineCategory.SniperLights
     assert games[10].timeline[33].elapsed_time == 3.6999999999999886
     assert games[10].timeline[33].event == "marked suspicious."
@@ -10409,7 +10409,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[34].action_test == ActionTest.NoAT
     assert games[10].timeline[34].actor == "sniper"
     assert games[10].timeline[34].books == (None,)
-    assert games[10].timeline[34].cast_name == (Characters.Q,)
+    assert games[10].timeline[34].cast_name == (Characters.Salmon,)
     assert games[10].timeline[34].category == TimelineCategory.SniperLights
     assert games[10].timeline[34].elapsed_time == 4.300000000000011
     assert games[10].timeline[34].event == "marked less suspicious."
@@ -10431,7 +10431,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[36].action_test == ActionTest.NoAT
     assert games[10].timeline[36].actor == "spy"
     assert games[10].timeline[36].books == (None,)
-    assert games[10].timeline[36].cast_name == (Characters.G,)
+    assert games[10].timeline[36].cast_name == (Characters.General,)
     assert games[10].timeline[36].category == TimelineCategory.NoCategory
     assert games[10].timeline[36].elapsed_time == 6.900000000000006
     assert games[10].timeline[36].event == "begin flirtation with seduction target."
@@ -10442,7 +10442,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[37].action_test == ActionTest.NoAT
     assert games[10].timeline[37].actor == "sniper"
     assert games[10].timeline[37].books == (None,)
-    assert games[10].timeline[37].cast_name == (Characters.E,)
+    assert games[10].timeline[37].cast_name == (Characters.Helen,)
     assert games[10].timeline[37].category == TimelineCategory.SniperLights
     assert games[10].timeline[37].elapsed_time == 7.5
     assert games[10].timeline[37].event == "marked less suspicious."
@@ -10475,7 +10475,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[40].action_test == ActionTest.NoAT
     assert games[10].timeline[40].actor == "spy"
     assert games[10].timeline[40].books == (None,)
-    assert games[10].timeline[40].cast_name == (Characters.G,)
+    assert games[10].timeline[40].cast_name == (Characters.General,)
     assert games[10].timeline[40].category == TimelineCategory.MissionPartial
     assert games[10].timeline[40].elapsed_time == 9.400000000000006
     assert games[10].timeline[40].event == "flirt with seduction target: 51%"
@@ -10497,7 +10497,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[42].action_test == ActionTest.NoAT
     assert games[10].timeline[42].actor == "sniper"
     assert games[10].timeline[42].books == (None,)
-    assert games[10].timeline[42].cast_name == (Characters.N,)
+    assert games[10].timeline[42].cast_name == (Characters.Bling,)
     assert games[10].timeline[42].category == TimelineCategory.SniperLights
     assert games[10].timeline[42].elapsed_time == 11.099999999999994
     assert games[10].timeline[42].event == "marked suspicious."
@@ -10508,7 +10508,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[43].action_test == ActionTest.NoAT
     assert games[10].timeline[43].actor == "sniper"
     assert games[10].timeline[43].books == (None,)
-    assert games[10].timeline[43].cast_name == (Characters.T,)
+    assert games[10].timeline[43].cast_name == (Characters.Sari,)
     assert games[10].timeline[43].category == TimelineCategory.SniperLights
     assert games[10].timeline[43].elapsed_time == 11.5
     assert games[10].timeline[43].event == "marked suspicious."
@@ -10519,7 +10519,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[44].action_test == ActionTest.NoAT
     assert games[10].timeline[44].actor == "spy"
     assert games[10].timeline[44].books == (None,)
-    assert games[10].timeline[44].cast_name == (Characters.O,)
+    assert games[10].timeline[44].cast_name == (Characters.Irish,)
     assert games[10].timeline[44].category == TimelineCategory.Drinks
     assert games[10].timeline[44].elapsed_time == 11.900000000000006
     assert games[10].timeline[44].event == "took last sip of drink."
@@ -10530,7 +10530,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[45].action_test == ActionTest.NoAT
     assert games[10].timeline[45].actor == "sniper"
     assert games[10].timeline[45].books == (None,)
-    assert games[10].timeline[45].cast_name == (Characters.I,)
+    assert games[10].timeline[45].cast_name == (Characters.Wheels,)
     assert games[10].timeline[45].category == TimelineCategory.SniperLights
     assert games[10].timeline[45].elapsed_time == 14.099999999999994
     assert games[10].timeline[45].event == "marked suspicious."
@@ -10552,7 +10552,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[47].action_test == ActionTest.NoAT
     assert games[10].timeline[47].actor == "spy"
     assert games[10].timeline[47].books == (None,)
-    assert games[10].timeline[47].cast_name == (Characters.O,)
+    assert games[10].timeline[47].cast_name == (Characters.Irish,)
     assert games[10].timeline[47].category == TimelineCategory.Drinks
     assert games[10].timeline[47].elapsed_time == 28.69999999999999
     assert games[10].timeline[47].event == "waiter offered drink."
@@ -10563,7 +10563,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[48].action_test == ActionTest.NoAT
     assert games[10].timeline[48].actor == "sniper"
     assert games[10].timeline[48].books == (Books.Green,)
-    assert games[10].timeline[48].cast_name == (Characters.C,)
+    assert games[10].timeline[48].cast_name == (Characters.Taft,)
     assert (
         games[10].timeline[48].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -10577,7 +10577,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[49].action_test == ActionTest.NoAT
     assert games[10].timeline[49].actor == "spy"
     assert games[10].timeline[49].books == (None,)
-    assert games[10].timeline[49].cast_name == (Characters.O,)
+    assert games[10].timeline[49].cast_name == (Characters.Irish,)
     assert games[10].timeline[49].category == TimelineCategory.Drinks
     assert games[10].timeline[49].elapsed_time == 31.69999999999999
     assert games[10].timeline[49].event == "rejected drink from waiter."
@@ -10588,7 +10588,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[50].action_test == ActionTest.NoAT
     assert games[10].timeline[50].actor == "spy"
     assert games[10].timeline[50].books == (None,)
-    assert games[10].timeline[50].cast_name == (Characters.O,)
+    assert games[10].timeline[50].cast_name == (Characters.Irish,)
     assert games[10].timeline[50].category == TimelineCategory.Drinks
     assert games[10].timeline[50].elapsed_time == 31.69999999999999
     assert games[10].timeline[50].event == "waiter stopped offering drink."
@@ -10599,7 +10599,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[51].action_test == ActionTest.NoAT
     assert games[10].timeline[51].actor == "sniper"
     assert games[10].timeline[51].books == (None,)
-    assert games[10].timeline[51].cast_name == (Characters.R,)
+    assert games[10].timeline[51].cast_name == (Characters.Teal,)
     assert games[10].timeline[51].category == TimelineCategory.SniperLights
     assert games[10].timeline[51].elapsed_time == 35.400000000000006
     assert games[10].timeline[51].event == "marked suspicious."
@@ -10610,7 +10610,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[52].action_test == ActionTest.NoAT
     assert games[10].timeline[52].actor == "sniper"
     assert games[10].timeline[52].books == (None,)
-    assert games[10].timeline[52].cast_name == (Characters.R,)
+    assert games[10].timeline[52].cast_name == (Characters.Teal,)
     assert games[10].timeline[52].category == TimelineCategory.SniperLights
     assert games[10].timeline[52].elapsed_time == 36.19999999999999
     assert games[10].timeline[52].event == "marked neutral suspicion."
@@ -10621,7 +10621,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[53].action_test == ActionTest.NoAT
     assert games[10].timeline[53].actor == "sniper"
     assert games[10].timeline[53].books == (Books.Blue,)
-    assert games[10].timeline[53].cast_name == (Characters.R,)
+    assert games[10].timeline[53].cast_name == (Characters.Teal,)
     assert (
         games[10].timeline[53].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -10657,7 +10657,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[56].action_test == ActionTest.NoAT
     assert games[10].timeline[56].actor == "spy"
     assert games[10].timeline[56].books == (None,)
-    assert games[10].timeline[56].cast_name == (Characters.G,)
+    assert games[10].timeline[56].cast_name == (Characters.General,)
     assert games[10].timeline[56].category == TimelineCategory.NoCategory
     assert games[10].timeline[56].elapsed_time == 43.400000000000006
     assert games[10].timeline[56].event == "begin flirtation with seduction target."
@@ -10679,7 +10679,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[58].action_test == ActionTest.NoAT
     assert games[10].timeline[58].actor == "spy"
     assert games[10].timeline[58].books == (None,)
-    assert games[10].timeline[58].cast_name == (Characters.G,)
+    assert games[10].timeline[58].cast_name == (Characters.General,)
     assert games[10].timeline[58].category == TimelineCategory.MissionPartial
     assert games[10].timeline[58].elapsed_time == 44.69999999999999
     assert games[10].timeline[58].event == "flirt with seduction target: 85%"
@@ -10690,7 +10690,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[59].action_test == ActionTest.NoAT
     assert games[10].timeline[59].actor == "sniper"
     assert games[10].timeline[59].books == (None,)
-    assert games[10].timeline[59].cast_name == (Characters.D,)
+    assert games[10].timeline[59].cast_name == (Characters.Morgan,)
     assert games[10].timeline[59].category == TimelineCategory.SniperLights
     assert games[10].timeline[59].elapsed_time == 48.0
     assert games[10].timeline[59].event == "marked suspicious."
@@ -10712,7 +10712,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[61].action_test == ActionTest.NoAT
     assert games[10].timeline[61].actor == "spy"
     assert games[10].timeline[61].books == (None,)
-    assert games[10].timeline[61].cast_name == (Characters.O,)
+    assert games[10].timeline[61].cast_name == (Characters.Irish,)
     assert games[10].timeline[61].category == TimelineCategory.Drinks
     assert games[10].timeline[61].elapsed_time == 60.400000000000006
     assert games[10].timeline[61].event == "request drink from waiter."
@@ -10723,7 +10723,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[62].action_test == ActionTest.NoAT
     assert games[10].timeline[62].actor == "sniper"
     assert games[10].timeline[62].books == (Books.Green,)
-    assert games[10].timeline[62].cast_name == (Characters.K,)
+    assert games[10].timeline[62].cast_name == (Characters.Sikh,)
     assert (
         games[10].timeline[62].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -10795,7 +10795,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[68].action_test == ActionTest.NoAT
     assert games[10].timeline[68].actor == "sniper"
     assert games[10].timeline[68].books == (Books.Blue,)
-    assert games[10].timeline[68].cast_name == (Characters.O,)
+    assert games[10].timeline[68].cast_name == (Characters.Irish,)
     assert (
         games[10].timeline[68].category
         == TimelineCategory.SniperLights | TimelineCategory.Books
@@ -10831,7 +10831,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[71].action_test == ActionTest.NoAT
     assert games[10].timeline[71].actor == "spy"
     assert games[10].timeline[71].books == (None,)
-    assert games[10].timeline[71].cast_name == (Characters.P,)
+    assert games[10].timeline[71].cast_name == (Characters.Carlos,)
     assert games[10].timeline[71].category == TimelineCategory.NoCategory
     assert games[10].timeline[71].elapsed_time == 87.9
     assert games[10].timeline[71].event == "begin planting bug while walking."
@@ -10842,7 +10842,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[72].action_test == ActionTest.NoAT
     assert games[10].timeline[72].actor == "spy"
     assert games[10].timeline[72].books == (None,)
-    assert games[10].timeline[72].cast_name == (Characters.P,)
+    assert games[10].timeline[72].cast_name == (Characters.Carlos,)
     assert games[10].timeline[72].category == TimelineCategory.MissionComplete
     assert games[10].timeline[72].elapsed_time == 88.9
     assert games[10].timeline[72].event == "bugged ambassador while walking."
@@ -10864,7 +10864,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[74].action_test == ActionTest.NoAT
     assert games[10].timeline[74].actor == "spy"
     assert games[10].timeline[74].books == (None,)
-    assert games[10].timeline[74].cast_name == (Characters.Q,)
+    assert games[10].timeline[74].cast_name == (Characters.Salmon,)
     assert games[10].timeline[74].category == TimelineCategory.Conversation
     assert games[10].timeline[74].elapsed_time == 89.0
     assert games[10].timeline[74].event == "spy joined conversation with double agent."
@@ -10875,7 +10875,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[75].action_test == ActionTest.NoAT
     assert games[10].timeline[75].actor == "sniper"
     assert games[10].timeline[75].books == (None,)
-    assert games[10].timeline[75].cast_name == (Characters.O,)
+    assert games[10].timeline[75].cast_name == (Characters.Irish,)
     assert games[10].timeline[75].category == TimelineCategory.SniperLights
     assert games[10].timeline[75].elapsed_time == 90.0
     assert games[10].timeline[75].event == "marked spy suspicious."
@@ -10886,7 +10886,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[76].action_test == ActionTest.NoAT
     assert games[10].timeline[76].actor == "sniper"
     assert games[10].timeline[76].books == (None,)
-    assert games[10].timeline[76].cast_name == (Characters.M,)
+    assert games[10].timeline[76].cast_name == (Characters.Plain,)
     assert games[10].timeline[76].category == TimelineCategory.SniperLights
     assert games[10].timeline[76].elapsed_time == 92.9
     assert games[10].timeline[76].event == "marked suspicious."
@@ -10897,7 +10897,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[77].action_test == ActionTest.NoAT
     assert games[10].timeline[77].actor == "spy"
     assert games[10].timeline[77].books == (None,)
-    assert games[10].timeline[77].cast_name == (Characters.Q,)
+    assert games[10].timeline[77].cast_name == (Characters.Salmon,)
     assert games[10].timeline[77].category == TimelineCategory.Conversation
     assert games[10].timeline[77].elapsed_time == 93.5
     assert games[10].timeline[77].event == "double agent left conversation with spy."
@@ -10908,7 +10908,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[78].action_test == ActionTest.NoAT
     assert games[10].timeline[78].actor == "sniper"
     assert games[10].timeline[78].books == (None,)
-    assert games[10].timeline[78].cast_name == (Characters.F,)
+    assert games[10].timeline[78].cast_name == (Characters.Alice,)
     assert games[10].timeline[78].category == TimelineCategory.SniperLights
     assert games[10].timeline[78].elapsed_time == 94.2
     assert games[10].timeline[78].event == "marked suspicious."
@@ -10919,7 +10919,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[79].action_test == ActionTest.NoAT
     assert games[10].timeline[79].actor == "spy"
     assert games[10].timeline[79].books == (None,)
-    assert games[10].timeline[79].cast_name == (Characters.O,)
+    assert games[10].timeline[79].cast_name == (Characters.Irish,)
     assert games[10].timeline[79].category == TimelineCategory.Drinks
     assert games[10].timeline[79].elapsed_time == 94.2
     assert games[10].timeline[79].event == "waiter offered drink."
@@ -10930,7 +10930,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[80].action_test == ActionTest.NoAT
     assert games[10].timeline[80].actor == "spy"
     assert games[10].timeline[80].books == (None,)
-    assert games[10].timeline[80].cast_name == (Characters.P, Characters.O)
+    assert games[10].timeline[80].cast_name == (Characters.Carlos, Characters.Irish)
     assert games[10].timeline[80].category == TimelineCategory.NoCategory
     assert games[10].timeline[80].elapsed_time == 95.9
     assert games[10].timeline[80].event == "ambassador's personal space violated."
@@ -10952,7 +10952,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[82].action_test == ActionTest.NoAT
     assert games[10].timeline[82].actor == "spy"
     assert games[10].timeline[82].books == (None,)
-    assert games[10].timeline[82].cast_name == (Characters.O,)
+    assert games[10].timeline[82].cast_name == (Characters.Irish,)
     assert games[10].timeline[82].category == TimelineCategory.Drinks
     assert games[10].timeline[82].elapsed_time == 99.7
     assert games[10].timeline[82].event == "rejected drink from waiter."
@@ -10963,7 +10963,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[83].action_test == ActionTest.NoAT
     assert games[10].timeline[83].actor == "spy"
     assert games[10].timeline[83].books == (None,)
-    assert games[10].timeline[83].cast_name == (Characters.O,)
+    assert games[10].timeline[83].cast_name == (Characters.Irish,)
     assert games[10].timeline[83].category == TimelineCategory.Drinks
     assert games[10].timeline[83].elapsed_time == 99.7
     assert games[10].timeline[83].event == "waiter stopped offering drink."
@@ -10974,7 +10974,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[84].action_test == ActionTest.NoAT
     assert games[10].timeline[84].actor == "sniper"
     assert games[10].timeline[84].books == (None,)
-    assert games[10].timeline[84].cast_name == (Characters.S,)
+    assert games[10].timeline[84].cast_name == (Characters.Smallman,)
     assert games[10].timeline[84].category == TimelineCategory.SniperLights
     assert games[10].timeline[84].elapsed_time == 101.8
     assert games[10].timeline[84].event == "marked less suspicious."
@@ -11007,7 +11007,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[87].action_test == ActionTest.NoAT
     assert games[10].timeline[87].actor == "sniper"
     assert games[10].timeline[87].books == (None,)
-    assert games[10].timeline[87].cast_name == (Characters.R,)
+    assert games[10].timeline[87].cast_name == (Characters.Teal,)
     assert games[10].timeline[87].category == TimelineCategory.SniperLights
     assert games[10].timeline[87].elapsed_time == 104.2
     assert games[10].timeline[87].event == "marked less suspicious."
@@ -11040,7 +11040,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[90].action_test == ActionTest.NoAT
     assert games[10].timeline[90].actor == "spy"
     assert games[10].timeline[90].books == (None,)
-    assert games[10].timeline[90].cast_name == (Characters.G,)
+    assert games[10].timeline[90].cast_name == (Characters.General,)
     assert games[10].timeline[90].category == TimelineCategory.NoCategory
     assert games[10].timeline[90].elapsed_time == 110.7
     assert games[10].timeline[90].event == "begin flirtation with seduction target."
@@ -11062,7 +11062,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[92].action_test == ActionTest.NoAT
     assert games[10].timeline[92].actor == "spy"
     assert games[10].timeline[92].books == (None,)
-    assert games[10].timeline[92].cast_name == (Characters.G,)
+    assert games[10].timeline[92].cast_name == (Characters.General,)
     assert games[10].timeline[92].category == TimelineCategory.MissionPartial
     assert games[10].timeline[92].elapsed_time == 113.2
     assert games[10].timeline[92].event == "flirt with seduction target: 100%"
@@ -11073,7 +11073,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[93].action_test == ActionTest.NoAT
     assert games[10].timeline[93].actor == "spy"
     assert games[10].timeline[93].books == (None,)
-    assert games[10].timeline[93].cast_name == (Characters.G,)
+    assert games[10].timeline[93].cast_name == (Characters.General,)
     assert games[10].timeline[93].category == TimelineCategory.MissionComplete
     assert games[10].timeline[93].elapsed_time == 113.2
     assert games[10].timeline[93].event == "target seduced."
@@ -11095,7 +11095,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[95].action_test == ActionTest.NoAT
     assert games[10].timeline[95].actor == "sniper"
     assert games[10].timeline[95].books == (None,)
-    assert games[10].timeline[95].cast_name == (Characters.G,)
+    assert games[10].timeline[95].cast_name == (Characters.General,)
     assert games[10].timeline[95].category == TimelineCategory.SniperLights
     assert games[10].timeline[95].elapsed_time == 120.4
     assert games[10].timeline[95].event == "marked suspicious."
@@ -11250,7 +11250,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[108].action_test == ActionTest.NoAT
     assert games[10].timeline[108].actor == "sniper"
     assert games[10].timeline[108].books == (None,)
-    assert games[10].timeline[108].cast_name == (Characters.O,)
+    assert games[10].timeline[108].cast_name == (Characters.Irish,)
     assert games[10].timeline[108].category == TimelineCategory.SniperShot
     assert games[10].timeline[108].elapsed_time == 206.5
     assert games[10].timeline[108].event == "took shot."
@@ -11283,7 +11283,7 @@ def test_parse_timeline_parallel_normal(
     assert games[10].timeline[111].action_test == ActionTest.NoAT
     assert games[10].timeline[111].actor == "game"
     assert games[10].timeline[111].books == (None,)
-    assert games[10].timeline[111].cast_name == (Characters.O,)
+    assert games[10].timeline[111].cast_name == (Characters.Irish,)
     assert games[10].timeline[111].category == TimelineCategory.GameEnd
     assert games[10].timeline[111].elapsed_time == 210.0
     assert games[10].timeline[111].event == "sniper shot spy."
