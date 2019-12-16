@@ -396,11 +396,11 @@ def test_bar_simple_portrait(test_figure, reference_figure):
         frame=pandas.DataFrame(
             data=[[4, 5, 7, 9, 2]],
             columns=[
-                Characters.Irish,
-                Characters.Duke,
-                Characters.Smallman,
-                Characters.Carlos,
-                Characters.Alice,
+                Characters.O,
+                Characters.U,
+                Characters.S,
+                Characters.P,
+                Characters.F,
             ],
             index=[None],
         ),
