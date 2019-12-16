@@ -1,29 +1,29 @@
 import pytest
 import os
-from triple_agent.parsing.replay.parse_replays import parse_replays
-
-from triple_agent.tests.test_mock_screenshot_iterator import mock_screenshot_iterator
+from triple_agent.classes.game import game_load_or_new
 
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 
 @pytest.mark.parsing
 def test_serialize_correctly(
-    get_test_replay_pickle_folder,
-    get_test_events_folder,
-    get_test_unparsed_folder,
-    get_test_json_games_folder,
-    monkeypatch,
+    get_test_replay_pickle_folder, get_test_json_games_folder, monkeypatch,
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    this_game = parse_replays(
-        lambda game: game.uuid == "OiG7qvC9QOaSKVGlesdpWQ",
-        unparsed_folder=get_test_unparsed_folder,
-        events_folder=get_test_events_folder,
-        pickle_folder=get_test_replay_pickle_folder,
-        screenshot_iterator=mock_screenshot_iterator,
-    )[0]
+    this_game = game_load_or_new(
+        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+    )
 
-    json_out = this_game.serialize_to_json(json_folder=get_test_json_games_folder)
-    assert False
+    this_game.serialize_to_json(json_folder=get_test_json_games_folder)
+
+    json_expected = open(
+        os.path.join(TEST_FOLDER, "test_validation_json", "mPZZrUvxQzeJYLQRbZOd7g.json")
+    ).read()
+    json_actual = open(
+        os.path.join(get_test_json_games_folder, "mPZZrUvxQzeJYLQRbZOd7g.json")
+    ).read()
+
+    assert json_expected == json_actual
+
+    os.remove(os.path.join(get_test_json_games_folder, "mPZZrUvxQzeJYLQRbZOd7g.json"))

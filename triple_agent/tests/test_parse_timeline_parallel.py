@@ -85,33 +85,24 @@ def test_parse_timeline_parallel_normal(
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "vgAlD77AQw2XKTZq3H4NTg.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "k8x3n_zfTtiw9FSS6rM13w.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "lOGf7W_MSlu1RRYxW2MMsA.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "jhx6e7UpTmeKueggeGcAKg.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "k415gCwtS3ml9_EzUPpWFw.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "8uf6pUK7TFegBD8Cbr2qMw.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "TPWiwN2aQc6EHEf6jKDKaA.pkl")
-    )
-    assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "as-RnR1RQruzhRDZr7JP9A.pkl")
-    )
+    relevant_uuids = [
+        "OiG7qvC9QOaSKVGlesdpWQ",
+        "8uf6pUK7TFegBD8Cbr2qMw",
+        "TPWiwN2aQc6EHEf6jKDKaA",
+        "as-RnR1RQruzhRDZr7JP9A",
+        "jhx6e7UpTmeKueggeGcAKg",
+        "k415gCwtS3ml9_EzUPpWFw",
+        "k8x3n_zfTtiw9FSS6rM13w",
+        "lOGf7W_MSlu1RRYxW2MMsA",
+        "vgAlD77AQw2XKTZq3H4NTg",
+    ]
+
+    relevant_pkl_files = [
+        os.path.join(get_test_replay_pickle_folder, f"{u}.pkl") for u in relevant_uuids
+    ]
+
+    for pkl_file in relevant_pkl_files:
+        assert not os.path.exists(pkl_file)
 
     games = parse_replays(
         lambda game: game.division == "Copper",
@@ -121,33 +112,13 @@ def test_parse_timeline_parallel_normal(
         screenshot_iterator=mock_screenshot_iterator,
     )
 
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "vgAlD77AQw2XKTZq3H4NTg.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "k8x3n_zfTtiw9FSS6rM13w.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "lOGf7W_MSlu1RRYxW2MMsA.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "jhx6e7UpTmeKueggeGcAKg.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "k415gCwtS3ml9_EzUPpWFw.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "8uf6pUK7TFegBD8Cbr2qMw.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "TPWiwN2aQc6EHEf6jKDKaA.pkl")
-    )
-    assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "as-RnR1RQruzhRDZr7JP9A.pkl")
-    )
+    for pkl_file in relevant_pkl_files:
+        assert os.path.exists(pkl_file)
+
+    # TODO: cleanup to remove any lingering files as a general cleanup
+    # remove files so they aren't lingering for remaining tests.
+    for pkl_file in relevant_pkl_files:
+        os.remove(pkl_file)
 
     games.sort(key=lambda g: g.start_time)
 

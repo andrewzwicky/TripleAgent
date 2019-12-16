@@ -220,8 +220,10 @@ class Game:
         return coherency
 
     def serialize_to_json(self, json_folder: str = JSON_GAMES_FOLDER):
+        json_game = jsonpickle.encode(self, unpicklable=True)
         with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
-            json_out.write(jsonpickle.encode(self, unpicklable=True))
+            json_out.write(json_game)
+        return json_game
 
 
 @jsonpickle.handlers.register(Game, base=True)
