@@ -6,7 +6,7 @@ from time import sleep
 from typing import List
 from typing import Callable
 
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
+from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (
     TimelineParseException,
@@ -35,6 +35,7 @@ def parse_timeline_parallel(
     games: List[Game],
     screenshot_iterator: Callable,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    json_folder: str = JSON_GAMES_FOLDER
 ):
 
     mutex = threading.Lock()
@@ -84,6 +85,7 @@ def parse_timeline_parallel(
                         )
                     else:
                         games[game_index].repickle(pickle_folder=pickle_folder)
+                        games[game_index].serialize_to_json(json_folder=json_folder)
 
                 finally:
                     mutex.release()
