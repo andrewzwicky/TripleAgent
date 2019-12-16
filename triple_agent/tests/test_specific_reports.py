@@ -73,7 +73,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "Calvin Schoolidge": Counter(
+                "Calvin Schoolidge/steam": Counter(
                     {ActionTest.Green: 7, ActionTest.White: 8}
                 ),
                 "zerotka": Counter(
@@ -94,7 +94,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "Calvin Schoolidge": Counter(
+                "Calvin Schoolidge/steam": Counter(
                     {ActionTest.Green: 7 / 15, ActionTest.White: 8 / 15}
                 ),
                 "zerotka": Counter(
@@ -116,7 +116,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({ActionTest.Green: 7, ActionTest.White: 8}),
-                "Calvin Schoolidge": Counter(
+                "Calvin Schoolidge/steam": Counter(
                     {
                         ActionTest.Green: 6,
                         ActionTest.White: 11,
@@ -137,7 +137,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "zerotka": Counter(
                     {ActionTest.Green: 7 / 15, ActionTest.White: 8 / 15}
                 ),
-                "Calvin Schoolidge": Counter(
+                "Calvin Schoolidge/steam": Counter(
                     {
                         ActionTest.Green: 6 / 19,
                         ActionTest.White: 11 / 19,
@@ -204,7 +204,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
-                "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge/steam": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
             },
         ),
     ),
@@ -216,7 +216,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
-                "Calvin Schoolidge": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge/steam": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
             },
         ),
     ),
@@ -403,7 +403,7 @@ SPECIFIC_REPORT_CASES = [
         ),
         pandas.DataFrame(
             data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=MISSION_PLOT_ORDER,
         ),
         False,
@@ -427,7 +427,7 @@ SPECIFIC_REPORT_CASES = [
                 [3 / 28, 4 / 28],
                 [2 / 28, 2 / 28],
             ],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=MISSION_PLOT_ORDER,
         ),
         False,
@@ -454,7 +454,7 @@ SPECIFIC_REPORT_CASES = [
         ),
         pandas.DataFrame(
             data=[[4, 3], [4, 4], [4, 4]],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,
@@ -469,7 +469,7 @@ SPECIFIC_REPORT_CASES = [
         ),
         pandas.DataFrame(
             data=[[3, 4], [4, 4], [4, 4]],
-            columns=["zerotka", "Calvin Schoolidge"],
+            columns=["zerotka", "Calvin Schoolidge/steam"],
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,

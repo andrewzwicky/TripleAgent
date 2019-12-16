@@ -109,7 +109,7 @@ CREATE_DATA_FRAME_CASES = [
         defaultdict(
             Counter,
             {
-                "Calvin Schoolidge": Counter(
+                "Calvin Schoolidge/steam": Counter(
                     {ActionTest.Green: 7, ActionTest.White: 8}
                 ),
                 "zerotka": Counter(
@@ -124,7 +124,7 @@ CREATE_DATA_FRAME_CASES = [
         ),
         pandas.DataFrame(
             data=[[7, 6], [8, 11], [0, 1], [0, 1]],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -630,14 +630,14 @@ SORT_FRAME_STACK_CASES = [
     (
         pandas.DataFrame(
             data=[[7, 6], [8, 11], [0, 1]],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=["Veranda", "Ballroom", "Balcony"],
         ),
         None,
         True,
         pandas.DataFrame(
             data=[[0, 1], [8, 11], [7, 6]],
-            columns=["Calvin Schoolidge", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "zerotka"],
             index=["Balcony", "Ballroom", "Veranda"],
         ),
     ),
