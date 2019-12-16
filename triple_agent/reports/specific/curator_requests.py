@@ -5,12 +5,12 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.outcomes import WinType
 
 
-def curated_many_green_ats(r):
-    if r.venue != "Balcony" and r.win_type in [WinType.TimeOut, WinType.MissionsWin]:
-        if r.timeline is not None:
+def curated_many_green_ats(game):
+    if game.venue != "Balcony" and game.win_type in [WinType.TimeOut, WinType.MissionsWin]:
+        if game.timeline is not None:
             this_game_green_tests = 0
-            for e in r.timeline:
-                if e.action_test == ActionTest.Green:
+            for event in game.timeline:
+                if event.action_test == ActionTest.Green:
                     this_game_green_tests += 1
 
             if this_game_green_tests >= 7:
@@ -19,13 +19,13 @@ def curated_many_green_ats(r):
     return False
 
 
-def cough_clank_crash(r):
-    if r.venue != "Balcony" and r.win_type in [WinType.TimeOut, WinType.MissionsWin]:
-        if r.game_type.startswith("a4") or r.game_type.startswith("a5"):
-            if r.timeline is not None:
-                for e in r.timeline:
+def cough_clank_crash(game):
+    if game.venue != "Balcony" and game.win_type in [WinType.TimeOut, WinType.MissionsWin]:
+        if game.game_type.startswith("a4") or game.game_type.startswith("a5"):
+            if game.timeline is not None:
+                for event in game.timeline:
                     if (
-                        e.event
+                        event.event
                         in [
                             # clank
                             "dropped statue.",
@@ -35,7 +35,7 @@ def cough_clank_crash(r):
                             # crash
                             "purloin guest list aborted.",
                         ]
-                        and (r.duration - e.elapsed_time) > 10
+                        and (game.duration - event.elapsed_time) > 10
                     ):
                         return True
 

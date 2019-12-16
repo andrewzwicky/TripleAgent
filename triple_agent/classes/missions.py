@@ -1,6 +1,5 @@
 from enum import Flag, auto
-from typing import Set, List
-import jsonpickle.handlers
+from typing import Set
 
 
 class Missions(Flag):
