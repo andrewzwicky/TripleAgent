@@ -1704,7 +1704,9 @@ class TimelineEvent:
         data["actor"] = self.actor
         data["event"] = self.event
         data["cast_name"] = list(
-            character.name for character in self.cast_name if character is not None
+            character.serialize()
+            for character in self.cast_name
+            if character is not None
         )
         data["role"] = list(role.name for role in self.role if role is not None)
         data["books"] = list(book.name for book in self.books if book is not None)

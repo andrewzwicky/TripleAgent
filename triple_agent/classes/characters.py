@@ -26,6 +26,9 @@ class Characters(Enum):
     Toby = auto()
     Damon = auto()
 
+    def serialize(self):
+        return CHARACTERS_TO_STRING[self]
+
 
 CHARACTERS_TO_STRING = {
     Characters.Disney: "Mr. A",
@@ -49,6 +52,8 @@ CHARACTERS_TO_STRING = {
     Characters.Smallman: "Mr. S",
     Characters.Sari: "Ms. T",
     Characters.Duke: "Mr. U",
+    Characters.Toby: "Toby",
+    Characters.Damon: "Damon",
 }
 
 PORTRAIT_MD5_DICT = {

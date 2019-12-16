@@ -13,6 +13,7 @@ MISSION_SERIALIZE_CASES = [
 ]
 
 
+@pytest.mark.quick
 @pytest.mark.parametrize("mission_enum, expected_list", MISSION_SERIALIZE_CASES)
 def test_mission_serialize(mission_enum, expected_list):
     assert mission_enum.serialize() == expected_list
