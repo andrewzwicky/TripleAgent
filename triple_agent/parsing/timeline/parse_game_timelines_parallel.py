@@ -35,7 +35,7 @@ def parse_timeline_parallel(
     games: List[Game],
     screenshot_iterator: Callable,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
-    json_folder: str = JSON_GAMES_FOLDER
+    json_folder: str = JSON_GAMES_FOLDER,
 ):
 
     mutex = threading.Lock()

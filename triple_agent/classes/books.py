@@ -12,6 +12,7 @@ class Books(Enum):
 COLORS_TO_BOOKS_ENUM = {
     (27, 26, 185): Books.Red,
     (18, 18, 125): Books.Red,
+    (42, 48, 194): Books.Red,
     (60, 133, 60): Books.Green,
     (85, 153, 73): Books.Green,
     (135, 208, 140): Books.Green,
