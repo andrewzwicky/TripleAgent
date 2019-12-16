@@ -204,7 +204,9 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
-                "Calvin Schoolidge/steam": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge/steam": Counter(
+                    {WinType.TimeOut: 1, WinType.SpyShot: 3}
+                ),
             },
         ),
     ),
@@ -216,7 +218,9 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
-                "Calvin Schoolidge/steam": Counter({WinType.TimeOut: 1, WinType.SpyShot: 3}),
+                "Calvin Schoolidge/steam": Counter(
+                    {WinType.TimeOut: 1, WinType.SpyShot: 3}
+                ),
             },
         ),
     ),

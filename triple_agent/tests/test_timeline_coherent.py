@@ -78,7 +78,11 @@ def test_timeline_coherent_no_game_end(get_preparsed_timeline_games):
 def test_timeline_coherent_no_game_start_or_end(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
-    game.timeline = [t for i, t in enumerate(game.timeline) if i not in [GAME_START_INDEX, GAME_END_INDEX]]
+    game.timeline = [
+        t
+        for i, t in enumerate(game.timeline)
+        if i not in [GAME_START_INDEX, GAME_END_INDEX]
+    ]
 
     assert (
         game.is_timeline_coherent()
@@ -198,7 +202,9 @@ def test_timeline_coherent_picked_mismatch(get_preparsed_timeline_games):
 def test_timeline_coherent_complete_mismatch_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
-    game.timeline = [t for i, t in enumerate(game.timeline) if i != FINGERPRINT_COMPLETE_INDEX]
+    game.timeline = [
+        t for i, t in enumerate(game.timeline) if i != FINGERPRINT_COMPLETE_INDEX
+    ]
 
     assert game.is_timeline_coherent() == TimelineCoherency.CompletedMissionsMismatch
 
@@ -218,6 +224,8 @@ def test_timeline_coherent_selected_mismatch_2(get_preparsed_timeline_games):
 def test_timeline_coherent_picked_mismatch_2(get_preparsed_timeline_games):
     game = get_preparsed_timeline_games[0]
     assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
-    game.timeline = [t for i, t in enumerate(game.timeline) if i != INSPECT_ENABLED_INDEX]
+    game.timeline = [
+        t for i, t in enumerate(game.timeline) if i != INSPECT_ENABLED_INDEX
+    ]
 
     assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch
