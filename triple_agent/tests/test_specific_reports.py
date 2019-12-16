@@ -224,7 +224,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         _all_banana_breads,
         None,
         False,
-        defaultdict(Counter, {None: Counter({"fake": 1, "real": 7})}),
+        defaultdict(Counter, {None: Counter({"fake": 1, "real": 6})}),
     ),
     (
         _all_banana_breads,
@@ -233,7 +233,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "07WVnz3aR3i6445zgSCZjA": Counter({"real": 2}),
+                "07WVnz3aR3i6445zgSCZjA": Counter({"real": 1}),
                 "6OXfxIiITjm3I7xsGCl-fw": Counter({"fake": 1}),
                 "AlwXGqeIS5-uDk4ezZgdSg": Counter({"real": 1}),
                 "E3CAEUaVT82HIJmL03s_5A": Counter({"real": 1}),

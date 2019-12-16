@@ -21,7 +21,7 @@ def _all_banana_breads(games, data_dictionary):
         for timeline_event in game.timeline:
             if (
                 timeline_event.category & TimelineCategory.BananaBread
-                and timeline_event.event.endswith("started.")
+                and timeline_event.event.endswith("banana bread started.")
             ):
                 if timeline_event.event.startswith(_FAKE):
                     data_dictionary[_FAKE] += 1
@@ -35,7 +35,7 @@ def _first_banana_bread(games, data_dictionary):
         for timeline_event in game.timeline:
             if (
                 timeline_event.category & TimelineCategory.BananaBread
-                and timeline_event.event.endswith("started.")
+                and timeline_event.event.endswith("banana bread started.")
             ):
                 if timeline_event.event.startswith(_FAKE):
                     if not first_seen:
