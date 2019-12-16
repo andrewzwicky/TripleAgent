@@ -3,6 +3,11 @@ _.tesseract_cmd  # unused attribute (triple_agent\parsing\timeline\parse_timelin
 auto_close_all_figures  # unused function (triple_agent\tests\conftest.py)
 extract_spectate_replays  # unused function (triple_agent\organization\extract_spectation_replays.py)
 
+# jsonpickle methods
+GameHandler
+flatten
+restore
+
 # notebook usage
 SniperWin  # unused variable (triple_agent\classes\outcomes.py)
 SCL5_PICK_MODES  # unused variable (triple_agent\constants\events.py)
@@ -35,3 +40,7 @@ first_flirt_timing  # unused function (triple_agent\reports\specific\seduce.py)
 stop_talk_in_game_percentage  # unused function (triple_agent\reports\specific\stop_talks.py)
 time_add_times_per_game  # unused function (triple_agent\reports\specific\time_adds.py)
 time_add_times  # unused function (triple_agent\reports\specific\time_adds.py)
+
+# archive, but unused
+cough_clank_crash
+curated_many_green_ats

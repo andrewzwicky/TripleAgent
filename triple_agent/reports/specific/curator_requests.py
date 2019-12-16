@@ -1,6 +1,3 @@
-from triple_agent.organization.extract_spectation_replays import (
-    extract_spectate_replays,
-)
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.outcomes import WinType
 
@@ -46,7 +43,3 @@ def cough_clank_crash(game):
                         return True
 
     return False
-
-
-if __name__ == "__main__":
-    extract_spectate_replays(cough_clank_crash)
