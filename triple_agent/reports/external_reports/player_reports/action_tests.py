@@ -4,7 +4,7 @@ from triple_agent.classes.action_tests import AT_PREFERRED_PIE_CHART_ORDER
 from triple_agent.reports.specific.action_tests import _at_rates_excluding_difficults
 from triple_agent.constants.paths import PLAYER_REPORT_FOLDER
 from triple_agent.reports.generation.plot_specs import DataQueryProperties
-from reports.generation.generate_external_reports import generate_external_reports
+from triple_agent.reports.generation.generate_external_reports import generate_external_reports
 
 
 def generate_player_action_test_reports(all_replays, scl5_replays):
