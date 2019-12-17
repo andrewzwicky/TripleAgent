@@ -78,6 +78,7 @@ def select_scl5(game: Game) -> bool:  # pragma: no cover
         and game.sniper not in SCL5_DROPPED_PLAYERS
     )
 
+
 def select_scl5_regular_season(game: Game) -> bool:  # pragma: no cover
     return (
         game.event == "SCL5"
@@ -85,6 +86,7 @@ def select_scl5_regular_season(game: Game) -> bool:  # pragma: no cover
         and game.spy not in SCL5_DROPPED_PLAYERS
         and game.sniper not in SCL5_DROPPED_PLAYERS
     )
+
 
 def select_scl5_with_drops(game: Game) -> bool:  # pragma: no cover
     return game.event == "SCL5"
