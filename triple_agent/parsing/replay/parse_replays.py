@@ -47,7 +47,14 @@ def parse_replays(
     game_list = list(iterate_over_replays(game_filter, events_folder, pickle_folder))
 
     # check that there are no duplicates from the same file existing twice.
-    assert len({game.uuid for game in game_list}) == len(game_list)
+    game_uuid_set = set({game.uuid for game in game_list})
+    if len(game_uuid_set) != len(game_list):
+        for uuid in game_uuid_set:
+            games_matching = [game.file for game in game_list if game.uuid == uuid]
+            if len(games_matching) > 1:
+                print(uuid, games_matching)
+
+    assert len(game_uuid_set) == len(game_list)
 
     # at this point, we will have an unsorted list of game objects
     # There may be some that do not have timelines.
