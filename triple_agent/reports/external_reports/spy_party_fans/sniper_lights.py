@@ -1,8 +1,6 @@
-from collections import defaultdict
 import os
 import json
 
-from triple_agent.classes.outcomes import WinType
 from triple_agent.constants.paths import SPF_DATA_FOLDER
 from triple_agent.classes.timeline import TimelineCategory
 

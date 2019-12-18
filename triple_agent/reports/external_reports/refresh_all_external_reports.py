@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 
 from triple_agent.reports.external_reports.player_reports.action_tests import (
-    generate_player_action_test_reports,
+    player_at_reports,
 )
 from triple_agent.reports.external_reports.player_reports.spy_selection import (
-    generate_player_spy_selection_report,
+    player_spy_selection_report,
 )
 from triple_agent.reports.generation.ipython_notebook import execute_single_notebook
 from triple_agent.constants.paths import (
@@ -57,17 +57,17 @@ def refresh_overall_reports():
 
 
 def refresh_all_reports():
-    ALL_REPLAYS = get_parsed_replays(lambda x: True)
-    SCL5_REPLAYS = get_parsed_replays(select_scl5_with_drops)
+    all_replays = get_parsed_replays(lambda x: True)
+    scl5_replays = get_parsed_replays(select_scl5_with_drops)
 
     refresh_overall_reports()
     refresh_event_reports()
-    generate_player_action_test_reports(ALL_REPLAYS, SCL5_REPLAYS)
-    generate_player_spy_selection_report(ALL_REPLAYS, SCL5_REPLAYS)
+    player_at_reports(all_replays, scl5_replays)
+    player_spy_selection_report(all_replays, scl5_replays)
     refresh_example_notebooks()
-    spf_lights_report(ALL_REPLAYS)
-    spf_action_test_report(ALL_REPLAYS)
-    spf_character_selection_report(ALL_REPLAYS)
+    spf_lights_report(all_replays)
+    spf_action_test_report(all_replays)
+    spf_character_selection_report(all_replays)
 
 
 if __name__ == "__main__":

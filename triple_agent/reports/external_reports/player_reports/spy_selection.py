@@ -3,10 +3,12 @@ import os
 from triple_agent.constants.paths import PLAYER_REPORT_FOLDER
 from triple_agent.reports.specific.character_selection import _determine_spy
 from triple_agent.reports.generation.plot_specs import DataQueryProperties
-from triple_agent.reports.generation.generate_external_reports import generate_external_reports
+from triple_agent.reports.generation.generate_external_reports import (
+    generate_external_reports,
+)
 
 
-def generate_player_spy_selection_report(all_replays, scl5_replays):
+def player_spy_selection_report(all_replays, scl5_replays):
     generate_external_reports(
         scl5_replays,
         DataQueryProperties(
