@@ -7,6 +7,9 @@ from triple_agent.reports.external_reports.player_reports.action_tests import (
 from triple_agent.reports.external_reports.player_reports.spy_selection import (
     player_spy_selection_report,
 )
+from triple_agent.reports.external_reports.player_reports.game_counts import (
+    player_game_count_reports,
+)
 from triple_agent.reports.generation.ipython_notebook import execute_single_notebook
 from triple_agent.constants.paths import (
     EXAMPLES_FOLDER,
@@ -64,6 +67,7 @@ def refresh_all_reports():
     refresh_event_reports()
     player_at_reports(all_replays, scl5_replays)
     player_spy_selection_report(all_replays, scl5_replays)
+    player_game_count_reports(all_replays, scl5_replays)
     refresh_example_notebooks()
     spf_lights_report(all_replays)
     spf_action_test_report(all_replays)
