@@ -16,7 +16,7 @@ def spf_lights_report(all_replays):
                     "action": event.event,
                     "elapsed_time": event.elapsed_time,
                     "spy_time": event.time,
-                    "character": event.cast_name[0].name,
+                    "character": event.cast_name[0].stringify(),
                     "role": event.role[0].name,
                 }
 
