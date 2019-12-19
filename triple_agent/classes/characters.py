@@ -29,6 +29,8 @@ class Characters(Enum):
     def serialize(self):
         return CHARACTERS_TO_STRING[self]
 
+    def stringify(self):
+        return CHARACTERS_TO_STRING[self]
 
 CHARACTERS_TO_STRING = {
     Characters.Disney: "Mr. A",

@@ -12,7 +12,10 @@ from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabel
 
 def labelify(unknown_item: Any, percentage: bool = False):
     if isinstance(unknown_item, Enum):
-        return unknown_item.name
+        try:
+            return unknown_item.stringify()
+        except AttributeError:
+            return unknown_item.name
 
     if isinstance(unknown_item, float):
         # TODO: check this for other use cases

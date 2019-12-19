@@ -364,11 +364,11 @@ def test_bar_simple_portrait(test_figure, reference_figure):
 
     ref_ax.set_xticklabels(
         [
-            "Irish          ",
-            "Duke          ",
-            "Smallman          ",
-            "Carlos          ",
-            "Alice          ",
+            "Ms. O          ",
+            "Mr. U          ",
+            "Mr. S          ",
+            "Mr. P          ",
+            "Ms. F          ",
         ],
         rotation=90,
     )

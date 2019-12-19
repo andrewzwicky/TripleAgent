@@ -6,13 +6,18 @@ from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 from triple_agent.classes.missions import convert_mission_set_to_enum
 from triple_agent.classes.outcomes import WinType
 
-from spyparty.ReplayParser import ReplayParser
+try:
+    from spyparty.ReplayParser import ReplayParser
+except ImportError:
+    from triple_agent.mock.ReplayParser import ReplayParser
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
     # noinspection PyBroadException
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
+    except NotImplementedError as e:
+        raise e
     # no option, the parser raises general exceptions
     # pylint: disable=broad-except
     except Exception:
