@@ -32,6 +32,7 @@ class Characters(Enum):
     def stringify(self):
         return CHARACTERS_TO_STRING[self]
 
+
 CHARACTERS_TO_STRING = {
     Characters.Disney: "Mr. A",
     Characters.Boots: "Ms. B",
