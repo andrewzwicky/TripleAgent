@@ -1,3 +1,4 @@
+# pylint: disable=ungrouped-imports
 from collections import defaultdict
 from typing import Optional, Dict, AnyStr
 
@@ -14,12 +15,12 @@ except ImportError:
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
     # noinspection PyBroadException
+    # pylint: disable=broad-except
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
-    except NotImplementedError as e:
-        raise e
+    except NotImplementedError as not_imp_except:
+        raise not_imp_except
     # no option, the parser raises general exceptions
-    # pylint: disable=broad-except
     except Exception:
         # there's not much we can do about unparseable
         # replays, so just return None
