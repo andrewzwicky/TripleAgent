@@ -1,3 +1,3 @@
 class ReplayParser:
-    def __init__(self, input_file):
+    def __init__(self, _):
         raise NotImplementedError
