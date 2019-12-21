@@ -23,8 +23,6 @@ platform:
 install:
   - "%PYTHON%\\python --version"
   - "%PIP% --version"
-  #- "%PIP% uninstall -y pip"
-  #- "%PIP% install --disable-pip-version-check --user --upgrade pip"
   - "git clone -q --depth=1 --branch=master https://github.com/LtHummus/SpyPartyParse.git C:\\projects\\spypartyparse"
   - "appveyor DownloadFile https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v4.1.0.20190314.exe"
   - ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
