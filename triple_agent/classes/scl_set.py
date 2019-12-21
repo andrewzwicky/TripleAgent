@@ -26,6 +26,9 @@ class SCLSet:
 
         return [scores_dict[p] for p in self.players]
 
+    def __str__(self):
+        return f"{self.division} {self.week:02} {self.players}"
+
 
 def sort_games_into_sets(games: List[Game]) -> List[SCLSet]:
     # make sure all games are from the same event

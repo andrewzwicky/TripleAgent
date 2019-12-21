@@ -26,7 +26,6 @@ BAD_FILES = {
     "SCL Season 4 - Week 10 - Platinum - pires vs cameraman.zip",
     "SCL Season 4 - Week 09 - Platinum - drawnonward vs varanas.zip",
     "SCL Season 5 - Week 06 - Diamond - warningtrack vs cleetose.zip",
-    "SCL Season 5 - Week 07 - Platinum - slappydavis vs yerand.zip",
 }
 
 SCL_REPLAY_ZIP_RE = re.compile(
