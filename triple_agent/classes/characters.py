@@ -1,7 +1,8 @@
-from enum import Enum, auto
+from enum import auto
+from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
 
-class Characters(Enum):
+class Characters(ReverseOrderedEnum):
     Smallman = auto()
     Duke = auto()
     Salmon = auto()
