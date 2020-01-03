@@ -41,6 +41,8 @@ first_flirt_timing  # unused function (triple_agent\reports\specific\seduce.py)
 stop_talk_in_game_percentage  # unused function (triple_agent\reports\specific\stop_talks.py)
 time_add_times_per_game  # unused function (triple_agent\reports\specific\time_adds.py)
 time_add_times  # unused function (triple_agent\reports\specific\time_adds.py)
+spy_lights # unused function (triple_agent\reports\specific\lights.py)
+amba_lights # unused function (triple_agent\reports\specific\lights.py)
 
 # archive, but unused
 cough_clank_crash

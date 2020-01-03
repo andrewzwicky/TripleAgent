@@ -1,8 +1,8 @@
 from enum import auto
-from triple_agent.classes.ordered_enum import OrderedEnum
+from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
 
-class ActionTest(OrderedEnum):
+class ActionTest(ReverseOrderedEnum):
     NoAT = 0
     Green = auto()
     White = auto()

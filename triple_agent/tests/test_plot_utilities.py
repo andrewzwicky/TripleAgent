@@ -431,13 +431,13 @@ SORT_FRAME_CASES = [
         None,
         False,
         pandas.DataFrame(
-            data=[[128, 152, 15, 15, 4]],
+            data=[[4, 15, 15, 152, 128]],
             columns=[
-                ActionTest.Green,
-                ActionTest.White,
+                ActionTest.Canceled,
                 ActionTest.Red,
                 ActionTest.Ignored,
-                ActionTest.Canceled,
+                ActionTest.White,
+                ActionTest.Green,
             ],
             index=[None],
         ),

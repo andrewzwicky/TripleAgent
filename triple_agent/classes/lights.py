@@ -1,8 +1,8 @@
 from enum import auto
-from triple_agent.classes.ordered_enum import OrderedEnum
+from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
 
-class Lights(OrderedEnum):
+class Lights(ReverseOrderedEnum):
     Lowlight = 0
     Neutral = auto()
     Highlight = auto()
@@ -13,9 +13,3 @@ LIGHTS_TO_COLORS = {
     Lights.Neutral: "xkcd:gray",
     Lights.Highlight: "xkcd:white",
 }
-
-LIGHT_PREFERRED_PIE_CHART_ORDER = [
-    Lights.Lowlight,
-    Lights.Neutral,
-    Lights.Highlight,
-]

@@ -1,4 +1,3 @@
-from collections import Counter
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
@@ -30,15 +29,14 @@ def _determine_lights_games(games, data_dictionary, role):
 
 
 def end_light_status(game, role_in):
-    for e in reversed(game.timeline):
-        if e.category & TimelineCategory.SniperLights and role_in in e.role:
-            # print(e)
-            if "less" in e.event:
+    for event in reversed(game.timeline):
+        if event.category & TimelineCategory.SniperLights and role_in in event.role:
+            if "less" in event.event:
                 return Lights.Lowlight
-            elif "neutral" in e.event:
+            if "neutral" in event.event:
                 return Lights.Neutral
-            else:
-                return Lights.Highlight
+            return Lights.Highlight
+
     return Lights.Neutral
 
 
