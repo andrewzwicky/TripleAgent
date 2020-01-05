@@ -1,6 +1,7 @@
 from triple_agent.classes.timeline import TimelineCategory
 
 
+# TODO: create an actual first class Object enum, separate from TimelineCategory?
 OBJECT_TO_COLORS_RGB = {
     (TimelineCategory.Briefcase, True): "xkcd:beige",
     (TimelineCategory.Briefcase, False): "xkcd:beige",

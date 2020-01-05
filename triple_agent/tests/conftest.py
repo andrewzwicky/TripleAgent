@@ -49,6 +49,13 @@ def get_preparsed_timeline_games(get_test_events_folder, get_test_replay_pickle_
         pickle_folder=get_test_replay_pickle_folder,
     )
 
+@pytest.fixture
+def get_preparsed_fingerprint_game(get_test_events_folder, get_test_replay_pickle_folder):
+    # provide the fixture value
+    yield get_parsed_replays(
+        lambda game: game.uuid == "8VL6899HR-CcvLhYfXCPeA",
+        pickle_folder=get_test_replay_pickle_folder,
+    )
 
 @pytest.fixture
 def get_unparsed_test_games(get_test_events_folder, get_test_replay_pickle_folder):

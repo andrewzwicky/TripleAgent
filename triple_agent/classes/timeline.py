@@ -10,6 +10,7 @@ from triple_agent.classes.books import Books
 from triple_agent.classes.characters import Characters, CHARACTERS_TO_STRING
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.roles import Roles
+from triple_agent.classes.ordered_flag import ReverseOrderedFlag
 
 
 class TimelineCoherency(Flag):
@@ -28,8 +29,10 @@ class TimelineCoherency(Flag):
     CharacterNotAssignedRole = auto()
     RoleWithNoCharacter = auto()
 
-
-class TimelineCategory(Flag):
+# using ReverseOrderedFlag gives a deterministic sort to
+# TimelineCategory, even if it doesn't make sense to sort these
+# things.
+class TimelineCategory(ReverseOrderedFlag):
     NoCategory = 0
     ActionTest = auto()
     ActionTriggered = auto()
@@ -50,10 +53,14 @@ class TimelineCategory(Flag):
 
     # Modifiers
     BananaBread = auto()
+
+    # FP Objects
     Briefcase = auto()
     Statues = auto()
     Books = auto()
     Drinks = auto()
+
+    # Modifiers cont.
     Conversation = auto()
     Watch = auto()
 

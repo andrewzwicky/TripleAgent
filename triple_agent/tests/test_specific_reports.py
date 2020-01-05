@@ -12,7 +12,7 @@ from triple_agent.reports.generation.plot_specs import DataQueryProperties
 from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
 from triple_agent.reports.specific.mission_choices import _count_mission_choices
 from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
-from triple_agent.reports.specific.fingerprints import _categorize_fp_sources
+from triple_agent.reports.specific.fingerprints import _categorize_fp_sources, _categorize_successful_fp_sources
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.roles import Roles
@@ -515,6 +515,102 @@ def test_each_report(
 ):
     axis_properties, data_properties = populate_data_properties(
         get_preparsed_timeline_games, data_query
+    )
+
+    pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
+    assert data_properties.stacks_are_categories == exp_stacks_as_categories
+    assert axis_properties == exp_axis_properties
+
+FINGERPRINT_REPORT_CASES = [
+    (
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+            primary_order=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Briefcase, True),
+                (TimelineCategory.Books, True),
+            ],
+        ),
+        pandas.DataFrame(
+            data=[[2, 1, 1]],
+            index=[None],
+            columns=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Briefcase, True),
+                (TimelineCategory.Books, True),
+            ],
+        ),
+        True,
+        AxisProperties(),
+    ),
+    (
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+        ),
+        pandas.DataFrame(
+            data=[[1, 2, 1]],
+            index=[None],
+            columns=[
+                # Follows order from TimelineCategory, which is not alphabetized
+                (TimelineCategory.Briefcase, True),
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Books, True),
+            ],
+        ),
+        True,
+        AxisProperties(),
+    ),
+    (
+        DataQueryProperties(
+            query_function=_categorize_successful_fp_sources,
+            primary_order=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Briefcase, True),
+                (TimelineCategory.Books, True),
+            ],
+        ),
+        pandas.DataFrame(
+            data=[[2, 0, 0]],
+            index=[None],
+            columns=[
+                (TimelineCategory.Statues, False),
+                (TimelineCategory.Briefcase, True),
+                (TimelineCategory.Books, True),
+            ],
+        ),
+        True,
+        AxisProperties(),
+    ),
+    (
+        DataQueryProperties(
+            query_function=_categorize_successful_fp_sources,
+        ),
+        pandas.DataFrame(
+            data=[[2]],
+            index=[None],
+            columns=[
+                (TimelineCategory.Statues, False),
+            ],
+        ),
+        True,
+        AxisProperties(),
+    ),
+]
+
+@pytest.mark.plotting
+@pytest.mark.parametrize(
+    "data_query,exp_frame, exp_stacks_as_categories, exp_axis_properties",
+    FINGERPRINT_REPORT_CASES,
+)
+def test_fingerprint_report(
+    data_query,
+    exp_frame,
+    exp_stacks_as_categories,
+    get_preparsed_fingerprint_game,
+    exp_axis_properties,
+):
+    axis_properties, data_properties = populate_data_properties(
+        get_preparsed_fingerprint_game, data_query
     )
 
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
