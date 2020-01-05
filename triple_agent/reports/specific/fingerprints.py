@@ -17,7 +17,9 @@ from triple_agent.reports.generation.plot_specs import (
 )
 
 
-def __iterate_and_count_potential_prints(game, timeline_event, data_dictionary, count_attempts=True):
+def __iterate_and_count_potential_prints(
+    game, timeline_event, data_dictionary, count_attempts=True
+):
     current_event = timeline_event
     while True:
         following = game.timeline.get_next_spy_action(current_event)
@@ -86,6 +88,7 @@ def attempted_fingerprint_sources(
     )
 
     return query(games, data_query, axis_properties)
+
 
 def successful_fingerprint_sources(
     games: List[Game],

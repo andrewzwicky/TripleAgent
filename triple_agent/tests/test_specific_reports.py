@@ -12,7 +12,10 @@ from triple_agent.reports.generation.plot_specs import DataQueryProperties
 from triple_agent.classes.missions import MISSION_PLOT_ORDER, Missions
 from triple_agent.reports.specific.mission_choices import _count_mission_choices
 from triple_agent.reports.specific.game_outcomes import _categorize_outcomes
-from triple_agent.reports.specific.fingerprints import _categorize_fp_sources, _categorize_successful_fp_sources
+from triple_agent.reports.specific.fingerprints import (
+    _categorize_fp_sources,
+    _categorize_successful_fp_sources,
+)
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.roles import Roles
@@ -521,6 +524,7 @@ def test_each_report(
     assert data_properties.stacks_are_categories == exp_stacks_as_categories
     assert axis_properties == exp_axis_properties
 
+
 FINGERPRINT_REPORT_CASES = [
     (
         DataQueryProperties(
@@ -544,9 +548,7 @@ FINGERPRINT_REPORT_CASES = [
         AxisProperties(),
     ),
     (
-        DataQueryProperties(
-            query_function=_categorize_fp_sources,
-        ),
+        DataQueryProperties(query_function=_categorize_fp_sources,),
         pandas.DataFrame(
             data=[[1, 2, 1]],
             index=[None],
@@ -582,20 +584,15 @@ FINGERPRINT_REPORT_CASES = [
         AxisProperties(),
     ),
     (
-        DataQueryProperties(
-            query_function=_categorize_successful_fp_sources,
-        ),
+        DataQueryProperties(query_function=_categorize_successful_fp_sources,),
         pandas.DataFrame(
-            data=[[2]],
-            index=[None],
-            columns=[
-                (TimelineCategory.Statues, False),
-            ],
+            data=[[2]], index=[None], columns=[(TimelineCategory.Statues, False),],
         ),
         True,
         AxisProperties(),
     ),
 ]
+
 
 @pytest.mark.plotting
 @pytest.mark.parametrize(

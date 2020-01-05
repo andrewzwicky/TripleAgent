@@ -29,6 +29,7 @@ class TimelineCoherency(Flag):
     CharacterNotAssignedRole = auto()
     RoleWithNoCharacter = auto()
 
+
 # using ReverseOrderedFlag gives a deterministic sort to
 # TimelineCategory, even if it doesn't make sense to sort these
 # things.
