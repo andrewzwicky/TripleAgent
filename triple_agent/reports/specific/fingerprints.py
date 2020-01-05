@@ -26,18 +26,18 @@ def __iterate_and_count_potential_prints(
         if following is None:
             break
 
-        at = ActionTest.NoAT
+        action_test = ActionTest.NoAT
 
         if following.category & TimelineCategory.ActionTest:
             difficult = True
-            at = following.action_test
+            action_test = following.action_test
         elif following.category & TimelineCategory.MissionPartial:
             difficult = False
         else:
             current_event = following
             continue
 
-        if count_attempts or at != ActionTest.Red:
+        if count_attempts or action_test != ActionTest.Red:
             if timeline_event.category & TimelineCategory.Books:
                 data_dictionary[(TimelineCategory.Books, difficult)] += 1
             if timeline_event.category & TimelineCategory.Statues:

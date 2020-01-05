@@ -10,7 +10,7 @@ from triple_agent.classes.books import Books
 from triple_agent.classes.characters import Characters, CHARACTERS_TO_STRING
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.roles import Roles
-from triple_agent.classes.ordered_flag import ReverseOrderedFlag
+from triple_agent.classes.ordered_enum import ReverseOrderedFlag
 
 
 class TimelineCoherency(Flag):
