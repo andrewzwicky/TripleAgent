@@ -27,6 +27,7 @@ st_selection  # unused function (triple_agent\reports\specific\character_selecti
 amba_selection  # unused function (triple_agent\reports\specific\character_selection.py)
 double_agent_selection  # unused function (triple_agent\reports\specific\character_selection.py)
 attempted_fingerprint_sources  # unused function (triple_agent\reports\specific\fingerprints.py)
+successful_fingerprint_sources  # unused function (triple_agent\reports\specific\fingerprints.py)
 game_durations  # unused function (triple_agent\reports\specific\game_durations.py)
 game_outcomes  # unused function (triple_agent\reports\specific\game_outcomes.py)
 at_or_direct_mf  # unused function (triple_agent\reports\specific\microfilm.py)
