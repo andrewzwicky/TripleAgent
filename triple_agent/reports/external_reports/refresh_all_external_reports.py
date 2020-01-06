@@ -37,10 +37,8 @@ OVERALL_REPORT_SOURCE = Path(__file__).parents[0].joinpath("overall_reports")
 
 
 def delete_stale_json_files():
-    json_uuid_set = set(
-        [f.stem for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"]
-    )
-    pkl_uuid_set = set([f.stem for f in REPLAY_PICKLE_FOLDER.iterdir()])
+    json_uuid_set = {f.stem for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"}
+    pkl_uuid_set = {f.stem for f in REPLAY_PICKLE_FOLDER.iterdir()}
 
     # these are games that were generated, but deleted, so the json files
     # should be removed as well
@@ -52,10 +50,9 @@ def delete_stale_json_files():
 
 def create_index_file(target_dir: Path):
     soup = BeautifulSoup("<!doctype html><html></html>", "lxml")
-    head = soup.new_tag("head")
-    body = soup.new_tag("body")
-    soup.html.append(head)
-    soup.html.append(body)
+
+    soup.html.append(soup.new_tag("head"))
+    soup.html.append(soup.new_tag("body"))
 
     title_string = target_dir.joinpath("title.txt").open().read()
 
@@ -67,14 +64,13 @@ def create_index_file(target_dir: Path):
     depth = len(target_dir.relative_to(DOCS_FOLDER).parts)
     css_rel_path = "../" * depth + "style.css"
 
-    link = soup.new_tag("link", rel="stylesheet", href=f"{css_rel_path}")
     soup.head.append(title)
-    soup.head.append(link)
+    soup.head.append(soup.new_tag("link", rel="stylesheet", href=f"{css_rel_path}"))
 
-    h1 = soup.new_tag("h1")
-    h1.string = f"{title_string}"
+    h1_tag = soup.new_tag("h1")
+    h1_tag.string = f"{title_string}"
 
-    soup.body.append(h1)
+    soup.body.append(h1_tag)
 
     tar_path = Path(target_dir)
 
@@ -89,13 +85,13 @@ def create_index_file(target_dir: Path):
             div = soup.new_tag("div")
 
             if path.is_dir():
-                a = soup.new_tag("a", href=f"{rel_path}/index.html")
-                a.string = path.joinpath("title.txt").open().read()
+                a_tag = soup.new_tag("a", href=f"{rel_path}/index.html")
+                a_tag.string = path.joinpath("title.txt").open().read()
             else:
-                a = soup.new_tag("a", href=f"{rel_path}")
-                a.string = str(rel_path)
+                a_tag = soup.new_tag("a", href=f"{rel_path}")
+                a_tag.string = str(rel_path)
 
-            div.append(a)
+            div.append(a_tag)
 
             soup.body.append(div)
 
@@ -104,7 +100,7 @@ def create_index_file(target_dir: Path):
 
 
 def refresh_html_files():
-    for root, dirs, files in os.walk(DOCS_FOLDER):
+    for root, _, _ in os.walk(DOCS_FOLDER):
         create_index_file(Path(root))
 
 
