@@ -19,6 +19,15 @@ AT_TO_COLORS_RGB = {
     ActionTest.Canceled: "xkcd:light grey",
 }
 
+
+AT_TO_COLORS_DARK_MODE = {
+    ActionTest.Green: "#44749D",
+    ActionTest.White: "EBE7E0",
+    ActionTest.Ignored: "xkcd:light grey",
+    ActionTest.Red: "xkcd:light pink",
+    ActionTest.Canceled: "xkcd:dark grey",
+}
+
 AT_PREFERRED_PIE_CHART_ORDER = [
     ActionTest.Green,
     ActionTest.White,

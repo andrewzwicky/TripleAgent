@@ -3,6 +3,7 @@ from typing import List
 from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.action_tests import (
     AT_TO_COLORS_RGB,
+    AT_TO_COLORS_DARK_MODE,
     AT_PREFERRED_PIE_CHART_ORDER,
 )
 from triple_agent.classes.game import Game
@@ -39,7 +40,11 @@ def action_test_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=AT_TO_COLORS_RGB),
+        AxisProperties(
+            primary_color_dict=AT_TO_COLORS_DARK_MODE
+            if axis_properties.dark_mode
+            else AT_TO_COLORS_RGB
+        ),
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             primary_order=AT_PREFERRED_PIE_CHART_ORDER,
@@ -57,7 +62,11 @@ def diff_action_test_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=AT_TO_COLORS_RGB),
+        AxisProperties(
+            primary_color_dict=AT_TO_COLORS_DARK_MODE
+            if axis_properties.dark_mode
+            else AT_TO_COLORS_RGB
+        ),
         DataQueryProperties(
             query_function=_difficult_at_rate,
             primary_order=AT_PREFERRED_PIE_CHART_ORDER,

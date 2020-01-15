@@ -28,7 +28,7 @@ def labelify(unknown_item: Any, percentage: bool = False):
 
 def _save_fig_if_needed(fig, savefig):  # pragma: no cover
     if savefig:
-        fig.savefig(savefig, bbox_inches="tight")
+        fig.savefig(savefig, bbox_inches="tight", transparent=True)
 
 
 def _create_legend_if_needed(axis, fig):
@@ -189,7 +189,7 @@ def _set_axis_properties(axis, ticks, axis_properties: AxisProperties, tight=Fal
 
     axis.set_ylim(bottom=0)
 
-    axis.yaxis.grid(which="major", color="k")
+    axis.yaxis.grid(which="major")
     axis.yaxis.grid(which="minor", linestyle="--")
     axis.set_axisbelow(True)
 

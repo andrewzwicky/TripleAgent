@@ -32,6 +32,8 @@ class AxisProperties:
     primary_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     primary_color_dict: Optional[Dict[Any, Optional[str]]] = None
 
+    dark_mode: bool = False
+
     def update(self, suggested_axis_properties):
         if suggested_axis_properties is not None:
             if isinstance(suggested_axis_properties, AxisProperties):

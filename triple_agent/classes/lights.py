@@ -13,3 +13,9 @@ LIGHTS_TO_COLORS = {
     Lights.Neutral: "xkcd:gray",
     Lights.Highlight: "xkcd:white",
 }
+
+LIGHTS_TO_COLORS_DARK_MODE = {
+    Lights.Lowlight: "#8DB8AD",
+    Lights.Neutral: "#EBE7E0",
+    Lights.Highlight: "#C6D4E1",
+}

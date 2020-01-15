@@ -18,6 +18,13 @@ BUG_TO_COLORS_RGB = {
     ("Standing", False): "xkcd:pumpkin",
 }
 
+BUG_TO_COLORS_RGB_DARK_MODE = {
+    ("Walking", True): "#44749D",
+    ("Walking", False): "#44749D",
+    ("Standing", True): "#8DB8AD",
+    ("Standing", False): "#8DB8AD",
+}
+
 
 BUG_PLOT_LABEL_DICT = {
     ("Walking", True): "Walking (Successful)",
@@ -106,7 +113,9 @@ def bug_success_rate(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=BUG_TO_COLORS_RGB,
+            primary_color_dict=BUG_TO_COLORS_RGB_DARK_MODE
+            if axis_properties.dark_mode
+            else BUG_TO_COLORS_RGB,
             primary_label_dict=BUG_PLOT_LABEL_DICT,
             primary_hatch_dict=BUG_PLOT_HATCH_DICT,
         ),

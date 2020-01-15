@@ -1,3 +1,4 @@
+import contextlib
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import numpy as np
@@ -20,6 +21,9 @@ from triple_agent.reports.generation.report_utilities import (
     trim_empty_labels,
 )
 
+DARK_MODE_BACKGROUND_COLOR = "#383838"
+LIGHT_MODE_BACKGROUND_COLOR = "white"
+
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
 
@@ -29,59 +33,72 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if fig is None:  # pragma: no cover
-        show = True
-        fig, axis = plt.subplots(figsize=(12, 8), facecolor="white")
+    if axis_properties.dark_mode:
+        context = plt.style.context("dark_background")
+        if fig is not None:
+            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
-        show = False
-        fig.set_size_inches(12, 8)
-        axis = fig.subplots()
+        context = contextlib.nullcontext()
 
-    colors = create_plot_colors(
-        axis_properties.primary_color_dict,
-        data_properties.frame,
-        data_properties.stacks_are_categories,
-    )
+    with context:
+        if fig is None:  # pragma: no cover
+            show = True
+            fig, axis = plt.subplots(
+                figsize=(12, 8),
+                facecolor=DARK_MODE_BACKGROUND_COLOR
+                if axis_properties.dark_mode
+                else LIGHT_MODE_BACKGROUND_COLOR,
+            )
+        else:
+            show = False
+            fig.set_size_inches(12, 8)
+            axis = fig.subplots()
 
-    category_labels, stack_labels = create_category_legend_labels(
-        axis_properties.primary_label_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
-        data_properties.stacks_are_categories,
-    )
-
-    ticks = list(range(len(data_properties.frame.iloc[-1])))
-
-    max_value = data_properties.frame.max().max()
-
-    for this_data, this_color, stack_label in zip(
-        data_properties.frame.itertuples(index=False), colors, stack_labels
-    ):
-        axis.plot(
-            ticks,
-            this_data,
-            color=this_color[0],
-            linestyle="-",
-            marker="o",
-            markersize=12,
-            linewidth=4,
-            label=stack_label,
+        colors = create_plot_colors(
+            axis_properties.primary_color_dict,
+            data_properties.frame,
+            data_properties.stacks_are_categories,
         )
 
-    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
+        category_labels, stack_labels = create_category_legend_labels(
+            axis_properties.primary_label_dict,
+            data_properties.frame.columns,
+            data_properties.frame.index,
+            data_properties.stacks_are_categories,
+        )
 
-    _create_legend_if_needed(axis, fig)
+        ticks = list(range(len(data_properties.frame.iloc[-1])))
 
-    _set_axis_properties(axis, ticks, axis_properties)
+        max_value = data_properties.frame.max().max()
 
-    _add_portrait_x_axis_if_needed(
-        axis, fig, category_labels, axis_properties.x_axis_portrait
-    )
+        for this_data, this_color, stack_label in zip(
+            data_properties.frame.itertuples(index=False), colors, stack_labels
+        ):
+            axis.plot(
+                ticks,
+                this_data,
+                color=this_color[0],
+                linestyle="-",
+                marker="o",
+                markersize=12,
+                linewidth=4,
+                label=stack_label,
+            )
 
-    _save_fig_if_needed(fig, axis_properties.savefig)
+        _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    if show:  # pragma: no cover
-        plt.show()
+        _create_legend_if_needed(axis, fig)
+
+        _set_axis_properties(axis, ticks, axis_properties)
+
+        _add_portrait_x_axis_if_needed(
+            axis, fig, category_labels, axis_properties.x_axis_portrait
+        )
+
+        _save_fig_if_needed(fig, axis_properties.savefig)
+
+        if show:  # pragma: no cover
+            plt.show()
 
 
 def create_bar_plot(
@@ -89,58 +106,73 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if fig is None:  # pragma: no cover
-        show = True
-        fig, axis = plt.subplots(figsize=(12, 8), facecolor="white")
+    if axis_properties.dark_mode:
+        context = plt.style.context("dark_background")
+        if fig is not None:
+            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
-        show = False
-        fig.set_size_inches(12, 8)
-        axis = fig.subplots()
+        context = contextlib.nullcontext()
 
-    category_labels, stack_labels = create_category_legend_labels(
-        axis_properties.primary_label_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
-        data_properties.stacks_are_categories,
-    )
+    with context:
+        if fig is None:  # pragma: no cover
+            show = True
+            fig, axis = plt.subplots(
+                figsize=(12, 8),
+                facecolor=DARK_MODE_BACKGROUND_COLOR
+                if axis_properties.dark_mode
+                else LIGHT_MODE_BACKGROUND_COLOR,
+            )
+        else:
+            show = False
+            fig.set_size_inches(12, 8)
+            axis = fig.subplots()
 
-    hatching = create_plot_hatching(
-        axis_properties.primary_hatch_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
-        data_properties.stacks_are_categories,
-    )
+        category_labels, stack_labels = create_category_legend_labels(
+            axis_properties.primary_label_dict,
+            data_properties.frame.columns,
+            data_properties.frame.index,
+            data_properties.stacks_are_categories,
+        )
 
-    data_labels = create_data_labels(
-        data_properties.frame,
-        axis_properties.data_label_style,
-        axis_properties.y_axis_percentage,
-    )
+        hatching = create_plot_hatching(
+            axis_properties.primary_hatch_dict,
+            data_properties.frame.columns,
+            data_properties.frame.index,
+            data_properties.stacks_are_categories,
+        )
 
-    ticks = list(range(len(data_properties.frame.columns)))
+        data_labels = create_data_labels(
+            data_properties.frame,
+            axis_properties.data_label_style,
+            axis_properties.y_axis_percentage,
+        )
 
-    max_value = max(data_properties.frame.sum())
+        ticks = list(range(len(data_properties.frame.columns)))
 
-    patches = draw_bars(axis, axis_properties, data_properties, ticks, stack_labels)
+        max_value = max(data_properties.frame.sum())
 
-    for row_hatch, row_patches, row_data_labels in zip(hatching, patches, data_labels):
-        apply_hatches(row_hatch, row_patches)
-        apply_data_labels(axis, max_value, row_patches, row_data_labels)
+        patches = draw_bars(axis, axis_properties, data_properties, ticks, stack_labels)
 
-    _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
+        for row_hatch, row_patches, row_data_labels in zip(
+            hatching, patches, data_labels
+        ):
+            apply_hatches(row_hatch, row_patches)
+            apply_data_labels(axis, max_value, row_patches, row_data_labels)
 
-    _create_legend_if_needed(axis, fig)
+        _set_y_axis_scale_and_ticks(axis, max_value, axis_properties.y_axis_percentage)
 
-    _set_axis_properties(axis, ticks, axis_properties)
+        _create_legend_if_needed(axis, fig)
 
-    _add_portrait_x_axis_if_needed(
-        axis, fig, category_labels, axis_properties.x_axis_portrait
-    )
+        _set_axis_properties(axis, ticks, axis_properties)
 
-    _save_fig_if_needed(fig, axis_properties.savefig)
+        _add_portrait_x_axis_if_needed(
+            axis, fig, category_labels, axis_properties.x_axis_portrait
+        )
 
-    if show:  # pragma: no cover
-        plt.show()
+        _save_fig_if_needed(fig, axis_properties.savefig)
+
+        if show:  # pragma: no cover
+            plt.show()
 
 
 def draw_bars(axis, axis_properties, data_properties, ticks, stack_labels):
@@ -187,133 +219,172 @@ def create_pie_chart(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    # Pie chart assumes this will be the case, so confirm.
-    assert data_properties.stacks_are_categories
-
-    if fig is None:  # pragma: no cover
-        show = True
-        fig, axis = plt.subplots(figsize=(8, 8), facecolor="white")
+    if axis_properties.dark_mode:
+        context = plt.style.context("dark_background")
+        if fig is not None:
+            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
-        show = False
-        fig.set_size_inches(8, 8)
-        axis = fig.subplots()
+        context = contextlib.nullcontext()
 
-    axis.set_title(axis_properties.title)
+    with context:
+        # Pie chart assumes this will be the case, so confirm.
+        assert data_properties.stacks_are_categories
 
-    colors = create_plot_colors(
-        axis_properties.primary_color_dict,
-        data_properties.frame,
-        data_properties.stacks_are_categories,
-        is_pie_chart=True,
-    )
+        if fig is None:  # pragma: no cover
+            show = True
+            fig, axis = plt.subplots(
+                figsize=(8, 8),
+                facecolor=DARK_MODE_BACKGROUND_COLOR
+                if axis_properties.dark_mode
+                else LIGHT_MODE_BACKGROUND_COLOR,
+            )
+        else:
+            show = False
+            fig.set_size_inches(8, 8)
+            axis = fig.subplots()
 
-    hatching = create_plot_hatching(
-        axis_properties.primary_hatch_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
-        data_properties.stacks_are_categories,
-    )
+        axis.set_title(axis_properties.title)
 
-    category_labels, _ = create_category_legend_labels(
-        axis_properties.primary_label_dict,
-        data_properties.frame.columns,
-        data_properties.frame.index,
-        data_properties.stacks_are_categories,
-    )
+        colors = create_plot_colors(
+            axis_properties.primary_color_dict,
+            data_properties.frame,
+            data_properties.stacks_are_categories,
+            is_pie_chart=True,
+        )
 
-    # pie is only going to use the lowest data "stack"
-    wedge_data = data_properties.frame.iloc[-1]
+        hatching = create_plot_hatching(
+            axis_properties.primary_hatch_dict,
+            data_properties.frame.columns,
+            data_properties.frame.index,
+            data_properties.stacks_are_categories,
+        )
 
-    trimmed_labels = trim_empty_labels(wedge_data, category_labels)
+        category_labels, _ = create_category_legend_labels(
+            axis_properties.primary_label_dict,
+            data_properties.frame.columns,
+            data_properties.frame.index,
+            data_properties.stacks_are_categories,
+        )
 
-    patches, _, _ = axis.pie(
-        wedge_data,
-        labels=trimmed_labels,
-        colors=colors[0],
-        autopct=lambda x: "" if x == 0 else f"{x:1.1f}%",
-        pctdistance=1.1,
-        labeldistance=1.2,
-        wedgeprops={"edgecolor": "k", "linewidth": 1},
-    )
+        # pie is only going to use the lowest data "stack"
+        wedge_data = data_properties.frame.iloc[-1]
 
-    apply_hatches(hatching[0], patches)
+        trimmed_labels = trim_empty_labels(wedge_data, category_labels)
 
-    _save_fig_if_needed(fig, axis_properties.savefig)
+        patches, _, _ = axis.pie(
+            wedge_data,
+            labels=trimmed_labels,
+            colors=colors[0],
+            autopct=lambda x: "" if x == 0 else f"{x:1.1f}%",
+            pctdistance=1.1,
+            labeldistance=1.2,
+            wedgeprops={"edgecolor": "black", "linewidth": 1},
+        )
 
-    if show:  # pragma: no cover
-        plt.show()
+        apply_hatches(hatching[0], patches)
+
+        _save_fig_if_needed(fig, axis_properties.savefig)
+
+        if show:  # pragma: no cover
+            plt.show()
 
 
 def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
-    if fig is None:  # pragma: no cover
-        show = True
-        fig, axis = plt.subplots(figsize=(12, 8), facecolor="white")
+    if axis_properties.dark_mode:
+        context = plt.style.context("dark_background")
+        if fig is not None:
+            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
-        show = False
-        fig.set_size_inches(12, 8)
-        axis = fig.subplots()
+        context = contextlib.nullcontext()
 
-    for x_d, y_d, color in zip(x_data, y_data, colors):
-        axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
+    with context:
+        if fig is None:  # pragma: no cover
+            show = True
+            fig, axis = plt.subplots(
+                figsize=(12, 8),
+                facecolor=DARK_MODE_BACKGROUND_COLOR
+                if axis_properties.dark_mode
+                else LIGHT_MODE_BACKGROUND_COLOR,
+            )
+        else:
+            show = False
+            fig.set_size_inches(12, 8)
+            axis = fig.subplots()
 
-    axis.set_ylim(bottom=0)
-    axis.set_xlim(left=0)
+        for x_d, y_d, color in zip(x_data, y_data, colors):
+            axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
 
-    axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
-    axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
+        axis.set_ylim(bottom=0)
+        axis.set_xlim(left=0)
 
-    axis.set_title(axis_properties.title)
+        axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
+        axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
 
-    if axis_properties.y_axis_label is not None:
-        axis.set_ylabel(axis_properties.y_axis_label)
+        axis.set_title(axis_properties.title)
 
-    if axis_properties.x_axis_label is not None:
-        axis.set_xlabel(axis_properties.x_axis_label)
+        if axis_properties.y_axis_label is not None:
+            axis.set_ylabel(axis_properties.y_axis_label)
 
-    if show:  # pragma: no cover
-        plt.show()
+        if axis_properties.x_axis_label is not None:
+            axis.set_xlabel(axis_properties.x_axis_label)
+
+        if show:  # pragma: no cover
+            plt.show()
 
 
 def create_histogram(
     axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
-    if fig is None:  # pragma: no cover
-        show = True
-        fig, axis = plt.subplots(figsize=(12, 8), facecolor="white")
+    if axis_properties.dark_mode:
+        context = plt.style.context("dark_background")
+        if fig is not None:
+            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
-        show = False
-        fig.set_size_inches(12, 8)
-        axis = fig.subplots()
+        context = contextlib.nullcontext()
 
-    cumulative_bins, data_bins = create_bins(bin_size, data)
+    with context:
+        if fig is None:  # pragma: no cover
+            show = True
+            fig, axis = plt.subplots(
+                figsize=(12, 8),
+                facecolor=DARK_MODE_BACKGROUND_COLOR
+                if axis_properties.dark_mode
+                else LIGHT_MODE_BACKGROUND_COLOR,
+            )
+        else:
+            show = False
+            fig.set_size_inches(12, 8)
+            axis = fig.subplots()
 
-    heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
+        cumulative_bins, data_bins = create_bins(bin_size, data)
 
-    if axis_properties.cumulative_histogram:
-        axis2 = axis.twinx()
-        axis2.hist(
-            data,
-            bins=cumulative_bins,
-            density=True,
-            histtype="step",
-            cumulative=True,
-            color="xkcd:orange",
-            linewidth=3,
-        )
+        heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
 
-        axis2.set_ylim(0, 1)
+        if axis_properties.cumulative_histogram:
+            axis2 = axis.twinx()
+            axis2.hist(
+                data,
+                bins=cumulative_bins,
+                density=True,
+                histtype="step",
+                cumulative=True,
+                color="xkcd:orange",
+                linewidth=3,
+            )
 
-    _set_y_axis_scale_and_ticks(axis, max(heights), False)
+            axis2.set_ylim(0, 1)
 
-    _set_axis_properties(axis, data_bins, axis_properties, tight=True)
+        _set_y_axis_scale_and_ticks(axis, max(heights), False)
 
-    # TODO: figure out a better major locator size
-    axis.xaxis.set_major_locator(MultipleLocator(major_locator))
-    axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
+        _set_axis_properties(axis, data_bins, axis_properties, tight=True)
 
-    _save_fig_if_needed(fig, axis_properties.savefig)
+        # TODO: figure out a better major locator size
+        axis.xaxis.set_major_locator(MultipleLocator(major_locator))
+        axis.xaxis.set_minor_locator(MultipleLocator(bin_size))
 
-    if show:  # pragma: no cover
-        plt.show()
+        _save_fig_if_needed(fig, axis_properties.savefig)
+
+        if show:  # pragma: no cover
+            plt.show()

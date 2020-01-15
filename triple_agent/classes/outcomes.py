@@ -20,6 +20,13 @@ WINTYPES_TO_COLORS = {
     WinType.CivilianShot: "xkcd:pumpkin",
 }
 
+WINTYPES_TO_COLORS_DARK_MODE = {
+    WinType.TimeOut: "#8DB8AD",
+    WinType.SpyShot: "#EBE7E0",
+    WinType.MissionsWin: "#C6D4E1",
+    WinType.CivilianShot: "#44749D",
+}
+
 WINTYPE_PREFERRED_PIE_CHART_ORDER = [
     WinType.TimeOut,
     WinType.SpyShot,
