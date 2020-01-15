@@ -1,6 +1,9 @@
 import os
+import itertools
+
 from pathlib import Path
 from bs4 import BeautifulSoup
+from zipfile import ZipFile
 
 from triple_agent.reports.external_reports.player_reports.action_tests import (
     player_at_reports,
@@ -35,6 +38,7 @@ from triple_agent.reports.external_reports.spy_party_fans.sniper_lights import (
 EVENT_REPORT_SOURCE = Path(__file__).parents[0].joinpath("event_reports")
 OVERALL_REPORT_SOURCE = Path(__file__).parents[0].joinpath("overall_reports")
 
+ZIP_CHUNK_SIZE = 1000
 
 def delete_stale_json_files():
     json_uuid_set = {f.stem for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"}
@@ -46,6 +50,17 @@ def delete_stale_json_files():
 
     for uuid in removed_games:
         JSON_GAMES_FOLDER.joinpath(f"{uuid}.json").unlink()
+
+
+def zip_all_json_files():
+    json_files = sorted([f for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"])
+
+    for i in itertools.count():
+        if i*ZIP_CHUNK_SIZE > len(json_files):
+            break
+        with ZipFile(os.path.join(JSON_GAMES_FOLDER,f'json_games_{i}.zip'), 'w') as json_zip:
+            for f in json_files[i * ZIP_CHUNK_SIZE:(i * ZIP_CHUNK_SIZE) + ZIP_CHUNK_SIZE]:
+                json_zip.write(f, arcname=f.name)
 
 
 def create_index_file(target_dir: Path):
@@ -133,20 +148,21 @@ def refresh_overall_reports():
 
 def refresh_all_reports():
     delete_stale_json_files()
+    zip_all_json_files()
     refresh_html_files()
 
-    all_replays = get_parsed_replays(lambda x: True)
-    scl5_replays = get_parsed_replays(select_scl5_with_drops)
-
-    refresh_overall_reports()
-    refresh_event_reports()
-    player_at_reports(all_replays, scl5_replays)
-    player_spy_selection_report(all_replays, scl5_replays)
-    player_game_count_reports(all_replays, scl5_replays)
-    refresh_example_notebooks()
-    spf_lights_report(all_replays)
-    spf_action_test_report(all_replays)
-    spf_character_selection_report(all_replays)
+    # all_replays = get_parsed_replays(lambda x: True)
+    # scl5_replays = get_parsed_replays(select_scl5_with_drops)
+    #
+    # refresh_overall_reports()
+    # refresh_event_reports()
+    # player_at_reports(all_replays, scl5_replays)
+    # player_spy_selection_report(all_replays, scl5_replays)
+    # player_game_count_reports(all_replays, scl5_replays)
+    # refresh_example_notebooks()
+    # spf_lights_report(all_replays)
+    # spf_action_test_report(all_replays)
+    # spf_character_selection_report(all_replays)
 
 
 if __name__ == "__main__":
