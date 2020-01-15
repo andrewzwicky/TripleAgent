@@ -33,14 +33,7 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if axis_properties.dark_mode:
-        context = plt.style.context("dark_background")
-        if fig is not None:
-            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
-    else:
-        context = contextlib.nullcontext()
-
-    with context:
+    with setup_dark_mode_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -106,14 +99,7 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if axis_properties.dark_mode:
-        context = plt.style.context("dark_background")
-        if fig is not None:
-            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
-    else:
-        context = contextlib.nullcontext()
-
-    with context:
+    with setup_dark_mode_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -219,14 +205,7 @@ def create_pie_chart(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    if axis_properties.dark_mode:
-        context = plt.style.context("dark_background")
-        if fig is not None:
-            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
-    else:
-        context = contextlib.nullcontext()
-
-    with context:
+    with setup_dark_mode_context(axis_properties, fig):
         # Pie chart assumes this will be the case, so confirm.
         assert data_properties.stacks_are_categories
 
@@ -292,14 +271,7 @@ def create_pie_chart(
 def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
-    if axis_properties.dark_mode:
-        context = plt.style.context("dark_background")
-        if fig is not None:
-            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
-    else:
-        context = contextlib.nullcontext()
-
-    with context:
+    with setup_dark_mode_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -334,17 +306,20 @@ def create_progress_plot(
             plt.show()
 
 
-def create_histogram(
-    axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
-):
+def setup_dark_mode_context(axis_properties, fig):
     if axis_properties.dark_mode:
         context = plt.style.context("dark_background")
         if fig is not None:
             fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
     else:
         context = contextlib.nullcontext()
+    return context
 
-    with context:
+
+def create_histogram(
+    axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
+):
+    with setup_dark_mode_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
