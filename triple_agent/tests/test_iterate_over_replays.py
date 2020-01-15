@@ -2,6 +2,7 @@ import pytest
 
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
+from triple_agent.classes.venues import Venue
 from triple_agent.classes.outcomes import WinType
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 import os
@@ -111,7 +112,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
         games[1].picked_missions
         == Missions.Contact | Missions.Transfer | Missions.Swap | Missions.Seduce
     )
-    assert games[1].venue == "Ballroom"
+    assert games[1].venue == Venue.Ballroom
     assert games[1].guest_count == 12
     assert games[1].start_clock_seconds == 315
     assert games[1].win_type == WinType.SpyShot

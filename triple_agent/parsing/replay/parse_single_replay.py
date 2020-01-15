@@ -6,6 +6,7 @@ from triple_agent.classes.game import Game, game_load_or_new
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 from triple_agent.classes.missions import convert_mission_set_to_enum
 from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.venues import Venue
 
 try:
     from spyparty.ReplayParser import ReplayParser
@@ -41,7 +42,8 @@ def parse_replay_dict_into_game(
         replay_dict["sniper_displayname"],
         replay_dict["spy_username"],
         replay_dict["sniper_username"],
-        replay_dict["level"],
+        # remove - for High-Rise
+        Venue[replay_dict["level"].replace("-", "")],
         WinType[replay_dict["result"].replace(" ", "")],
         replay_dict["game_type"],
         convert_mission_set_to_enum(

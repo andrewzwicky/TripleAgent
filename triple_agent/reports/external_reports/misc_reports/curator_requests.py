@@ -1,12 +1,13 @@
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.venues import Venue
 
 # These methods were used to query a set of replays for curated replay sets
 # They aren't used throughout TripleAgent otherwise.
 
 
 def curated_many_green_ats(game):
-    if game.venue != "Balcony" and game.win_type in [
+    if game.venue != Venue.Balcony and game.win_type in [
         WinType.TimeOut,
         WinType.MissionsWin,
     ]:
@@ -23,7 +24,7 @@ def curated_many_green_ats(game):
 
 
 def cough_clank_crash(game):
-    if game.venue != "Balcony" and game.win_type in [
+    if game.venue != Venue.Balcony and game.win_type in [
         WinType.TimeOut,
         WinType.MissionsWin,
     ]:

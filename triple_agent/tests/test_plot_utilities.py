@@ -8,6 +8,7 @@ from triple_agent.reports.generation.plot_utilities import (
     sort_frame_stacks,
 )
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.venues import Venue
 from triple_agent.constants.events import SCL5_VENUE_MODES
 import pandas
 
@@ -17,13 +18,13 @@ CREATE_DATA_FRAME_CASES = [
         defaultdict(
             Counter,
             {
-                "Balcony": Counter(
+                Venue.Balcony: Counter(
                     {ActionTest.Green: 6, ActionTest.White: 7, ActionTest.Ignored: 1}
                 ),
-                "Terrace": Counter(
+                Venue.Terrace: Counter(
                     {ActionTest.Green: 2, ActionTest.White: 7, ActionTest.Red: 1}
                 ),
-                "Gallery": Counter(
+                Venue.Gallery: Counter(
                     {
                         ActionTest.Green: 5,
                         ActionTest.White: 17,
@@ -32,7 +33,7 @@ CREATE_DATA_FRAME_CASES = [
                         ActionTest.Red: 1,
                     }
                 ),
-                "Ballroom": Counter({ActionTest.Green: 1, ActionTest.White: 3}),
+                Venue.Ballroom: Counter({ActionTest.Green: 1, ActionTest.White: 3}),
             },
         ),
         pandas.DataFrame(
@@ -43,7 +44,7 @@ CREATE_DATA_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -156,7 +157,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -175,7 +176,7 @@ SORT_FRAME_CASES = [
                 [0, 0, 1, 1],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Ballroom", "Gallery", "Terrace"],
+            columns=[Venue.Balcony, Venue.Ballroom, Venue.Gallery, Venue.Terrace],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -194,7 +195,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -213,7 +214,7 @@ SORT_FRAME_CASES = [
                 [0, 0, 1, 1],
                 [0, 0, 0, 1],
             ],
-            columns=["Ballroom", "Balcony", "Terrace", "Gallery"],
+            columns=[Venue.Ballroom, Venue.Balcony, Venue.Terrace, Venue.Gallery],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -232,7 +233,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -254,7 +255,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 0, 1],
                 [0, 0, 0, 1],
             ],
-            columns=["Ballroom", "Terrace", "Balcony", "Gallery"],
+            columns=[Venue.Ballroom, Venue.Terrace, Venue.Balcony, Venue.Gallery],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -273,7 +274,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -292,7 +293,7 @@ SORT_FRAME_CASES = [
                 [1, 0, 1, 0],
                 [1, 0, 0, 0],
             ],
-            columns=["Gallery", "Balcony", "Terrace", "Ballroom"],
+            columns=[Venue.Gallery, Venue.Balcony, Venue.Terrace, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -311,7 +312,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -330,7 +331,7 @@ SORT_FRAME_CASES = [
                 [0, 0, 1, 1],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Ballroom", "Gallery", "Terrace"],
+            columns=[Venue.Balcony, Venue.Ballroom, Venue.Gallery, Venue.Terrace],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -349,7 +350,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -368,7 +369,7 @@ SORT_FRAME_CASES = [
                 [1, 1, 0, 0],
                 [0, 1, 0, 0],
             ],
-            columns=["Terrace", "Gallery", "Ballroom", "Balcony"],
+            columns=[Venue.Terrace, Venue.Gallery, Venue.Ballroom, Venue.Balcony],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -387,7 +388,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -522,7 +523,7 @@ SORT_FRAME_STACK_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -541,7 +542,7 @@ SORT_FRAME_STACK_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -560,7 +561,7 @@ SORT_FRAME_STACK_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -579,7 +580,7 @@ SORT_FRAME_STACK_CASES = [
                 [0, 1, 1, 0],
                 [7, 7, 17, 3],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Canceled,
                 ActionTest.Green,
@@ -598,7 +599,7 @@ SORT_FRAME_STACK_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -617,7 +618,7 @@ SORT_FRAME_STACK_CASES = [
                 [7, 7, 17, 3],
                 [6, 2, 5, 1],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Canceled,
                 ActionTest.Red,
@@ -631,14 +632,14 @@ SORT_FRAME_STACK_CASES = [
         pandas.DataFrame(
             data=[[7, 6], [8, 11], [0, 1]],
             columns=["Calvin Schoolidge/steam", "zerotka"],
-            index=["Veranda", "Ballroom", "Balcony"],
+            index=[Venue.Veranda, Venue.Ballroom, Venue.Balcony],
         ),
         None,
         True,
         pandas.DataFrame(
             data=[[0, 1], [8, 11], [7, 6]],
             columns=["Calvin Schoolidge/steam", "zerotka"],
-            index=["Balcony", "Ballroom", "Veranda"],
+            index=[Venue.Balcony, Venue.Ballroom, Venue.Veranda],
         ),
     ),
     (

@@ -7,6 +7,7 @@ import jsonpickle.handlers
 
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.venues import Venue
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
@@ -21,7 +22,7 @@ class Game:
     sniper: str
     spy_username: str
     sniper_username: str
-    venue: str
+    venue: Venue
     win_type: WinType
     game_type: str
     picked_missions: Missions
@@ -234,7 +235,7 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         data["sniper"] = obj.sniper
         data["spy_username"] = obj.spy_username
         data["sniper_username"] = obj.sniper_username
-        data["venue"] = obj.venue
+        data["venue"] = obj.venue.stringify()
         data["win_type"] = obj.win_type.serialize()
         data["game_type"] = obj.game_type
         data["picked_missions"] = obj.picked_missions.serialize()

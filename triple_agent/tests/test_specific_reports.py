@@ -28,6 +28,7 @@ from triple_agent.reports.specific.banana_breads import (
 )
 from triple_agent.reports.specific.bug import _categorize_bugs
 from triple_agent.reports.generation.plot_specs import AxisProperties
+from triple_agent.classes.venues import Venue
 import pandas
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
@@ -158,12 +159,12 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "High-Rise": Counter({ActionTest.Green: 1, ActionTest.White: 1}),
-                "Library": Counter(
+                Venue.HighRise: Counter({ActionTest.Green: 1, ActionTest.White: 1}),
+                Venue.Library: Counter(
                     {ActionTest.Green: 4, ActionTest.White: 6, ActionTest.Ignored: 1}
                 ),
-                "Courtyard": Counter({ActionTest.Green: 6, ActionTest.White: 6}),
-                "Ballroom": Counter(
+                Venue.Courtyard: Counter({ActionTest.Green: 6, ActionTest.White: 6}),
+                Venue.Ballroom: Counter(
                     {ActionTest.Green: 2, ActionTest.White: 6, ActionTest.Red: 1}
                 ),
             },
@@ -176,20 +177,20 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "High-Rise": Counter(
+                Venue.HighRise: Counter(
                     {ActionTest.Green: 1 / 2, ActionTest.White: 1 / 2}
                 ),
-                "Library": Counter(
+                Venue.Library: Counter(
                     {
                         ActionTest.Green: 4 / 11,
                         ActionTest.White: 6 / 11,
                         ActionTest.Ignored: 1 / 11,
                     }
                 ),
-                "Courtyard": Counter(
+                Venue.Courtyard: Counter(
                     {ActionTest.Green: 6 / 12, ActionTest.White: 6 / 12}
                 ),
-                "Ballroom": Counter(
+                Venue.Ballroom: Counter(
                     {
                         ActionTest.Green: 2 / 9,
                         ActionTest.White: 6 / 9,

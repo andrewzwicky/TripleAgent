@@ -5,6 +5,7 @@ from triple_agent.reports.generation.report_utilities import (
     create_data_labels,
 )
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.venues import Venue
 from triple_agent.reports.generation.plot_specs import PlotLabelStyle
 import pandas
 
@@ -127,7 +128,7 @@ DATA_LABEL_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -154,7 +155,7 @@ DATA_LABEL_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=["Balcony", "Terrace", "Gallery", "Ballroom"],
+            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,

@@ -1,21 +1,22 @@
 from triple_agent.classes.game import Game
+from triple_agent.classes.venues import Venue
 
 SCL5_VENUE_MODES = {
-    "Ballroom": "a4/8",
-    "Library": "a5/8",
-    "Moderne": "a5/8",
-    "Balcony": "a2/3",
-    "Terrace": "a3/5",
-    "Pub": "a3/5",
-    "High-Rise": "a3/5",
-    "Courtyard": "a4/7",
-    "Gallery": "a4/8",
-    "Veranda": "a5/8",
-    "Teien": "a4/8",
-    "Aquarium": "a4/8",
+    Venue.Ballroom: "a4/8",
+    Venue.Library: "a5/8",
+    Venue.Moderne: "a5/8",
+    Venue.Balcony: "a2/3",
+    Venue.Terrace: "a3/5",
+    Venue.Pub: "a3/5",
+    Venue.HighRise: "a3/5",
+    Venue.Courtyard: "a4/7",
+    Venue.Gallery: "a4/8",
+    Venue.Veranda: "a5/8",
+    Venue.Teien: "a4/8",
+    Venue.Aquarium: "a4/8",
 }
 
-SCL5_MISSION_PICK_MAPS = {"Pub", "High-Rise", "Terrace", "Balcony"}
+SCL5_MISSION_PICK_MAPS = {Venue.Pub, Venue.HighRise, Venue.Terrace, Venue.Balcony}
 
 SCL5_PICK_MODES = {
     venue: mode
