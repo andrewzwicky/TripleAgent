@@ -11,10 +11,10 @@ class PlotColors:
     Color4 = "#F0E442"  # yellow
     Color5 = "#CC79A7"  # pink
 
-    DarkGrey = "xkcd:dark grey" #
-    Grey = "xkcd:grey" #
-    LightGrey = "xkcd:light grey" #
-    White = "xkcd:white" #
+    DarkGrey = "xkcd:dark grey"  #
+    Grey = "xkcd:grey"  #
+    LightGrey = "xkcd:light grey"  #
+    White = "xkcd:white"  #
 
 
 # based on https://personal.sron.nl/~pault/ bright qualitative colour scheme
