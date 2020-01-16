@@ -1,5 +1,5 @@
 import hashlib
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 from typing import List, Tuple, Optional, Iterator
 
 import cv2
@@ -364,7 +364,7 @@ def parse_screenshot(
 
     # https://github.com/pytest-dev/pytest-cov/issues/250
 
-    pool = Pool(processes=2)
+    pool = Pool(processes=cpu_count())
 
     try:
         events = pool.map(process_line_image, lines)
