@@ -16,6 +16,23 @@ SCL5_VENUE_MODES = {
     Venue.Aquarium: "a4/8",
 }
 
+SCL6_VENUE_MODES = {
+    Venue.Aquarium: "a4/8",
+    Venue.Balcony: "a2/3",
+    Venue.Ballroom: "a4/8",
+    Venue.Courtyard: "a4/7",
+    Venue.Gallery: "a4/8",
+    Venue.HighRise: "a3/5",
+    Venue.Library: "a5/8",
+    Venue.Moderne: "a4/8",
+    Venue.Pub: "a3/6",
+    Venue.Redwoods: "a4/8",
+    Venue.Teien: "a4/8",
+    Venue.Terrace: "a3/6",
+    Venue.Veranda: "a5/8",
+}
+
+
 SCL5_MISSION_PICK_MAPS = {Venue.Pub, Venue.HighRise, Venue.Terrace, Venue.Balcony}
 
 SCL5_PICK_MODES = {
@@ -31,7 +48,7 @@ SCL5_DROPPED_PLAYERS = {
     "baldrick",
     # Bronze
     "brskaylor",
-    "Hectic",
+    "Hectic/steam",
     "bitbandingpig",
     # Copper
     "frostie",
@@ -39,22 +56,22 @@ SCL5_DROPPED_PLAYERS = {
     "tristram",
     # Iron
     "rta",
-    "the_usual_toaster",
+    "the_usual_toaster/steam",
     # Obsidian
     "juliusb",
     "sergioc89",
-    "Vlady",
-    "PixelBandit",
+    "Vlady/steam",
+    "PixelBandit/steam",
     "gasol",
     "kevino",
     # Oak
     "umbertofinito",
-    "Libro",
-    "ThatOdinaryPlayer",
+    "Libro/steam",
+    "ThatOdinaryPlayer/steam",
     "tge",
-    "Tortuga-Man",
+    "Tortuga-Man/steam",
     # Challenger
-    "Rai",
+    "Rai/steam",
     "linkvanyali",
 }
 

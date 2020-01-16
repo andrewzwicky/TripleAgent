@@ -17,21 +17,6 @@ _AT = "action test"
 TRANSFER_TO_COLORS_RGB = {_DIRECT: "xkcd:sea blue", _AT: "xkcd:pumpkin"}
 TRANSFER_PLOT_ORDER = [_DIRECT, _AT]
 
-BOOK_PLOT_LABEL_DICT = {
-    (Books.Red, Books.Green): "Red->Green",
-    (Books.Blue, Books.Green): "Blue->Green",
-    (Books.Yellow, Books.Green): "Yellow->Green",
-    (Books.Red, Books.Blue): "Red->Blue",
-    (Books.Green, Books.Blue): "Green->Blue",
-    (Books.Yellow, Books.Blue): "Yellow->Blue",
-    (Books.Red, Books.Yellow): "Red->Yellow",
-    (Books.Green, Books.Yellow): "Green->Yellow",
-    (Books.Blue, Books.Yellow): "Blue->Yellow",
-    (Books.Yellow, Books.Red): "Red->Red",
-    (Books.Green, Books.Red): "Green->Red",
-    (Books.Blue, Books.Red): "Blue->Red",
-}
-
 
 def _classify_microfilms(games, data_dictionary):
     for game in games:
@@ -54,17 +39,6 @@ def _classify_microfilms(games, data_dictionary):
                 data_dictionary[_DIRECT] += 1
 
 
-def _microfilm_direction(games, data_dictionary):
-    for game in games:
-        if game.completed_missions & Missions.Transfer:
-            for timeline_event in game.timeline:
-                if (
-                    timeline_event.category & TimelineCategory.MissionComplete
-                    and timeline_event.mission == Missions.Transfer
-                ):
-                    data_dictionary[BOOK_PLOT_LABEL_DICT[timeline_event.books]] += 1
-
-
 def at_or_direct_mf(
     games: List[Game],
     data_query: DataQueryProperties = None,
@@ -76,23 +50,6 @@ def at_or_direct_mf(
         AxisProperties(primary_color_dict=TRANSFER_TO_COLORS_RGB),
         DataQueryProperties(
             query_function=_classify_microfilms, primary_order=TRANSFER_PLOT_ORDER
-        ),
-    )
-
-    return query(games, data_query, axis_properties)
-
-
-def microfilm_direction(
-    games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
-):  # pragma: no cover
-    axis_properties, data_query = initialize_properties(
-        axis_properties,
-        data_query,
-        AxisProperties(primary_color_dict=TRANSFER_TO_COLORS_RGB),
-        DataQueryProperties(
-            query_function=_microfilm_direction, primary_order=TRANSFER_PLOT_ORDER
         ),
     )
 
