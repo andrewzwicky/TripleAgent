@@ -4,7 +4,6 @@ from triple_agent.reports.generation.generic_query import query
 from triple_agent.classes.action_tests import (
     AT_TO_COLORS_RGB,
     AT_TO_COLORS_DARK_MODE,
-    AT_PREFERRED_PIE_CHART_ORDER,
 )
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
@@ -47,7 +46,6 @@ def action_test_percentages(
         ),
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
-            primary_order=AT_PREFERRED_PIE_CHART_ORDER,
         ),
     )
 
@@ -69,7 +67,6 @@ def diff_action_test_percentages(
         ),
         DataQueryProperties(
             query_function=_difficult_at_rate,
-            primary_order=AT_PREFERRED_PIE_CHART_ORDER,
         ),
     )
 

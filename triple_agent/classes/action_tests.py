@@ -27,11 +27,3 @@ AT_TO_COLORS_DARK_MODE = {
     ActionTest.Red: "xkcd:light pink",
     ActionTest.Canceled: "xkcd:dark grey",
 }
-
-AT_PREFERRED_PIE_CHART_ORDER = [
-    ActionTest.Green,
-    ActionTest.White,
-    ActionTest.Ignored,
-    ActionTest.Red,
-    ActionTest.Canceled,
-]
