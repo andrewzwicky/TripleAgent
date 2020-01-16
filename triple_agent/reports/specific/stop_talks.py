@@ -7,8 +7,9 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
+from triple_agent.constants.colors import PlotColors
 
-NOSTOP_TO_COLORS_RGB = {"NoStop": "xkcd:sea blue", "Stop": "xkcd:pumpkin"}
+NOSTOP_TO_COLORS_RGB = {"NoStop": PlotColors.Color1, "Stop": PlotColors.Color2}
 
 NOSTOP_PLOT_ORDER = list(NOSTOP_TO_COLORS_RGB.keys())
 

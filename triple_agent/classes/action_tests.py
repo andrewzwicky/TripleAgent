@@ -1,5 +1,6 @@
 from enum import auto
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum
+from triple_agent.constants.colors import PlotColors
 
 
 class ActionTest(ReverseOrderedEnum):
@@ -12,11 +13,11 @@ class ActionTest(ReverseOrderedEnum):
 
 
 AT_TO_COLORS_RGB = {
-    ActionTest.Green: "xkcd:green",
-    ActionTest.White: "xkcd:white",
-    ActionTest.Ignored: "xkcd:off white",
-    ActionTest.Red: "xkcd:red",
-    ActionTest.Canceled: "xkcd:light grey",
+    ActionTest.Green: PlotColors.Color3,
+    ActionTest.White: PlotColors.White,
+    ActionTest.Ignored: PlotColors.LightGrey,
+    ActionTest.Red: PlotColors.Color2,
+    ActionTest.Canceled: PlotColors.DarkGrey,
 }
 
 

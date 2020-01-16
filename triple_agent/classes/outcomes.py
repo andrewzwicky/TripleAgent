@@ -1,4 +1,5 @@
 from enum import Flag, auto
+from triple_agent.constants.colors import PlotColors
 
 
 class WinType(Flag):
@@ -14,10 +15,10 @@ class WinType(Flag):
 
 
 WINTYPES_TO_COLORS = {
-    WinType.TimeOut: "xkcd:sea blue",
-    WinType.SpyShot: "xkcd:green",
-    WinType.MissionsWin: "xkcd:red",
-    WinType.CivilianShot: "xkcd:pumpkin",
+    WinType.TimeOut: PlotColors.Color1Light,
+    WinType.SpyShot: PlotColors.Color1,
+    WinType.MissionsWin: PlotColors.Color2,
+    WinType.CivilianShot: PlotColors.Color2Light,
 }
 
 WINTYPES_TO_COLORS_DARK_MODE = {

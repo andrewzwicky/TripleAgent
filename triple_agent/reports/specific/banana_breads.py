@@ -9,10 +9,11 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
+from triple_agent.constants.colors import PlotColors
 
 _FAKE = "fake"
 _REAL = "real"
-FAKE_REAL_COLORS = {_FAKE: "xkcd:grey", _REAL: "xkcd:yellowish"}
+FAKE_REAL_COLORS = {_FAKE: PlotColors.Color2, _REAL: PlotColors.Color1}
 FAKE_REAL_ORDER = [_FAKE, _REAL]
 
 

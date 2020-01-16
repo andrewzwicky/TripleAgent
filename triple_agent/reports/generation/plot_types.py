@@ -20,9 +20,10 @@ from triple_agent.reports.generation.report_utilities import (
     create_data_labels,
     trim_empty_labels,
 )
+from triple_agent.constants.colors import PlotColors, DEFAULT_COLOR_CYCLE
 
 DARK_MODE_BACKGROUND_COLOR = "#383838"
-LIGHT_MODE_BACKGROUND_COLOR = "white"
+LIGHT_MODE_BACKGROUND_COLOR = PlotColors.White
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
@@ -47,6 +48,7 @@ def create_line_plot(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
+        axis.set_prop_cycle(DEFAULT_COLOR_CYCLE)
         colors = create_plot_colors(
             axis_properties.primary_color_dict,
             data_properties.frame,
@@ -113,6 +115,7 @@ def create_bar_plot(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
+        axis.set_prop_cycle(DEFAULT_COLOR_CYCLE)
         category_labels, stack_labels = create_category_legend_labels(
             axis_properties.primary_label_dict,
             data_properties.frame.columns,
@@ -222,6 +225,7 @@ def create_pie_chart(
             fig.set_size_inches(8, 8)
             axis = fig.subplots()
 
+        axis.set_prop_cycle(DEFAULT_COLOR_CYCLE)
         axis.set_title(axis_properties.title)
 
         colors = create_plot_colors(
@@ -288,6 +292,7 @@ def create_progress_plot(
         for x_d, y_d, color in zip(x_data, y_data, colors):
             axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
 
+        axis.set_prop_cycle(DEFAULT_COLOR_CYCLE)
         axis.set_ylim(bottom=0)
         axis.set_xlim(left=0)
 
@@ -333,9 +338,12 @@ def create_histogram(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
+        axis.set_prop_cycle(DEFAULT_COLOR_CYCLE)
         cumulative_bins, data_bins = create_bins(bin_size, data)
 
-        heights, _, _ = axis.hist(data, data_bins, color="xkcd:green", edgecolor="k")
+        heights, _, _ = axis.hist(
+            data, data_bins, color=PlotColors.Color1, edgecolor="k"
+        )
 
         if axis_properties.cumulative_histogram:
             axis2 = axis.twinx()
@@ -345,7 +353,7 @@ def create_histogram(
                 density=True,
                 histtype="step",
                 cumulative=True,
-                color="xkcd:orange",
+                color=PlotColors.Color2,
                 linewidth=3,
             )
 

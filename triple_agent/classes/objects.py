@@ -1,16 +1,17 @@
 from triple_agent.classes.timeline import TimelineCategory
+from triple_agent.constants.colors import PlotColors
 
 
 # TODO: create an actual first class Object enum, separate from TimelineCategory?
 OBJECT_TO_COLORS_RGB = {
-    (TimelineCategory.Briefcase, True): "xkcd:beige",
-    (TimelineCategory.Briefcase, False): "xkcd:beige",
-    (TimelineCategory.Statues, True): "xkcd:goldenrod",
-    (TimelineCategory.Statues, False): "xkcd:goldenrod",
-    (TimelineCategory.Books, True): "xkcd:cerulean",
-    (TimelineCategory.Books, False): "xkcd:cerulean",
-    (TimelineCategory.Drinks, True): "xkcd:light grey",
-    (TimelineCategory.Drinks, False): "xkcd:light grey",
+    (TimelineCategory.Briefcase, True): PlotColors.Color1,
+    (TimelineCategory.Briefcase, False): PlotColors.Color1,
+    (TimelineCategory.Statues, True): PlotColors.Color2,
+    (TimelineCategory.Statues, False): PlotColors.Color2,
+    (TimelineCategory.Books, True): PlotColors.Color3,
+    (TimelineCategory.Books, False): PlotColors.Color3,
+    (TimelineCategory.Drinks, True): PlotColors.Color4,
+    (TimelineCategory.Drinks, False): PlotColors.Color4,
 }
 
 OBJECT_PLOT_LABEL_DICT_DIFFICULT = {

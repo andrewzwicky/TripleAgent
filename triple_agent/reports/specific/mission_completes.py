@@ -22,6 +22,7 @@ from triple_agent.reports.generation.plot_specs import (
     DataPlotProperties,
     initialize_properties,
 )
+from triple_agent.constants.colors import PlotColors
 
 
 def _mission_completes(games: List[Game], data_dictionary: Counter):
@@ -86,9 +87,9 @@ def mission_completion(games: List[Game], title: str):
             # TODO: make the data percentage based.
             y_axis_percentage=True,
             primary_color_dict={
-                MissionStatus.Complete: "xkcd:green",
-                MissionStatus.Incomplete: "xkcd:eggshell",
-                MissionStatus.Disabled: "xkcd:light grey",
+                MissionStatus.Complete: PlotColors.Color1,
+                MissionStatus.Incomplete: PlotColors.Color2,
+                MissionStatus.Disabled: PlotColors.LightGrey,
             },
         ),
         DataPlotProperties(frame=frame),
