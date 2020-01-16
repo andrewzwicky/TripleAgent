@@ -65,44 +65,44 @@ def test_pie_chart_simple(test_figure, reference_figure):
     create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
 
 
-@pytest.mark.plotting
-@pytest.mark.matplotlib
-@check_figures_equal(extensions=["png"])
-def test_pie_chart_simple_dark_mode(test_figure, reference_figure):
-
-    reference_figure.set_size_inches(8, 8)
-    reference_figure.set_facecolor("black")
-    ref_ax = reference_figure.subplots()
-    ref_ax.set_title("Test Title")
-    ref_ax.pie(
-        [1, 2, 3, 4, 4],
-        labels=["A", "B", "C", "D", "E"],
-        colors=["red", "blue", "black", "yellow", "white"],
-        autopct="%1.1f%%",
-        pctdistance=1.1,
-        labeldistance=1.2,
-        wedgeprops={"edgecolor": "white", "linewidth": 1},
-    )
-
-    axis_properties = AxisProperties(
-        title="Test Title",
-        primary_color_dict={
-            "A": "red",
-            "B": "blue",
-            "C": "black",
-            "D": "yellow",
-            "E": "white",
-        },
-        dark_mode=True,
-    )
-    data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(
-            data=[[1, 2, 3, 4, 4]], columns=["A", "B", "C", "D", "E"], index=[None]
-        ),
-        stacks_are_categories=True,
-    )
-
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+# @pytest.mark.plotting
+# @pytest.mark.matplotlib
+# @check_figures_equal(extensions=["png"])
+# def test_pie_chart_simple_dark_mode(test_figure, reference_figure):
+#
+#     reference_figure.set_size_inches(8, 8)
+#     reference_figure.set_facecolor("black")
+#     ref_ax = reference_figure.subplots()
+#     ref_ax.set_title("Test Title")
+#     ref_ax.pie(
+#         [1, 2, 3, 4, 4],
+#         labels=["A", "B", "C", "D", "E"],
+#         colors=["red", "blue", "black", "yellow", "white"],
+#         autopct="%1.1f%%",
+#         pctdistance=1.1,
+#         labeldistance=1.2,
+#         wedgeprops={"edgecolor": "white", "linewidth": 1},
+#     )
+#
+#     axis_properties = AxisProperties(
+#         title="Test Title",
+#         primary_color_dict={
+#             "A": "red",
+#             "B": "blue",
+#             "C": "black",
+#             "D": "yellow",
+#             "E": "white",
+#         },
+#         dark_mode=True,
+#     )
+#     data_plot_properties = DataPlotProperties(
+#         frame=pandas.DataFrame(
+#             data=[[1, 2, 3, 4, 4]], columns=["A", "B", "C", "D", "E"], index=[None]
+#         ),
+#         stacks_are_categories=True,
+#     )
+#
+#     create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
 
 
 @pytest.mark.plotting
@@ -296,7 +296,7 @@ def test_bar_simple(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -338,7 +338,7 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -398,7 +398,7 @@ def test_bar_simple_portrait(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -472,7 +472,7 @@ def test_bar_simple_float_short(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -535,7 +535,7 @@ def test_bar_stacked(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -592,7 +592,7 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -747,7 +747,7 @@ def test_bar_stacked_no_color(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -810,7 +810,7 @@ def test_line_plot(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -872,7 +872,7 @@ def test_mission_choice_bar(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -908,7 +908,7 @@ def test_bar_simple_labels(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
     ref_ax.yaxis.grid(which="minor", linestyle="--")
     ref_ax.set_axisbelow(True)
 
@@ -1004,7 +1004,7 @@ def test_histogram(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
 
     ref_ax.set_axisbelow(True)
 
@@ -1055,7 +1055,7 @@ def test_histogram(test_figure, reference_figure):
 
     ref_ax.set_ylim(bottom=0)
 
-    ref_ax.yaxis.grid(which="major", color="k")
+    ref_ax.yaxis.grid(which="major")
 
     ref_ax.set_axisbelow(True)
 

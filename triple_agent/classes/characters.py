@@ -1,8 +1,8 @@
 from enum import auto
-from triple_agent.classes.ordered_enum import ReverseOrderedEnum
+from triple_agent.classes.ordered_enum import OrderedStringifyEnum
 
 
-class Characters(ReverseOrderedEnum):
+class Characters(OrderedStringifyEnum):
     Smallman = auto()
     Duke = auto()
     Salmon = auto()
@@ -32,6 +32,10 @@ class Characters(ReverseOrderedEnum):
 
     def stringify(self):
         return CHARACTERS_TO_STRING[self]
+
+    def alpha_sort(self):
+        # Is weird for Toby/Damon
+        return CHARACTERS_TO_STRING[self][-1]
 
 
 CHARACTERS_TO_STRING = {
