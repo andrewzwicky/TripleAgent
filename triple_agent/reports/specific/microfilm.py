@@ -1,7 +1,6 @@
 from typing import List
 
 from triple_agent.reports.generation.generic_query import query
-from triple_agent.classes.books import Books
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
