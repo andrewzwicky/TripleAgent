@@ -63,6 +63,21 @@ class PlotColors:
 #     LightGrey = "xkcd:light grey" #
 #     White = "xkcd:white" #
 
+# based on SCL
+# class PlotColors:
+#     Color1 = "#F2E5AD"  # tan
+#     Color1Light = "#380A15"  # burgundy
+#     Color2 = "#E1E1E1"  # silver
+#     Color2Light = "#B2122C"  # red
+#     Color3 = "#000000"  # black
+#     Color4 = "#4477AA"  # blue
+#     Color5 = "#88CCEE"  # cyan
+#
+#     DarkGrey = "xkcd:dark grey" #
+#     Grey = "xkcd:grey" #
+#     LightGrey = "xkcd:light grey" #
+#     White = "xkcd:white" #
+
 DEFAULT_COLOR_CYCLE = cycler(
     color=[
         PlotColors.Color1,
