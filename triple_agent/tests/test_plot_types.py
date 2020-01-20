@@ -389,7 +389,7 @@ def test_bar_simple_portrait(test_figure, reference_figure):
     reference_figure.set_size_inches(12, 8)
     ref_ax = reference_figure.subplots()
     ref_ax.set_title("Bar")
-    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="xkcd:green", edgecolor="black")
+    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="#0077BB", edgecolor="black")
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
     ref_ax.set_ylim(top=10)
 
@@ -733,8 +733,9 @@ def test_bar_stacked_no_color(test_figure, reference_figure):
         edgecolor="black",
         bottom=[4, 5, 7, 9, 2],
         label="Top",
+        facecolor='#0077BB'
     )
-    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], edgecolor="black", label="Bottom")
+    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], edgecolor="black", label="Bottom", facecolor='#CC3311')
 
     for p in patches:
         p.set_hatch("\\")
@@ -847,7 +848,7 @@ def test_mission_choice_bar(test_figure, reference_figure):
     ref_ax = reference_figure.subplots()
     ref_ax.set_title("Mission Choices")
     ref_ax.bar(
-        range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="xkcd:green", edgecolor="black"
+        range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="#0077BB", edgecolor="black"
     )
 
     ref_ax.set_xticklabels(
@@ -1042,7 +1043,7 @@ def test_histogram(test_figure, reference_figure):
     ref_ax.bar(
         [0, 1, 2, 3, 4, 5, 6, 7, 8],
         [0, 6, 4, 3, 1, 0, 0, 0, 3],
-        color="xkcd:green",
+        color="#0077BB",
         edgecolor="black",
         width=1,
         align="edge",
@@ -1069,7 +1070,7 @@ def test_histogram(test_figure, reference_figure):
         density=True,
         histtype="step",
         cumulative=True,
-        color="xkcd:orange",
+        color="#CC3311",
         linewidth=3,
     )
 

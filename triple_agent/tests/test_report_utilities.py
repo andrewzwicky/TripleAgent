@@ -17,7 +17,7 @@ COLOR_TEST_CASES = [
         ),
         True,
         False,
-        [["xkcd:green", "xkcd:green"]],
+        [["#0077BB", "#0077BB"]],
     ),
     (
         None,
