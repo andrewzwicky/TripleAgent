@@ -27,10 +27,10 @@ class PlotColorsTolBright:
     Color4 = "#CCBB44"  # yellow
     Color5 = "#BBBBBB"  # grey
 
-    DarkGrey = "xkcd:dark grey" #
-    Grey = "xkcd:grey" #
-    LightGrey = "xkcd:light grey" #
-    White = "xkcd:white" #
+    DarkGrey = "xkcd:dark grey"  #
+    Grey = "xkcd:grey"  #
+    LightGrey = "xkcd:light grey"  #
+    White = "xkcd:white"  #
 
 
 # based on https://personal.sron.nl/~pault/ vibrant qualitative colour scheme
@@ -43,10 +43,11 @@ class PlotColorsTolVibrant:
     Color4 = "#EE3377"  # magenta
     Color5 = "#BBBBBB"  # grey
 
-    DarkGrey = "xkcd:dark grey" #
-    Grey = "xkcd:grey" #
-    LightGrey = "xkcd:light grey" #
-    White = "xkcd:white" #
+    DarkGrey = "xkcd:dark grey"  #
+    Grey = "xkcd:grey"  #
+    LightGrey = "xkcd:light grey"  #
+    White = "xkcd:white"  #
+
 
 # based on https://personal.sron.nl/~pault/ muted qualitative colour scheme
 class PlotColorsTolMuted:
@@ -58,10 +59,11 @@ class PlotColorsTolMuted:
     Color4 = "#999933"  # olive
     Color5 = "#DDCC77"  # sand
 
-    DarkGrey = "xkcd:dark grey" #
-    Grey = "xkcd:grey" #
-    LightGrey = "xkcd:light grey" #
-    White = "xkcd:white" #
+    DarkGrey = "xkcd:dark grey"  #
+    Grey = "xkcd:grey"  #
+    LightGrey = "xkcd:light grey"  #
+    White = "xkcd:white"  #
+
 
 # based on SCL
 class PlotColorsSCL:
@@ -73,10 +75,11 @@ class PlotColorsSCL:
     Color4 = "#4477AA"  # blue
     Color5 = "#88CCEE"  # cyan
 
-    DarkGrey = "xkcd:dark grey" #
-    Grey = "xkcd:grey" #
-    LightGrey = "xkcd:light grey" #
-    White = "xkcd:white" #
+    DarkGrey = "xkcd:dark grey"  #
+    Grey = "xkcd:grey"  #
+    LightGrey = "xkcd:light grey"  #
+    White = "xkcd:white"  #
+
 
 PlotColors = PlotColorsTolVibrant
 

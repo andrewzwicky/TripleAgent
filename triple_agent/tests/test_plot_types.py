@@ -733,9 +733,15 @@ def test_bar_stacked_no_color(test_figure, reference_figure):
         edgecolor="black",
         bottom=[4, 5, 7, 9, 2],
         label="Top",
-        facecolor='#0077BB'
+        facecolor="#0077BB",
     )
-    ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], edgecolor="black", label="Bottom", facecolor='#CC3311')
+    ref_ax.bar(
+        [0, 1, 2, 3, 4],
+        [4, 5, 7, 9, 2],
+        edgecolor="black",
+        label="Bottom",
+        facecolor="#CC3311",
+    )
 
     for p in patches:
         p.set_hatch("\\")
@@ -847,9 +853,7 @@ def test_mission_choice_bar(test_figure, reference_figure):
     reference_figure.set_size_inches(12, 8)
     ref_ax = reference_figure.subplots()
     ref_ax.set_title("Mission Choices")
-    ref_ax.bar(
-        range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="#0077BB", edgecolor="black"
-    )
+    ref_ax.bar(range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="#0077BB", edgecolor="black")
 
     ref_ax.set_xticklabels(
         [
