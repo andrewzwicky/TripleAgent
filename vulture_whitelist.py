@@ -8,6 +8,12 @@ GameHandler
 flatten
 restore
 
+# colors
+PlotColorsWong
+PlotColorsTolBright
+PlotColorsTolMuted
+PlotColorsSCL
+
 # notebook usage
 SniperWin  # unused variable (triple_agent\classes\outcomes.py)
 SCL5_PICK_MODES  # unused variable (triple_agent\constants\events.py)
