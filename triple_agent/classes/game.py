@@ -257,8 +257,9 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
 
         return data
 
-    def restore(self, obj):
-        pass
+    # this method is never used because the JSON are only output, never re-parsed into games
+    def restore(self, obj):  # pragma: no cover
+        raise NotImplementedError
 
 
 def game_unpickle(expected_file: str) -> Optional[Game]:
