@@ -34,7 +34,20 @@ class Characters(OrderedStringifyEnum):
         return CHARACTERS_TO_STRING[self]
 
     def alpha_sort(self):
-        # Is weird for Toby/Damon
+        # This is used to provide a default sort based on the
+        # character's letter names.  This is the simplest possible
+        # metric, but it works so far.  If character names change, this
+        # would need to change.  The full string can't be used because Dr.
+        # would come before Mr., etc.
+        # Because Toby & Damon are not the same format, they can't use
+        # the same metric.  This is just a lame hack to make sure they're behind
+        # all the letters in the sorting.
+        if self == Characters.Damon:
+            return "["
+
+        if self == Characters.Toby:
+            return "]"
+
         return CHARACTERS_TO_STRING[self][-1]
 
 
