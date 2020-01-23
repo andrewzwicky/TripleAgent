@@ -1,6 +1,7 @@
 import pytest
-import os
 from triple_agent.classes.characters import Characters
+from triple_agent.classes.lights import Lights
+from triple_agent.classes.action_tests import ActionTest
 
 
 @pytest.mark.quick
@@ -32,4 +33,34 @@ def test_character_order_toby_damon():
         Characters.Smallman,
         Characters.Damon,
         Characters.Toby,
+    ]
+
+
+@pytest.mark.quick
+def test_reverse_order_enum():
+    lights_list = [Lights.Neutral, Lights.Highlight, Lights.Lowlight]
+
+    assert sorted(lights_list) == [
+        Lights.Highlight,
+        Lights.Neutral,
+        Lights.Lowlight,
+    ]
+
+
+@pytest.mark.quick
+def test_reverse_order_enum_at():
+    lights_list = [
+        ActionTest.Green,
+        ActionTest.NoAT,
+        ActionTest.Green.Ignored,
+        ActionTest.Green,
+        ActionTest.White,
+    ]
+
+    assert sorted(lights_list) == [
+        ActionTest.Ignored,
+        ActionTest.White,
+        ActionTest.Green,
+        ActionTest.Green,
+        ActionTest.NoAT,
     ]
