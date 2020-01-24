@@ -26,7 +26,7 @@ install:
   #- "git clone -q --depth=1 --branch=master https://github.com/LtHummus/SpyPartyParse.git C:\\projects\\spypartyparse"
   #- "appveyor DownloadFile https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v4.1.0.20190314.exe"
   #- ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
-  #- "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   #- "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
   - "%PIP% install -e .[plot,test]"
 
