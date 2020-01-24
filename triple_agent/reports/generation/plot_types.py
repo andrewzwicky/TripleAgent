@@ -34,7 +34,7 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_dark_mode_context(axis_properties, fig):
+    with setup_color_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -101,7 +101,7 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_dark_mode_context(axis_properties, fig):
+    with setup_color_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -208,7 +208,7 @@ def create_pie_chart(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_dark_mode_context(axis_properties, fig):
+    with setup_color_context(axis_properties, fig):
         # Pie chart assumes this will be the case, so confirm.
         assert data_properties.stacks_are_categories
 
@@ -275,7 +275,7 @@ def create_pie_chart(
 def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
-    with setup_dark_mode_context(axis_properties, fig):
+    with setup_color_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
@@ -311,20 +311,39 @@ def create_progress_plot(
             plt.show()
 
 
-def setup_dark_mode_context(axis_properties, fig):
-    if axis_properties.dark_mode:
-        context = plt.style.context("dark_background")
-        if fig is not None:
-            fig.set_facecolor(DARK_MODE_BACKGROUND_COLOR)
-    else:
-        context = contextlib.nullcontext()
-    return context
+def setup_color_context(axis_properties, fig):
+    context_dictionary = dict()
+
+    context_dictionary['axes.prop_cycle'] = DEFAULT_COLOR_CYCLE
+
+    try:
+        context_dictionary['lines.color'] = PlotColors.DetailsColor
+        context_dictionary['patch.edgecolor'] = PlotColors.DetailsColor
+        context_dictionary['text.color'] = PlotColors.DetailsColor
+        context_dictionary['axes.edgecolor'] = PlotColors.DetailsColor
+        context_dictionary['axes.labelcolor'] = PlotColors.DetailsColor
+        context_dictionary['xtick.color'] = PlotColors.DetailsColor
+        context_dictionary['ytick.color'] = PlotColors.DetailsColor
+        context_dictionary['grid.color'] = PlotColors.DetailsColor
+    except AttributeError:
+        pass
+
+    try:
+        context_dictionary['axes.facecolor'] = PlotColors.BackgroundColor
+        context_dictionary['figure.facecolor'] = PlotColors.BackgroundColor
+        context_dictionary['figure.edgecolor'] = PlotColors.BackgroundColor
+        context_dictionary['savefig.facecolor'] = PlotColors.BackgroundColor
+        context_dictionary['savefig.edgecolor'] = PlotColors.BackgroundColor
+    except AttributeError:
+        pass
+
+    return plt.style.context(context_dictionary)
 
 
 def create_histogram(
     axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
-    with setup_dark_mode_context(axis_properties, fig):
+    with setup_color_context(axis_properties, fig):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
