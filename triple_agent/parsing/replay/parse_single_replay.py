@@ -19,7 +19,8 @@ def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
     # pylint: disable=broad-except
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
-    except NotImplementedError as not_imp_except:
+    # This is to make sure that the mock ReplayParser exception isn't caught accidentally
+    except NotImplementedError as not_imp_except:  # pragma: no cover
         raise not_imp_except
     # no option, the parser raises general exceptions
     except Exception:
