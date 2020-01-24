@@ -1,6 +1,7 @@
 [run]
 omit =
     triple_agent/tests/*
+    triple_agent/reports/external_reports/*
     */__init__.py
     triple_agent/parsing/timeline/screenshot_iterator.py
     triple_agent/organization/extract_spectation_replays.py
