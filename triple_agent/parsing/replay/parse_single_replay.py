@@ -10,7 +10,7 @@ from triple_agent.classes.venues import Venue
 
 try:
     from spyparty.ReplayParser import ReplayParser
-except ImportError:
+except ImportError:  # pragma: no cover
     from triple_agent.mock.ReplayParser import ReplayParser
 
 

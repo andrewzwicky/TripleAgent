@@ -36,6 +36,7 @@ def test_parse_replays_duplicates(
         "duplicate_file.replay",
     )
 
+    # TODO: make a fixture to properly delete and add this file before test.
     assert not os.path.exists(dest_file)
 
     shutil.copy(source_file, dest_file)
