@@ -2,6 +2,7 @@ import pytest
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.lights import Lights
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.venues import Venue
 
 
 @pytest.mark.quick
@@ -14,6 +15,90 @@ def test_character_order():
         Characters.Carlos,
         Characters.Smallman,
     ]
+
+
+@pytest.mark.quick
+def test_character_order_lt():
+    assert Characters.Disney < Characters.Oprah
+
+
+@pytest.mark.quick
+def test_character_order_gt():
+    assert Characters.Sari > Characters.Oprah
+
+
+@pytest.mark.quick
+def test_character_order_le_1():
+    assert Characters.Disney <= Characters.Oprah
+
+
+@pytest.mark.quick
+def test_character_order_le_2():
+    assert Characters.Disney <= Characters.Disney
+
+
+@pytest.mark.quick
+def test_character_order_ge_1():
+    assert Characters.Oprah >= Characters.Oprah
+
+
+@pytest.mark.quick
+def test_character_order_ge_2():
+    assert Characters.Sari >= Characters.Disney
+
+
+@pytest.mark.quick
+def test_action_test_order_gt():
+    assert ActionTest.Green > ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_order_lt():
+    assert ActionTest.Canceled < ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_order_ge_1():
+    assert ActionTest.Green >= ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_order_ge_2():
+    assert ActionTest.Green >= ActionTest.Green
+
+
+@pytest.mark.quick
+def test_action_test_order_le_1():
+    assert ActionTest.Ignored <= ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_order_le_2():
+    assert ActionTest.Canceled <= ActionTest.Green
+
+
+@pytest.mark.quick
+def test_action_test_mismatch_order_gt():
+    with pytest.raises(TypeError):
+        assert Characters.Sari > ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_mismatch_order_lt():
+    with pytest.raises(TypeError):
+        assert Characters.Sari < ActionTest.Ignored
+
+
+@pytest.mark.quick
+def test_action_test_mismatch_order_ge():
+    with pytest.raises(TypeError):
+        assert Characters.Sari >= ActionTest.Green
+
+
+@pytest.mark.quick
+def test_action_test_mismatch_order_le():
+    with pytest.raises(TypeError):
+        assert Characters.Sari <= ActionTest.Green
 
 
 @pytest.mark.quick
@@ -64,3 +149,69 @@ def test_reverse_order_enum_at():
         ActionTest.Green,
         ActionTest.NoAT,
     ]
+
+
+@pytest.mark.quick
+def test_venue_order_lt():
+    assert Venue.Balcony < Venue.Gallery
+
+
+@pytest.mark.quick
+def test_venue_order_gt():
+    assert Venue.Pub > Venue.Gallery
+
+
+@pytest.mark.quick
+def test_venue_order_le_1():
+    assert Venue.Balcony <= Venue.Gallery
+
+
+@pytest.mark.quick
+def test_venue_order_le_2():
+    assert Venue.Balcony <= Venue.Balcony
+
+
+@pytest.mark.quick
+def test_venue_order_ge_1():
+    assert Venue.Gallery >= Venue.Gallery
+
+
+@pytest.mark.quick
+def test_venue_order_ge_2():
+    assert Venue.Pub >= Venue.Balcony
+
+
+@pytest.mark.quick
+def test_mismatch_order_lt():
+    with pytest.raises(TypeError):
+        assert Characters.Sari < Venue.Gallery
+
+
+@pytest.mark.quick
+def test_mismatch_order_gt():
+    with pytest.raises(TypeError):
+        assert Characters.Sari > Venue.Gallery
+
+
+@pytest.mark.quick
+def test_mismatch_order_le():
+    with pytest.raises(TypeError):
+        assert Characters.Sari <= Venue.Balcony
+
+
+@pytest.mark.quick
+def test_mismatch_order_ge():
+    with pytest.raises(TypeError):
+        assert Characters.Sari >= Venue.Balcony
+
+
+@pytest.mark.quick
+def test_mismatch_order_lt_str():
+    with pytest.raises(TypeError):
+        assert Characters.Sari < "test"
+
+
+@pytest.mark.quick
+def test_mismatch_order_gt_int():
+    with pytest.raises(TypeError):
+        assert Characters.Sari > 1
