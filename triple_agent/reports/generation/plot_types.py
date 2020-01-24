@@ -314,26 +314,26 @@ def create_progress_plot(
 def setup_color_context(axis_properties, fig):
     context_dictionary = dict()
 
-    context_dictionary['axes.prop_cycle'] = DEFAULT_COLOR_CYCLE
+    context_dictionary["axes.prop_cycle"] = DEFAULT_COLOR_CYCLE
 
     try:
-        context_dictionary['lines.color'] = PlotColors.DetailsColor
-        context_dictionary['patch.edgecolor'] = PlotColors.DetailsColor
-        context_dictionary['text.color'] = PlotColors.DetailsColor
-        context_dictionary['axes.edgecolor'] = PlotColors.DetailsColor
-        context_dictionary['axes.labelcolor'] = PlotColors.DetailsColor
-        context_dictionary['xtick.color'] = PlotColors.DetailsColor
-        context_dictionary['ytick.color'] = PlotColors.DetailsColor
-        context_dictionary['grid.color'] = PlotColors.DetailsColor
+        context_dictionary["lines.color"] = PlotColors.DetailsColor
+        context_dictionary["patch.edgecolor"] = PlotColors.DetailsColor
+        context_dictionary["text.color"] = PlotColors.DetailsColor
+        context_dictionary["axes.edgecolor"] = PlotColors.DetailsColor
+        context_dictionary["axes.labelcolor"] = PlotColors.DetailsColor
+        context_dictionary["xtick.color"] = PlotColors.DetailsColor
+        context_dictionary["ytick.color"] = PlotColors.DetailsColor
+        context_dictionary["grid.color"] = PlotColors.DetailsColor
     except AttributeError:
         pass
 
     try:
-        context_dictionary['axes.facecolor'] = PlotColors.BackgroundColor
-        context_dictionary['figure.facecolor'] = PlotColors.BackgroundColor
-        context_dictionary['figure.edgecolor'] = PlotColors.BackgroundColor
-        context_dictionary['savefig.facecolor'] = PlotColors.BackgroundColor
-        context_dictionary['savefig.edgecolor'] = PlotColors.BackgroundColor
+        context_dictionary["axes.facecolor"] = PlotColors.BackgroundColor
+        context_dictionary["figure.facecolor"] = PlotColors.BackgroundColor
+        context_dictionary["figure.edgecolor"] = PlotColors.BackgroundColor
+        context_dictionary["savefig.facecolor"] = PlotColors.BackgroundColor
+        context_dictionary["savefig.edgecolor"] = PlotColors.BackgroundColor
     except AttributeError:
         pass
 
