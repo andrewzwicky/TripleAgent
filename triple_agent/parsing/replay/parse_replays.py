@@ -15,6 +15,10 @@ from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
 
 
+class DuplicateFileException(Exception):
+    pass
+
+
 def parse_replays(
     game_filter,
     unparsed_folder: str = UNPARSED_REPLAYS_FOLDER,
@@ -54,6 +58,9 @@ def parse_replays(
             if len(games_matching) > 1:
                 print(uuid, games_matching)
 
+        raise DuplicateFileException
+
+    # should be no way to hit this with exception above, but better safe than sorry.
     assert len(game_uuid_set) == len(game_list)
 
     # at this point, we will have an unsorted list of game objects
