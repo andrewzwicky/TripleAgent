@@ -443,6 +443,32 @@ SORT_FRAME_CASES = [
             index=[None],
         ),
     ),
+    (
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                5,
+                ActionTest.White,
+                ActionTest.Red,
+                'a',
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+        None,
+        False,
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
+            columns=[
+                5,
+                ActionTest.White,
+                ActionTest.Red,
+                'a',
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+    ),
 ]
 
 
@@ -682,6 +708,20 @@ SORT_FRAME_STACK_CASES = [
             data=[[0, 1, 4, 5], [8, 11, 0, 2], [7, 6, 4, 5]],
             columns=["A", "B", "D", "C"],
             index=[3, 2, 1],
+        ),
+    ),
+    (
+        pandas.DataFrame(
+            data=[[0, 1, 4, 5], [8, 11, 0, 2], [7, 6, 4, 5]],
+            columns=["A", "B", "D", "C"],
+            index=['a', 2, 'c'],
+        ),
+        sum,
+        False,
+        pandas.DataFrame(
+            data=[[0, 1, 4, 5], [8, 11, 0, 2], [7, 6, 4, 5]],
+            columns=["A", "B", "D", "C"],
+            index=['a', 2, 'c'],
         ),
     ),
 ]
