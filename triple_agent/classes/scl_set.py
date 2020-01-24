@@ -27,7 +27,7 @@ class SCLSet:
         return [scores_dict[p] for p in self.players]
 
     def __str__(self):
-        return f"{self.division} {self.week:02} {self.players}"
+        return f"{self.division} Week {self.week} {sorted(self.players)[0]} vs. {sorted(self.players)[1]}"
 
 
 def sort_games_into_sets(games: List[Game]) -> List[SCLSet]:
