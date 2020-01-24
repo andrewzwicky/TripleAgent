@@ -23,17 +23,17 @@ platform:
 install:
   - "%PYTHON%\\python --version"
   - "%PIP% --version"
-  - "git clone -q --depth=1 --branch=master https://github.com/LtHummus/SpyPartyParse.git C:\\projects\\spypartyparse"
-  - "appveyor DownloadFile https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v4.1.0.20190314.exe"
-  - ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
-  - "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
-  - "%PIP% install -e .[plot,retrieve,parse,test]"
+  #- "git clone -q --depth=1 --branch=master https://github.com/LtHummus/SpyPartyParse.git C:\\projects\\spypartyparse"
+  #- "appveyor DownloadFile https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v4.1.0.20190314.exe"
+  #- ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
+  #- "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
+  #- "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
+  - "%PIP% install -e .[plot,test]"
 
 build: false
 
 test_script:
-  - "pytest triple_agent --cov=triple_agent --cov-report term-missing:skip-covered"
+  - "pytest triple_agent -k quick --cov=triple_agent --cov-report term-missing:skip-covered"
   - "black triple_agent --check"
   - "pylint triple_agent"
   - "vulture triple_agent vulture_whitelist.py"
