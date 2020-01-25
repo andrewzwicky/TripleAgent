@@ -1,4 +1,3 @@
-import contextlib
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import numpy as np
@@ -34,15 +33,10 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_color_context(axis_properties, fig):
+    with setup_color_context(fig):
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8),
-                facecolor=DARK_MODE_BACKGROUND_COLOR
-                if axis_properties.dark_mode
-                else LIGHT_MODE_BACKGROUND_COLOR,
-            )
+            fig, axis = plt.subplots(figsize=(12, 8))
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -101,15 +95,10 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_color_context(axis_properties, fig):
+    with setup_color_context(fig):
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8),
-                facecolor=DARK_MODE_BACKGROUND_COLOR
-                if axis_properties.dark_mode
-                else LIGHT_MODE_BACKGROUND_COLOR,
-            )
+            fig, axis = plt.subplots(figsize=(12, 8))
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -208,18 +197,13 @@ def create_pie_chart(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_color_context(axis_properties, fig):
+    with setup_color_context(fig):
         # Pie chart assumes this will be the case, so confirm.
         assert data_properties.stacks_are_categories
 
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(
-                figsize=(8, 8),
-                facecolor=DARK_MODE_BACKGROUND_COLOR
-                if axis_properties.dark_mode
-                else LIGHT_MODE_BACKGROUND_COLOR,
-            )
+            fig, axis = plt.subplots(figsize=(8, 8))
         else:
             show = False
             fig.set_size_inches(8, 8)
@@ -275,15 +259,10 @@ def create_pie_chart(
 def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
-    with setup_color_context(axis_properties, fig):
+    with setup_color_context(fig):
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8),
-                facecolor=DARK_MODE_BACKGROUND_COLOR
-                if axis_properties.dark_mode
-                else LIGHT_MODE_BACKGROUND_COLOR,
-            )
+            fig, axis = plt.subplots(figsize=(12, 8))
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -311,7 +290,8 @@ def create_progress_plot(
             plt.show()
 
 
-def setup_color_context(axis_properties, fig):
+def setup_color_context(fig):
+    # TODO: make PlotColors a runtime check instead of an import check.
     context_dictionary = dict()
 
     context_dictionary["axes.prop_cycle"] = DEFAULT_COLOR_CYCLE
@@ -334,6 +314,11 @@ def setup_color_context(axis_properties, fig):
         context_dictionary["figure.edgecolor"] = PlotColors.BackgroundColor
         context_dictionary["savefig.facecolor"] = PlotColors.BackgroundColor
         context_dictionary["savefig.edgecolor"] = PlotColors.BackgroundColor
+
+        if fig is not None:
+            fig.set_facecolor(PlotColors.BackgroundColor)
+            fig.set_edgecolor(PlotColors.BackgroundColor)
+
     except AttributeError:
         pass
 
@@ -343,15 +328,10 @@ def setup_color_context(axis_properties, fig):
 def create_histogram(
     axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
-    with setup_color_context(axis_properties, fig):
+    with setup_color_context(fig):
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8),
-                facecolor=DARK_MODE_BACKGROUND_COLOR
-                if axis_properties.dark_mode
-                else LIGHT_MODE_BACKGROUND_COLOR,
-            )
+            fig, axis = plt.subplots(figsize=(12, 8))
         else:
             show = False
             fig.set_size_inches(12, 8)
