@@ -21,9 +21,6 @@ from triple_agent.reports.generation.report_utilities import (
 )
 from triple_agent.constants.colors import PlotColors, DEFAULT_COLOR_CYCLE
 
-DARK_MODE_BACKGROUND_COLOR = "#383838"
-LIGHT_MODE_BACKGROUND_COLOR = PlotColors.White
-
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
 
