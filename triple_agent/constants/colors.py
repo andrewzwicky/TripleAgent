@@ -91,4 +91,5 @@ class PlotColorsSCL(PlotColorsBase):
 
         super().__init__()
 
+
 PlotColors = PlotColorsTolVibrant()
