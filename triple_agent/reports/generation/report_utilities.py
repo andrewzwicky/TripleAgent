@@ -50,7 +50,8 @@ def _create_legend_if_needed(axis, fig):
 
 
 def create_category_legend_labels(
-    primary_label_dict: Dict[Any, str],
+    primary_label_dict: Optional[Dict[Any, str]],
+    secondary_label_dict: Optional[Dict[Any, str]],
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,
@@ -64,12 +65,13 @@ def create_category_legend_labels(
             [None for _ in index],
         )
 
-    if primary_label_dict is None:
-        return list(map(labelify, columns)), list(map(labelify, index))
-
     return (
-        list(map(labelify, columns)),
-        [primary_label_dict[data_part] for data_part in index],
+        list(map(labelify, columns))
+        if secondary_label_dict is None
+        else [secondary_label_dict[data_part] for data_part in columns],
+        list(map(labelify, index))
+        if primary_label_dict is None
+        else [primary_label_dict[data_part] for data_part in index],
     )
 
 

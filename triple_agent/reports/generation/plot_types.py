@@ -48,6 +48,7 @@ def create_line_plot(
 
         category_labels, stack_labels = create_category_legend_labels(
             axis_properties.primary_label_dict,
+            axis_properties.secondary_label_dict,
             data_properties.frame.columns,
             data_properties.frame.index,
             data_properties.stacks_are_categories,
@@ -104,6 +105,7 @@ def create_bar_plot(
         axis.set_prop_cycle(PlotColors.cycler)
         category_labels, stack_labels = create_category_legend_labels(
             axis_properties.primary_label_dict,
+            axis_properties.secondary_label_dict,
             data_properties.frame.columns,
             data_properties.frame.index,
             data_properties.stacks_are_categories,
@@ -225,6 +227,7 @@ def create_pie_chart(
 
         category_labels, _ = create_category_legend_labels(
             axis_properties.primary_label_dict,
+            axis_properties.secondary_label_dict,
             data_properties.frame.columns,
             data_properties.frame.index,
             data_properties.stacks_are_categories,

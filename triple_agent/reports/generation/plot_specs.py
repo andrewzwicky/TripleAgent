@@ -29,6 +29,7 @@ class AxisProperties:
 
     data_label_style: PlotLabelStyle = PlotLabelStyle.NoLabels
     primary_label_dict: Optional[Dict[Any, str]] = None
+    secondary_label_dict: Optional[Dict[Any, str]] = None
     primary_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     primary_color_dict: Optional[Dict[Any, Optional[str]]] = None
 
