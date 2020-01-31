@@ -11,8 +11,7 @@ def _yield_unpickled_games(pickle_folder):
 
 
 def get_parsed_replays(
-    game_filter: Callable = lambda game: True,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER
+    game_filter: Callable = lambda game: True, pickle_folder: str = REPLAY_PICKLE_FOLDER
 ) -> List[Game]:
 
     return list(filter(game_filter, _yield_unpickled_games(pickle_folder)))

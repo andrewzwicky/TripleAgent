@@ -6,7 +6,6 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.lights import (
     Lights,
     LIGHTS_TO_COLORS,
-    LIGHTS_TO_COLORS_DARK_MODE,
 )
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
@@ -49,9 +48,7 @@ def spy_lights(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(
-            primary_color_dict=LIGHTS_TO_COLORS
-        ),
+        AxisProperties(primary_color_dict=LIGHTS_TO_COLORS),
         DataQueryProperties(query_function=_determine_spy_lights,),
     )
     return query(games, data_query, axis_properties)
@@ -65,9 +62,7 @@ def amba_lights(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(
-            primary_color_dict=LIGHTS_TO_COLORS
-        ),
+        AxisProperties(primary_color_dict=LIGHTS_TO_COLORS),
         DataQueryProperties(query_function=_determine_amba_lights,),
     )
     return query(games, data_query, axis_properties)

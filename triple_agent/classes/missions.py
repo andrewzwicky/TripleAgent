@@ -1,6 +1,6 @@
 from enum import Flag, auto
 from typing import Set
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 
 class Missions(Flag):
@@ -36,14 +36,14 @@ MISSIONS_ENUM_TO_LETTER = {
 }
 
 MISSIONS_ENUM_TO_COLOR = {
-    Missions.Seduce: PlotColors.Color1,
-    Missions.Inspect: PlotColors.Color1Light,
-    Missions.Fingerprint: PlotColors.Color5,
-    Missions.Contact: PlotColors.Color2,
-    Missions.Bug: PlotColors.Grey,
-    Missions.Swap: PlotColors.Color2Light,
-    Missions.Purloin: PlotColors.Color3,
-    Missions.Transfer: PlotColors.Color4,
+    Missions.Seduce: PLOT_COLORS.color_1,
+    Missions.Inspect: PLOT_COLORS.color_1_light,
+    Missions.Fingerprint: PLOT_COLORS.color_5,
+    Missions.Contact: PLOT_COLORS.color_2,
+    Missions.Bug: PLOT_COLORS.grey,
+    Missions.Swap: PLOT_COLORS.color_2_light,
+    Missions.Purloin: PLOT_COLORS.color_3,
+    Missions.Transfer: PLOT_COLORS.color_4,
 }
 
 MISSION_PLOT_ORDER = list(MISSIONS_ENUM_TO_LETTER.keys())

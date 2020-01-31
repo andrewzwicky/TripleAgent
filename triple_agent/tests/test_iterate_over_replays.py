@@ -1,5 +1,10 @@
 import pytest
 
+try:
+    from spyparty.ReplayParser import SpyPartyParseException
+except ImportError:
+    from triple_agent.mock.ReplayParser import SpyPartyParseException
+
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.venues import Venue
@@ -123,6 +128,19 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     #     day=2, hour=15, minute=17, month=6, second=32, year=2019
     # )
     assert games[1].duration == 318
+
+
+@pytest.mark.parsing
+@pytest.mark.quick
+def test_iterate_over_replays_in_progress(get_test_events_folder_in_progress, get_test_replay_pickle_folder):
+    with pytest.raises(SpyPartyParseException):
+        games = list(
+            iterate_over_replays(
+                lambda g: True,
+                events_folder=get_test_events_folder_in_progress,
+                pickle_folder=get_test_replay_pickle_folder,
+            )
+        )
 
 
 @pytest.mark.parsing

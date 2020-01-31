@@ -19,7 +19,7 @@ from triple_agent.reports.generation.report_utilities import (
     create_data_labels,
     trim_empty_labels,
 )
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
@@ -39,7 +39,7 @@ def create_line_plot(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PlotColors.cycler)
+        axis.set_prop_cycle(PLOT_COLORS.cycler)
         colors = create_plot_colors(
             axis_properties.primary_color_dict,
             data_properties.frame,
@@ -102,7 +102,7 @@ def create_bar_plot(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PlotColors.cycler)
+        axis.set_prop_cycle(PLOT_COLORS.cycler)
         category_labels, stack_labels = create_category_legend_labels(
             axis_properties.primary_label_dict,
             axis_properties.secondary_label_dict,
@@ -208,7 +208,7 @@ def create_pie_chart(
             fig.set_size_inches(8, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PlotColors.cycler)
+        axis.set_prop_cycle(PLOT_COLORS.cycler)
         axis.set_title(axis_properties.title)
 
         colors = create_plot_colors(
@@ -271,7 +271,7 @@ def create_progress_plot(
         for x_d, y_d, color in zip(x_data, y_data, colors):
             axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
 
-        axis.set_prop_cycle(PlotColors.cycler)
+        axis.set_prop_cycle(PLOT_COLORS.cycler)
         axis.set_ylim(bottom=0)
         axis.set_xlim(left=0)
 
@@ -294,30 +294,30 @@ def setup_color_context(fig):
     # TODO: make PlotColors a runtime check instead of an import check.
     context_dictionary = dict()
 
-    context_dictionary["axes.prop_cycle"] = PlotColors.cycler
+    context_dictionary["axes.prop_cycle"] = PLOT_COLORS.cycler
 
     try:
-        context_dictionary["lines.color"] = PlotColors.DetailsColor
-        context_dictionary["patch.edgecolor"] = PlotColors.DetailsColor
-        context_dictionary["text.color"] = PlotColors.DetailsColor
-        context_dictionary["axes.edgecolor"] = PlotColors.DetailsColor
-        context_dictionary["axes.labelcolor"] = PlotColors.DetailsColor
-        context_dictionary["xtick.color"] = PlotColors.DetailsColor
-        context_dictionary["ytick.color"] = PlotColors.DetailsColor
-        context_dictionary["grid.color"] = PlotColors.DetailsColor
+        context_dictionary["lines.color"] = PLOT_COLORS.DetailsColor
+        context_dictionary["patch.edgecolor"] = PLOT_COLORS.DetailsColor
+        context_dictionary["text.color"] = PLOT_COLORS.DetailsColor
+        context_dictionary["axes.edgecolor"] = PLOT_COLORS.DetailsColor
+        context_dictionary["axes.labelcolor"] = PLOT_COLORS.DetailsColor
+        context_dictionary["xtick.color"] = PLOT_COLORS.DetailsColor
+        context_dictionary["ytick.color"] = PLOT_COLORS.DetailsColor
+        context_dictionary["grid.color"] = PLOT_COLORS.DetailsColor
     except AttributeError:
         pass
 
     try:
-        context_dictionary["axes.facecolor"] = PlotColors.BackgroundColor
-        context_dictionary["figure.facecolor"] = PlotColors.BackgroundColor
-        context_dictionary["figure.edgecolor"] = PlotColors.BackgroundColor
-        context_dictionary["savefig.facecolor"] = PlotColors.BackgroundColor
-        context_dictionary["savefig.edgecolor"] = PlotColors.BackgroundColor
+        context_dictionary["axes.facecolor"] = PLOT_COLORS.BackgroundColor
+        context_dictionary["figure.facecolor"] = PLOT_COLORS.BackgroundColor
+        context_dictionary["figure.edgecolor"] = PLOT_COLORS.BackgroundColor
+        context_dictionary["savefig.facecolor"] = PLOT_COLORS.BackgroundColor
+        context_dictionary["savefig.edgecolor"] = PLOT_COLORS.BackgroundColor
 
         if fig is not None:
-            fig.set_facecolor(PlotColors.BackgroundColor)
-            fig.set_edgecolor(PlotColors.BackgroundColor)
+            fig.set_facecolor(PLOT_COLORS.BackgroundColor)
+            fig.set_edgecolor(PLOT_COLORS.BackgroundColor)
 
     except AttributeError:
         pass
@@ -337,11 +337,11 @@ def create_histogram(
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PlotColors.cycler)
+        axis.set_prop_cycle(PLOT_COLORS.cycler)
         cumulative_bins, data_bins = create_bins(bin_size, data)
 
         heights, _, _ = axis.hist(
-            data, data_bins, color=PlotColors.Color1, edgecolor="k"
+            data, data_bins, color=PLOT_COLORS.color_1, edgecolor="k"
         )
 
         if axis_properties.cumulative_histogram:
@@ -352,7 +352,7 @@ def create_histogram(
                 density=True,
                 histtype="step",
                 cumulative=True,
-                color=PlotColors.Color2,
+                color=PLOT_COLORS.color_2,
                 linewidth=3,
             )
 

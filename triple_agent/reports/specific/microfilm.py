@@ -9,12 +9,12 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 _DIRECT = "direct"
 _AT = "action test"
 
-TRANSFER_TO_COLORS_RGB = {_DIRECT: PlotColors.Color1, _AT: PlotColors.Color2}
+TRANSFER_TO_COLORS_RGB = {_DIRECT: PLOT_COLORS.color_1, _AT: PLOT_COLORS.color_2}
 TRANSFER_PLOT_ORDER = [_DIRECT, _AT]
 
 

@@ -1,5 +1,5 @@
 from enum import Flag, auto
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 
 class WinType(Flag):
@@ -15,17 +15,10 @@ class WinType(Flag):
 
 
 WINTYPES_TO_COLORS = {
-    WinType.TimeOut: PlotColors.Color1Light,
-    WinType.SpyShot: PlotColors.Color1,
-    WinType.MissionsWin: PlotColors.Color2,
-    WinType.CivilianShot: PlotColors.Color2Light,
-}
-
-WINTYPES_TO_COLORS_DARK_MODE = {
-    WinType.TimeOut: "#8DB8AD",
-    WinType.SpyShot: "#EBE7E0",
-    WinType.MissionsWin: "#C6D4E1",
-    WinType.CivilianShot: "#44749D",
+    WinType.TimeOut: PLOT_COLORS.color_1_light,
+    WinType.SpyShot: PLOT_COLORS.color_1,
+    WinType.MissionsWin: PLOT_COLORS.color_2,
+    WinType.CivilianShot: PLOT_COLORS.color_2_light,
 }
 
 WINTYPE_PREFERRED_PIE_CHART_ORDER = [

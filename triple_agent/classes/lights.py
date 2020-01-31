@@ -1,6 +1,6 @@
 from enum import auto
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 
 class Lights(ReverseOrderedEnum):
@@ -10,13 +10,7 @@ class Lights(ReverseOrderedEnum):
 
 
 LIGHTS_TO_COLORS = {
-    Lights.Lowlight: PlotColors.DarkGrey,
-    Lights.Neutral: PlotColors.Grey,
-    Lights.Highlight: PlotColors.White,
-}
-
-LIGHTS_TO_COLORS_DARK_MODE = {
-    Lights.Lowlight: "#8DB8AD",
-    Lights.Neutral: "#EBE7E0",
-    Lights.Highlight: "#C6D4E1",
+    Lights.Lowlight: PLOT_COLORS.dark_grey,
+    Lights.Neutral: PLOT_COLORS.grey,
+    Lights.Highlight: PLOT_COLORS.white,
 }

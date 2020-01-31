@@ -10,22 +10,14 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PlotColors
+from triple_agent.constants.colors import PLOT_COLORS
 
 BUG_TO_COLORS_RGB = {
-    ("Walking", True): PlotColors.Color1,
-    ("Walking", False): PlotColors.Color1,
-    ("Standing", True): PlotColors.Color2,
-    ("Standing", False): PlotColors.Color2,
+    ("Walking", True): PLOT_COLORS.color_1,
+    ("Walking", False): PLOT_COLORS.color_1,
+    ("Standing", True): PLOT_COLORS.color_2,
+    ("Standing", False): PLOT_COLORS.color_2,
 }
-
-BUG_TO_COLORS_RGB_DARK_MODE = {
-    ("Walking", True): "#44749D",
-    ("Walking", False): "#44749D",
-    ("Standing", True): "#8DB8AD",
-    ("Standing", False): "#8DB8AD",
-}
-
 
 BUG_PLOT_LABEL_DICT = {
     ("Walking", True): "Walking (Successful)",

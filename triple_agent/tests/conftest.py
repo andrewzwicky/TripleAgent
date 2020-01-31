@@ -41,6 +41,11 @@ def get_test_events_folder():
     return os.path.join(TEST_FOLDER, "test_example_folder_structure", "test_events")
 
 
+@pytest.fixture(scope="session")
+def get_test_events_folder_in_progress():
+    return os.path.join(TEST_FOLDER, "test_example_folder_with_in_progress")
+
+
 @pytest.fixture
 def get_preparsed_timeline_games(get_test_events_folder, get_test_replay_pickle_folder):
     # provide the fixture value
