@@ -6,5 +6,5 @@ class ReplayParser:  # pragma: no cover
         raise NotImplementedError
 
 
-class SpyPartyParseException(Exception):
+class SpyPartyParseException(Exception):  # pragma: no cover
     pass
