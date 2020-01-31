@@ -132,7 +132,9 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
 
 @pytest.mark.parsing
 @pytest.mark.quick
-def test_iterate_over_replays_in_progress(get_test_events_folder_in_progress, get_test_replay_pickle_folder):
+def test_iterate_over_replays_in_progress(
+    get_test_events_folder_in_progress, get_test_replay_pickle_folder
+):
     with pytest.raises(SpyPartyParseException):
         games = list(
             iterate_over_replays(
