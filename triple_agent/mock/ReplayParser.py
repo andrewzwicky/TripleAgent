@@ -4,3 +4,6 @@
 class ReplayParser:  # pragma: no cover
     def __init__(self, _):
         raise NotImplementedError
+
+class SpyPartyParseException(Exception):
+    pass

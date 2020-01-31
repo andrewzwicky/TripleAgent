@@ -9,24 +9,19 @@ from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.venues import Venue
 
 try:
-    from spyparty.ReplayParser import ReplayParser
+    from spyparty.ReplayParser import ReplayParser, SpyPartyParseException
 except ImportError:  # pragma: no cover
-    from triple_agent.mock.ReplayParser import ReplayParser
+    from triple_agent.mock.ReplayParser import ReplayParser, SpyPartyParseException
 
 
 def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
-    # noinspection PyBroadException
-    # pylint: disable=broad-except
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
-    # This is to make sure that the mock ReplayParser exception isn't caught accidentally
-    except NotImplementedError as not_imp_except:  # pragma: no cover
-        raise not_imp_except
-    # no option, the parser raises general exceptions
-    except Exception:
-        # there's not much we can do about unparseable
-        # replays, so just return None
-        return None
+    except SpyPartyParseException as raised_spp_exception:
+        # re-raise exception about unreadable files
+        # so issue can be resolved / files removed.
+        print(f"{str(raised_spp_exception)} - {replay_file}")
+        raise raised_spp_exception
 
 
 def parse_replay_dict_into_game(
