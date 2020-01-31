@@ -40,9 +40,7 @@ def action_test_percentages(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=AT_TO_COLORS_DARK_MODE
-            if axis_properties.dark_mode
-            else AT_TO_COLORS_RGB
+            primary_color_dict=AT_TO_COLORS_RGB
         ),
         DataQueryProperties(query_function=_at_rates_excluding_difficults,),
     )
@@ -59,9 +57,7 @@ def diff_action_test_percentages(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=AT_TO_COLORS_DARK_MODE
-            if axis_properties.dark_mode
-            else AT_TO_COLORS_RGB
+            primary_color_dict=AT_TO_COLORS_RGB
         ),
         DataQueryProperties(query_function=_difficult_at_rate,),
     )

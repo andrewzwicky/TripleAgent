@@ -28,9 +28,7 @@ def game_outcomes(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=WINTYPES_TO_COLORS_DARK_MODE
-            if axis_properties.dark_mode
-            else WINTYPES_TO_COLORS
+            primary_color_dict=WINTYPES_TO_COLORS
         ),
         DataQueryProperties(
             query_function=_categorize_outcomes,

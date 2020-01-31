@@ -50,9 +50,7 @@ def spy_lights(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=LIGHTS_TO_COLORS_DARK_MODE
-            if axis_properties.dark_mode
-            else LIGHTS_TO_COLORS
+            primary_color_dict=LIGHTS_TO_COLORS
         ),
         DataQueryProperties(query_function=_determine_spy_lights,),
     )
@@ -68,9 +66,7 @@ def amba_lights(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=LIGHTS_TO_COLORS_DARK_MODE
-            if axis_properties.dark_mode
-            else LIGHTS_TO_COLORS
+            primary_color_dict=LIGHTS_TO_COLORS
         ),
         DataQueryProperties(query_function=_determine_amba_lights,),
     )

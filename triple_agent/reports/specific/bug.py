@@ -114,9 +114,7 @@ def bug_success_rate(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=BUG_TO_COLORS_RGB_DARK_MODE
-            if axis_properties.dark_mode
-            else BUG_TO_COLORS_RGB,
+            primary_color_dict=BUG_TO_COLORS_RGB,
             primary_label_dict=BUG_PLOT_LABEL_DICT,
             primary_hatch_dict=BUG_PLOT_HATCH_DICT,
         ),
