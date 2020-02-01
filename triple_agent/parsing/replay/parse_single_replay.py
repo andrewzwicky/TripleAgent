@@ -14,7 +14,7 @@ except ImportError:  # pragma: no cover
     from triple_agent.mock.ReplayParser import ReplayParser, SpyPartyParseException
 
 
-def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
+def get_replay_dict(replay_file: str) -> defaultdict:
     try:
         return defaultdict(lambda: None, ReplayParser(replay_file).parse())
     except SpyPartyParseException as raised_spp_exception:
@@ -25,14 +25,11 @@ def get_replay_dict(replay_file: str) -> Optional[defaultdict]:
 
 
 def parse_replay_dict_into_game(
-    replay_dict: Optional[Dict[str, AnyStr]],
+    replay_dict: Dict[str, AnyStr],
     replay_file: str,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
     **kwargs,
-) -> Optional[Game]:
-    if replay_dict is None:
-        return None
-
+) -> Game:
     return game_load_or_new(
         replay_dict["spy_displayname"],
         replay_dict["sniper_displayname"],
@@ -65,7 +62,7 @@ def parse_replay_dict_into_game(
 
 def parse_single_replay(
     replay_file: str, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
-) -> Optional[Game]:
+) -> Game:
     return parse_replay_dict_into_game(
         get_replay_dict(replay_file), replay_file, pickle_folder=pickle_folder, **kwargs
     )
