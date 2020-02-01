@@ -226,6 +226,54 @@ class Game:
             json_out.write(json_game)
         return json_game
 
+    def __eq__(self, other):
+        if self.__class__ is other.__class__:
+            return (
+                self.spy,
+                self.sniper,
+                self.spy_username,
+                self.sniper_username,
+                self.venue,
+                self.win_type,
+                self.game_type,
+                self.picked_missions,
+                self.selected_missions,
+                self.completed_missions,
+                self.start_time,
+                self.guest_count,
+                self.start_clock_seconds,
+                self.duration,
+                self.uuid,
+                self.event,
+                self.division,
+                self.week,
+                self.timeline,
+                self.winner,
+            ) == (
+                other.spy,
+                other.sniper,
+                other.spy_username,
+                other.sniper_username,
+                other.venue,
+                other.win_type,
+                other.game_type,
+                other.picked_missions,
+                other.selected_missions,
+                other.completed_missions,
+                other.start_time,
+                other.guest_count,
+                other.start_clock_seconds,
+                other.duration,
+                other.uuid,
+                other.event,
+                other.division,
+                other.week,
+                other.timeline,
+                other.winner,
+            )
+
+        return NotImplemented
+
 
 @jsonpickle.handlers.register(Game, base=True)
 class GameHandler(jsonpickle.handlers.BaseHandler):

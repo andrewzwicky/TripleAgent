@@ -1685,27 +1685,30 @@ class TimelineEvent:
         )
 
     def __eq__(self, other):
-        return (
-            self.actor,
-            self.time,
-            self.event,
-            self.cast_name,
-            self.books,
-            self.role,
-            self.category,
-            self.mission,
-            self.action_test,
-        ) == (
-            other.actor,
-            other.time,
-            other.event,
-            other.cast_name,
-            other.books,
-            other.role,
-            other.category,
-            other.mission,
-            other.action_test,
-        )
+        if self.__class__ is other.__class__:
+            return (
+                self.actor,
+                self.time,
+                self.event,
+                self.cast_name,
+                self.books,
+                self.role,
+                self.category,
+                self.mission,
+                self.action_test,
+            ) == (
+                other.actor,
+                other.time,
+                other.event,
+                other.cast_name,
+                other.books,
+                other.role,
+                other.category,
+                other.mission,
+                other.action_test,
+            )
+
+        return NotImplemented
 
     def serialize(self):
         data = dict()
@@ -1745,6 +1748,16 @@ class Timeline(Sequence):
 
     def __str__(self):  # pragma: no cover
         return "\n".join(str(line) for line in self.lines)
+
+    def __eq__(self, other):
+        if self.__class__ is other.__class__:
+            try:
+                return self.lines == other.lines
+            # if lines is missing from either, they can't be equal
+            except AttributeError:
+                return False
+
+        return NotImplemented
 
     def get_next_spy_action(self, event: TimelineEvent) -> Optional[TimelineEvent]:
         start_found = False
