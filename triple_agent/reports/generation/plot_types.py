@@ -293,34 +293,7 @@ def create_progress_plot(
 def setup_color_context(fig):
     # TODO: make PlotColors a runtime check instead of an import check.
     context_dictionary = dict()
-
     context_dictionary["axes.prop_cycle"] = PLOT_COLORS.cycler
-
-    try:
-        context_dictionary["lines.color"] = PLOT_COLORS.DetailsColor
-        context_dictionary["patch.edgecolor"] = PLOT_COLORS.DetailsColor
-        context_dictionary["text.color"] = PLOT_COLORS.DetailsColor
-        context_dictionary["axes.edgecolor"] = PLOT_COLORS.DetailsColor
-        context_dictionary["axes.labelcolor"] = PLOT_COLORS.DetailsColor
-        context_dictionary["xtick.color"] = PLOT_COLORS.DetailsColor
-        context_dictionary["ytick.color"] = PLOT_COLORS.DetailsColor
-        context_dictionary["grid.color"] = PLOT_COLORS.DetailsColor
-    except AttributeError:
-        pass
-
-    try:
-        context_dictionary["axes.facecolor"] = PLOT_COLORS.BackgroundColor
-        context_dictionary["figure.facecolor"] = PLOT_COLORS.BackgroundColor
-        context_dictionary["figure.edgecolor"] = PLOT_COLORS.BackgroundColor
-        context_dictionary["savefig.facecolor"] = PLOT_COLORS.BackgroundColor
-        context_dictionary["savefig.edgecolor"] = PLOT_COLORS.BackgroundColor
-
-        if fig is not None:
-            fig.set_facecolor(PLOT_COLORS.BackgroundColor)
-            fig.set_edgecolor(PLOT_COLORS.BackgroundColor)
-
-    except AttributeError:
-        pass
 
     return plt.style.context(context_dictionary)
 
