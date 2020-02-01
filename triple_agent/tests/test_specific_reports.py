@@ -32,8 +32,18 @@ from triple_agent.classes.venues import Venue
 import pandas
 
 CREATE_DATA_DICTIONARY_TEST_CASES = [
-    (_difficult_at_rate, None, False, defaultdict(Counter, {None: Counter()})),
-    (_difficult_at_rate, None, True, defaultdict(Counter, {None: Counter()})),
+    (
+        _difficult_at_rate,
+        None,
+        False,
+        defaultdict(Counter, {None: Counter({ActionTest.Green: 1})}),
+    ),
+    (
+        _difficult_at_rate,
+        None,
+        True,
+        defaultdict(Counter, {None: Counter({ActionTest.Green: 1})}),
+    ),
     (
         _at_rates_excluding_difficults,
         None,
@@ -43,8 +53,8 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             {
                 None: Counter(
                     {
-                        ActionTest.Green: 13,
-                        ActionTest.White: 19,
+                        ActionTest.Green: 16,
+                        ActionTest.White: 20,
                         ActionTest.Red: 1,
                         ActionTest.Ignored: 1,
                     }
@@ -61,10 +71,10 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             {
                 None: Counter(
                     {
-                        ActionTest.Green: 13 / 34,
-                        ActionTest.White: 19 / 34,
-                        ActionTest.Red: 1 / 34,
-                        ActionTest.Ignored: 1 / 34,
+                        ActionTest.Green: 16 / 38,
+                        ActionTest.White: 20 / 38,
+                        ActionTest.Red: 1 / 38,
+                        ActionTest.Ignored: 1 / 38,
                     }
                 )
             },
@@ -80,6 +90,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "Calvin Schoolidge/steam": Counter(
                     {ActionTest.Green: 7, ActionTest.White: 8}
                 ),
+                "pwndnoob": Counter({ActionTest.Green: 3, ActionTest.White: 1}),
                 "zerotka": Counter(
                     {
                         ActionTest.Green: 6,
@@ -101,6 +112,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "Calvin Schoolidge/steam": Counter(
                     {ActionTest.Green: 7 / 15, ActionTest.White: 8 / 15}
                 ),
+                "pwndnoob": Counter({ActionTest.Green: 3 / 4, ActionTest.White: 1 / 4}),
                 "zerotka": Counter(
                     {
                         ActionTest.Green: 6 / 19,
@@ -120,6 +132,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({ActionTest.Green: 7, ActionTest.White: 8}),
+                "jd105l": Counter({ActionTest.Green: 3, ActionTest.White: 1}),
                 "Calvin Schoolidge/steam": Counter(
                     {
                         ActionTest.Green: 6,
@@ -141,6 +154,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "zerotka": Counter(
                     {ActionTest.Green: 7 / 15, ActionTest.White: 8 / 15}
                 ),
+                "jd105l": Counter({ActionTest.Green: 3 / 4, ActionTest.White: 1 / 4}),
                 "Calvin Schoolidge/steam": Counter(
                     {
                         ActionTest.Green: 6 / 19,
@@ -161,7 +175,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             {
                 Venue.HighRise: Counter({ActionTest.Green: 1, ActionTest.White: 1}),
                 Venue.Library: Counter(
-                    {ActionTest.Green: 4, ActionTest.White: 6, ActionTest.Ignored: 1}
+                    {ActionTest.Green: 7, ActionTest.White: 7, ActionTest.Ignored: 1}
                 ),
                 Venue.Courtyard: Counter({ActionTest.Green: 6, ActionTest.White: 6}),
                 Venue.Ballroom: Counter(
@@ -182,9 +196,9 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 ),
                 Venue.Library: Counter(
                     {
-                        ActionTest.Green: 4 / 11,
-                        ActionTest.White: 6 / 11,
-                        ActionTest.Ignored: 1 / 11,
+                        ActionTest.Green: 7 / 15,
+                        ActionTest.White: 7 / 15,
+                        ActionTest.Ignored: 1 / 15,
                     }
                 ),
                 Venue.Courtyard: Counter(
@@ -208,20 +222,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
-                "Calvin Schoolidge/steam": Counter(
-                    {WinType.TimeOut: 1, WinType.SpyShot: 3}
-                ),
-            },
-        ),
-    ),
-    (
-        _categorize_outcomes,
-        lambda g: g.sniper,
-        False,
-        defaultdict(
-            Counter,
-            {
-                "zerotka": Counter({WinType.CivilianShot: 1, WinType.SpyShot: 3}),
+                "jd105l": Counter({WinType.CivilianShot: 1}),
                 "Calvin Schoolidge/steam": Counter(
                     {WinType.TimeOut: 1, WinType.SpyShot: 3}
                 ),
@@ -232,7 +233,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         _all_banana_breads,
         None,
         False,
-        defaultdict(Counter, {None: Counter({"fake": 1, "real": 6})}),
+        defaultdict(Counter, {None: Counter({"fake": 1, "real": 7})}),
     ),
     (
         _all_banana_breads,
@@ -249,6 +250,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "mPZZrUvxQzeJYLQRbZOd7g": Counter({"real": 1}),
                 "yF0YmgbdQLKsKMw097DlIQ": Counter({"real": 1}),
                 "etwrSFKATD2hRWfz-KDXXg": Counter(),
+                "Gp5L4amETsGIPVwh5fdjkA": Counter({"real": 1}),
             },
         ),
     ),
@@ -256,7 +258,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         _first_banana_bread,
         None,
         False,
-        defaultdict(Counter, {None: Counter({"fake": 1, "real": 6})}),
+        defaultdict(Counter, {None: Counter({"fake": 1, "real": 7})}),
     ),
     (
         _first_banana_bread,
@@ -273,6 +275,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "mPZZrUvxQzeJYLQRbZOd7g": Counter({"real": 1}),
                 "yF0YmgbdQLKsKMw097DlIQ": Counter({"real": 1}),
                 "etwrSFKATD2hRWfz-KDXXg": Counter(),
+                "Gp5L4amETsGIPVwh5fdjkA": Counter({"real": 1}),
             },
         ),
     ),
@@ -286,7 +289,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 None: Counter(
                     {
                         ("Walking", False): 1,
-                        ("Walking", True): 1,
+                        ("Walking", True): 2,
                         ("Standing", True): 0,
                         ("Standing", False): 0,
                     }
@@ -365,6 +368,14 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                         ("Standing", False): 0,
                     }
                 ),
+                "Gp5L4amETsGIPVwh5fdjkA": Counter(
+                    {
+                        ("Walking", True): 1,
+                        ("Walking", False): 0,
+                        ("Standing", True): 0,
+                        ("Standing", False): 0,
+                    }
+                ),
             },
         ),
     ),
@@ -398,7 +409,7 @@ SPECIFIC_REPORT_CASES = [
             query_function=_count_mission_choices, primary_order=MISSION_PLOT_ORDER
         ),
         pandas.DataFrame(
-            data=[[8, 8, 7, 8, 7, 7, 7, 4]], columns=MISSION_PLOT_ORDER, index=[None]
+            data=[[9, 9, 8, 9, 8, 8, 8, 5]], columns=MISSION_PLOT_ORDER, index=[None]
         ),
         True,
         AxisProperties(),
@@ -410,8 +421,17 @@ SPECIFIC_REPORT_CASES = [
             primary_order=MISSION_PLOT_ORDER,
         ),
         pandas.DataFrame(
-            data=[[4, 4], [4, 4], [4, 3], [4, 4], [4, 3], [3, 4], [3, 4], [2, 2]],
-            columns=["Calvin Schoolidge/steam", "zerotka"],
+            data=[
+                [4, 1, 4],
+                [4, 1, 4],
+                [4, 1, 3],
+                [4, 1, 4],
+                [4, 1, 3],
+                [3, 1, 4],
+                [3, 1, 4],
+                [2, 1, 2],
+            ],
+            columns=["Calvin Schoolidge/steam", "pwndnoob", "zerotka"],
             index=MISSION_PLOT_ORDER,
         ),
         False,
@@ -426,16 +446,16 @@ SPECIFIC_REPORT_CASES = [
         ),
         pandas.DataFrame(
             data=[
-                [4 / 28, 4 / 28],
-                [4 / 28, 4 / 28],
-                [4 / 28, 3 / 28],
-                [4 / 28, 4 / 28],
-                [4 / 28, 3 / 28],
-                [3 / 28, 4 / 28],
-                [3 / 28, 4 / 28],
-                [2 / 28, 2 / 28],
+                [4 / 28, 1 / 8, 4 / 28],
+                [4 / 28, 1 / 8, 4 / 28],
+                [4 / 28, 1 / 8, 3 / 28],
+                [4 / 28, 1 / 8, 4 / 28],
+                [4 / 28, 1 / 8, 3 / 28],
+                [3 / 28, 1 / 8, 4 / 28],
+                [3 / 28, 1 / 8, 4 / 28],
+                [2 / 28, 1 / 8, 2 / 28],
             ],
-            columns=["Calvin Schoolidge/steam", "zerotka"],
+            columns=["Calvin Schoolidge/steam", "pwndnoob", "zerotka"],
             index=MISSION_PLOT_ORDER,
         ),
         False,
@@ -447,7 +467,7 @@ SPECIFIC_REPORT_CASES = [
             primary_order=MISSION_PLOT_ORDER[::-1],
         ),
         pandas.DataFrame(
-            data=[[4, 7, 7, 7, 8, 7, 8, 8]],
+            data=[[5, 8, 8, 8, 9, 8, 9, 9]],
             columns=MISSION_PLOT_ORDER[::-1],
             index=[None],
         ),
@@ -461,8 +481,8 @@ SPECIFIC_REPORT_CASES = [
             primary_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         pandas.DataFrame(
-            data=[[4, 3], [4, 4], [4, 4]],
-            columns=["Calvin Schoolidge/steam", "zerotka"],
+            data=[[4, 1, 3], [4, 1, 4], [4, 1, 4]],
+            columns=["Calvin Schoolidge/steam", "pwndnoob", "zerotka"],
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,
@@ -476,8 +496,8 @@ SPECIFIC_REPORT_CASES = [
             primary_order=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         pandas.DataFrame(
-            data=[[3, 4], [4, 4], [4, 4]],
-            columns=["zerotka", "Calvin Schoolidge/steam"],
+            data=[[3, 1, 4], [4, 1, 4], [4, 1, 4]],
+            columns=["zerotka", "pwndnoob", "Calvin Schoolidge/steam"],
             index=[Missions.Fingerprint, Missions.Inspect, Missions.Seduce],
         ),
         False,
@@ -489,14 +509,16 @@ SPECIFIC_REPORT_CASES = [
             primary_order=[
                 (TimelineCategory.Statues, False),
                 (TimelineCategory.Books, False),
+                (TimelineCategory.Books, True),
             ],
         ),
         pandas.DataFrame(
-            data=[[1, 1]],
+            data=[[1, 2, 1]],
             index=[None],
             columns=[
                 (TimelineCategory.Statues, False),
                 (TimelineCategory.Books, False),
+                (TimelineCategory.Books, True),
             ],
         ),
         True,
