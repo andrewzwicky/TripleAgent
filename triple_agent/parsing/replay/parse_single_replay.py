@@ -1,6 +1,6 @@
 # pylint: disable=ungrouped-imports
 from collections import defaultdict
-from typing import Optional, Dict, AnyStr
+from typing import Dict, AnyStr
 
 from triple_agent.classes.game import Game, game_load_or_new
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
