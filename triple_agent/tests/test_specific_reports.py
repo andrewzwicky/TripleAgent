@@ -18,9 +18,9 @@ from triple_agent.reports.specific.fingerprints import (
 )
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.timeline import TimelineCategory
-from triple_agent.classes.roles import Roles
+from triple_agent.classes.characters import Characters
 from triple_agent.reports.specific.character_selection import (
-    determine_character_in_role,
+    _determine_st, _determine_amba, _determine_spy, _determine_da
 )
 from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
@@ -292,6 +292,89 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                         ("Walking", True): 2,
                         ("Standing", True): 0,
                         ("Standing", False): 0,
+                    }
+                )
+            },
+        ),
+    ),
+    (
+        _determine_spy,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Characters.Morgan: 2,
+                        Characters.Duke: 1,
+                        Characters.Sikh: 1,
+                        Characters.Plain: 1,
+                        Characters.Helen: 1,
+                        Characters.Rocker: 1,
+                        Characters.Carlos: 1,
+                        Characters.Salmon: 1,
+                    }
+                )
+            },
+        ),
+    ),
+    (
+        _determine_amba,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Characters.Irish: 1,
+                        Characters.Taft: 1,
+                        Characters.Plain: 1,
+                        Characters.Helen: 1,
+                        Characters.Oprah: 1,
+                        Characters.Salmon: 4,
+                    }
+                )
+            },
+        ),
+    ),
+    (
+        _determine_da,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Characters.Disney: 3,
+                        Characters.Carlos: 1,
+                        Characters.Sikh: 1,
+                        Characters.Oprah: 1,
+                        Characters.Duke: 2,
+                        Characters.Sari: 1,
+                    }
+                )
+            },
+        ),
+    ),
+    (
+        _determine_st,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Characters.Irish: 1,
+                        Characters.Teal: 1,
+                        Characters.Alice: 1,
+                        Characters.Carlos: 3,
+                        Characters.Taft: 1,
+                        Characters.Bling: 1,
+                        Characters.Queen: 1,
                     }
                 )
             },
