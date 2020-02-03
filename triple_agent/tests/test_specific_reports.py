@@ -20,7 +20,10 @@ from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.characters import Characters
 from triple_agent.reports.specific.character_selection import (
-    _determine_st, _determine_amba, _determine_spy, _determine_da
+    _determine_st,
+    _determine_amba,
+    _determine_spy,
+    _determine_da,
 )
 from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
