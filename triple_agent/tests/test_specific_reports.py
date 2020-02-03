@@ -17,6 +17,7 @@ from triple_agent.reports.specific.fingerprints import (
     _categorize_successful_fp_sources,
 )
 from triple_agent.classes.outcomes import WinType
+from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.characters import Characters
 from triple_agent.reports.specific.character_selection import (
@@ -24,6 +25,7 @@ from triple_agent.reports.specific.character_selection import (
     _determine_amba,
     _determine_spy,
     _determine_da,
+    determine_character_in_role,
 )
 from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
@@ -487,6 +489,15 @@ def test_create_data_dictionary(
 
     assert data_dict == expected_data_dict
     assert type(data_dict) == type(expected_data_dict)
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_determine_char_in_role(get_preparsed_timeline_games):
+    assert (
+        determine_character_in_role(get_preparsed_timeline_games[0], Roles.Staff)
+        is None
+    )
 
 
 SPECIFIC_REPORT_CASES = [
