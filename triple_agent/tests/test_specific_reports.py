@@ -38,6 +38,7 @@ from triple_agent.reports.specific.banana_breads import (
 )
 from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
 from triple_agent.reports.specific.bug import _categorize_bugs
+from triple_agent.reports.specific.time_adds import _determine_time_add_timings
 from triple_agent.reports.generation.plot_specs import AxisProperties
 from triple_agent.classes.venues import Venue
 import pandas
@@ -773,3 +774,11 @@ def test_fingerprint_report(
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
     assert data_properties.stacks_are_categories == exp_stacks_as_categories
     assert axis_properties == exp_axis_properties
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_time_add_timings(get_preparsed_timeline_games):
+    elapsed, remaining = _determine_time_add_timings(get_preparsed_timeline_games)
+
+    assert elapsed == [pytest.approx(12.7)]
+    assert remaining == [182.3]
