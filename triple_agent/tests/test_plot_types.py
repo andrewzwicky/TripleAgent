@@ -996,7 +996,7 @@ def test_histogram(test_figure, reference_figure):
     ref_ax.bar(
         [0, 1, 2, 3, 4, 5, 6, 7, 8],
         [0, 6, 4, 3, 1, 0, 0, 0, 3],
-        color="xkcd:green",
+        color="#0077BB",
         edgecolor="black",
         width=1,
         align="edge",
@@ -1039,7 +1039,7 @@ def test_histogram(test_figure, reference_figure):
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_histogram(test_figure, reference_figure):
+def test_histogram_2(test_figure, reference_figure):
     reference_figure.set_size_inches(12, 8)
     ref_ax = reference_figure.subplots()
 
