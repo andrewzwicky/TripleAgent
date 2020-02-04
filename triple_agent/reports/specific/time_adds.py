@@ -39,19 +39,7 @@ def time_add_times_per_game(
 
 
 def time_add_times(games: List[Game], title: str):
-    time_adds_elapsed = []
-    time_adds_remaining = []
-
-    for game in games:
-        this_game_time_adds = 0
-        for timeline_event in game.timeline:
-            if (
-                timeline_event.category & TimelineCategory.ActionTest
-                and timeline_event.category & TimelineCategory.TimeAdd
-            ):
-                this_game_time_adds += 1
-                time_adds_elapsed.append(timeline_event.elapsed_time)
-                time_adds_remaining.append(timeline_event.time)
+    time_adds_elapsed, time_adds_remaining = _determine_time_add_timings(games)
 
     create_histogram(
         AxisProperties(
@@ -72,3 +60,17 @@ def time_add_times(games: List[Game], title: str):
         time_adds_remaining,
         10,
     )
+
+
+def _determine_time_add_timings(games):
+    time_adds_elapsed = []
+    time_adds_remaining = []
+    for game in games:
+        for timeline_event in game.timeline:
+            if (
+                    timeline_event.category & TimelineCategory.ActionTest
+                    and timeline_event.category & TimelineCategory.TimeAdd
+            ):
+                time_adds_elapsed.append(timeline_event.elapsed_time)
+                time_adds_remaining.append(timeline_event.time)
+    return time_adds_elapsed, time_adds_remaining
