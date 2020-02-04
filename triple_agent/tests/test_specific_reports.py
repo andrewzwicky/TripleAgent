@@ -248,9 +248,9 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         defaultdict(
             Counter,
             {
-                "zerotka": Counter({'NoStop': 1, 'Stop': 3}),
-                "pwndnoob": Counter({'Stop': 1}),
-                "Calvin Schoolidge/steam": Counter({'NoStop': 2, 'Stop': 2}),
+                "zerotka": Counter({"NoStop": 1, "Stop": 3}),
+                "pwndnoob": Counter({"Stop": 1}),
+                "Calvin Schoolidge/steam": Counter({"NoStop": 2, "Stop": 2}),
             },
         ),
     ),
@@ -774,6 +774,7 @@ def test_fingerprint_report(
     pandas.testing.assert_frame_equal(data_properties.frame, exp_frame)
     assert data_properties.stacks_are_categories == exp_stacks_as_categories
     assert axis_properties == exp_axis_properties
+
 
 @pytest.mark.plotting
 @pytest.mark.quick

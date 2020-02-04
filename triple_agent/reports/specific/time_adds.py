@@ -68,8 +68,8 @@ def _determine_time_add_timings(games):
     for game in games:
         for timeline_event in game.timeline:
             if (
-                    timeline_event.category & TimelineCategory.ActionTest
-                    and timeline_event.category & TimelineCategory.TimeAdd
+                timeline_event.category & TimelineCategory.ActionTest
+                and timeline_event.category & TimelineCategory.TimeAdd
             ):
                 time_adds_elapsed.append(timeline_event.elapsed_time)
                 time_adds_remaining.append(timeline_event.time)
