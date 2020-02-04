@@ -16,12 +16,16 @@ NOSTOP_PLOT_ORDER = list(NOSTOP_TO_COLORS_RGB.keys())
 
 def _categorize_stop_talks(games, data_dictionary):
     for game in games:
+        did_stop = None
         for timeline_event in game.timeline:
             if timeline_event.event == "stopped talking.":
-                data_dictionary["Stop"] += 1
-                continue
+                did_stop = True
+                break
 
-        data_dictionary["NoStop"] += 1
+        if did_stop is None:
+            data_dictionary["NoStop"] += 1
+        else:
+            data_dictionary["Stop"] += 1
 
 
 def stop_talk_in_game_percentage(

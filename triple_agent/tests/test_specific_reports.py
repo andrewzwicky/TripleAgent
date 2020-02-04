@@ -36,6 +36,7 @@ from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
     _first_banana_bread,
 )
+from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
 from triple_agent.reports.specific.bug import _categorize_bugs
 from triple_agent.reports.generation.plot_specs import AxisProperties
 from triple_agent.classes.venues import Venue
@@ -236,6 +237,19 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                 "Calvin Schoolidge/steam": Counter(
                     {WinType.TimeOut: 1, WinType.SpyShot: 3}
                 ),
+            },
+        ),
+    ),
+    (
+        _categorize_stop_talks,
+        lambda g: g.spy,
+        False,
+        defaultdict(
+            Counter,
+            {
+                "zerotka": Counter({'NoStop': 1, 'Stop': 3}),
+                "pwndnoob": Counter({'Stop': 1}),
+                "Calvin Schoolidge/steam": Counter({'NoStop': 2, 'Stop': 2}),
             },
         ),
     ),
