@@ -11,7 +11,9 @@ def spf_lights_report(all_replays):
     for game in all_replays:
         output_dictionary[game.uuid] = []
         for event in game.timeline:
-            if event.category & TimelineCategory.SniperLights:
+            if event.category & TimelineCategory.SniperLights and not (
+                event.category & TimelineCategory.Books
+            ):
                 to_add = {
                     "action": event.event,
                     "elapsed_time": event.elapsed_time,

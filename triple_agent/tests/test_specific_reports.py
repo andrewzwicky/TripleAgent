@@ -18,6 +18,7 @@ from triple_agent.reports.specific.fingerprints import (
 )
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.roles import Roles
+from triple_agent.classes.lights import Lights
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.characters import Characters
 from triple_agent.reports.specific.character_selection import (
@@ -26,6 +27,10 @@ from triple_agent.reports.specific.character_selection import (
     _determine_spy,
     _determine_da,
     determine_character_in_role,
+)
+from triple_agent.reports.specific.lights import (
+    _determine_spy_lights,
+    _determine_amba_lights,
 )
 from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
@@ -381,6 +386,27 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
                         Characters.Bling: 1,
                         Characters.Queen: 1,
                     }
+                )
+            },
+        ),
+    ),
+    (
+        _determine_spy_lights,
+        None,
+        False,
+        defaultdict(
+            Counter, {None: Counter({Lights.Highlight: 8, Lights.Lowlight: 1,})},
+        ),
+    ),
+    (
+        _determine_amba_lights,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {Lights.Highlight: 4, Lights.Lowlight: 2, Lights.Neutral: 3,}
                 )
             },
         ),

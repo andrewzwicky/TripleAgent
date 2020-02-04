@@ -30,7 +30,11 @@ def _determine_lights_games(games, data_dictionary, role):
 
 def end_light_status(game, role_in):
     for event in reversed(game.timeline):
-        if event.category & TimelineCategory.SniperLights and role_in in event.role:
+        if (
+            event.category & TimelineCategory.SniperLights
+            and not (event.category & TimelineCategory.Books)
+            and role_in in event.role
+        ):
             if "less" in event.event:
                 return Lights.Lowlight
             if "neutral" in event.event:
