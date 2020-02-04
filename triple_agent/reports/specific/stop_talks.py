@@ -15,6 +15,8 @@ NOSTOP_PLOT_ORDER = list(NOSTOP_TO_COLORS_RGB.keys())
 
 
 def _categorize_stop_talks(games, data_dictionary):
+    # This is only checking whether a stop talk occured in a game
+    # Not counting whether each start talk has a corresponding stop.
     for game in games:
         did_stop = None
         for timeline_event in game.timeline:
