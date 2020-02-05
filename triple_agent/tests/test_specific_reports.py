@@ -35,10 +35,14 @@ from triple_agent.reports.specific.lights import (
 from triple_agent.reports.specific.banana_breads import (
     _all_banana_breads,
     _first_banana_bread,
+    _time_bb_splits,
 )
 from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
 from triple_agent.reports.specific.bug import _categorize_bugs
-from triple_agent.reports.specific.time_adds import _determine_time_add_timings, _count_time_adds
+from triple_agent.reports.specific.time_adds import (
+    _determine_time_add_timings,
+    _count_time_adds,
+)
 from triple_agent.reports.generation.plot_specs import AxisProperties
 from triple_agent.classes.venues import Venue
 import pandas
@@ -430,14 +434,7 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         _count_time_adds,
         None,
         False,
-        defaultdict(
-            Counter,
-            {
-                None: Counter(
-                    {1: 1, 0: 8}
-                )
-            },
-        ),
+        defaultdict(Counter, {None: Counter({1: 1, 0: 8})},),
     ),
     (
         _categorize_bugs,
@@ -769,6 +766,7 @@ FINGERPRINT_REPORT_CASES = [
 
 
 @pytest.mark.plotting
+@pytest.mark.quick
 @pytest.mark.parametrize(
     "data_query,exp_frame, exp_stacks_as_categories, exp_axis_properties",
     FINGERPRINT_REPORT_CASES,
@@ -789,10 +787,21 @@ def test_fingerprint_report(
     assert axis_properties == exp_axis_properties
 
 
+HISTOGRAM_COUNT_CASES = [
+    (_determine_time_add_timings, ([pytest.approx(12.7)], [182.3])),
+    (
+        _time_bb_splits,
+        list(map(pytest.approx, [16.8, 41.3, 1.8, 2.3, 0.3, 14.8, 30.7, 0.4])),
+    ),
+]
+
+
 @pytest.mark.plotting
 @pytest.mark.quick
-def test_time_add_timings(get_preparsed_timeline_games):
-    elapsed, remaining = _determine_time_add_timings(get_preparsed_timeline_games)
-
-    assert elapsed == [pytest.approx(12.7)]
-    assert remaining == [182.3]
+@pytest.mark.parametrize(
+    "histogram_count_function, exp_counts", HISTOGRAM_COUNT_CASES,
+)
+def test_histogram_counters(
+    get_preparsed_timeline_games, histogram_count_function, exp_counts
+):
+    assert exp_counts == histogram_count_function(get_preparsed_timeline_games)

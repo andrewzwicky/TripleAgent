@@ -83,12 +83,31 @@ def first_banana_bread_percentages(
     return query(games, data_query, axis_properties)
 
 
-def banana_split(games: List[Game], title: str):
+def banana_split(games: List[Game], title: str):  # pragma: no cover
+    create_histogram(
+        AxisProperties(
+            title=title,
+            x_axis_label="Time Elapsed Since BB [sec]",
+            y_axis_label="Number of Leaves in Window",
+            cumulative_histogram=True,
+        ),
+        _time_bb_splits(games),
+        1,
+        major_locator=10,
+    )
+
+
+def _time_bb_splits(games):
     """
     This function plots the time it takes for the spy to leave the CC after the most recent BB.
+
+    If the spy fails to leave after the BB (shot, timeout, etc.), then it is the time from BB to
+    game end.
+
+    If the spy BBs multiple times in the same convo without leaving, it will be based on the latest
+    BB spoken.
     """
     bb_times = []
-
     for game in games:
         bb_uttered = False
         bb_time_elapsed = 0
@@ -110,14 +129,7 @@ def banana_split(games: List[Game], title: str):
                 bb_times.append(timeline_event.elapsed_time - bb_time_elapsed)
                 bb_time_elapsed = 0
 
-    create_histogram(
-        AxisProperties(
-            title=title,
-            x_axis_label="Time Elapsed Since BB [sec]",
-            y_axis_label="Number of Leaves in Window",
-            cumulative_histogram=True,
-        ),
-        bb_times,
-        1,
-        major_locator=10,
-    )
+        if bb_uttered and timeline_event:
+            bb_times.append(timeline_event.elapsed_time - bb_time_elapsed)
+
+    return bb_times
