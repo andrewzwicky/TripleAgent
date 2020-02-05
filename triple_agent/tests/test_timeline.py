@@ -1,4 +1,5 @@
 import pytest
+from decimal import Decimal
 
 from triple_agent.classes.characters import Characters
 from triple_agent.classes.roles import Roles
@@ -126,36 +127,36 @@ def test_calculate_elapsed_time():
     ]
 
     expected_elapseds = [
-        0,
-        7.3,
-        11.7,
-        20,
-        20.5,
-        23.3,
-        26,
-        26.8,
-        28.1,
-        31.8,
-        31.8,
-        32.5,
-        32.5,
-        33.5,
-        33.7,
-        43,
-        46.4,
-        54.8,
-        57.3,
-        71.1,
-        73,
-        78.5,
-        78.5,
-        79.6,
-        81,
-        81.5,
-        87,
-        87,
-        101.1,
-        104.8,
+        Decimal("0"),
+        Decimal("7.3"),
+        Decimal("11.7"),
+        Decimal("20"),
+        Decimal("20.5"),
+        Decimal("23.3"),
+        Decimal("26"),
+        Decimal("26.8"),
+        Decimal("28.1"),
+        Decimal("31.8"),
+        Decimal("31.8"),
+        Decimal("32.5"),
+        Decimal("32.5"),
+        Decimal("33.5"),
+        Decimal("33.7"),
+        Decimal("43"),
+        Decimal("46.4"),
+        Decimal("54.8"),
+        Decimal("57.3"),
+        Decimal("71.1"),
+        Decimal("73"),
+        Decimal("78.5"),
+        Decimal("78.5"),
+        Decimal("79.6"),
+        Decimal("81"),
+        Decimal("81.5"),
+        Decimal("87"),
+        Decimal("87"),
+        Decimal("101.1"),
+        Decimal("104.8"),
     ]
 
     t_events = [TimelineEvent(*args) for args in events]
@@ -165,4 +166,4 @@ def test_calculate_elapsed_time():
     t_line.calculate_elapsed_times()
 
     for t_event, expected_elapsed in zip(t_line.lines, expected_elapseds):
-        assert t_event.elapsed_time == pytest.approx(expected_elapsed, 0.001)
+        assert t_event.elapsed_time == expected_elapsed
