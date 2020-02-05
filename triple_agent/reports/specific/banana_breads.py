@@ -111,6 +111,7 @@ def _time_bb_splits(games):
     for game in games:
         bb_uttered = False
         bb_time_elapsed = 0
+        timeline_event = None
 
         for timeline_event in game.timeline:
             if (
@@ -129,7 +130,8 @@ def _time_bb_splits(games):
                 bb_times.append(timeline_event.elapsed_time - bb_time_elapsed)
                 bb_time_elapsed = 0
 
-        if bb_uttered and timeline_event:
+        if bb_uttered:
+            assert timeline_event is not None
             bb_times.append(timeline_event.elapsed_time - bb_time_elapsed)
 
     return bb_times
