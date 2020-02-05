@@ -38,7 +38,7 @@ from triple_agent.reports.specific.banana_breads import (
 )
 from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
 from triple_agent.reports.specific.bug import _categorize_bugs
-from triple_agent.reports.specific.time_adds import _determine_time_add_timings
+from triple_agent.reports.specific.time_adds import _determine_time_add_timings, _count_time_adds
 from triple_agent.reports.generation.plot_specs import AxisProperties
 from triple_agent.classes.venues import Venue
 import pandas
@@ -422,6 +422,19 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             {
                 None: Counter(
                     {Lights.Highlight: 4, Lights.Lowlight: 2, Lights.Neutral: 3,}
+                )
+            },
+        ),
+    ),
+    (
+        _count_time_adds,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {1: 1, 0: 8}
                 )
             },
         ),

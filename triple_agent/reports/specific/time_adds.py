@@ -38,7 +38,7 @@ def time_add_times_per_game(
     return query(games, data_query, axis_properties)
 
 
-def time_add_times(games: List[Game], title: str):
+def time_add_times(games: List[Game], title: str):  # pragma: no cover
     time_adds_elapsed, time_adds_remaining = _determine_time_add_timings(games)
 
     create_histogram(
