@@ -12,9 +12,10 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 
-jsonpickle.set_encoder_options('simplejson', use_decimal=True, sort_keys=True, indent=4)
-jsonpickle.set_decoder_options('simplejson', use_decimal=True)
-jsonpickle.set_preferred_backend('simplejson')
+jsonpickle.set_encoder_options("simplejson", use_decimal=True, sort_keys=True, indent=4)
+jsonpickle.set_decoder_options("simplejson", use_decimal=True)
+jsonpickle.set_preferred_backend("simplejson")
+
 
 @dataclass
 # pylint: disable=too-many-instance-attributes
