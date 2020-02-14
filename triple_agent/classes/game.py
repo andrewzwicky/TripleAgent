@@ -12,7 +12,9 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 
-jsonpickle.set_encoder_options("json", sort_keys=True, indent=4)
+jsonpickle.set_encoder_options("simplejson", use_decimal=True, sort_keys=True, indent=4)
+jsonpickle.set_decoder_options("simplejson", use_decimal=True)
+jsonpickle.set_preferred_backend("simplejson")
 
 
 @dataclass
@@ -221,7 +223,7 @@ class Game:
         return coherency
 
     def serialize_to_json(self, json_folder: str = JSON_GAMES_FOLDER):
-        json_game = jsonpickle.encode(self, unpicklable=True)
+        json_game = jsonpickle.encode(self, unpicklable=True, use_decimal=True)
         with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
             json_out.write(json_game)
         return json_game
