@@ -37,3 +37,5 @@ test_script:
   - "black triple_agent --check"
   - "pylint triple_agent"
   - "vulture triple_agent vulture_whitelist.py"
+  # confirm no import errors in vulture_whitelist
+  - "py -3 vulture_whitelist.py"
