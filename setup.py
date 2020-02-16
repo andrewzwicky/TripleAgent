@@ -59,7 +59,7 @@ setup(
             "jsonpickle>=1.2",
             "beautifulsoup4>=4.7.1"
         ],
-        "test": ["pytest", "opencv-python>=4.1.0.25", "pytest-cov", "pylint", "black", "vulture"],
+        "test": ["pytest", "pytest-cov", "pylint", "black", "vulture"],
     },
     setup_requires=["pytest-runner>=4.4"],
     classifiers=[

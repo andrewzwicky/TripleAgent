@@ -28,7 +28,7 @@ install:
   - ps: ".\\tesseract-ocr-w64-setup-v4.1.0.20190314.exe /S /v /qn"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
   - "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
-  - "%PIP% install -e .[plot,retrieve,parse,test] --quiet"
+  - "%PIP% install -e .[plot,retrieve,parse,test]"
 
 build: false
 
