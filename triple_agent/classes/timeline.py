@@ -1727,7 +1727,7 @@ class TimelineEvent:
         )
         data["role"] = list(role.name for role in self.role if role is not None)
         data["books"] = list(book.name for book in self.books if book is not None)
-        data["elapsed_time"] = round(self.elapsed_time, 1)
+        data["elapsed_time"] = self.elapsed_time
         data["time"] = self.time
         data["category"] = self.category.serialize()
         data["mission"] = self.mission.name

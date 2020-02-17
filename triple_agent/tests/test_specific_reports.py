@@ -1,4 +1,5 @@
 from collections import Counter, defaultdict
+from decimal import Decimal
 
 import pytest
 from triple_agent.reports.generation.plot_utilities import create_data_dictionary
@@ -38,6 +39,7 @@ from triple_agent.reports.specific.banana_breads import (
     _time_bb_splits,
 )
 from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
+from triple_agent.reports.specific.seduce import _calc_first_flirt_times
 from triple_agent.reports.specific.bug import _categorize_bugs
 from triple_agent.reports.specific.time_adds import (
     _determine_time_add_timings,
@@ -788,10 +790,11 @@ def test_fingerprint_report(
 
 
 HISTOGRAM_COUNT_CASES = [
-    (_determine_time_add_timings, ([pytest.approx(12.7)], [182.3])),
+    (_determine_time_add_timings,
+     (list(map(Decimal, ['12.7'])), list(map(Decimal, ['182.3'])))),
     (
         _time_bb_splits,
-        list(map(pytest.approx, [16.8, 41.3, 1.8, 2.3, 0.3, 14.8, 30.7, 0.4])),
+        list(map(Decimal, ['16.8', '41.3', '1.8', '2.3', '0.3', '14.8', '30.7', '0.4'])),
     ),
 ]
 
