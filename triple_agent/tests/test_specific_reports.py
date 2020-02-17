@@ -790,12 +790,19 @@ def test_fingerprint_report(
 
 
 HISTOGRAM_COUNT_CASES = [
-    (_determine_time_add_timings,
-     (list(map(Decimal, ['12.7'])), list(map(Decimal, ['182.3'])))),
+    (
+        _determine_time_add_timings,
+        (list(map(Decimal, ["12.7"])), list(map(Decimal, ["182.3"]))),
+    ),
     (
         _time_bb_splits,
-        list(map(Decimal, ['16.8', '41.3', '1.8', '2.3', '0.3', '14.8', '30.7', '0.4'])),
+        list(
+            map(Decimal, ["16.8", "41.3", "1.8", "2.3", "0.3", "14.8", "30.7", "0.4"])
+        ),
     ),
+    # (_calc_first_flirt_times,
+    #  list(map(Decimal, ['16.8']))
+    # )
 ]
 
 

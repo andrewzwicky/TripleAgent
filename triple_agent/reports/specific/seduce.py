@@ -32,8 +32,8 @@ def _calc_first_flirt_times(games):
         prev_len = len(first_flirt_times)
         for timeline_event in game.timeline:
             if (
-                    timeline_event.category & TimelineCategory.ActionTest
-                    and timeline_event.mission & Missions.Seduce
+                timeline_event.category & TimelineCategory.ActionTest
+                and timeline_event.mission & Missions.Seduce
             ):
                 first_flirt_times.append(timeline_event.elapsed_time)
                 break
