@@ -39,7 +39,6 @@ from triple_agent.reports.specific.banana_breads import (
     _time_bb_splits,
 )
 from triple_agent.reports.specific.stop_talks import _categorize_stop_talks
-from triple_agent.reports.specific.seduce import _calc_first_flirt_times
 from triple_agent.reports.specific.bug import _categorize_bugs
 from triple_agent.reports.specific.time_adds import (
     _determine_time_add_timings,
@@ -800,9 +799,6 @@ HISTOGRAM_COUNT_CASES = [
             map(Decimal, ["16.8", "41.3", "1.8", "2.3", "0.3", "14.8", "30.7", "0.4"])
         ),
     ),
-    # (_calc_first_flirt_times,
-    #  list(map(Decimal, ['16.8']))
-    # )
 ]
 
 

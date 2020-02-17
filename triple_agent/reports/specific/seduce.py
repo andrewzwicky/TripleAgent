@@ -11,7 +11,7 @@ def first_flirt_timing(games: List[Game], title: str):  # pragma: no cover
     """
     This function plots the first attempt at flirting.
     """
-    first_flirt_times = calc_first_flirt_times(games)
+    first_flirt_times = _calc_first_flirt_times(games)
 
     create_histogram(
         AxisProperties(
