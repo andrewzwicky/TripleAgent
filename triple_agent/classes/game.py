@@ -12,7 +12,8 @@ from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 
-jsonpickle.set_encoder_options("json", sort_keys=True, indent=4)
+jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
+jsonpickle.set_preferred_backend("simplejson")
 
 
 @dataclass

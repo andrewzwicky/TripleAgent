@@ -6,6 +6,7 @@ TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
 
 @pytest.mark.parsing
+@pytest.mark.quick
 def test_serialize_correctly(
     get_test_replay_pickle_folder, get_test_json_games_folder, monkeypatch
 ):
