@@ -39,7 +39,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "spy cast.",
             "mission": "NoMission",
             "role": [
@@ -57,7 +57,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "ambassador cast.",
             "mission": "NoMission",
             "role": [
@@ -75,7 +75,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "double agent cast.",
             "mission": "NoMission",
             "role": [
@@ -93,7 +93,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "suspected double agent cast.",
             "mission": "NoMission",
             "role": [
@@ -111,7 +111,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "seduction target cast.",
             "mission": "NoMission",
             "role": [
@@ -129,7 +129,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "civilian cast.",
             "mission": "NoMission",
             "role": [
@@ -147,7 +147,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "civilian cast.",
             "mission": "NoMission",
             "role": [
@@ -165,7 +165,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "civilian cast.",
             "mission": "NoMission",
             "role": [
@@ -183,7 +183,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "civilian cast.",
             "mission": "NoMission",
             "role": [
@@ -201,7 +201,7 @@
             "category": [
                 "Cast"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "civilian cast.",
             "mission": "NoMission",
             "role": [
@@ -217,7 +217,7 @@
             "category": [
                 "MissionSelected"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "bug ambassador selected.",
             "mission": "Bug",
             "role": [],
@@ -231,7 +231,7 @@
             "category": [
                 "MissionSelected"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "contact double agent selected.",
             "mission": "Contact",
             "role": [],
@@ -245,7 +245,7 @@
             "category": [
                 "MissionSelected"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "inspect 3 statues selected.",
             "mission": "Inspect",
             "role": [],
@@ -259,7 +259,7 @@
             "category": [
                 "MissionSelected"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "seduce target selected.",
             "mission": "Seduce",
             "role": [],
@@ -273,7 +273,7 @@
             "category": [
                 "MissionSelected"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "fingerprint ambassador selected.",
             "mission": "Fingerprint",
             "role": [],
@@ -287,7 +287,7 @@
             "category": [
                 "MissionEnabled"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "bug ambassador enabled.",
             "mission": "Bug",
             "role": [],
@@ -301,7 +301,7 @@
             "category": [
                 "MissionEnabled"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "contact double agent enabled.",
             "mission": "Contact",
             "role": [],
@@ -315,7 +315,7 @@
             "category": [
                 "MissionEnabled"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "inspect 3 statues enabled.",
             "mission": "Inspect",
             "role": [],
@@ -329,7 +329,7 @@
             "category": [
                 "MissionEnabled"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "seduce target enabled.",
             "mission": "Seduce",
             "role": [],
@@ -343,7 +343,7 @@
             "category": [
                 "MissionEnabled"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "fingerprint ambassador enabled.",
             "mission": "Fingerprint",
             "role": [],
@@ -357,7 +357,7 @@
             "category": [
                 "GameStart"
             ],
-            "elapsed_time": 0.0,
+            "elapsed_time": 0,
             "event": "game started.",
             "mission": "NoMission",
             "role": [],
@@ -783,7 +783,7 @@
                 "ActionTriggered",
                 "Statues"
             ],
-            "elapsed_time": 60.0,
+            "elapsed_time": 60,
             "event": "action triggered: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -798,7 +798,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 61.0,
+            "elapsed_time": 61,
             "event": "action test white: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -831,7 +831,7 @@
                 "MissionPartial",
                 "Statues"
             ],
-            "elapsed_time": 65.0,
+            "elapsed_time": 65,
             "event": "left statue inspected.",
             "mission": "Inspect",
             "role": [],
@@ -861,7 +861,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 66.0,
+            "elapsed_time": 66,
             "event": "action test green: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -956,7 +956,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 78.0,
+            "elapsed_time": 78,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1002,7 +1002,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 90.0,
+            "elapsed_time": 90,
             "event": "action test green: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1018,7 +1018,7 @@
             "category": [
                 "MissionPartial"
             ],
-            "elapsed_time": 90.0,
+            "elapsed_time": 90,
             "event": "flirt with seduction target: 76%",
             "mission": "Seduce",
             "role": [
@@ -1140,7 +1140,7 @@
             "books": [],
             "cast_name": [],
             "category": [],
-            "elapsed_time": 135.0,
+            "elapsed_time": 135,
             "event": "flirtation cooldown expired.",
             "mission": "Seduce",
             "role": [],
@@ -1154,7 +1154,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 136.0,
+            "elapsed_time": 136,
             "event": "action triggered: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1168,7 +1168,7 @@
                 "Ms. F"
             ],
             "category": [],
-            "elapsed_time": 136.0,
+            "elapsed_time": 136,
             "event": "begin flirtation with seduction target.",
             "mission": "Seduce",
             "role": [
@@ -1236,7 +1236,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 153.0,
+            "elapsed_time": 153,
             "event": "took last sip of drink.",
             "mission": "NoMission",
             "role": [
@@ -1352,7 +1352,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 187.0,
+            "elapsed_time": 187,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1444,7 +1444,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 204.0,
+            "elapsed_time": 204,
             "event": "waiter gave up.",
             "mission": "NoMission",
             "role": [
@@ -1460,7 +1460,7 @@
             "category": [
                 "GameEnd"
             ],
-            "elapsed_time": 210.0,
+            "elapsed_time": 210,
             "event": "spy ran out of time.",
             "mission": "NoMission",
             "role": [],
