@@ -788,15 +788,10 @@ def test_fingerprint_report(
 
 
 HISTOGRAM_COUNT_CASES = [
-    (
-        _determine_time_add_timings,
-        ([pytest.approx(12.7)], [pytest.approx(182.3)]),
-    ),
+    (_determine_time_add_timings, ([pytest.approx(12.7)], [pytest.approx(182.3)]),),
     (
         _time_bb_splits,
-        list(
-            map(pytest.approx, [16.8, 41.3, 1.8, 2.3, 0.3, 14.8, 30.7, 0.4])
-        ),
+        list(map(pytest.approx, [16.8, 41.3, 1.8, 2.3, 0.3, 14.8, 30.7, 0.4])),
     ),
 ]
 

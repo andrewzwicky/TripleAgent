@@ -25,6 +25,7 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.characters import Characters
 from triple_agent.constants.paths import PORTRAITS_FOLDER
 
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
