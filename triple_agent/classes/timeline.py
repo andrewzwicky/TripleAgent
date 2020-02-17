@@ -4,7 +4,6 @@ from datetime import datetime
 from enum import auto, Flag
 from typing import Optional, List, Tuple
 from dataclasses import dataclass, field
-from decimal import Decimal
 
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
@@ -1641,28 +1640,23 @@ class TimelineEvent:
     cast_name: Tuple[Optional[Characters], ...]
     role: Tuple[Optional[Roles], ...]
     books: Tuple[Optional[Books], ...]
-    elapsed_time: Decimal = field(default=Decimal(0), init=False)
-    time: Decimal = field(default=Decimal(0), init=False)
+    elapsed_time: float = field(default=0, init=False)
+    time: float = field(default=0, init=False)
     category: TimelineCategory = field(default=TimelineCategory.NoCategory, init=False)
     mission: Missions = field(default=Missions.NoMission, init=False)
     action_test: ActionTest = field(default=ActionTest.NoAT, init=False)
 
     def __post_init__(self):
         try:
-            d_time = datetime.strptime(self._raw_time_str, "%M:%S.%f")
             self.time = (
-                (Decimal(d_time.minute) * Decimal(60))
-                + Decimal(d_time.second)
-                + (Decimal(d_time.microsecond) / Decimal(10 ** 6))
-            )
+                datetime.strptime(self._raw_time_str, "%M:%S.%f")
+                - datetime.strptime("00:00.0", "%M:%S.%f")
+            ).total_seconds()
         except ValueError:
-            d_time = datetime.strptime(self._raw_time_str, "-%M:%S.%f")
-            self.time = Decimal(0) - (
-                (Decimal(d_time.minute) * Decimal(60))
-                + Decimal(d_time.second)
-                + (Decimal(d_time.microsecond) / Decimal(10 ** 6))
-            )
-
+            self.time = (
+                datetime.strptime("00:00.0", "%M:%S.%f")
+                - datetime.strptime(self._raw_time_str, "-%M:%S.%f")
+            ).total_seconds()
         self.category, self.mission, self.action_test = CATEGORIZATION_DICTIONARY[
             (self.actor, self.event)
         ]
@@ -1727,7 +1721,7 @@ class TimelineEvent:
         )
         data["role"] = list(role.name for role in self.role if role is not None)
         data["books"] = list(book.name for book in self.books if book is not None)
-        data["elapsed_time"] = self.elapsed_time
+        data["elapsed_time"] = round(self.elapsed_time, 1)
         data["time"] = self.time
         data["category"] = self.category.serialize()
         data["mission"] = self.mission.name
@@ -1779,13 +1773,11 @@ class Timeline(Sequence):
         return None
 
     def calculate_elapsed_times(self):
-        num_time_adds = Decimal(0)
+        num_time_adds = 0
         start_time = self.lines[0].time
 
         for line in self.lines:
-            line.elapsed_time = start_time - (
-                line.time - (Decimal(45) * Decimal(num_time_adds))
-            )
+            line.elapsed_time = start_time - (line.time - (45 * num_time_adds))
 
             if line.category == TimelineCategory.TimeAdd and line.event.startswith(
                 "45 seconds"

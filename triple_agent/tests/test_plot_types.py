@@ -1,6 +1,5 @@
 from collections import defaultdict
 import os
-from decimal import Decimal, getcontext
 
 import pytest
 from matplotlib.testing.decorators import check_figures_equal
@@ -379,64 +378,6 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
 
     create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
-
-@pytest.mark.plotting
-@pytest.mark.matplotlib
-@check_figures_equal(extensions=["png"])
-def test_bar_decimal_data_label(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
-    ref_ax.set_title("Bar")
-    ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
-    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
-    ref_ax.set_ylim(top=6)
-
-    ref_ax.set_xlim(-0.5, 1.5)
-    ref_ax.set_xticks([0, 1])
-
-    ref_ax.set_ylim(bottom=0)
-
-    ref_ax.yaxis.grid(which="major")
-    ref_ax.yaxis.grid(which="minor", linestyle="--")
-    ref_ax.set_axisbelow(True)
-
-    ref_ax.set_xticklabels(["A", "B"], rotation=90)
-
-    ref_ax.text(
-        1,
-        5 - (5 * 0.01),
-        "5.0",
-        color="black",
-        horizontalalignment="center",
-        verticalalignment="top",
-    )
-
-    ref_ax.text(
-        0,
-        0.1 + (5 * 0.01),
-        "0.1",
-        color="black",
-        horizontalalignment="center",
-        verticalalignment="bottom",
-    )
-
-    axis_properties = AxisProperties(
-        title="Bar",
-        primary_color_dict={
-            "A": "red",
-            "B": "blue",
-            "C": "black",
-            "D": "yellow",
-            "E": "white",
-        },
-        data_label_style=PlotLabelStyle.Plain,
-    )
-    data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(data=[[Decimal(0.1), Decimal(5)]], columns=["A", "B"], index=[None]),
-        stacks_are_categories=True,
-    )
-
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib

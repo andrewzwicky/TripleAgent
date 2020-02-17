@@ -1,7 +1,6 @@
 import os
 from typing import List, Optional, Union, Any, Dict, Tuple
 from enum import Enum
-from decimal import Decimal
 
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
@@ -18,12 +17,6 @@ def labelify(unknown_item: Any, percentage: bool = False):
             return unknown_item.stringify()
         except AttributeError:
             return unknown_item.name
-
-    if isinstance(unknown_item, Decimal):
-        # TODO: check this for other use cases
-        if percentage:
-            return f"{unknown_item*100:3.1f}"
-        return f"{unknown_item:03.1f}"
 
     if isinstance(unknown_item, float):
         # TODO: check this for other use cases
@@ -208,21 +201,16 @@ def apply_data_labels(axis, max_value, bar_patches, row_data_labels):
     text_padding = max_value * 0.01
 
     for this_patch, this_label in zip(bar_patches, row_data_labels):
-        patch_h = float(this_patch.get_height())
-        if abs(patch_h) > 0.01:
-            patch_y = float(this_patch.get_y())
-            patch_x = float(this_patch.get_x())
-            patch_w = float(this_patch.get_width())
-
-            if patch_h + patch_y < max_value * 0.05:
-                y_value = patch_h + patch_y + text_padding
+        if this_patch.get_height() != 0:
+            if this_patch.get_height() + this_patch.get_y() < max_value * 0.05:
+                y_value = this_patch.get_height() + this_patch.get_y() + text_padding
                 v_align = "bottom"
             else:
-                y_value = patch_h + patch_y - text_padding
+                y_value = this_patch.get_height() + this_patch.get_y() - text_padding
                 v_align = "top"
 
             axis.text(
-                patch_x + (patch_w / 2),
+                this_patch.get_x() + (this_patch.get_width() / 2),
                 y_value,
                 str(this_label),
                 color="black",
