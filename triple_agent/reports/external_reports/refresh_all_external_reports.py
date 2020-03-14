@@ -34,6 +34,7 @@ from triple_agent.reports.external_reports.spy_party_fans.action_tests import (
 from triple_agent.reports.external_reports.spy_party_fans.sniper_lights import (
     spf_lights_report,
 )
+from triple_agent.reports.generation.create_alias_list import create_alias_list
 
 EVENT_REPORT_SOURCE = Path(__file__).parents[0].joinpath("event_reports")
 OVERALL_REPORT_SOURCE = Path(__file__).parents[0].joinpath("overall_reports")
@@ -128,7 +129,7 @@ def refresh_example_notebooks():
     os.chdir(EXAMPLES_FOLDER)
     for potential_notebook in os.listdir(EXAMPLES_FOLDER):
         if potential_notebook.endswith(".ipynb"):
-            print(f'executing {potential_notebook}')
+            print(f"executing {potential_notebook}")
             execute_single_notebook(potential_notebook)
 
 
@@ -136,7 +137,7 @@ def refresh_event_reports():
     for potential_notebook in os.listdir(EVENT_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
             potential_path = os.path.join(EVENT_REPORT_SOURCE, potential_notebook)
-            print(f'executing {potential_path}')
+            print(f"executing {potential_path}")
             execute_single_notebook(potential_path)
             os.system(
                 f'jupyter nbconvert --to html "{potential_path}" --output-dir="{EVENT_REPORT_FOLDER}"'
@@ -147,7 +148,7 @@ def refresh_overall_reports():
     for potential_notebook in os.listdir(OVERALL_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
             potential_path = os.path.join(OVERALL_REPORT_SOURCE, potential_notebook)
-            print(f'executing {potential_path}')
+            print(f"executing {potential_path}")
             execute_single_notebook(potential_path)
             os.system(
                 f'jupyter nbconvert --to html "{potential_path}" --output-dir="{OVERALL_REPORT_FOLDER}"'
@@ -161,6 +162,8 @@ def refresh_all_reports():
 
     all_replays = get_parsed_replays(lambda x: True)
     scl5_replays = get_parsed_replays(select_scl5_with_drops)
+
+    create_alias_list(all_replays)
 
     refresh_overall_reports()
     refresh_event_reports()
