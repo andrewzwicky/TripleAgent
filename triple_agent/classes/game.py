@@ -311,10 +311,30 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         raise NotImplementedError
 
 
-def game_unpickle(expected_file: str) -> Optional[Game]:
+def insert_alias_name(game: Game, alias_list: Optional[dict]):
+    if alias_list is None:
+        return game
+
+    if game.spy_username in alias_list.keys():
+        game.spy = alias_list[game.spy_username]
+
+    if game.sniper_username in alias_list.keys():
+        game.sniper = alias_list[game.sniper_username]
+
+    return game
+
+
+def game_unpickle(
+    expected_file: str, alias_list: Optional[dict] = None
+) -> Optional[Game]:
     if os.path.exists(expected_file):
         with open(expected_file, "rb") as pik:
-            return pickle.load(pik)
+            game = pickle.load(pik)
+
+            if alias_list is not None:
+                game = insert_alias_name(game, alias_list)
+
+            return game
 
     return None
 

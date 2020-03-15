@@ -156,14 +156,15 @@ def refresh_overall_reports():
 
 
 def refresh_all_reports():
+    all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
+    create_alias_list(all_replays)
+
     delete_stale_json_files()
     zip_all_json_files()
     refresh_html_files()
 
     all_replays = get_parsed_replays(lambda x: True)
     scl5_replays = get_parsed_replays(select_scl5_with_drops)
-
-    create_alias_list(all_replays)
 
     refresh_overall_reports()
     refresh_event_reports()

@@ -1,5 +1,5 @@
 import jsonpickle
-from triple_agent.constants.paths import PLAYER_REPORT_FOLDER
+from triple_agent.constants.paths import ALIAS_LIST_PATH
 
 jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
 jsonpickle.set_preferred_backend("simplejson")
@@ -29,5 +29,5 @@ def create_alias_list(all_games):
 
     alias_json = jsonpickle.encode(alias_dict)
 
-    with open(PLAYER_REPORT_FOLDER.joinpath("alias_list.json"), "w") as json_out:
+    with open(ALIAS_LIST_PATH, "w") as json_out:
         json_out.write(alias_json)
