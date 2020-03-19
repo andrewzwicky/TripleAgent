@@ -75,7 +75,25 @@ SCL5_DROPPED_PLAYERS = {
     "linkvanyali",
 }
 
+SCL6_DROPPED_PLAYERS = {
+    "Max Edward Snax/steam",
+}
+
 SCL5_DIVISIONS = [
+    "Diamond",
+    "Platinum",
+    "Gold",
+    "Silver",
+    "Bronze",
+    "Copper",
+    "Iron",
+    "Obsidian",
+    "Oak",
+    "Challenger",
+]
+
+SCL6_DIVISIONS = [
+    #TODO: clear this up after placements
     "Diamond",
     "Platinum",
     "Gold",
@@ -108,6 +126,26 @@ def select_scl5_regular_season(game: Game) -> bool:  # pragma: no cover
 
 def select_scl5_with_drops(game: Game) -> bool:  # pragma: no cover
     return game.event == "SCL5"
+
+
+def select_scl6(game: Game) -> bool:  # pragma: no cover
+    return (
+        game.event == "SCL6"
+        and game.spy not in SCL6_DROPPED_PLAYERS
+        and game.sniper not in SCL6_DROPPED_PLAYERS
+    )
+
+
+def select_scl6_regular_season(game: Game) -> bool:  # pragma: no cover
+    return (
+        game.event == "SCL6"
+        and game.division in SCL6_DIVISIONS
+        and game.spy not in SCL6_DROPPED_PLAYERS
+        and game.sniper not in SCL6_DROPPED_PLAYERS
+    )
+
+def select_scl6_with_drops(game: Game) -> bool:  # pragma: no cover
+    return game.event == "SCL6"
 
 
 def select_sc19(game: Game) -> bool:  # pragma: no cover

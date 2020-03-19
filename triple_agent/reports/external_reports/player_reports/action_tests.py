@@ -8,25 +8,14 @@ from triple_agent.reports.generation.generate_external_reports import (
 )
 
 
-def player_at_reports(all_replays, scl5_replays):
+def player_at_reports(replays, report_name):
     generate_external_reports(
-        scl5_replays,
+        replays,
         DataQueryProperties(
             query_function=_at_rates_excluding_difficults,
             groupby=lambda game: game.spy,
             percent_normalized_data=True,
         ),
-        os.path.join(PLAYER_REPORT_FOLDER, "action_test_scl5.json"),
-        os.path.join(PLAYER_REPORT_FOLDER, "action_test_scl5.html"),
-    )
-
-    generate_external_reports(
-        all_replays,
-        DataQueryProperties(
-            query_function=_at_rates_excluding_difficults,
-            groupby=lambda game: game.spy,
-            percent_normalized_data=True,
-        ),
-        os.path.join(PLAYER_REPORT_FOLDER, "action_test_all.json"),
-        os.path.join(PLAYER_REPORT_FOLDER, "action_test_all.html"),
+        os.path.join(PLAYER_REPORT_FOLDER, f"{report_name}.json"),
+        os.path.join(PLAYER_REPORT_FOLDER, f"{report_name}.html"),
     )

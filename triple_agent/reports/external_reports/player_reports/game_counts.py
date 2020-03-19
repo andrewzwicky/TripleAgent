@@ -11,17 +11,10 @@ def _count_games(games, data_dictionary):
     data_dictionary["Count"] += len(games)
 
 
-def player_game_count_reports(all_replays, scl5_replays):
+def player_game_count_reports(replays, report_name):
     generate_external_reports(
-        scl5_replays,
+        replays,
         DataQueryProperties(query_function=_count_games, groupby=lambda game: game.spy),
-        os.path.join(PLAYER_REPORT_FOLDER, "spy_game_count_scl5.json"),
-        os.path.join(PLAYER_REPORT_FOLDER, "spy_game_count_scl5.html"),
-    )
-
-    generate_external_reports(
-        all_replays,
-        DataQueryProperties(query_function=_count_games, groupby=lambda game: game.spy),
-        os.path.join(PLAYER_REPORT_FOLDER, "spy_game_count_all.json"),
-        os.path.join(PLAYER_REPORT_FOLDER, "spy_game_count_all.html"),
+        os.path.join(PLAYER_REPORT_FOLDER, f"{report_name}.json"),
+        os.path.join(PLAYER_REPORT_FOLDER, f"{report_name}.html"),
     )
