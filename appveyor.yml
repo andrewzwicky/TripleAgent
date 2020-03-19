@@ -29,6 +29,7 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;C:\\Program Files\\Tesseract-OCR;%PATH%"
   - "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
   - "%PIP% install -e .[plot,retrieve,parse,test] --quiet"
+  - "%PIP% list installed"
 
 build: false
 
