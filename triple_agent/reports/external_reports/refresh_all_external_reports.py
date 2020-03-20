@@ -131,7 +131,6 @@ def refresh_example_notebooks():
         if potential_notebook.endswith(".ipynb"):
             print(f"executing {potential_notebook}")
             execute_single_notebook(potential_notebook)
-            break
 
 
 def refresh_event_reports():
