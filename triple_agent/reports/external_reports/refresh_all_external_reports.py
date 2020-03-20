@@ -156,34 +156,34 @@ def refresh_overall_reports():
 
 
 def refresh_all_reports():
-    # all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
-    # create_alias_list(all_replays)
-    #
-    # delete_stale_json_files()
-    # zip_all_json_files()
-    # refresh_html_files()
-    #
-    # # SCL5 is concluded, not need to create report again
-    # all_replays = get_parsed_replays(lambda x: True)
-    # scl6_replays = list(filter(select_scl6_with_drops, all_replays))
-    #
-    # refresh_overall_reports()
-    # refresh_event_reports()
-    #
-    # player_at_reports(all_replays, "action_test_all")
-    # player_at_reports(scl6_replays, "action_test_scl6")
-    #
-    # player_spy_selection_report(all_replays, "spy_selection_all")
-    # player_spy_selection_report(scl6_replays, "spy_selection_scl6")
-    #
-    # player_game_count_reports(all_replays, "spy_game_count_all")
-    # player_game_count_reports(scl6_replays, "spy_game_count_scl6")
+    all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
+    create_alias_list(all_replays)
+
+    delete_stale_json_files()
+    zip_all_json_files()
+    refresh_html_files()
+
+    # SCL5 is concluded, not need to create report again
+    all_replays = get_parsed_replays(lambda x: True)
+    scl6_replays = list(filter(select_scl6_with_drops, all_replays))
+
+    refresh_overall_reports()
+    refresh_event_reports()
+
+    player_at_reports(all_replays, "action_test_all")
+    player_at_reports(scl6_replays, "action_test_scl6")
+
+    player_spy_selection_report(all_replays, "spy_selection_all")
+    player_spy_selection_report(scl6_replays, "spy_selection_scl6")
+
+    player_game_count_reports(all_replays, "spy_game_count_all")
+    player_game_count_reports(scl6_replays, "spy_game_count_scl6")
 
     refresh_example_notebooks()
 
-    # spf_lights_report(all_replays)
-    # spf_action_test_report(all_replays)
-    # spf_character_selection_report(all_replays)
+    spf_lights_report(all_replays)
+    spf_action_test_report(all_replays)
+    spf_character_selection_report(all_replays)
 
 
 if __name__ == "__main__":
