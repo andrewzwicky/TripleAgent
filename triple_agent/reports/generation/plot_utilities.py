@@ -156,12 +156,10 @@ def create_initial_data_frame(
 ) -> pandas.DataFrame:
     categories = list(data_dictionary.keys())
 
-    data_parts = set()
+    stacks = list()
     for inner_dict in data_dictionary.values():
         for inner_key in inner_dict.keys():
-            data_parts.add(inner_key)
-
-    stacks = list(data_parts)
+            stacks.append(inner_key)
 
     # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
     frame = pandas.DataFrame(
