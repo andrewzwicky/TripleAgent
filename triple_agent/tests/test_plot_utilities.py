@@ -446,6 +446,32 @@ SORT_FRAME_CASES = [
     (
         pandas.DataFrame(
             data=[[128, 152, 15, 15, 4]],
+            columns=[
+                ActionTest.Green,
+                ActionTest.White,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.Canceled,
+            ],
+            index=[None],
+        ),
+        None,
+        False,
+        pandas.DataFrame(
+            data=[[4, 15, 15, 152, 128]],
+            columns=[
+                ActionTest.Canceled,
+                ActionTest.Red,
+                ActionTest.Ignored,
+                ActionTest.White,
+                ActionTest.Green,
+            ],
+            index=[None],
+        ),
+    ),
+    (
+        pandas.DataFrame(
+            data=[[128, 152, 15, 15, 4]],
             columns=[5, ActionTest.White, ActionTest.Red, "a", ActionTest.Canceled,],
             index=[None],
         ),
