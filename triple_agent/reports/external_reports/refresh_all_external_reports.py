@@ -24,7 +24,7 @@ from triple_agent.constants.paths import (
     DOCS_FOLDER,
 )
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
-from triple_agent.constants.events import select_scl5_with_drops, select_scl6_with_drops
+from triple_agent.constants.events import select_scl6_with_drops
 from triple_agent.reports.external_reports.spy_party_fans.character_selection import (
     spf_character_selection_report,
 )
