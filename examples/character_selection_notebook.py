@@ -1,6 +1,6 @@
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 from triple_agent.constants.events import select_scl5_regular_season
-from triple_agent.reports.specific.character_selection import determine_character_in_role
+from triple_agent.reports.specific.character_selection import determine_character_in_role, st_selection
 from triple_agent.reports.specific.game_outcomes import game_outcomes
 from triple_agent.classes.roles import Roles
 from triple_agent.reports.generation.plot_specs import AxisProperties, DataQueryProperties
@@ -19,5 +19,19 @@ _=game_outcomes(
     data_query = DataQueryProperties(
         groupby=lambda g: determine_character_in_role(g, Roles.Spy),
         secondary_order=sum,
+    )
+)
+
+_=st_selection(
+    scl5_replays,
+    axis_properties = AxisProperties(
+        title="SCL5 Seduction Target Selection",
+        x_axis_portrait=True,
+        y_axis_label="Game Count",
+        x_axis_label="Chosen Seduction Target",
+        savefig='example_pictures/scl5_st_selection.png'
+    ),
+    data_query = DataQueryProperties(
+        primary_order=sum,
     )
 )
