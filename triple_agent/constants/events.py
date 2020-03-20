@@ -93,7 +93,7 @@ SCL5_DIVISIONS = [
 ]
 
 SCL6_DIVISIONS = [
-    #TODO: clear this up after placements
+    # TODO: clear this up after placements
     "Diamond",
     "Platinum",
     "Gold",
@@ -143,6 +143,7 @@ def select_scl6_regular_season(game: Game) -> bool:  # pragma: no cover
         and game.spy not in SCL6_DROPPED_PLAYERS
         and game.sniper not in SCL6_DROPPED_PLAYERS
     )
+
 
 def select_scl6_with_drops(game: Game) -> bool:  # pragma: no cover
     return game.event == "SCL6"
