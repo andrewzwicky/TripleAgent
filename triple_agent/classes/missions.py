@@ -1,6 +1,7 @@
 from enum import Flag, auto
 from typing import Set
 from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
 
 class Missions(Flag):
@@ -18,7 +19,7 @@ class Missions(Flag):
         return [mission.name for mission in Missions if mission & self]
 
 
-class MissionStatus(Flag):
+class MissionStatus(ReverseOrderedEnum):
     Disabled = 0
     Incomplete = auto()
     Complete = auto()
