@@ -13,30 +13,6 @@ def sort_frame_stacks(
     reverse_primary_order: bool = False,
 ) -> pandas.DataFrame:
 
-    from triple_agent.classes.characters import Characters
-
-    assert list(frame.index)[0] == Characters.Sari
-    assert list(frame.index)[1] == Characters.Bling
-    assert list(frame.index)[2] == Characters.Plain
-    assert list(frame.index)[3] == Characters.General
-    assert list(frame.index)[4] == Characters.Morgan
-    assert list(frame.index)[5] == Characters.Smallman
-    assert list(frame.index)[6] == Characters.Irish
-    assert list(frame.index)[7] == Characters.Teal
-    assert list(frame.index)[8] == Characters.Alice
-    assert list(frame.index)[9] == Characters.Helen
-    assert list(frame.index)[10] == Characters.Taft
-    assert list(frame.index)[11] == Characters.Oprah
-    assert list(frame.index)[12] == Characters.Disney
-    assert list(frame.index)[13] == Characters.Rocker
-    assert list(frame.index)[14] == Characters.Boots
-    assert list(frame.index)[15] == Characters.Queen
-    assert list(frame.index)[16] == Characters.Carlos
-    assert list(frame.index)[17] == Characters.Wheels
-    assert list(frame.index)[18] == Characters.Salmon
-    assert list(frame.index)[19] == Characters.Sikh
-    assert list(frame.index)[20] == Characters.Duke
-
     if callable(primary_order):
         if primary_order is sum:
             frame = frame.reindex(
@@ -167,29 +143,5 @@ def create_initial_data_frame(
         columns=categories,
         index=stacks,
     )
-
-    from triple_agent.classes.characters import Characters
-
-    assert list(frame.index)[0] == Characters.Sari
-    assert list(frame.index)[1] == Characters.Bling
-    assert list(frame.index)[2] == Characters.Plain
-    assert list(frame.index)[3] == Characters.General
-    assert list(frame.index)[4] == Characters.Morgan
-    assert list(frame.index)[5] == Characters.Smallman
-    assert list(frame.index)[6] == Characters.Irish
-    assert list(frame.index)[7] == Characters.Teal
-    assert list(frame.index)[8] == Characters.Alice
-    assert list(frame.index)[9] == Characters.Helen
-    assert list(frame.index)[10] == Characters.Taft
-    assert list(frame.index)[11] == Characters.Oprah
-    assert list(frame.index)[12] == Characters.Disney
-    assert list(frame.index)[13] == Characters.Rocker
-    assert list(frame.index)[14] == Characters.Boots
-    assert list(frame.index)[15] == Characters.Queen
-    assert list(frame.index)[16] == Characters.Carlos
-    assert list(frame.index)[17] == Characters.Wheels
-    assert list(frame.index)[18] == Characters.Salmon
-    assert list(frame.index)[19] == Characters.Sikh
-    assert list(frame.index)[20] == Characters.Duke
 
     return frame
