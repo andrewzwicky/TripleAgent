@@ -132,10 +132,15 @@ def create_initial_data_frame(
 ) -> pandas.DataFrame:
     categories = list(data_dictionary.keys())
 
-    stacks = list()
+    data_parts = set()
     for inner_dict in data_dictionary.values():
         for inner_key in inner_dict.keys():
-            stacks.append(inner_key)
+            data_parts.add(inner_key)
+
+    # sorting will provide determinism between runs
+    # just converting set to list was creating slight
+    # variations between the same runs
+    stacks = sorted(list(data_parts))
 
     # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
     frame = pandas.DataFrame(
