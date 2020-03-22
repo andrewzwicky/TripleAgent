@@ -24,6 +24,7 @@ from triple_agent.classes.missions import MISSION_PLOT_ORDER
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.characters import Characters
 from triple_agent.constants.paths import PORTRAITS_FOLDER
+from triple_agent.classes.venues import Venue
 
 
 @pytest.mark.plotting
@@ -322,6 +323,101 @@ def test_bar_simple(test_figure, reference_figure):
 
 
 @pytest.mark.plotting
+def test_bar_simple_no_data(capsys):
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(), stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties)
+
+    captured = capsys.readouterr()
+
+    assert captured.out == "no data available for this query.\n"
+
+
+@pytest.mark.plotting
+def test_pie_simple_no_data(capsys):
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(), stacks_are_categories=True,
+    )
+
+    create_pie_chart(axis_properties, data_plot_properties)
+
+    captured = capsys.readouterr()
+
+    assert captured.out == "no data available for this query.\n"
+
+
+@pytest.mark.plotting
+def test_pie_simple_no_data_but_columns(capsys):
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[0.0, 0.0]], columns=["direct", "action test"], index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_pie_chart(axis_properties, data_plot_properties)
+
+    captured = capsys.readouterr()
+
+    assert captured.out == "no data available for this query.\n"
+
+
+@pytest.mark.plotting
+def test_line_simple_no_data(capsys):
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(), stacks_are_categories=True,
+    )
+
+    create_line_plot(axis_properties, data_plot_properties)
+
+    captured = capsys.readouterr()
+
+    assert captured.out == "no data available for this query.\n"
+
+
+@pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
 def test_bar_simple_short_data_label(test_figure, reference_figure):
@@ -374,6 +470,67 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
     )
     data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(data=[[0.1, 5]], columns=["A", "B"], index=[None]),
+        stacks_are_categories=True,
+    )
+
+    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_bar_simple_short_data_label(test_figure, reference_figure):
+    reference_figure.set_size_inches(12, 8)
+    ref_ax = reference_figure.subplots()
+    ref_ax.set_title("Bar")
+    ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=6)
+
+    ref_ax.set_xlim(-0.5, 1.5)
+    ref_ax.set_xticks([0, 1])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(["A", "B"], rotation=90)
+
+    ref_ax.text(
+        1,
+        5 - (5 * 0.01),
+        "5",
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="top",
+    )
+
+    ref_ax.text(
+        0,
+        0.1 + (5 * 0.01),
+        "0.10",
+        color="black",
+        horizontalalignment="center",
+        verticalalignment="bottom",
+    )
+
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+        data_label_style=PlotLabelStyle.Plain,
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[0.1, 5]], columns=["A", "B"], index=[Venue.Courtyard]
+        ),
         stacks_are_categories=True,
     )
 

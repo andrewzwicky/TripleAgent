@@ -1,6 +1,9 @@
+from math import isclose
+
 from matplotlib import pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import numpy as np
+
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataPlotProperties,
@@ -30,6 +33,10 @@ def create_line_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
+    if data_properties.frame.empty:
+        print("no data available for this query.")
+        return
+
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
@@ -93,6 +100,10 @@ def create_bar_plot(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
+    if data_properties.frame.empty:
+        print("no data available for this query.")
+        return
+
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
@@ -196,10 +207,14 @@ def create_pie_chart(
     data_properties: DataPlotProperties,
     fig: plt.Figure = None,
 ):
-    with setup_color_context():
-        # Pie chart assumes this will be the case, so confirm.
-        assert data_properties.stacks_are_categories
+    # Pie chart assumes this will be the case, so confirm.
+    assert data_properties.stacks_are_categories
 
+    if data_properties.frame.empty or isclose(sum(data_properties.frame.sum()), 0):
+        print("no data available for this query.")
+        return
+
+    with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(figsize=(8, 8))
