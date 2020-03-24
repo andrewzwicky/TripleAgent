@@ -54,18 +54,34 @@ def delete_stale_json_files():
         JSON_GAMES_FOLDER.joinpath(f"{uuid}.json").unlink()
 
 
+def create_zip_start_end_indices(num_files: int, chunk_size: int):
+    assert num_files > 0
+    assert chunk_size > 0
+
+    count = 1
+    start = 0
+    end = min(chunk_size, num_files - 1)
+
+    while True:
+        yield count, start, end
+
+        count += 1
+        start += chunk_size
+        end = min(end + chunk_size, num_files - 1)
+
+        if start >= num_files:
+            break
+
 def zip_all_json_files():
     json_files = sorted([f for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"])
 
-    for zip_num in itertools.count():
-        if zip_num * ZIP_CHUNK_SIZE > len(json_files):
-            break
+    for zip_num, start, end in create_zip_start_end_indices(
+        len(json_files), ZIP_CHUNK_SIZE
+    ):
         with ZipFile(
             os.path.join(JSON_GAMES_FOLDER, f"json_games_{zip_num}.zip"), "w"
         ) as json_zip:
-            for file in json_files[
-                zip_num * ZIP_CHUNK_SIZE : (zip_num * ZIP_CHUNK_SIZE) + ZIP_CHUNK_SIZE
-            ]:
+            for file in json_files[start:end]:
                 json_zip.write(file, arcname=file.name)
 
 
