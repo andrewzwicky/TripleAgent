@@ -1,5 +1,4 @@
 import os
-import itertools
 from zipfile import ZipFile
 
 from pathlib import Path
@@ -71,6 +70,7 @@ def create_zip_start_end_indices(num_files: int, chunk_size: int):
 
         if start >= num_files:
             break
+
 
 def zip_all_json_files():
     json_files = sorted([f for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"])
