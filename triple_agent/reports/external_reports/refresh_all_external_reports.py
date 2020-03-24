@@ -38,7 +38,7 @@ from triple_agent.reports.generation.create_alias_list import create_alias_list
 EVENT_REPORT_SOURCE = Path(__file__).parents[0].joinpath("event_reports")
 OVERALL_REPORT_SOURCE = Path(__file__).parents[0].joinpath("overall_reports")
 
-ZIP_CHUNK_SIZE = 1000
+ZIP_CHUNK_SIZE = 2000
 
 
 def delete_stale_json_files():
