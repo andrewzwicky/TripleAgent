@@ -40,7 +40,9 @@ def create_line_plot(
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(figsize=(12, 8))
+            fig, axis = plt.subplots(
+                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+            )
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -107,7 +109,9 @@ def create_bar_plot(
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(figsize=(12, 8))
+            fig, axis = plt.subplots(
+                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+            )
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -277,7 +281,9 @@ def create_progress_plot(
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(figsize=(12, 8))
+            fig, axis = plt.subplots(
+                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+            )
         else:
             show = False
             fig.set_size_inches(12, 8)
@@ -319,7 +325,9 @@ def create_histogram(
     with setup_color_context():
         if fig is None:  # pragma: no cover
             show = True
-            fig, axis = plt.subplots(figsize=(12, 8))
+            fig, axis = plt.subplots(
+                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+            )
         else:
             show = False
             fig.set_size_inches(12, 8)

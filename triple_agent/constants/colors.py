@@ -12,6 +12,8 @@ class PlotColorsBase:
         self.color_4 = None
         self.color_5 = None
 
+        self.fig_facecolor = None
+
         self.dark_grey = "xkcd:dark grey"
         self.grey = "xkcd:grey"
         self.light_grey = "xkcd:light grey"
@@ -63,6 +65,8 @@ class PlotColorsTolBright(PlotColorsBase):  # pragma: no cover
         self.color_4 = "#CCBB44"  # yellow
         self.color_5 = "#BBBBBB"  # grey
 
+        self.fig_facecolor = "white"
+
         self.add_cycler()
 
 
@@ -78,6 +82,8 @@ class PlotColorsTolVibrant(PlotColorsBase):  # pragma: no cover
         self.color_3 = "#009988"  # teal
         self.color_4 = "#EE3377"  # magenta
         self.color_5 = "#BBBBBB"  # grey
+
+        self.fig_facecolor = "white"
 
         self.add_cycler()
 
@@ -95,6 +101,8 @@ class PlotColorsTolMuted(PlotColorsBase):  # pragma: no cover
         self.color_4 = "#999933"  # olive
         self.color_5 = "#DDCC77"  # sand
 
+        self.fig_facecolor = "white"
+
         self.add_cycler()
 
 
@@ -110,6 +118,8 @@ class PlotColorsSCL(PlotColorsBase):  # pragma: no cover
         self.color_3 = "#000000"  # black
         self.color_4 = "#4477AA"  # blue
         self.color_5 = "#88CCEE"  # cyan
+
+        self.fig_facecolor = "white"
 
         self.add_cycler()
 
