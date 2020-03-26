@@ -43,7 +43,7 @@ setup(
     python_requires=">=3.7",
     extras_require={
         "plot": [
-            "matplotlib<=3.2.0",
+            "matplotlib>=3.2.1",
             "jupyterlab>=0.35.6",
             "jsonpickle>=1.2",
             "simplejson>=3.17.0",

@@ -8,16 +8,6 @@ import pytest
 pytest.register_assert_rewrite("pandas.testing")
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
-# this fixture is needed because check_figures_equal doesn't clean up after itself automatically.
-# the matplotlib tests do that automatically for all tests.
-# https://github.com/matplotlib/matplotlib/issues/15079
-@pytest.fixture(autouse=True)
-def auto_close_all_figures(request):
-    yield
-
-    if "matplotlib" in request.keywords:
-        plt.close("all")
-
 
 @pytest.fixture(scope="session")
 def get_test_replay_pickle_folder():

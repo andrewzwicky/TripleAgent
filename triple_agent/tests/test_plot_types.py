@@ -27,13 +27,31 @@ from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.classes.venues import Venue
 
 
+@check_figures_equal(extensions=["png"])
+def test_mpl_321(fig_test, fig_ref):
+
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
+    ref_ax.set_title("Test Title")
+    ref_ax.pie(
+        [1, 2, 3, 4, 4], labels=["A", "B", "C", "D", "E"],
+    )
+
+    fig_test.set_size_inches(8, 8)
+    test_ax = fig_test.subplots()
+    test_ax.set_title("Test Title")
+    test_ax.pie(
+        [1, 2, 3, 4, 4], labels=["A", "B", "C", "D", "E"],
+    )
+
+
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_pie_chart_simple(test_figure, reference_figure):
+def test_pie_chart_simple(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(8, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Test Title")
     ref_ax.pie(
         [1, 2, 3, 4, 4],
@@ -62,17 +80,17 @@ def test_pie_chart_simple(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 # @pytest.mark.plotting
 # @pytest.mark.matplotlib
 # @check_figures_equal(extensions=["png"])
-# def test_pie_chart_simple_dark_mode(test_figure, reference_figure):
+# def test_pie_chart_simple_dark_mode(fig_test, fig_ref):
 #
-#     reference_figure.set_size_inches(8, 8)
-#     reference_figure.set_facecolor("black")
-#     ref_ax = reference_figure.subplots()
+#     fig_ref.set_size_inches(8, 8)
+#     fig_ref.set_facecolor("black")
+#     ref_ax = fig_ref.subplots()
 #     ref_ax.set_title("Test Title")
 #     ref_ax.pie(
 #         [1, 2, 3, 4, 4],
@@ -102,16 +120,16 @@ def test_pie_chart_simple(test_figure, reference_figure):
 #         stacks_are_categories=True,
 #     )
 #
-#     create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+#     create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_pie_chart_simple_zero_wedge(test_figure, reference_figure):
+def test_pie_chart_simple_zero_wedge(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(8, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Test Title")
     ref_ax.pie(
         [0, 2, 3, 4, 4],
@@ -140,16 +158,16 @@ def test_pie_chart_simple_zero_wedge(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_pie_chart_AT_labels(test_figure, reference_figure):
+def test_pie_chart_AT_labels(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(8, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("AT Pie Chart")
     ref_ax.pie(
         [1, 2, 3, 4, 4],
@@ -192,16 +210,16 @@ def test_pie_chart_AT_labels(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_pie_chart_hatch(test_figure, reference_figure):
+def test_pie_chart_hatch(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(8, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Test Title")
     patches, _, _ = ref_ax.pie(
         [1, 2, 3, 4, 4],
@@ -232,16 +250,16 @@ def test_pie_chart_hatch(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_pie_chart_stack_label_dict(test_figure, reference_figure):
+def test_pie_chart_stack_label_dict(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(8, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(8, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Test Title")
     patches, _, _ = ref_ax.pie(
         [1, 2, 3, 4, 4],
@@ -271,16 +289,16 @@ def test_pie_chart_stack_label_dict(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_pie_chart(axis_properties, data_plot_properties, fig=test_figure)
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple(test_figure, reference_figure):
+def test_bar_simple(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -319,7 +337,7 @@ def test_bar_simple(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
@@ -420,9 +438,9 @@ def test_line_simple_no_data(capsys):
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple_short_data_label(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_bar_simple_short_data_label(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
@@ -473,15 +491,15 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple_short_data_label(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_bar_simple_short_data_label(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
@@ -534,16 +552,16 @@ def test_bar_simple_short_data_label(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple_portrait(test_figure, reference_figure):
+def test_bar_simple_portrait(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar([0, 1, 2, 3, 4], [4, 5, 7, 9, 2], color="#0077BB", edgecolor="black")
     ref_ax.yaxis.set_major_locator(MultipleLocator(1))
@@ -568,20 +586,18 @@ def test_bar_simple_portrait(test_figure, reference_figure):
         ],
         rotation=90,
     )
-    reference_figure.canvas.draw()
+    fig_ref.canvas.draw()
     for label in ref_ax.xaxis.get_ticklabels():
         ext = label.get_window_extent()
         name = label.get_text().strip().lower()
-        [[left, _], [right, top]] = reference_figure.transFigure.inverted().transform(
-            ext
-        )
+        [[left, _], [right, top]] = fig_ref.transFigure.inverted().transform(ext)
 
         portrait_image = plt.imread(
             os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
         )
         port_size = 0.045
         port_start = ((left + right) / 2) - (port_size / 2)
-        newax = reference_figure.add_axes(
+        newax = fig_ref.add_axes(
             [port_start, top - port_size, port_size, port_size], zorder=-1
         )
         newax.imshow(portrait_image)
@@ -603,16 +619,16 @@ def test_bar_simple_portrait(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple_float_short(test_figure, reference_figure):
+def test_bar_simple_float_short(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -657,16 +673,16 @@ def test_bar_simple_float_short(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_stacked(test_figure, reference_figure):
+def test_bar_stacked(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(15, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(15, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     patches = ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -716,16 +732,16 @@ def test_bar_stacked(test_figure, reference_figure):
         stacks_are_categories=False,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_stacked_percentile(test_figure, reference_figure):
+def test_bar_stacked_percentile(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(15, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(15, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     patches = ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -872,16 +888,16 @@ def test_bar_stacked_percentile(test_figure, reference_figure):
         stacks_are_categories=False,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_stacked_no_color(test_figure, reference_figure):
+def test_bar_stacked_no_color(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(15, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(15, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     patches = ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -933,16 +949,16 @@ def test_bar_stacked_no_color(test_figure, reference_figure):
         stacks_are_categories=False,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_line_plot(test_figure, reference_figure):
+def test_line_plot(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(15, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(15, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.plot(
         [0, 1, 2, 3, 4],
@@ -998,16 +1014,16 @@ def test_line_plot(test_figure, reference_figure):
         stacks_are_categories=False,
     )
 
-    create_line_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_line_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_mission_choice_bar(test_figure, reference_figure):
+def test_mission_choice_bar(fig_test, fig_ref):
 
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Mission Choices")
     ref_ax.bar(range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="#0077BB", edgecolor="black")
 
@@ -1045,15 +1061,15 @@ def test_mission_choice_bar(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_bar_simple_labels(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_bar_simple_labels(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
     ref_ax.set_title("Bar")
     ref_ax.bar(
         [0, 1, 2, 3, 4],
@@ -1138,15 +1154,15 @@ def test_bar_simple_labels(test_figure, reference_figure):
         stacks_are_categories=True,
     )
 
-    create_bar_plot(axis_properties, data_plot_properties, fig=test_figure)
+    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
 
 
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_histogram(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_histogram(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
 
     ref_ax.set_title("Histogram")
     ref_ax.bar(
@@ -1186,7 +1202,7 @@ def test_histogram(test_figure, reference_figure):
     create_histogram(
         axis_properties,
         [1, 1, 1, 1, 2, 2, 3, 4, 3, 3, 2, 2, 1, 1, 8, 8, 8],
-        fig=test_figure,
+        fig=fig_test,
         bin_size=1,
         major_locator=5,
     )
@@ -1195,9 +1211,9 @@ def test_histogram(test_figure, reference_figure):
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_histogram_2(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_histogram_2(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
 
     ref_ax.set_title("Histogram")
     ref_ax.bar(
@@ -1251,7 +1267,7 @@ def test_histogram_2(test_figure, reference_figure):
     create_histogram(
         axis_properties,
         [1, 1, 1, 1, 2, 2, 3, 4, 3, 3, 2, 2, 1, 1, 8, 8, 8],
-        fig=test_figure,
+        fig=fig_test,
         bin_size=1,
         major_locator=5,
     )
@@ -1260,9 +1276,9 @@ def test_histogram_2(test_figure, reference_figure):
 @pytest.mark.plotting
 @pytest.mark.matplotlib
 @check_figures_equal(extensions=["png"])
-def test_create_progress_plot(test_figure, reference_figure):
-    reference_figure.set_size_inches(12, 8)
-    ref_ax = reference_figure.subplots()
+def test_create_progress_plot(fig_test, fig_ref):
+    fig_ref.set_size_inches(12, 8)
+    ref_ax = fig_ref.subplots()
 
     ref_ax.plot(
         [0, 0.25, 0.65, 1], [0, 0.25, 0.65, 1], linewidth=4, alpha=0.05, color="red"
@@ -1292,5 +1308,5 @@ def test_create_progress_plot(test_figure, reference_figure):
         [[0, 0.25, 0.65, 1], [0, 0.45, 0.6], [0, 0.75, 0.85, 1]],
         ["red", "blue", "green"],
         axis_properties=axis_properties,
-        fig=test_figure,
+        fig=fig_test,
     )
