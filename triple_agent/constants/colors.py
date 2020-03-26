@@ -38,6 +38,7 @@ class PlotColorsBase:
 # based on https://davidmathlogic.com/colorblind/#%23000000-%23E69F00-%2356B4E9-%23009E73-%23F0E442-%230072B2-%23D55E00-%23CC79A7
 # Wong
 class PlotColorsWong(PlotColorsBase):  # pragma: no cover
+    # pylint: disable=too-many-instance-attributes
     def __init__(self):
         super().__init__()
 
@@ -54,6 +55,7 @@ class PlotColorsWong(PlotColorsBase):  # pragma: no cover
 
 # based on https://personal.sron.nl/~pault/ bright qualitative colour scheme
 class PlotColorsTolBright(PlotColorsBase):  # pragma: no cover
+    # pylint: disable=too-many-instance-attributes
     def __init__(self):
         super().__init__()
 
@@ -72,6 +74,7 @@ class PlotColorsTolBright(PlotColorsBase):  # pragma: no cover
 
 # based on https://personal.sron.nl/~pault/ vibrant qualitative colour scheme
 class PlotColorsTolVibrant(PlotColorsBase):  # pragma: no cover
+    # pylint: disable=too-many-instance-attributes
     def __init__(self):
         super().__init__()
 
@@ -90,6 +93,7 @@ class PlotColorsTolVibrant(PlotColorsBase):  # pragma: no cover
 
 # based on https://personal.sron.nl/~pault/ muted qualitative colour scheme
 class PlotColorsTolMuted(PlotColorsBase):  # pragma: no cover
+    # pylint: disable=too-many-instance-attributes
     def __init__(self):
         super().__init__()
 
@@ -108,6 +112,7 @@ class PlotColorsTolMuted(PlotColorsBase):  # pragma: no cover
 
 # based on SCL
 class PlotColorsSCL(PlotColorsBase):  # pragma: no cover
+    # pylint: disable=too-many-instance-attributes
     def __init__(self):
         super().__init__()
 
