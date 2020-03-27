@@ -10,7 +10,7 @@ from triple_agent.reports.generation.generic_query import (
 )
 from triple_agent.classes.game import Game
 from triple_agent.classes.missions import (
-    MISSIONS_ENUM_TO_COLOR,
+    create_missions_color_dict,
     MISSION_PLOT_ORDER,
     MISSION_STATUS_PLOT_ORDER,
     Missions,
@@ -22,7 +22,7 @@ from triple_agent.reports.generation.plot_specs import (
     DataPlotProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.constants.colors import PlotColorsBase
 
 
 def _mission_completes(games: List[Game], data_dictionary: Counter):
@@ -54,7 +54,9 @@ def mission_completion_query(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=MISSIONS_ENUM_TO_COLOR),
+        AxisProperties(
+            primary_color_dict=create_missions_color_dict(axis_properties.plot_colors)
+        ),
         DataQueryProperties(
             query_function=_mission_completes, primary_order=MISSION_PLOT_ORDER
         ),
@@ -63,7 +65,9 @@ def mission_completion_query(
     return query(games, data_query, axis_properties)
 
 
-def mission_completion(games: List[Game], title: str):
+def mission_completion(
+    games: List[Game], title: str, plot_colors: PlotColorsBase = PlotColorsBase()
+):
     """
     This report is slightly different, because the desire is to sort the data
     by mission, rather than by an attribute of the game itself.  This means
@@ -87,9 +91,9 @@ def mission_completion(games: List[Game], title: str):
             # TODO: make the data percentage based.
             y_axis_percentage=True,
             primary_color_dict={
-                MissionStatus.Complete: PLOT_COLORS.color_1,
-                MissionStatus.Incomplete: PLOT_COLORS.color_2,
-                MissionStatus.Disabled: PLOT_COLORS.light_grey,
+                MissionStatus.Complete: plot_colors.color_1,
+                MissionStatus.Incomplete: plot_colors.color_2,
+                MissionStatus.Disabled: plot_colors.light_grey,
             },
         ),
         DataPlotProperties(frame=frame),

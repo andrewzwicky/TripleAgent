@@ -3,6 +3,8 @@ from typing import Optional, List, Callable, Any, Dict, Union
 from enum import Enum, auto
 import pandas
 
+from triple_agent.constants.colors import PlotColorsBase
+
 
 class PlotLabelStyle(Enum):
     NoLabels = auto()
@@ -32,6 +34,7 @@ class AxisProperties:
     secondary_label_dict: Optional[Dict[Any, str]] = None
     primary_hatch_dict: Optional[Dict[Any, Optional[str]]] = None
     primary_color_dict: Optional[Dict[Any, Optional[str]]] = None
+    plot_colors: PlotColorsBase = PlotColorsBase()
 
     def update(self, suggested_axis_properties):
         if suggested_axis_properties is not None:

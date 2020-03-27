@@ -8,7 +8,7 @@ import numpy as np
 import pandas
 from triple_agent.constants.paths import PORTRAITS_FOLDER
 from triple_agent.reports.generation.plot_specs import AxisProperties, PlotLabelStyle
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.constants.colors import PlotColorsBase
 
 
 def labelify(unknown_item: Any, percentage: bool = False):
@@ -76,6 +76,7 @@ def create_category_legend_labels(
 
 
 def create_plot_colors(
+    plot_colors: Optional[PlotColorsBase],
     primary_color_dict: Optional[Dict[Any, Optional[str]]],
     frame: pandas.DataFrame,
     stacks_are_categories: bool = False,
@@ -86,7 +87,7 @@ def create_plot_colors(
             if is_pie_chart:
                 return [None for _ in frame.index]
 
-            return frame.applymap(lambda x: PLOT_COLORS.color_1).values.tolist()
+            return frame.applymap(lambda x: plot_colors.color_1).values.tolist()
 
         # For some reason, the same operation with index being set to arrays, etc.
         # wouldn't correctly turn the indexs into a list, they would remain np arrays.

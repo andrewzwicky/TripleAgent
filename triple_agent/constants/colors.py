@@ -1,25 +1,26 @@
 from cycler import cycler
 
 
+# based on https://personal.sron.nl/~pault/ vibrant qualitative colour scheme
 class PlotColorsBase:
     # pylint: disable=too-many-instance-attributes
     def __init__(self):
-        self.color_1 = None
-        self.color_1_light = None
-        self.color_2 = None
-        self.color_2_light = None
-        self.color_3 = None
-        self.color_4 = None
-        self.color_5 = None
+        self.color_1 = "#0077BB"  # blue
+        self.color_1_light = "#33BBEE"  # cyan
+        self.color_2 = "#CC3311"  # red
+        self.color_2_light = "#EE7733"  # orange
+        self.color_3 = "#009988"  # teal
+        self.color_4 = "#EE3377"  # magenta
+        self.color_5 = "#BBBBBB"  # grey
 
-        self.fig_facecolor = None
+        self.fig_facecolor = "white"
 
         self.dark_grey = "xkcd:dark grey"
         self.grey = "xkcd:grey"
         self.light_grey = "xkcd:light grey"
         self.white = "xkcd:white"
 
-        self.cycler = None
+        self.add_cycler()
 
     def add_cycler(self):
         self.cycler = cycler(
@@ -72,25 +73,6 @@ class PlotColorsTolBright(PlotColorsBase):  # pragma: no cover
         self.add_cycler()
 
 
-# based on https://personal.sron.nl/~pault/ vibrant qualitative colour scheme
-class PlotColorsTolVibrant(PlotColorsBase):  # pragma: no cover
-    # pylint: disable=too-many-instance-attributes
-    def __init__(self):
-        super().__init__()
-
-        self.color_1 = "#0077BB"  # blue
-        self.color_1_light = "#33BBEE"  # cyan
-        self.color_2 = "#CC3311"  # red
-        self.color_2_light = "#EE7733"  # orange
-        self.color_3 = "#009988"  # teal
-        self.color_4 = "#EE3377"  # magenta
-        self.color_5 = "#BBBBBB"  # grey
-
-        self.fig_facecolor = "white"
-
-        self.add_cycler()
-
-
 # based on https://personal.sron.nl/~pault/ muted qualitative colour scheme
 class PlotColorsTolMuted(PlotColorsBase):  # pragma: no cover
     # pylint: disable=too-many-instance-attributes
@@ -127,6 +109,3 @@ class PlotColorsSCL(PlotColorsBase):  # pragma: no cover
         self.fig_facecolor = "white"
 
         self.add_cycler()
-
-
-PLOT_COLORS = PlotColorsTolVibrant()

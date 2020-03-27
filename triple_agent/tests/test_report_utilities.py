@@ -9,10 +9,12 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.venues import Venue
 from triple_agent.classes.characters import Characters
 from triple_agent.reports.generation.plot_specs import PlotLabelStyle
+from triple_agent.constants.colors import PlotColorsBase
 import pandas
 
 COLOR_TEST_CASES = [
     (
+        PlotColorsBase(),
         None,
         pandas.DataFrame(
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
@@ -22,6 +24,7 @@ COLOR_TEST_CASES = [
         [["#0077BB", "#0077BB"]],
     ),
     (
+        PlotColorsBase(),
         None,
         pandas.DataFrame(
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
@@ -32,6 +35,7 @@ COLOR_TEST_CASES = [
     ),
     # this test doesn't make sense because of this disconnect between stacks_are_categories and the index == [None]a
     (
+        PlotColorsBase(),
         None,
         pandas.DataFrame(
             data=[[3, 4]], columns=[ActionTest.White, ActionTest.Green], index=[None]
@@ -41,6 +45,7 @@ COLOR_TEST_CASES = [
         [None],
     ),
     (
+        PlotColorsBase(),
         {"x": "blue", "y": "red"},
         pandas.DataFrame(
             data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
@@ -50,6 +55,7 @@ COLOR_TEST_CASES = [
         [["blue", "blue", "blue"], ["red", "red", "red"]],
     ),
     (
+        PlotColorsBase(),
         None,
         pandas.DataFrame(
             data=[[3, 4, 1], [0, 0, 0]], columns=["test", "a", "b"], index=["x", "y"]
@@ -59,6 +65,7 @@ COLOR_TEST_CASES = [
         [None, None],
     ),
     (
+        PlotColorsBase(),
         {"x": "blue", "y": "red", "test": "green"},
         pandas.DataFrame(data=[[3, 4, 1]], columns=["test", "x", "y"], index=[None]),
         True,
@@ -71,14 +78,19 @@ COLOR_TEST_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "primary_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors",
+    "plot_colors, primary_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors",
     COLOR_TEST_CASES,
 )
 def test_create_plot_colors(
-    primary_color_dict, frame, stacks_are_categories, is_pie_chart, expected_colors
+    plot_colors,
+    primary_color_dict,
+    frame,
+    stacks_are_categories,
+    is_pie_chart,
+    expected_colors,
 ):
     colors = create_plot_colors(
-        primary_color_dict, frame, stacks_are_categories, is_pie_chart
+        plot_colors, primary_color_dict, frame, stacks_are_categories, is_pie_chart
     )
 
     assert colors == expected_colors

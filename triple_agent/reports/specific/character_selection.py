@@ -12,7 +12,6 @@ from triple_agent.reports.generation.plot_specs import (
     initialize_properties,
     PlotLabelStyle,
 )
-from triple_agent.constants.colors import PLOT_COLORS
 
 
 def _determine_spy(games, data_dictionary):
@@ -55,7 +54,7 @@ def spy_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=defaultdict(lambda: PLOT_COLORS.color_1),
+            primary_color_dict=defaultdict(lambda: axis_properties.plot_colors.color_1),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -74,7 +73,7 @@ def st_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=defaultdict(lambda: PLOT_COLORS.color_1),
+            primary_color_dict=defaultdict(lambda: axis_properties.plot_colors.color_1),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -93,7 +92,7 @@ def amba_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=defaultdict(lambda: PLOT_COLORS.color_1),
+            primary_color_dict=defaultdict(lambda: axis_properties.plot_colors.color_1),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),
@@ -112,7 +111,7 @@ def double_agent_selection(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=defaultdict(lambda: PLOT_COLORS.color_1),
+            primary_color_dict=defaultdict(lambda: axis_properties.plot_colors.color_1),
             force_bar=True,
             data_label_style=PlotLabelStyle.Plain,
         ),

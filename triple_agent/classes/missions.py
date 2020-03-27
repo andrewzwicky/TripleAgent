@@ -1,6 +1,6 @@
 from enum import Flag, auto
 from typing import Set
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
 
@@ -36,16 +36,44 @@ MISSIONS_ENUM_TO_LETTER = {
     Missions.Transfer: "T",
 }
 
-MISSIONS_ENUM_TO_COLOR = {
-    Missions.Seduce: PLOT_COLORS.color_1,
-    Missions.Inspect: PLOT_COLORS.color_1_light,
-    Missions.Fingerprint: PLOT_COLORS.color_5,
-    Missions.Contact: PLOT_COLORS.color_2,
-    Missions.Bug: PLOT_COLORS.grey,
-    Missions.Swap: PLOT_COLORS.color_2_light,
-    Missions.Purloin: PLOT_COLORS.color_3,
-    Missions.Transfer: PLOT_COLORS.color_4,
-}
+
+def create_missions_color_dict(plot_colors: PlotColorsBase):
+    return {
+        Missions.Seduce: plot_colors.color_1,
+        Missions.Inspect: plot_colors.color_1_light,
+        Missions.Fingerprint: plot_colors.color_5,
+        Missions.Contact: plot_colors.color_2,
+        Missions.Bug: plot_colors.grey,
+        Missions.Swap: plot_colors.color_2_light,
+        Missions.Purloin: plot_colors.color_3,
+        Missions.Transfer: plot_colors.color_4,
+    }
+
+
+def create_bug_color_dict(plot_colors: PlotColorsBase):
+    return {
+        ("Walking", True): plot_colors.color_1,
+        ("Walking", False): plot_colors.color_1,
+        ("Standing", True): plot_colors.color_2,
+        ("Standing", False): plot_colors.color_2,
+    }
+
+
+_FAKE = "fake"
+_REAL = "real"
+
+
+def create_banana_bread_color_dict(plot_colors: PlotColorsBase):
+    return {_FAKE: plot_colors.color_2, _REAL: plot_colors.color_1}
+
+
+_DIRECT = "direct"
+_AT = "action test"
+
+
+def create_microfilm_color_dict(plot_colors: PlotColorsBase):
+    return {_DIRECT: plot_colors.color_1, _AT: plot_colors.color_2}
+
 
 MISSION_PLOT_ORDER = list(MISSIONS_ENUM_TO_LETTER.keys())
 

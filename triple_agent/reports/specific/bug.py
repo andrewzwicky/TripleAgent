@@ -3,21 +3,14 @@ from typing import List
 from triple_agent.reports.generation.generic_query import query
 from triple_agent.reports.generation.plot_types import create_histogram
 from triple_agent.classes.game import Game
-from triple_agent.classes.missions import Missions
+from triple_agent.classes.missions import Missions, create_bug_color_dict
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PLOT_COLORS
 
-BUG_TO_COLORS_RGB = {
-    ("Walking", True): PLOT_COLORS.color_1,
-    ("Walking", False): PLOT_COLORS.color_1,
-    ("Standing", True): PLOT_COLORS.color_2,
-    ("Standing", False): PLOT_COLORS.color_2,
-}
 
 BUG_PLOT_LABEL_DICT = {
     ("Walking", True): "Walking (Successful)",
@@ -106,7 +99,7 @@ def bug_success_rate(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=BUG_TO_COLORS_RGB,
+            primary_color_dict=create_bug_color_dict(axis_properties.plot_colors),
             primary_label_dict=BUG_PLOT_LABEL_DICT,
             primary_hatch_dict=BUG_PLOT_HATCH_DICT,
         ),

@@ -7,11 +7,12 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PLOT_COLORS
 
-NOSTOP_TO_COLORS_RGB = {"NoStop": PLOT_COLORS.color_1, "Stop": PLOT_COLORS.color_2}
+_NOSTOP = "NoStop"
+_STOP = "Stop"
 
-NOSTOP_PLOT_ORDER = list(NOSTOP_TO_COLORS_RGB.keys())
+
+NOSTOP_PLOT_ORDER = [_NOSTOP, _STOP]
 
 
 def _categorize_stop_talks(games, data_dictionary):
@@ -25,9 +26,9 @@ def _categorize_stop_talks(games, data_dictionary):
                 break
 
         if did_stop is None:
-            data_dictionary["NoStop"] += 1
+            data_dictionary[_NOSTOP] += 1
         else:
-            data_dictionary["Stop"] += 1
+            data_dictionary[_STOP] += 1
 
 
 def stop_talk_in_game_percentage(
@@ -38,7 +39,12 @@ def stop_talk_in_game_percentage(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=NOSTOP_TO_COLORS_RGB),
+        AxisProperties(
+            primary_color_dict={
+                _NOSTOP: axis_properties.plot_colors.color_1,
+                _STOP: axis_properties.plot_colors.color_2,
+            }
+        ),
         DataQueryProperties(
             query_function=_categorize_stop_talks, primary_order=NOSTOP_PLOT_ORDER
         ),

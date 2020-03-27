@@ -5,7 +5,7 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.game import Game
 from triple_agent.classes.objects import (
     OBJECT_PLOT_ORDER_DIFFICULT,
-    OBJECT_TO_COLORS_RGB,
+    create_objects_color_dict,
     OBJECT_PLOT_HATCH_DICT,
     OBJECT_PLOT_LABEL_DICT_DIFFICULT,
 )
@@ -77,7 +77,7 @@ def attempted_fingerprint_sources(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=OBJECT_TO_COLORS_RGB,
+            primary_color_dict=create_objects_color_dict(axis_properties.plot_colors),
             primary_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
             primary_hatch_dict=OBJECT_PLOT_HATCH_DICT,
         ),
@@ -99,7 +99,7 @@ def successful_fingerprint_sources(
         axis_properties,
         data_query,
         AxisProperties(
-            primary_color_dict=OBJECT_TO_COLORS_RGB,
+            primary_color_dict=create_objects_color_dict(axis_properties.plot_colors),
             primary_label_dict=OBJECT_PLOT_LABEL_DICT_DIFFICULT,
             primary_hatch_dict=OBJECT_PLOT_HATCH_DICT,
         ),

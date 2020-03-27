@@ -1,6 +1,6 @@
 from enum import auto
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.constants.colors import PlotColorsBase
 
 
 class ActionTest(ReverseOrderedEnum):
@@ -12,10 +12,11 @@ class ActionTest(ReverseOrderedEnum):
     Canceled = auto()
 
 
-AT_TO_COLORS_RGB = {
-    ActionTest.Green: PLOT_COLORS.color_3,
-    ActionTest.White: PLOT_COLORS.white,
-    ActionTest.Ignored: PLOT_COLORS.light_grey,
-    ActionTest.Red: PLOT_COLORS.color_2,
-    ActionTest.Canceled: PLOT_COLORS.dark_grey,
-}
+def create_action_test_color_dict(plot_colors: PlotColorsBase):
+    return {
+        ActionTest.Green: plot_colors.color_3,
+        ActionTest.White: plot_colors.white,
+        ActionTest.Ignored: plot_colors.light_grey,
+        ActionTest.Red: plot_colors.color_2,
+        ActionTest.Canceled: plot_colors.dark_grey,
+    }

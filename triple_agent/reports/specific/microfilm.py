@@ -9,12 +9,8 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.classes.missions import _DIRECT, _AT, create_microfilm_color_dict
 
-_DIRECT = "direct"
-_AT = "action test"
-
-TRANSFER_TO_COLORS_RGB = {_DIRECT: PLOT_COLORS.color_1, _AT: PLOT_COLORS.color_2}
 TRANSFER_PLOT_ORDER = [_DIRECT, _AT]
 
 
@@ -47,7 +43,9 @@ def at_or_direct_mf(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=TRANSFER_TO_COLORS_RGB),
+        AxisProperties(
+            primary_color_dict=create_microfilm_color_dict(axis_properties.plot_colors)
+        ),
         DataQueryProperties(
             query_function=_classify_microfilms, primary_order=TRANSFER_PLOT_ORDER
         ),

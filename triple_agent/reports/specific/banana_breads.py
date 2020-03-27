@@ -9,11 +9,9 @@ from triple_agent.reports.generation.plot_specs import (
     DataQueryProperties,
     initialize_properties,
 )
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.classes.missions import _FAKE, _REAL, create_banana_bread_color_dict
 
-_FAKE = "fake"
-_REAL = "real"
-FAKE_REAL_COLORS = {_FAKE: PLOT_COLORS.color_2, _REAL: PLOT_COLORS.color_1}
+
 FAKE_REAL_ORDER = [_FAKE, _REAL]
 
 
@@ -57,7 +55,11 @@ def all_banana_bread_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=FAKE_REAL_COLORS),
+        AxisProperties(
+            primary_color_dict=create_banana_bread_color_dict(
+                axis_properties.plot_colors
+            )
+        ),
         DataQueryProperties(
             query_function=_all_banana_breads, primary_order=FAKE_REAL_ORDER
         ),
@@ -74,7 +76,11 @@ def first_banana_bread_percentages(
     axis_properties, data_query = initialize_properties(
         axis_properties,
         data_query,
-        AxisProperties(primary_color_dict=FAKE_REAL_COLORS),
+        AxisProperties(
+            primary_color_dict=create_banana_bread_color_dict(
+                axis_properties.plot_colors
+            )
+        ),
         DataQueryProperties(
             query_function=_first_banana_bread, primary_order=FAKE_REAL_ORDER
         ),

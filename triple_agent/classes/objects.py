@@ -1,18 +1,20 @@
 from triple_agent.classes.timeline import TimelineCategory
-from triple_agent.constants.colors import PLOT_COLORS
+from triple_agent.constants.colors import PlotColorsBase
 
 
 # TODO: create an actual first class Object enum, separate from TimelineCategory?
-OBJECT_TO_COLORS_RGB = {
-    (TimelineCategory.Briefcase, True): PLOT_COLORS.color_1,
-    (TimelineCategory.Briefcase, False): PLOT_COLORS.color_1,
-    (TimelineCategory.Statues, True): PLOT_COLORS.color_2,
-    (TimelineCategory.Statues, False): PLOT_COLORS.color_2,
-    (TimelineCategory.Books, True): PLOT_COLORS.color_3,
-    (TimelineCategory.Books, False): PLOT_COLORS.color_3,
-    (TimelineCategory.Drinks, True): PLOT_COLORS.color_4,
-    (TimelineCategory.Drinks, False): PLOT_COLORS.color_4,
-}
+def create_objects_color_dict(plot_colors: PlotColorsBase):
+    return {
+        (TimelineCategory.Briefcase, True): plot_colors.color_1,
+        (TimelineCategory.Briefcase, False): plot_colors.color_1,
+        (TimelineCategory.Statues, True): plot_colors.color_2,
+        (TimelineCategory.Statues, False): plot_colors.color_2,
+        (TimelineCategory.Books, True): plot_colors.color_3,
+        (TimelineCategory.Books, False): plot_colors.color_3,
+        (TimelineCategory.Drinks, True): plot_colors.color_4,
+        (TimelineCategory.Drinks, False): plot_colors.color_4,
+    }
+
 
 OBJECT_PLOT_LABEL_DICT_DIFFICULT = {
     (TimelineCategory.Briefcase, True): "Briefcase (Difficult)",

@@ -22,7 +22,6 @@ from triple_agent.reports.generation.report_utilities import (
     create_data_labels,
     trim_empty_labels,
 )
-from triple_agent.constants.colors import PLOT_COLORS
 
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
@@ -37,19 +36,20 @@ def create_line_plot(
         print("no data available for this query.")
         return
 
-    with setup_color_context():
+    with setup_color_context(axis_properties.plot_colors):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
             )
         else:
             show = False
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PLOT_COLORS.cycler)
+        axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         colors = create_plot_colors(
+            axis_properties.plot_colors,
             axis_properties.primary_color_dict,
             data_properties.frame,
             data_properties.stacks_are_categories,
@@ -106,18 +106,18 @@ def create_bar_plot(
         print("no data available for this query.")
         return
 
-    with setup_color_context():
+    with setup_color_context(axis_properties.plot_colors):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
             )
         else:
             show = False
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PLOT_COLORS.cycler)
+        axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         category_labels, stack_labels = create_category_legend_labels(
             axis_properties.primary_label_dict,
             axis_properties.secondary_label_dict,
@@ -170,6 +170,7 @@ def create_bar_plot(
 def draw_bars(axis, axis_properties, data_properties, ticks, stack_labels):
 
     colors = create_plot_colors(
+        axis_properties.plot_colors,
         axis_properties.primary_color_dict,
         data_properties.frame,
         data_properties.stacks_are_categories,
@@ -218,7 +219,7 @@ def create_pie_chart(
         print("no data available for this query.")
         return
 
-    with setup_color_context():
+    with setup_color_context(axis_properties.plot_colors):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(figsize=(8, 8))
@@ -227,10 +228,11 @@ def create_pie_chart(
             fig.set_size_inches(8, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PLOT_COLORS.cycler)
+        axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         axis.set_title(axis_properties.title)
 
         colors = create_plot_colors(
+            axis_properties.plot_colors,
             axis_properties.primary_color_dict,
             data_properties.frame,
             data_properties.stacks_are_categories,
@@ -278,11 +280,11 @@ def create_pie_chart(
 def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
-    with setup_color_context():
+    with setup_color_context(axis_properties.plot_colors):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
             )
         else:
             show = False
@@ -292,7 +294,7 @@ def create_progress_plot(
         for x_d, y_d, color in zip(x_data, y_data, colors):
             axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
 
-        axis.set_prop_cycle(PLOT_COLORS.cycler)
+        axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         axis.set_ylim(bottom=0)
         axis.set_xlim(left=0)
 
@@ -311,10 +313,10 @@ def create_progress_plot(
             plt.show()
 
 
-def setup_color_context():
+def setup_color_context(plot_colors):
     # TODO: make PlotColors a runtime check instead of an import check.
     context_dictionary = dict()
-    context_dictionary["axes.prop_cycle"] = PLOT_COLORS.cycler
+    context_dictionary["axes.prop_cycle"] = plot_colors.cycler
 
     return plt.style.context(context_dictionary)
 
@@ -322,22 +324,22 @@ def setup_color_context():
 def create_histogram(
     axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
-    with setup_color_context():
+    with setup_color_context(axis_properties.plot_colors):
         if fig is None:  # pragma: no cover
             show = True
             fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=PLOT_COLORS.fig_facecolor
+                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
             )
         else:
             show = False
             fig.set_size_inches(12, 8)
             axis = fig.subplots()
 
-        axis.set_prop_cycle(PLOT_COLORS.cycler)
+        axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         cumulative_bins, data_bins = create_bins(bin_size, data)
 
         heights, _, _ = axis.hist(
-            data, data_bins, color=PLOT_COLORS.color_1, edgecolor="k"
+            data, data_bins, color=axis_properties.plot_colors.color_1, edgecolor="k"
         )
 
         if axis_properties.cumulative_histogram:
@@ -348,7 +350,7 @@ def create_histogram(
                 density=True,
                 histtype="step",
                 cumulative=True,
-                color=PLOT_COLORS.color_2,
+                color=axis_properties.plot_colors.color_2,
                 linewidth=3,
             )
 
