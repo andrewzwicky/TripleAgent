@@ -62,7 +62,6 @@ from triple_agent.reports.external_reports.misc_reports.curator_requests import 
     cough_clank_crash,
     curated_many_green_ats,
 )
-from triple_agent.tests.conftest import auto_close_all_figures
 from triple_agent.organization.extract_spectation_replays import (
     extract_spectate_replays,
 )
@@ -70,7 +69,6 @@ from triple_agent.organization.extract_spectation_replays import (
 
 # library internals
 pytesseract.pytesseract.tesseract_cmd
-auto_close_all_figures
 extract_spectate_replays
 
 # jsonpickle methods
