@@ -17,7 +17,8 @@ from triple_agent.constants.events import (
     select_scl5_regular_season,
     select_scl5_with_drops,
     select_scl6,
-    select_scl6_regular_season
+    select_scl6_regular_season,
+    select_scl6_placements
 )
 from triple_agent.reports.specific.action_tests import (
     action_test_percentages,
@@ -120,6 +121,7 @@ amba_lights
 select_scl5_with_drops
 select_scl6
 select_scl6_regular_season
+select_scl6_placements
 
 # archive, but unused
 cough_clank_crash
