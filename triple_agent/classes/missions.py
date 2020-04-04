@@ -47,6 +47,7 @@ def create_missions_color_dict(plot_colors: PlotColorsBase):
         Missions.Swap: plot_colors.color_2_light,
         Missions.Purloin: plot_colors.color_3,
         Missions.Transfer: plot_colors.color_4,
+        Missions.NoMission: plot_colors.light_grey,
     }
 
 
