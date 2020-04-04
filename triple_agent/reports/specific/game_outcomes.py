@@ -20,8 +20,8 @@ def _categorize_outcomes(games, data_dictionary):
 
 def game_outcomes(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,

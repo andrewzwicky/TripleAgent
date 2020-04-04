@@ -46,8 +46,8 @@ def end_light_status(game, role_in):
 
 def spy_lights(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
@@ -62,8 +62,8 @@ def spy_lights(
 
 def amba_lights(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,

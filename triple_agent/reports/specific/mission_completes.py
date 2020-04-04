@@ -48,8 +48,8 @@ def _mission_completes_details(games: List[Game], data_dictionary: defaultdict):
 
 def mission_completion_query(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,

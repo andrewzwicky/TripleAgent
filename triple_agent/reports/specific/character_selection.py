@@ -47,8 +47,8 @@ def determine_character_in_role(game, role) -> Optional[Characters]:
 
 def spy_selection(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
@@ -66,8 +66,8 @@ def spy_selection(
 
 def st_selection(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
@@ -85,8 +85,8 @@ def st_selection(
 
 def amba_selection(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,
@@ -104,8 +104,8 @@ def amba_selection(
 
 def double_agent_selection(
     games: List[Game],
-    data_query: DataQueryProperties = None,
-    axis_properties: AxisProperties = None,
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
 ):  # pragma: no cover
     axis_properties, data_query = initialize_properties(
         axis_properties,

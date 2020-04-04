@@ -91,14 +91,11 @@ class DataQueryProperties:
 
 
 def initialize_properties(
-    axis_properties: Optional[AxisProperties],
-    data_query: Optional[DataQueryProperties],
+    axis_properties: AxisProperties,
+    data_query: DataQueryProperties,
     suggested_axis_properties: AxisProperties = None,
     suggested_data_query: DataQueryProperties = None,
 ):
-    axis_properties = AxisProperties() if axis_properties is None else axis_properties
-    data_query = DataQueryProperties() if data_query is None else data_query
-
     axis_properties.update(suggested_axis_properties)
     data_query.update(suggested_data_query)
 
