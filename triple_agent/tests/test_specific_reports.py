@@ -16,6 +16,7 @@ from triple_agent.reports.specific.fingerprints import (
     _categorize_fp_sources,
     _categorize_successful_fp_sources,
 )
+from triple_agent.reports.specific.conversation import _count_time_in_conversation
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.lights import Lights
@@ -415,6 +416,15 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         False,
         defaultdict(
             Counter, {None: Counter({Lights.Highlight: 8, Lights.Lowlight: 1,})},
+        ),
+    ),
+    (
+        _count_time_in_conversation,
+        None,
+        False,
+        defaultdict(
+            Counter,
+            {None: Counter({True: pytest.approx(776.9), False: pytest.approx(979.4),})},
         ),
     ),
     (

@@ -8,6 +8,7 @@ from triple_agent.reports.generation.plot_utilities import (
     sort_frame_stacks,
 )
 from triple_agent.classes.action_tests import ActionTest
+from triple_agent.classes.missions import Missions
 from triple_agent.classes.venues import Venue
 from triple_agent.constants.events import SCL5_VENUE_MODES
 import pandas
@@ -102,6 +103,41 @@ CREATE_DATA_FRAME_CASES = [
                 ActionTest.White,
                 ActionTest.Ignored,
                 ActionTest.Red,
+            ],
+            columns=[None],
+        ),
+    ),
+    (
+        defaultdict(
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Missions.Contact: 29,
+                        Missions.Seduce: 19,
+                        Missions.Purloin: 17,
+                        Missions.Bug: 16,
+                        Missions.Inspect: 9,
+                        Missions.Swap: 9,
+                        Missions.Fingerprint: 8,
+                        Missions.NoMission: 6,
+                        Missions.Transfer: 6,
+                    }
+                )
+            },
+        ),
+        pandas.DataFrame(
+            data=[[16], [29], [8], [9], [6], [17], [19], [9], [6],],
+            index=[
+                Missions.Bug,
+                Missions.Contact,
+                Missions.Fingerprint,
+                Missions.Inspect,
+                Missions.NoMission,
+                Missions.Purloin,
+                Missions.Seduce,
+                Missions.Swap,
+                Missions.Transfer,
             ],
             columns=[None],
         ),

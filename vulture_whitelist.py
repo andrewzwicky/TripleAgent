@@ -29,6 +29,7 @@ from triple_agent.reports.specific.banana_breads import (
     first_banana_bread_percentages,
     banana_split,
 )
+from triple_agent.reports.specific.conversation import cumulative_conversation_times
 from triple_agent.reports.specific.bug import bug_attempt_timings, bug_success_rate
 from triple_agent.reports.specific.character_selection import (
     spy_selection,
@@ -47,6 +48,7 @@ from triple_agent.reports.specific.mission_choices import mission_choices
 from triple_agent.reports.specific.mission_completes import (
     mission_completion,
     mission_completion_query,
+    final_mission_completion_query
 )
 from triple_agent.reports.specific.scl_set_scores import (
     game_differential,
@@ -122,6 +124,8 @@ select_scl5_with_drops
 select_scl6
 select_scl6_regular_season
 select_scl6_placements
+cumulative_conversation_times
+final_mission_completion_query
 
 # archive, but unused
 cough_clank_crash

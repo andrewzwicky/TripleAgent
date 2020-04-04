@@ -23,6 +23,7 @@ from triple_agent.reports.generation.plot_specs import (
     initialize_properties,
 )
 from triple_agent.constants.colors import PlotColorsBase
+from triple_agent.classes.timeline import TimelineCategory
 
 
 def _mission_completes(games: List[Game], data_dictionary: Counter):
@@ -30,6 +31,16 @@ def _mission_completes(games: List[Game], data_dictionary: Counter):
         for mission in Missions:
             if mission & game.completed_missions:
                 data_dictionary[mission] += 1
+
+
+def _count_final_missions(games: List[Game], data_dictionary: Counter):
+    for game in games:
+        final_mission = Missions.NoMission
+        for event in game.timeline:
+            if event.category & TimelineCategory.MissionComplete:
+                final_mission = event.mission
+
+        data_dictionary[final_mission] += 1
 
 
 # not a generic query_function, special case
@@ -58,7 +69,26 @@ def mission_completion_query(
             primary_color_dict=create_missions_color_dict(axis_properties.plot_colors)
         ),
         DataQueryProperties(
-            query_function=_mission_completes, primary_order=MISSION_PLOT_ORDER
+            query_function=_mission_completes, secondary_order=MISSION_PLOT_ORDER
+        ),
+    )
+
+    return query(games, data_query, axis_properties)
+
+
+def final_mission_completion_query(
+    games: List[Game],
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(
+            primary_color_dict=create_missions_color_dict(axis_properties.plot_colors)
+        ),
+        DataQueryProperties(
+            query_function=_count_final_missions, primary_order=MISSION_PLOT_ORDER
         ),
     )
 

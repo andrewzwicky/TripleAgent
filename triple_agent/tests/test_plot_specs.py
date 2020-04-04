@@ -56,20 +56,11 @@ def test_update_plot_specs(initial, suggested, expected):
 
 
 PLOT_SPEC_INIT_CASES = [
-    (None, None, None, None, AxisProperties(), DataQueryProperties()),
     (
         AxisProperties(),
         DataQueryProperties(),
         None,
         None,
-        AxisProperties(),
-        DataQueryProperties(),
-    ),
-    (
-        None,
-        None,
-        AxisProperties(),
-        DataQueryProperties(),
         AxisProperties(),
         DataQueryProperties(),
     ),
@@ -80,6 +71,22 @@ PLOT_SPEC_INIT_CASES = [
         DataQueryProperties(limit=20),
         AxisProperties(title="test"),
         DataQueryProperties(primary_order=[1, 2, 3], limit=20),
+    ),
+    (
+        AxisProperties(title="test"),
+        DataQueryProperties(primary_order=[1, 2, 3]),
+        None,
+        DataQueryProperties(limit=20),
+        AxisProperties(title="test"),
+        DataQueryProperties(primary_order=[1, 2, 3], limit=20),
+    ),
+    (
+        AxisProperties(title="test"),
+        DataQueryProperties(primary_order=[1, 2, 3]),
+        AxisProperties(title="test not this"),
+        None,
+        AxisProperties(title="test"),
+        DataQueryProperties(primary_order=[1, 2, 3]),
     ),
 ]
 
