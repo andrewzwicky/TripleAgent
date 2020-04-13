@@ -48,7 +48,7 @@ def time_add_times(games: List[Game], title: str):  # pragma: no cover
             y_axis_label="Time Adds in Time Period",
         ),
         time_adds_elapsed,
-        10,
+        5,
     )
 
     create_histogram(
@@ -58,7 +58,7 @@ def time_add_times(games: List[Game], title: str):  # pragma: no cover
             y_axis_label="Time Adds in Time Period",
         ),
         time_adds_remaining,
-        10,
+        5,
     )
 
 

@@ -46,7 +46,7 @@ def bug_attempt_timings(games: List[Game], title: str):
             y_axis_label="Attempts in Time Period",
         ),
         bug_times_elapsed,
-        15,
+        5,
     )
     create_histogram(
         AxisProperties(
@@ -55,7 +55,7 @@ def bug_attempt_timings(games: List[Game], title: str):
             y_axis_label="Attempts in Time Period",
         ),
         bug_times_remaining,
-        15,
+        5,
     )
 
 

@@ -98,7 +98,7 @@ def banana_split(games: List[Game], title: str):  # pragma: no cover
             cumulative_histogram=True,
         ),
         _time_bb_splits(games),
-        1,
+        5,
         major_locator=10,
     )
 

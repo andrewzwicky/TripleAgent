@@ -21,7 +21,7 @@ def first_flirt_timing(games: List[Game], title: str):  # pragma: no cover
             cumulative_histogram=True,
         ),
         first_flirt_times,
-        2,
+        5,
         major_locator=30,
     )
 
