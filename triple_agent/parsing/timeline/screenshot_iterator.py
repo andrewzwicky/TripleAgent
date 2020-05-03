@@ -116,7 +116,7 @@ def get_mss_screenshots(
 
     for game_index, game in enumerate(games):
         print(
-            f"{game.spy} vs. {game.sniper} on {game.venue} [{game.uuid}, {game_index + 1}/{len(games)}]",
+            f"{game.spy} vs. {game.sniper} on {game.venue}, {game.event}, {game.division}, {game.week} [{game.uuid}, {game_index + 1}/{len(games)}]",
             end="",
         )
         screenshot_index = 1

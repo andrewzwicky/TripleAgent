@@ -103,6 +103,8 @@ def parse_timeline_parallel(
     for screenshot_information in screenshot_iterator(games):
         queue.put(screenshot_information)
 
+    print("replay iteration complete")
+
     queue.join()
 
     for _ in range(num_worker_threads):
