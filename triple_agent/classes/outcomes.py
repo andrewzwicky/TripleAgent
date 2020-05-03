@@ -1,8 +1,9 @@
-from enum import Flag, auto
+from enum import auto
 from triple_agent.constants.colors import PlotColorsBase
+from triple_agent.classes.ordered_enum import ReverseOrderedFlag
 
 
-class WinType(Flag):
+class WinType(ReverseOrderedFlag):
     TimeOut = auto()
     SpyShot = auto()
     SniperWin = TimeOut | SpyShot
