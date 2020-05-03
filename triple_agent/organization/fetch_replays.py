@@ -12,12 +12,12 @@ from bs4 import BeautifulSoup
 from triple_agent.constants.paths import (
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
-    SCL5_REPLAYS_FOLDER,
-    TEMP_EXTRACT_FOLDER,
-    ZIP_EXTRACT_FOLDER,
+    SCL6_REPLAYS_FOLDER,
+    SCL6_TEMP_EXTRACT_FOLDER,
+    SCL6_ZIP_EXTRACT_FOLDER,
 )
 
-SCL5_REPLAYS_URL = r"https://s3-us-west-2.amazonaws.com/scl-replays-season5/"
+SCL6_REPLAYS_URL = r"https://s3-us-west-2.amazonaws.com/scl-replays-season6/"
 
 
 # These are files I suspect were uploaded by both players, or misclassified by SCL Manager
@@ -36,7 +36,8 @@ SCL_REPLAY_ZIP_RE = re.compile(
 def fetch_replays(url: str):
     soup = BeautifulSoup(requests.get(url).text, "xml")
 
-    existing_zip_files = os.listdir(ZIP_EXTRACT_FOLDER)
+    os.makedirs(SCL6_ZIP_EXTRACT_FOLDER, exist_ok=True)
+    existing_zip_files = os.listdir(SCL6_ZIP_EXTRACT_FOLDER)
 
     new_zip_file_matches = []
 
@@ -51,10 +52,10 @@ def fetch_replays(url: str):
                 new_zip_file_matches.append(filename_match)
 
     for zip_file_match in new_zip_file_matches:
-        zip_file_dest = os.path.join(ZIP_EXTRACT_FOLDER, zip_file_match.string)
+        zip_file_dest = os.path.join(SCL6_ZIP_EXTRACT_FOLDER, zip_file_match.string)
 
         extract_folder = os.path.join(
-            SCL5_REPLAYS_FOLDER,
+            SCL6_REPLAYS_FOLDER,
             zip_file_match.group("division"),
             zip_file_match.group("week").lstrip("0"),
         )
@@ -69,10 +70,10 @@ def fetch_replays(url: str):
 
         os.makedirs(extract_folder, exist_ok=True)
         try:
-            rmtree(TEMP_EXTRACT_FOLDER)
+            rmtree(SCL6_TEMP_EXTRACT_FOLDER)
         except FileNotFoundError:
             pass
-        os.makedirs(TEMP_EXTRACT_FOLDER, exist_ok=True)
+        os.makedirs(SCL6_TEMP_EXTRACT_FOLDER, exist_ok=True)
 
         try:
             zip_ref = zipfile.ZipFile(zip_file_dest, "r")
@@ -80,9 +81,9 @@ def fetch_replays(url: str):
             print(zip_file_dest)
             raise this_exep
 
-        zip_ref.extractall(TEMP_EXTRACT_FOLDER)
+        zip_ref.extractall(SCL6_TEMP_EXTRACT_FOLDER)
 
-        for root, _, files in os.walk(TEMP_EXTRACT_FOLDER):
+        for root, _, files in os.walk(SCL6_TEMP_EXTRACT_FOLDER):
             for file in files:
                 if file.endswith(".replay"):
                     copyfile(
@@ -91,7 +92,7 @@ def fetch_replays(url: str):
                     )
 
         zip_ref.close()
-        rmtree(TEMP_EXTRACT_FOLDER)
+        rmtree(SCL6_TEMP_EXTRACT_FOLDER)
 
 
 def check_for_duplicate_files(events_folder: str = ALL_EVENTS_FOLDER):
@@ -107,11 +108,11 @@ def check_for_duplicate_files(events_folder: str = ALL_EVENTS_FOLDER):
                         print(
                             "XXX",
                             file,
-                            os.path.relpath(events_folder, root),
-                            os.path.relpath(events_folder, found_dict[file]),
+                            os.path.relpath(root, events_folder),
+                            os.path.relpath(found_dict[file], events_folder),
                         )
 
 
 if __name__ == "__main__":
-    fetch_replays(SCL5_REPLAYS_URL)
+    fetch_replays(SCL6_REPLAYS_URL)
     check_for_duplicate_files()
