@@ -48,7 +48,8 @@ from triple_agent.reports.specific.mission_choices import mission_choices
 from triple_agent.reports.specific.mission_completes import (
     mission_completion,
     mission_completion_query,
-    final_mission_completion_query
+    final_mission_completion_query,
+    average_hard_tell_count
 )
 from triple_agent.reports.specific.scl_set_scores import (
     game_differential,
@@ -68,6 +69,7 @@ from triple_agent.reports.external_reports.misc_reports.curator_requests import 
 from triple_agent.organization.extract_spectation_replays import (
     extract_spectate_replays,
 )
+from triple_agent.constants.paths import SCL5_ZIP_EXTRACT_FOLDER, SCL5_TEMP_EXTRACT_FOLDER
 
 
 # library internals
@@ -88,6 +90,8 @@ PlotColorsSCL
 # notebook usage
 WinType.SniperWin
 SCL5_PICK_MODES
+SCL5_ZIP_EXTRACT_FOLDER
+SCL5_TEMP_EXTRACT_FOLDER
 SCL5_DIVISIONS
 SCL6_VENUE_MODES
 select_scl5
@@ -112,6 +116,7 @@ at_or_direct_mf
 mission_choices
 mission_completion_query
 mission_completion
+average_hard_tell_count
 scl_set_scores_categorize
 game_differential
 first_flirt_timing
