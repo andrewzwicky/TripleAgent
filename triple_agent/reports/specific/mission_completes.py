@@ -15,6 +15,7 @@ from triple_agent.classes.missions import (
     MISSION_STATUS_PLOT_ORDER,
     Missions,
     MissionStatus,
+    HARD_TELLS,
 )
 from triple_agent.reports.generation.plot_specs import (
     AxisProperties,
@@ -41,6 +42,21 @@ def _count_final_missions(games: List[Game], data_dictionary: Counter):
                 final_mission = event.mission
 
         data_dictionary[final_mission] += 1
+
+
+def _average_hard_tells_per_game(games: List[Game], data_dictionary: Counter):
+    num_hard_tells = 0
+    for game in games:
+        for event in game.timeline:
+            if (event.category & TimelineCategory.MissionComplete) and (
+                event.mission in HARD_TELLS
+            ):
+                num_hard_tells += 1
+
+    data_dictionary[None] = num_hard_tells / len(games)
+
+
+# def _single_visit_inspects(games)
 
 
 # not a generic query_function, special case
@@ -90,6 +106,21 @@ def final_mission_completion_query(
         DataQueryProperties(
             query_function=_count_final_missions, primary_order=MISSION_PLOT_ORDER
         ),
+    )
+
+    return query(games, data_query, axis_properties)
+
+
+def average_hard_tell_count(
+    games: List[Game],
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
+):  # pragma: no cover
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(force_bar=True),
+        DataQueryProperties(query_function=_average_hard_tells_per_game),
     )
 
     return query(games, data_query, axis_properties)

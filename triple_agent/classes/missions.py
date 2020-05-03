@@ -19,6 +19,9 @@ class Missions(Flag):
         return [mission.name for mission in Missions if mission & self]
 
 
+HARD_TELLS = (Missions.Bug, Missions.Swap, Missions.Transfer, Missions.Purloin)
+
+
 class MissionStatus(ReverseOrderedEnum):
     Disabled = 0
     Incomplete = auto()
