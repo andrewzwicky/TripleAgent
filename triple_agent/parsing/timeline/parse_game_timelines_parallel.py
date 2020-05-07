@@ -103,7 +103,7 @@ def parse_timeline_parallel(
         thread.start()
         threads.append(thread)
 
-    input("Hit Enter when ready, parsing begins 10 seconds later")
+    input("Hit Enter when ready, parsing begins 10 seconds later\n")
     sleep(10)
 
     for screenshot_information in screenshot_iterator(games):

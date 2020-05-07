@@ -155,7 +155,7 @@ def get_mss_screenshots(
                 yield (game_index, screenshot_index, screenshot, True)
 
                 if game_index != (len(games) - 1):
-                    logging.debug(f"go to next game")
+                    logging.debug("go to next game")
                     go_to_next_game(pycharm_handle, spyparty_handle)
 
                 # print()
@@ -196,8 +196,8 @@ def is_last_screenshot(screenshot: np.ndarray):
 
     # arrow is still present, indicating more in the timeline
     if np.all(arrow_location == ARROW_COLOR[0]):
-        logging.debug(f"returns False")
+        logging.debug("returns False")
         return False
 
-    logging.debug(f"returns True")
+    logging.debug("returns True")
     return True
