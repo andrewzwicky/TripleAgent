@@ -1,4 +1,5 @@
 import os
+import logging
 from shutil import rmtree, copyfile
 from typing import Callable
 
@@ -53,10 +54,11 @@ def parse_replays(
     # check that there are no duplicates from the same file existing twice.
     game_uuid_set = set({game.uuid for game in game_list})
     if len(game_uuid_set) != len(game_list):
+        logging.error("duplicate files found")
         for uuid in game_uuid_set:
             games_matching = [game.file for game in game_list if game.uuid == uuid]
             if len(games_matching) > 1:
-                print(uuid, games_matching)
+                logging.error(f"{uuid} -{games_matching}")
 
         raise DuplicateFileException
 
@@ -69,7 +71,7 @@ def parse_replays(
     unparsed_game_list = [game for game in game_list if game.timeline is None]
 
     if unparsed_game_list:
-        print(f"{len(unparsed_game_list)} games to parse.")
+        logging.info(f"{len(unparsed_game_list)} games to parse.")
 
         try:
             rmtree(unparsed_folder)
@@ -103,4 +105,9 @@ def parse_replays(
 
 
 if __name__ == "__main__":  # pragma: no cover
+    logging.basicConfig(
+        format="%(levelname) -10s %(relativeCreated)6d %(threadName)s %(module)s:%(lineno)s %(funcName)s %(message)s",
+        level=logging.DEBUG,
+    )
+
     parse_replays(lambda g: True)

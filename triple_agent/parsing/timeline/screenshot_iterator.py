@@ -1,4 +1,5 @@
 import ctypes
+import logging
 from time import sleep
 from typing import Optional, Iterator, Tuple, List
 
@@ -65,7 +66,9 @@ def window__get_title(hwnd_handle):
     return ""
 
 
-def is_game_loaded(spy_party_handle: Optional[int], pycharm_handle: Optional[int]):
+def is_game_loaded(
+    spy_party_handle: Optional[int], pycharm_handle: Optional[int],
+):
     total_time = 0
 
     while True:
@@ -93,12 +96,16 @@ def is_game_loaded(spy_party_handle: Optional[int], pycharm_handle: Optional[int
         b_mask = p_button[..., 2] == SPY_MISSIONS_COLOR[2]
 
         if not (np.all(r_mask) and np.all(g_mask) and np.all(b_mask)):
+            logging.debug("returns True")
             return True
 
         sleep(TIME_STEP)
         total_time += TIME_STEP
         if total_time > TIMEOUT:
+            logging.error("returns False")
             return False
+
+        logging.debug("game loading...")
 
 
 def refresh_window(spy_party_handle, pycharm_handle):
@@ -115,9 +122,8 @@ def get_mss_screenshots(
     spyparty_handle, pycharm_handle = get_app_handles()
 
     for game_index, game in enumerate(games):
-        print(
-            f"{game.spy} vs. {game.sniper} on {game.venue}, {game.event}, {game.division}, {game.week} [{game.uuid}, {game_index + 1}/{len(games)}]",
-            end="",
+        logging.info(
+            f"{game.spy} vs. {game.sniper} on {game.venue}, {game.event}, {game.division}, {game.week} [{game.uuid}, {game_index + 1}/{len(games)}]"
         )
         screenshot_index = 1
 
@@ -143,15 +149,16 @@ def get_mss_screenshots(
             # need a way to communicate through the queue that
             # all screenshots for this file have been processed,
             # starts with identifying the last one.
-            print(".", end="")
+            # print(".", end="")
 
             if is_last_screenshot(screenshot):
                 yield (game_index, screenshot_index, screenshot, True)
 
                 if game_index != (len(games) - 1):
+                    logging.debug(f"go to next game")
                     go_to_next_game(pycharm_handle, spyparty_handle)
 
-                print()
+                # print()
                 break
 
             yield (game_index, screenshot_index, screenshot, False)
@@ -167,6 +174,7 @@ def scroll_lines():
 
 
 def go_to_next_game(pycharm_handle, spyparty_handle):
+    logging.debug("loading next game")
     pyautogui.hotkey("ctrl", "n")
     sleep(0.250)
     if is_game_loaded(spyparty_handle, pycharm_handle):
@@ -188,6 +196,8 @@ def is_last_screenshot(screenshot: np.ndarray):
 
     # arrow is still present, indicating more in the timeline
     if np.all(arrow_location == ARROW_COLOR[0]):
+        logging.debug(f"returns False")
         return False
 
+    logging.debug(f"returns True")
     return True

@@ -1,5 +1,6 @@
 import itertools
 import threading
+import logging
 from collections import defaultdict
 from queue import Queue
 from time import sleep
@@ -37,6 +38,7 @@ def parse_timeline_parallel(
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
     json_folder: str = JSON_GAMES_FOLDER,
 ):
+    logging.debug("")
 
     mutex = threading.Lock()
     num_worker_threads = 2
@@ -49,6 +51,9 @@ def parse_timeline_parallel(
         while True:
             game_index, ss_index, screenshot, is_last = queue.get()
 
+            logging.debug(
+                f"game_index={game_index}, ss_index={ss_index}, is_last={is_last}"
+            )
             # None is the signal that all screenshots have been processed
             if game_index is None:
                 break
@@ -59,6 +64,7 @@ def parse_timeline_parallel(
                     screenshot
                 )
             except TimelineParseException:
+                logging.warning("TimelineParseException")
                 # all pieces won't make it into dict, so it'll never get pickled.
                 queue.task_done()
                 continue
@@ -80,7 +86,7 @@ def parse_timeline_parallel(
                     coherency = games[game_index].is_timeline_coherent()
 
                     if coherency != TimelineCoherency.Coherent:
-                        print(
+                        logging.error(
                             f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n"
                         )
                     else:
@@ -103,7 +109,7 @@ def parse_timeline_parallel(
     for screenshot_information in screenshot_iterator(games):
         queue.put(screenshot_information)
 
-    print("replay iteration complete")
+    logging.info("replay iteration complete")
 
     queue.join()
 
