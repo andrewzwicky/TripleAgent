@@ -64,7 +64,6 @@ def parse_timeline_parallel(
                     screenshot
                 )
             except TimelineParseException:
-                logging.warning("TimelineParseException")
                 # all pieces won't make it into dict, so it'll never get pickled.
                 queue.task_done()
                 continue

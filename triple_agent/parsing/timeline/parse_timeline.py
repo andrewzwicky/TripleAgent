@@ -1,6 +1,9 @@
+import os
+import logging
 import hashlib
 from multiprocessing import Pool, cpu_count
 from typing import List, Tuple, Optional, Iterator
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -55,6 +58,10 @@ SPY_P_WIDTH = 2
 SPY_P_HEIGHT = 25
 TIMEOUT = 12  # seconds
 TIME_STEP = 0.5
+
+PARSE_EXCEPTION_DEBUG_PATH = (
+    Path(__file__).parents[2].joinpath("debug_parse_exception_screenshots")
+)
 
 
 class TimelineParseException(Exception):
@@ -294,6 +301,7 @@ def name_portrait(
                 PORTRAIT_MD5_DICT[hashlib.md5(portrait.tostring()).hexdigest()]
             )
         except KeyError:
+            logging.warning("TimelineParseException character portrait not found")
             raise TimelineParseException("character portrait not found")
 
     # noinspection PyTypeChecker
@@ -368,6 +376,15 @@ def parse_screenshot(
 
     try:
         events = pool.map(process_line_image, lines)
+    except TimelineParseException:
+        os.makedirs(PARSE_EXCEPTION_DEBUG_PATH, exist_ok=True)
+        cv2.imwrite(
+            os.path.join(
+                PARSE_EXCEPTION_DEBUG_PATH, str(hash(str(screenshot))) + ".png"
+            ),
+            screenshot,
+        )
+
     finally:
         pool.close()
         pool.join()

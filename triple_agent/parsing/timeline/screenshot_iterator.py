@@ -1,7 +1,9 @@
+import os
 import ctypes
 import logging
 from time import sleep
 from typing import Optional, Iterator, Tuple, List
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -27,6 +29,8 @@ from triple_agent.parsing.timeline.parse_timeline import (
     ARROW_WIDTH,
     ARROW_COLOR,
 )
+
+GAME_NOT_LOADED_DEBUG_PATH = Path(__file__).parents[2].joinpath("debug_game_not_loaded")
 
 
 def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
@@ -101,7 +105,15 @@ def is_game_loaded(
 
         sleep(TIME_STEP)
         total_time += TIME_STEP
+
         if total_time > TIMEOUT:
+            os.makedirs(GAME_NOT_LOADED_DEBUG_PATH, exist_ok=True)
+            cv2.imwrite(
+                os.path.join(
+                    GAME_NOT_LOADED_DEBUG_PATH, str(hash(str(p_button))) + ".png"
+                ),
+                p_button,
+            )
             logging.error("returns False")
             return False
 
