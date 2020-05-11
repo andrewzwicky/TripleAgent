@@ -41,7 +41,7 @@ def parse_timeline_parallel(
     logging.debug("")
 
     mutex = threading.Lock()
-    num_worker_threads = 2
+    num_worker_threads = 4
     queue = Queue()
     threads = []
 
