@@ -376,7 +376,16 @@ def parse_screenshot(
 
     try:
         events = pool.map(process_line_image, lines)
-    except TimelineParseException:
+
+        while events and events[-1] is None:
+            events.pop()
+
+        if not test_output_disable:
+            confirm_categorizations(events)
+
+        return events
+
+    except TimelineParseException as caught_exception:
         os.makedirs(PARSE_EXCEPTION_DEBUG_PATH, exist_ok=True)
         cv2.imwrite(
             os.path.join(
@@ -385,17 +394,13 @@ def parse_screenshot(
             screenshot,
         )
 
+        raise caught_exception
+
     finally:
         pool.close()
         pool.join()
 
-    while events and events[-1] is None:
-        events.pop()
-
-    if not test_output_disable:
-        confirm_categorizations(events)
-
-    return events
+    return []
 
 
 if __name__ == "__main__":

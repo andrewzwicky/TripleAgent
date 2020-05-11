@@ -76,22 +76,7 @@ def is_game_loaded(
     total_time = 0
 
     while True:
-        refresh_window(spy_party_handle, pycharm_handle)
-
-        with mss() as sct:
-            p_button = cv2.cvtColor(
-                np.asarray(
-                    sct.grab(
-                        monitor={
-                            "top": SPY_P_TOP,
-                            "left": SPY_P_LEFT,
-                            "width": SPY_P_WIDTH,
-                            "height": SPY_P_HEIGHT,
-                        }
-                    )
-                ),
-                cv2.COLOR_BGRA2BGR,
-            )
+        p_button = get_latest_loading_screenshot(spy_party_handle, pycharm_handle)
 
         # if the game isn't loaded, there will be a blue P,
         # use those colors to detect whether the game is loaded
@@ -107,17 +92,42 @@ def is_game_loaded(
         total_time += TIME_STEP
 
         if total_time > TIMEOUT:
-            os.makedirs(GAME_NOT_LOADED_DEBUG_PATH, exist_ok=True)
-            cv2.imwrite(
-                os.path.join(
-                    GAME_NOT_LOADED_DEBUG_PATH, str(hash(str(p_button))) + ".png"
-                ),
-                p_button,
-            )
+            capture_loading_screen_timeout(p_button)
             logging.error("returns False")
             return False
 
         logging.debug("game loading...")
+
+
+def capture_loading_screen_timeout(p_button):
+    os.makedirs(GAME_NOT_LOADED_DEBUG_PATH, exist_ok=True)
+    cv2.imwrite(
+        os.path.join(GAME_NOT_LOADED_DEBUG_PATH, str(hash(str(p_button))) + ".png"),
+        p_button,
+    )
+
+
+def get_latest_loading_screenshot(
+    spy_party_handle: Optional[int], pycharm_handle: Optional[int]
+):
+    refresh_window(spy_party_handle, pycharm_handle)
+
+    with mss() as sct:
+        p_button = cv2.cvtColor(
+            np.asarray(
+                sct.grab(
+                    monitor={
+                        "top": SPY_P_TOP,
+                        "left": SPY_P_LEFT,
+                        "width": SPY_P_WIDTH,
+                        "height": SPY_P_HEIGHT,
+                    }
+                )
+            ),
+            cv2.COLOR_BGRA2BGR,
+        )
+
+    return p_button
 
 
 def refresh_window(spy_party_handle, pycharm_handle):
@@ -168,7 +178,7 @@ def get_mss_screenshots(
 
                 if game_index != (len(games) - 1):
                     logging.debug("go to next game")
-                    go_to_next_game(pycharm_handle, spyparty_handle)
+                    go_to_next_game(spyparty_handle, pycharm_handle)
 
                 # print()
                 break
@@ -185,11 +195,13 @@ def scroll_lines():
         sleep(0.02)
 
 
-def go_to_next_game(pycharm_handle, spyparty_handle):
+def go_to_next_game(spyparty_handle, pycharm_handle):
     logging.debug("loading next game")
     pyautogui.hotkey("ctrl", "n")
     sleep(0.250)
     if is_game_loaded(spyparty_handle, pycharm_handle):
+        sleep(0.250)
+        refresh_window(spyparty_handle, pycharm_handle)
         sleep(0.250)
         pyautogui.press("f11")
     # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
