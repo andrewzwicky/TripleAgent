@@ -1,0 +1,973 @@
+{
+    "completed_missions": [
+        "Contact"
+    ],
+    "division": "Platinum",
+    "duration": 96,
+    "event": "SCL6",
+    "game_type": "a2/3",
+    "guest_count": 7,
+    "picked_missions": [
+        "Seduce",
+        "Contact",
+        "Bug"
+    ],
+    "py/object": "triple_agent.classes.game.Game",
+    "selected_missions": [
+        "Seduce",
+        "Contact",
+        "Bug"
+    ],
+    "sniper": "skrewwl00se",
+    "sniper_username": "skrewwl00se",
+    "spy": "lazybear",
+    "spy_username": "lazybear",
+    "start_clock_seconds": 120,
+    "start_time": "2020-05-09T14:24:10",
+    "timeline": [
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. Q"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "spy cast.",
+            "mission": "NoMission",
+            "role": [
+                "Spy"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. C"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "ambassador cast.",
+            "mission": "NoMission",
+            "role": [
+                "Ambassador"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "double agent cast.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "seduction target cast.",
+            "mission": "NoMission",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. D"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "civilian cast.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. E"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "civilian cast.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. L"
+            ],
+            "category": [
+                "Cast"
+            ],
+            "elapsed_time": 0.0,
+            "event": "civilian cast.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionSelected"
+            ],
+            "elapsed_time": 0.0,
+            "event": "bug ambassador selected.",
+            "mission": "Bug",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionSelected"
+            ],
+            "elapsed_time": 0.0,
+            "event": "contact double agent selected.",
+            "mission": "Contact",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionSelected"
+            ],
+            "elapsed_time": 0.0,
+            "event": "seduce target selected.",
+            "mission": "Seduce",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionEnabled"
+            ],
+            "elapsed_time": 0.0,
+            "event": "bug ambassador enabled.",
+            "mission": "Bug",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionEnabled"
+            ],
+            "elapsed_time": 0.0,
+            "event": "contact double agent enabled.",
+            "mission": "Contact",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "MissionEnabled"
+            ],
+            "elapsed_time": 0.0,
+            "event": "seduce target enabled.",
+            "mission": "Seduce",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "game",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "GameStart"
+            ],
+            "elapsed_time": 0.0,
+            "event": "game started.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 120.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [],
+            "elapsed_time": 0.5,
+            "event": "spy player takes control from ai.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 119.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Mr. C"
+            ],
+            "category": [
+                "SniperLights"
+            ],
+            "elapsed_time": 5.5,
+            "event": "marked less suspicious.",
+            "mission": "NoMission",
+            "role": [
+                "Ambassador"
+            ],
+            "time": 114.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTriggered"
+            ],
+            "elapsed_time": 6.200000000000003,
+            "event": "action triggered: seduce target",
+            "mission": "Seduce",
+            "role": [],
+            "time": 113.8
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [],
+            "elapsed_time": 6.200000000000003,
+            "event": "begin flirtation with seduction target.",
+            "mission": "Seduce",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 113.8
+        },
+        {
+            "action_test": "White",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTest"
+            ],
+            "elapsed_time": 6.799999999999997,
+            "event": "action test white: seduce target",
+            "mission": "Seduce",
+            "role": [],
+            "time": 113.2
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Toby"
+            ],
+            "category": [
+                "SniperLights"
+            ],
+            "elapsed_time": 7.200000000000003,
+            "event": "marked less suspicious.",
+            "mission": "NoMission",
+            "role": [
+                "Staff"
+            ],
+            "time": 112.8
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Damon"
+            ],
+            "category": [
+                "SniperLights"
+            ],
+            "elapsed_time": 7.400000000000006,
+            "event": "marked less suspicious.",
+            "mission": "NoMission",
+            "role": [
+                "Staff"
+            ],
+            "time": 112.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [
+                "MissionPartial"
+            ],
+            "elapsed_time": 8.700000000000003,
+            "event": "flirt with seduction target: 34%",
+            "mission": "Seduce",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 111.3
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 13.400000000000006,
+            "event": "spy enters conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 106.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 25.900000000000006,
+            "event": "spy leaves conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 94.1
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 26.0,
+            "event": "spy enters conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 94.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Briefcase"
+            ],
+            "elapsed_time": 27.299999999999997,
+            "event": "spy picks up briefcase.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 92.7
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 28.0,
+            "event": "double agent joined conversation with spy.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 92.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 29.099999999999994,
+            "event": "spy leaves conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 90.9
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 29.099999999999994,
+            "event": "spy left conversation with double agent.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 90.9
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 29.299999999999997,
+            "event": "spy enters conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 90.7
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 29.299999999999997,
+            "event": "spy joined conversation with double agent.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 90.7
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 30.900000000000006,
+            "event": "spy leaves conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 89.1
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 30.900000000000006,
+            "event": "spy left conversation with double agent.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 89.1
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Briefcase"
+            ],
+            "elapsed_time": 35.7,
+            "event": "spy returns briefcase.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 84.3
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 39.400000000000006,
+            "event": "spy enters conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 80.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 39.400000000000006,
+            "event": "spy joined conversation with double agent.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 80.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. Q"
+            ],
+            "category": [
+                "Drinks"
+            ],
+            "elapsed_time": 41.099999999999994,
+            "event": "waiter offered drink.",
+            "mission": "NoMission",
+            "role": [
+                "Spy"
+            ],
+            "time": 78.9
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [],
+            "elapsed_time": 42.7,
+            "event": "flirtation cooldown expired.",
+            "mission": "Seduce",
+            "role": [],
+            "time": 77.3
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [
+                "SniperLights"
+            ],
+            "elapsed_time": 45.5,
+            "event": "marked suspicious.",
+            "mission": "NoMission",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 74.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. Q"
+            ],
+            "category": [
+                "Drinks"
+            ],
+            "elapsed_time": 45.5,
+            "event": "got drink from waiter.",
+            "mission": "NoMission",
+            "role": [
+                "Spy"
+            ],
+            "time": 74.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. Q"
+            ],
+            "category": [
+                "Drinks"
+            ],
+            "elapsed_time": 45.5,
+            "event": "waiter stopped offering drink.",
+            "mission": "NoMission",
+            "role": [
+                "Spy"
+            ],
+            "time": 74.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTriggered"
+            ],
+            "elapsed_time": 48.5,
+            "event": "action triggered: seduce target",
+            "mission": "Seduce",
+            "role": [],
+            "time": 71.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [],
+            "elapsed_time": 48.5,
+            "event": "begin flirtation with seduction target.",
+            "mission": "Seduce",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 71.5
+        },
+        {
+            "action_test": "White",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTest"
+            ],
+            "elapsed_time": 49.599999999999994,
+            "event": "action test white: seduce target",
+            "mission": "Seduce",
+            "role": [],
+            "time": 70.4
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Dr. N"
+            ],
+            "category": [
+                "MissionPartial"
+            ],
+            "elapsed_time": 49.599999999999994,
+            "event": "flirt with seduction target: 63%",
+            "mission": "Seduce",
+            "role": [
+                "SeductionTarget"
+            ],
+            "time": 70.4
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 55.0,
+            "event": "stopped talking.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 65.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. C",
+                "Mr. Q"
+            ],
+            "category": [],
+            "elapsed_time": 69.4,
+            "event": "ambassador's personal space violated.",
+            "mission": "NoMission",
+            "role": [
+                "Ambassador",
+                "Spy"
+            ],
+            "time": 50.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Mr. Q"
+            ],
+            "category": [
+                "Drinks"
+            ],
+            "elapsed_time": 73.7,
+            "event": "sipped drink.",
+            "mission": "NoMission",
+            "role": [
+                "Spy"
+            ],
+            "time": 46.3
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Mr. D"
+            ],
+            "category": [
+                "SniperLights"
+            ],
+            "elapsed_time": 80.3,
+            "event": "marked suspicious.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 39.7
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTriggered"
+            ],
+            "elapsed_time": 85.9,
+            "event": "action triggered: contact double agent",
+            "mission": "Contact",
+            "role": [],
+            "time": 34.1
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "BananaBread"
+            ],
+            "elapsed_time": 85.9,
+            "event": "real banana bread started.",
+            "mission": "Contact",
+            "role": [],
+            "time": 34.1
+        },
+        {
+            "action_test": "Green",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "ActionTest"
+            ],
+            "elapsed_time": 86.5,
+            "event": "action test green: contact double agent",
+            "mission": "Contact",
+            "role": [],
+            "time": 33.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "BananaBread"
+            ],
+            "elapsed_time": 86.5,
+            "event": "banana bread uttered.",
+            "mission": "Contact",
+            "role": [],
+            "time": 33.5
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "MissionComplete"
+            ],
+            "elapsed_time": 87.0,
+            "event": "double agent contacted.",
+            "mission": "Contact",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 33.0
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 91.2,
+            "event": "spy leaves conversation.",
+            "mission": "NoMission",
+            "role": [],
+            "time": 28.8
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [
+                "Ms. B"
+            ],
+            "category": [
+                "Conversation"
+            ],
+            "elapsed_time": 91.2,
+            "event": "spy left conversation with double agent.",
+            "mission": "NoMission",
+            "role": [
+                "DoubleAgent"
+            ],
+            "time": 28.8
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "spy",
+            "books": [],
+            "cast_name": [],
+            "category": [],
+            "elapsed_time": 93.1,
+            "event": "flirtation cooldown expired.",
+            "mission": "Seduce",
+            "role": [],
+            "time": 26.9
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "sniper",
+            "books": [],
+            "cast_name": [
+                "Mr. D"
+            ],
+            "category": [
+                "SniperShot"
+            ],
+            "elapsed_time": 93.4,
+            "event": "took shot.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 26.6
+        },
+        {
+            "action_test": "NoAT",
+            "actor": "game",
+            "books": [],
+            "cast_name": [
+                "Mr. D"
+            ],
+            "category": [
+                "GameEnd"
+            ],
+            "elapsed_time": 96.9,
+            "event": "sniper shot civilian.",
+            "mission": "NoMission",
+            "role": [
+                "Civilian"
+            ],
+            "time": 23.1
+        }
+    ],
+    "uuid": "9pMmT2ELT3iBp0Ubsow6GA",
+    "venue": "Balcony",
+    "week": 1,
+    "win_type": [
+        "CivilianShot",
+        "SpyWin"
+    ],
+    "winner": "lazybear"
+}
