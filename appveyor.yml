@@ -12,6 +12,7 @@ skip_commits:
   files:
     - 'docs/*'
     - 'replay_pickles/*'
+    - '**/*.ipynb'
     - 'examples/*'
     - 'README.md'
     - 'README.rst'
