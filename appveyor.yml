@@ -10,10 +10,10 @@ environment:
 
 skip_commits:
   files:
-    - 'docs/*'
-    - 'replay_pickles/*'
+    - 'docs/**'
+    - 'replay_pickles/**'
     - '**/*.ipynb'
-    - 'examples/*'
+    - 'examples/**'
     - 'README.md'
     - 'README.rst'
     - 'LICENSE'
