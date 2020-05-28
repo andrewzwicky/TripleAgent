@@ -26,6 +26,11 @@ BAD_FILES = {
     "SCL Season 4 - Week 10 - Platinum - pires vs cameraman.zip",
     "SCL Season 4 - Week 09 - Platinum - drawnonward vs varanas.zip",
     "SCL Season 5 - Week 06 - Diamond - warningtrack vs cleetose.zip",
+    "SCL Season 6 - Week 03 - Oak - smashblade vs phillammon.zip",
+    "SCL Season 6 - Week 03 - Oak - maxstermind vs tonewyork.zip",
+    "SCL Season 6 - Week 02 - Oak - cptbasch vs testierjamaj.zip",
+    "SCL Season 6 - Week 02 - Oak - armageddon vs tonewyork.zip",
+    "SCL Season 6 - Week 03 - Oak - cptbasch vs atia.zip"
 }
 
 SCL_REPLAY_ZIP_RE = re.compile(
