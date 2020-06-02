@@ -35,9 +35,9 @@ install:
 build: false
 
 test_script:
-  - "pytest triple_agent --cov=triple_agent --cov-report term-missing:skip-covered"
   - "black triple_agent --check"
   - "pylint triple_agent"
   - "vulture triple_agent vulture_whitelist.py"
   # confirm no import errors in vulture_whitelist
   - "%PYTHON%\\python vulture_whitelist.py"
+  - "pytest triple_agent --cov=triple_agent --cov-report term-missing:skip-covered"

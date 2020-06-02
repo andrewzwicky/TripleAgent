@@ -31,6 +31,17 @@ BAD_FILES = {
     "SCL Season 6 - Week 02 - Oak - cptbasch vs testierjamaj.zip",
     "SCL Season 6 - Week 02 - Oak - armageddon vs tonewyork.zip",
     "SCL Season 6 - Week 03 - Oak - cptbasch vs atia.zip",
+    "SCL Season 6 - Week 02 - Oak - atia vs phillammon.zip",
+    "SCL Season 6 - Week 02 - Oak - cptbasch vs tonewyork.zip",
+    "SCL Season 6 - Week 02 - Oak - smashblade vs maxstermind.zip",
+    "SCL Season 6 - Week 03 - Oak - cptbasch vs ibutra.zip",
+    "SCL Season 6 - Week 03 - Oak - maxstermind vs phillammon.zip",
+    "SCL Season 6 - Week 04 - Oak - cptbasch vs armageddon.zip",
+    "SCL Season 6 - Week 04 - Oak - smashblade vs phillammon.zip",
+    "SCL Season 6 - Week 06 - Oak - cptbasch vs testierjamaj.zip",
+    "SCL Season 6 - Week 08 - Oak - armageddon vs tonewyork.zip",
+    "SCL Season 6 - Week 08 - Oak - cptbasch vs atia.zip",
+    "SCL Season 6 - Week 09 - Oak - smashblade vs atia.zip",
 }
 
 SCL_REPLAY_ZIP_RE = re.compile(
