@@ -11,7 +11,7 @@ ignore=triple_agent\tests
 
 # Add files or directories matching the regex patterns to the blacklist. The
 # regex matches against base names, not paths.
-ignore-patterns=debug_.*,__init__
+ignore-patterns=debug_.*,__init__,private_.*
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().

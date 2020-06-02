@@ -1,3 +1,4 @@
+import re
 from collections import defaultdict, Counter
 from typing import List
 
@@ -25,6 +26,9 @@ from triple_agent.reports.generation.plot_specs import (
 )
 from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.timeline import TimelineCategory
+
+
+PICK_UP_STATUE_RE = re.compile(r"picked up( fingerprintable)? statue( \(difficult\))?.")
 
 
 def _mission_completes(games: List[Game], data_dictionary: Counter):
@@ -56,7 +60,14 @@ def _average_hard_tells_per_game(games: List[Game], data_dictionary: Counter):
     data_dictionary[None] = num_hard_tells / len(games)
 
 
-# def _single_visit_inspects(games)
+def _num_visits_to_finish_inspects(games: List[Game], data_dictionary: Counter):
+    for game in games:
+        num_pickups = 0
+        for event in game.timeline:
+            if PICK_UP_STATUE_RE.match(event.event):
+                num_pickups += 1
+
+        data_dictionary[num_pickups] += 1
 
 
 # not a generic query_function, special case
@@ -121,6 +132,23 @@ def average_hard_tell_count(
         data_query,
         AxisProperties(force_bar=True),
         DataQueryProperties(query_function=_average_hard_tells_per_game),
+    )
+
+    return query(games, data_query, axis_properties)
+
+
+def num_visits_to_finish_inspects(
+    games: List[Game],
+    data_query: DataQueryProperties = DataQueryProperties(),
+    axis_properties: AxisProperties = AxisProperties(),
+):  # pragma: no cover
+    # TODO: This needs to be based on number of inspects required as well, not just visits per game
+    # TODO: This also needs to account for venues without statues
+    axis_properties, data_query = initialize_properties(
+        axis_properties,
+        data_query,
+        AxisProperties(),
+        DataQueryProperties(query_function=_num_visits_to_finish_inspects),
     )
 
     return query(games, data_query, axis_properties)
