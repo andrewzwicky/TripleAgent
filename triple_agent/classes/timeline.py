@@ -1312,6 +1312,11 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Inspect,
         ActionTest.NoAT,
     ),
+    ("spy", "statue inspection cancelled."): (
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
     ("spy", "missions reset."): (
         TimelineCategory.NoCategory,
         Missions.NoMission,

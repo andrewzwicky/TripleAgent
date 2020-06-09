@@ -26,6 +26,7 @@ def parse_replays(
     events_folder: str = ALL_EVENTS_FOLDER,
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
     screenshot_iterator: Callable = get_mss_screenshots,
+    limit=None,
 ):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
@@ -70,6 +71,9 @@ def parse_replays(
     # So those should be separated now.
     unparsed_game_list = [game for game in game_list if game.timeline is None]
 
+    if limit is not None and unparsed_game_list:
+        unparsed_game_list = unparsed_game_list[:limit]
+
     if unparsed_game_list:
         logging.info(f"{len(unparsed_game_list)} games to parse.")
 
@@ -110,4 +114,4 @@ if __name__ == "__main__":  # pragma: no cover
         level=logging.DEBUG,
     )
 
-    parse_replays(lambda g: True)
+    parse_replays(lambda g: True, limit=200)
