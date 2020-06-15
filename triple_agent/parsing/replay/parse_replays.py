@@ -111,7 +111,7 @@ def parse_replays(
 if __name__ == "__main__":  # pragma: no cover
     logging.basicConfig(
         format="%(levelname) -10s %(relativeCreated)6d %(threadName)s %(module)s:%(lineno)s %(funcName)s %(message)s",
-        level=logging.DEBUG,
+        level=logging.INFO,
     )
 
-    parse_replays(lambda g: True, limit=200)
+    parse_replays(lambda g: True, limit=100)
