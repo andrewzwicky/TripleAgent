@@ -1573,6 +1573,18 @@ CATEGORY_TEST_CASES = [
     (
         "spy",
         "02:16.6",
+        "statue inspection cancelled.",
+        (None,),
+        (2 * 60 + 16.6),
+        (None,),
+        (None,),
+        TimelineCategory.NoCategory,
+        Missions.Inspect,
+        ActionTest.NoAT,
+    ),
+    (
+        "spy",
+        "02:16.6",
         "right statue inspection cancelled.",
         (None,),
         (2 * 60 + 16.6),
