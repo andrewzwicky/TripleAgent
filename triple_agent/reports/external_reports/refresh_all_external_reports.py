@@ -1,5 +1,6 @@
 import os
 from zipfile import ZipFile
+from time import strftime
 
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -107,7 +108,12 @@ def create_index_file(target_dir: Path):
     h1_tag = soup.new_tag("h1")
     h1_tag.string = f"{title_string}"
 
+    last_update_tag = soup.new_tag("div", style="font-size: x-small")
+    last_update_tag.string = f"Last Updated: {strftime('%Y-%m-%d')}"
+
     soup.body.append(h1_tag)
+
+    soup.body.h1.string.insert_after(last_update_tag)
 
     tar_path = Path(target_dir)
 
