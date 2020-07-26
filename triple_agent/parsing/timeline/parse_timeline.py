@@ -1,9 +1,7 @@
-import os
 import logging
 import hashlib
 from multiprocessing import Pool, cpu_count
 from typing import List, Tuple, Optional, Iterator
-from pathlib import Path
 
 import cv2
 import numpy as np
@@ -13,8 +11,14 @@ from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
 from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT
 from triple_agent.classes.roles import ROLE_COLORS_TO_ENUM, Roles
 from triple_agent.classes.timeline import TimelineEvent
+from triple_agent.constants.paths import (
+    PORTRAIT_NOT_FOUND_DEBUG_PATH,
+    PARSE_EXCEPTION_DEBUG_PATH,
+)
+from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract"
+logger = logging.getLogger("triple_agent")
 
 LINE_SPACING = 20
 LINE_HEIGHT = 19
@@ -58,10 +62,6 @@ SPY_P_WIDTH = 2
 SPY_P_HEIGHT = 25
 TIMEOUT = 12  # seconds
 TIME_STEP = 0.5
-
-PARSE_EXCEPTION_DEBUG_PATH = (
-    Path(__file__).parents[2].joinpath("debug_parse_exception_screenshots")
-)
 
 
 class TimelineParseException(Exception):
@@ -301,7 +301,8 @@ def name_portrait(
                 PORTRAIT_MD5_DICT[hashlib.md5(portrait.tostring()).hexdigest()]
             )
         except KeyError:
-            logging.warning("TimelineParseException character portrait not found")
+            capture_debug_picture(portrait, PORTRAIT_NOT_FOUND_DEBUG_PATH)
+            logger.warning("TimelineParseException character portrait not found")
             raise TimelineParseException("character portrait not found")
 
     # noinspection PyTypeChecker
@@ -386,14 +387,7 @@ def parse_screenshot(
         return events
 
     except TimelineParseException as caught_exception:
-        os.makedirs(PARSE_EXCEPTION_DEBUG_PATH, exist_ok=True)
-        cv2.imwrite(
-            os.path.join(
-                PARSE_EXCEPTION_DEBUG_PATH, str(hash(str(screenshot))) + ".png"
-            ),
-            screenshot,
-        )
-
+        capture_debug_picture(screenshot, PARSE_EXCEPTION_DEBUG_PATH)
         raise caught_exception
 
     finally:

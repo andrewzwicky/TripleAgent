@@ -1,5 +1,6 @@
 import os
 import logging
+
 from shutil import rmtree, copyfile
 from typing import Callable
 
@@ -14,6 +15,8 @@ from triple_agent.constants.paths import (
 )
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
+
+logger = logging.getLogger("triple_agent")
 
 
 class DuplicateFileException(Exception):
@@ -55,11 +58,11 @@ def parse_replays(
     # check that there are no duplicates from the same file existing twice.
     game_uuid_set = set({game.uuid for game in game_list})
     if len(game_uuid_set) != len(game_list):
-        logging.error("duplicate files found")
+        logger.error("duplicate unparsed files found")
         for uuid in game_uuid_set:
             games_matching = [game.file for game in game_list if game.uuid == uuid]
             if len(games_matching) > 1:
-                logging.error(f"{uuid} -{games_matching}")
+                logger.error(f"{uuid} -{games_matching}")
 
         raise DuplicateFileException
 
@@ -75,7 +78,7 @@ def parse_replays(
         unparsed_game_list = unparsed_game_list[:limit]
 
     if unparsed_game_list:
-        logging.info(f"{len(unparsed_game_list)} games to parse.")
+        logger.info(f"{len(unparsed_game_list)} games to parse.")
 
         try:
             rmtree(unparsed_folder)
@@ -109,9 +112,16 @@ def parse_replays(
 
 
 if __name__ == "__main__":  # pragma: no cover
-    logging.basicConfig(
-        format="%(levelname) -10s %(relativeCreated)6d %(threadName)s %(module)s:%(lineno)s %(funcName)s %(message)s",
-        level=logging.INFO,
-    )
+    logger.setLevel(logging.DEBUG)
 
-    parse_replays(lambda g: True, limit=100)
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.DEBUG)
+
+    formatter = logging.Formatter(
+        "{levelname:<6} {threadName:<12} {module:>32}:{lineno:<3} {message}", style="{"
+    )
+    handler.setFormatter(formatter)
+
+    logger.addHandler(handler)
+
+    parse_replays(lambda g: True, limit=20)

@@ -29,3 +29,8 @@ SPF_DATA_FOLDER = DOCS_FOLDER.joinpath("spy_party_fans")
 JSON_GAMES_FOLDER = DOCS_FOLDER.joinpath("json_games")
 PORTRAITS_FOLDER = Path(__file__).parents[1].joinpath("portraits")
 EXAMPLES_FOLDER = Path(__file__).parents[2].joinpath("examples")
+
+DEBUG_CAPTURES = Path(__file__).parents[1].joinpath("debug_captures")
+GAME_NOT_LOADED_DEBUG_PATH = DEBUG_CAPTURES.joinpath("game_not_loaded")
+PORTRAIT_NOT_FOUND_DEBUG_PATH = DEBUG_CAPTURES.joinpath("portraits_not_found")
+PARSE_EXCEPTION_DEBUG_PATH = DEBUG_CAPTURES.joinpath("parse_exception_screenshots")

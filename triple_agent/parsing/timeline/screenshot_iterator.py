@@ -1,15 +1,15 @@
-import os
 import ctypes
 import logging
 from time import sleep
 from typing import Optional, Iterator, Tuple, List
-from pathlib import Path
 
 import cv2
 import numpy as np
 import pyautogui
 from mss import mss
 from triple_agent.classes.game import Game
+from triple_agent.constants.paths import GAME_NOT_LOADED_DEBUG_PATH
+from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 from triple_agent.parsing.timeline.parse_timeline import (
     SPY_P_TOP,
     SPY_P_LEFT,
@@ -30,7 +30,7 @@ from triple_agent.parsing.timeline.parse_timeline import (
     ARROW_COLOR,
 )
 
-GAME_NOT_LOADED_DEBUG_PATH = Path(__file__).parents[2].joinpath("debug_game_not_loaded")
+logger = logging.getLogger("triple_agent")
 
 
 def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
@@ -85,26 +85,18 @@ def is_game_loaded(
         b_mask = p_button[..., 2] == SPY_MISSIONS_COLOR[2]
 
         if not (np.all(r_mask) and np.all(g_mask) and np.all(b_mask)):
-            logging.debug("returns True")
+            logger.debug("is_game_loaded returns True")
             return True
 
         sleep(TIME_STEP)
         total_time += TIME_STEP
 
         if total_time > TIMEOUT:
-            capture_loading_screen_timeout(p_button)
-            logging.error("returns False")
+            capture_debug_picture(p_button, GAME_NOT_LOADED_DEBUG_PATH)
+            logger.error("is_game_loaded returns False")
             return False
 
-        logging.debug("game loading...")
-
-
-def capture_loading_screen_timeout(p_button):
-    os.makedirs(GAME_NOT_LOADED_DEBUG_PATH, exist_ok=True)
-    cv2.imwrite(
-        os.path.join(GAME_NOT_LOADED_DEBUG_PATH, str(hash(str(p_button))) + ".png"),
-        p_button,
-    )
+        logger.debug(f"game loading [{total_time} sec.]")
 
 
 def get_latest_loading_screenshot(
@@ -132,9 +124,9 @@ def get_latest_loading_screenshot(
 
 def refresh_window(spy_party_handle, pycharm_handle):
     ctypes.windll.user32.SetForegroundWindow(pycharm_handle)
-    sleep(0.2)
+    sleep(0.75)
     ctypes.windll.user32.SetForegroundWindow(spy_party_handle)
-    sleep(0.2)
+    sleep(0.75)
 
 
 def get_mss_screenshots(
@@ -144,8 +136,8 @@ def get_mss_screenshots(
     spyparty_handle, pycharm_handle = get_app_handles()
 
     for game_index, game in enumerate(games):
-        logging.info(
-            f"{game.spy} vs. {game.sniper} on {game.venue}, {game.event}, {game.division}, {game.week} [{game.uuid}, {game_index + 1}/{len(games)}]"
+        logger.info(
+            f"{game.spy} vs. {game.sniper} on {game.venue} [{game.uuid}, {game_index + 1}/{len(games)}]"
         )
         screenshot_index = 1
 
@@ -177,7 +169,6 @@ def get_mss_screenshots(
                 yield (game_index, screenshot_index, screenshot, True)
 
                 if game_index != (len(games) - 1):
-                    logging.debug("go to next game")
                     go_to_next_game(spyparty_handle, pycharm_handle)
 
                 # print()
@@ -196,7 +187,7 @@ def scroll_lines():
 
 
 def go_to_next_game(spyparty_handle, pycharm_handle):
-    logging.debug("loading next game")
+    logger.debug("going to next game")
     pyautogui.hotkey("ctrl", "n")
     sleep(0.250)
     if is_game_loaded(spyparty_handle, pycharm_handle):
@@ -220,8 +211,8 @@ def is_last_screenshot(screenshot: np.ndarray):
 
     # arrow is still present, indicating more in the timeline
     if np.all(arrow_location == ARROW_COLOR[0]):
-        logging.debug("returns False")
+        logger.debug("is_last_screenshot returns False")
         return False
 
-    logging.debug("returns True")
+    logger.debug("is_last_screenshot returns True")
     return True

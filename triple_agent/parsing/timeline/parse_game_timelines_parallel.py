@@ -17,6 +17,8 @@ from triple_agent.parsing.timeline.parse_timeline import (
 from triple_agent.classes.game import Game
 from triple_agent.classes.timeline import Timeline
 
+logger = logging.getLogger("triple_agent")
+
 
 def all_timeline_pieces_present(pieces_dict: dict) -> bool:
     num_parsed_pieces = 0
@@ -38,8 +40,6 @@ def parse_timeline_parallel(
     pickle_folder: str = REPLAY_PICKLE_FOLDER,
     json_folder: str = JSON_GAMES_FOLDER,
 ):
-    logging.debug("")
-
     mutex = threading.Lock()
     num_worker_threads = 4
     queue = Queue()
@@ -51,7 +51,7 @@ def parse_timeline_parallel(
         while True:
             game_index, ss_index, screenshot, is_last = queue.get()
 
-            logging.debug(
+            logger.debug(
                 f"game_index={game_index}, ss_index={ss_index}, is_last={is_last}"
             )
             # None is the signal that all screenshots have been processed
@@ -85,7 +85,7 @@ def parse_timeline_parallel(
                     coherency = games[game_index].is_timeline_coherent()
 
                     if coherency != TimelineCoherency.Coherent:
-                        logging.error(
+                        logger.error(
                             f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n"
                         )
                     else:
@@ -108,7 +108,7 @@ def parse_timeline_parallel(
     for screenshot_information in screenshot_iterator(games):
         queue.put(screenshot_information)
 
-    logging.info("replay iteration complete")
+    logger.info("replay iteration complete")
 
     queue.join()
 
