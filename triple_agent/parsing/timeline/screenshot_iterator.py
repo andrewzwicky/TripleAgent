@@ -48,7 +48,7 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
         # TODO: err handling here, not very robust way to detect SP window
         if "PyCharm" in title:
             pycharm_handle = hwnd
-        if "SpyParty v0.1.7093.0" in title:
+        if "SpyParty v0.1.7237.0" in title:
             spyparty_handle = hwnd
 
         return True
