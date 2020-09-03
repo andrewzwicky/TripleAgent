@@ -300,10 +300,10 @@ def name_portrait(
             characters.append(
                 PORTRAIT_MD5_DICT[hashlib.md5(portrait.tostring()).hexdigest()]
             )
-        except KeyError:
+        except KeyError as key_exec:
             capture_debug_picture(portrait, PORTRAIT_NOT_FOUND_DEBUG_PATH)
             logger.warning("TimelineParseException character portrait not found")
-            raise TimelineParseException("character portrait not found")
+            raise TimelineParseException("character portrait not found") from key_exec
 
     # noinspection PyTypeChecker
     return tuple(characters)
