@@ -415,7 +415,15 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         None,
         False,
         defaultdict(
-            Counter, {None: Counter({Lights.Highlight: 8, Lights.Lowlight: 1,})},
+            Counter,
+            {
+                None: Counter(
+                    {
+                        Lights.Highlight: 8,
+                        Lights.Lowlight: 1,
+                    }
+                )
+            },
         ),
     ),
     (
@@ -424,7 +432,14 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         False,
         defaultdict(
             Counter,
-            {None: Counter({True: pytest.approx(776.9), False: pytest.approx(979.4),})},
+            {
+                None: Counter(
+                    {
+                        True: pytest.approx(776.9),
+                        False: pytest.approx(979.4),
+                    }
+                )
+            },
         ),
     ),
     (
@@ -435,7 +450,11 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
             Counter,
             {
                 None: Counter(
-                    {Lights.Highlight: 4, Lights.Lowlight: 2, Lights.Neutral: 3,}
+                    {
+                        Lights.Highlight: 4,
+                        Lights.Lowlight: 2,
+                        Lights.Neutral: 3,
+                    }
                 )
             },
         ),
@@ -444,7 +463,10 @@ CREATE_DATA_DICTIONARY_TEST_CASES = [
         _count_time_adds,
         None,
         False,
-        defaultdict(Counter, {None: Counter({1: 1, 0: 8})},),
+        defaultdict(
+            Counter,
+            {None: Counter({1: 1, 0: 8})},
+        ),
     ),
     (
         _categorize_bugs,
@@ -729,7 +751,9 @@ FINGERPRINT_REPORT_CASES = [
         AxisProperties(),
     ),
     (
-        DataQueryProperties(query_function=_categorize_fp_sources,),
+        DataQueryProperties(
+            query_function=_categorize_fp_sources,
+        ),
         pandas.DataFrame(
             data=[[1, 2, 1]],
             index=[None],
@@ -765,9 +789,15 @@ FINGERPRINT_REPORT_CASES = [
         AxisProperties(),
     ),
     (
-        DataQueryProperties(query_function=_categorize_successful_fp_sources,),
+        DataQueryProperties(
+            query_function=_categorize_successful_fp_sources,
+        ),
         pandas.DataFrame(
-            data=[[2]], index=[None], columns=[(TimelineCategory.Statues, False),],
+            data=[[2]],
+            index=[None],
+            columns=[
+                (TimelineCategory.Statues, False),
+            ],
         ),
         True,
         AxisProperties(),
@@ -798,7 +828,10 @@ def test_fingerprint_report(
 
 
 HISTOGRAM_COUNT_CASES = [
-    (_determine_time_add_timings, ([pytest.approx(12.7)], [pytest.approx(182.3)]),),
+    (
+        _determine_time_add_timings,
+        ([pytest.approx(12.7)], [pytest.approx(182.3)]),
+    ),
     (
         _time_bb_splits,
         list(map(pytest.approx, [16.8, 41.3, 1.8, 2.3, 0.3, 14.8, 30.7, 0.4])),
@@ -809,7 +842,8 @@ HISTOGRAM_COUNT_CASES = [
 @pytest.mark.plotting
 @pytest.mark.quick
 @pytest.mark.parametrize(
-    "histogram_count_function, exp_counts", HISTOGRAM_COUNT_CASES,
+    "histogram_count_function, exp_counts",
+    HISTOGRAM_COUNT_CASES,
 )
 def test_histogram_counters(
     get_preparsed_timeline_games, histogram_count_function, exp_counts

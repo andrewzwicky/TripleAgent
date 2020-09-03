@@ -127,7 +127,17 @@ CREATE_DATA_FRAME_CASES = [
             },
         ),
         pandas.DataFrame(
-            data=[[16], [29], [8], [9], [6], [17], [19], [9], [6],],
+            data=[
+                [16],
+                [29],
+                [8],
+                [9],
+                [6],
+                [17],
+                [19],
+                [9],
+                [6],
+            ],
             index=[
                 Missions.Bug,
                 Missions.Contact,
@@ -508,14 +518,26 @@ SORT_FRAME_CASES = [
     (
         pandas.DataFrame(
             data=[[128, 152, 15, 15, 4]],
-            columns=[5, ActionTest.White, ActionTest.Red, "a", ActionTest.Canceled,],
+            columns=[
+                5,
+                ActionTest.White,
+                ActionTest.Red,
+                "a",
+                ActionTest.Canceled,
+            ],
             index=[None],
         ),
         None,
         False,
         pandas.DataFrame(
             data=[[128, 152, 15, 15, 4]],
-            columns=[5, ActionTest.White, ActionTest.Red, "a", ActionTest.Canceled,],
+            columns=[
+                5,
+                ActionTest.White,
+                ActionTest.Red,
+                "a",
+                ActionTest.Canceled,
+            ],
             index=[None],
         ),
     ),

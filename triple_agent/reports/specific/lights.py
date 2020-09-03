@@ -55,7 +55,9 @@ def spy_lights(
         AxisProperties(
             primary_color_dict=create_lights_color_dict(AxisProperties.plot_colors)
         ),
-        DataQueryProperties(query_function=_determine_spy_lights,),
+        DataQueryProperties(
+            query_function=_determine_spy_lights,
+        ),
     )
     return query(games, data_query, axis_properties)
 
@@ -71,6 +73,8 @@ def amba_lights(
         AxisProperties(
             primary_color_dict=create_lights_color_dict(AxisProperties.plot_colors)
         ),
-        DataQueryProperties(query_function=_determine_amba_lights,),
+        DataQueryProperties(
+            query_function=_determine_amba_lights,
+        ),
     )
     return query(games, data_query, axis_properties)

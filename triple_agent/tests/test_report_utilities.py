@@ -311,7 +311,11 @@ def test_create_category_legend_labels(
     expected_stack_labels,
 ):
     category_labels, stack_labels = create_category_legend_labels(
-        primary_label_dict, secondary_label_dict, columns, index, stacks_are_categories,
+        primary_label_dict,
+        secondary_label_dict,
+        columns,
+        index,
+        stacks_are_categories,
     )
 
     assert category_labels == expected_category_labels

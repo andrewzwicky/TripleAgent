@@ -41,7 +41,9 @@ def action_test_percentages(
                 axis_properties.plot_colors
             )
         ),
-        DataQueryProperties(query_function=_at_rates_excluding_difficults,),
+        DataQueryProperties(
+            query_function=_at_rates_excluding_difficults,
+        ),
     )
 
     return query(games, data_query, axis_properties)
@@ -60,7 +62,9 @@ def diff_action_test_percentages(
                 axis_properties.plot_colors
             )
         ),
-        DataQueryProperties(query_function=_difficult_at_rate,),
+        DataQueryProperties(
+            query_function=_difficult_at_rate,
+        ),
     )
 
     return query(games, data_query, axis_properties)

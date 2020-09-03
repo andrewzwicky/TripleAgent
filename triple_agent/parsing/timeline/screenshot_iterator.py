@@ -71,7 +71,8 @@ def window__get_title(hwnd_handle):
 
 
 def is_game_loaded(
-    spy_party_handle: Optional[int], pycharm_handle: Optional[int],
+    spy_party_handle: Optional[int],
+    pycharm_handle: Optional[int],
 ):
     total_time = 0
 

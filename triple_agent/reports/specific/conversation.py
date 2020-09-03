@@ -48,6 +48,8 @@ def cumulative_conversation_times(
         axis_properties,
         data_query,
         AxisProperties(primary_label_dict={False: "Out Of Convo", True: "In Convo"}),
-        DataQueryProperties(query_function=_count_time_in_conversation,),
+        DataQueryProperties(
+            query_function=_count_time_in_conversation,
+        ),
     )
     return query(games, data_query, axis_properties)

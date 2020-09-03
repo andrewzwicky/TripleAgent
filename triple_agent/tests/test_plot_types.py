@@ -34,14 +34,16 @@ def test_mpl_321(fig_test, fig_ref):
     ref_ax = fig_ref.subplots()
     ref_ax.set_title("Test Title")
     ref_ax.pie(
-        [1, 2, 3, 4, 4], labels=["A", "B", "C", "D", "E"],
+        [1, 2, 3, 4, 4],
+        labels=["A", "B", "C", "D", "E"],
     )
 
     fig_test.set_size_inches(8, 8)
     test_ax = fig_test.subplots()
     test_ax.set_title("Test Title")
     test_ax.pie(
-        [1, 2, 3, 4, 4], labels=["A", "B", "C", "D", "E"],
+        [1, 2, 3, 4, 4],
+        labels=["A", "B", "C", "D", "E"],
     )
 
 
@@ -353,7 +355,8 @@ def test_bar_simple_no_data(capsys):
         },
     )
     data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(), stacks_are_categories=True,
+        frame=pandas.DataFrame(),
+        stacks_are_categories=True,
     )
 
     create_bar_plot(axis_properties, data_plot_properties)
@@ -376,7 +379,8 @@ def test_pie_simple_no_data(capsys):
         },
     )
     data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(), stacks_are_categories=True,
+        frame=pandas.DataFrame(),
+        stacks_are_categories=True,
     )
 
     create_pie_chart(axis_properties, data_plot_properties)
@@ -425,7 +429,8 @@ def test_line_simple_no_data(capsys):
         },
     )
     data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(), stacks_are_categories=True,
+        frame=pandas.DataFrame(),
+        stacks_are_categories=True,
     )
 
     create_line_plot(axis_properties, data_plot_properties)
