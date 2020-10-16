@@ -1,7 +1,7 @@
 import logging
 import hashlib
 from multiprocessing import Pool, cpu_count
-from typing import List, Tuple, Optional, Iterator
+from typing import List, Tuple, Optional, Iterator, Any
 
 import cv2
 import numpy as np
@@ -312,33 +312,57 @@ def name_portrait(
 def remove_overlap(events: Iterator[TimelineEvent]) -> List[TimelineEvent]:
     all_events_list = list(events)
 
-    if len(all_events_list) > 30:
-        # if full pages, there must be a number evenly divisible by 30
-        assert len(all_events_list) % 30 == 0
+    num_overlapping_events = find_overlap_last_page_index(
+        [hash(e) for e in all_events_list]
+    )
 
-        last_page_hashes = [hash(event) for event in all_events_list[-30:]]
-        second_last_page_hashes = [hash(event) for event in all_events_list[-60:-30]]
+    return trim_overlapped_list(all_events_list, num_overlapping_events)
 
-        # iterating backwards over second to last page, look for the first event of the last page
-        overlap = False
-        last_page_index = 30
 
-        for index, this_hash in enumerate(reversed(second_last_page_hashes), start=1):
-            if this_hash == last_page_hashes[0]:
-                last_page_index = 30 - index
-                overlap = True
-                break
+def trim_overlapped_list(
+    events: List[Any], num_overlapping_events: int
+) -> List[Any]:
+    if num_overlapping_events == 0:
+        return events
 
-        # if there is overlap, but not equal, the timeline should fail
-        # coherency check
-        if overlap:
+    elif num_overlapping_events == NUM_LINES:
+        return events[:-NUM_LINES]
+
+    else:
+        return events[:-NUM_LINES] + events[(-NUM_LINES + num_overlapping_events) :]
+
+
+def find_overlap_last_page_index(hashes: List[int]) -> int:
+    # can't contain overlap with less than one page of results
+    if len(hashes) > NUM_LINES:
+
+        # if full pages, assume a number evenly divisible by 30
+        # otherwise, we can't know where the last page break is
+        assert len(hashes) % NUM_LINES == 0
+
+        last_page_hashes = hashes[-NUM_LINES:]
+        second_last_page_hashes = hashes[-(NUM_LINES * 2) : -NUM_LINES]
+
+        # starting with the maximum possible overlap, continuously check
+        # smaller and smaller sections, until an overlap range is found
+
+        # This does mean that there is no discernable difference between a
+        # doubled event (same hash) that spans the last page boundary
+        # and the same even showing up twice because of overlap
+
+        # TODO: Consider using shift to get absolute times to avoid these edge cases
+        for num_overlapping_events in range(NUM_LINES, 0, -1):
             if np.array_equal(
-                last_page_hashes[:-last_page_index],
-                second_last_page_hashes[last_page_index:],
+                last_page_hashes[:num_overlapping_events],
+                second_last_page_hashes[-num_overlapping_events:],
             ):
-                del all_events_list[-30:-last_page_index]
+                # it is possible to return a full page worth of overlap here
+                # if the last two pages are identical
+                # this seems highly unlikely
+                return num_overlapping_events
 
-    return all_events_list
+    # if nothing is returned, it means there's no overlap
+    return 0
 
 
 def separate_time_digits(time_pic: np.ndarray) -> np.ndarray:
