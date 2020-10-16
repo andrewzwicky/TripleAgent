@@ -6,7 +6,7 @@ import pytest
 from triple_agent.parsing.timeline.parse_timeline import (
     parse_screenshot,
     find_overlap_last_page_index,
-    trim_overlapped_list
+    trim_overlapped_list,
 )
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
@@ -7035,6 +7035,7 @@ def test_find_overlap_last_page_index(
 
     assert num_overlapping_events == expected_num_overlapping_events
 
+
 TRIM_OVERLAP_TEST_CASES = [
     ([], 0, []),
     # test case taken from
@@ -7162,7 +7163,8 @@ TRIM_OVERLAP_TEST_CASES = [
             -3587251677524125944,
         ],
         22,
-        [4898569955834637889,
+        [
+            4898569955834637889,
             -4414489284896555474,
             -5683575663596673397,
             -6727287813583471907,
@@ -7259,7 +7261,8 @@ TRIM_OVERLAP_TEST_CASES = [
             5073970690446166680,
             4002889492044046295,
             5623320347751645624,
-            -3587251677524125944,]
+            -3587251677524125944,
+        ],
     ),
     (list(range(30)), 0, list(range(30))),
     (list(range(60)), 0, list(range(60))),
@@ -7443,7 +7446,7 @@ TRIM_OVERLAP_TEST_CASES = [
             48,
         ],
         11,
-[
+        [
             0,
             1,
             2,
@@ -7684,7 +7687,7 @@ TRIM_OVERLAP_TEST_CASES = [
             57,
         ],
         2,
-[
+        [
             0,
             1,
             2,
@@ -7746,6 +7749,7 @@ TRIM_OVERLAP_TEST_CASES = [
         ],
     ),
 ]
+
 
 @pytest.mark.parsing
 @pytest.mark.parametrize(

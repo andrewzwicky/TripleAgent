@@ -319,17 +319,14 @@ def remove_overlap(events: Iterator[TimelineEvent]) -> List[TimelineEvent]:
     return trim_overlapped_list(all_events_list, num_overlapping_events)
 
 
-def trim_overlapped_list(
-    events: List[Any], num_overlapping_events: int
-) -> List[Any]:
+def trim_overlapped_list(events: List[Any], num_overlapping_events: int) -> List[Any]:
     if num_overlapping_events == 0:
         return events
 
-    elif num_overlapping_events == NUM_LINES:
+    if num_overlapping_events == NUM_LINES:
         return events[:-NUM_LINES]
 
-    else:
-        return events[:-NUM_LINES] + events[(-NUM_LINES + num_overlapping_events) :]
+    return events[:-NUM_LINES] + events[(-NUM_LINES + num_overlapping_events) :]
 
 
 def find_overlap_last_page_index(hashes: List[int]) -> int:
