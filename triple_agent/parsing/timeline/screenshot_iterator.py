@@ -46,9 +46,9 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
         nonlocal spyparty_handle
         title = window__get_title(hwnd)
         # TODO: err handling here, not very robust way to detect SP window
-        if "PyCharm" in title:
+        if title.startswith("TripleAgent – "):
             pycharm_handle = hwnd
-        if "SpyParty v0.1.7269.0" in title:
+        if title == "SpyParty v0.1.7269.0":
             spyparty_handle = hwnd
 
         return True
