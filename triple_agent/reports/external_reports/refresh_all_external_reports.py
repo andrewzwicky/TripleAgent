@@ -34,6 +34,7 @@ from triple_agent.reports.external_reports.spy_party_fans.action_tests import (
 from triple_agent.reports.external_reports.spy_party_fans.sniper_lights import (
     spf_lights_report,
 )
+from triple_agent.reports.external_reports.overall_reports.games_manifest import create_game_manifest
 from triple_agent.reports.generation.create_alias_list import create_alias_list
 
 EVENT_REPORT_SOURCE = Path(__file__).parents[0].joinpath("event_reports")
@@ -203,6 +204,7 @@ def refresh_all_reports():
 
     refresh_example_notebooks()
 
+    create_game_manifest(all_replays)
     spf_lights_report(all_replays)
     spf_action_test_report(all_replays)
     spf_character_selection_report(all_replays)
