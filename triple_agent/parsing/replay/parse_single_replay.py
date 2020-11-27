@@ -36,7 +36,7 @@ def parse_replay_dict_into_game(
         replay_dict["spy_username"],
         replay_dict["sniper_username"],
         # remove - for High-Rise
-        Venue[replay_dict["level"].replace("-", "")],
+        Venue[replay_dict["level"].replace("-", "").replace(" ", "")],
         WinType[replay_dict["result"].replace(" ", "")],
         replay_dict["game_type"],
         convert_mission_set_to_enum(
