@@ -18,16 +18,18 @@ def fetch_old_replays(url: str):
 
     for item in soup.body.contents:
         # Assume that each string is a header, and replay files that follow are under that info
-        if isinstance(item, bs4.element.NavigableString) or (isinstance(item, bs4.element.Tag) and item.name == 'p'):
+        if isinstance(item, bs4.element.NavigableString) or (
+            isinstance(item, bs4.element.Tag) and item.name == "p"
+        ):
             try:
                 item = item.text
             except AttributeError:
                 pass
 
-            event_num, division, week, players = map(str.strip, item.split(','))
-            event = 'SCL' + event_num
+            event_num, division, week, _ = map(str.strip, item.split(","))
+            event = "SCL" + event_num
 
-            if week == 'hazard_promo_finals':
+            if week == "hazard_promo_finals":
                 division = week
                 week = None
 
@@ -43,18 +45,17 @@ def fetch_old_replays(url: str):
                 lowest_path = os.path.join(lowest_path, week)
                 os.makedirs(lowest_path, exist_ok=True)
 
-
             print(event, division, week)
         if isinstance(item, bs4.element.Tag):
-            if item.name == 'a' and item.attrs['href']:
+            if item.name == "a" and item.attrs["href"]:
                 print(item.text)
 
-                r = requests.get(BASE_SPF + item.attrs['href'])
-                with open(os.path.join(lowest_path, item.text), 'wb') as outfile:
-                    outfile.write(r.content)
-
+                replay_req = requests.get(BASE_SPF + item.attrs["href"])
+                with open(os.path.join(lowest_path, item.text), "wb") as outfile:
+                    outfile.write(replay_req.content)
 
 
 if __name__ == "__main__":
+    fetch_old_replays(SCL1_REPLAYS_URL)
     fetch_old_replays(SCL2_REPLAYS_URL)
     fetch_old_replays(SCL3_REPLAYS_URL)
