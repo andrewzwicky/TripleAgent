@@ -28,31 +28,19 @@ class Venue(OrderedStringifyEnum):
     OldBallroom = auto()
 
     def stringify(self):
-        if self == Venue.HighRise:
-            return "High-Rise"
+        stringify_map = {
+            Venue.HighRise: "High-Rise",
+            Venue.DoubleModern: "Double Modern",
+            Venue.OldGallery: "Old Gallery",
+            Venue.CrowdedPub: "Crowded Pub",
+            Venue.OldBalcony: "Old Balcony",
+            Venue.OldBallroom: "Old Ballroom",
+            Venue.OldVeranda: "Old Veranda",
+            Venue.Courtyard1: "Old Courtyard",
+            Venue.Courtyard2: "Old Courtyard 2",
+        }
 
-        if self == Venue.DoubleModern:
-            return "Double Modern"
-
-        if self == Venue.OldGallery:
-            return "Old Gallery"
-
-        if self == Venue.CrowdedPub:
-            return "Crowded Pub"
-
-        if self == Venue.OldBalcony:
-            return "Old Balcony"
-
-        if self == Venue.OldBallroom:
-            return "Old Ballroom"
-
-        if self == Venue.OldVeranda:
-            return "Old Veranda"
-
-        if self == Venue.Courtyard1:
-            return "Old Courtyard"
-
-        if self == Venue.Courtyard2:
-            return "Old Courtyard 2"
-
-        return self.name
+        try:
+            return stringify_map[self]
+        except KeyError:
+            return self.name

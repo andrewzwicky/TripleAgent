@@ -179,7 +179,11 @@ class Game:
                 break
 
             # In older replays, the missions selected and enabled are at the front of the cast selection.
-            if event.category not in (TimelineCategory.SniperLights, TimelineCategory.MissionEnabled, TimelineCategory.MissionSelected):
+            if event.category not in (
+                TimelineCategory.SniperLights,
+                TimelineCategory.MissionEnabled,
+                TimelineCategory.MissionSelected,
+            ):
                 coherency |= TimelineCoherency.SpyNotCastInBeginning
                 break
 
