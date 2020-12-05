@@ -26,6 +26,26 @@ class Characters(OrderedStringifyEnum):
     Wheels = auto()
     Toby = auto()
     Damon = auto()
+    Alphonse = auto()
+    Anna = auto()
+    Arnold = auto()
+    Brimsworth = auto()
+    Clarice = auto()
+    Cybil = auto()
+    DJackson = auto()
+    DJenson = auto()
+    DJohnson = auto()
+    Ether = auto()
+    Flawn = auto()
+    GenRitzini = auto()
+    Girta = auto()
+    Jim = auto()
+    John = auto()
+    Mitchell = auto()
+    RBlain = auto()
+    Sue = auto()
+    Virginia = auto()
+    Yvonne = auto()
 
     def serialize(self):
         return CHARACTERS_TO_STRING[self]
@@ -75,6 +95,26 @@ CHARACTERS_TO_STRING = {
     Characters.Duke: "Mr. U",
     Characters.Toby: "Toby",
     Characters.Damon: "Damon",
+    Characters.Alphonse : "Alphonse \"Snaps\" McGee",
+    Characters.Anna : "Anna Klàvsky",
+    Characters.Arnold : "Arnold Woods-Nicklaus",
+    Characters.Brimsworth : "Brimsworth Buckswaggle, III",
+    Characters.Clarice : "Clarice Sofia Mortgenstern",
+    Characters.Cybil : "Cybil Disobedience",
+    Characters.DJackson : "Danger P. Jackson",
+    Characters.DJenson : "Danger P. Jenson",
+    Characters.DJohnson : "Danger P. Johnson",
+    Characters.Ether : "Ether van Trawn",
+    Characters.Flawn : "Flawn Tabawt",
+    Characters.GenRitzini : "Generalissimo Ritzini",
+    Characters.Girta : "Girta Schuhleder",
+    Characters.Jim : "Jim Bondo",
+    Characters.John : "John Revolta",
+    Characters.Mitchell : "Mitchell S. Barney",
+    Characters.RBlain : "R. Blain Pembrookeberton",
+    Characters.Sue : "Sue Veillance",
+    Characters.Virginia : "Virginia Vulpes",
+    Characters.Yvonne : "Yvonne Pennyweather",
 }
 
 PORTRAIT_MD5_DICT = {
@@ -103,4 +143,25 @@ PORTRAIT_MD5_DICT = {
     "4bd32c78192c0e08fd09f244a612a59d": Characters.Damon,
     "eba2303dcfce270520163c1a816eeeb6": Characters.Duke,
     "2e0f38e0557e0f1dac54b0c47b07e5bf": Characters.Toby,
+    "1ad437a9fe239ae75d9704944611740c": Characters.Alphonse,
+    "e303c3e9c027c8d3318c3f7204ac24ff": Characters.Anna,
+    "eac1f2687bdfa36c1116c485ea65fcfa": Characters.Arnold,
+    "2e8c47cb24be51da297bd4f79794e01a": Characters.Brimsworth,
+    "6211521e80ef976448b8642397fb3f6d": Characters.Clarice,
+    "a9479476c35ad7adf399fdc261617148": Characters.Cybil,
+    "47f88c36518d063e6f5489b3c5a6d2db": Characters.DJackson,
+    "db688d509d0ed29adc7e3b93bb27541e": Characters.DJenson,
+    "b72a9571b92cfe78f3252fe61eac55fa": Characters.DJohnson,
+    "7b20926d74d3cfe07de3e72a4d746254": Characters.Ether,
+    "fbbc04b490406078c045c6e6fe1debf1": Characters.Flawn,
+    "30ee639e1f0d9766cd7a800c9a832575": Characters.GenRitzini,
+    "d54bc31ec89d3cb9a1298217ddf7d619": Characters.Girta,
+    "02481d141a7bc82a75559861de671976": Characters.Jim,
+    "d14392d6783880ee736478cc63effe74": Characters.John,
+    "dbdbf1b202c925bcd21e5727e21f8556": Characters.Mitchell,
+    "ef2c92121a6a3c8ad6eb1125ad55054f": Characters.RBlain,
+    "dbd14dec0ac780fcb79f2c1a80cea668": Characters.Sue,
+    "421ef4d1c150a35f12fb0bed49908dad": Characters.Virginia,
+    "a1965df8eb47d0ac2a1893ef7fce6729": Characters.Yvonne,
+
 }

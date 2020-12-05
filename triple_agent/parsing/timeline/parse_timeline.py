@@ -296,12 +296,14 @@ def name_portrait(
         if portrait is None:
             return (None,)
 
+        portrait_md5 = hashlib.md5(portrait.tostring()).hexdigest()
+
         try:
             characters.append(
-                PORTRAIT_MD5_DICT[hashlib.md5(portrait.tostring()).hexdigest()]
+                PORTRAIT_MD5_DICT[portrait_md5]
             )
         except KeyError as key_exec:
-            capture_debug_picture(portrait, PORTRAIT_NOT_FOUND_DEBUG_PATH)
+            capture_debug_picture(portrait, PORTRAIT_NOT_FOUND_DEBUG_PATH, filename=portrait_md5)
             logger.warning("TimelineParseException character portrait not found")
             raise TimelineParseException("character portrait not found") from key_exec
 

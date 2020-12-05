@@ -178,7 +178,8 @@ class Game:
             if isinstance(event.role, tuple) and event.role[0] == Roles.Spy:
                 break
 
-            if event.category != TimelineCategory.SniperLights:
+            # In older replays, the missions selected and enabled are at the front of the cast selection.
+            if event.category not in (TimelineCategory.SniperLights, TimelineCategory.MissionEnabled, TimelineCategory.MissionSelected):
                 coherency |= TimelineCoherency.SpyNotCastInBeginning
                 break
 
