@@ -8676,6 +8676,68 @@ LINE_IMAGE_TEST_CASES = [
             ActionTest.NoAT,
         ),
     ),
+    (
+        "7f912b7c0084b3c01271aab0f7fc7fb6",
+        (
+            "spy",
+            "00:12.8",
+            "delegated purloin to ms. e.",
+            (Characters.Helen,),
+            12.8,
+            (Roles.Civilian,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.Purloin,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
+        "7fde0785cdfdee167da472222d4d217f",
+        (
+            "spy",
+            "02:20.0",
+            "action test red: check watch",
+            (None,),
+            140.0,
+            (None,),
+            (None,),
+            TimelineCategory.ActionTest
+            | TimelineCategory.TimeAdd
+            | TimelineCategory.Watch,
+            Missions.NoMission,
+            ActionTest.Red,
+        ),
+    ),
+    (
+        "819d3fc05b3089cfb963072a4c151273",
+        (
+            "spy",
+            "00:21.5",
+            "delegating purloin guest list.",
+            (None,),
+            21.5,
+            (None,),
+            (None,),
+            TimelineCategory.Drinks,
+            Missions.Purloin,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
+        "82a204e8e852b37a851ef1f0b713c1cd",
+        (
+            "spy",
+            "00:43.8",
+            "action test ignored: fingerprint ambassador",
+            (None,),
+            43.8,
+            (None,),
+            (None,),
+            TimelineCategory.ActionTest,
+            Missions.Fingerprint,
+            ActionTest.Ignored,
+        ),
+    ),
 ]
 
 

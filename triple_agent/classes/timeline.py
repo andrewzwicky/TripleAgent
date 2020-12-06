@@ -287,6 +287,10 @@ EVENT_IMAGE_HASH_DICT = {
     "7ab168a3a87428f418702d60556e82e6": "flirt with seduction target: 21%",
     "7c16a3c821eb29f13d64ba472f17f79b": "fingerprinted cupcake.",
     "7ca1dd7181cdeca7e226d0eeeba132ca": "delegated purloin to mr. a.",
+    "7f912b7c0084b3c01271aab0f7fc7fb6": "delegated purloin to ms. e.",
+    "7fde0785cdfdee167da472222d4d217f": "action test red: check watch",
+    "819d3fc05b3089cfb963072a4c151273": "delegating purloin guest list.",
+    "82a204e8e852b37a851ef1f0b713c1cd": "action test ignored: fingerprint ambassador",
 }
 
 
