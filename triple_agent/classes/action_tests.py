@@ -11,6 +11,9 @@ class ActionTest(ReverseOrderedEnum):
     Red = auto()
     Canceled = auto()
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}.{self.name}"
+
 
 def create_action_test_color_dict(plot_colors: PlotColorsBase):
     return {

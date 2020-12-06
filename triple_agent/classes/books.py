@@ -7,6 +7,9 @@ class Books(Enum):
     Green = auto()
     Blue = auto()
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}.{self.name}"
+
 
 # Book colors are not consistent between venues in replays.
 # Colors are BGR

@@ -10,7 +10,11 @@ from triple_agent.tests.create_screenshot_expecteds import confirm_categorizatio
 from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
 from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT
 from triple_agent.classes.roles import ROLE_COLORS_TO_ENUM, Roles
-from triple_agent.classes.timeline import TimelineEvent
+from triple_agent.classes.timeline import (
+    TimelineEvent,
+    EVENT_IMAGE_HASH_DICT,
+    ACTOR_IMAGE_HASH_DICT,
+)
 from triple_agent.constants.paths import (
     PORTRAIT_NOT_FOUND_DEBUG_PATH,
     PARSE_EXCEPTION_DEBUG_PATH,
@@ -383,9 +387,18 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
         convert_black_white(add_borders(words))
     )
     separated_time_pic = separate_time_digits(time_pic)
-    actor = ocr_core(actor_pic, False)
     time = ocr_core(separated_time_pic, True)
-    event = ocr_core(event_pic, False)
+
+    event_image_hash = hashlib.md5(event_pic.tostring()).hexdigest()
+    actor_image_hash = hashlib.md5(actor_pic.tostring()).hexdigest()
+
+    try:
+        event = EVENT_IMAGE_HASH_DICT[event_image_hash]
+    except KeyError:
+        event = ocr_core(event_pic, False)
+
+    actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
+
     return TimelineEvent(actor, time, event, characters, roles, books)
 
 

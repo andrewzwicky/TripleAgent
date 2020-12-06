@@ -10,6 +10,9 @@ class Roles(Enum):
     Staff = auto()
     SuspectedDoubleAgent = auto()
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}.{self.name}"
+
 
 ROLE_COLORS_TO_ENUM = {
     (178, 204, 178): Roles.Staff,

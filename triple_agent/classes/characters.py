@@ -70,6 +70,9 @@ class Characters(OrderedStringifyEnum):
 
         return CHARACTERS_TO_STRING[self][-1]
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}.{self.name}"
+
 
 CHARACTERS_TO_STRING = {
     Characters.Disney: "Mr. A",
