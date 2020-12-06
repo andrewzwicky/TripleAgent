@@ -376,8 +376,7 @@ def separate_time_digits(time_pic: np.ndarray) -> np.ndarray:
 
 
 def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
-    is_blank = np.all(line_image == BACKGROUND_COLOR[0])
-    if is_blank:
+    if np.all(line_image == BACKGROUND_COLOR[0]):
         return None
 
     line_image = remove_highlighted_background(line_image)
