@@ -22,7 +22,7 @@ CREATE_DATA_FRAME_CASES = [
                 Venue.Balcony: Counter(
                     {ActionTest.Green: 6, ActionTest.White: 7, ActionTest.Ignored: 1}
                 ),
-                Venue.Terrace: Counter(
+                Venue.Panopticon: Counter(
                     {ActionTest.Green: 2, ActionTest.White: 7, ActionTest.Red: 1}
                 ),
                 Venue.Gallery: Counter(
@@ -45,7 +45,7 @@ CREATE_DATA_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
+            columns=[Venue.Balcony, Venue.Panopticon, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -279,7 +279,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 1, 0],
                 [0, 0, 1, 0],
             ],
-            columns=[Venue.Balcony, Venue.Terrace, Venue.Gallery, Venue.Ballroom],
+            columns=[Venue.Balcony, Venue.Modern, Venue.Gallery, Venue.Ballroom],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
@@ -301,7 +301,7 @@ SORT_FRAME_CASES = [
                 [0, 1, 0, 1],
                 [0, 0, 0, 1],
             ],
-            columns=[Venue.Ballroom, Venue.Terrace, Venue.Balcony, Venue.Gallery],
+            columns=[Venue.Ballroom, Venue.Modern, Venue.Balcony, Venue.Gallery],
             index=[
                 ActionTest.Green,
                 ActionTest.White,
