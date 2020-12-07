@@ -209,7 +209,7 @@ EVENT_IMAGE_HASH_DICT = {
     "a682c48dc256d52c7ed06f0f1d54db71": "action triggered: check watch",
     "882d5890f602fa469ed90a4cd4310e6d": "watch checked to add time.",
     "1c4a6f8bffcbcd01b524d851df179940": "action test green: check watch",
-    "890a04a48d8f318c9cb49f9e8515f255": "delegated purloin to ms. 0.",
+    "890a04a48d8f318c9cb49f9e8515f255": "delegated purloin to ms. o.",
     "008abd07ef76e22b0970394c43d95478": "flirt with seduction target: 69%",
     "0130bdee457add93dd4e24249903b170": "delegated purloin to ms. l.",
     "02f4960217f6b685ffcbb58ffff14a00": "flirt with seduction target: 33%",
@@ -377,6 +377,7 @@ EVENT_IMAGE_HASH_DICT = {
     "f6f4dc6047d4bef82b73bd40bbeb0e3e": "delegated purloin to ms. r.",
     "fddbaf3ac68ea5dd87f0ab24c51f2d8f": "flirt with seduction target: 42%",
     "fed817294c78399897c5b77bbef0cd21": "inspect 1 statue selected.",
+    "7eb6c49997c7feaf3f35a49175da3cd9": "dropped statue.",
 }
 
 
@@ -836,11 +837,6 @@ CATEGORIZATION_DICTIONARY = {
         Missions.Purloin,
         ActionTest.NoAT,
     ),
-    ("spy", "delegated purloin to mr. 5."): (
-        TimelineCategory.Drinks,
-        Missions.Purloin,
-        ActionTest.NoAT,
-    ),
     ("spy", "delegated purloin to mr. a."): (
         TimelineCategory.Drinks,
         Missions.Purloin,
@@ -887,11 +883,6 @@ CATEGORIZATION_DICTIONARY = {
         ActionTest.NoAT,
     ),
     ("spy", "delegated purloin to mr. u."): (
-        TimelineCategory.Drinks,
-        Missions.Purloin,
-        ActionTest.NoAT,
-    ),
-    ("spy", "delegated purloin to ms. 0."): (
         TimelineCategory.Drinks,
         Missions.Purloin,
         ActionTest.NoAT,

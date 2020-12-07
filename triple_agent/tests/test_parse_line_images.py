@@ -10032,6 +10032,21 @@ LINE_IMAGE_TEST_CASES = [
             ActionTest.NoAT,
         ),
     ),
+    (
+        "7eb6c49997c7feaf3f35a49175da3cd9",
+        (
+            "spy",
+            "00:39.3",
+            "dropped statue.",
+            (None,),
+            39.3,
+            (None,),
+            (None,),
+            TimelineCategory.Statues,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
 ]
 
 
