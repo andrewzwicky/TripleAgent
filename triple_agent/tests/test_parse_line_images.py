@@ -10047,6 +10047,21 @@ LINE_IMAGE_TEST_CASES = [
             ActionTest.NoAT,
         ),
     ),
+    (
+        "769ff460ac58573d928c4c309f469d0f",
+        (
+            "spy",
+            "02:29.6",
+            "flirt with seduction target: ??%",
+            (None,),
+            149.6,
+            (None,),
+            (None,),
+            TimelineCategory.MissionPartial,
+            Missions.Seduce,
+            ActionTest.NoAT,
+        ),
+    ),
 ]
 
 

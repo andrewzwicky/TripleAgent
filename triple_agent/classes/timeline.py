@@ -378,6 +378,7 @@ EVENT_IMAGE_HASH_DICT = {
     "fddbaf3ac68ea5dd87f0ab24c51f2d8f": "flirt with seduction target: 42%",
     "fed817294c78399897c5b77bbef0cd21": "inspect 1 statue selected.",
     "7eb6c49997c7feaf3f35a49175da3cd9": "dropped statue.",
+    "769ff460ac58573d928c4c309f469d0f": "flirt with seduction target: ??%",
 }
 
 
@@ -1040,6 +1041,11 @@ CATEGORIZATION_DICTIONARY = {
     ("spy", "fingerprinting failed."): (
         TimelineCategory.NoCategory,
         Missions.Fingerprint,
+        ActionTest.NoAT,
+    ),
+    ("spy", "flirt with seduction target: ??%"): (
+        TimelineCategory.MissionPartial,
+        Missions.Seduce,
         ActionTest.NoAT,
     ),
     ("spy", "flirt with seduction target: 100%"): (
