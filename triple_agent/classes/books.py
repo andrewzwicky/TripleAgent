@@ -19,6 +19,7 @@ COLORS_TO_BOOKS_ENUM = {
     (42, 48, 194): Books.Red,
     (0, 0, 255): Books.Red,
     (11, 0, 255): Books.Red,
+    (8, 17, 193): Books.Red,
     (60, 133, 60): Books.Green,
     (85, 153, 73): Books.Green,
     (135, 208, 140): Books.Green,
@@ -30,6 +31,7 @@ COLORS_TO_BOOKS_ENUM = {
     (185, 119, 83): Books.Blue,
     (190, 92, 66): Books.Blue,
     (165, 48, 22): Books.Blue,
+    (180, 16, 0): Books.Blue,
     (35, 115, 151): Books.Yellow,
     (0, 255, 255): Books.Yellow,
 }
