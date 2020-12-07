@@ -391,11 +391,7 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
     event_image_hash = hashlib.md5(event_pic.tostring()).hexdigest()
     actor_image_hash = hashlib.md5(actor_pic.tostring()).hexdigest()
 
-    try:
-        event = EVENT_IMAGE_HASH_DICT[event_image_hash]
-    except KeyError:
-        event = ocr_core(event_pic, False)
-
+    event = EVENT_IMAGE_HASH_DICT[event_image_hash]
     actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
 
     return TimelineEvent(actor, time, event, characters, roles, books)
