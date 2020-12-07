@@ -124,4 +124,4 @@ if __name__ == "__main__":  # pragma: no cover
 
     logger.addHandler(handler)
 
-    parse_replays(lambda g: True, limit=None)
+    parse_replays(lambda g: True, limit=300)
