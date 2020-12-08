@@ -21,10 +21,7 @@ def spf_character_selection_report(all_replays):
                     event.cast_name[0].stringify()
                 )
 
-            if event.category & TimelineCategory.GameEnd and game.win_type in (
-                WinType.SpyShot,
-                WinType.CivilianShot,
-            ):
+            if event.category & TimelineCategory.SniperShot:
                 output_dictionary[game.uuid]["Shot"] = [event.cast_name[0].stringify()]
 
     with open(os.path.join(SPF_DATA_FOLDER, "character_data.json"), "w") as at_json_out:
