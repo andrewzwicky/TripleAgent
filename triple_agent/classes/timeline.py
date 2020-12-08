@@ -390,6 +390,7 @@ ACTOR_IMAGE_HASH_DICT = {
     "698a103e08c2e7bd824ea83cb8d8393c": "game",
     "9b7aa0ec069407f8612c633e57bbf954": "spy",
     "b26dceabbe7d07c4b971879e65d15064": "game",
+    "a176388ff4c9529bea313b76348b4b3b": "spy",
 }
 
 CATEGORIZATION_DICTIONARY = {

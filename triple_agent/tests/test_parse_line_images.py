@@ -10062,6 +10062,21 @@ LINE_IMAGE_TEST_CASES = [
             ActionTest.NoAT,
         ),
     ),
+    (
+        "d5c3cced48f5844052b7b148374dc3d1",
+        (
+            "spy",
+            "-00:00.9",
+            "45 seconds added to match.",
+            (None,),
+            -0.9,
+            (None,),
+            (None,),
+            TimelineCategory.TimeAdd,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
 ]
 
 
