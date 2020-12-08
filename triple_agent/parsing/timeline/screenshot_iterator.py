@@ -125,9 +125,9 @@ def get_latest_loading_screenshot(
 
 def refresh_window(spy_party_handle, pycharm_handle):
     ctypes.windll.user32.SetForegroundWindow(pycharm_handle)
-    sleep(0.75)
+    sleep(0.25)
     ctypes.windll.user32.SetForegroundWindow(spy_party_handle)
-    sleep(0.75)
+    sleep(0.25)
 
 
 def get_mss_screenshots(
@@ -184,25 +184,25 @@ def get_mss_screenshots(
 def scroll_lines():
     for _ in range(30):
         pyautogui.scroll(-1)
-        sleep(0.02)
+        sleep(0.01)
 
 
 def go_to_next_game(spyparty_handle, pycharm_handle):
     logger.debug("going to next game")
     pyautogui.hotkey("ctrl", "n")
-    sleep(0.250)
+    sleep(0.1)
     if is_game_loaded(spyparty_handle, pycharm_handle):
-        sleep(0.250)
+        sleep(0.1)
         refresh_window(spyparty_handle, pycharm_handle)
-        sleep(0.250)
+        sleep(0.1)
         pyautogui.press("f11")
     # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
     # but it opens to the start of game instead, which means that a scroll up in needed
     # to capture everything.
     for _ in range(30):
         pyautogui.scroll(1)
-        sleep(0.02)
-    sleep(0.5)
+        sleep(0.01)
+    sleep(0.25)
 
 
 def is_last_screenshot(screenshot: np.ndarray):
