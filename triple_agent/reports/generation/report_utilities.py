@@ -157,15 +157,15 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
         axis.set_xticklabels([l + " " * 10 for l in labels], rotation=90)
         fig.canvas.draw()
         for label in axis.xaxis.get_ticklabels():
-            ext = label.get_window_extent()
             name = label.get_text().strip().lower()
-            [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
-
+            [[left, _], [right, top]] = fig.transFigure.inverted().transform(
+                label.get_window_extent()
+            )
 
             portrait_file_name = os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
 
             if not os.path.exists(portrait_file_name):
-                portrait_file_name = os.path.join(PORTRAITS_FOLDER, "unknown.png".format(name))
+                portrait_file_name = os.path.join(PORTRAITS_FOLDER, "unknown.png")
 
             portrait_image = plt.imread(portrait_file_name)
             port_size = 0.045
