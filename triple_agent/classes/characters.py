@@ -99,7 +99,7 @@ CHARACTERS_TO_STRING = {
     Characters.Toby: "Toby",
     Characters.Damon: "Damon",
     Characters.Alphonse: 'Alphonse "Snaps" McGee',
-    Characters.Anna: "Anna Klàvsky",
+    Characters.Anna: "Anna Klavsky",
     Characters.Arnold: "Arnold Woods-Nicklaus",
     Characters.Brimsworth: "Brimsworth Buckswaggle, III",
     Characters.Clarice: "Clarice Sofia Mortgenstern",
