@@ -161,9 +161,13 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
             name = label.get_text().strip().lower()
             [[left, _], [right, top]] = fig.transFigure.inverted().transform(ext)
 
-            portrait_image = plt.imread(
-                os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
-            )
+
+            portrait_file_name = os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+
+            if not os.path.exists(portrait_file_name):
+                portrait_file_name = os.path.join(PORTRAITS_FOLDER, "unknown.png".format(name))
+
+            portrait_image = plt.imread(portrait_file_name)
             port_size = 0.045
             port_start = ((left + right) / 2) - (port_size / 2)
             newax = fig.add_axes(
