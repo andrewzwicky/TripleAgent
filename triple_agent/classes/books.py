@@ -32,6 +32,7 @@ COLORS_TO_BOOKS_ENUM = {
     (190, 92, 66): Books.Blue,
     (165, 48, 22): Books.Blue,
     (180, 16, 0): Books.Blue,
+    (149, 40, 17): Books.Blue,
     (35, 115, 151): Books.Yellow,
     (0, 255, 255): Books.Yellow,
 }
