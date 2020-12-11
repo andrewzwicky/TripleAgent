@@ -143,6 +143,9 @@ def get_mss_screenshots(
         screenshot_index = 1
 
         while True:
+            # pyautogui.keyDown("shiftleft")
+            # sleep(0.05)
+
             refresh_window(spyparty_handle, pycharm_handle)
 
             with mss() as sct:
@@ -161,6 +164,8 @@ def get_mss_screenshots(
                     cv2.COLOR_BGRA2BGR,
                 )
 
+            # pyautogui.keyUp("shiftleft")
+            
             # need a way to communicate through the queue that
             # all screenshots for this file have been processed,
             # starts with identifying the last one.
