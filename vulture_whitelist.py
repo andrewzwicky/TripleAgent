@@ -1,5 +1,3 @@
-import pytesseract
-
 from triple_agent.classes.game import GameHandler
 from triple_agent.classes.outcomes import WinType
 from triple_agent.constants.colors import (
@@ -74,7 +72,6 @@ from triple_agent.constants.paths import SCL5_ZIP_EXTRACT_FOLDER, SCL5_TEMP_EXTR
 
 
 # library internals
-pytesseract.pytesseract.tesseract_cmd
 extract_spectate_replays
 
 # jsonpickle methods

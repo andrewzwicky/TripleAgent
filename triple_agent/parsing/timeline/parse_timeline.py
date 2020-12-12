@@ -5,7 +5,6 @@ from typing import List, Tuple, Optional, Iterator, Any
 
 import cv2
 import numpy as np
-import pytesseract
 from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
 from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
 from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT
@@ -14,6 +13,7 @@ from triple_agent.classes.timeline import (
     TimelineEvent,
     EVENT_IMAGE_HASH_DICT,
     ACTOR_IMAGE_HASH_DICT,
+    DIGIT_DICT,
 )
 from triple_agent.constants.paths import (
     PORTRAIT_NOT_FOUND_DEBUG_PATH,
@@ -21,7 +21,6 @@ from triple_agent.constants.paths import (
 )
 from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract"
 logger = logging.getLogger("triple_agent")
 
 LINE_SPACING = 20
@@ -40,7 +39,6 @@ HIGHLIGHTED_BACKGROUND = (255, 255, 255)
 SPY_MISSIONS_COLOR = (255, 204, 0)
 
 ARROW_COLOR = (178, 178, 178)
-WHITE = (255, 255, 255)
 NUM_LINES = 30
 
 ARROW_ROW = 613
@@ -55,7 +53,7 @@ PORTRAIT_BACKGROUND_BORDER = 2
 SINGLE_BOOK_WIDTH = 17
 BOOK_SPACING = 18
 
-TIMER_OFFSET = 59
+TIMER_OFFSET = 54
 TEXT_OFFSET = 125
 
 ROLE_BORDER_SIZE = 2
@@ -70,33 +68,6 @@ TIME_STEP = 0.5
 
 class TimelineParseException(Exception):
     pass
-
-
-def ocr_core(
-    line_image: np.ndarray, time_parse: bool, second_attempt: bool = False
-) -> str:
-    if time_parse:
-        text = pytesseract.image_to_string(
-            cv2.resize(line_image, None, fx=1.05, fy=1.05)
-        )
-        if ":" not in text:
-            text = pytesseract.image_to_string(line_image)
-    else:
-        text = pytesseract.image_to_string(line_image)
-    text = text.strip().lower()
-
-    if not text and not second_attempt:
-        second_try = ocr_core(line_image[:, :120], False, second_attempt=True)
-        # TODO: resolve ugly special case for the word civilian.
-        # For some reason 'sniper shot' and 'civilian' can be parsed on their own
-        # but not together.
-        if second_try == "sniper shot civ":
-            return "sniper shot civilian."
-
-    if not np.array_equal(line_image[13, 0], WHITE) and ":" in text:
-        text = "-" + text
-
-    return text
 
 
 def separate_line_images(screenshot: np.ndarray) -> List[np.ndarray]:
@@ -368,11 +339,22 @@ def find_overlap_last_page_index(hashes: List[int]) -> int:
     return 0
 
 
-def separate_time_digits(time_pic: np.ndarray) -> np.ndarray:
-    offsets = [12, 23, 28, 38, 49, 54]
-    for start in offsets:
-        time_pic[:, start + 1 :] = time_pic[:, start:-1]
-    return time_pic
+def parse_time_digits(time_pic: np.ndarray) -> str:
+    digit_offsets = [0, 9, 18, 32, 41, 55]
+    digit_width = 8
+    digit_height = 12
+    digit_top = 5
+
+    digits = []
+
+    for start in digit_offsets:
+        digit = time_pic[
+            digit_top : digit_top + digit_height, start : start + digit_width
+        ]
+        digit_hash = hashlib.md5(digit.tostring()).hexdigest()
+        digits.append(DIGIT_DICT[digit_hash])
+
+    return "{}{}{}:{}{}.{}".format(*digits).lstrip()
 
 
 def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
@@ -385,8 +367,8 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
     actor_pic, time_pic, event_pic = split_into_parts(
         convert_black_white(add_borders(words))
     )
-    separated_time_pic = separate_time_digits(time_pic)
-    time = ocr_core(separated_time_pic, True)
+
+    time = parse_time_digits(time_pic)
 
     event_image_hash = hashlib.md5(event_pic.tostring()).hexdigest()
     actor_image_hash = hashlib.md5(actor_pic.tostring()).hexdigest()

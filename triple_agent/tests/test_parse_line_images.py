@@ -1023,6 +1023,21 @@ LINE_IMAGE_TEST_CASES = [
         ),
     ),
     (
+        "8min",
+        (
+            "spy",
+            "08:00.0",
+            "suspected double agent cast.",
+            (Characters.Alice,),
+            480.0,
+            (Roles.DoubleAgent,),
+            (None,),
+            TimelineCategory.Cast,
+            Missions.NoMission,
+            ActionTest.NoAT,
+        ),
+    ),
+    (
         "c2429ff0c975ae2a52f0e5d352ad35e2",
         (
             "spy",

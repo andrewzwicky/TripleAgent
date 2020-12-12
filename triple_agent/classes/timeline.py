@@ -381,17 +381,38 @@ EVENT_IMAGE_HASH_DICT = {
     "769ff460ac58573d928c4c309f469d0f": "flirt with seduction target: ??%",
 }
 
-
 ACTOR_IMAGE_HASH_DICT = {
-    "02029b989e351de46da70f78a274e6ea": "spy",
-    "69c453c89381a9a00225a5dc039859e2": "sniper",
-    "99406fae4015212fcd504c687cb2f9fa": "game",
-    "9d17b4440c1aceacec6197a3471de29b": "sniper",
-    "698a103e08c2e7bd824ea83cb8d8393c": "game",
-    "9b7aa0ec069407f8612c633e57bbf954": "spy",
-    "b26dceabbe7d07c4b971879e65d15064": "game",
-    "a176388ff4c9529bea313b76348b4b3b": "spy",
+    "0fb96a733eebe09411e227360102c4f0": "spy",
+    "9c12e97af292983969c66756a65bec4e": "sniper",
+    "819b638a195b47fb6ca61ca5d80ad319": "game",
 }
+
+DIGIT_DICT = {
+    "3b3024987024699ccf3a9f499237316e": "9",
+    "d255e81708d321d798927e1921cdccfd": "9",
+    "5e902ca8230067762fbe625ce4776bd2": "8",
+    "c04166e6dc385d16099682934f5a7aa0": "8",
+    "0119caf6c260ebc291c180e5c7ca1f4a": "7",
+    "4b24b8cd4f2ac8adec1bc627ab4b6411": "7",
+    "a2b138d0652eedcacea7f6ed77048a60": "6",
+    "e4fac41013d1604961b34ac7bfba9989": "6",
+    "90992c47deb02cfd398b78a64d3c340f": "5",
+    "5ca652c4cd99a7b7e8d1fe86767ea9ea": "5",
+    "dd78982af4b884f0445867709fb90910": "4",
+    "a4f9f8efbafb56771db26b251ff7904e": "4",
+    "f35378c67e9d817659506d70d0cfca86": "3",
+    "4085c8ab395e1606c33fdd812a9fe593": "3",
+    "5b25b5ec84697deaf9aea3b30cc9c732": "2",
+    "fad37e64875d16ab3dd267f477d1b8df": "2",
+    "acfd17d77acdf26659310ba006400306": "1",
+    "56b4797333a8a978dc09ca930f33b160": "1",
+    "c6582bfdae577240eec0fb186b54418f": "0",
+    "14d84a05e212f0e88461c5bf3d5e9d32": "0",
+    "5dac5ee740e383f279b42c86c3d254f4": "-",
+    "b6e077626eccde142f3d895c294fab0d": "-",
+    "ed1b59d9d8e604030b4bae6cabce5316": " ",
+}
+
 
 CATEGORIZATION_DICTIONARY = {
     ("game", "game started."): (

@@ -165,7 +165,7 @@ def get_mss_screenshots(
                 )
 
             # pyautogui.keyUp("shiftleft")
-            
+
             # need a way to communicate through the queue that
             # all screenshots for this file have been processed,
             # starts with identifying the last one.
