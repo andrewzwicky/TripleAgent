@@ -25,6 +25,7 @@ install:
   - "%PYTHON%\\python --version"
   - "%PIP% --version"
   - "git clone -q --depth=1 --branch=master https://github.com/andrewzwicky/SpyPartyParse.git C:\\projects\\spypartyparse"
+  - "SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
   - "SET PYTHONPATH=%PYTHONPATH%;C:\\projects\\spypartyparse"
   - "%PIP% install -e .[plot,retrieve,parse,test] --quiet"
   - "%PIP% list installed"
