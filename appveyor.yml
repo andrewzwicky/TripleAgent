@@ -13,6 +13,11 @@ environment:
       PYTHON_ARCH: "64"
       PIP: "C:\\Python38-x64\\Scripts\\pip"
 
+    - PYTHON: "C:\\Python39-x64"
+      PYTHON_VERSION: "3.9.x"
+      PYTHON_ARCH: "64"
+      PIP: "C:\\Python39-x64\\Scripts\\pip"
+
 
 skip_commits:
   files:
