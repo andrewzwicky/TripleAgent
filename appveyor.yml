@@ -8,6 +8,12 @@ environment:
       PYTHON_ARCH: "64"
       PIP: "C:\\Python37-x64\\Scripts\\pip"
 
+    - PYTHON: "C:\\Python38-x64"
+      PYTHON_VERSION: "3.8.x"
+      PYTHON_ARCH: "64"
+      PIP: "C:\\Python38-x64\\Scripts\\pip"
+
+
 skip_commits:
   files:
     - 'docs/**'
