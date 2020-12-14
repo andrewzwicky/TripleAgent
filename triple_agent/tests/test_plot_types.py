@@ -3,7 +3,12 @@ import os
 
 import pytest
 from matplotlib.testing.decorators import check_figures_equal
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import (
+    MultipleLocator,
+    StrMethodFormatter,
+    FixedLocator,
+    FixedFormatter,
+)
 from matplotlib import pyplot as plt
 
 import pandas
@@ -774,8 +779,7 @@ def test_bar_stacked_percentile(fig_test, fig_ref):
     ref_ax.set_axisbelow(True)
 
     ref_ax.yaxis.set_major_locator(MultipleLocator(0.1))
-    vals = ref_ax.get_yticks()
-    ref_ax.set_yticklabels(["{:,.0%}".format(x) for x in vals])
+    ref_ax.yaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
     ref_ax.set_ylim(top=1)
 
     ref_ax.set_xticklabels(["A", "B", "C", "D", "E"], rotation=90)
@@ -1032,21 +1036,25 @@ def test_mission_choice_bar(fig_test, fig_ref):
     ref_ax.set_title("Mission Choices")
     ref_ax.bar(range(8), [4, 7, 7, 7, 8, 7, 8, 8], color="#0077BB", edgecolor="black")
 
-    ref_ax.set_xticklabels(
-        [
-            "Seduce",
-            "Inspect",
-            "Fingerprint",
-            "Contact",
-            "Bug",
-            "Swap",
-            "Purloin",
-            "Transfer",
-        ],
-        rotation=90,
+    ref_ax.xaxis.set_major_locator(FixedLocator(list(range(8))))
+    ref_ax.xaxis.set_major_formatter(
+        FixedFormatter(
+            [
+                "Seduce",
+                "Inspect",
+                "Fingerprint",
+                "Contact",
+                "Bug",
+                "Swap",
+                "Purloin",
+                "Transfer",
+            ]
+        )
     )
 
-    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    for t in ref_ax.get_xticklabels():
+        t.set_rotation(90)
+
     ref_ax.set_ylim(top=9)
 
     ref_ax.set_xlim(-0.5, 7.5)
@@ -1296,8 +1304,8 @@ def test_create_progress_plot(fig_test, fig_ref):
     ref_ax.set_ylim(bottom=0)
     ref_ax.set_xlim(left=0)
 
-    ref_ax.set_yticklabels(["{:,.0%}".format(x) for x in ref_ax.get_yticks()])
-    ref_ax.set_xticklabels(["{:,.0%}".format(x) for x in ref_ax.get_xticks()])
+    ref_ax.yaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
+    ref_ax.xaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
 
     ref_ax.set_xlabel("xlabel")
     ref_ax.set_ylabel("ylabel")

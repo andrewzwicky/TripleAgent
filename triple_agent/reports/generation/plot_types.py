@@ -1,7 +1,7 @@
 from math import isclose
 
 from matplotlib import pyplot as plt
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import MultipleLocator, StrMethodFormatter
 import numpy as np
 
 from triple_agent.reports.generation.plot_specs import (
@@ -298,8 +298,8 @@ def create_progress_plot(
         axis.set_ylim(bottom=0)
         axis.set_xlim(left=0)
 
-        axis.set_yticklabels(["{:,.0%}".format(x) for x in axis.get_yticks()])
-        axis.set_xticklabels(["{:,.0%}".format(x) for x in axis.get_xticks()])
+        axis.yaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
+        axis.xaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
 
         axis.set_title(axis_properties.title)
 

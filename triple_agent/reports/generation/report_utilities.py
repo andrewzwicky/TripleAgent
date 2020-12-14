@@ -3,7 +3,7 @@ from typing import List, Optional, Union, Any, Dict, Tuple
 from enum import Enum
 
 from matplotlib import pyplot as plt
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import MultipleLocator, StrMethodFormatter
 import numpy as np
 import pandas
 from triple_agent.constants.paths import PORTRAITS_FOLDER
@@ -136,8 +136,7 @@ def create_plot_hatching(
 def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: bool):
     if percentage:
         axis.yaxis.set_major_locator(MultipleLocator(0.1))
-        vals = axis.get_yticks()
-        axis.set_yticklabels(["{:,.0%}".format(x) for x in vals])
+        axis.yaxis.set_major_formatter(StrMethodFormatter("{x:,.0%}"))
 
         if max_value >= 0.99:
             axis.set_ylim(top=1)
