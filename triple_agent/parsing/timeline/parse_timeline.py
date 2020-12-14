@@ -271,7 +271,7 @@ def name_portrait(
         if portrait is None:
             return (None,)
 
-        portrait_md5 = hashlib.md5(portrait.tostring()).hexdigest()
+        portrait_md5 = hashlib.md5(portrait.tobytes()).hexdigest()
 
         try:
             characters.append(PORTRAIT_MD5_DICT[portrait_md5])
@@ -351,7 +351,7 @@ def parse_time_digits(time_pic: np.ndarray) -> str:
         digit = time_pic[
             digit_top : digit_top + digit_height, start : start + digit_width
         ]
-        digit_hash = hashlib.md5(digit.tostring()).hexdigest()
+        digit_hash = hashlib.md5(digit.tobytes()).hexdigest()
         digits.append(DIGIT_DICT[digit_hash])
 
     return "{}{}{}:{}{}.{}".format(*digits).lstrip()
@@ -370,8 +370,8 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
 
     time = parse_time_digits(time_pic)
 
-    event_image_hash = hashlib.md5(event_pic.tostring()).hexdigest()
-    actor_image_hash = hashlib.md5(actor_pic.tostring()).hexdigest()
+    event_image_hash = hashlib.md5(event_pic.tobytes()).hexdigest()
+    actor_image_hash = hashlib.md5(actor_pic.tobytes()).hexdigest()
 
     event = EVENT_IMAGE_HASH_DICT[event_image_hash]
     actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
