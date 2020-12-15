@@ -5557,55 +5557,6 @@ CATEGORY_TEST_CASES = [
 ]
 
 
-@pytest.mark.parsing
-@pytest.mark.quick
-def test_unclassified_messages():
-    with open(os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "rb") as pik:
-        all_messages = pickle.load(pik)
-    prev_all_messages = all_messages
-
-    for (
-        actor,
-        time_str,
-        event,
-        cast_name,
-        exp_time,
-        role,
-        books,
-        exp_category,
-        exp_mission,
-        exp_action_test,
-    ) in CATEGORY_TEST_CASES:
-        all_messages.add((actor, event))
-
-    if prev_all_messages != all_messages:
-        with open(
-            os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "wb"
-        ) as pik:
-            pickle.dump(all_messages, pik)
-
-        with open(
-            os.path.join(os.path.dirname(__file__), "all_messages.pkl"), "rb"
-        ) as pik:
-            all_messages = pickle.load(pik)
-
-    for (
-        actor,
-        time_str,
-        event,
-        cast_name,
-        exp_time,
-        role,
-        books,
-        exp_category,
-        exp_mission,
-        exp_action_test,
-    ) in CATEGORY_TEST_CASES:
-        all_messages.discard((actor, event))
-
-    assert not len(all_messages)
-
-
 @pytest.mark.tryfirst
 @pytest.mark.parsing
 @pytest.mark.quick

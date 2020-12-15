@@ -6,8 +6,6 @@ import cv2
 
 TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
 
-import random
-
 
 def mock_screenshot_iterator(
     games: List[Game],
@@ -38,10 +36,6 @@ def mock_screenshot_iterator(
                     screenshot_index == len(ss_files),
                 )
             )
-
-    # give a seed so it's deterministic
-    r = random.Random(123)
-    r.shuffle(outputs)
 
     for output in outputs:
         yield output

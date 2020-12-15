@@ -116,10 +116,10 @@ if __name__ == "__main__":  # pragma: no cover
     logger.setLevel(logging.DEBUG)
 
     handler = logging.StreamHandler()
-    handler.setLevel(logging.DEBUG)
+    handler.setLevel(logging.INFO)
 
     formatter = logging.Formatter(
-        "{levelname:<6} {threadName:<12} {module:>32}:{lineno:<3} {message}", style="{"
+        "{levelname:<8} {module:>32}:{lineno:<4} {message}", style="{"
     )
     handler.setFormatter(formatter)
 

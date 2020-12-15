@@ -1,11 +1,9 @@
 import logging
 import hashlib
-from multiprocessing import Pool, cpu_count
 from typing import List, Tuple, Optional, Iterator, Any
 
 import cv2
 import numpy as np
-from triple_agent.tests.create_screenshot_expecteds import confirm_categorizations
 from triple_agent.classes.books import Books, COLORS_TO_BOOKS_ENUM
 from triple_agent.classes.characters import Characters, PORTRAIT_MD5_DICT
 from triple_agent.classes.roles import ROLE_COLORS_TO_ENUM, Roles
@@ -16,7 +14,6 @@ from triple_agent.classes.timeline import (
     DIGIT_DICT,
 )
 from triple_agent.constants.paths import (
-    PORTRAIT_NOT_FOUND_DEBUG_PATH,
     PARSE_EXCEPTION_DEBUG_PATH,
 )
 from triple_agent.classes.capture_debug_pictures import capture_debug_picture
@@ -276,9 +273,6 @@ def name_portrait(
         try:
             characters.append(PORTRAIT_MD5_DICT[portrait_md5])
         except KeyError as key_exec:
-            capture_debug_picture(
-                portrait, PORTRAIT_NOT_FOUND_DEBUG_PATH, filename=portrait_md5
-            )
             logger.warning("TimelineParseException character portrait not found")
             raise TimelineParseException("character portrait not found") from key_exec
 
@@ -351,8 +345,13 @@ def parse_time_digits(time_pic: np.ndarray) -> str:
         digit = time_pic[
             digit_top : digit_top + digit_height, start : start + digit_width
         ]
+
         digit_hash = hashlib.md5(digit.tobytes()).hexdigest()
-        digits.append(DIGIT_DICT[digit_hash])
+        try:
+            digits.append(DIGIT_DICT[digit_hash])
+        except KeyError as key_exec:
+            logger.warning("TimelineParseException digit not found")
+            raise TimelineParseException("digit not found") from key_exec
 
     return "{}{}{}:{}{}.{}".format(*digits).lstrip()
 
@@ -373,41 +372,36 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
     event_image_hash = hashlib.md5(event_pic.tobytes()).hexdigest()
     actor_image_hash = hashlib.md5(actor_pic.tobytes()).hexdigest()
 
-    event = EVENT_IMAGE_HASH_DICT[event_image_hash]
-    actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
+    try:
+        event = EVENT_IMAGE_HASH_DICT[event_image_hash]
+    except KeyError as key_exec:
+        logger.warning("TimelineParseException event not found")
+        raise TimelineParseException("event not found") from key_exec
+
+    try:
+        actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
+    except KeyError as key_exec:
+        logger.warning("TimelineParseException actor not found")
+        raise TimelineParseException("actor not found") from key_exec
 
     return TimelineEvent(actor, time, event, characters, roles, books)
 
 
-def parse_screenshot(
-    screenshot: np.ndarray, test_output_disable: bool = False
-) -> List[TimelineEvent]:
+def parse_screenshot(screenshot: np.ndarray) -> List[TimelineEvent]:
     lines = separate_line_images(screenshot)
 
-    # https://github.com/pytest-dev/pytest-cov/issues/250
-
-    pool = Pool(processes=cpu_count())
-
     try:
-        events = pool.map(process_line_image, lines)
-
-        while events and events[-1] is None:
-            events.pop()
-
-        if not test_output_disable:
-            confirm_categorizations(events)
+        events = list(
+            filter(
+                lambda x: x is not None, [process_line_image(line) for line in lines]
+            )
+        )
 
         return events
 
     except TimelineParseException as caught_exception:
         capture_debug_picture(screenshot, PARSE_EXCEPTION_DEBUG_PATH)
         raise caught_exception
-
-    finally:
-        pool.close()
-        pool.join()
-
-    return []
 
 
 if __name__ == "__main__":

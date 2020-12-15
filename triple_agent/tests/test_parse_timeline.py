@@ -6599,7 +6599,7 @@ def test_parse_timeline(
     screenshot_img = cv2.imread(
         os.path.join(TEST_FOLDER, "test_screenshots", f"{image_name}.png")
     )
-    timeline_events = parse_screenshot(screenshot_img, test_output_disable=True)
+    timeline_events = parse_screenshot(screenshot_img)
 
     assert len(timeline_events) == expected_len
 
