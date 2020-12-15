@@ -7,10 +7,20 @@ from triple_agent.reports.generation.plot_utilities import (
     sort_and_limit_frame_categories,
     sort_frame_stacks,
 )
-from triple_agent.classes.action_tests import ActionTest
-from triple_agent.classes.missions import Missions
+from triple_agent.classes.action_tests import ActionTest, create_action_test_color_dict
+from triple_agent.classes.missions import (
+    Missions,
+    create_bug_color_dict,
+    create_microfilm_color_dict,
+    create_banana_bread_color_dict,
+    create_missions_color_dict,
+)
 from triple_agent.classes.venues import Venue
+from triple_agent.classes.lights import Lights, create_lights_color_dict
+from triple_agent.classes.objects import TimelineCategory, create_objects_color_dict
+from triple_agent.classes.outcomes import WinType, create_wintypes_color_dict
 from triple_agent.constants.events import SCL5_VENUE_MODES
+from triple_agent.constants.colors import PlotColorsTolMuted
 import pandas
 
 
@@ -811,3 +821,96 @@ def test_sort_frame_stacks(
     frame = sort_frame_stacks(input_frame, primary_order, reverse_primary_order)
 
     pandas.testing.assert_frame_equal(frame, exp_frame)
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_action_test_color_dict():
+    assert create_action_test_color_dict(PlotColorsTolMuted()) == {
+        ActionTest.Green: "#117733",
+        ActionTest.White: "xkcd:white",
+        ActionTest.Ignored: "xkcd:light grey",
+        ActionTest.Red: "#AA4499",
+        ActionTest.Canceled: "xkcd:dark grey",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_lights_color_dict():
+    assert create_lights_color_dict(PlotColorsTolMuted()) == {
+        Lights.Lowlight: "xkcd:dark grey",
+        Lights.Neutral: "xkcd:grey",
+        Lights.Highlight: "xkcd:white",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_missions_color_dict():
+    assert create_missions_color_dict(PlotColorsTolMuted()) == {
+        Missions.Seduce: "#44AA99",
+        Missions.Inspect: "#88CCEE",
+        Missions.Fingerprint: "#DDCC77",
+        Missions.Contact: "#AA4499",
+        Missions.Bug: "xkcd:grey",
+        Missions.Swap: "#CC6677",
+        Missions.Purloin: "#117733",
+        Missions.Transfer: "#999933",
+        Missions.NoMission: "xkcd:light grey",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_bug_color_dict():
+    assert create_bug_color_dict(PlotColorsTolMuted()) == {
+        ("Walking", True): "#44AA99",
+        ("Walking", False): "#44AA99",
+        ("Standing", True): "#AA4499",
+        ("Standing", False): "#AA4499",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_banana_bread_color_dict():
+    assert create_banana_bread_color_dict(PlotColorsTolMuted()) == {
+        "fake": "#AA4499",
+        "real": "#44AA99",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_microfilm_color_dict():
+    assert create_microfilm_color_dict(PlotColorsTolMuted()) == {
+        "direct": "#44AA99",
+        "action test": "#AA4499",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_objects_color_dict():
+    assert create_objects_color_dict(PlotColorsTolMuted()) == {
+        (TimelineCategory.Briefcase, True): "#44AA99",
+        (TimelineCategory.Briefcase, False): "#44AA99",
+        (TimelineCategory.Statues, True): "#AA4499",
+        (TimelineCategory.Statues, False): "#AA4499",
+        (TimelineCategory.Books, True): "#117733",
+        (TimelineCategory.Books, False): "#117733",
+        (TimelineCategory.Drinks, True): "#999933",
+        (TimelineCategory.Drinks, False): "#999933",
+    }
+
+
+@pytest.mark.plotting
+@pytest.mark.quick
+def test_create_wintypes_color_dict():
+    assert create_wintypes_color_dict(PlotColorsTolMuted()) == {
+        WinType.TimeOut: "#88CCEE",
+        WinType.SpyShot: "#44AA99",
+        WinType.MissionsWin: "#AA4499",
+        WinType.CivilianShot: "#CC6677",
+    }

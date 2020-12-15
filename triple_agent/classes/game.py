@@ -316,10 +316,7 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         raise NotImplementedError
 
 
-def insert_alias_name(game: Game, alias_list: Optional[dict]):
-    if alias_list is None:
-        return game
-
+def insert_alias_name(game: Game, alias_list: dict):
     if game.spy_username in alias_list.keys():
         game.spy = alias_list[game.spy_username]
 

@@ -13,10 +13,6 @@ from triple_agent.classes.timeline import (
     ACTOR_IMAGE_HASH_DICT,
     DIGIT_DICT,
 )
-from triple_agent.constants.paths import (
-    PARSE_EXCEPTION_DEBUG_PATH,
-)
-from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 
 logger = logging.getLogger("triple_agent")
 
@@ -414,18 +410,11 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
 def parse_screenshot(screenshot: np.ndarray) -> List[TimelineEvent]:
     lines = separate_line_images(screenshot)
 
-    try:
-        events = list(
-            filter(
-                lambda x: x is not None, [process_line_image(line) for line in lines]
-            )
-        )
+    events = list(
+        filter(lambda x: x is not None, [process_line_image(line) for line in lines])
+    )
 
-        return events
-
-    except TimelineParseException as caught_exception:
-        capture_debug_picture(screenshot, PARSE_EXCEPTION_DEBUG_PATH)
-        raise caught_exception
+    return events
 
 
 if __name__ == "__main__":

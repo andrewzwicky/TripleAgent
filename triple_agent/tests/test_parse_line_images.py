@@ -10150,3 +10150,33 @@ def test_parse_line_image_bad_portrait():
 
     with pytest.raises(TimelineParseException):
         process_line_image(line_image)
+
+
+@pytest.mark.parsing
+def test_parse_line_image_bad_digit():
+    line_image = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_line_images", "bad_digit.png")
+    )
+
+    with pytest.raises(TimelineParseException):
+        process_line_image(line_image)
+
+
+@pytest.mark.parsing
+def test_parse_line_image_bad_event():
+    line_image = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_line_images", "bad_event.png")
+    )
+
+    with pytest.raises(TimelineParseException):
+        process_line_image(line_image)
+
+
+@pytest.mark.parsing
+def test_parse_line_image_bad_actor():
+    line_image = cv2.imread(
+        os.path.join(TEST_FOLDER, "test_line_images", "bad_actor.png")
+    )
+
+    with pytest.raises(TimelineParseException):
+        process_line_image(line_image)

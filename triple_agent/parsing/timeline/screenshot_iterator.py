@@ -8,8 +8,6 @@ import numpy as np
 import pyautogui
 from mss import mss
 from triple_agent.classes.game import Game
-from triple_agent.constants.paths import GAME_NOT_LOADED_DEBUG_PATH
-from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 from triple_agent.parsing.timeline.parse_timeline import (
     SPY_P_TOP,
     SPY_P_LEFT,
@@ -93,7 +91,6 @@ def is_game_loaded(
         total_time += TIME_STEP
 
         if total_time > TIMEOUT:
-            capture_debug_picture(p_button, GAME_NOT_LOADED_DEBUG_PATH)
             logger.error("is_game_loaded returns False")
             return False
 

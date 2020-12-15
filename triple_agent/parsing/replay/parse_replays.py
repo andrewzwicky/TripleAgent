@@ -76,6 +76,7 @@ def parse_replays(
     unparsed_game_list = [game for game in game_list if game.timeline is None]
 
     if limit is not None and unparsed_game_list:
+        unparsed_game_list.sort(key=lambda g: g.start_time)
         unparsed_game_list = unparsed_game_list[:limit]
 
     if unparsed_game_list:
@@ -109,7 +110,8 @@ def parse_replays(
         except FileNotFoundError:  # pragma: no cover
             pass
 
-    return game_list
+    # games have been modified in place.
+    return unparsed_game_list
 
 
 if __name__ == "__main__":  # pragma: no cover
