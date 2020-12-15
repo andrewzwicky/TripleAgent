@@ -3,11 +3,6 @@ environment:
   PYPI_PW:
     secure: "UYwQCnByKXfEv0Z72TOSKw=="
   matrix:
-    - PYTHON: "C:\\Python37-x64"
-      PYTHON_VERSION: "3.7.x"
-      PYTHON_ARCH: "64"
-      PIP: "C:\\Python37-x64\\Scripts\\pip"
-
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.x"
       PYTHON_ARCH: "64"

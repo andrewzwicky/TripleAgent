@@ -40,7 +40,7 @@ setup(
         "triple_agent": ["portraits/*.png", "VERSION"],
         "": ["LICENSE", "README.rst"],
     },
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     extras_require={
         "plot": [
             "matplotlib>=3.2.1",
@@ -70,6 +70,6 @@ setup(
         "Topic :: Multimedia :: Graphics :: Capture :: Screen Capture",
         "Topic :: Utilities",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
 )
