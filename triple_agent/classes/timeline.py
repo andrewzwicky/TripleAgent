@@ -1983,23 +1983,26 @@ class TimelineEvent:
     cast_name: Tuple[Optional[Characters], ...]
     role: Tuple[Optional[Roles], ...]
     books: Tuple[Optional[Books], ...]
-    elapsed_time: float = field(default=0, init=False)
-    time: float = field(default=0, init=False)
+    elapsed_time: Optional[float] = field(default=None, init=False)
+    time: Optional[float] = field(default=None, init=False)
     category: TimelineCategory = field(default=TimelineCategory.NoCategory, init=False)
     mission: Missions = field(default=Missions.NoMission, init=False)
     action_test: ActionTest = field(default=ActionTest.NoAT, init=False)
 
     def __post_init__(self):
         try:
-            self.time = (
-                datetime.strptime(self._raw_time_str, "%M:%S.%f")
-                - datetime.strptime("00:00.0", "%M:%S.%f")
-            ).total_seconds()
+            self.elapsed_time = float(self._raw_time_str)
         except ValueError:
-            self.time = (
-                datetime.strptime("00:00.0", "%M:%S.%f")
-                - datetime.strptime(self._raw_time_str, "-%M:%S.%f")
-            ).total_seconds()
+            try:
+                self.time = (
+                    datetime.strptime(self._raw_time_str, "%M:%S.%f")
+                    - datetime.strptime("00:00.0", "%M:%S.%f")
+                ).total_seconds()
+            except ValueError:
+                self.time = (
+                    datetime.strptime("00:00.0", "%M:%S.%f")
+                    - datetime.strptime(self._raw_time_str, "-%M:%S.%f")
+                ).total_seconds()
         self.category, self.mission, self.action_test = CATEGORIZATION_DICTIONARY[
             (self.actor, self.event)
         ]

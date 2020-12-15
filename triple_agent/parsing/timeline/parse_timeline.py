@@ -334,10 +334,31 @@ def find_overlap_last_page_index(hashes: List[int]) -> int:
 
 
 def parse_time_digits(time_pic: np.ndarray) -> str:
-    digit_offsets = [0, 9, 18, 32, 41, 55]
+
     digit_width = 8
     digit_height = 12
     digit_top = 5
+
+    elapsed_decimal_top = 13
+    elapsed_decimal_left = 41
+    elapsed_decimal_size = 5
+
+    possible_decimal = time_pic[
+        elapsed_decimal_top : elapsed_decimal_top + elapsed_decimal_size,
+        elapsed_decimal_left : elapsed_decimal_left + elapsed_decimal_size,
+    ]
+
+    # both red and black hash for period location
+    if hashlib.md5(possible_decimal.tobytes()).hexdigest() in (
+        "0b4aa16ffb116f1b8cc4c0d940b6859f",
+        "c8b5048bcbc949fff21066780a5ebb4e",
+    ):
+        # elapsed mode
+        digit_offsets = [14, 23, 32, 46, 55]
+        elapsed = True
+    else:
+        digit_offsets = [0, 9, 18, 32, 41, 55]
+        elapsed = False
 
     digits = []
 
@@ -352,6 +373,9 @@ def parse_time_digits(time_pic: np.ndarray) -> str:
         except KeyError as key_exec:
             logger.warning("TimelineParseException digit not found")
             raise TimelineParseException("digit not found") from key_exec
+
+    if elapsed:
+        return "{}{}{}.{}{}".format(*digits).lstrip()
 
     return "{}{}{}:{}{}.{}".format(*digits).lstrip()
 
