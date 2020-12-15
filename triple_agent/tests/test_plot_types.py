@@ -588,7 +588,7 @@ def test_bar_simple_portrait(fig_test, fig_ref):
 
     ref_ax.set_xticklabels(
         [
-            "Ms. O          ",
+            "Sue Veillance          ",
             "Mr. U          ",
             "Mr. S          ",
             "Mr. P          ",
@@ -601,6 +601,10 @@ def test_bar_simple_portrait(fig_test, fig_ref):
         ext = label.get_window_extent()
         name = label.get_text().strip().lower()
         [[left, _], [right, top]] = fig_ref.transFigure.inverted().transform(ext)
+
+        # special case for old art with no portraits
+        if name == "sue veillance":
+            name = "unknown"
 
         portrait_image = plt.imread(
             os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
@@ -618,7 +622,7 @@ def test_bar_simple_portrait(fig_test, fig_ref):
         frame=pandas.DataFrame(
             data=[[4, 5, 7, 9, 2]],
             columns=[
-                Characters.Irish,
+                Characters.Sue,
                 Characters.Duke,
                 Characters.Smallman,
                 Characters.Carlos,

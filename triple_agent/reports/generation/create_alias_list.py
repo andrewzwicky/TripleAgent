@@ -1,10 +1,3 @@
-import jsonpickle
-from triple_agent.constants.paths import ALIAS_LIST_PATH
-
-jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
-jsonpickle.set_preferred_backend("simplejson")
-
-
 def create_alias_list(all_games):
     """
     This function should create the alias list.  The alias
@@ -27,7 +20,4 @@ def create_alias_list(all_games):
         alias_dict[this_game.spy_username] = this_game.spy
         alias_dict[this_game.sniper_username] = this_game.sniper
 
-    alias_json = jsonpickle.encode(alias_dict)
-
-    with open(ALIAS_LIST_PATH, "w") as json_out:
-        json_out.write(alias_json)
+    return alias_dict

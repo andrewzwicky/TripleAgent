@@ -4,6 +4,7 @@ from time import strftime
 
 from pathlib import Path
 from bs4 import BeautifulSoup
+import jsonpickle
 
 from triple_agent.reports.external_reports.player_reports.action_tests import (
     player_at_reports,
@@ -16,6 +17,7 @@ from triple_agent.reports.external_reports.player_reports.game_counts import (
 )
 from triple_agent.reports.generation.ipython_notebook import execute_single_notebook
 from triple_agent.constants.paths import (
+    ALIAS_LIST_PATH,
     EXAMPLES_FOLDER,
     EVENT_REPORT_FOLDER,
     OVERALL_REPORT_FOLDER,
@@ -43,6 +45,9 @@ EVENT_REPORT_SOURCE = Path(__file__).parents[0].joinpath("event_reports")
 OVERALL_REPORT_SOURCE = Path(__file__).parents[0].joinpath("overall_reports")
 
 ZIP_CHUNK_SIZE = 2000
+
+jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
+jsonpickle.set_preferred_backend("simplejson")
 
 
 def delete_stale_json_files():
@@ -182,7 +187,9 @@ def refresh_overall_reports():
 
 def refresh_all_reports():
     all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
-    create_alias_list(all_replays)
+
+    with open(ALIAS_LIST_PATH, "w") as json_out:
+        json_out.write(jsonpickle.encode(create_alias_list(all_replays)))
 
     delete_stale_json_files()
     zip_all_json_files()
