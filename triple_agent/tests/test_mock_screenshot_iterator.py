@@ -17,7 +17,9 @@ def mock_screenshot_iterator(
         ss_files = sorted(
             os.listdir(
                 os.path.join(TEST_FOLDER, "test_parallel_replay_screenshots", game.uuid)
-            )
+            ),
+            # because we can now have double digit ss_indices, must parse as index, otherwise sort order is 1 10 2, etc.
+            key=lambda x: int(x.replace(".png", "")),
         )
 
         for screenshot_index, f in enumerate(ss_files, start=1):

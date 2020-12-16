@@ -6,6 +6,10 @@ import pytest
 from triple_agent.parsing.timeline.parse_timeline import (
     process_line_image,
     TimelineParseException,
+    TimelineDigitNotMatchedException,
+    TimelineActorNotMatchedException,
+    TimelinePortraitNotMatchedException,
+    TimelineEventNotMatchedException,
 )
 from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.books import Books
@@ -10148,7 +10152,7 @@ def test_parse_line_image_bad_portrait():
         os.path.join(TEST_FOLDER, "test_line_images", "merged_cause_portrait_fail.png")
     )
 
-    with pytest.raises(TimelineParseException):
+    with pytest.raises(TimelinePortraitNotMatchedException):
         process_line_image(line_image)
 
 
@@ -10158,7 +10162,7 @@ def test_parse_line_image_bad_digit():
         os.path.join(TEST_FOLDER, "test_line_images", "bad_digit.png")
     )
 
-    with pytest.raises(TimelineParseException):
+    with pytest.raises(TimelineDigitNotMatchedException):
         process_line_image(line_image)
 
 
@@ -10168,7 +10172,7 @@ def test_parse_line_image_bad_event():
         os.path.join(TEST_FOLDER, "test_line_images", "bad_event.png")
     )
 
-    with pytest.raises(TimelineParseException):
+    with pytest.raises(TimelineEventNotMatchedException):
         process_line_image(line_image)
 
 
@@ -10178,5 +10182,5 @@ def test_parse_line_image_bad_actor():
         os.path.join(TEST_FOLDER, "test_line_images", "bad_actor.png")
     )
 
-    with pytest.raises(TimelineParseException):
+    with pytest.raises(TimelineActorNotMatchedException):
         process_line_image(line_image)

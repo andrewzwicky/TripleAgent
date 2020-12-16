@@ -5,8 +5,8 @@ import winsound
 from shutil import rmtree, copyfile
 from typing import Callable
 
-from triple_agent.parsing.timeline.parse_game_timelines_parallel import (
-    parse_timeline_parallel,
+from triple_agent.parsing.timeline.parse_full_timeline import (
+    parse_full_timeline,
 )
 from triple_agent.constants.paths import (
     LONG_FILE_HEADER,
@@ -99,7 +99,7 @@ def parse_replays(
                 replay_file, LONG_FILE_HEADER + os.path.join(unparsed_folder, file_name)
             )
 
-        parse_timeline_parallel(
+        parse_full_timeline(
             unparsed_game_list,
             screenshot_iterator=screenshot_iterator,
             pickle_folder=pickle_folder,

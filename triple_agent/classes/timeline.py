@@ -2020,6 +2020,7 @@ class TimelineEvent:
             (
                 self.actor,
                 self.time,
+                self.elapsed_time,
                 self.event,
                 self.cast_name,
                 self.books,
@@ -2035,6 +2036,7 @@ class TimelineEvent:
             return (
                 self.actor,
                 self.time,
+                self.elapsed_time,
                 self.event,
                 self.cast_name,
                 self.books,
@@ -2045,6 +2047,7 @@ class TimelineEvent:
             ) == (
                 other.actor,
                 other.time,
+                other.elapsed_time,
                 other.event,
                 other.cast_name,
                 other.books,
@@ -2117,18 +2120,6 @@ class Timeline(Sequence):
                     start_found = True
 
         return None
-
-    def calculate_elapsed_times(self):
-        num_time_adds = 0
-        start_time = self.lines[0].time
-
-        for line in self.lines:
-            line.elapsed_time = start_time - (line.time - (45 * num_time_adds))
-
-            if line.category == TimelineCategory.TimeAdd and line.event.startswith(
-                "45 seconds"
-            ):
-                num_time_adds += 1
 
     def parse_suspected_double_agents(self):
         # Games are parsed with all the yellow bars being assumed to be DoubleAgent.

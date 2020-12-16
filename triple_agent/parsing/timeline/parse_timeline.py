@@ -63,6 +63,30 @@ class TimelineParseException(Exception):
     pass
 
 
+class TimelineDigitNotMatchedException(TimelineParseException):
+    pass
+
+
+class TimelinePortraitNotMatchedException(TimelineParseException):
+    pass
+
+
+class TimelineActorNotMatchedException(TimelineParseException):
+    pass
+
+
+class TimelineEventNotMatchedException(TimelineParseException):
+    pass
+
+
+class TimelineOddNumberScreenshots(TimelineParseException):
+    pass
+
+
+class TimelineMismatchedElapsedScreenshots(TimelineParseException):
+    pass
+
+
 def separate_line_images(screenshot: np.ndarray) -> List[np.ndarray]:
     line_images = []
 
@@ -270,7 +294,9 @@ def name_portrait(
             characters.append(PORTRAIT_MD5_DICT[portrait_md5])
         except KeyError as key_exec:
             logger.warning("TimelineParseException character portrait not found")
-            raise TimelineParseException("character portrait not found") from key_exec
+            raise TimelinePortraitNotMatchedException(
+                "character portrait not found"
+            ) from key_exec
 
     # noinspection PyTypeChecker
     return tuple(characters)
@@ -368,7 +394,7 @@ def parse_time_digits(time_pic: np.ndarray) -> str:
             digits.append(DIGIT_DICT[digit_hash])
         except KeyError as key_exec:
             logger.warning("TimelineParseException digit not found")
-            raise TimelineParseException("digit not found") from key_exec
+            raise TimelineDigitNotMatchedException("digit not found") from key_exec
 
     if elapsed:
         return "{}{}{}.{}{}".format(*digits).lstrip()
@@ -396,13 +422,13 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
         event = EVENT_IMAGE_HASH_DICT[event_image_hash]
     except KeyError as key_exec:
         logger.warning("TimelineParseException event not found")
-        raise TimelineParseException("event not found") from key_exec
+        raise TimelineEventNotMatchedException("event not found") from key_exec
 
     try:
         actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
     except KeyError as key_exec:
         logger.warning("TimelineParseException actor not found")
-        raise TimelineParseException("actor not found") from key_exec
+        raise TimelineActorNotMatchedException("actor not found") from key_exec
 
     return TimelineEvent(actor, time, event, characters, roles, books)
 

@@ -140,8 +140,29 @@ def get_mss_screenshots(
         screenshot_index = 1
 
         while True:
-            # pyautogui.keyDown("shiftleft")
-            # sleep(0.05)
+            refresh_window(spyparty_handle, pycharm_handle)
+
+            with mss() as sct:
+                screenshot = cv2.cvtColor(
+                    np.asarray(
+                        sct.grab(
+                            monitor={
+                                "top": TIMELINE_TOP - OVERALL_CAPTURE_BORDER,
+                                "left": TIMELINE_LEFT - OVERALL_CAPTURE_BORDER,
+                                "width": TIMELINE_WIDTH + (2 * OVERALL_CAPTURE_BORDER),
+                                "height": TIMELINE_HEIGHT
+                                + (2 * OVERALL_CAPTURE_BORDER),
+                            }
+                        )
+                    ),
+                    cv2.COLOR_BGRA2BGR,
+                )
+
+            yield (game_index, screenshot_index, screenshot, False)
+            screenshot_index += 1
+
+            pyautogui.keyDown("shiftleft")
+            sleep(0.05)
 
             refresh_window(spyparty_handle, pycharm_handle)
 
@@ -161,12 +182,7 @@ def get_mss_screenshots(
                     cv2.COLOR_BGRA2BGR,
                 )
 
-            # pyautogui.keyUp("shiftleft")
-
-            # need a way to communicate through the queue that
-            # all screenshots for this file have been processed,
-            # starts with identifying the last one.
-            # print(".", end="")
+            pyautogui.keyUp("shiftleft")
 
             if is_last_screenshot(screenshot):
                 yield (game_index, screenshot_index, screenshot, True)
@@ -174,7 +190,6 @@ def get_mss_screenshots(
                 if game_index != (len(games) - 1):
                     go_to_next_game(spyparty_handle, pycharm_handle)
 
-                # print()
                 break
 
             yield (game_index, screenshot_index, screenshot, False)
