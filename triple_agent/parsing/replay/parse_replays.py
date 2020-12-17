@@ -121,7 +121,7 @@ if __name__ == "__main__":  # pragma: no cover
     handler.setLevel(logging.INFO)
 
     formatter = logging.Formatter(
-        "{levelname:<8} {module:>32}:{lineno:<4} {message}", style="{"
+        "{levelname:<8} {message}", style="{"
     )
     handler.setFormatter(formatter)
 

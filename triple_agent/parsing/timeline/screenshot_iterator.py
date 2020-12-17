@@ -162,7 +162,7 @@ def get_mss_screenshots(
             screenshot_index += 1
 
             pyautogui.keyDown("shiftleft")
-            sleep(0.05)
+            sleep(0.1)
 
             refresh_window(spyparty_handle, pycharm_handle)
 

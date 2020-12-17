@@ -21,8 +21,9 @@ logger = logging.getLogger("triple_agent")
 def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
     if len(events) % 2 != 0:
         # If there is an odd number, no way for them to be matched up
+        logger.warning("TimelineParseException odd number of screenshots supplied")
         raise TimelineOddNumberScreenshots(
-            "Mismatch between remaining and elapsed screenshots"
+            "Odd number of screenshots supplied"
         )
 
     possible_remaining = events[::2]
@@ -37,6 +38,7 @@ def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
                 and _r.elapsed_time is None
                 and _e.time is None
             ):
+                logger.warning("TimelineParseException mismatch between remaining and elapsed screenshots")
                 raise TimelineMismatchedElapsedScreenshots(
                     "Mismatch between remaining and elapsed screenshots"
                 )
