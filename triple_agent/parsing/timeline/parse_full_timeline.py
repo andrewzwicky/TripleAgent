@@ -2,6 +2,8 @@ import itertools
 import logging
 from time import sleep
 from typing import List, Callable
+import cv2
+import os
 
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 from triple_agent.classes.timeline import TimelineCoherency
@@ -84,6 +86,9 @@ def parse_full_timeline(
 
                 this_game_events = []
         except TimelineParseException:
+            cv2.imwrite(
+                os.path.join(r"C:\Users\Andrew\Workspace\TripleAgent\triple_agent\debug_captures\parse_fails",
+                             f"{games[game_index].uuid}_{ss_index}.png"), screenshot)
             this_game_events = []
 
     return games

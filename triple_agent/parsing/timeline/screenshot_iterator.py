@@ -207,11 +207,11 @@ def scroll_lines():
 def go_to_next_game(spyparty_handle, pycharm_handle):
     logger.debug("going to next game")
     pyautogui.hotkey("ctrl", "n")
-    sleep(0.1)
+    sleep(0.2)
     if is_game_loaded(spyparty_handle, pycharm_handle):
-        sleep(0.1)
+        sleep(0.2)
         refresh_window(spyparty_handle, pycharm_handle)
-        sleep(0.1)
+        sleep(0.2)
         pyautogui.press("f11")
     # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
     # but it opens to the start of game instead, which means that a scroll up in needed
