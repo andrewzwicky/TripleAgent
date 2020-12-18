@@ -75,8 +75,11 @@ def parse_replays(
     # So those should be separated now.
     unparsed_game_list = [game for game in game_list if game.timeline is None]
 
+    # it's important to get the replays in the correct order so that when
+    # they are done in spy party, the files and the game line up correctly.
+    unparsed_game_list.sort(key=lambda g: g.start_time)
+
     if limit is not None and unparsed_game_list:
-        unparsed_game_list.sort(key=lambda g: g.start_time)
         unparsed_game_list = unparsed_game_list[:limit]
 
     if unparsed_game_list:
@@ -87,10 +90,6 @@ def parse_replays(
         except FileNotFoundError:  # pragma: no cover
             pass
         os.makedirs(unparsed_folder, exist_ok=True)
-
-        # it's important to get the replays in the correct order so that when
-        # they are done in spy party, the files and the game line up correctly.
-        unparsed_game_list.sort(key=lambda g: g.start_time)
 
         for game in unparsed_game_list:
             replay_file = game.file
@@ -120,9 +119,7 @@ if __name__ == "__main__":  # pragma: no cover
     handler = logging.StreamHandler()
     handler.setLevel(logging.INFO)
 
-    formatter = logging.Formatter(
-        "{levelname:<8} {message}", style="{"
-    )
+    formatter = logging.Formatter("{levelname:<8} {message}", style="{")
     handler.setFormatter(formatter)
 
     logger.addHandler(handler)

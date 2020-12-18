@@ -114,9 +114,7 @@ def test_parse_odd_ss_timeline(
     monkeypatch.setattr("builtins.input", lambda x: None)
 
     assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl"
-        )
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
     )
 
     parse_full_timeline(
@@ -126,9 +124,7 @@ def test_parse_odd_ss_timeline(
     )
 
     assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl"
-        )
+        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
     )
 
 

@@ -135,7 +135,7 @@ def get_mss_screenshots(
 
     for game_index, game in enumerate(games):
         logger.info(
-            f"{game.spy} vs. {game.sniper} on {game.venue} [{game.uuid}, {game_index + 1}/{len(games)}]"
+            f"[{game.uuid}, {game_index + 1}/{len(games)}]: {game.venue}, {game.spy} vs. {game.sniper}"
         )
         screenshot_index = 1
 

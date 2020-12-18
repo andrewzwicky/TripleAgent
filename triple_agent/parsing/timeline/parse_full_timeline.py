@@ -2,9 +2,10 @@ import itertools
 import logging
 from time import sleep
 from typing import List, Callable
-import cv2
 import os
+import winsound
 
+import cv2
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (
@@ -24,9 +25,7 @@ def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
     if len(events) % 2 != 0:
         # If there is an odd number, no way for them to be matched up
         logger.warning("TimelineParseException odd number of screenshots supplied")
-        raise TimelineOddNumberScreenshots(
-            "Odd number of screenshots supplied"
-        )
+        raise TimelineOddNumberScreenshots("Odd number of screenshots supplied")
 
     possible_remaining = events[::2]
     possible_elapsed = events[1::2]
@@ -40,7 +39,9 @@ def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
                 and _r.elapsed_time is None
                 and _e.time is None
             ):
-                logger.warning("TimelineParseException mismatch between remaining and elapsed screenshots")
+                logger.warning(
+                    "TimelineParseException mismatch between remaining and elapsed screenshots"
+                )
                 raise TimelineMismatchedElapsedScreenshots(
                     "Mismatch between remaining and elapsed screenshots"
                 )
@@ -87,8 +88,15 @@ def parse_full_timeline(
                 this_game_events = []
         except TimelineParseException:
             cv2.imwrite(
-                os.path.join(r"C:\Users\Andrew\Workspace\TripleAgent\triple_agent\debug_captures\parse_fails",
-                             f"{games[game_index].uuid}_{ss_index}.png"), screenshot)
+                os.path.join(
+                    r"C:\Users\Andrew\Workspace\TripleAgent\triple_agent\debug_captures\parse_fails",
+                    f"{games[game_index].uuid}_{ss_index}.png",
+                ),
+                screenshot,
+            )
             this_game_events = []
+            for _ in range(4):
+                winsound.Beep(400, 200)
+                winsound.Beep(300, 200)
 
     return games

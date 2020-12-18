@@ -1,7 +1,6 @@
 import logging
 import hashlib
 from typing import List, Tuple, Optional, Iterator, Any
-import os
 
 import cv2
 import numpy as np
