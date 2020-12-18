@@ -5,8 +5,12 @@ from typing import List, Callable
 import os
 import winsound
 
-import cv2
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
+from triple_agent.constants.paths import (
+    REPLAY_PICKLE_FOLDER,
+    JSON_GAMES_FOLDER,
+    DEBUG_CAPTURES,
+)
+from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (
     TimelineParseException,
@@ -87,12 +91,10 @@ def parse_full_timeline(
 
                 this_game_events = []
         except TimelineParseException:
-            cv2.imwrite(
-                os.path.join(
-                    r"C:\Users\Andrew\Workspace\TripleAgent\triple_agent\debug_captures\parse_fails",
-                    f"{games[game_index].uuid}_{ss_index}.png",
-                ),
+            capture_debug_picture(
+                os.path.join(DEBUG_CAPTURES, "overall_failures"),
                 screenshot,
+                filename=f"{games[game_index].uuid}_{ss_index}.png",
             )
             this_game_events = []
             for _ in range(4):

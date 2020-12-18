@@ -1,13 +1,16 @@
+import os
 import ctypes
 import logging
 from time import sleep
 from typing import Optional, Iterator, Tuple, List
+import hashlib
 
 import cv2
 import numpy as np
 import pyautogui
 from mss import mss
 from triple_agent.classes.game import Game
+from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 from triple_agent.parsing.timeline.parse_timeline import (
     SPY_P_TOP,
     SPY_P_LEFT,
@@ -27,12 +30,13 @@ from triple_agent.parsing.timeline.parse_timeline import (
     ARROW_WIDTH,
     ARROW_COLOR,
 )
+from triple_agent.constants.paths import DEBUG_CAPTURES
 
 logger = logging.getLogger("triple_agent")
 
 
 def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
-    pycharm_handle = None
+    other_handle = None
     spyparty_handle = None
 
     enum_windows_process = ctypes.WINFUNCTYPE(
@@ -40,12 +44,12 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
     )
 
     def foreach_window(hwnd, _):
-        nonlocal pycharm_handle
+        nonlocal other_handle
         nonlocal spyparty_handle
         title = window__get_title(hwnd)
         # TODO: err handling here, not very robust way to detect SP window
-        if title.startswith("TripleAgent – "):
-            pycharm_handle = hwnd
+        if title.startswith("Windows PowerShell"):
+            other_handle = hwnd
         if title == "SpyParty v0.1.7269.0":
             spyparty_handle = hwnd
 
@@ -53,10 +57,10 @@ def get_app_handles() -> Tuple[Optional[int], Optional[int]]:
 
     ctypes.windll.user32.EnumWindows(enum_windows_process(foreach_window), 0)
 
-    if spyparty_handle is None or pycharm_handle is None:
+    if spyparty_handle is None or other_handle is None:
         raise OSError
 
-    return spyparty_handle, pycharm_handle
+    return spyparty_handle, other_handle
 
 
 def window__get_title(hwnd_handle):
@@ -70,12 +74,12 @@ def window__get_title(hwnd_handle):
 
 def is_game_loaded(
     spy_party_handle: Optional[int],
-    pycharm_handle: Optional[int],
+    other_handle: Optional[int],
 ):
     total_time = 0
 
     while True:
-        p_button = get_latest_loading_screenshot(spy_party_handle, pycharm_handle)
+        p_button = get_latest_loading_screenshot(spy_party_handle, other_handle)
 
         # if the game isn't loaded, there will be a blue P,
         # use those colors to detect whether the game is loaded
@@ -92,15 +96,20 @@ def is_game_loaded(
 
         if total_time > TIMEOUT:
             logger.error("is_game_loaded returns False")
+            capture_debug_picture(
+                os.path.join(DEBUG_CAPTURES, "game_not_loaded"), p_button
+            )
             return False
 
         logger.debug(f"game loading [{total_time} sec.]")
 
 
 def get_latest_loading_screenshot(
-    spy_party_handle: Optional[int], pycharm_handle: Optional[int]
+    spy_party_handle: Optional[int], other_handle: Optional[int]
 ):
-    refresh_window(spy_party_handle, pycharm_handle)
+    logger.debug("get_latest_loading_screenshot called")
+    refresh_window(spy_party_handle, other_handle)
+    sleep(0.25)
 
     with mss() as sct:
         p_button = cv2.cvtColor(
@@ -120,18 +129,24 @@ def get_latest_loading_screenshot(
     return p_button
 
 
-def refresh_window(spy_party_handle, pycharm_handle):
-    ctypes.windll.user32.SetForegroundWindow(pycharm_handle)
-    sleep(0.25)
+def refresh_window(spy_party_handle, other_handle):
+    logger.debug("refresh_window called")
+    ctypes.windll.user32.SetForegroundWindow(other_handle)
+    sleep(0.5)
+    logger.debug(ctypes.windll.user32.GetForegroundWindow())
     ctypes.windll.user32.SetForegroundWindow(spy_party_handle)
-    sleep(0.25)
+    sleep(0.5)
+    logger.debug(ctypes.windll.user32.GetForegroundWindow())
 
 
 def get_mss_screenshots(
     games: List[Game],
 ) -> Iterator[Tuple[int, int, np.ndarray, bool]]:
     # this is the pyautogui version
-    spyparty_handle, pycharm_handle = get_app_handles()
+    spyparty_handle, other_handle = get_app_handles()
+
+    logger.debug(spyparty_handle)
+    logger.debug(other_handle)
 
     for game_index, game in enumerate(games):
         logger.info(
@@ -140,7 +155,8 @@ def get_mss_screenshots(
         screenshot_index = 1
 
         while True:
-            refresh_window(spyparty_handle, pycharm_handle)
+            refresh_window(spyparty_handle, other_handle)
+            sleep(0.2)
 
             with mss() as sct:
                 screenshot = cv2.cvtColor(
@@ -162,9 +178,9 @@ def get_mss_screenshots(
             screenshot_index += 1
 
             pyautogui.keyDown("shiftleft")
-            sleep(0.1)
+            sleep(0.2)
 
-            refresh_window(spyparty_handle, pycharm_handle)
+            refresh_window(spyparty_handle, other_handle)
 
             with mss() as sct:
                 screenshot = cv2.cvtColor(
@@ -188,7 +204,7 @@ def get_mss_screenshots(
                 yield (game_index, screenshot_index, screenshot, True)
 
                 if game_index != (len(games) - 1):
-                    go_to_next_game(spyparty_handle, pycharm_handle)
+                    go_to_next_game(spyparty_handle, other_handle)
 
                 break
 
@@ -204,22 +220,26 @@ def scroll_lines():
         sleep(0.01)
 
 
-def go_to_next_game(spyparty_handle, pycharm_handle):
+def go_to_next_game(spyparty_handle, other_handle) -> bool:
     logger.debug("going to next game")
     pyautogui.hotkey("ctrl", "n")
     sleep(0.2)
-    if is_game_loaded(spyparty_handle, pycharm_handle):
+    if is_game_loaded(spyparty_handle, other_handle):
         sleep(0.2)
-        refresh_window(spyparty_handle, pycharm_handle)
-        sleep(0.2)
+        refresh_window(spyparty_handle, other_handle)
+        sleep(0.4)
         pyautogui.press("f11")
-    # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
-    # but it opens to the start of game instead, which means that a scroll up in needed
-    # to capture everything.
-    for _ in range(30):
-        pyautogui.scroll(1)
-        sleep(0.01)
-    sleep(0.25)
+        sleep(0.2)
+        # Starting in "SpyParty v0.1.6729.0", the timeline does not open to the start,
+        # but it opens to the start of game instead, which means that a scroll up in needed
+        # to capture everything.
+        for _ in range(30):
+            pyautogui.scroll(1)
+            sleep(0.01)
+        sleep(0.25)
+        return True
+
+    return False
 
 
 def is_last_screenshot(screenshot: np.ndarray):

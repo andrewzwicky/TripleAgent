@@ -1,3 +1,4 @@
+import os
 import logging
 import hashlib
 from typing import List, Tuple, Optional, Iterator, Any
@@ -13,6 +14,8 @@ from triple_agent.classes.timeline import (
     ACTOR_IMAGE_HASH_DICT,
     DIGIT_DICT,
 )
+from triple_agent.classes.capture_debug_pictures import capture_debug_picture
+from triple_agent.constants.paths import DEBUG_CAPTURES
 
 logger = logging.getLogger("triple_agent")
 
@@ -56,7 +59,7 @@ SPY_P_LEFT = 633
 SPY_P_WIDTH = 2
 SPY_P_HEIGHT = 25
 TIMEOUT = 12  # seconds
-TIME_STEP = 0.5
+TIME_STEP = 1
 
 
 class TimelineParseException(Exception):
@@ -294,6 +297,7 @@ def name_portrait(
             characters.append(PORTRAIT_MD5_DICT[portrait_md5])
         except KeyError as key_exec:
             logger.warning("TimelineParseException character portrait not found")
+            capture_debug_picture(os.path.join(DEBUG_CAPTURES, "portraits"), portrait)
             raise TimelinePortraitNotMatchedException(
                 "character portrait not found"
             ) from key_exec
@@ -394,6 +398,7 @@ def parse_time_digits(time_pic: np.ndarray) -> str:
             digits.append(DIGIT_DICT[digit_hash])
         except KeyError as key_exec:
             logger.warning("TimelineParseException digit not found")
+            capture_debug_picture(os.path.join(DEBUG_CAPTURES, "digits"), time_pic)
             raise TimelineDigitNotMatchedException("digit not found") from key_exec
 
     if elapsed:
@@ -422,12 +427,14 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
         event = EVENT_IMAGE_HASH_DICT[event_image_hash]
     except KeyError as key_exec:
         logger.warning("TimelineParseException event not found")
+        capture_debug_picture(os.path.join(DEBUG_CAPTURES, "events"), line_image)
         raise TimelineEventNotMatchedException("event not found") from key_exec
 
     try:
         actor = ACTOR_IMAGE_HASH_DICT[actor_image_hash]
     except KeyError as key_exec:
         logger.warning("TimelineParseException actor not found")
+        capture_debug_picture(os.path.join(DEBUG_CAPTURES, "actors"), line_image)
         raise TimelineActorNotMatchedException("actor not found") from key_exec
 
     return TimelineEvent(actor, time, event, characters, roles, books)
