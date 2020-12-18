@@ -527,34 +527,6 @@
                 "MissionEnabled"
             ],
             "elapsed_time": 0.0,
-            "event": "seduce target enabled.",
-            "mission": "Seduce",
-            "role": [],
-            "time": 210.0
-        },
-        {
-            "action_test": "NoAT",
-            "actor": "spy",
-            "books": [],
-            "cast_name": [],
-            "category": [
-                "MissionEnabled"
-            ],
-            "elapsed_time": 0.0,
-            "event": "purloin guest list enabled.",
-            "mission": "Purloin",
-            "role": [],
-            "time": 210.0
-        },
-        {
-            "action_test": "NoAT",
-            "actor": "spy",
-            "books": [],
-            "cast_name": [],
-            "category": [
-                "MissionEnabled"
-            ],
-            "elapsed_time": 0.0,
             "event": "fingerprint ambassador enabled.",
             "mission": "Fingerprint",
             "role": [],
@@ -580,7 +552,7 @@
             "books": [],
             "cast_name": [],
             "category": [],
-            "elapsed_time": 1.3000000000000114,
+            "elapsed_time": 1.25,
             "event": "spy player takes control from ai.",
             "mission": "NoMission",
             "role": [],
@@ -596,7 +568,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 2.0,
+            "elapsed_time": 1.94,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -614,7 +586,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 2.1999999999999886,
+            "elapsed_time": 2.19,
             "event": "marked neutral suspicion.",
             "mission": "NoMission",
             "role": [
@@ -648,7 +620,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 6.400000000000006,
+            "elapsed_time": 6.31,
             "event": "spy enters conversation.",
             "mission": "NoMission",
             "role": [],
@@ -664,7 +636,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 6.400000000000006,
+            "elapsed_time": 6.31,
             "event": "spy joined conversation with double agent.",
             "mission": "NoMission",
             "role": [
@@ -682,7 +654,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 7.199999999999989,
+            "elapsed_time": 7.19,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -700,7 +672,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 7.800000000000011,
+            "elapsed_time": 7.75,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -718,7 +690,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 10.400000000000006,
+            "elapsed_time": 10.38,
             "event": "marked neutral suspicion.",
             "mission": "NoMission",
             "role": [
@@ -736,7 +708,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 10.699999999999989,
+            "elapsed_time": 10.63,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -754,7 +726,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 11.099999999999994,
+            "elapsed_time": 11.0,
             "event": "marked neutral suspicion.",
             "mission": "NoMission",
             "role": [
@@ -772,7 +744,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 11.199999999999989,
+            "elapsed_time": 11.19,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -788,7 +760,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 16.19999999999999,
+            "elapsed_time": 16.19,
             "event": "spy leaves conversation.",
             "mission": "NoMission",
             "role": [],
@@ -804,7 +776,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 16.19999999999999,
+            "elapsed_time": 16.19,
             "event": "spy left conversation with double agent.",
             "mission": "NoMission",
             "role": [
@@ -822,7 +794,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 17.5,
+            "elapsed_time": 17.44,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -840,7 +812,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 18.5,
+            "elapsed_time": 18.44,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -856,7 +828,7 @@
             "category": [
                 "Statues"
             ],
-            "elapsed_time": 20.5,
+            "elapsed_time": 20.44,
             "event": "picked up statue.",
             "mission": "NoMission",
             "role": [],
@@ -871,7 +843,7 @@
                 "ActionTriggered",
                 "Statues"
             ],
-            "elapsed_time": 23.69999999999999,
+            "elapsed_time": 23.63,
             "event": "action triggered: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -886,7 +858,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 25.099999999999994,
+            "elapsed_time": 25.0,
             "event": "action test white: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -902,7 +874,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 25.69999999999999,
+            "elapsed_time": 25.63,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -919,7 +891,7 @@
                 "MissionPartial",
                 "Statues"
             ],
-            "elapsed_time": 28.69999999999999,
+            "elapsed_time": 28.63,
             "event": "held statue inspected.",
             "mission": "Inspect",
             "role": [],
@@ -933,7 +905,7 @@
             "category": [
                 "Statues"
             ],
-            "elapsed_time": 28.69999999999999,
+            "elapsed_time": 28.69,
             "event": "put back statue.",
             "mission": "NoMission",
             "role": [],
@@ -949,7 +921,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 29.599999999999994,
+            "elapsed_time": 29.56,
             "event": "marked spy suspicious.",
             "mission": "NoMission",
             "role": [
@@ -967,7 +939,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 42.80000000000001,
+            "elapsed_time": 42.75,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -984,7 +956,7 @@
                 "ActionTriggered",
                 "Watch"
             ],
-            "elapsed_time": 42.900000000000006,
+            "elapsed_time": 42.81,
             "event": "action triggered: check watch",
             "mission": "NoMission",
             "role": [],
@@ -1000,7 +972,7 @@
             "category": [
                 "Watch"
             ],
-            "elapsed_time": 42.900000000000006,
+            "elapsed_time": 42.81,
             "event": "watch checked.",
             "mission": "NoMission",
             "role": [
@@ -1018,7 +990,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 45.30000000000001,
+            "elapsed_time": 45.25,
             "event": "waiter offered drink.",
             "mission": "NoMission",
             "role": [
@@ -1036,7 +1008,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 46.900000000000006,
+            "elapsed_time": 46.88,
             "event": "rejected drink from waiter.",
             "mission": "NoMission",
             "role": [
@@ -1054,7 +1026,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 46.900000000000006,
+            "elapsed_time": 46.88,
             "event": "waiter stopped offering drink.",
             "mission": "NoMission",
             "role": [
@@ -1072,7 +1044,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 52.5,
+            "elapsed_time": 52.44,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1088,7 +1060,7 @@
             "category": [
                 "Statues"
             ],
-            "elapsed_time": 52.69999999999999,
+            "elapsed_time": 52.69,
             "event": "picked up statue.",
             "mission": "NoMission",
             "role": [],
@@ -1103,7 +1075,7 @@
                 "ActionTriggered",
                 "Statues"
             ],
-            "elapsed_time": 56.400000000000006,
+            "elapsed_time": 56.31,
             "event": "action triggered: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -1118,7 +1090,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 57.5,
+            "elapsed_time": 57.44,
             "event": "action test green: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -1133,7 +1105,7 @@
                 "MissionPartial",
                 "Statues"
             ],
-            "elapsed_time": 59.900000000000006,
+            "elapsed_time": 59.81,
             "event": "held statue inspected.",
             "mission": "Inspect",
             "role": [],
@@ -1147,7 +1119,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 60.69999999999999,
+            "elapsed_time": 60.63,
             "event": "action triggered: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1161,7 +1133,7 @@
                 "Ms. T"
             ],
             "category": [],
-            "elapsed_time": 60.69999999999999,
+            "elapsed_time": 60.63,
             "event": "begin flirtation with seduction target.",
             "mission": "Seduce",
             "role": [
@@ -1177,7 +1149,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 61.30000000000001,
+            "elapsed_time": 61.25,
             "event": "action test white: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1191,7 +1163,7 @@
                 "Ms. T"
             ],
             "category": [],
-            "elapsed_time": 62.80000000000001,
+            "elapsed_time": 62.75,
             "event": "seduction canceled.",
             "mission": "Seduce",
             "role": [
@@ -1208,7 +1180,7 @@
                 "ActionTriggered",
                 "Statues"
             ],
-            "elapsed_time": 63.599999999999994,
+            "elapsed_time": 63.56,
             "event": "action triggered: swap statue",
             "mission": "Swap",
             "role": [],
@@ -1223,7 +1195,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 64.69999999999999,
+            "elapsed_time": 64.63,
             "event": "action test white: swap statue",
             "mission": "Swap",
             "role": [],
@@ -1238,7 +1210,7 @@
                 "MissionComplete",
                 "Statues"
             ],
-            "elapsed_time": 64.69999999999999,
+            "elapsed_time": 64.63,
             "event": "statue swapped.",
             "mission": "Swap",
             "role": [],
@@ -1253,7 +1225,7 @@
                 "ActionTriggered",
                 "Statues"
             ],
-            "elapsed_time": 66.30000000000001,
+            "elapsed_time": 66.25,
             "event": "action triggered: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -1269,7 +1241,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 67.5,
+            "elapsed_time": 67.44,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1286,7 +1258,7 @@
                 "ActionTest",
                 "Statues"
             ],
-            "elapsed_time": 67.6,
+            "elapsed_time": 67.56,
             "event": "action test white: inspect statues",
             "mission": "Inspect",
             "role": [],
@@ -1301,7 +1273,7 @@
                 "MissionPartial",
                 "Statues"
             ],
-            "elapsed_time": 70.30000000000001,
+            "elapsed_time": 70.25,
             "event": "left statue inspected.",
             "mission": "Inspect",
             "role": [],
@@ -1316,7 +1288,7 @@
                 "MissionComplete",
                 "Statues"
             ],
-            "elapsed_time": 70.30000000000001,
+            "elapsed_time": 70.25,
             "event": "all statues inspected.",
             "mission": "Inspect",
             "role": [],
@@ -1330,7 +1302,7 @@
             "category": [
                 "Statues"
             ],
-            "elapsed_time": 70.4,
+            "elapsed_time": 70.38,
             "event": "put back statue.",
             "mission": "NoMission",
             "role": [],
@@ -1358,7 +1330,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 84.0,
+            "elapsed_time": 83.94,
             "event": "action triggered: contact double agent",
             "mission": "Contact",
             "role": [],
@@ -1372,7 +1344,7 @@
             "category": [
                 "BananaBread"
             ],
-            "elapsed_time": 84.0,
+            "elapsed_time": 83.94,
             "event": "fake banana bread started.",
             "mission": "Contact",
             "role": [],
@@ -1386,7 +1358,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 85.0,
+            "elapsed_time": 84.94,
             "event": "action test white: contact double agent",
             "mission": "Contact",
             "role": [],
@@ -1400,7 +1372,7 @@
             "category": [
                 "BananaBread"
             ],
-            "elapsed_time": 89.6,
+            "elapsed_time": 89.56,
             "event": "fake banana bread uttered.",
             "mission": "Contact",
             "role": [],
@@ -1414,7 +1386,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 90.9,
+            "elapsed_time": 90.81,
             "event": "stopped talking.",
             "mission": "NoMission",
             "role": [],
@@ -1446,7 +1418,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 91.6,
+            "elapsed_time": 91.56,
             "event": "action triggered: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1460,7 +1432,7 @@
                 "Ms. T"
             ],
             "category": [],
-            "elapsed_time": 91.6,
+            "elapsed_time": 91.56,
             "event": "begin flirtation with seduction target.",
             "mission": "Seduce",
             "role": [
@@ -1476,7 +1448,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 92.5,
+            "elapsed_time": 92.44,
             "event": "action test white: seduce target",
             "mission": "Seduce",
             "role": [],
@@ -1492,7 +1464,7 @@
             "category": [
                 "MissionPartial"
             ],
-            "elapsed_time": 92.5,
+            "elapsed_time": 92.44,
             "event": "flirt with seduction target: 26%",
             "mission": "Seduce",
             "role": [
@@ -1508,7 +1480,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 93.9,
+            "elapsed_time": 93.88,
             "event": "stopped talking.",
             "mission": "NoMission",
             "role": [],
@@ -1524,7 +1496,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 94.6,
+            "elapsed_time": 94.5,
             "event": "marked less suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1540,7 +1512,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 106.3,
+            "elapsed_time": 106.25,
             "event": "interrupted speaker.",
             "mission": "NoMission",
             "role": [],
@@ -1554,7 +1526,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 115.8,
+            "elapsed_time": 115.75,
             "event": "stopped talking.",
             "mission": "NoMission",
             "role": [],
@@ -1568,7 +1540,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 116.9,
+            "elapsed_time": 116.81,
             "event": "spy leaves conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1580,7 +1552,7 @@
             "books": [],
             "cast_name": [],
             "category": [],
-            "elapsed_time": 124.2,
+            "elapsed_time": 124.19,
             "event": "flirtation cooldown expired.",
             "mission": "Seduce",
             "role": [],
@@ -1594,7 +1566,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 125.8,
+            "elapsed_time": 125.75,
             "event": "spy enters conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1610,7 +1582,7 @@
             "category": [
                 "SniperLights"
             ],
-            "elapsed_time": 129.2,
+            "elapsed_time": 129.13,
             "event": "marked suspicious.",
             "mission": "NoMission",
             "role": [
@@ -1626,7 +1598,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 133.5,
+            "elapsed_time": 133.44,
             "event": "spy leaves conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1640,7 +1612,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 150.7,
+            "elapsed_time": 150.63,
             "event": "spy enters conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1656,7 +1628,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 150.7,
+            "elapsed_time": 150.63,
             "event": "spy joined conversation with double agent.",
             "mission": "NoMission",
             "role": [
@@ -1672,7 +1644,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 151.2,
+            "elapsed_time": 151.19,
             "event": "action triggered: contact double agent",
             "mission": "Contact",
             "role": [],
@@ -1686,7 +1658,7 @@
             "category": [
                 "BananaBread"
             ],
-            "elapsed_time": 151.2,
+            "elapsed_time": 151.19,
             "event": "real banana bread started.",
             "mission": "Contact",
             "role": [],
@@ -1700,7 +1672,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 152.1,
+            "elapsed_time": 152.06,
             "event": "action test white: contact double agent",
             "mission": "Contact",
             "role": [],
@@ -1714,7 +1686,7 @@
             "category": [
                 "BananaBread"
             ],
-            "elapsed_time": 155.0,
+            "elapsed_time": 154.94,
             "event": "banana bread uttered.",
             "mission": "Contact",
             "role": [],
@@ -1730,7 +1702,7 @@
             "category": [
                 "MissionComplete"
             ],
-            "elapsed_time": 155.5,
+            "elapsed_time": 155.44,
             "event": "double agent contacted.",
             "mission": "Contact",
             "role": [
@@ -1748,7 +1720,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 157.9,
+            "elapsed_time": 157.81,
             "event": "waiter offered drink.",
             "mission": "NoMission",
             "role": [
@@ -1764,7 +1736,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 157.9,
+            "elapsed_time": 157.81,
             "event": "stopped talking.",
             "mission": "NoMission",
             "role": [],
@@ -1778,7 +1750,7 @@
             "category": [
                 "ActionTriggered"
             ],
-            "elapsed_time": 159.5,
+            "elapsed_time": 159.44,
             "event": "action triggered: purloin guest list",
             "mission": "Purloin",
             "role": [],
@@ -1792,7 +1764,7 @@
             "category": [
                 "ActionTest"
             ],
-            "elapsed_time": 160.2,
+            "elapsed_time": 160.13,
             "event": "action test green: purloin guest list",
             "mission": "Purloin",
             "role": [],
@@ -1806,7 +1778,7 @@
                 "Mr. S"
             ],
             "category": [],
-            "elapsed_time": 160.2,
+            "elapsed_time": 160.13,
             "event": "guest list purloin pending.",
             "mission": "Purloin",
             "role": [
@@ -1822,7 +1794,7 @@
             "category": [
                 "MissionCountdown"
             ],
-            "elapsed_time": 160.2,
+            "elapsed_time": 160.13,
             "event": "missions completed. countdown pending.",
             "mission": "NoMission",
             "role": [],
@@ -1838,7 +1810,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 160.2,
+            "elapsed_time": 160.13,
             "event": "rejected drink from waiter.",
             "mission": "NoMission",
             "role": [
@@ -1856,7 +1828,7 @@
             "category": [
                 "Drinks"
             ],
-            "elapsed_time": 160.2,
+            "elapsed_time": 160.13,
             "event": "waiter stopped offering drink.",
             "mission": "NoMission",
             "role": [
@@ -1890,7 +1862,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 163.9,
+            "elapsed_time": 163.88,
             "event": "spy leaves conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1906,7 +1878,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 163.9,
+            "elapsed_time": 163.88,
             "event": "spy left conversation with double agent.",
             "mission": "NoMission",
             "role": [
@@ -1924,7 +1896,7 @@
             "category": [
                 "MissionComplete"
             ],
-            "elapsed_time": 168.7,
+            "elapsed_time": 168.63,
             "event": "guest list purloined.",
             "mission": "Purloin",
             "role": [
@@ -1940,7 +1912,7 @@
             "category": [
                 "MissionCountdown"
             ],
-            "elapsed_time": 168.7,
+            "elapsed_time": 168.63,
             "event": "missions completed. 10 second countdown.",
             "mission": "NoMission",
             "role": [],
@@ -1954,7 +1926,7 @@
             "category": [
                 "Conversation"
             ],
-            "elapsed_time": 173.4,
+            "elapsed_time": 173.38,
             "event": "spy enters conversation.",
             "mission": "NoMission",
             "role": [],
@@ -1968,7 +1940,7 @@
             "category": [
                 "GameEnd"
             ],
-            "elapsed_time": 178.7,
+            "elapsed_time": 178.63,
             "event": "missions completed successfully.",
             "mission": "NoMission",
             "role": [],
