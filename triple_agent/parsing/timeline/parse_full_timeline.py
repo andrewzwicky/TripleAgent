@@ -3,7 +3,6 @@ import logging
 from time import sleep
 from typing import List, Callable
 import os
-import winsound
 
 from triple_agent.constants.paths import (
     REPLAY_PICKLE_FOLDER,
@@ -97,8 +96,5 @@ def parse_full_timeline(
                 filename=f"{games[game_index].uuid}_{ss_index}.png",
             )
             this_game_events = []
-            for _ in range(4):
-                winsound.Beep(400, 200)
-                winsound.Beep(300, 200)
 
     return games

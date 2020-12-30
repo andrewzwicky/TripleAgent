@@ -1,6 +1,5 @@
 import os
 import logging
-import winsound
 
 from shutil import rmtree, copyfile
 from typing import Callable
@@ -125,5 +124,3 @@ if __name__ == "__main__":  # pragma: no cover
     logger.addHandler(handler)
 
     parse_replays(lambda g: True, limit=None)
-
-    winsound.Beep(500, 300)
