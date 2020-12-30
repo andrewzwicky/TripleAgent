@@ -3,7 +3,6 @@ import ctypes
 import logging
 from time import sleep
 from typing import Optional, Iterator, Tuple, List
-import hashlib
 
 import cv2
 import numpy as np
