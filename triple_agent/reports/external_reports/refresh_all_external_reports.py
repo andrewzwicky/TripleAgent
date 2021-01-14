@@ -1,6 +1,7 @@
 import os
 from zipfile import ZipFile
 from time import strftime
+import logging
 
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -49,8 +50,10 @@ ZIP_CHUNK_SIZE = 2000
 jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
 jsonpickle.set_preferred_backend("simplejson")
 
+logger = logging.getLogger("triple_agent")
 
 def delete_stale_json_files():
+    logger.info("deleting stale JSON files")
     json_uuid_set = {f.stem for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"}
     pkl_uuid_set = {f.stem for f in REPLAY_PICKLE_FOLDER.iterdir()}
 
@@ -82,6 +85,7 @@ def create_zip_start_end_indices(num_files: int, chunk_size: int):
 
 
 def zip_all_json_files():
+    logger.info("creating JSON file ZIPs")
     json_files = sorted([f for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"])
 
     for zip_num, start, end in create_zip_start_end_indices(
@@ -151,6 +155,7 @@ def create_index_file(target_dir: Path):
 
 
 def refresh_html_files():
+    logger.info("refreshing HTML timestamps")
     for root, _, _ in os.walk(DOCS_FOLDER):
         create_index_file(Path(root))
 
@@ -159,35 +164,36 @@ def refresh_example_notebooks():
     os.chdir(EXAMPLES_FOLDER)
     for potential_notebook in os.listdir(EXAMPLES_FOLDER):
         if potential_notebook.endswith(".ipynb"):
-            print(f"executing {potential_notebook}")
             execute_single_notebook(potential_notebook)
 
 
 def refresh_event_reports():
+    logger.info("refreshing event reports")
     for potential_notebook in os.listdir(EVENT_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
             potential_path = os.path.join(EVENT_REPORT_SOURCE, potential_notebook)
-            print(f"executing {potential_path}")
             execute_single_notebook(potential_path)
             os.system(
-                f'jupyter nbconvert --to html "{potential_path}" --output-dir="{EVENT_REPORT_FOLDER}"'
+                f'jupyter nbconvert --to html "{potential_path}" --output-dir="{EVENT_REPORT_FOLDER}" --log-level WARN'
             )
 
 
 def refresh_overall_reports():
+    logger.info("refreshing overall reports")
     for potential_notebook in os.listdir(OVERALL_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
             potential_path = os.path.join(OVERALL_REPORT_SOURCE, potential_notebook)
-            print(f"executing {potential_path}")
             execute_single_notebook(potential_path)
             os.system(
-                f'jupyter nbconvert --to html "{potential_path}" --output-dir="{OVERALL_REPORT_FOLDER}"'
+                f'jupyter nbconvert --to html "{potential_path}" --output-dir="{OVERALL_REPORT_FOLDER}" --log-level WARN'
             )
 
 
 def refresh_all_reports():
+    logger.info("parsing all games")
     all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
 
+    logger.info("creating alias list")
     with open(ALIAS_LIST_PATH, "w") as json_out:
         json_out.write(jsonpickle.encode(create_alias_list(all_replays)))
 
@@ -195,29 +201,54 @@ def refresh_all_reports():
     zip_all_json_files()
     refresh_html_files()
 
-    # SCL5 is concluded, not need to create report again
+    # SCL5 is concluded, no need to create report again
+    # TODO: find a way to make this faster (reparsing just for aliases takes a lot of time)
+    logger.info("updating replay list with aliases")
     all_replays = get_parsed_replays(lambda x: True)
+    logger.info("filtering out SCL6 replays")
     scl6_replays = list(filter(select_scl6_with_drops, all_replays))
 
     refresh_overall_reports()
     refresh_event_reports()
 
+    logger.info("creating AT reports [all]")
     player_at_reports(all_replays, "action_test_all")
+    logger.info("creating AT reports [SCL6]")
     player_at_reports(scl6_replays, "action_test_scl6")
 
+    logger.info("creating spy selection reports [all]")
     player_spy_selection_report(all_replays, "spy_selection_all")
+    logger.info("creating spy selection reports [SCL6]")
     player_spy_selection_report(scl6_replays, "spy_selection_scl6")
 
+    logger.info("creating game count reports [all]")
     player_game_count_reports(all_replays, "spy_game_count_all")
+    logger.info("creating game count reports [SCL6]")
     player_game_count_reports(scl6_replays, "spy_game_count_scl6")
 
+    logger.info("refreshing example notebooks")
     refresh_example_notebooks()
 
     create_game_manifest(all_replays)
+
+    logger.info("updating SpyPartyFans reports")
+    logger.info("updating SpyPartyFans sniper lights report")
     spf_lights_report(all_replays)
+    logger.info("updating SpyPartyFans action test report")
     spf_action_test_report(all_replays)
+    logger.info("updating SpyPartyFans character selection report")
     spf_character_selection_report(all_replays)
 
 
 if __name__ == "__main__":
+    logger.setLevel(logging.INFO)
+
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("{asctime} {message}", style="{")
+    handler.setFormatter(formatter)
+
+    logger.addHandler(handler)
+
     refresh_all_reports()

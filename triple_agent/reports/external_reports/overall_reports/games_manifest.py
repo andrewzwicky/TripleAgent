@@ -1,10 +1,13 @@
 import os
 import json
+import logging
 
 from triple_agent.constants.paths import OVERALL_REPORT_FOLDER
 
+logger = logging.getLogger("triple_agent")
 
 def create_game_manifest(all_replays):
+    logger.info("updating game manifest")
     output_dictionary = dict()
 
     for game in all_replays:
