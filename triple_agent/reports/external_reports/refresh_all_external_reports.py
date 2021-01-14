@@ -52,6 +52,7 @@ jsonpickle.set_preferred_backend("simplejson")
 
 logger = logging.getLogger("triple_agent")
 
+
 def delete_stale_json_files():
     logger.info("deleting stale JSON files")
     json_uuid_set = {f.stem for f in JSON_GAMES_FOLDER.iterdir() if f.suffix == ".json"}
