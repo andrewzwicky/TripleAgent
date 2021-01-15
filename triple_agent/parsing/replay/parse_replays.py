@@ -3,6 +3,7 @@ import logging
 
 from shutil import rmtree, copyfile
 from typing import Callable
+import pyautogui
 
 from triple_agent.parsing.timeline.parse_full_timeline import (
     parse_full_timeline,
@@ -123,4 +124,7 @@ if __name__ == "__main__":  # pragma: no cover
 
     logger.addHandler(handler)
 
-    parse_replays(lambda g: True, limit=None)
+    try:
+        parse_replays(lambda g: True, limit=None)
+    except pyautogui.FailSafeException:
+        pass
