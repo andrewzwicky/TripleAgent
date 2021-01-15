@@ -217,6 +217,7 @@ def scroll_lines():
     for _ in range(30):
         pyautogui.scroll(-1)
         sleep(0.01)
+    import pdb; pdb.set_trace()
 
 
 def go_to_next_game(spyparty_handle, other_handle) -> bool:
@@ -246,10 +247,14 @@ def is_last_screenshot(screenshot: np.ndarray):
         ARROW_ROW : ARROW_ROW + ARROW_HEIGHT, ARROW_COL : ARROW_COL + ARROW_WIDTH
     ]
 
+    is_last = True
+
+    
     # arrow is still present, indicating more in the timeline
     if np.all(arrow_location == ARROW_COLOR[0]):
         logger.debug("is_last_screenshot returns False")
-        return False
+        is_last = False
 
+    import pdb; pdb.set_trace()
     logger.debug("is_last_screenshot returns True")
-    return True
+    return is_last
