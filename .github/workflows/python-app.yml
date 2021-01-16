@@ -29,22 +29,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .[plot,retrieve,parse,test] --quiet
     - name: black
-      continue-on-error: true
       run: |
         black triple_agent --check
     - name: pylint
-      continue-on-error: true
       run: |
         pylint triple_agent --rcfile=.pylintrc
     - name: vulture
-      continue-on-error: true
       run: |
         vulture triple_agent vulture_whitelist.py
     - name: vulture whitelist
-      continue-on-error: true
       run: |
         python vulture_whitelist.py
     - name: pytest
-      continue-on-error: true
       run: |
         pytest triple_agent --cov=triple_agent --cov-report term-missing:skip-covered
