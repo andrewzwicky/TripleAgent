@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        name: andrewzwicky/SpyPartyParse
+        repository: andrewzwicky/SpyPartyParse
         path: 'spypartyparse'
         fetch-depth: 1
     - uses: actions/checkout@v2
