@@ -34,7 +34,7 @@ jobs:
         black triple_agent --check
     - name: pylint
       run: |
-        pylint triple_agent --rcfile=.pylintrc
+        pylint triple_agent --rcfile=pylintrc
     - name: vulture
       run: |
         vulture triple_agent vulture_whitelist.py
