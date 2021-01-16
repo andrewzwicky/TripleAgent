@@ -6,16 +6,10 @@ name: Triple Agent
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
-    
     runs-on: windows-latest
-#    strategy:
-#      matrix:
-#        python-version: [3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,11 +18,11 @@ jobs:
         path: 'spypartyparse'
         fetch-depth: 1
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: install python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    - name: Install dependencies
+    - name: install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -e .[plot,retrieve,parse,test] --quiet
