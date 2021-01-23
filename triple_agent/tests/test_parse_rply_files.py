@@ -8,7 +8,7 @@ from triple_agent.parsing.replay.parse_rply_file import (
     UnknownFileException,
     FileTooShortException,
     UnknownVenueException,
-    UnknownFileVersion
+    UnknownFileVersion,
 )
 
 from triple_agent.classes.missions import Missions
@@ -424,15 +424,20 @@ def test_parse_small_rply_files():
     with pytest.raises(FileTooShortException):
         parse_rply_file(replay_file_abs)
 
+
 def test_parse_unknown_venue_rply_files():
-    replay_file_abs = os.path.join(TEST_FOLDER, "test_rply_files","unknown_venue.replay")
+    replay_file_abs = os.path.join(
+        TEST_FOLDER, "test_rply_files", "unknown_venue.replay"
+    )
 
     with pytest.raises(UnknownVenueException):
         parse_rply_file(replay_file_abs)
 
+
 def test_parse_invalid_version_rply_files():
-    replay_file_abs = os.path.join(TEST_FOLDER, "test_rply_files","invalid_version.replay")
+    replay_file_abs = os.path.join(
+        TEST_FOLDER, "test_rply_files", "invalid_version.replay"
+    )
 
     with pytest.raises(UnknownFileVersion):
         parse_rply_file(replay_file_abs)
-
