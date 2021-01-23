@@ -13,11 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        repository: andrewzwicky/SpyPartyParse
-        path: 'spypartyparse'
-        fetch-depth: 1
-    - uses: actions/checkout@v2
     - name: install python 3.8
       uses: actions/setup-python@v2
       with:
