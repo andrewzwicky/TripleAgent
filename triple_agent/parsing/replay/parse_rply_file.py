@@ -157,10 +157,10 @@ def parse_rply_file(file_path):
     if unpack(offsets.magic_string, replay_bytes) != b"RPLY":
         raise UnknownFileException()
 
-    file_version = unpack(offsets.replay_file_version, replay_bytes)
-
     try:
-        offsets = HEADER_OFFSET_DICT[file_version]()
+        offsets = HEADER_OFFSET_DICT[
+            unpack(offsets.replay_file_version, replay_bytes)
+        ]()
     except KeyError as upper_exception:
         raise UnknownFileVersion() from upper_exception
 
@@ -179,22 +179,7 @@ def parse_rply_file(file_path):
     )
     result["sequence_number"] = unpack(offsets.sequence_number, replay_bytes)
 
-    spy_username_length = unpack(offsets.spy_uname_len, replay_bytes)
-    sniper_username_length = unpack(offsets.sniper_uname_len, replay_bytes)
-
-    spy_username_header_info = HeaderInfo(
-        offsets.username_starts, spy_username_length, f"{spy_username_length}s"
-    )
-    sniper_username_header_info = HeaderInfo(
-        offsets.username_starts + spy_username_length,
-        sniper_username_length,
-        f"{sniper_username_length}s",
-    )
-
-    result["spy_username"] = unpack(spy_username_header_info, replay_bytes).decode()
-    result["sniper_username"] = unpack(
-        sniper_username_header_info, replay_bytes
-    ).decode()
+    result = unpack_names(offsets, replay_bytes, result)
 
     this_result = unpack(offsets.game_result, replay_bytes)
     try:
@@ -230,6 +215,33 @@ def parse_rply_file(file_path):
         unpack(offsets.completed_missions, replay_bytes)
     )
 
+    if (this_result := unpack(offsets.guest_count, replay_bytes)) :
+        result["guest_count"] = this_result
+
+    if (this_result := unpack(offsets.start_duration, replay_bytes)) :
+        result["start_clock_seconds"] = this_result
+
+    return result
+
+
+def unpack_names(offsets, replay_bytes, result):
+    spy_username_length = unpack(offsets.spy_uname_len, replay_bytes)
+    sniper_username_length = unpack(offsets.sniper_uname_len, replay_bytes)
+
+    spy_username_header_info = HeaderInfo(
+        offsets.username_starts, spy_username_length, f"{spy_username_length}s"
+    )
+    sniper_username_header_info = HeaderInfo(
+        offsets.username_starts + spy_username_length,
+        sniper_username_length,
+        f"{sniper_username_length}s",
+    )
+
+    result["spy_username"] = unpack(spy_username_header_info, replay_bytes).decode()
+    result["sniper_username"] = unpack(
+        sniper_username_header_info, replay_bytes
+    ).decode()
+
     if (
         spy_displayname_length := unpack(offsets.spy_display_name_length, replay_bytes)
     ) :
@@ -262,11 +274,5 @@ def parse_rply_file(file_path):
         ).decode()
     else:
         result["sniper_displayname"] = result["sniper_username"]
-
-    if (this_result := unpack(offsets.guest_count, replay_bytes)) :
-        result["guest_count"] = this_result
-
-    if (this_result := unpack(offsets.start_duration, replay_bytes)) :
-        result["start_clock_seconds"] = this_result
 
     return result
