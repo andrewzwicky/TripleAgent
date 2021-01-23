@@ -49,12 +49,10 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Purloin,
             "game_type": "a4/8",
             "uuid": "AOh7C-lfQR-L7p3LKBgWiQ",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2015, month=11, day=18, hour=23, minute=9, second=23
+                year=2015, month=11, day=19, hour=5, minute=9, second=23
             ),
             "duration": 115,
-            # TODO: no idea what this is for
             "sequence_number": 7,
         },
     ),
@@ -86,12 +84,10 @@ REPLAY_PARSE_TEST_CASES = [
             "completed_missions": Missions.Bug | Missions.Transfer,
             "game_type": "a5/8",
             "uuid": "-IrizG4mR5WT2n0Mr2bQwQ",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2018, month=8, day=18, hour=19, minute=36, second=15
+                year=2018, month=8, day=19, hour=0, minute=36, second=15
             ),
             "duration": 73,
-            # TODO: no idea what this is for
             "sequence_number": 1,
             "guest_count": 21,
             "start_clock_seconds": 240,
@@ -128,12 +124,10 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Purloin,
             "game_type": "a4/8",
             "uuid": "9y7MMO4OSg2mqVi6iKBuJQ",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2019, month=5, day=14, hour=20, minute=10, second=45
+                year=2019, month=5, day=15, hour=1, minute=10, second=45
             ),
             "duration": 234,
-            # TODO: no idea what this is for
             "sequence_number": 2,
             "guest_count": 21,
             "start_clock_seconds": 225,
@@ -171,12 +165,10 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Purloin,
             "game_type": "a4/8",
             "uuid": "F6YZRQ6PRxeeO66Z_N75sQ",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2019, month=5, day=13, hour=21, minute=7, second=51
+                year=2019, month=5, day=14, hour=2, minute=7, second=51
             ),
             "duration": 215,
-            # TODO: no idea what this is for
             "sequence_number": 5,
             "guest_count": 19,
             "start_clock_seconds": 240,
@@ -214,9 +206,8 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Purloin,
             "game_type": "a5/8",
             "uuid": "VOLcw7ZYRcCs0hTK_1QgUA",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2018, month=7, day=8, hour=3, minute=3, second=52
+                year=2018, month=7, day=8, hour=8, minute=3, second=52
             ),
             "duration": 183,
             "sequence_number": 7,
@@ -244,9 +235,8 @@ REPLAY_PARSE_TEST_CASES = [
             "completed_missions": Missions.Contact | Missions.Bug | Missions.Swap,
             "game_type": "k4",
             "uuid": "yeo4Y2vhTSS1ymTHlp2t_Q",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2018, month=5, day=22, hour=1, minute=55, second=55
+                year=2018, month=5, day=22, hour=6, minute=55, second=55
             ),
             "duration": 175,
             "sequence_number": 1,
@@ -280,9 +270,8 @@ REPLAY_PARSE_TEST_CASES = [
             "completed_missions": Missions.Bug,
             "game_type": "a5/8",
             "uuid": "ZoFpgobESXW-ae3TRUZt3A",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2018, month=5, day=10, hour=20, minute=21, second=49
+                year=2018, month=5, day=11, hour=1, minute=21, second=49
             ),
             "duration": 55,
             "sequence_number": 4,
@@ -314,9 +303,8 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Purloin,
             "game_type": "k5",
             "uuid": "lWyWAnGXSiiVgM7QvR7LzA",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2019, month=4, day=21, hour=13, minute=42, second=16
+                year=2019, month=4, day=21, hour=18, minute=42, second=16
             ),
             "duration": 142,
             "sequence_number": 1,
@@ -355,9 +343,8 @@ REPLAY_PARSE_TEST_CASES = [
             | Missions.Transfer,
             "game_type": "a4/8",
             "uuid": "4ZeTSh2jSYmThZgTmRI7fg",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2018, month=11, day=10, hour=12, minute=16, second=46
+                year=2018, month=11, day=10, hour=18, minute=16, second=46
             ),
             "duration": 189,
             "sequence_number": 7,
@@ -387,9 +374,8 @@ REPLAY_PARSE_TEST_CASES = [
             "completed_missions": Missions.Contact | Missions.Bug | Missions.Purloin,
             "game_type": "a3/5",
             "uuid": "weC59W1LRG2zvP_LZTstKA",
-            # TODO: this doesn't match either the file name or the in-game date.
             "start_time": datetime.datetime(
-                year=2015, month=11, day=21, hour=13, minute=22, second=38
+                year=2015, month=11, day=21, hour=19, minute=22, second=38
             ),
             "duration": 130,
             "sequence_number": 5,

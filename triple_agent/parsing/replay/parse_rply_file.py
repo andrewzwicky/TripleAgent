@@ -2,6 +2,7 @@ import datetime
 import base64
 import struct
 from collections import defaultdict
+from datetime import timezone
 
 from triple_agent.parsing.replay.replay_header_offsets import (
     HEADER_OFFSET_DICT,
@@ -174,7 +175,7 @@ def parse_rply_file(file_path):
         .rstrip("=")
     )
 
-    result["start_time"] = datetime.datetime.fromtimestamp(
+    result["start_time"] = datetime.datetime.utcfromtimestamp(
         unpack(offsets.timestamp, replay_bytes)
     )
     result["sequence_number"] = unpack(offsets.sequence_number, replay_bytes)
