@@ -2,7 +2,6 @@ import datetime
 import base64
 import struct
 from collections import defaultdict
-from datetime import timezone
 
 from triple_agent.parsing.replay.replay_header_offsets import (
     HEADER_OFFSET_DICT,
