@@ -140,10 +140,7 @@ def create_initial_data_frame(
     # sorting will provide determinism between runs
     # just converting set to list was creating slight
     # variations between the same runs
-    try:
-        stacks = sorted(list(data_parts))
-    except TypeError:
-        stacks = sorted(list(data_parts), key=lambda dp: dp.serialize())
+    stacks = sorted(list(data_parts))
 
     # Something needs to enumerate all the possibilities so the frame doesn't end up with NaN values in it.
     frame = pandas.DataFrame(
