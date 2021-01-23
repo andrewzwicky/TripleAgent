@@ -2,6 +2,7 @@ from enum import auto
 from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum, ReverseOrderedFlag
 
+
 class Missions(ReverseOrderedFlag):
     NoMission = 0
     Seduce = auto()
