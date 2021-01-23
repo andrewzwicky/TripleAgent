@@ -1,15 +1,11 @@
 import pytest
 
-try:
-    from spyparty.ReplayParser import SpyPartyParseException
-except ImportError:
-    from triple_agent.mock.ReplayParser import SpyPartyParseException
-
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.venues import Venue
 from triple_agent.classes.outcomes import WinType
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
+from triple_agent.parsing.replay.parse_rply_file import RplyParseException
 import os
 
 
@@ -18,7 +14,7 @@ import os
 def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_folder):
     # this test is to confirm that replays can be successfully found in the folder structure
     # and assigned the correct event, week, division, etc.
-    # This also tests that the games are instatiated correctly, basically testing SpyPartyParse as well.
+    # This also tests that the games are instatiated correctly, basically testing rply parsing as well.
     games = list(
         iterate_over_replays(
             lambda g: g.event != "SCL5",
@@ -135,7 +131,7 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
 def test_iterate_over_replays_in_progress(
     get_test_events_folder_in_progress, get_test_replay_pickle_folder
 ):
-    with pytest.raises(SpyPartyParseException):
+    with pytest.raises(RplyParseException):
         games = list(
             iterate_over_replays(
                 lambda g: True,

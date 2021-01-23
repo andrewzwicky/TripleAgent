@@ -1,6 +1,7 @@
 import datetime
 import base64
 import struct
+from collections import defaultdict
 
 from triple_agent.parsing.replay.replay_header_offsets import (
     HEADER_OFFSET_DICT,
@@ -12,7 +13,7 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.venues import Venue
 
-# Provide one broad exception for all SpyPartyParse specific exceptions.
+# Provide one broad exception for all specific exceptions.
 # Others inherit from this so that consumers can catch either
 # the overall exception or more detailed ones if desired.
 class RplyParseException(Exception):
@@ -142,7 +143,7 @@ def unpack(header_info: HeaderInfo, replay_bytes):
 
 def parse_rply_file(file_path):
     offsets = HeaderOffsetBase()
-    result = dict()
+    result = defaultdict(lambda: None)
 
     with open(file_path, "rb") as rply_file:
         replay_bytes = rply_file.read()
@@ -160,7 +161,7 @@ def parse_rply_file(file_path):
 
     try:
         offsets = HEADER_OFFSET_DICT[file_version]()
-    except IndexError as upper_exception:
+    except KeyError as upper_exception:
         raise UnknownFileVersion() from upper_exception
 
     # TODO: why int instead of float here?

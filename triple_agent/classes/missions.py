@@ -1,5 +1,4 @@
 from enum import Flag, auto
-from typing import Set
 from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.ordered_enum import ReverseOrderedEnum
 
@@ -86,12 +85,3 @@ MISSION_STATUS_PLOT_ORDER = [
     MissionStatus.Incomplete,
     MissionStatus.Complete,
 ]
-
-
-def convert_mission_set_to_enum(missions_set: Set[str]) -> Missions:
-    missions_enum = Missions.NoMission
-
-    for mission_string in filter(lambda x: x != "None", missions_set):
-        missions_enum |= Missions[mission_string]
-
-    return missions_enum

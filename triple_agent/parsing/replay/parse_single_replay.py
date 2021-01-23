@@ -4,24 +4,20 @@ from typing import Dict, AnyStr
 
 from triple_agent.classes.game import Game, game_load_or_new
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
-from triple_agent.classes.missions import convert_mission_set_to_enum
-from triple_agent.classes.outcomes import WinType
-from triple_agent.classes.venues import Venue
-
-try:
-    from spyparty.ReplayParser import ReplayParser, SpyPartyParseException
-except ImportError:  # pragma: no cover
-    from triple_agent.mock.ReplayParser import ReplayParser, SpyPartyParseException
+from triple_agent.parsing.replay.parse_rply_file import (
+    parse_rply_file,
+    RplyParseException,
+)
 
 
 def get_replay_dict(replay_file: str) -> defaultdict:
     try:
-        return defaultdict(lambda: None, ReplayParser(replay_file).parse())
-    except SpyPartyParseException as raised_spp_exception:
+        return parse_rply_file(replay_file)
+    except RplyParseException as rply_parse_exception:
         # re-raise exception about unreadable files
         # so issue can be resolved / files removed.
-        print(f"{str(raised_spp_exception)} - {replay_file}")
-        raise raised_spp_exception
+        print(f"{str(rply_parse_exception)} - {replay_file}")
+        raise rply_parse_exception
 
 
 def parse_replay_dict_into_game(
@@ -35,19 +31,12 @@ def parse_replay_dict_into_game(
         replay_dict["sniper_displayname"],
         replay_dict["spy_username"],
         replay_dict["sniper_username"],
-        # remove - for High-Rise
-        Venue[replay_dict["level"].replace("-", "").replace(" ", "")],
-        WinType[replay_dict["result"].replace(" ", "")],
+        replay_dict["level"],
+        replay_dict["result"],
         replay_dict["game_type"],
-        convert_mission_set_to_enum(
-            set(m.split(" ")[0] for m in replay_dict["picked_missions"])
-        ),
-        convert_mission_set_to_enum(
-            set(m.split(" ")[0] for m in replay_dict["selected_missions"])
-        ),
-        convert_mission_set_to_enum(
-            set(m.split(" ")[0] for m in replay_dict["completed_missions"])
-        ),
+        replay_dict["picked_missions"],
+        replay_dict["selected_missions"],
+        replay_dict["completed_missions"],
         start_time=replay_dict["start_time"],
         guest_count=replay_dict["guest_count"],
         start_clock_seconds=replay_dict["start_clock_seconds"],
