@@ -56,5 +56,5 @@ if __name__ == "__main__":  # pragma: no cover
         new_game.repickle()
         new_game.serialize_to_json()
 
-        if (i % 500) == 0:
-            print("500 pt. break")
+        if (i % 1000) == 0:
+            print(f"{i}")
