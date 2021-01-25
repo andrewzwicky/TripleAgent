@@ -70,7 +70,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. |formatting| image:: https://img.shields.io/badge/code%20style-black-000000.svg
   :target: https://github.com/psf/black
 .. |platform| image:: https://img.shields.io/badge/platform-windows--x64-blue.svg
-.. |build_status| image:: https://ci.appveyor.com/api/projects/status/github/andrewzwicky/tripleagent?branch=master&svg=true
+.. |build_status| image:: https://github.com/andrewzwicky/TripleAgent/workflows/Triple%20Agent/badge.svg
   :target: https://ci.appveyor.com/project/andrewzwicky/tripleagent
 .. |license| image:: https://img.shields.io/github/license/andrewzwicky/TripleAgent.svg?color=blue
   :target: LICENSE
