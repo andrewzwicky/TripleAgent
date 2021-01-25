@@ -27,25 +27,7 @@ def parse_replay_dict_into_game(
     **kwargs,
 ) -> Game:
     return game_load_or_new(
-        replay_dict["spy_displayname"],
-        replay_dict["sniper_displayname"],
-        replay_dict["spy_username"],
-        replay_dict["sniper_username"],
-        replay_dict["level"],
-        replay_dict["result"],
-        replay_dict["game_type"],
-        replay_dict["picked_missions"],
-        replay_dict["selected_missions"],
-        replay_dict["completed_missions"],
-        start_time=replay_dict["start_time"],
-        guest_count=replay_dict["guest_count"],
-        start_clock_seconds=replay_dict["start_clock_seconds"],
-        duration=replay_dict["duration"],
-        uuid=replay_dict["uuid"],
-        file=replay_file,
-        initial_pickle=kwargs.pop("initial_pickle", False),
-        pickle_folder=pickle_folder,
-        **kwargs,
+        replay_dict, replay_file, pickle_folder=pickle_folder, **kwargs
     )
 
 

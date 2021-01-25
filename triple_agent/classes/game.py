@@ -342,15 +342,20 @@ def game_unpickle(
 
 
 def game_load_or_new(
-    *args, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+    replay_dict=None,
+    replay_file=None,
+    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    **kwargs,
 ) -> Game:
-    expected_file = get_game_expected_pkl(kwargs["uuid"], pickle_folder)
+    expected_file = get_game_expected_pkl(replay_dict["uuid"], pickle_folder)
     unpickled_game = game_unpickle(expected_file)
 
     if unpickled_game is not None:
         return unpickled_game
 
-    return Game(*args, pickle_folder=pickle_folder, **kwargs)
+    return create_game_from_replay_info(
+        replay_dict, replay_file, pickle_folder=pickle_folder, **kwargs
+    )
 
 
 def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) -> str:
@@ -359,3 +364,30 @@ def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) 
 
 def get_game_expected_json(uuid: str, json_folder: str = JSON_GAMES_FOLDER) -> str:
     return os.path.join(json_folder, f"{uuid}.json")
+
+
+def create_game_from_replay_info(
+    replay_dict, replay_file, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+):
+    # this method only exists to fix lint errors from repeated lines
+    return Game(
+        replay_dict["spy_displayname"],
+        replay_dict["sniper_displayname"],
+        replay_dict["spy_username"],
+        replay_dict["sniper_username"],
+        replay_dict["level"],
+        replay_dict["result"],
+        replay_dict["game_type"],
+        replay_dict["picked_missions"],
+        replay_dict["selected_missions"],
+        replay_dict["completed_missions"],
+        start_time=replay_dict["start_time"],
+        guest_count=replay_dict["guest_count"],
+        start_clock_seconds=replay_dict["start_clock_seconds"],
+        duration=replay_dict["duration"],
+        uuid=replay_dict["uuid"],
+        file=replay_file,
+        pickle_folder=pickle_folder,
+        initial_pickle=kwargs.pop("initial_pickle", False),
+        **kwargs,
+    )

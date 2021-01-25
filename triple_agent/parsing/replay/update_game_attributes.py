@@ -7,7 +7,11 @@ from triple_agent.organization.replay_file_iterator import (
     separate_event_components,
     iterate_event_folder,
 )
-from triple_agent.classes.game import get_game_expected_pkl, game_unpickle, Game
+from triple_agent.classes.game import (
+    get_game_expected_pkl,
+    game_unpickle,
+    create_game_from_replay_info,
+)
 
 logger = logging.getLogger("triple_agent")
 
@@ -29,27 +33,8 @@ if __name__ == "__main__":  # pragma: no cover
         expected_file = get_game_expected_pkl(replay_dict["uuid"], REPLAY_PICKLE_FOLDER)
         unpickled_game = game_unpickle(expected_file)
 
-        new_game = Game(
-            replay_dict["spy_displayname"],
-            replay_dict["sniper_displayname"],
-            replay_dict["spy_username"],
-            replay_dict["sniper_username"],
-            replay_dict["level"],
-            replay_dict["result"],
-            replay_dict["game_type"],
-            replay_dict["picked_missions"],
-            replay_dict["selected_missions"],
-            replay_dict["completed_missions"],
-            start_time=replay_dict["start_time"],
-            guest_count=replay_dict["guest_count"],
-            start_clock_seconds=replay_dict["start_clock_seconds"],
-            duration=replay_dict["duration"],
-            uuid=replay_dict["uuid"],
-            file=replay_file,
-            event=event,
-            division=division,
-            week=week,
-            pickle_folder=REPLAY_PICKLE_FOLDER,
+        new_game = create_game_from_replay_info(
+            replay_dict, replay_file, event=event, division=division, week=week
         )
 
         new_game.timeline = unpickled_game.timeline

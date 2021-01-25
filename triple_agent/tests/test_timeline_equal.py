@@ -7,7 +7,7 @@ from triple_agent.classes.game import game_load_or_new
 def test_timeline_equal(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
     modified_game = deepcopy(this_game)
 
@@ -18,7 +18,7 @@ def test_timeline_equal(get_test_replay_pickle_folder):
 def test_timeline_equal_not_implemented(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
     modified_game = deepcopy(this_game)
 
@@ -29,7 +29,7 @@ def test_timeline_equal_not_implemented(get_test_replay_pickle_folder):
 def test_timeline_equal_not_implemented_no_lines(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
     modified_game = deepcopy(this_game)
     del modified_game.timeline.lines

@@ -7,7 +7,7 @@ from triple_agent.classes.game import game_load_or_new
 def test_game_equal(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
     modified_game = deepcopy(this_game)
 
@@ -18,7 +18,7 @@ def test_game_equal(get_test_replay_pickle_folder):
 def test_game_not_equal_not_implemented(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     assert this_game.timeline != this_game
@@ -28,7 +28,7 @@ def test_game_not_equal_not_implemented(get_test_replay_pickle_folder):
 def test_game_not_equal_not_implemented_str(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     assert "str" != this_game
@@ -38,7 +38,7 @@ def test_game_not_equal_not_implemented_str(get_test_replay_pickle_folder):
 def test_game_not_equal_spy(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -51,7 +51,7 @@ def test_game_not_equal_spy(get_test_replay_pickle_folder):
 def test_game_not_equal_sniper(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -64,7 +64,7 @@ def test_game_not_equal_sniper(get_test_replay_pickle_folder):
 def test_game_not_equal_spy_username(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -77,7 +77,7 @@ def test_game_not_equal_spy_username(get_test_replay_pickle_folder):
 def test_game_not_equal_sniper_username(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -90,7 +90,7 @@ def test_game_not_equal_sniper_username(get_test_replay_pickle_folder):
 def test_game_not_equal_venue(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -103,7 +103,7 @@ def test_game_not_equal_venue(get_test_replay_pickle_folder):
 def test_game_not_equal_win_type(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -116,7 +116,7 @@ def test_game_not_equal_win_type(get_test_replay_pickle_folder):
 def test_game_not_equal_game_type(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -129,7 +129,7 @@ def test_game_not_equal_game_type(get_test_replay_pickle_folder):
 def test_game_not_equal_picked_missions(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -142,7 +142,7 @@ def test_game_not_equal_picked_missions(get_test_replay_pickle_folder):
 def test_game_not_equal_selected_missions(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -155,7 +155,7 @@ def test_game_not_equal_selected_missions(get_test_replay_pickle_folder):
 def test_game_not_equal_completed_missions(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -168,7 +168,7 @@ def test_game_not_equal_completed_missions(get_test_replay_pickle_folder):
 def test_game_not_equal_start_time(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -181,7 +181,7 @@ def test_game_not_equal_start_time(get_test_replay_pickle_folder):
 def test_game_not_equal_guest_count(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -194,7 +194,7 @@ def test_game_not_equal_guest_count(get_test_replay_pickle_folder):
 def test_game_not_equal_start_clock_seconds(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -207,7 +207,7 @@ def test_game_not_equal_start_clock_seconds(get_test_replay_pickle_folder):
 def test_game_not_equal_duration(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -220,7 +220,7 @@ def test_game_not_equal_duration(get_test_replay_pickle_folder):
 def test_game_not_equal_uuid(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -233,7 +233,7 @@ def test_game_not_equal_uuid(get_test_replay_pickle_folder):
 def test_game_not_equal_event(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -246,7 +246,7 @@ def test_game_not_equal_event(get_test_replay_pickle_folder):
 def test_game_not_equal_division(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -259,7 +259,7 @@ def test_game_not_equal_division(get_test_replay_pickle_folder):
 def test_game_not_equal_week(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -272,7 +272,7 @@ def test_game_not_equal_week(get_test_replay_pickle_folder):
 def test_game_not_equal_timeline(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -285,7 +285,7 @@ def test_game_not_equal_timeline(get_test_replay_pickle_folder):
 def test_game_not_equal_winner(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
@@ -298,7 +298,7 @@ def test_game_not_equal_winner(get_test_replay_pickle_folder):
 def test_game_equal_init_pickle(get_test_replay_pickle_folder):
 
     this_game = game_load_or_new(
-        uuid="mPZZrUvxQzeJYLQRbZOd7g", pickle_folder=get_test_replay_pickle_folder
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
     modified_game = deepcopy(this_game)
