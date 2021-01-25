@@ -43,5 +43,5 @@ if __name__ == "__main__":  # pragma: no cover
             new_game.repickle()
             new_game.serialize_to_json()
 
-        if (i % 1000) == 0:
+        if (i % 5000) == 0 and i > 0:
             print(f"{i}")
