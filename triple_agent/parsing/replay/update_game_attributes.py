@@ -38,8 +38,10 @@ if __name__ == "__main__":  # pragma: no cover
         )
 
         new_game.timeline = unpickled_game.timeline
-        new_game.repickle()
-        new_game.serialize_to_json()
+
+        if new_game != unpickled_game:
+            new_game.repickle()
+            new_game.serialize_to_json()
 
         if (i % 1000) == 0:
             print(f"{i}")
