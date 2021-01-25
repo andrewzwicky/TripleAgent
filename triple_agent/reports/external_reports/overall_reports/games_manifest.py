@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+from collections import Counter
 
 from triple_agent.constants.paths import OVERALL_REPORT_FOLDER
 
@@ -22,13 +23,23 @@ def create_game_manifest(all_replays):
             # Use list instead of set, because set throws a JSON encoding error
             # This is fast enough that it's easier to just do this then make
             # some custom encoder.
-            output_dictionary[game.event][game.division][game.week] = list()
+            output_dictionary[game.event][game.division][game.week] = dict()
 
-        names = tuple(sorted([game.spy, game.sniper]))
+        names = ",".join(tuple(sorted([game.spy, game.sniper])))
 
         if names not in output_dictionary[game.event][game.division][game.week]:
-            output_dictionary[game.event][game.division][game.week].append(names)
-            output_dictionary[game.event][game.division][game.week].sort()
+            output_dictionary[game.event][game.division][game.week][names] = list()
+        output_dictionary[game.event][game.division][game.week][names].append(game.uuid)
+
+    for k1, v1 in output_dictionary.items():
+        for k2, v2 in v1.items():
+            for k3, v3 in v2.items():
+                output_dictionary[k1][k2][k3] = {
+                    k: output_dictionary[k1][k2][k3][k]
+                    for k in sorted(
+                        output_dictionary[k1][k2][k3].keys(), key=str.casefold
+                    )
+                }
 
     with open(
         os.path.join(OVERALL_REPORT_FOLDER, "all_games_manifest.json"), "w"
