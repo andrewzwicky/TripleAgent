@@ -25,7 +25,7 @@ def create_game_manifest(all_replays):
             # some custom encoder.
             output_dictionary[game.event][game.division][game.week] = dict()
 
-        names = ",".join(tuple(sorted([game.spy, game.sniper])))
+        names = ",".join(tuple(sorted([game.spy, game.sniper], key=str.casefold)))
 
         if names not in output_dictionary[game.event][game.division][game.week]:
             output_dictionary[game.event][game.division][game.week][names] = list()
