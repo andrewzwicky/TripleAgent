@@ -38,6 +38,7 @@ if __name__ == "__main__":  # pragma: no cover
         )
 
         new_game.timeline = unpickled_game.timeline
+        new_game.add_start_clock_seconds()
 
         if new_game != unpickled_game:
             new_game.repickle()

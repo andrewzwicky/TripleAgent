@@ -79,6 +79,7 @@ def parse_full_timeline(
                     timeline = Timeline(events)
                     games[game_index].timeline = timeline
                     coherency = games[game_index].is_timeline_coherent()
+                    games[game_index].add_start_clock_seconds()
 
                     if coherency != TimelineCoherency.Coherent:
                         logger.error(

@@ -232,6 +232,10 @@ class Game:
             json_out.write(json_game)
         return json_game
 
+    def add_start_clock_seconds(self):
+        if self.start_clock_seconds is None:
+            self.start_clock_seconds = self.timeline[0].time
+
     def __eq__(self, other):
         if self.__class__ is other.__class__:
             return (

@@ -33,7 +33,7 @@ def create_game_manifest(all_replays):
 
     for k1, v1 in output_dictionary.items():
         for k2, v2 in v1.items():
-            for k3, v3 in v2.items():
+            for k3, _ in v2.items():
                 output_dictionary[k1][k2][k3] = {
                     k: output_dictionary[k1][k2][k3][k]
                     for k in sorted(
