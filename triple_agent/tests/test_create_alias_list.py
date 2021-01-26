@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from triple_agent.classes.game import Game
 from triple_agent.reports.generation.create_alias_list import create_alias_list
 from triple_agent.classes.venues import Venue
@@ -20,7 +22,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=100,
+            datetime(2021, 7, 16),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )
@@ -36,7 +41,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=90,
+            datetime(2021, 7, 15),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )
@@ -52,7 +60,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=89,
+            datetime(2021, 7, 14),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )
@@ -68,7 +79,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=103,
+            datetime(2021, 7, 20),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )
@@ -84,7 +98,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=120,
+            datetime(2021, 7, 25),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )
@@ -100,7 +117,10 @@ def test_create_alias_list():
             Missions.Inspect,
             Missions.Inspect,
             Missions.Inspect,
-            start_time=150,
+            datetime(2021, 7, 29),
+            "nothing_uuid",
+            10,
+            "no_file",
             initial_pickle=False,
         )
     )

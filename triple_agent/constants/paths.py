@@ -8,6 +8,9 @@ LONG_FILE_HEADER = "\\\\?\\"
 SPY_PARTY_REPLAYS = os.path.join(os.getenv("LOCALAPPDATA"), "SpyParty", "replays")
 ALL_EVENTS_FOLDER = os.path.join(SPY_PARTY_REPLAYS, "Events")
 
+# SPY_PARTY_REPLAYS = Path.home().joinpath("AppData", "Local", "SpyParty", "replays")
+# ALL_EVENTS_FOLDER = SPY_PARTY_REPLAYS.join, "Events")
+
 SCL5_REPLAYS_FOLDER = os.path.join(ALL_EVENTS_FOLDER, "SCL5")
 SCL6_REPLAYS_FOLDER = os.path.join(ALL_EVENTS_FOLDER, "SCL6")
 

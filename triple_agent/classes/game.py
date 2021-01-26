@@ -3,6 +3,7 @@ import pickle
 from datetime import datetime
 from typing import Optional
 from dataclasses import dataclass, field
+from pathlib import Path
 import jsonpickle.handlers
 
 from triple_agent.classes.missions import Missions
@@ -30,17 +31,17 @@ class Game:
     selected_missions: Missions
     completed_missions: Missions
     # UTC timestamp
-    start_time: datetime = None
+    start_time: datetime
+    uuid: str
+    duration: int
+    file: str
     guest_count: Optional[int] = None
     start_clock_seconds: Optional[int] = None
-    duration: Optional[int] = None
-    uuid: str = None
-    file: str = None
-    event: str = None
-    division: str = None
-    week: str = None
+    event: Optional[str] = None
+    division: Optional[str] = None
+    week: Optional[str] = None
     initial_pickle: bool = True
-    pickle_folder: str = REPLAY_PICKLE_FOLDER
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER
     timeline: Optional[Timeline] = None
     winner: str = field(init=False)
 
@@ -49,7 +50,7 @@ class Game:
         if self.initial_pickle:
             self.repickle(pickle_folder=self.pickle_folder)
 
-    def repickle(self, pickle_folder: str = REPLAY_PICKLE_FOLDER):
+    def repickle(self, pickle_folder: Path = REPLAY_PICKLE_FOLDER):
         with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
             pickle.dump(self, pik)
 
@@ -93,6 +94,8 @@ class Game:
         previous_time = None
         previous_timeadd = False
 
+        assert self.timeline is not None
+
         for event in self.timeline:
             if previous_time is not None:
                 if event.time > previous_time and not previous_timeadd:
@@ -105,6 +108,8 @@ class Game:
         return coherency
 
     def check_book_colors(self, coherency: TimelineCoherency) -> TimelineCoherency:
+        assert self.timeline is not None
+
         for event in self.timeline:
             if len(event.books) > 1:
                 for book in event.books:
@@ -116,6 +121,8 @@ class Game:
     def check_role_character_match(
         self, coherency: TimelineCoherency
     ) -> TimelineCoherency:
+        assert self.timeline is not None
+
         for event in self.timeline:
             if None in event.role and event.cast_name != (None,):
                 coherency |= TimelineCoherency.CharacterNotAssignedRole
@@ -174,6 +181,8 @@ class Game:
 
     def check_spy_in_beginning(self, coherency: TimelineCoherency) -> TimelineCoherency:
         # It's possible for sniper lights to appear as up to the first 4! things in the timeline
+        assert self.timeline is not None
+
         for event in self.timeline:
             if isinstance(event.role, tuple) and event.role[0] == Roles.Spy:
                 break
@@ -218,6 +227,8 @@ class Game:
         return coherency
 
     def check_start_clock(self, coherency: TimelineCoherency):
+        assert self.timeline is not None
+
         if (
             self.timeline[0].time != self.start_clock_seconds
             and self.start_clock_seconds is not None
@@ -226,7 +237,7 @@ class Game:
 
         return coherency
 
-    def serialize_to_json(self, json_folder: str = JSON_GAMES_FOLDER):
+    def serialize_to_json(self, json_folder: Path = JSON_GAMES_FOLDER):
         json_game = jsonpickle.encode(self, unpicklable=True)
         with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
             json_out.write(json_game)
@@ -304,13 +315,12 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         data["start_clock_seconds"] = obj.start_clock_seconds
         data["duration"] = obj.duration
         data["uuid"] = obj.uuid
-        # data['file']= str = None
         data["event"] = obj.event
         data["division"] = obj.division
         data["week"] = obj.week
-        # data['initial_pickle']= bool = True
-        # data['pickle_folder']= str = REPLAY_PICKLE_FOLDER
-        data["timeline"] = obj.timeline.serialize()
+        data["timeline"] = (
+            obj.timeline.serialize() if obj.timeline is not None else None
+        )
         data["winner"] = obj.winner
 
         return data
@@ -348,7 +358,7 @@ def game_unpickle(
 def game_load_or_new(
     replay_dict=None,
     replay_file=None,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
     expected_file = get_game_expected_pkl(replay_dict["uuid"], pickle_folder)
@@ -362,16 +372,16 @@ def game_load_or_new(
     )
 
 
-def get_game_expected_pkl(uuid: str, pickle_folder: str = REPLAY_PICKLE_FOLDER) -> str:
+def get_game_expected_pkl(uuid: str, pickle_folder: Path = REPLAY_PICKLE_FOLDER) -> str:
     return os.path.join(pickle_folder, f"{uuid}.pkl")
 
 
-def get_game_expected_json(uuid: str, json_folder: str = JSON_GAMES_FOLDER) -> str:
+def get_game_expected_json(uuid: str, json_folder: Path = JSON_GAMES_FOLDER) -> str:
     return os.path.join(json_folder, f"{uuid}.json")
 
 
 def create_game_from_replay_info(
-    replay_dict, replay_file, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+    replay_dict, replay_file, pickle_folder: Path = REPLAY_PICKLE_FOLDER, **kwargs
 ):
     # this method only exists to fix lint errors from repeated lines
     return Game(
@@ -385,12 +395,12 @@ def create_game_from_replay_info(
         replay_dict["picked_missions"],
         replay_dict["selected_missions"],
         replay_dict["completed_missions"],
-        start_time=replay_dict["start_time"],
+        replay_dict["start_time"],
+        replay_dict["uuid"],
+        replay_dict["duration"],
+        replay_file,
         guest_count=replay_dict["guest_count"],
         start_clock_seconds=replay_dict["start_clock_seconds"],
-        duration=replay_dict["duration"],
-        uuid=replay_dict["uuid"],
-        file=replay_file,
         pickle_folder=pickle_folder,
         initial_pickle=kwargs.pop("initial_pickle", False),
         **kwargs,
