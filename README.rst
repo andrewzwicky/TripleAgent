@@ -4,7 +4,7 @@ Triple Agent is a utility to parse and analyze the timeline component of SpyPart
 
 Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  Because of this, it is likely to work only on my machine until work is done to make the code more generic.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, the individual components of the timeline are matched against a list of known timeline items to create a full timeline.
 
-See `Installation Instructions`_ for how to get everything installed, and check out `Pre-parsed Events`_ for details on which events have replays parsed already.
+See `Installation Instructions`_ for how to get everything installed, and check out `all_games_manifest.json`_ for details on which events have replays parsed already.
 
 Available Replay Data
 ______________
