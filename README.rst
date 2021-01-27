@@ -2,7 +2,7 @@
 ========================================================
 Triple Agent is a utility to parse and analyze the timeline component of SpyParty replays. [1]_  The Triple Agent repository also contained pre-parsed games from recent Spy Party competitive events that can be analyzed without spending the time to parse.
 
-Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  Because of this, it is likely to work only on my machine until work is done to make the code more generic.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, optical character recognition (OCR) is used to extract the relevant information and store it as a python object so it can be analyzed.
+Triple Agent works by automatically scrolling and taking screenshots of the timeline of games, but *is not able to directly read timeline content from replay files at this time*.  Because of this, it is likely to work only on my machine until work is done to make the code more generic.  This means that parsing does require a computer with SpyParty installed, and may not work will all setups currently. [1]_.  Once the screenshots are taken, the individual components of the timeline are matched against a list of known timeline items to create a full timeline.
 
 See `Installation Instructions`_ for how to get everything installed, and check out `Pre-parsed Events`_ for details on which events have replays parsed already.
 
@@ -32,15 +32,14 @@ The examples_ folder showcases some of the most interesting or useful statistics
 
 Pre-Parsed Events
 ___________
-This repo contains serialized files for all the replays covering SCL4 Regular Season, SCL5 Regular Season, Winter Cup 2019, Summer Cup 2019.  For SCL seasons, week and division information is included in the game data.
-
+The full manifest of parsed events can be found at: `all_games_manifest.json`_.
 
 Thanks
 ______
 
 * checker for making SpyParty
 * LtHummus for the `SpyPartyParse`_ library, which was extremely helpful in developing Triple Agent.
-* WarningTrack for `SpyParty Fans`_, and the competitive replay downloads, which were a major help with this project.
+* WarningTrack for `SpyPartyFans`_, and the competitive replay downloads, which were a major help with this project.
 
 
 License
@@ -53,7 +52,7 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
 .. _LICENSE.md: LICENSE.md
 .. _`Python 3.7`: https://www.python.org/downloads/windows/
 .. _SpyPartyParse: https://github.com/LtHummus/SpyPartyParse
-.. _`SpyParty Fans`: https://www.spypartyfans.com/
+.. _`SpyPartyFans`: https://www.spypartyfans.com/
 .. _examples: examples
 .. _`Parsing Quirks`: ../../wiki/Parsing-Quirks
 .. _`Pre-parsed Events`: ../../wiki/Available-Parsed-Replays
@@ -74,3 +73,4 @@ This project is licensed under the MIT License - see the `LICENSE.md`_ file for 
   :target: https://ci.appveyor.com/project/andrewzwicky/tripleagent
 .. |license| image:: https://img.shields.io/github/license/andrewzwicky/TripleAgent.svg?color=blue
   :target: LICENSE
+.. _all_games_manifest.json: http://zwickypedia.com/TripleAgent/overall_reports/all_games_manifest.json
