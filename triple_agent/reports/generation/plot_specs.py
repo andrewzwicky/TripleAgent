@@ -61,16 +61,18 @@ class DataQueryProperties:
     # data stacks and data labels, but shouldn't be needed in actual plotting routines.
 
     # query_function is the function that will be called for each game to collect the data.
-    query_function: Callable = None
+    query_function: Optional[Callable] = None
 
     # groupby can be used to group the data into buckets, by spy or by sniper for example.
-    groupby: Callable = None
+    groupby: Optional[Callable] = None
 
     # primary_order and secondary_order can be used to control the order that the data appears in.
     # If they are a function, they take in either a pandas Series or pandas Index and return an int.
     # If they are a list, they will replace the existing column or index completely (retaining old data).
-    primary_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None
-    secondary_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None
+    primary_order: Optional[Union[Callable[[Any, pandas.Index], int], List[Any]]] = None
+    secondary_order: Optional[
+        Union[Callable[[Any, pandas.Series], int], List[Any]]
+    ] = None
 
     reverse_primary_order: bool = False
     reverse_secondary_order: bool = False

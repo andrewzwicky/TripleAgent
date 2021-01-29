@@ -9,7 +9,9 @@ from triple_agent.classes.scl_set import SCLSet
 
 def sort_frame_stacks(
     frame: pandas.DataFrame,
-    primary_order: Union[Callable[[Any, pandas.Index], int], List[Any]] = None,
+    primary_order: Optional[
+        Union[Callable[[Any, pandas.Index], int], List[Any]]
+    ] = None,
     reverse_primary_order: bool = False,
 ) -> pandas.DataFrame:
 
