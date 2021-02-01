@@ -76,7 +76,7 @@ def create_category_legend_labels(
 
 
 def create_plot_colors(
-    plot_colors: Optional[PlotColorsBase],
+    plot_colors: PlotColorsBase,
     primary_color_dict: Optional[Dict[Any, Optional[str]]],
     frame: pandas.DataFrame,
     stacks_are_categories: bool = False,
@@ -143,7 +143,7 @@ def _set_y_axis_scale_and_ticks(axis, max_value: Union[int, float], percentage: 
 
     else:
         num_majors = 12
-        increment = max(round(max_value / num_majors), 1)
+        increment = float(max(round(max_value / num_majors), 1))
         if max_value < 1:
             increment = 0.1
         axis.yaxis.set_major_locator(MultipleLocator(increment))
