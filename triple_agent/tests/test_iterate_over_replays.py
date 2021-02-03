@@ -151,7 +151,7 @@ def test_initial_pickle_and_repickle(
     )
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ.pkl")
     )
 
     # test that initial pickle will actually pickle the file.
@@ -163,7 +163,7 @@ def test_initial_pickle_and_repickle(
 
     # test fixture will remove the files after the test
     assert os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ.pkl")
+        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ.pkl")
     )
 
     this_game.winner = "TEST_WINNER"

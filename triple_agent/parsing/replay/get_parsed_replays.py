@@ -1,19 +1,21 @@
-import os
-from typing import List, Callable, Optional
+from pathlib import Path
+from typing import List, Callable, Optional, Iterator
 
 import jsonpickle
 from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, ALIAS_LIST_PATH
 from triple_agent.classes.game import game_unpickle, Game
 
 
-def _yield_unpickled_games(pickle_folder, alias_list: Optional[dict] = None):
-    for file in os.listdir(pickle_folder):
-        yield game_unpickle(os.path.join(pickle_folder, file), alias_list=alias_list)
+def _yield_unpickled_games(
+    pickle_folder: Path, alias_list: Optional[dict] = None
+) -> Iterator[Game]:
+    for file in pickle_folder.iterdir():
+        yield game_unpickle(file, alias_list=alias_list)
 
 
 def get_parsed_replays(
     game_filter: Callable = lambda game: True,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     use_alias_list=True,
 ) -> List[Game]:
 

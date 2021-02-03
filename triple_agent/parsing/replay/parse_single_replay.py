@@ -1,4 +1,4 @@
-# pylint: disable=ungrouped-imports
+from pathlib import Path
 from collections import defaultdict
 from typing import Dict, AnyStr
 
@@ -10,7 +10,7 @@ from triple_agent.parsing.replay.parse_rply_file import (
 )
 
 
-def get_replay_dict(replay_file: str) -> defaultdict:
+def get_replay_dict(replay_file: Path) -> defaultdict:
     try:
         return parse_rply_file(replay_file)
     except RplyParseException as rply_parse_exception:
@@ -22,8 +22,8 @@ def get_replay_dict(replay_file: str) -> defaultdict:
 
 def parse_replay_dict_into_game(
     replay_dict: Dict[str, AnyStr],
-    replay_file: str,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    replay_file: Path,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
     return game_load_or_new(
@@ -32,7 +32,7 @@ def parse_replay_dict_into_game(
 
 
 def parse_single_replay(
-    replay_file: str, pickle_folder: str = REPLAY_PICKLE_FOLDER, **kwargs
+    replay_file: Path, pickle_folder: Path = REPLAY_PICKLE_FOLDER, **kwargs
 ) -> Game:
     return parse_replay_dict_into_game(
         get_replay_dict(replay_file), replay_file, pickle_folder=pickle_folder, **kwargs

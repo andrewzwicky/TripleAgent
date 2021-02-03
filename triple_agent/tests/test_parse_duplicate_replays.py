@@ -18,18 +18,14 @@ def test_parse_replays_duplicates(
     monkeypatch,
 ):
 
-    source_file = os.path.join(
-        LONG_FILE_HEADER,
-        get_test_events_folder,
+    source_file = LONG_FILE_HEADER / get_test_events_folder.joinpath(
         "SCL5",
         "Copper",
         "8",
         "SpyPartyReplay-20190422-20-39-28-Max Edward Snax%2fsteam-vs-Calvin Schoolidge%2fsteam-k8x3n_zfTtiw9FSS6rM13w-v25.replay",
     )
 
-    dest_file = os.path.join(
-        LONG_FILE_HEADER,
-        get_test_events_folder,
+    dest_file = LONG_FILE_HEADER / get_test_events_folder.joinpath(
         "SCL5",
         "Copper",
         "8",

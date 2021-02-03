@@ -161,10 +161,10 @@ def _add_portrait_x_axis_if_needed(axis, fig, labels, portrait_x_axis):
                 label.get_window_extent()
             )
 
-            portrait_file_name = os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
+            portrait_file_name = PORTRAITS_FOLDER.joinpath("{}.png".format(name))
 
             if not os.path.exists(portrait_file_name):
-                portrait_file_name = os.path.join(PORTRAITS_FOLDER, "unknown.png")
+                portrait_file_name = PORTRAITS_FOLDER.joinpath("unknown.png")
 
             portrait_image = plt.imread(portrait_file_name)
             port_size = 0.045

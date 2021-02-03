@@ -1,4 +1,3 @@
-import os
 import json
 
 from triple_agent.constants.paths import SPF_DATA_FOLDER
@@ -24,5 +23,5 @@ def spf_lights_report(all_replays):
 
                 output_dictionary[game.uuid].append(to_add)
 
-    with open(os.path.join(SPF_DATA_FOLDER, "sniper_lights.json"), "w") as at_json_out:
+    with open(SPF_DATA_FOLDER.joinpath("sniper_lights.json"), "w") as at_json_out:
         json.dump(output_dictionary, at_json_out, indent=4)

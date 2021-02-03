@@ -1,5 +1,6 @@
-import os
-from typing import Callable, Iterator
+from pathlib import Path
+
+from typing import Callable, Iterator, Tuple, Optional
 
 
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
@@ -13,11 +14,11 @@ from triple_agent.constants.paths import (
 
 def iterate_over_replays(
     game_filter: Callable,
-    events_folder: str = ALL_EVENTS_FOLDER,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    events_folder: Path = ALL_EVENTS_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
 ) -> Iterator[Game]:
-    for root, replay_file in iterate_event_folder(events_folder):
-        division, event, week = separate_event_components(events_folder, root)
+    for replay_file in iterate_event_folder(events_folder):
+        division, event, week = separate_event_components(events_folder, replay_file)
 
         this_game = parse_single_replay(
             replay_file,
@@ -36,10 +37,12 @@ def iterate_over_replays(
             yield this_game
 
 
-def separate_event_components(events_folder, root):
+def separate_event_components(
+    events_folder: Path, replay_file: Path
+) -> Tuple[Optional[str], Optional[str], Optional[str]]:
     # get the path relative to the EVENTS_FOLDER
     # this will determine if there is div and week information
-    components = os.path.relpath(root, events_folder).split("\\")
+    components = str(replay_file.relative_to(events_folder).parent).split("\\")
     if len(components) == 3:
         event, division, week = components
         week = int(week)
@@ -56,9 +59,6 @@ def separate_event_components(events_folder, root):
     return division, event, week
 
 
-def iterate_event_folder(events_folder: str = ALL_EVENTS_FOLDER):
-    for root, _, files in os.walk(events_folder):
-        for file in files:
-            if file.endswith(".replay"):
-                replay_file = LONG_FILE_HEADER + os.path.join(root, file)
-                yield root, replay_file
+def iterate_event_folder(events_folder: Path = ALL_EVENTS_FOLDER) -> Iterator[Path]:
+    for file_path in events_folder.glob("**/*.replay"):
+        yield LONG_FILE_HEADER / file_path

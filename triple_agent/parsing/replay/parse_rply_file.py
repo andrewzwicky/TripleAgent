@@ -1,3 +1,4 @@
+from pathlib import Path
 import datetime
 import base64
 import struct
@@ -141,7 +142,7 @@ def unpack(header_info: HeaderInfo, replay_bytes):
     )[0]
 
 
-def parse_rply_file(file_path):
+def parse_rply_file(file_path: Path):
     offsets = HeaderOffsetBase()
     result = defaultdict(lambda: None)
 

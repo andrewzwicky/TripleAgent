@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 import pytest
 import datetime
@@ -15,7 +15,7 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.venues import Venue
 
-TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
+TEST_FOLDER = Path(__file__).resolve().parent
 
 REPLAY_PARSE_TEST_CASES = [
     (
@@ -388,7 +388,7 @@ REPLAY_PARSE_TEST_CASES = [
 
 @pytest.mark.parametrize("replay_file, expected_parse_dict", REPLAY_PARSE_TEST_CASES)
 def test_parse_rply_files(replay_file, expected_parse_dict):
-    replay_file_abs = os.path.join(TEST_FOLDER, "test_rply_files", replay_file)
+    replay_file_abs = TEST_FOLDER.joinpath("test_rply_files", replay_file)
 
     actual_parse_dict = parse_rply_file(replay_file_abs)
 
@@ -396,8 +396,8 @@ def test_parse_rply_files(replay_file, expected_parse_dict):
 
 
 def test_parse_bad_rply_files():
-    replay_file_abs = os.path.join(
-        TEST_FOLDER, "test_rply_files", "__qYh7wKStG2bXq5wwu8lg.pkl"
+    replay_file_abs = TEST_FOLDER.joinpath(
+        "test_rply_files", "__qYh7wKStG2bXq5wwu8lg.pkl"
     )
 
     with pytest.raises(UnknownFileException):
@@ -405,25 +405,21 @@ def test_parse_bad_rply_files():
 
 
 def test_parse_small_rply_files():
-    replay_file_abs = os.path.join(TEST_FOLDER, "test_rply_files", "test.txt")
+    replay_file_abs = TEST_FOLDER.joinpath("test_rply_files", "test.txt")
 
     with pytest.raises(FileTooShortException):
         parse_rply_file(replay_file_abs)
 
 
 def test_parse_unknown_venue_rply_files():
-    replay_file_abs = os.path.join(
-        TEST_FOLDER, "test_rply_files", "unknown_venue.replay"
-    )
+    replay_file_abs = TEST_FOLDER.joinpath("test_rply_files", "unknown_venue.replay")
 
     with pytest.raises(UnknownVenueException):
         parse_rply_file(replay_file_abs)
 
 
 def test_parse_invalid_version_rply_files():
-    replay_file_abs = os.path.join(
-        TEST_FOLDER, "test_rply_files", "invalid_version.replay"
-    )
+    replay_file_abs = TEST_FOLDER.joinpath("test_rply_files", "invalid_version.replay")
 
     with pytest.raises(UnknownFileVersion):
         parse_rply_file(replay_file_abs)

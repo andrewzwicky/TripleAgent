@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 import random
 import re
@@ -68,10 +69,9 @@ def fetch_replays(url: str):
                 new_zip_file_matches.append(filename_match)
 
     for zip_file_match in new_zip_file_matches:
-        zip_file_dest = os.path.join(SCL6_ZIP_EXTRACT_FOLDER, zip_file_match.string)
+        zip_file_dest = SCL6_ZIP_EXTRACT_FOLDER.joinpath(zip_file_match.string)
 
-        extract_folder = os.path.join(
-            SCL6_REPLAYS_FOLDER,
+        extract_folder = SCL6_REPLAYS_FOLDER.joinpath(
             zip_file_match.group("division"),
             zip_file_match.group("week").lstrip("0"),
         )
@@ -99,19 +99,17 @@ def fetch_replays(url: str):
 
         zip_ref.extractall(SCL6_TEMP_EXTRACT_FOLDER)
 
-        for root, _, files in os.walk(SCL6_TEMP_EXTRACT_FOLDER):
-            for file in files:
-                if file.endswith(".replay"):
-                    copyfile(
-                        LONG_FILE_HEADER + os.path.join(root, file),
-                        LONG_FILE_HEADER + os.path.join(extract_folder, file),
-                    )
+        for file in SCL6_TEMP_EXTRACT_FOLDER.glob("**/*,replay"):
+            copyfile(
+                LONG_FILE_HEADER / file,
+                LONG_FILE_HEADER / extract_folder.joinpath(file.name),
+            )
 
         zip_ref.close()
         rmtree(SCL6_TEMP_EXTRACT_FOLDER)
 
 
-def check_for_duplicate_files(events_folder: str = ALL_EVENTS_FOLDER):
+def check_for_duplicate_files(events_folder: Path = ALL_EVENTS_FOLDER):
     found_dict = dict()
 
     for root, _, files in os.walk(events_folder):

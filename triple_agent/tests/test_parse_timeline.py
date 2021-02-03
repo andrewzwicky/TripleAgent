@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from typing import List, Tuple, Optional
 
 import cv2
@@ -15,7 +16,7 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory
 
-TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
+TEST_FOLDER = Path(__file__).resolve().parent
 
 SCREENSHOT_TEST_CASES = [
     (
@@ -7906,7 +7907,7 @@ def test_parse_timeline(
 ):
 
     screenshot_img = cv2.imread(
-        os.path.join(TEST_FOLDER, "test_screenshots", f"{image_name}.png")
+        str(TEST_FOLDER.joinpath("test_screenshots", f"{image_name}.png").resolve())
     )
     timeline_events = parse_screenshot(screenshot_img)
 

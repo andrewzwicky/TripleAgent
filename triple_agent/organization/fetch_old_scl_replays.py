@@ -34,15 +34,15 @@ def fetch_old_replays(url: str):
                 week = None
 
             if event:
-                lowest_path = os.path.join(ALL_EVENTS_FOLDER, event)
+                lowest_path = ALL_EVENTS_FOLDER.joinpath(event)
                 os.makedirs(lowest_path, exist_ok=True)
 
             if division:
-                lowest_path = os.path.join(lowest_path, division)
+                lowest_path = lowest_path.joinpath(division)
                 os.makedirs(lowest_path, exist_ok=True)
 
             if week:
-                lowest_path = os.path.join(lowest_path, week)
+                lowest_path = lowest_path.joinpath(week)
                 os.makedirs(lowest_path, exist_ok=True)
 
             print(event, division, week)
@@ -51,7 +51,7 @@ def fetch_old_replays(url: str):
                 print(item.text)
 
                 replay_req = requests.get(BASE_SPF + item.attrs["href"])
-                with open(os.path.join(lowest_path, item.text), "wb") as outfile:
+                with open(lowest_path.joinpath(item.text), "wb") as outfile:
                     outfile.write(replay_req.content)
 
 

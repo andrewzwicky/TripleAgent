@@ -1,8 +1,9 @@
 import pytest
 import os
+from pathlib import Path
 from triple_agent.classes.game import game_load_or_new
 
-TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
+TEST_FOLDER = Path(__file__).resolve().parent
 
 
 @pytest.mark.parsing
@@ -19,12 +20,12 @@ def test_serialize_correctly(
     this_game.serialize_to_json(json_folder=get_test_json_games_folder)
 
     json_expected = open(
-        os.path.join(TEST_FOLDER, "test_validation_json", "mPZZrUvxQzeJYLQRbZOd7g.json")
+        TEST_FOLDER.joinpath("test_validation_json", "mPZZrUvxQzeJYLQRbZOd7g.json")
     ).read()
     json_actual = open(
-        os.path.join(get_test_json_games_folder, "mPZZrUvxQzeJYLQRbZOd7g.json")
+        get_test_json_games_folder.joinpath("mPZZrUvxQzeJYLQRbZOd7g.json")
     ).read()
 
     assert json_expected == json_actual
 
-    os.remove(os.path.join(get_test_json_games_folder, "mPZZrUvxQzeJYLQRbZOd7g.json"))
+    os.remove(get_test_json_games_folder.joinpath("mPZZrUvxQzeJYLQRbZOd7g.json"))

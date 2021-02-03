@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import logging
 
 from shutil import rmtree, copyfile
@@ -26,9 +27,9 @@ class DuplicateFileException(Exception):
 
 def parse_replays(
     game_filter,
-    unparsed_folder: str = UNPARSED_REPLAYS_FOLDER,
-    events_folder: str = ALL_EVENTS_FOLDER,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
+    unparsed_folder: Path = UNPARSED_REPLAYS_FOLDER,
+    events_folder: Path = ALL_EVENTS_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     screenshot_iterator: Callable = get_mss_screenshots,
     limit=None,
 ):
@@ -95,7 +96,7 @@ def parse_replays(
             replay_file = game.file
             file_name = os.path.split(replay_file)[1]
             copyfile(
-                replay_file, LONG_FILE_HEADER + os.path.join(unparsed_folder, file_name)
+                replay_file, LONG_FILE_HEADER / unparsed_folder.joinpath(file_name)
             )
 
         parse_full_timeline(

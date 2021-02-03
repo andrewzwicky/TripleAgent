@@ -1,4 +1,3 @@
-import os
 import json
 
 from triple_agent.classes.missions import Missions
@@ -28,5 +27,5 @@ def spf_action_test_report(all_replays):
 
                 output_dictionary[game.uuid].append(to_add)
 
-    with open(os.path.join(SPF_DATA_FOLDER, "action_test.json"), "w") as at_json_out:
+    with open(SPF_DATA_FOLDER.joinpath("action_test.json"), "w") as at_json_out:
         json.dump(output_dictionary, at_json_out, indent=4)

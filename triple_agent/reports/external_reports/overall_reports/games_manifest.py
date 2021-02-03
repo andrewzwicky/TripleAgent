@@ -42,6 +42,6 @@ def create_game_manifest(all_replays):
                 }
 
     with open(
-        os.path.join(OVERALL_REPORT_FOLDER, "all_games_manifest.json"), "w"
+        OVERALL_REPORT_FOLDER.joinpath("all_games_manifest.json"), "w"
     ) as manifest_out:
         json.dump(output_dictionary, manifest_out, indent=4)

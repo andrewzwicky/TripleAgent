@@ -1,4 +1,3 @@
-import os
 import logging
 
 from triple_agent.constants.paths import ALL_EVENTS_FOLDER, REPLAY_PICKLE_FOLDER
@@ -27,9 +26,11 @@ if __name__ == "__main__":  # pragma: no cover
 
     logger.addHandler(handler)
 
-    for i, (root, replay_file) in enumerate(iterate_event_folder(ALL_EVENTS_FOLDER)):
-        division, event, week = separate_event_components(ALL_EVENTS_FOLDER, root)
-        replay_dict = get_replay_dict(os.path.join(root, replay_file))
+    for i, replay_file in enumerate(iterate_event_folder(ALL_EVENTS_FOLDER)):
+        division, event, week = separate_event_components(
+            ALL_EVENTS_FOLDER, replay_file
+        )
+        replay_dict = get_replay_dict(replay_file)
         expected_file = get_game_expected_pkl(replay_dict["uuid"], REPLAY_PICKLE_FOLDER)
         unpickled_game = game_unpickle(expected_file)
 

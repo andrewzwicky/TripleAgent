@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 from shutil import rmtree, copyfile
 
@@ -11,8 +12,8 @@ from triple_agent.constants.paths import (
 
 def extract_spectate_replays(
     game_filter,
-    spectate_folder: str = SPECTATE_REPLAYS_FOLDER,
-    events_folder: str = ALL_EVENTS_FOLDER,
+    spectate_folder: Path = SPECTATE_REPLAYS_FOLDER,
+    events_folder: Path = ALL_EVENTS_FOLDER,
 ):
     try:
         rmtree(spectate_folder)
@@ -22,4 +23,4 @@ def extract_spectate_replays(
 
     for game in iterate_over_replays(game_filter, events_folder):
         file_name = os.path.split(game.file)[1]
-        copyfile(game.file, LONG_FILE_HEADER + os.path.join(spectate_folder, file_name))
+        copyfile(game.file, LONG_FILE_HEADER / spectate_folder.joinpath(file_name))

@@ -93,7 +93,7 @@ def zip_all_json_files():
         len(json_files), ZIP_CHUNK_SIZE
     ):
         with ZipFile(
-            os.path.join(JSON_GAMES_FOLDER, f"json_games_{zip_num}.zip"), "w"
+            JSON_GAMES_FOLDER.joinpath(f"json_games_{zip_num}.zip"), "w"
         ) as json_zip:
             for file in json_files[start:end]:
                 json_zip.write(file, arcname=file.name)
@@ -172,7 +172,7 @@ def refresh_event_reports():
     logger.info("refreshing event reports")
     for potential_notebook in os.listdir(EVENT_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
-            potential_path = os.path.join(EVENT_REPORT_SOURCE, potential_notebook)
+            potential_path = EVENT_REPORT_SOURCE.joinpath(potential_notebook)
             execute_single_notebook(potential_path)
             os.system(
                 f'jupyter nbconvert --to html "{potential_path}" --output-dir="{EVENT_REPORT_FOLDER}" --log-level WARN'
@@ -183,7 +183,7 @@ def refresh_overall_reports():
     logger.info("refreshing overall reports")
     for potential_notebook in os.listdir(OVERALL_REPORT_SOURCE):
         if potential_notebook.endswith(".ipynb"):
-            potential_path = os.path.join(OVERALL_REPORT_SOURCE, potential_notebook)
+            potential_path = OVERALL_REPORT_SOURCE.joinpath(potential_notebook)
             execute_single_notebook(potential_path)
             os.system(
                 f'jupyter nbconvert --to html "{potential_path}" --output-dir="{OVERALL_REPORT_FOLDER}" --log-level WARN'

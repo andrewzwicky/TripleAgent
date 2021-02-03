@@ -1,5 +1,4 @@
 from collections import defaultdict
-import os
 import json
 
 from triple_agent.classes.outcomes import WinType
@@ -27,5 +26,5 @@ def spf_character_selection_report(all_replays):
             ):
                 output_dictionary[game.uuid]["Shot"] = [event.cast_name[0].stringify()]
 
-    with open(os.path.join(SPF_DATA_FOLDER, "character_data.json"), "w") as at_json_out:
+    with open(SPF_DATA_FOLDER.joinpath("character_data.json"), "w") as at_json_out:
         json.dump(output_dictionary, at_json_out, indent=4)

@@ -1,5 +1,4 @@
 from collections import defaultdict
-import os
 
 import pytest
 from matplotlib.testing.decorators import check_figures_equal
@@ -606,9 +605,7 @@ def test_bar_simple_portrait(fig_test, fig_ref):
         if name == "sue veillance":
             name = "unknown"
 
-        portrait_image = plt.imread(
-            os.path.join(PORTRAITS_FOLDER, "{}.png".format(name))
-        )
+        portrait_image = plt.imread(PORTRAITS_FOLDER.joinpath("{}.png".format(name)))
         port_size = 0.045
         port_start = ((left + right) / 2) - (port_size / 2)
         newax = fig_ref.add_axes(

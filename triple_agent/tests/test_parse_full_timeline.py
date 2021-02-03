@@ -31,11 +31,9 @@ def test_parse_exception_timeline(
 
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
+    ).exists()
 
     parse_full_timeline(
         [games[0]],
@@ -43,11 +41,9 @@ def test_parse_exception_timeline(
         pickle_folder=get_test_replay_pickle_folder,
     )
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
+    ).exists()
 
 
 @pytest.mark.parsing
@@ -59,11 +55,9 @@ def test_parse_incoherent_timeline(
 
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
+    ).exists()
 
     parse_full_timeline(
         [games[0]],
@@ -71,11 +65,9 @@ def test_parse_incoherent_timeline(
         pickle_folder=get_test_replay_pickle_folder,
     )
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
+    ).exists()
 
 
 @pytest.mark.parsing
@@ -87,11 +79,9 @@ def test_parse_not_matching_timeline(
 
     monkeypatch.setattr("builtins.input", lambda x: None)
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl"
+    ).exists()
 
     parse_full_timeline(
         [games[0]],
@@ -99,11 +89,9 @@ def test_parse_not_matching_timeline(
         pickle_folder=get_test_replay_pickle_folder,
     )
 
-    assert not os.path.exists(
-        os.path.join(
-            get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl"
-        )
-    )
+    assert not get_test_replay_pickle_folder.joinpath(
+        "OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl"
+    ).exists()
 
 
 @pytest.mark.parsing
@@ -116,7 +104,7 @@ def test_parse_odd_ss_timeline(
     monkeypatch.setattr("builtins.input", lambda x: None)
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
+        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
     )
 
     parse_full_timeline(
@@ -126,7 +114,7 @@ def test_parse_odd_ss_timeline(
     )
 
     assert not os.path.exists(
-        os.path.join(get_test_replay_pickle_folder, "OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
+        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
     )
 
 
@@ -152,7 +140,7 @@ def test_parse_timeline_normal(
     ]
 
     relevant_pkl_files = [
-        os.path.join(get_test_replay_pickle_folder, f"{u}.pkl") for u in relevant_uuids
+        get_test_replay_pickle_folder.joinpath(f"{u}.pkl") for u in relevant_uuids
     ]
     try:
         for pkl_file in relevant_pkl_files:
@@ -9636,7 +9624,7 @@ def test_parse_timeline_normal_with_limit(
     ]
 
     relevant_pkl_files = [
-        os.path.join(get_test_replay_pickle_folder, f"{u}.pkl") for u in relevant_uuids
+        get_test_replay_pickle_folder.joinpath(f"{u}.pkl") for u in relevant_uuids
     ]
     try:
         for pkl_file in relevant_pkl_files:

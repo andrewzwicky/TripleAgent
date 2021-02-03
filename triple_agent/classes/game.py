@@ -1,4 +1,3 @@
-import os
 import pickle
 from datetime import datetime
 from typing import Optional, Tuple, Any
@@ -34,7 +33,7 @@ class Game:
     start_time: datetime
     uuid: str
     duration: int
-    file: str
+    file: Path
     guest_count: Optional[int] = None
     start_clock_seconds: Optional[int] = None
     event: Optional[str] = None
@@ -344,9 +343,9 @@ def insert_alias_name(game: Game, alias_list: dict):
 
 
 def game_unpickle(
-    expected_file: str, alias_list: Optional[dict] = None
+    expected_file: Path, alias_list: Optional[dict] = None
 ) -> Optional[Game]:
-    if os.path.exists(expected_file):
+    if expected_file.exists():
         with open(expected_file, "rb") as pik:
             game = pickle.load(pik)
 
@@ -375,12 +374,14 @@ def game_load_or_new(
     )
 
 
-def get_game_expected_pkl(uuid: str, pickle_folder: Path = REPLAY_PICKLE_FOLDER) -> str:
-    return os.path.join(pickle_folder, f"{uuid}.pkl")
+def get_game_expected_pkl(
+    uuid: str, pickle_folder: Path = REPLAY_PICKLE_FOLDER
+) -> Path:
+    return pickle_folder.joinpath(f"{uuid}.pkl")
 
 
-def get_game_expected_json(uuid: str, json_folder: Path = JSON_GAMES_FOLDER) -> str:
-    return os.path.join(json_folder, f"{uuid}.json")
+def get_game_expected_json(uuid: str, json_folder: Path = JSON_GAMES_FOLDER) -> Path:
+    return json_folder.joinpath(f"{uuid}.json")
 
 
 def create_game_from_replay_info(
