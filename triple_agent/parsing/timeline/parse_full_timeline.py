@@ -2,7 +2,7 @@ import itertools
 import logging
 from time import sleep
 from typing import List, Callable
-import os
+from pathlib import Path
 
 from triple_agent.constants.paths import (
     REPLAY_PICKLE_FOLDER,
@@ -24,7 +24,9 @@ from triple_agent.classes.timeline import Timeline, TimelineEvent
 logger = logging.getLogger("triple_agent")
 
 
-def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
+def merge_elapsed_screenshots(
+    events: List[List[TimelineEvent]],
+) -> List[List[TimelineEvent]]:
     if len(events) % 2 != 0:
         # If there is an odd number, no way for them to be matched up
         logger.warning("TimelineParseException odd number of screenshots supplied")
@@ -60,8 +62,8 @@ def merge_elapsed_screenshots(events: List[List[TimelineEvent]]):
 def parse_full_timeline(
     games: List[Game],
     screenshot_iterator: Callable,
-    pickle_folder: str = REPLAY_PICKLE_FOLDER,
-    json_folder: str = JSON_GAMES_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
+    json_folder: Path = JSON_GAMES_FOLDER,
 ):
     this_game_events = []
 
@@ -92,7 +94,7 @@ def parse_full_timeline(
                 this_game_events = []
         except TimelineParseException:
             capture_debug_picture(
-                os.path.join(DEBUG_CAPTURES, "overall_failures"),
+                DEBUG_CAPTURES.joinpath("overall_failures"),
                 screenshot,
                 filename=f"{games[game_index].uuid}_{ss_index}.png",
             )

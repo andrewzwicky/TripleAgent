@@ -4,6 +4,8 @@ from triple_agent.classes.game import Game
 from typing import List, Iterator, Tuple
 import cv2
 import os
+from pathlib import Path
+
 from triple_agent.parsing.timeline.parse_full_timeline import (
     parse_full_timeline,
 )
@@ -17,7 +19,7 @@ from triple_agent.classes.books import Books
 from triple_agent.tests.test_mock_screenshot_iterator import mock_screenshot_iterator
 import random
 
-TEST_FOLDER = os.path.abspath(os.path.dirname(__file__))
+TEST_FOLDER = Path(__file__).resolve().parent
 
 
 @pytest.mark.parsing

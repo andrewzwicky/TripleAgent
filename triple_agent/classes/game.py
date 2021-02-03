@@ -1,7 +1,7 @@
 import os
 import pickle
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Tuple, Any
 from dataclasses import dataclass, field
 from pathlib import Path
 import jsonpickle.handlers
@@ -54,13 +54,17 @@ class Game:
         with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
             pickle.dump(self, pik)
 
-    def collect_general_timeline_info(self):
+    def collect_general_timeline_info(
+        self,
+    ) -> Tuple[Missions, Missions, Missions, int, bool, bool]:
         timeline_picked_missions = Missions.NoMission
         timeline_selected_missions = Missions.NoMission
         timeline_completed_missions = Missions.NoMission
         timeline_guest_count = 0
         ending_included = False
         start_included = False
+
+        assert self.timeline is not None
 
         for event in self.timeline:
             if event.category & TimelineCategory.MissionEnabled:
@@ -206,27 +210,27 @@ class Game:
         return coherency
 
     def check_selected_missions(
-        self, coherency: TimelineCoherency, timeline_selected_missions
+        self, coherency: TimelineCoherency, timeline_selected_missions: Missions
     ) -> TimelineCoherency:
         if timeline_selected_missions != self.selected_missions:
             coherency |= TimelineCoherency.SelectedMissionsMismatch
         return coherency
 
     def check_completed_missions(
-        self, coherency: TimelineCoherency, timeline_completed_missions
+        self, coherency: TimelineCoherency, timeline_completed_missions: Missions
     ) -> TimelineCoherency:
         if timeline_completed_missions != self.completed_missions:
             coherency |= TimelineCoherency.CompletedMissionsMismatch
         return coherency
 
     def check_picked_missions(
-        self, coherency: TimelineCoherency, timeline_picked_missions
+        self, coherency: TimelineCoherency, timeline_picked_missions: Missions
     ) -> TimelineCoherency:
         if timeline_picked_missions != self.picked_missions:
             coherency |= TimelineCoherency.PickedMissionsMismatch
         return coherency
 
-    def check_start_clock(self, coherency: TimelineCoherency):
+    def check_start_clock(self, coherency: TimelineCoherency) -> TimelineCoherency:
         assert self.timeline is not None
 
         if (
@@ -241,13 +245,12 @@ class Game:
         json_game = jsonpickle.encode(self, unpicklable=True)
         with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
             json_out.write(json_game)
-        return json_game
 
     def add_start_clock_seconds(self):
         if self.start_clock_seconds is None:
             self.start_clock_seconds = int(self.timeline[0].time)
 
-    def __eq__(self, other):
+    def __eq__(self, other: Any):
         if self.__class__ is other.__class__:
             return (
                 self.spy,

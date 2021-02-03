@@ -1,4 +1,3 @@
-import os
 import ctypes
 import logging
 from time import sleep
@@ -95,9 +94,7 @@ def is_game_loaded(
 
         if total_time > TIMEOUT:
             logger.error("is_game_loaded returns False")
-            capture_debug_picture(
-                os.path.join(DEBUG_CAPTURES, "game_not_loaded"), p_button
-            )
+            capture_debug_picture(DEBUG_CAPTURES.joinpath("game_not_loaded"), p_button)
             return False
 
         logger.debug(f"game loading [{total_time} sec.]")
