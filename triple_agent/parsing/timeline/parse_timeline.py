@@ -107,12 +107,10 @@ def separate_line_images(screenshot: np.ndarray) -> List[np.ndarray]:
 
 def remove_books(line_image: np.ndarray) -> Tuple[Tuple[Optional[Books]], np.ndarray]:
     first_row = line_image[0]
+    books: Tuple[Optional[Books]] = (None,)
 
     no_book = np.all(np.all(first_row == BACKGROUND_COLOR, axis=1))
-    if no_book:
-        # no book found
-        books = (None,)
-    else:
+    if not no_book:
         book_mask = np.any(first_row != BACKGROUND_COLOR, axis=1)
         first_book_index = np.argmax(book_mask)
         last_book_index = len(book_mask) - np.argmax(book_mask[::-1])
@@ -152,13 +150,13 @@ def separate_portraits(
 ]:
     last_row = line_image[-1]
 
+    # no portrait found
+    portraits: Tuple[Optional[np.ndarray], ...] = (None,)
+    roles: Tuple[Optional[Roles], ...] = (None,)
+
     no_portrait = np.all(np.all(last_row == BACKGROUND_COLOR, axis=1))
 
-    if no_portrait:
-        # no portrait found
-        portraits = (None,)
-        roles = (None,)
-    else:
+    if not no_portrait:
         portrait_mask = np.any(last_row != BACKGROUND_COLOR, axis=1)
         first_portrait_index = np.argmax(portrait_mask)
         last_portrait_index = len(portrait_mask) - np.argmax(portrait_mask[::-1])
@@ -284,7 +282,7 @@ def split_into_parts(
 
 def name_portrait(
     portraits: Tuple[Optional[np.ndarray]],
-) -> Tuple[Optional[Characters]]:
+) -> Tuple[Optional[Characters], ...]:
     characters = []
     for portrait in portraits:
         if portrait is None:
@@ -442,9 +440,7 @@ def process_line_image(line_image: np.ndarray) -> Optional[TimelineEvent]:
 def parse_screenshot(screenshot: np.ndarray) -> List[TimelineEvent]:
     lines = separate_line_images(screenshot)
 
-    events = list(
-        filter(lambda x: x is not None, [process_line_image(line) for line in lines])
-    )
+    events = list(filter(None, [process_line_image(line) for line in lines]))
 
     return events
 

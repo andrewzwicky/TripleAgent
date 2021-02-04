@@ -10,7 +10,8 @@ def _yield_unpickled_games(
     pickle_folder: Path, alias_list: Optional[dict] = None
 ) -> Iterator[Game]:
     for file in pickle_folder.iterdir():
-        yield game_unpickle(file, alias_list=alias_list)
+        if (unpickled_game := game_unpickle(file, alias_list=alias_list)) is not None:
+            yield unpickled_game
 
 
 def get_parsed_replays(

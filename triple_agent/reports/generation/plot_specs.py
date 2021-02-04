@@ -6,7 +6,6 @@ import pandas
 
 from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.game import Game
-from triple_agent.classes.scl_set import SCLSet
 
 
 class PlotLabelStyle(Enum):
@@ -65,9 +64,7 @@ class DataQueryProperties:
 
     # query_function is the function that will be called for each game to collect the data.
     # default to just counting games, but this should be overridden to do anything useful
-    query_function: Callable[
-        [Union[List[Game], List[SCLSet]], Any], None
-    ] = lambda _, __: None
+    query_function: Callable[[List[Game], Any], None] = lambda _, __: None
 
     # groupby can be used to group the data into buckets, by spy or by sniper for example.
     groupby: Optional[Callable] = None
