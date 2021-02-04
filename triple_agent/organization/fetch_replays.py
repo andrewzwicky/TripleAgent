@@ -7,6 +7,7 @@ from shutil import copyfile, rmtree
 from time import sleep
 from urllib.parse import quote
 from urllib.request import urlretrieve
+from typing import Dict
 
 import requests
 from bs4 import BeautifulSoup
@@ -110,7 +111,7 @@ def fetch_replays(url: str):
 
 
 def check_for_duplicate_files(events_folder: Path = ALL_EVENTS_FOLDER):
-    found_dict = dict()
+    found_dict: Dict[str, str] = dict()
 
     for root, _, files in os.walk(events_folder):
         if root != events_folder:

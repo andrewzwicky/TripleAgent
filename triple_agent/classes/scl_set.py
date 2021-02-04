@@ -1,13 +1,13 @@
 import itertools
 from collections import Counter, defaultdict
-from typing import List, Tuple
+from typing import List, Tuple, DefaultDict
 
 from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.game import Game
 
 
 class SCLSet:
-    def __init__(self, players: Tuple[str], games: List[Game]):
+    def __init__(self, players: Tuple[str, ...], games: List[Game]):
         self.players = players
         self.games = games
         self.score = self.__get_score()
@@ -41,12 +41,16 @@ def sort_games_into_sets(games: List[Game]) -> List[SCLSet]:
         for _, week_div_games in itertools.groupby(
             week_games, key=lambda g: g.division
         ):
-            possible_pairings = defaultdict(list)
+            possible_pairings: DefaultDict[Tuple[str, ...], List[Game]] = defaultdict(
+                list
+            )
             participants = set()
             for game in week_div_games:
                 participants.add(game.spy)
                 participants.add(game.sniper)
-                possible_pairings[tuple(sorted((game.spy, game.sniper)))].append(game)
+                possible_pairings[
+                    tuple(sorted([game.spy, game.sniper], key=str.casefold))
+                ].append(game)
 
             if len(participants) == len(possible_pairings.keys()) * 2:
                 for pair, pairs_games in possible_pairings.items():

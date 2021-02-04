@@ -119,7 +119,7 @@ def create_data_labels(
 
 
 def create_plot_hatching(
-    primary_hatch_dict: Dict[Any, str],
+    primary_hatch_dict: Optional[Dict[Any, Optional[str]]],
     columns: List[Any],
     index: List[Any],
     stacks_are_categories: bool = False,

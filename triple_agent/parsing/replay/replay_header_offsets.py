@@ -1,4 +1,3 @@
-from typing import Optional
 from dataclasses import dataclass
 
 
@@ -6,9 +5,9 @@ from dataclasses import dataclass
 class HeaderInfo:
     """Class for keeping track of an item in inventory."""
 
-    offset: Optional[int]
-    size: Optional[int]
-    unpack: Optional[str]
+    offset: int
+    size: int
+    unpack: str
 
 
 class HeaderOffsetBase:
@@ -30,6 +29,9 @@ class HeaderOffsetBase:
         self.sniper_display_name_length = None
         self.guest_count = None
         self.start_duration = None
+        self.game_result = None
+        self.game_type = None
+        self.level = None
 
 
 class HeaderOffsetV3(HeaderOffsetBase):  # pragma: no cover

@@ -3,6 +3,7 @@ import datetime
 import base64
 import struct
 from collections import defaultdict
+from typing import DefaultDict, Union
 
 from triple_agent.parsing.replay.replay_header_offsets import (
     HEADER_OFFSET_DICT,
@@ -132,7 +133,7 @@ def parse_game_type_info(info_bytes):
     return f"{real_mode}{required}/{available}"
 
 
-def unpack(header_info: HeaderInfo, replay_bytes):
+def unpack(header_info: HeaderInfo, replay_bytes: bytes):
     if header_info is None:
         return False
 
@@ -144,7 +145,9 @@ def unpack(header_info: HeaderInfo, replay_bytes):
 
 def parse_rply_file(file_path: Path):
     offsets = HeaderOffsetBase()
-    result = defaultdict(lambda: None)
+    result: DefaultDict[
+        str, Union[int, str, datetime.datetime, None, WinType, Venue]
+    ] = defaultdict(lambda: None)
 
     with open(file_path, "rb") as rply_file:
         replay_bytes = rply_file.read()

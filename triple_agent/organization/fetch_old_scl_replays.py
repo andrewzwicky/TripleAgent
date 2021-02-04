@@ -29,7 +29,7 @@ def fetch_old_replays(url: str):
             event_num, division, week, _ = map(str.strip, item.split(","))
             event = "SCL" + event_num
 
-            if week == "hazard_promo_finals":
+            if week == "Hazards_Promos_Finals":
                 division = week
                 week = None
 

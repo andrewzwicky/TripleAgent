@@ -9,6 +9,7 @@ import pyautogui
 from triple_agent.parsing.timeline.parse_full_timeline import (
     parse_full_timeline,
 )
+from triple_agent.classes.timeline import Timeline
 from triple_agent.constants.paths import (
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
@@ -74,7 +75,7 @@ def parse_replays(
     # at this point, we will have an unsorted list of game objects
     # There may be some that do not have timelines.
     # So those should be separated now.
-    unparsed_game_list = [game for game in game_list if game.timeline is None]
+    unparsed_game_list = [game for game in game_list if game.timeline == Timeline([])]
 
     # it's important to get the replays in the correct order so that when
     # they are done in spy party, the files and the game line up correctly.

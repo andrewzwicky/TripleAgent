@@ -41,7 +41,7 @@ class Game:
     week: Optional[str] = None
     initial_pickle: bool = True
     pickle_folder: Path = REPLAY_PICKLE_FOLDER
-    timeline: Optional[Timeline] = None
+    timeline: Timeline = Timeline([])
     winner: str = field(init=False)
 
     def __post_init__(self):
@@ -62,8 +62,6 @@ class Game:
         timeline_guest_count = 0
         ending_included = False
         start_included = False
-
-        assert self.timeline is not None
 
         for event in self.timeline:
             if event.category & TimelineCategory.MissionEnabled:
@@ -97,8 +95,6 @@ class Game:
         previous_time = None
         previous_timeadd = False
 
-        assert self.timeline is not None
-
         for event in self.timeline:
             if previous_time is not None:
                 if event.time > previous_time and not previous_timeadd:
@@ -111,8 +107,6 @@ class Game:
         return coherency
 
     def check_book_colors(self, coherency: TimelineCoherency) -> TimelineCoherency:
-        assert self.timeline is not None
-
         for event in self.timeline:
             if len(event.books) > 1:
                 for book in event.books:
@@ -124,8 +118,6 @@ class Game:
     def check_role_character_match(
         self, coherency: TimelineCoherency
     ) -> TimelineCoherency:
-        assert self.timeline is not None
-
         for event in self.timeline:
             if None in event.role and event.cast_name != (None,):
                 coherency |= TimelineCoherency.CharacterNotAssignedRole
@@ -184,8 +176,6 @@ class Game:
 
     def check_spy_in_beginning(self, coherency: TimelineCoherency) -> TimelineCoherency:
         # It's possible for sniper lights to appear as up to the first 4! things in the timeline
-        assert self.timeline is not None
-
         for event in self.timeline:
             if isinstance(event.role, tuple) and event.role[0] == Roles.Spy:
                 break
@@ -230,8 +220,6 @@ class Game:
         return coherency
 
     def check_start_clock(self, coherency: TimelineCoherency) -> TimelineCoherency:
-        assert self.timeline is not None
-
         if (
             self.timeline[0].time != self.start_clock_seconds
             and self.start_clock_seconds is not None

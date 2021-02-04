@@ -46,5 +46,5 @@ def test_repr_roles_spy():
 
 
 @pytest.mark.quick
-def test_repr_roles_spy():
+def test_repr_roles_da():
     assert repr(Roles.DoubleAgent) == "Roles.DoubleAgent"

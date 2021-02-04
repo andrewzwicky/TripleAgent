@@ -496,65 +496,6 @@ def test_bar_simple_short_data_label(fig_test, fig_ref):
         data_label_style=PlotLabelStyle.Plain,
     )
     data_plot_properties = DataPlotProperties(
-        frame=pandas.DataFrame(data=[[0.1, 5]], columns=["A", "B"], index=[None]),
-        stacks_are_categories=True,
-    )
-
-    create_bar_plot(axis_properties, data_plot_properties, fig=fig_test)
-
-
-@pytest.mark.plotting
-@pytest.mark.matplotlib
-@check_figures_equal(extensions=["png"])
-def test_bar_simple_short_data_label(fig_test, fig_ref):
-    fig_ref.set_size_inches(12, 8)
-    ref_ax = fig_ref.subplots()
-    ref_ax.set_title("Bar")
-    ref_ax.bar([0, 1], [0.1, 5], color=["red", "blue"], edgecolor="black")
-    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
-    ref_ax.set_ylim(top=6)
-
-    ref_ax.set_xlim(-0.5, 1.5)
-    ref_ax.set_xticks([0, 1])
-
-    ref_ax.set_ylim(bottom=0)
-
-    ref_ax.yaxis.grid(which="major")
-    ref_ax.yaxis.grid(which="minor", linestyle="--")
-    ref_ax.set_axisbelow(True)
-
-    ref_ax.set_xticklabels(["A", "B"], rotation=90)
-
-    ref_ax.text(
-        1,
-        5 - (5 * 0.01),
-        "5",
-        color="black",
-        horizontalalignment="center",
-        verticalalignment="top",
-    )
-
-    ref_ax.text(
-        0,
-        0.1 + (5 * 0.01),
-        "0.10",
-        color="black",
-        horizontalalignment="center",
-        verticalalignment="bottom",
-    )
-
-    axis_properties = AxisProperties(
-        title="Bar",
-        primary_color_dict={
-            "A": "red",
-            "B": "blue",
-            "C": "black",
-            "D": "yellow",
-            "E": "white",
-        },
-        data_label_style=PlotLabelStyle.Plain,
-    )
-    data_plot_properties = DataPlotProperties(
         frame=pandas.DataFrame(
             data=[[0.1, 5]], columns=["A", "B"], index=[Venue.Courtyard]
         ),
@@ -1013,6 +954,70 @@ def test_line_plot(fig_test, fig_ref):
     axis_properties = AxisProperties(
         title="Bar",
         primary_color_dict={"Bottom": "red", "Top": "blue"},
+        primary_label_dict={"Top": "TOPTOP", "Bottom": "BOTTOMBOTTOM"},
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[1, 2, 3, 1, 6], [4, 5, 7, 9, 2]],
+            columns=["A", "B", "C", "D", "E"],
+            index=["Top", "Bottom"],
+        ),
+        stacks_are_categories=False,
+    )
+
+    create_line_plot(axis_properties, data_plot_properties, fig=fig_test)
+
+
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_line_plot_no_colors(fig_test, fig_ref):
+    fig_ref.set_size_inches(15, 8)
+    ref_ax = fig_ref.subplots()
+    ref_ax.set_title("Bar")
+    ref_ax.plot(
+        [0, 1, 2, 3, 4],
+        [1, 2, 3, 1, 6],
+        linestyle="-",
+        color="#0077BB",
+        marker="o",
+        markersize=12,
+        linewidth=4,
+        label="TOPTOP",
+    )
+    ref_ax.plot(
+        [0, 1, 2, 3, 4],
+        [4, 5, 7, 9, 2],
+        linestyle="-",
+        marker="o",
+        color="#CC3311",
+        markersize=12,
+        linewidth=4,
+        label="BOTTOMBOTTOM",
+    )
+
+    ref_ax.yaxis.set_major_locator(MultipleLocator(1))
+    ref_ax.set_ylim(top=10)
+
+    ref_ax.set_xlim(-0.5, 4.5)
+    ref_ax.set_xticks([0, 1, 2, 3, 4])
+
+    ref_ax.set_ylim(bottom=0)
+
+    ref_ax.yaxis.grid(which="major")
+    ref_ax.yaxis.grid(which="minor", linestyle="--")
+    ref_ax.set_axisbelow(True)
+
+    ref_ax.set_xticklabels(["A", "B", "C", "D", "E"], rotation=90)
+
+    box = ref_ax.get_position()
+    ref_ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+
+    ref_ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
+
+    axis_properties = AxisProperties(
+        title="Bar",
+        primary_color_dict=None,
         primary_label_dict={"Top": "TOPTOP", "Bottom": "BOTTOMBOTTOM"},
     )
     data_plot_properties = DataPlotProperties(

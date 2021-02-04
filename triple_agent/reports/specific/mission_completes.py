@@ -1,6 +1,6 @@
 import re
 from collections import defaultdict, Counter
-from typing import List
+from typing import List, DefaultDict, Any
 
 from triple_agent.reports.generation.plot_types import create_bar_plot
 from triple_agent.reports.generation.generic_query import (
@@ -162,7 +162,7 @@ def mission_completion(
     by mission, rather than by an attribute of the game itself.  This means
     it doesn't exactly fit into the existing report workflow
     """
-    data_dictionary = defaultdict(Counter)
+    data_dictionary: DefaultDict[Any, Counter] = defaultdict(Counter)
 
     _mission_completes_details(games, data_dictionary)
 

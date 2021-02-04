@@ -10121,6 +10121,8 @@ def test_parse_line_images(
     )
     event = process_line_image(line_image)
 
+    assert event is not None
+
     (
         e_actor,
         e_raw_time_str,

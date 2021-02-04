@@ -1,4 +1,4 @@
-from typing import List, Union, Optional
+from typing import List, Union, Optional, Tuple
 
 from triple_agent.reports.generation.plot_types import (
     create_line_plot,
@@ -23,7 +23,7 @@ from triple_agent.reports.generation.plot_specs import (
 def query(
     games: Union[List[Game], List[SCLSet]],
     data_query: DataQueryProperties,
-    axis_properties: AxisProperties = None,
+    axis_properties: Optional[AxisProperties] = None,
 ):  # pragma: no cover
     """
     query is the default plotting interface.  Given a list of games/sets, and a function to
@@ -49,7 +49,7 @@ def populate_data_properties(
     games: Union[List[Game], List[SCLSet]],
     data_query: DataQueryProperties,
     axis_properties: Optional[AxisProperties] = None,
-):
+) -> Tuple[AxisProperties, DataPlotProperties]:
     if axis_properties is None:
         axis_properties = AxisProperties()
 

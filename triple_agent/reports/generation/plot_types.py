@@ -73,7 +73,7 @@ def create_line_plot(
             axis.plot(
                 ticks,
                 this_data,
-                color=this_color[0],
+                color=this_color[0] if this_color is not None else None,
                 linestyle="-",
                 marker="o",
                 markersize=12,

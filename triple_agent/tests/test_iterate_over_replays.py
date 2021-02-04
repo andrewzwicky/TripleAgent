@@ -6,6 +6,7 @@ from triple_agent.classes.venues import Venue
 from triple_agent.classes.outcomes import WinType
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 from triple_agent.parsing.replay.parse_rply_file import RplyParseException
+from triple_agent.classes.timeline import Timeline
 import os
 
 
@@ -76,17 +77,17 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
 
     # ensure we're using the unprocessed replays
     # (haven't loaded a pickled by accident)
-    assert games[0].timeline is None
-    assert games[1].timeline is None
-    assert games[2].timeline is None
-    assert games[3].timeline is None
-    assert games[4].timeline is None
-    assert games[5].timeline is None
-    assert games[6].timeline is None
-    assert games[7].timeline is None
-    assert games[8].timeline is None
-    assert games[9].timeline is None
-    assert games[10].timeline is None
+    assert games[0].timeline == Timeline([])
+    assert games[1].timeline == Timeline([])
+    assert games[2].timeline == Timeline([])
+    assert games[3].timeline == Timeline([])
+    assert games[4].timeline == Timeline([])
+    assert games[5].timeline == Timeline([])
+    assert games[6].timeline == Timeline([])
+    assert games[7].timeline == Timeline([])
+    assert games[8].timeline == Timeline([])
+    assert games[9].timeline == Timeline([])
+    assert games[10].timeline == Timeline([])
 
     # the following are regression items that should catch unintentional changes in game creation.
     assert games[0].game_type == "k4"
