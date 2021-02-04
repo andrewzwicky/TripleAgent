@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from typing import Callable, Iterator, Tuple, Optional
+from typing import Callable, Iterator, Tuple, Optional, Union
 
 
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
@@ -39,7 +39,11 @@ def iterate_over_replays(
 
 def separate_event_components(
     events_folder: Path, replay_file: Path
-) -> Tuple[Optional[str], Optional[str], Optional[str]]:
+) -> Tuple[Optional[str], Optional[str], Optional[Union[str, int]]]:
+    event: Optional[str] = None
+    division: Optional[str] = None
+    week: Optional[Union[str, int]] = None
+
     # get the path relative to the EVENTS_FOLDER
     # this will determine if there is div and week information
     components = str(replay_file.relative_to(events_folder).parent).split("\\")
@@ -53,9 +57,7 @@ def separate_event_components(
         # account for root level replays as different than replays in an event folder
         event = components[0]
         division = week = None
-    else:
-        # replays are
-        event = division = week = None
+
     return division, event, week
 
 

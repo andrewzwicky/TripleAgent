@@ -9,9 +9,7 @@ from triple_agent.classes.scl_set import SCLSet
 
 def sort_frame_stacks(
     frame: pandas.DataFrame,
-    primary_order: Optional[
-        Union[Callable[[Any, pandas.Index], int], List[Any]]
-    ] = None,
+    primary_order: Optional[Union[Callable[[Any], int], List[Any]]] = None,
     reverse_primary_order: bool = False,
 ) -> pandas.DataFrame:
 
@@ -43,7 +41,7 @@ def sort_frame_stacks(
 
 def sort_and_limit_frame_categories(
     frame: pandas.DataFrame,
-    secondary_order: Union[Callable[[Any, pandas.Series], int], List[Any]] = None,
+    secondary_order: Union[Callable[[Any], int], List[Any]] = None,
     reverse_secondary_order: bool = False,
 ) -> pandas.DataFrame:
     # sort the categories
@@ -88,7 +86,7 @@ def create_data_dictionary(
     This method will return both a counts based data_dictionary and a percentile_based_data_dictionary.
     """
     # TODO: data_dictionary_percent being a counter doesn't really make much sense
-    data_dictionary = defaultdict(Counter)
+    data_dictionary: DefaultDict = defaultdict(Counter)
 
     if groupby is None:
         data_dictionary[None] = populate_individual_counter(
@@ -96,9 +94,8 @@ def create_data_dictionary(
         )
 
     else:
-        for category, cat_games in itertools.groupby(
-            sorted(games, key=groupby), key=groupby
-        ):
+        sorted_games: List[Game] = sorted(games, key=groupby)
+        for category, cat_games in itertools.groupby(sorted_games, key=groupby):
             data_dictionary[category] = populate_individual_counter(
                 list(cat_games),
                 data_dictionary[category],

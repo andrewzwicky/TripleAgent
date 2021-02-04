@@ -47,13 +47,13 @@ class Characters(OrderedStringifyEnum):
     Virginia = auto()
     Yvonne = auto()
 
-    def serialize(self):
+    def serialize(self) -> str:
         return CHARACTERS_TO_STRING[self]
 
-    def stringify(self):
+    def stringify(self) -> str:
         return CHARACTERS_TO_STRING[self]
 
-    def alpha_sort(self):
+    def alpha_sort(self) -> str:
         # This is used to provide a default sort based on the
         # character's letter names.  This is the simplest possible
         # metric, but it works so far.  If character names change, this
@@ -70,7 +70,7 @@ class Characters(OrderedStringifyEnum):
 
         return CHARACTERS_TO_STRING[self][-1]
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.__class__.__name__}.{self.name}"
 
 

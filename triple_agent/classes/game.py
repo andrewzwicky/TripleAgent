@@ -220,6 +220,8 @@ class Game:
         return coherency
 
     def check_start_clock(self, coherency: TimelineCoherency) -> TimelineCoherency:
+        assert len(self.timeline) >= 1
+
         if (
             self.timeline[0].time != self.start_clock_seconds
             and self.start_clock_seconds is not None
@@ -237,7 +239,7 @@ class Game:
         if self.start_clock_seconds is None:
             self.start_clock_seconds = int(self.timeline[0].time)
 
-    def __eq__(self, other: Any):
+    def __eq__(self, other: Any) -> bool:
         if self.__class__ is other.__class__:
             return (
                 self.spy,
@@ -288,7 +290,7 @@ class Game:
 
 @jsonpickle.handlers.register(Game, base=True)
 class GameHandler(jsonpickle.handlers.BaseHandler):
-    def flatten(self, obj: Game, data: dict):
+    def flatten(self, obj: Game, data: dict) -> dict:
         assert isinstance(obj, Game)
         data["spy"] = obj.spy
         data["sniper"] = obj.sniper
@@ -316,11 +318,11 @@ class GameHandler(jsonpickle.handlers.BaseHandler):
         return data
 
     # this method is never used because the JSON are only output, never re-parsed into games
-    def restore(self, obj):  # pragma: no cover
+    def restore(self, obj: Any):  # pragma: no cover
         raise NotImplementedError
 
 
-def insert_alias_name(game: Game, alias_list: dict):
+def insert_alias_name(game: Game, alias_list: dict) -> Game:
     if game.spy_username in alias_list.keys():
         game.spy = alias_list[game.spy_username]
 
@@ -346,8 +348,8 @@ def game_unpickle(
 
 
 def game_load_or_new(
-    replay_dict=None,
-    replay_file=None,
+    replay_dict: dict,
+    replay_file: Optional[Path] = None,
     pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
@@ -356,6 +358,9 @@ def game_load_or_new(
 
     if unpickled_game is not None:
         return unpickled_game
+
+    if replay_file is None:
+        raise ValueError("Pickled game not found and no replay file supplied")
 
     return create_game_from_replay_info(
         replay_dict, replay_file, pickle_folder=pickle_folder, **kwargs
@@ -373,8 +378,11 @@ def get_game_expected_json(uuid: str, json_folder: Path = JSON_GAMES_FOLDER) -> 
 
 
 def create_game_from_replay_info(
-    replay_dict, replay_file, pickle_folder: Path = REPLAY_PICKLE_FOLDER, **kwargs
-):
+    replay_dict: dict,
+    replay_file: Path,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
+    **kwargs,
+) -> Game:
     # this method only exists to fix lint errors from repeated lines
     return Game(
         replay_dict["spy_displayname"],
