@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 from triple_agent.constants.paths import ALL_EVENTS_FOLDER, REPLAY_PICKLE_FOLDER
 from triple_agent.parsing.replay.parse_single_replay import get_replay_dict
@@ -6,6 +7,7 @@ from triple_agent.organization.replay_file_iterator import (
     separate_event_components,
     iterate_event_folder,
 )
+from triple_agent.organization.hidden_cup_dates import CORRECTED_TIMESTAMPS
 from triple_agent.classes.game import (
     get_game_expected_pkl,
     game_unpickle,
@@ -40,6 +42,9 @@ if __name__ == "__main__":  # pragma: no cover
 
         new_game.timeline = unpickled_game.timeline
         new_game.add_start_clock_seconds()
+
+        if new_game.uuid in CORRECTED_TIMESTAMPS.keys():
+            new_game.start_time = datetime.fromtimestamp(CORRECTED_TIMESTAMPS[new_game.uuid])
 
         if new_game != unpickled_game:
             new_game.repickle()
