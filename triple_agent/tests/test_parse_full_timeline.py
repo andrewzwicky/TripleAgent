@@ -4,6 +4,7 @@ from triple_agent.classes.game import Game
 from typing import List, Iterator, Tuple
 import cv2
 import os
+import time
 from pathlib import Path
 
 from triple_agent.parsing.timeline.parse_full_timeline import (
@@ -30,6 +31,7 @@ def test_parse_exception_timeline(
     games[0].uuid = games[0].uuid + "_exception"
 
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     assert not get_test_replay_pickle_folder.joinpath(
         "OiG7qvC9QOaSKVGlesdpWQ_exception.pkl"
@@ -54,6 +56,7 @@ def test_parse_incoherent_timeline(
     games[0].uuid = games[0].uuid + "_incoherent"
 
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     assert not get_test_replay_pickle_folder.joinpath(
         "OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl"
@@ -78,6 +81,7 @@ def test_parse_not_matching_timeline(
     games[0].uuid = games[0].uuid + "_unmatched"
 
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     assert not get_test_replay_pickle_folder.joinpath(
         "OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl"
@@ -102,6 +106,7 @@ def test_parse_odd_ss_timeline(
     games[0].uuid = games[0].uuid + "_odd"
 
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     assert not os.path.exists(
         get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl")
@@ -126,6 +131,7 @@ def test_parse_timeline_normal(
     monkeypatch,
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     relevant_uuids = [
         "OiG7qvC9QOaSKVGlesdpWQ",
@@ -9617,6 +9623,7 @@ def test_parse_timeline_normal_with_limit(
     monkeypatch,
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
     relevant_uuids = [
         "OiG7qvC9QOaSKVGlesdpWQ",
