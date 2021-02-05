@@ -44,7 +44,9 @@ if __name__ == "__main__":  # pragma: no cover
         new_game.add_start_clock_seconds()
 
         if new_game.uuid in CORRECTED_TIMESTAMPS.keys():
-            new_game.start_time = datetime.fromtimestamp(CORRECTED_TIMESTAMPS[new_game.uuid])
+            new_game.start_time = datetime.fromtimestamp(
+                CORRECTED_TIMESTAMPS[new_game.uuid]
+            )
 
         if new_game != unpickled_game:
             new_game.repickle()
