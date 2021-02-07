@@ -1,6 +1,6 @@
 import itertools
 import logging
-from time import sleep
+import time
 from typing import List, Callable
 from pathlib import Path
 
@@ -68,7 +68,7 @@ def parse_full_timeline(
     this_game_events = []
 
     input("Hit Enter when ready, parsing begins 10 seconds later\n")
-    sleep(10)
+    time.sleep(10)
 
     for game_index, ss_index, screenshot, is_last in screenshot_iterator(games):
         try:
