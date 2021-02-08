@@ -33,6 +33,7 @@ def parse_replays(
     pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     screenshot_iterator: Callable = get_mss_screenshots,
     limit=None,
+    **kwargs,
 ):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
@@ -104,6 +105,7 @@ def parse_replays(
             unparsed_game_list,
             screenshot_iterator=screenshot_iterator,
             pickle_folder=pickle_folder,
+            **kwargs,
         )
 
         try:

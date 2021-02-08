@@ -3,7 +3,6 @@ import numpy as np
 from triple_agent.classes.game import Game
 from typing import List, Iterator, Tuple
 import cv2
-import os
 import time
 from pathlib import Path
 
@@ -37,6 +36,7 @@ def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, monkeypatch
         [games[0]],
         screenshot_iterator=mock_screenshot_iterator,
         pickle_folder=tmp_path,
+        json_folder=tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_exception.pkl").exists()
@@ -56,6 +56,7 @@ def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, monkeypatc
         [games[0]],
         screenshot_iterator=mock_screenshot_iterator,
         pickle_folder=tmp_path,
+        json_folder=tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl").exists()
@@ -75,6 +76,7 @@ def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, monkeypa
         [games[0]],
         screenshot_iterator=mock_screenshot_iterator,
         pickle_folder=tmp_path,
+        json_folder=tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl").exists()
@@ -88,15 +90,16 @@ def test_parse_odd_ss_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
     monkeypatch.setattr("builtins.input", lambda x: None)
     monkeypatch.setattr(time, "sleep", lambda x: None)
 
-    assert not os.path.exists(tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl"))
+    assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl").exists()
 
     parse_full_timeline(
         [games[0]],
         screenshot_iterator=mock_screenshot_iterator,
         pickle_folder=tmp_path,
+        json_folder=tmp_path,
     )
 
-    assert not os.path.exists(tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl"))
+    assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl").exists()
 
 
 @pytest.mark.parsing
@@ -123,7 +126,7 @@ def test_parse_timeline_normal(
 
     relevant_pkl_files = [tmp_path.joinpath(f"{u}.pkl") for u in relevant_uuids]
     for pkl_file in relevant_pkl_files:
-        assert not os.path.exists(pkl_file)
+        assert not pkl_file.exists()
 
     games = parse_replays(
         lambda game: game.division == "Copper" and game.uuid in relevant_uuids,
@@ -131,10 +134,11 @@ def test_parse_timeline_normal(
         events_folder=get_test_events_folder,
         pickle_folder=tmp_path,
         screenshot_iterator=mock_screenshot_iterator,
+        json_folder=tmp_path,
     )
 
     for pkl_file in relevant_pkl_files:
-        assert os.path.exists(pkl_file)
+        assert pkl_file.exists()
 
     games.sort(key=lambda g: g.start_time)
 
@@ -9559,7 +9563,7 @@ def test_parse_timeline_normal_with_limit(
     relevant_pkl_files = [tmp_path.joinpath(f"{u}.pkl") for u in relevant_uuids]
 
     for pkl_file in relevant_pkl_files:
-        assert not os.path.exists(pkl_file)
+        assert not pkl_file.exists()
 
     games = parse_replays(
         lambda game: game.division == "Copper" and game.uuid in relevant_uuids,
@@ -9568,10 +9572,11 @@ def test_parse_timeline_normal_with_limit(
         pickle_folder=tmp_path,
         screenshot_iterator=mock_screenshot_iterator,
         limit=2,
+        json_folder=tmp_path,
     )
 
     for pkl_file in relevant_pkl_files:
-        assert os.path.exists(pkl_file)
+        assert pkl_file.exists()
 
     games.sort(key=lambda g: g.start_time)
 

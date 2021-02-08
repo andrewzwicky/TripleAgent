@@ -1,7 +1,5 @@
-import os
 from pathlib import Path
 
-from matplotlib import pyplot as plt
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.replay.get_parsed_replays import get_parsed_replays
 import pytest
@@ -61,8 +59,3 @@ def get_unparsed_test_games(get_test_events_folder, get_test_replay_pickle_folde
         )
     )
     yield games
-    uuids = [g.uuid for g in games]
-    # perform the teardown code (delete any pickled for the unparsed games)
-    for test_file in os.listdir(get_test_replay_pickle_folder):
-        if os.path.splitext(test_file)[0] in uuids:
-            os.remove(Path(get_test_replay_pickle_folder).joinpath(test_file))

@@ -1,4 +1,3 @@
-import os
 import pytest
 import shutil
 
@@ -37,7 +36,7 @@ def test_parse_replays_duplicates(
     )
     shutil.copy(source_file, dest_file)
 
-    assert os.path.exists(dest_file)
+    assert dest_file.exists()
 
     with pytest.raises(DuplicateFileException):
         parse_replays(
@@ -46,4 +45,5 @@ def test_parse_replays_duplicates(
             events_folder=temp_events,
             pickle_folder=get_test_replay_pickle_folder,
             screenshot_iterator=mock_screenshot_iterator,
+            json_folder=tmp_path,
         )
