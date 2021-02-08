@@ -7,7 +7,7 @@ from triple_agent.classes.outcomes import WinType
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 from triple_agent.parsing.replay.parse_rply_file import RplyParseException
 from triple_agent.classes.timeline import Timeline
-import os
+from triple_agent.constants.paths import LONG_FILE_HEADER
 
 
 @pytest.mark.parsing
@@ -143,35 +143,19 @@ def test_iterate_over_replays_in_progress(
 
 
 @pytest.mark.parsing
-def test_initial_pickle_and_repickle(
-    get_unparsed_test_games, get_test_replay_pickle_folder, get_test_events_folder
-):
-    this_test_replay = os.path.join(
-        get_test_events_folder,
-        r"SCL5\Copper\8\SpyPartyReplay-20190422-20-32-21-Max Edward Snax%2fsteam-vs-Calvin Schoolidge%2fsteam-OiG7qvC9QOaSKVGlesdpWQ-v25.replay",
-    )
-
-    assert not os.path.exists(
-        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ.pkl")
+def test_initial_pickle_and_repickle(tmp_path, get_test_events_folder):
+    this_test_replay = LONG_FILE_HEADER / get_test_events_folder.joinpath(
+        r"SCL5\Copper\8\SpyPartyReplay-20190422-20-32-21-Max Edward Snax%2fsteam-vs-Calvin Schoolidge%2fsteam-OiG7qvC9QOaSKVGlesdpWQ-v25.replay"
     )
 
     # test that initial pickle will actually pickle the file.
-    this_game = parse_single_replay(
-        this_test_replay, get_test_replay_pickle_folder, initial_pickle=True
-    )
+    this_game = parse_single_replay(this_test_replay, tmp_path, initial_pickle=True)
 
     this_game.winner = "Calvin Schoolidge/steam"
 
-    # test fixture will remove the files after the test
-    assert os.path.exists(
-        get_test_replay_pickle_folder.joinpath("OiG7qvC9QOaSKVGlesdpWQ.pkl")
-    )
-
     this_game.winner = "TEST_WINNER"
-    this_game.repickle(pickle_folder=get_test_replay_pickle_folder)
+    this_game.repickle(pickle_folder=tmp_path)
 
-    newly_parsed_game = parse_single_replay(
-        this_test_replay, get_test_replay_pickle_folder
-    )
+    newly_parsed_game = parse_single_replay(this_test_replay, tmp_path)
 
     assert newly_parsed_game.winner == "TEST_WINNER"

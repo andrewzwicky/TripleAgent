@@ -16,11 +16,6 @@ def get_test_replay_pickle_folder():
 
 
 @pytest.fixture(scope="session")
-def get_test_json_games_folder():
-    return TEST_FOLDER.joinpath("test_example_folder_structure", "test_json_games")
-
-
-@pytest.fixture(scope="session")
 def get_test_unparsed_folder():
     return TEST_FOLDER.joinpath("test_example_folder_structure", "test_unparsed")
 
