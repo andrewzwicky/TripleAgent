@@ -5,7 +5,6 @@ from triple_agent.parsing.replay.parse_replays import (
     parse_replays,
     DuplicateFileException,
 )
-from triple_agent.tests.test_mock_screenshot_iterator import mock_screenshot_iterator
 from triple_agent.constants.paths import LONG_FILE_HEADER
 
 
@@ -15,6 +14,7 @@ def test_parse_replays_duplicates(
     get_test_replay_pickle_folder,
     get_test_events_folder,
     get_test_unparsed_folder,
+    mock_screenshot_iterator,
     monkeypatch,
 ):
     temp_events = tmp_path.joinpath("test_events")

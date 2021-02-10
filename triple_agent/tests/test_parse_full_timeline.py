@@ -16,14 +16,10 @@ from triple_agent.classes.action_tests import ActionTest
 from triple_agent.classes.missions import Missions
 from triple_agent.classes.timeline import TimelineCategory
 from triple_agent.classes.books import Books
-from triple_agent.tests.test_mock_screenshot_iterator import mock_screenshot_iterator
-import random
-
-TEST_FOLDER = Path(__file__).resolve().parent
 
 
 @pytest.mark.parsing
-def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
+def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_exception"
 
@@ -43,7 +39,7 @@ def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, monkeypatch
 
 
 @pytest.mark.parsing
-def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
+def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_incoherent"
 
@@ -63,7 +59,7 @@ def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, monkeypatc
 
 
 @pytest.mark.parsing
-def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
+def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_unmatched"
 
@@ -83,7 +79,7 @@ def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, monkeypa
 
 
 @pytest.mark.parsing
-def test_parse_odd_ss_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
+def test_parse_odd_ss_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_odd"
 
@@ -107,6 +103,7 @@ def test_parse_timeline_normal(
     tmp_path,
     get_test_events_folder,
     get_test_unparsed_folder,
+    mock_screenshot_iterator,
     monkeypatch,
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)
@@ -9550,6 +9547,7 @@ def test_parse_timeline_normal_with_limit(
     tmp_path,
     get_test_events_folder,
     get_test_unparsed_folder,
+    mock_screenshot_iterator,
     monkeypatch,
 ):
     monkeypatch.setattr("builtins.input", lambda x: None)

@@ -15,8 +15,6 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory
 
-TEST_FOLDER = Path(__file__).resolve().parent
-
 SCREENSHOT_TEST_CASES = [
     (
         "671152956268014896",
@@ -7903,10 +7901,11 @@ def test_parse_timeline(
             ActionTest,
         ]
     ],
+    base_temp_dir
 ):
 
     screenshot_img = cv2.imread(
-        str(TEST_FOLDER.joinpath("test_screenshots", f"{image_name}.png").resolve())
+        str(base_temp_dir.joinpath("test_screenshots", f"{image_name}.png").resolve())
     )
     timeline_events = parse_screenshot(screenshot_img)
 

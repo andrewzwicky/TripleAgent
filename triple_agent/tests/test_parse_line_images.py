@@ -18,8 +18,6 @@ from triple_agent.classes.missions import Missions
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory
 
-TEST_FOLDER = Path(__file__).resolve().parent
-
 LINE_IMAGE_TEST_CASES = [
     (
         "got_cupcake_waiter",
@@ -10115,9 +10113,10 @@ def test_parse_line_images(
         Missions,
         ActionTest,
     ],
+    base_temp_dir
 ):
     line_image = cv2.imread(
-        str(TEST_FOLDER.joinpath("test_line_images", f"{image_name}.png").resolve())
+        str(base_temp_dir.joinpath("test_line_images", f"{image_name}.png").resolve())
     )
     event = process_line_image(line_image)
 
@@ -10149,10 +10148,10 @@ def test_parse_line_images(
 
 
 @pytest.mark.parsing
-def test_parse_line_image_bad_portrait():
+def test_parse_line_image_bad_portrait(base_temp_dir):
     line_image = cv2.imread(
         str(
-            TEST_FOLDER.joinpath(
+            base_temp_dir.joinpath(
                 "test_line_images", "merged_cause_portrait_fail.png"
             ).resolve()
         )
@@ -10163,9 +10162,9 @@ def test_parse_line_image_bad_portrait():
 
 
 @pytest.mark.parsing
-def test_parse_line_image_bad_digit():
+def test_parse_line_image_bad_digit(base_temp_dir):
     line_image = cv2.imread(
-        str(TEST_FOLDER.joinpath("test_line_images", "bad_digit.png").resolve())
+        str(base_temp_dir.joinpath("test_line_images", "bad_digit.png").resolve())
     )
 
     with pytest.raises(TimelineDigitNotMatchedException):
@@ -10173,9 +10172,9 @@ def test_parse_line_image_bad_digit():
 
 
 @pytest.mark.parsing
-def test_parse_line_image_bad_event():
+def test_parse_line_image_bad_event(base_temp_dir):
     line_image = cv2.imread(
-        str(TEST_FOLDER.joinpath("test_line_images", "bad_event.png").resolve())
+        str(base_temp_dir.joinpath("test_line_images", "bad_event.png").resolve())
     )
 
     with pytest.raises(TimelineEventNotMatchedException):
@@ -10183,9 +10182,9 @@ def test_parse_line_image_bad_event():
 
 
 @pytest.mark.parsing
-def test_parse_line_image_bad_actor():
+def test_parse_line_image_bad_actor(base_temp_dir):
     line_image = cv2.imread(
-        str(TEST_FOLDER.joinpath("test_line_images", "bad_actor.png").resolve())
+        str(base_temp_dir.joinpath("test_line_images", "bad_actor.png").resolve())
     )
 
     with pytest.raises(TimelineActorNotMatchedException):

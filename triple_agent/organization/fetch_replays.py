@@ -110,7 +110,7 @@ def fetch_replays(url: str):
         rmtree(SCL6_TEMP_EXTRACT_FOLDER)
 
 
-def check_for_duplicate_files(events_folder: Path = ALL_EVENTS_FOLDER):
+def check_for_duplicate_files(events_folder: Path):
     found_dict: Dict[str, str] = dict()
 
     for root, _, files in os.walk(events_folder):
@@ -130,4 +130,4 @@ def check_for_duplicate_files(events_folder: Path = ALL_EVENTS_FOLDER):
 
 if __name__ == "__main__":
     fetch_replays(SCL6_REPLAYS_URL)
-    check_for_duplicate_files()
+    check_for_duplicate_files(ALL_EVENTS_FOLDER)
