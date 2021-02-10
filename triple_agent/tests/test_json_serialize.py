@@ -14,7 +14,7 @@ def test_serialize_correctly(get_test_replay_pickle_folder, tmp_path, monkeypatc
         {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
     )
 
-    this_game.serialize_to_json(json_folder=tmp_path)
+    this_game.serialize_to_json(tmp_path)
 
     json_expected = open(
         TEST_FOLDER.joinpath("test_validation_json", "mPZZrUvxQzeJYLQRbZOd7g.json")

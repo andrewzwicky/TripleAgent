@@ -293,15 +293,3 @@ def test_game_not_equal_winner(get_test_replay_pickle_folder):
 
     assert this_game != modified_game
 
-
-@pytest.mark.quick
-def test_game_equal_init_pickle(get_test_replay_pickle_folder):
-
-    this_game = game_load_or_new(
-        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, pickle_folder=get_test_replay_pickle_folder
-    )
-
-    modified_game = deepcopy(this_game)
-    modified_game.initial_pickle = None
-
-    assert this_game == modified_game

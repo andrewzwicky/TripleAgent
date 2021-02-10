@@ -88,8 +88,8 @@ def parse_full_timeline(
                             f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n"
                         )
                     else:
-                        games[game_index].repickle(pickle_folder=pickle_folder)
-                        games[game_index].serialize_to_json(json_folder=json_folder)
+                        games[game_index].pickle(pickle_folder)
+                        games[game_index].serialize_to_json(json_folder)
 
                 this_game_events = []
         except TimelineParseException:

@@ -39,17 +39,13 @@ class Game:
     event: Optional[str] = None
     division: Optional[str] = None
     week: Optional[str] = None
-    initial_pickle: bool = True
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER
     timeline: Timeline = Timeline([])
     winner: str = field(init=False)
 
     def __post_init__(self):
         self.winner = self.spy if self.win_type & WinType.SpyWin else self.sniper
-        if self.initial_pickle:
-            self.repickle(pickle_folder=self.pickle_folder)
 
-    def repickle(self, pickle_folder: Path = REPLAY_PICKLE_FOLDER):
+    def pickle(self, pickle_folder: Path):
         with open(get_game_expected_pkl(self.uuid, pickle_folder), "wb") as pik:
             pickle.dump(self, pik)
 
@@ -230,7 +226,7 @@ class Game:
 
         return coherency
 
-    def serialize_to_json(self, json_folder: Path = JSON_GAMES_FOLDER):
+    def serialize_to_json(self, json_folder: Path):
         json_game = jsonpickle.encode(self, unpicklable=True)
         with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
             json_out.write(json_game)
@@ -401,7 +397,5 @@ def create_game_from_replay_info(
         replay_file,
         guest_count=replay_dict["guest_count"],
         start_clock_seconds=replay_dict["start_clock_seconds"],
-        pickle_folder=pickle_folder,
-        initial_pickle=kwargs.pop("initial_pickle", False),
         **kwargs,
     )

@@ -26,7 +26,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
     mock_games.append(
@@ -45,7 +44,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
     mock_games.append(
@@ -64,7 +62,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
     mock_games.append(
@@ -83,7 +80,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
     mock_games.append(
@@ -102,7 +98,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
     mock_games.append(
@@ -121,7 +116,6 @@ def test_create_alias_list():
             "nothing_uuid",
             10,
             "no_file",
-            initial_pickle=False,
         )
     )
 

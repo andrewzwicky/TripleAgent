@@ -149,12 +149,13 @@ def test_initial_pickle_and_repickle(tmp_path, get_test_events_folder):
     )
 
     # test that initial pickle will actually pickle the file.
-    this_game = parse_single_replay(this_test_replay, tmp_path, initial_pickle=True)
+    this_game = parse_single_replay(this_test_replay, tmp_path)
+    this_game.pickle(tmp_path)
 
     this_game.winner = "Calvin Schoolidge/steam"
 
     this_game.winner = "TEST_WINNER"
-    this_game.repickle(pickle_folder=tmp_path)
+    this_game.pickle(tmp_path)
 
     newly_parsed_game = parse_single_replay(this_test_replay, tmp_path)
 
