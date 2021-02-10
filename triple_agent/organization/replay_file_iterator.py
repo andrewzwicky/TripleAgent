@@ -8,14 +8,13 @@ from triple_agent.classes.game import Game
 from triple_agent.constants.paths import (
     ALL_EVENTS_FOLDER,
     LONG_FILE_HEADER,
-    REPLAY_PICKLE_FOLDER,
 )
 
 
 def iterate_over_replays(
     game_filter: Callable,
-    events_folder: Path = ALL_EVENTS_FOLDER,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
+    events_folder: Path,
+    pickle_folder: Path,
 ) -> Iterator[Game]:
     for replay_file in iterate_event_folder(events_folder):
         division, event, week = separate_event_components(events_folder, replay_file)

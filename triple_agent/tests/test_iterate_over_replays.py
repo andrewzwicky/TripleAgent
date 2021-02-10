@@ -19,8 +19,8 @@ def test_iterate_over_replays(get_test_events_folder, get_test_replay_pickle_fol
     games = list(
         iterate_over_replays(
             lambda g: g.event != "SCL5",
-            events_folder=get_test_events_folder,
-            pickle_folder=get_test_replay_pickle_folder,
+            get_test_events_folder,
+            get_test_replay_pickle_folder,
         )
     )
     games.sort(key=lambda g: g.start_time)
@@ -136,8 +136,8 @@ def test_iterate_over_replays_in_progress(
         games = list(
             iterate_over_replays(
                 lambda g: True,
-                events_folder=get_test_events_folder_in_progress,
-                pickle_folder=get_test_replay_pickle_folder,
+                get_test_events_folder_in_progress,
+                get_test_replay_pickle_folder,
             )
         )
 

@@ -54,8 +54,8 @@ def get_unparsed_test_games(get_test_events_folder, get_test_replay_pickle_folde
     games = list(
         iterate_over_replays(
             lambda game: game.division == "Copper",
-            events_folder=get_test_events_folder,
-            pickle_folder=get_test_replay_pickle_folder,
+            get_test_events_folder,
+            get_test_replay_pickle_folder,
         )
     )
     yield games

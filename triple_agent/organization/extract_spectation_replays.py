@@ -7,6 +7,7 @@ from triple_agent.constants.paths import (
     SPECTATE_REPLAYS_FOLDER,
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
+    REPLAY_PICKLE_FOLDER
 )
 
 
@@ -14,6 +15,7 @@ def extract_spectate_replays(
     game_filter,
     spectate_folder: Path = SPECTATE_REPLAYS_FOLDER,
     events_folder: Path = ALL_EVENTS_FOLDER,
+    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
 ):
     try:
         rmtree(spectate_folder)
@@ -21,6 +23,6 @@ def extract_spectate_replays(
         pass
     os.makedirs(spectate_folder, exist_ok=True)
 
-    for game in iterate_over_replays(game_filter, events_folder):
+    for game in iterate_over_replays(game_filter, events_folder, pickle_folder):
         file_name = os.path.split(game.file)[1]
         copyfile(game.file, LONG_FILE_HEADER / spectate_folder.joinpath(file_name))
