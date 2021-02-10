@@ -15,6 +15,7 @@ from triple_agent.constants.paths import (
     ALL_EVENTS_FOLDER,
     UNPARSED_REPLAYS_FOLDER,
     REPLAY_PICKLE_FOLDER,
+    JSON_GAMES_FOLDER
 )
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
@@ -31,6 +32,7 @@ def parse_replays(
     unparsed_folder: Path = UNPARSED_REPLAYS_FOLDER,
     events_folder: Path = ALL_EVENTS_FOLDER,
     pickle_folder: Path = REPLAY_PICKLE_FOLDER,
+    json_folder: Path = JSON_GAMES_FOLDER,
     screenshot_iterator: Callable = get_mss_screenshots,
     limit=None,
     **kwargs,
@@ -103,9 +105,9 @@ def parse_replays(
 
         parse_full_timeline(
             unparsed_game_list,
-            screenshot_iterator=screenshot_iterator,
-            pickle_folder=pickle_folder,
-            **kwargs,
+            screenshot_iterator,
+            pickle_folder,
+            json_folder,
         )
 
         try:

@@ -228,7 +228,7 @@ class Game:
 
     def serialize_to_json(self, json_folder: Path):
         json_game = jsonpickle.encode(self, unpicklable=True)
-        with open(get_game_expected_json(self.uuid, json_folder), "w") as json_out:
+        with open(json_folder.joinpath(f"{self.uuid}.json"), "w") as json_out:
             json_out.write(json_game)
 
     def add_start_clock_seconds(self):
@@ -367,10 +367,6 @@ def get_game_expected_pkl(
     uuid: str, pickle_folder: Path = REPLAY_PICKLE_FOLDER
 ) -> Path:
     return pickle_folder.joinpath(f"{uuid}.pkl")
-
-
-def get_game_expected_json(uuid: str, json_folder: Path = JSON_GAMES_FOLDER) -> Path:
-    return json_folder.joinpath(f"{uuid}.json")
 
 
 def create_game_from_replay_info(

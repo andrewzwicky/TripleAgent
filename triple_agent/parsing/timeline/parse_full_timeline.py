@@ -62,8 +62,8 @@ def merge_elapsed_screenshots(
 def parse_full_timeline(
     games: List[Game],
     screenshot_iterator: Callable,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
-    json_folder: Path = JSON_GAMES_FOLDER,
+    pickle_folder: Path,
+    json_folder: Path,
 ):
     this_game_events = []
 

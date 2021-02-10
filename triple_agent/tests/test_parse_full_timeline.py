@@ -34,9 +34,9 @@ def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, monkeypatch
 
     parse_full_timeline(
         [games[0]],
-        screenshot_iterator=mock_screenshot_iterator,
-        pickle_folder=tmp_path,
-        json_folder=tmp_path,
+        mock_screenshot_iterator,
+        tmp_path,
+        tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_exception.pkl").exists()
@@ -54,9 +54,9 @@ def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, monkeypatc
 
     parse_full_timeline(
         [games[0]],
-        screenshot_iterator=mock_screenshot_iterator,
-        pickle_folder=tmp_path,
-        json_folder=tmp_path,
+        mock_screenshot_iterator,
+        tmp_path,
+        tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_incoherent.pkl").exists()
@@ -74,9 +74,9 @@ def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, monkeypa
 
     parse_full_timeline(
         [games[0]],
-        screenshot_iterator=mock_screenshot_iterator,
-        pickle_folder=tmp_path,
-        json_folder=tmp_path,
+        mock_screenshot_iterator,
+        tmp_path,
+        tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_unmatched.pkl").exists()
@@ -94,9 +94,9 @@ def test_parse_odd_ss_timeline(get_unparsed_test_games, tmp_path, monkeypatch):
 
     parse_full_timeline(
         [games[0]],
-        screenshot_iterator=mock_screenshot_iterator,
-        pickle_folder=tmp_path,
-        json_folder=tmp_path,
+        mock_screenshot_iterator,
+        tmp_path,
+        tmp_path,
     )
 
     assert not tmp_path.joinpath("OiG7qvC9QOaSKVGlesdpWQ_odd.pkl").exists()
