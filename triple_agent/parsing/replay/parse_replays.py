@@ -28,14 +28,13 @@ class DuplicateFileException(Exception):
 
 
 def parse_replays(
-    game_filter,
-    unparsed_folder: Path = UNPARSED_REPLAYS_FOLDER,
-    events_folder: Path = ALL_EVENTS_FOLDER,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
-    json_folder: Path = JSON_GAMES_FOLDER,
-    screenshot_iterator: Callable = get_mss_screenshots,
+    game_filter: Callable,
+    unparsed_folder: Path,
+    events_folder: Path,
+    pickle_folder: Path,
+    json_folder: Path,
+    screenshot_iterator: Callable,
     limit=None,
-    **kwargs,
 ):
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
@@ -131,6 +130,13 @@ if __name__ == "__main__":  # pragma: no cover
     logger.addHandler(handler)
 
     try:
-        parse_replays(lambda g: True, limit=None)
+        parse_replays(
+            lambda g: True,
+            UNPARSED_REPLAYS_FOLDER,
+            ALL_EVENTS_FOLDER,
+            REPLAY_PICKLE_FOLDER,
+            JSON_GAMES_FOLDER,
+            get_mss_screenshots
+        )
     except pyautogui.FailSafeException:
         pass

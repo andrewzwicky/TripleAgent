@@ -130,11 +130,11 @@ def test_parse_timeline_normal(
 
     games = parse_replays(
         lambda game: game.division == "Copper" and game.uuid in relevant_uuids,
-        unparsed_folder=get_test_unparsed_folder,
-        events_folder=get_test_events_folder,
-        pickle_folder=tmp_path,
-        screenshot_iterator=mock_screenshot_iterator,
-        json_folder=tmp_path,
+        get_test_unparsed_folder,
+        get_test_events_folder,
+        tmp_path,
+        tmp_path,
+        mock_screenshot_iterator,
     )
 
     for pkl_file in relevant_pkl_files:
@@ -9567,12 +9567,12 @@ def test_parse_timeline_normal_with_limit(
 
     games = parse_replays(
         lambda game: game.division == "Copper" and game.uuid in relevant_uuids,
-        unparsed_folder=get_test_unparsed_folder,
-        events_folder=get_test_events_folder,
-        pickle_folder=tmp_path,
-        screenshot_iterator=mock_screenshot_iterator,
+        get_test_unparsed_folder,
+        get_test_events_folder,
+        tmp_path,
+        tmp_path,
+        mock_screenshot_iterator,
         limit=2,
-        json_folder=tmp_path,
     )
 
     for pkl_file in relevant_pkl_files:

@@ -41,9 +41,9 @@ def test_parse_replays_duplicates(
     with pytest.raises(DuplicateFileException):
         parse_replays(
             lambda game: game.division == "Copper",
-            unparsed_folder=get_test_unparsed_folder,
-            events_folder=temp_events,
-            pickle_folder=get_test_replay_pickle_folder,
-            screenshot_iterator=mock_screenshot_iterator,
-            json_folder=tmp_path,
+            get_test_unparsed_folder,
+            temp_events,
+            get_test_replay_pickle_folder,
+            tmp_path,
+            mock_screenshot_iterator,
         )
