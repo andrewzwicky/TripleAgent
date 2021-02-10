@@ -32,8 +32,8 @@ def get_test_events_folder_in_progress():
 def get_preparsed_timeline_games(get_test_events_folder, get_test_replay_pickle_folder):
     # provide the fixture value
     yield get_parsed_replays(
+        get_test_replay_pickle_folder,
         lambda game: game.event == "Summer Cup 2019",
-        pickle_folder=get_test_replay_pickle_folder,
     )
 
 
@@ -43,8 +43,8 @@ def get_preparsed_fingerprint_game(
 ):
     # provide the fixture value
     yield get_parsed_replays(
+        get_test_replay_pickle_folder,
         lambda game: game.uuid == "8VL6899HR-CcvLhYfXCPeA",
-        pickle_folder=get_test_replay_pickle_folder,
     )
 
 

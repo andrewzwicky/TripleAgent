@@ -15,8 +15,8 @@ def _yield_unpickled_games(
 
 
 def get_parsed_replays(
+    pickle_folder: Path,
     game_filter: Callable = lambda game: True,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     use_alias_list=True,
 ) -> List[Game]:
 

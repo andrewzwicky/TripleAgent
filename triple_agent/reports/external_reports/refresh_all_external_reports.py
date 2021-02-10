@@ -192,7 +192,7 @@ def refresh_overall_reports():
 
 def refresh_all_reports():
     logger.info("parsing all games")
-    all_replays = get_parsed_replays(lambda x: True, use_alias_list=False)
+    all_replays = get_parsed_replays(REPLAY_PICKLE_FOLDER, use_alias_list=False)
 
     logger.info("creating alias list")
     with open(ALIAS_LIST_PATH, "w") as json_out:
@@ -205,7 +205,7 @@ def refresh_all_reports():
     # SCL5 is concluded, no need to create report again
     # TODO: find a way to make this faster (reparsing just for aliases takes a lot of time)
     logger.info("updating replay list with aliases")
-    all_replays = get_parsed_replays(lambda x: True)
+    all_replays = get_parsed_replays(REPLAY_PICKLE_FOLDER)
     logger.info("filtering out SCL6 replays")
     scl6_replays = list(filter(select_scl6_with_drops, all_replays))
 

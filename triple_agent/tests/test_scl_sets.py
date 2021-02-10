@@ -5,9 +5,10 @@ from triple_agent.classes.scl_set import sort_games_into_sets
 
 
 @pytest.mark.skip
-def test_scl_set():
+def test_scl_set(get_test_replay_pickle_folder):
     # TODO: these should be games that are in a separate group for tests.
     games = get_parsed_replays(
+        get_test_replay_pickle_folder,
         lambda g: g.event == "SCL5" and g.division == "Diamond" and g.week == 3
     )
 
