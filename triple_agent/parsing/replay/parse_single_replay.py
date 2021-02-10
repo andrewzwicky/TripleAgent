@@ -26,9 +26,7 @@ def parse_replay_dict_into_game(
     pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
-    return game_load_or_new(
-        replay_dict, replay_file, pickle_folder=pickle_folder, **kwargs
-    )
+    return game_load_or_new(replay_dict, pickle_folder, replay_file=replay_file, **kwargs)
 
 
 def parse_single_replay(

@@ -345,8 +345,8 @@ def game_unpickle(
 
 def game_load_or_new(
     replay_dict: dict,
+    pickle_folder: Path,
     replay_file: Optional[Path] = None,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
     expected_file = get_game_expected_pkl(replay_dict["uuid"], pickle_folder)
@@ -359,12 +359,12 @@ def game_load_or_new(
         raise ValueError("Pickled game not found and no replay file supplied")
 
     return create_game_from_replay_info(
-        replay_dict, replay_file, pickle_folder=pickle_folder, **kwargs
+        replay_dict, replay_file, **kwargs
     )
 
 
 def get_game_expected_pkl(
-    uuid: str, pickle_folder: Path = REPLAY_PICKLE_FOLDER
+    uuid: str, pickle_folder: Path
 ) -> Path:
     return pickle_folder.joinpath(f"{uuid}.pkl")
 
@@ -372,7 +372,6 @@ def get_game_expected_pkl(
 def create_game_from_replay_info(
     replay_dict: dict,
     replay_file: Path,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
     **kwargs,
 ) -> Game:
     # this method only exists to fix lint errors from repeated lines
