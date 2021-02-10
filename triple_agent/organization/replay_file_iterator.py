@@ -20,10 +20,10 @@ def iterate_over_replays(
 
         this_game = parse_single_replay(
             replay_file,
+            pickle_folder,
             event=event,
             division=division,
             week=week,
-            pickle_folder=pickle_folder,
         )
 
         # check that there every game was parseable

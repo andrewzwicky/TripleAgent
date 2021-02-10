@@ -23,15 +23,15 @@ def get_replay_dict(replay_file: Path) -> defaultdict:
 def parse_replay_dict_into_game(
     replay_dict: Dict[str, AnyStr],
     replay_file: Path,
-    pickle_folder: Path = REPLAY_PICKLE_FOLDER,
+    pickle_folder: Path,
     **kwargs,
 ) -> Game:
     return game_load_or_new(replay_dict, pickle_folder, replay_file=replay_file, **kwargs)
 
 
 def parse_single_replay(
-    replay_file: Path, pickle_folder: Path = REPLAY_PICKLE_FOLDER, **kwargs
+    replay_file: Path, pickle_folder: Path, **kwargs
 ) -> Game:
     return parse_replay_dict_into_game(
-        get_replay_dict(replay_file), replay_file, pickle_folder=pickle_folder, **kwargs
+        get_replay_dict(replay_file), replay_file, pickle_folder, **kwargs
     )
