@@ -6,7 +6,6 @@ from typing import Callable, Iterator, Tuple, Optional, Union
 from triple_agent.parsing.replay.parse_single_replay import parse_single_replay
 from triple_agent.classes.game import Game
 from triple_agent.constants.paths import (
-    ALL_EVENTS_FOLDER,
     LONG_FILE_HEADER,
 )
 
@@ -60,6 +59,6 @@ def separate_event_components(
     return division, event, week
 
 
-def iterate_event_folder(events_folder: Path = ALL_EVENTS_FOLDER) -> Iterator[Path]:
+def iterate_event_folder(events_folder: Path) -> Iterator[Path]:
     for file_path in events_folder.glob("**/*.replay"):
         yield LONG_FILE_HEADER / file_path
