@@ -48,7 +48,7 @@ def _count_final_missions(games: List[Game], data_dictionary: Counter):
         data_dictionary[final_mission] += 1
 
 
-def _average_hard_tells_per_game(games: List[Game], data_dictionary: Counter):
+def _average_hard_tells_per_game(games: List[Game], data_dictionary: defaultdict):
     num_hard_tells = 0
     for game in games:
         for event in game.timeline:
