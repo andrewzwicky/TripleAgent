@@ -417,7 +417,9 @@ def test_parse_unknown_venue_rply_files(base_temp_dir):
 
 
 def test_parse_invalid_version_rply_files(base_temp_dir):
-    replay_file_abs = base_temp_dir.joinpath("test_rply_files", "invalid_version.replay")
+    replay_file_abs = base_temp_dir.joinpath(
+        "test_rply_files", "invalid_version.replay"
+    )
 
     with pytest.raises(UnknownFileVersion):
         parse_rply_file(replay_file_abs)

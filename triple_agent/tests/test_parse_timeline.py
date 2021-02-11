@@ -7901,7 +7901,7 @@ def test_parse_timeline(
             ActionTest,
         ]
     ],
-    base_temp_dir
+    base_temp_dir,
 ):
 
     screenshot_img = cv2.imread(

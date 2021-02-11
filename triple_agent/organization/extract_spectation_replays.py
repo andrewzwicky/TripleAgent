@@ -7,7 +7,7 @@ from triple_agent.constants.paths import (
     SPECTATE_REPLAYS_FOLDER,
     LONG_FILE_HEADER,
     ALL_EVENTS_FOLDER,
-    REPLAY_PICKLE_FOLDER
+    REPLAY_PICKLE_FOLDER,
 )
 
 

@@ -1,7 +1,11 @@
 import logging
 from datetime import datetime
 
-from triple_agent.constants.paths import ALL_EVENTS_FOLDER, REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
+from triple_agent.constants.paths import (
+    ALL_EVENTS_FOLDER,
+    REPLAY_PICKLE_FOLDER,
+    JSON_GAMES_FOLDER,
+)
 from triple_agent.parsing.replay.parse_single_replay import get_replay_dict
 from triple_agent.organization.replay_file_iterator import (
     separate_event_components,

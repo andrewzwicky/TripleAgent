@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import List, Callable, Optional, Iterator
 
 import jsonpickle
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, ALIAS_LIST_PATH
+from triple_agent.constants.paths import ALIAS_LIST_PATH
 from triple_agent.classes.game import game_unpickle, Game
 
 

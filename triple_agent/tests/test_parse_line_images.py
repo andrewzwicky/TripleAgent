@@ -10113,7 +10113,7 @@ def test_parse_line_images(
         Missions,
         ActionTest,
     ],
-    base_temp_dir
+    base_temp_dir,
 ):
     line_image = cv2.imread(
         str(base_temp_dir.joinpath("test_line_images", f"{image_name}.png").resolve())

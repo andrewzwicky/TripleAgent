@@ -9,7 +9,7 @@ def test_scl_set(get_test_replay_pickle_folder):
     # TODO: these should be games that are in a separate group for tests.
     games = get_parsed_replays(
         get_test_replay_pickle_folder,
-        lambda g: g.event == "SCL5" and g.division == "Diamond" and g.week == 3
+        lambda g: g.event == "SCL5" and g.division == "Diamond" and g.week == 3,
     )
 
     sets = sort_games_into_sets(games)

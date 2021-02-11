@@ -3,7 +3,6 @@ from collections import defaultdict
 from typing import Dict, AnyStr
 
 from triple_agent.classes.game import Game, game_load_or_new
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER
 from triple_agent.parsing.replay.parse_rply_file import (
     parse_rply_file,
     RplyParseException,
@@ -26,12 +25,12 @@ def parse_replay_dict_into_game(
     pickle_folder: Path,
     **kwargs,
 ) -> Game:
-    return game_load_or_new(replay_dict, pickle_folder, replay_file=replay_file, **kwargs)
+    return game_load_or_new(
+        replay_dict, pickle_folder, replay_file=replay_file, **kwargs
+    )
 
 
-def parse_single_replay(
-    replay_file: Path, pickle_folder: Path, **kwargs
-) -> Game:
+def parse_single_replay(replay_file: Path, pickle_folder: Path, **kwargs) -> Game:
     return parse_replay_dict_into_game(
         get_replay_dict(replay_file), replay_file, pickle_folder, **kwargs
     )

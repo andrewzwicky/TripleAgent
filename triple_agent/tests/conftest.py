@@ -11,18 +11,21 @@ import pytest
 
 pytest.register_assert_rewrite("pandas.testing")
 
+
 @pytest.fixture(scope="session")
 def base_temp_dir(tmp_path_factory):
     base = tmp_path_factory.mktemp("tests")
     for p in Path(__file__).resolve().parent.iterdir():
-        if p.is_dir() and p.stem.startswith('test'):
+        if p.is_dir() and p.stem.startswith("test"):
             shutil.copytree(p, base.joinpath(p.stem))
     return base
 
 
 @pytest.fixture(scope="session")
 def get_test_replay_pickle_folder(base_temp_dir):
-    return base_temp_dir.joinpath("test_example_folder_structure", "test_replay_pickles")
+    return base_temp_dir.joinpath(
+        "test_example_folder_structure", "test_replay_pickles"
+    )
 
 
 @pytest.fixture(scope="session")

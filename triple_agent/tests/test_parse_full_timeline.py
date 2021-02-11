@@ -19,7 +19,9 @@ from triple_agent.classes.books import Books
 
 
 @pytest.mark.parsing
-def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
+def test_parse_exception_timeline(
+    get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch
+):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_exception"
 
@@ -39,7 +41,9 @@ def test_parse_exception_timeline(get_unparsed_test_games, tmp_path, mock_screen
 
 
 @pytest.mark.parsing
-def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
+def test_parse_incoherent_timeline(
+    get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch
+):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_incoherent"
 
@@ -59,7 +63,9 @@ def test_parse_incoherent_timeline(get_unparsed_test_games, tmp_path, mock_scree
 
 
 @pytest.mark.parsing
-def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
+def test_parse_not_matching_timeline(
+    get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch
+):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_unmatched"
 
@@ -79,7 +85,9 @@ def test_parse_not_matching_timeline(get_unparsed_test_games, tmp_path, mock_scr
 
 
 @pytest.mark.parsing
-def test_parse_odd_ss_timeline(get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch):
+def test_parse_odd_ss_timeline(
+    get_unparsed_test_games, tmp_path, mock_screenshot_iterator, monkeypatch
+):
     games = get_unparsed_test_games
     games[0].uuid = games[0].uuid + "_odd"
 

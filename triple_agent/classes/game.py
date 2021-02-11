@@ -10,7 +10,6 @@ from triple_agent.classes.outcomes import WinType
 from triple_agent.classes.venues import Venue
 from triple_agent.classes.roles import Roles
 from triple_agent.classes.timeline import TimelineCategory, TimelineCoherency, Timeline
-from triple_agent.constants.paths import REPLAY_PICKLE_FOLDER, JSON_GAMES_FOLDER
 
 jsonpickle.set_encoder_options("simplejson", sort_keys=True, indent=4)
 jsonpickle.set_preferred_backend("simplejson")
@@ -358,14 +357,10 @@ def game_load_or_new(
     if replay_file is None:
         raise ValueError("Pickled game not found and no replay file supplied")
 
-    return create_game_from_replay_info(
-        replay_dict, replay_file, **kwargs
-    )
+    return create_game_from_replay_info(replay_dict, replay_file, **kwargs)
 
 
-def get_game_expected_pkl(
-    uuid: str, pickle_folder: Path
-) -> Path:
+def get_game_expected_pkl(uuid: str, pickle_folder: Path) -> Path:
     return pickle_folder.joinpath(f"{uuid}.pkl")
 
 

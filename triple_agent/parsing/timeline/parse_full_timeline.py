@@ -4,11 +4,7 @@ import time
 from typing import List, Callable
 from pathlib import Path
 
-from triple_agent.constants.paths import (
-    REPLAY_PICKLE_FOLDER,
-    JSON_GAMES_FOLDER,
-    DEBUG_CAPTURES,
-)
+from triple_agent.constants.paths import DEBUG_CAPTURES
 from triple_agent.classes.capture_debug_pictures import capture_debug_picture
 from triple_agent.classes.timeline import TimelineCoherency
 from triple_agent.parsing.timeline.parse_timeline import (

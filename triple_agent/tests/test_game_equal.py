@@ -6,7 +6,9 @@ from triple_agent.classes.game import game_load_or_new
 @pytest.mark.quick
 def test_game_equal(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
     modified_game = deepcopy(this_game)
 
     assert this_game == modified_game
@@ -15,7 +17,9 @@ def test_game_equal(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_not_implemented(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     assert this_game.timeline != this_game
 
@@ -23,7 +27,9 @@ def test_game_not_equal_not_implemented(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_not_implemented_str(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     assert "str" != this_game
 
@@ -31,7 +37,9 @@ def test_game_not_equal_not_implemented_str(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_spy(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     modified_game = deepcopy(this_game)
     modified_game.spy = None
@@ -42,7 +50,9 @@ def test_game_not_equal_spy(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_sniper(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     modified_game = deepcopy(this_game)
     modified_game.sniper = None
@@ -53,7 +63,9 @@ def test_game_not_equal_sniper(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_spy_username(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     modified_game = deepcopy(this_game)
     modified_game.spy_username = None
@@ -64,7 +76,9 @@ def test_game_not_equal_spy_username(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_sniper_username(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     modified_game = deepcopy(this_game)
     modified_game.sniper_username = None
@@ -75,7 +89,9 @@ def test_game_not_equal_sniper_username(get_test_replay_pickle_folder):
 @pytest.mark.quick
 def test_game_not_equal_venue(get_test_replay_pickle_folder):
 
-    this_game = game_load_or_new({"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder)
+    this_game = game_load_or_new(
+        {"uuid": "mPZZrUvxQzeJYLQRbZOd7g"}, get_test_replay_pickle_folder
+    )
 
     modified_game = deepcopy(this_game)
     modified_game.venue = None
@@ -276,4 +292,3 @@ def test_game_not_equal_winner(get_test_replay_pickle_folder):
     modified_game.winner = None
 
     assert this_game != modified_game
-

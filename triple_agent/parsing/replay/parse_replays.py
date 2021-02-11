@@ -15,7 +15,7 @@ from triple_agent.constants.paths import (
     ALL_EVENTS_FOLDER,
     UNPARSED_REPLAYS_FOLDER,
     REPLAY_PICKLE_FOLDER,
-    JSON_GAMES_FOLDER
+    JSON_GAMES_FOLDER,
 )
 from triple_agent.organization.replay_file_iterator import iterate_over_replays
 from triple_agent.parsing.timeline.screenshot_iterator import get_mss_screenshots
@@ -35,7 +35,7 @@ def parse_replays(
     json_folder: Path,
     screenshot_iterator: Callable,
     limit=None,
-):
+):  # pylint: disable=too-many-arguments
     """
     game filter must be a function that takes a game and returns boolean, indicating whether
     that particular game should be included in the return list.  This cannot include any
@@ -136,7 +136,7 @@ if __name__ == "__main__":  # pragma: no cover
             ALL_EVENTS_FOLDER,
             REPLAY_PICKLE_FOLDER,
             JSON_GAMES_FOLDER,
-            get_mss_screenshots
+            get_mss_screenshots,
         )
     except pyautogui.FailSafeException:
         pass
