@@ -50,6 +50,7 @@ from triple_agent.reports.specific.mission_completes import (
     average_hard_tell_count,
     num_visits_to_finish_inspects
 )
+from triple_agent.reports.specific.countdown import mission_win_countdown
 from triple_agent.reports.specific.scl_set_scores import (
     game_differential,
     scl_set_scores_categorize,
@@ -130,6 +131,7 @@ select_scl6_placements
 cumulative_conversation_times
 final_mission_completion_query
 num_visits_to_finish_inspects
+mission_win_countdown
 
 # archive, but unused
 cough_clank_crash
