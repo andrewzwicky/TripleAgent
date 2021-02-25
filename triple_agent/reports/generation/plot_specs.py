@@ -1,5 +1,5 @@
 from dataclasses import dataclass, fields
-from typing import Optional, List, Callable, Any, Dict, Union
+from typing import Optional, List, Callable, Any, Dict, Union, Tuple
 from enum import Enum, auto
 
 import pandas
@@ -28,6 +28,8 @@ class AxisProperties:
 
     y_axis_percentage: bool = False
     x_axis_portrait: bool = False
+
+    fig_size: Optional[Tuple[int, int]] = None
 
     cumulative_histogram: bool = False
 

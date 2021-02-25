@@ -9,6 +9,7 @@ from triple_agent.reports.generation.plot_specs import (
     initialize_properties,
 )
 
+
 def _categorize_countdowns(games, data_dictionary):
     data_dictionary.update(Counter([game.did_reach_countdown() for game in games]))
 

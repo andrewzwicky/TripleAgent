@@ -89,6 +89,44 @@ def test_pie_chart_simple(fig_test, fig_ref):
     create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
 
 
+@pytest.mark.plotting
+@pytest.mark.matplotlib
+@check_figures_equal(extensions=["png"])
+def test_pie_chart_simple_big(fig_test, fig_ref):
+    fig_ref.set_size_inches(14, 14)
+    ref_ax = fig_ref.subplots()
+    ref_ax.set_title("Test Title")
+    ref_ax.pie(
+        [1, 2, 3, 4, 4],
+        labels=["A", "B", "C", "D", "E"],
+        colors=["red", "blue", "black", "yellow", "white"],
+        autopct="%1.1f%%",
+        pctdistance=1.1,
+        labeldistance=1.2,
+        wedgeprops={"edgecolor": "k", "linewidth": 1},
+    )
+
+    axis_properties = AxisProperties(
+        fig_size=(14, 14),
+        title="Test Title",
+        primary_color_dict={
+            "A": "red",
+            "B": "blue",
+            "C": "black",
+            "D": "yellow",
+            "E": "white",
+        },
+    )
+    data_plot_properties = DataPlotProperties(
+        frame=pandas.DataFrame(
+            data=[[1, 2, 3, 4, 4]], columns=["A", "B", "C", "D", "E"], index=[None]
+        ),
+        stacks_are_categories=True,
+    )
+
+    create_pie_chart(axis_properties, data_plot_properties, fig=fig_test)
+
+
 # @pytest.mark.plotting
 # @pytest.mark.matplotlib
 # @check_figures_equal(extensions=["png"])

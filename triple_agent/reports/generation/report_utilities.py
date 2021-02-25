@@ -37,8 +37,8 @@ def _create_legend_if_needed(axis, fig):
     if handles:
         # resize the plot to allow size for legend.
         # increase figure by 25%
-        _, height = fig.get_size_inches()
-        fig.set_size_inches((15, height), forward=True)
+        width, height = fig.get_size_inches()
+        fig.set_size_inches((width * 1.25, height), forward=True)
 
         # Shrink current axis by 20%
         box = axis.get_position()

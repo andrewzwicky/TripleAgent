@@ -26,6 +26,9 @@ from triple_agent.reports.generation.report_utilities import (
 # TODO: The distinction between a single stack vs. actual stacked data needs to be more explicit.
 # Right now, it's a bit of a hodge-podge with primary_order being used in both ways.
 
+DEFAULT_RECTANGLE = (12, 8)
+DEFAULT_SQUARE = (8, 8)
+
 
 def create_line_plot(
     axis_properties: AxisProperties,
@@ -37,15 +40,7 @@ def create_line_plot(
         return
 
     with setup_color_context(axis_properties.plot_colors):
-        if fig is None:  # pragma: no cover
-            show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
-            )
-        else:
-            show = False
-            fig.set_size_inches(12, 8)
-            axis = fig.subplots()
+        axis, fig, show = create_figure(axis_properties, fig, DEFAULT_RECTANGLE)
 
         axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         colors = create_plot_colors(
@@ -97,6 +92,24 @@ def create_line_plot(
             plt.show()
 
 
+def create_figure(axis_properties, fig, fallback_dimensions):
+    if axis_properties.fig_size is None:
+        dimensions = fallback_dimensions
+    else:
+        dimensions = axis_properties.fig_size
+
+    if fig is None:  # pragma: no cover
+        show = True
+        fig, axis = plt.subplots(
+            figsize=dimensions, facecolor=axis_properties.plot_colors.fig_facecolor
+        )
+    else:
+        show = False
+        fig.set_size_inches(dimensions[0], dimensions[1])
+        axis = fig.subplots()
+    return axis, fig, show
+
+
 def create_bar_plot(
     axis_properties: AxisProperties,
     data_properties: DataPlotProperties,
@@ -107,15 +120,7 @@ def create_bar_plot(
         return
 
     with setup_color_context(axis_properties.plot_colors):
-        if fig is None:  # pragma: no cover
-            show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
-            )
-        else:
-            show = False
-            fig.set_size_inches(12, 8)
-            axis = fig.subplots()
+        axis, fig, show = create_figure(axis_properties, fig, DEFAULT_RECTANGLE)
 
         axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         category_labels, stack_labels = create_category_legend_labels(
@@ -220,13 +225,7 @@ def create_pie_chart(
         return
 
     with setup_color_context(axis_properties.plot_colors):
-        if fig is None:  # pragma: no cover
-            show = True
-            fig, axis = plt.subplots(figsize=(8, 8))
-        else:
-            show = False
-            fig.set_size_inches(8, 8)
-            axis = fig.subplots()
+        axis, fig, show = create_figure(axis_properties, fig, DEFAULT_SQUARE)
 
         axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         axis.set_title(axis_properties.title)
@@ -281,15 +280,7 @@ def create_progress_plot(
     x_data, y_data, colors, axis_properties: AxisProperties, fig: plt.Figure = None
 ):
     with setup_color_context(axis_properties.plot_colors):
-        if fig is None:  # pragma: no cover
-            show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
-            )
-        else:
-            show = False
-            fig.set_size_inches(12, 8)
-            axis = fig.subplots()
+        axis, fig, show = create_figure(axis_properties, fig, DEFAULT_RECTANGLE)
 
         for x_d, y_d, color in zip(x_data, y_data, colors):
             axis.plot(x_d, y_d, linewidth=4, alpha=0.05, color=color)
@@ -325,15 +316,7 @@ def create_histogram(
     axis_properties: AxisProperties, data, bin_size, major_locator=60, fig=None
 ):
     with setup_color_context(axis_properties.plot_colors):
-        if fig is None:  # pragma: no cover
-            show = True
-            fig, axis = plt.subplots(
-                figsize=(12, 8), facecolor=axis_properties.plot_colors.fig_facecolor
-            )
-        else:
-            show = False
-            fig.set_size_inches(12, 8)
-            axis = fig.subplots()
+        axis, fig, show = create_figure(axis_properties, fig, DEFAULT_RECTANGLE)
 
         axis.set_prop_cycle(axis_properties.plot_colors.cycler)
         cumulative_bins, data_bins = create_bins(bin_size, data)
