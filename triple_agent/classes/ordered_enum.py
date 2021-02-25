@@ -2,7 +2,6 @@ from enum import Enum
 from enum import Flag
 
 
-# pylint: disable=comparison-with-callable
 def __enum_ge__(self, other):
     if self.__class__ is other.__class__:
         return self.value >= other.value
@@ -48,7 +47,6 @@ class ReverseOrderedFlag(Flag):
 # These are set up to be ordered based on name rather than value
 # so that newly inserted values don't mess up the order
 # because new enum values must be put at the end.
-# pylint: disable=comparison-with-callable
 def __ge__stringify__(self, other):
     if self.__class__ is other.__class__:
         try:

@@ -5,11 +5,12 @@ from typing import Any, Union, Callable, List, Optional, DefaultDict
 import pandas
 from triple_agent.classes.game import Game
 from triple_agent.classes.scl_set import SCLSet
+from triple_agent.reports.generation.plot_specs import QueryFunctionType, OrderType
 
 
 def sort_frame_stacks(
     frame: pandas.DataFrame,
-    primary_order: Optional[Union[Callable[[Any], int], List[Any]]] = None,
+    primary_order: OrderType = None,
     reverse_primary_order: bool = False,
 ) -> pandas.DataFrame:
 
@@ -41,7 +42,7 @@ def sort_frame_stacks(
 
 def sort_and_limit_frame_categories(
     frame: pandas.DataFrame,
-    secondary_order: Union[Callable[[Any], int], List[Any]] = None,
+    secondary_order: OrderType = None,
     reverse_secondary_order: bool = False,
 ) -> pandas.DataFrame:
     # sort the categories
@@ -74,7 +75,7 @@ def sort_and_limit_frame_categories(
 
 def create_data_dictionary(
     games: Union[List[Game], List[SCLSet]],
-    query_function: Callable,
+    query_function: QueryFunctionType,
     groupby: Optional[Callable] = None,
     percent_normalized_data: bool = False,
 ) -> DefaultDict[Any, Counter]:
@@ -109,7 +110,7 @@ def create_data_dictionary(
 def populate_individual_counter(
     games: Union[List[Game], List[SCLSet]],
     category_dictionary: Counter,
-    query_function: Callable,
+    query_function: QueryFunctionType,
     percent_normalized_data: bool = False,
 ) -> Counter:
     query_function(games, category_dictionary)

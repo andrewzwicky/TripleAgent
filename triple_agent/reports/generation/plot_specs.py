@@ -8,6 +8,12 @@ from triple_agent.constants.colors import PlotColorsBase
 from triple_agent.classes.game import Game
 
 
+QueryFunctionType = Callable[[List[Game], Any], None]
+OrderType = Optional[
+    Union[Callable[[Any, pandas.Index, pandas.Series], int], List[Any]]
+]
+
+
 class PlotLabelStyle(Enum):
     NoLabels = auto()
     Plain = auto()
@@ -15,7 +21,6 @@ class PlotLabelStyle(Enum):
 
 
 @dataclass
-# pylint: disable=too-many-instance-attributes
 class AxisProperties:
     title: Optional[str] = None
     x_axis_label: Optional[str] = None
@@ -56,7 +61,6 @@ class DataPlotProperties:
 
 
 @dataclass
-# pylint: disable=too-many-instance-attributes
 class DataQueryProperties:
     # DataQueryProperties are things that are used to group, sort, collect
     # filter, etc. the data PRIOR to plotting.  These items are used to create the
@@ -64,7 +68,7 @@ class DataQueryProperties:
 
     # query_function is the function that will be called for each game to collect the data.
     # default to just counting games, but this should be overridden to do anything useful
-    query_function: Callable[[List[Game], Any], None] = lambda _, __: None
+    query_function: QueryFunctionType = lambda _, __: None
 
     # groupby can be used to group the data into buckets, by spy or by sniper for example.
     groupby: Optional[Callable] = None
@@ -72,10 +76,8 @@ class DataQueryProperties:
     # primary_order and secondary_order can be used to control the order that the data appears in.
     # If they are a function, they take in either a pandas Series or pandas Index and return an int.
     # If they are a list, they will replace the existing column or index completely (retaining old data).
-    primary_order: Optional[Union[Callable[[Any, pandas.Index], int], List[Any]]] = None
-    secondary_order: Optional[
-        Union[Callable[[Any, pandas.Series], int], List[Any]]
-    ] = None
+    primary_order: OrderType = None
+    secondary_order: OrderType = None
 
     reverse_primary_order: bool = False
     reverse_secondary_order: bool = False
