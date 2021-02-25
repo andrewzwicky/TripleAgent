@@ -86,6 +86,13 @@ class Game:
             start_included,
         )
 
+    def did_reach_countdown(self):
+        for event in self.timeline:
+            if event.category == TimelineCategory.MissionCountdown:
+                return True
+
+        return False
+
     def check_time_adds(self, coherency: TimelineCoherency) -> TimelineCoherency:
         previous_time = None
         previous_timeadd = False
