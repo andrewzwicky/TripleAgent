@@ -67,7 +67,7 @@ def parse_replays(
         for uuid in game_uuid_set:
             games_matching = [game.file for game in game_list if game.uuid == uuid]
             if len(games_matching) > 1:
-                logger.error(f"{uuid} -{games_matching}")
+                logger.error("%s - %s", uuid, games_matching)
 
         raise DuplicateFileException
 
@@ -87,7 +87,7 @@ def parse_replays(
         unparsed_game_list = unparsed_game_list[:limit]
 
     if unparsed_game_list:
-        logger.info(f"{len(unparsed_game_list)} games to parse.")
+        logger.info("%s games to parse.", len(unparsed_game_list))
 
         try:
             rmtree(unparsed_folder)

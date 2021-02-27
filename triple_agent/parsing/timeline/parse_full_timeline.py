@@ -81,7 +81,9 @@ def parse_full_timeline(
 
                     if coherency != TimelineCoherency.Coherent:
                         logger.error(
-                            f"INCOHERENT TIMELINE: {games[game_index].uuid} {str(coherency)}\n"
+                            "INCOHERENT TIMELINE: %s %s\n",
+                            games[game_index].uuid,
+                            coherency,
                         )
                     else:
                         games[game_index].pickle(pickle_folder)

@@ -97,7 +97,7 @@ def is_game_loaded(
             capture_debug_picture(DEBUG_CAPTURES.joinpath("game_not_loaded"), p_button)
             return False
 
-        logger.debug(f"game loading [{total_time} sec.]")
+        logger.debug("game loading [%s sec.]", total_time)
 
 
 def get_latest_loading_screenshot(
@@ -146,7 +146,13 @@ def get_mss_screenshots(
 
     for game_index, game in enumerate(games):
         logger.info(
-            f"[{game.uuid}, {game_index + 1}/{len(games)}]: {game.venue}, {game.spy} vs. {game.sniper}"
+            "[%s, %s/%s]: %s, %s vs. %s",
+            game.uuid,
+            game_index + 1,
+            len(games),
+            game.venue.stringify(),
+            game.spy,
+            game.sniper,
         )
         screenshot_index = 1
 
