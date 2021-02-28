@@ -150,6 +150,8 @@ class Game:
         if not start_included:
             coherency |= TimelineCoherency.NoGameStart
 
+        coherency = self.check_for_elapsed_times(coherency)
+
         coherency = self.check_time_adds(coherency)
 
         coherency = self.check_book_colors(coherency)
@@ -198,6 +200,16 @@ class Game:
     ) -> TimelineCoherency:
         if timeline_guest_count != self.guest_count and self.guest_count is not None:
             coherency |= TimelineCoherency.GuestCountMismatch
+        return coherency
+
+    def check_for_elapsed_times(
+        self, coherency: TimelineCoherency
+    ) -> TimelineCoherency:
+        for t in self.timeline:
+            if t.elapsed_time is None:
+                coherency |= TimelineCoherency.ElapsedTimeMissing
+                return coherency
+
         return coherency
 
     def check_selected_missions(

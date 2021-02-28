@@ -228,4 +228,13 @@ def test_timeline_coherent_picked_mismatch_2(get_preparsed_timeline_games):
         t for i, t in enumerate(game.timeline) if i != INSPECT_ENABLED_INDEX
     ]
 
-    assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch
+    assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch\
+
+@pytest.mark.parsing
+@pytest.mark.quick
+def test_timeline_coherent_no_elapsed(get_preparsed_timeline_games):
+    game = get_preparsed_timeline_games[0]
+    assert game.uuid == "07WVnz3aR3i6445zgSCZjA"
+    game.timeline[10].elapsed_time = None
+
+    assert game.is_timeline_coherent() == TimelineCoherency.ElapsedTimeMissing

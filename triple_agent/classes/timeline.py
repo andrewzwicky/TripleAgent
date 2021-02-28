@@ -28,6 +28,7 @@ class TimelineCoherency(Flag):
     SpyNotCastInBeginning = auto()
     CharacterNotAssignedRole = auto()
     RoleWithNoCharacter = auto()
+    ElapsedTimeMissing = auto()
 
 
 # using ReverseOrderedFlag gives a deterministic sort to
