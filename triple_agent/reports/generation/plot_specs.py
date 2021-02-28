@@ -30,6 +30,7 @@ class AxisProperties:  # pylint: disable=too-many-instance-attributes
     x_axis_portrait: bool = False
 
     fig_size: Optional[Tuple[int, int]] = None
+    bar_borders: bool = True
 
     cumulative_histogram: bool = False
 

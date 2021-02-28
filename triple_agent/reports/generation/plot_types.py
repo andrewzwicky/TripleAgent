@@ -198,8 +198,9 @@ def draw_bars(axis, axis_properties, data_properties, ticks, stack_labels):
                 x=ticks,
                 height=list(stack),
                 bottom=bottom,
+                width=0.8 if axis_properties.bar_borders else 1,
                 color=color,
-                edgecolor="black",
+                edgecolor="black" if axis_properties.bar_borders else "none",
                 label=stack_label,
             )
         )
