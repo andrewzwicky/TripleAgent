@@ -228,7 +228,8 @@ def test_timeline_coherent_picked_mismatch_2(get_preparsed_timeline_games):
         t for i, t in enumerate(game.timeline) if i != INSPECT_ENABLED_INDEX
     ]
 
-    assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch\
+    assert game.is_timeline_coherent() == TimelineCoherency.PickedMissionsMismatch
+
 
 @pytest.mark.parsing
 @pytest.mark.quick

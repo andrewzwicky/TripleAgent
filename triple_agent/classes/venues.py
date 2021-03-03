@@ -44,3 +44,20 @@ class Venue(OrderedStringifyEnum):
             return stringify_map[self]
         except KeyError:
             return self.name
+
+
+NEW_ART_VENUES = [
+    Venue.Aquarium,
+    Venue.Balcony,
+    Venue.Ballroom,
+    Venue.Courtyard,
+    Venue.Gallery,
+    Venue.HighRise,
+    Venue.Library,
+    Venue.Moderne,
+    Venue.Pub,
+    Venue.Redwoods,
+    Venue.Teien,
+    Venue.Terrace,
+    Venue.Veranda,
+]

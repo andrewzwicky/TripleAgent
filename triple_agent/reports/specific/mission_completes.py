@@ -206,7 +206,9 @@ def all_available_soft_tells_completed(
     axis_properties, data_query = initialize_properties(
         axis_properties=axis_properties,
         data_query=data_query,
-        suggested_data_query=DataQueryProperties(query_function=_all_available_soft_tells_completed),
+        suggested_data_query=DataQueryProperties(
+            query_function=_all_available_soft_tells_completed
+        ),
     )
 
     return query(games, data_query, axis_properties)
