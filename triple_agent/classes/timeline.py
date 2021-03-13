@@ -2141,10 +2141,8 @@ class Timeline(Sequence):
         for event in self:
             if set(event.cast_name) & suspected_das:
                 event.role = tuple(
-                    [
-                        Roles.SuspectedDoubleAgent if cast in suspected_das else role
-                        for cast, role in zip(event.cast_name, event.role)
-                    ]
+                    Roles.SuspectedDoubleAgent if cast in suspected_das else role
+                    for cast, role in zip(event.cast_name, event.role)
                 )
 
     def serialize(self):
