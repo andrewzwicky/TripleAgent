@@ -205,8 +205,8 @@ class Game:
     def check_for_elapsed_times(
         self, coherency: TimelineCoherency
     ) -> TimelineCoherency:
-        for t in self.timeline:
-            if t.elapsed_time is None:
+        for event in self.timeline:
+            if event.elapsed_time is None:
                 coherency |= TimelineCoherency.ElapsedTimeMissing
                 return coherency
 
