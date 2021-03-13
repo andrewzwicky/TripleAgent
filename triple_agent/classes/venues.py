@@ -61,3 +61,22 @@ NEW_ART_VENUES = [
     Venue.Terrace,
     Venue.Veranda,
 ]
+
+BAR_VENUES = [
+    Venue.Aquarium,
+    Venue.Moderne,
+    Venue.Pub,
+    Venue.Redwoods,
+    Venue.Terrace,
+]
+
+TRAY_VENUES = [
+    Venue.Balcony,
+    Venue.Ballroom,
+    Venue.Courtyard,
+    Venue.Gallery,
+    Venue.HighRise,
+    Venue.Library,
+    Venue.Teien,
+    Venue.Veranda,
+]
