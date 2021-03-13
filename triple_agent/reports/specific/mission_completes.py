@@ -31,7 +31,7 @@ from triple_agent.classes.timeline import TimelineCategory
 PICK_UP_STATUE_RE = re.compile(r"picked up( fingerprintable)? statue( \(difficult\))?.")
 
 
-def _all_available_soft_tells_completed(games: List[Game], data_dictionary: Counter):
+def _available_soft_tells_complete(games: List[Game], data_dictionary: Counter):
     for game in games:
         for mission in Missions:
             if (mission not in HARD_TELLS) & (mission not in game.completed_missions):
@@ -198,7 +198,7 @@ def mission_completion(
     )
 
 
-def all_available_soft_tells_completed(
+def available_soft_tells_complete(
     games: List[Game],
     data_query: DataQueryProperties = DataQueryProperties(),
     axis_properties: AxisProperties = AxisProperties(),
@@ -207,7 +207,7 @@ def all_available_soft_tells_completed(
         axis_properties=axis_properties,
         data_query=data_query,
         suggested_data_query=DataQueryProperties(
-            query_function=_all_available_soft_tells_completed
+            query_function=_available_soft_tells_complete
         ),
     )
 

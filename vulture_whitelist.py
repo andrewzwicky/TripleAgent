@@ -48,6 +48,7 @@ from triple_agent.reports.specific.mission_completes import (
     mission_completion_query,
     final_mission_completion_query,
     average_hard_tell_count,
+    available_soft_tells_complete,
     num_visits_to_finish_inspects
 )
 from triple_agent.reports.specific.countdown import mission_win_countdown
@@ -61,6 +62,7 @@ from triple_agent.reports.specific.time_adds import (
     time_add_times,
     time_add_times_per_game,
 )
+from triple_agent.reports.specific.drink_rejects import drink_takes
 from triple_agent.reports.specific.lights import amba_lights, spy_lights
 from triple_agent.reports.external_reports.misc_reports.curator_requests import (
     cough_clank_crash,
@@ -70,7 +72,7 @@ from triple_agent.organization.extract_spectation_replays import (
     extract_spectate_replays,
 )
 from triple_agent.constants.paths import SCL5_ZIP_EXTRACT_FOLDER, SCL5_TEMP_EXTRACT_FOLDER
-
+from triple_agent.classes.venues import TRAY_VENUES, BAR_VENUES, NEW_ART_VENUES
 
 # library internals
 extract_spectate_replays
@@ -132,6 +134,11 @@ cumulative_conversation_times
 final_mission_completion_query
 num_visits_to_finish_inspects
 mission_win_countdown
+drink_takes
+TRAY_VENUES
+BAR_VENUES
+NEW_ART_VENUES
+available_soft_tells_complete
 
 # archive, but unused
 cough_clank_crash
